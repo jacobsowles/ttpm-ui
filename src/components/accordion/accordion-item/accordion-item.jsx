@@ -32,11 +32,11 @@ class AccordionItem extends React.Component {
         const stateStyle = this.state.active ? styles.active : styles.inactive;
         return (
             <section>
-                <a onClick={this.handleClick}>
-                    {this.props.header}
+                <a onClick={this.handleClick} className={this.props.header.class}>
+                    {this.props.header.content}
                 </a>
-                <p style={stateStyle}>
-                    {this.props.body}
+                <p style={stateStyle} className={this.props.body.class}>
+                    {this.props.body.content}
                 </p>
             </section>
         );
@@ -44,8 +44,8 @@ class AccordionItem extends React.Component {
 }
 
 AccordionItem.propTypes = {
-    header: React.PropTypes.string.isRequired,
-    body: React.PropTypes.string.isRequired
+    header: React.PropTypes.object.isRequired,
+    body: React.PropTypes.object.isRequired
 };
 
 export default AccordionItem;

@@ -18,11 +18,23 @@ class ProjectList extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="project-list">
                 {this.props.error}
                 <Accordion>
                     {this.props.projects.map(function(project, key) {
-                        return <AccordionItem header={project.Name} body="Task List" key={key} />
+                        return (
+                            <AccordionItem
+                                key={key}
+                                header={{
+                                    content: project.Name,
+                                    class: 'project'
+                                }}
+                                body={{
+                                    content: 'Task List',
+                                    class: 'task-list'
+                                }}
+                            />
+                        )
                     })}
                 </Accordion>
             </div>
