@@ -1,0 +1,75 @@
+@import "../assets/stylesheets/bootstrap-sass/assets/stylesheets/_bootstrap-compass.scss";
+@import "../assets/stylesheets/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+
+@import "./components/dashboard/dashboard.scss";
+@import "./components/home/home.scss";
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    color: #373737;
+    font-family: 'Open Sans', Arial, sans-serif;
+    background: #F5F3F2;
+}
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    font-style: italic;
+}
+
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    font-style: italic;
+}
+
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    font-style: italic;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    font-style: italic;
+}
+
+a {
+    color: #7da468;
+}
+
+a:hover {
+    color: #7da468;
+}
+
+.container-fluid {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.row {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.table {
+    margin-bottom: 0;
+}
+
+.btn-primary {
+    background: #7da468;
+    margin-right: 10px;
+    border-color: #476039;
+}
+
+.btn-primary:hover {
+    background: #476039;
+    border-color: #476039;
+}
+
+.form-control {
+    border-radius: 0;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+}
+
+.data-visualization canvas {
+    margin: 0 auto;
+    display: block;
+}
