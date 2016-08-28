@@ -4,7 +4,9 @@ import React from 'React';
 class SidebarModuleHeader extends React.Component {
     render() {
         return (
-            <h2>{this.props.title}</h2>
+            <div className="sidebar-module-header">
+                <h2>{this.props.title}</h2>
+            </div>
         );
     }
 }

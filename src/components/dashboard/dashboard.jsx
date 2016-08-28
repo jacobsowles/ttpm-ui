@@ -17,7 +17,7 @@ class Dashboard extends React.Component {
     render() {
         return (
             <div>
-                <div className="col-xs-2">
+                <div className="col-xs-2 no-horizontal-padding">
                     <div className="row">
                         <Sidebar>
                             <SidebarModule title="Projects">
@@ -27,7 +27,7 @@ class Dashboard extends React.Component {
                     </div>
                 </div>
 
-                <div className="col-xs-10">
+                <div className="col-xs-10 no-horizontal-padding">
                     <div className="row">
                         <Header />
                     </div>

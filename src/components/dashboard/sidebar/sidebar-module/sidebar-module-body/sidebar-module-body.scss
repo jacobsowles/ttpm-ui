@@ -1,0 +1,32 @@
+.sidebar-module-body {
+    h3 {
+        padding: 10px 16px;
+        display: block;
+        font-size: .9em;
+        margin: 0;
+        font-weight: bold;
+
+        :hover {
+            background: #312F33;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .active {
+            background: #312F33;
+        }
+    }
+
+    h4 {
+        padding: 10px 16px 10px 32px;
+        display: block;
+        font-size: .9em;
+        margin: 0;
+    }
+
+    ul {
+        list-style-type: none;
+        padding-left: 0;
+        margin-bottom: 0;
+    }
+}

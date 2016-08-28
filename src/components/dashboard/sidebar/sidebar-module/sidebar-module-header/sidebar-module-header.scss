@@ -1,0 +1,63 @@
+$vertical-padding: 10px;
+$horizontal-padding: 15px;
+
+.sidebar-module-header {
+    background: #5e804d;
+    padding: $vertical-padding $horizontal-padding;
+    color: #ffffff;
+    letter-spacing: 1px;
+
+    h2 {
+        display: inline;
+        font-size: .9em;
+        text-transform: uppercase;
+    }
+
+    a {
+        color: #ffffff;
+        text-decoration: none;
+        padding: 2px 6px;
+
+        :hover {
+            background-color: #476039;
+            text-decoration: none;
+        }
+    }
+
+    .controls {
+        float: right;
+    }
+}
+
+.sidebar-module-body {
+    h3 {
+        padding: $vertical-padding $horizontal-padding;
+        display: block;
+        font-size: .9em;
+        margin: 0;
+        font-weight: bold;
+
+        :hover {
+            background: #312F33;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .active {
+            background: #312F33;
+        }
+    }
+
+    h4 {
+        padding: $vertical-padding $horizontal-padding $vertical-padding calc($horizontal-padding * 2);
+        display: block;
+        font-size: .9em;
+        margin: 0;
+    }
+
+    ul {
+        list-style-type: none;
+        padding-left: 0;
+        margin-bottom: 0;
+    }
+}

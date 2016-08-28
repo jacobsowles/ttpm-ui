@@ -1,6 +1,18 @@
 #header {
     background: #ffffff;
     border-bottom: 1px solid #e0e0e0;
-    padding: 10px 16px;
+    padding: 10px 15px;
     border-radius: 0;
+
+    #logo {
+        font-weight: bold;
+
+        &:hover {
+            text-decoration: none;
+        }
+
+        #logo-text {
+            padding: 16px 0 14px 10px;
+        }
+    }
 }
