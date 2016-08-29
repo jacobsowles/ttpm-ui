@@ -1,0 +1,54 @@
+#status-box {
+    background-color: #1a1a1a;
+    padding: 15px;
+    text-align: right;
+
+    canvas {
+        border-radius: 200px;
+        -moz-border-radius: 200px;
+        -webkit-border-radius: 200px;
+        background-image: url('/assets/images/profile-picture.jpg');
+        background-size: 200px;
+        display: block;
+        margin: 0 auto;
+        box-shadow: 0 0 0 7px #000000 inset;
+    }
+
+    img {
+        position: relative;
+        top: calc(50% - 75px);
+        display: block;
+        margin: 0 auto;
+        border-radius: 150px;
+        -moz-border-radius: 150px;
+        -webkit-border-radius: 150px;
+    }
+
+    #progress-bar {
+        position: relative;
+        top: calc(50% - 75px);
+    }
+
+    #level-indicator {
+        position: relative;
+        z-index: 100;
+        text-align: center;
+        border-radius: 30px;
+        -moz-border-radius: 30px;
+        -webkit-border-radius: 30px;
+        width: 30px;
+        height: 30px;
+        margin: -4px 40px 0 0;
+        float: right;
+        background: #ec6c13;
+        color: #dbdbdb;
+
+        h2 {
+            width: 30px;
+            margin: 8px 0 0 0;
+            float: right;
+            font-size: 1.1em;
+            font-family: "Open Sans", Arial, sans-serif;
+        }
+    }
+}

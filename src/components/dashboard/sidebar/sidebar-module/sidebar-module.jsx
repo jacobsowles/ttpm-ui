@@ -7,9 +7,14 @@ import SidebarModuleHeader from './sidebar-module-header/sidebar-module-header.j
 
 class SidebarModule extends React.Component {
     render() {
+        const sidebarModuleHeader =
+            this.props.title
+            ? <SidebarModuleHeader title={this.props.title} />
+            : '';
+
         return (
             <div className="sidebar-module">
-                <SidebarModuleHeader title={this.props.title} />
+                {sidebarModuleHeader}
                 <SidebarModuleBody>
                     {this.props.children}
                 </SidebarModuleBody>
@@ -19,7 +24,7 @@ class SidebarModule extends React.Component {
 }
 
 SidebarModule.propTypes = {
-    title: React.PropTypes.string.isRequired
+    title: React.PropTypes.string
 };
 
 export default SidebarModule;

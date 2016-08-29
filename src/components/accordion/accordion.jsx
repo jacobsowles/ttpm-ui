@@ -5,7 +5,7 @@ class Accordion extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="accordion">
                 {this.props.children}
             </div>
         );
