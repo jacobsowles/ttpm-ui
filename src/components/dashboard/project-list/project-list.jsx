@@ -6,6 +6,7 @@ import { bindActionCreators } from 'redux';
 // components
 import Accordion from '../../accordion/accordion.jsx';
 import AccordionItem from '../../accordion/accordion-item/accordion-item.jsx';
+import TaskListItems from './task-list-items/task-list-items.jsx';
 
 // actions
 import projectListActions from './project-list-actions.js';
@@ -22,6 +23,10 @@ class ProjectList extends React.Component {
                 {this.props.error}
                 <Accordion>
                     {this.props.projects.map(function(project, key) {
+                        const taskLists = this.props.taskLists.filter(function(taskList) {
+                            return taskList.ProjectId == project.Id;
+                        });
+
                         return (
                             <AccordionItem
                                 key={key}
@@ -30,12 +35,11 @@ class ProjectList extends React.Component {
                                     class: 'project'
                                 }}
                                 body={{
-                                    content: 'Task List',
-                                    class: 'task-list'
+                                    content: <TaskListItems taskLists={taskLists} />
                                 }}
                             />
-                        )
-                    })}
+                        );
+                    }.bind(this))}
                 </Accordion>
             </div>
         );

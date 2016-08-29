@@ -35,9 +35,9 @@ class AccordionItem extends React.Component {
                 <a onClick={this.handleClick} className={this.props.header.class}>
                     {this.props.header.content}
                 </a>
-                <p style={stateStyle} className={this.props.body.class}>
+                <div style={stateStyle} className={this.props.body.class}>
                     {this.props.body.content}
-                </p>
+                </div>
             </section>
         );
     }
