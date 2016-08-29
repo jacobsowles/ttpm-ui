@@ -1,6 +1,5 @@
 const initialState = {
     isLoading: false,
-    isLoaded: false,
     error: '',
     projects: [],
     taskLists: []
@@ -8,11 +7,11 @@ const initialState = {
 
 export default function reducer(state = initialState, action) {
     switch (action.type) {
-        case 'FETCH_PROJECT_LIST_PENDING': {
+        case 'FETCH_PROJECT_LIST_PENDING':
+        case 'ADD_TASK_LIST_PENDING': {
             state = {
                 ...state,
                 isLoading: true,
-                isLoaded: false,
                 error: ''
             };
             break;
@@ -22,7 +21,6 @@ export default function reducer(state = initialState, action) {
             state = {
                 ...state,
                 isLoading: false,
-                isLoaded: false,
                 error: 'Failed to load project list.'
             };
             break;
@@ -32,10 +30,27 @@ export default function reducer(state = initialState, action) {
             state = {
                 ...state,
                 isLoading: false,
-                isLoaded: true,
                 error: '',
                 projects: action.payload.Projects,
                 taskLists: action.payload.TaskLists
+            };
+            break;
+        }
+
+        case 'ADD_TASK_LIST_REJECTED': {
+            state = {
+                ...state,
+                isLoading: false,
+                error: 'Failed to add a new task list.'
+            };
+            break;
+        }
+
+        case 'ADD_TASK_LIST_FULFILLED': {
+            state = {
+                ...state,
+                isLoading: false,
+                error: ''
             };
             break;
         }

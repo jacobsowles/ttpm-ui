@@ -5,13 +5,14 @@ class TaskListItem extends React.Component {
 
     render() {
         return (
-            <li>{this.props.taskList.Name}</li>
+            <li className={this.props.class}>{this.props.taskList.Name}</li>
         );
     }
 }
 
 TaskListItem.propTypes = {
-    taskList: React.PropTypes.object.isRequired
+    taskList: React.PropTypes.object.isRequired,
+    class: React.PropTypes.string
 };
 
 export default TaskListItem;

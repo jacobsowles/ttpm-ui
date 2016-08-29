@@ -7,7 +7,7 @@ import TaskListItem from './task-list-item/task-list-item.jsx';
 class TaskListItems extends React.Component {
 
     render() {
-        let taskListItems = this.props.taskLists.map(function(taskList, key) {
+        const taskListItems = this.props.taskLists.map(function(taskList, key) {
             return (
                 <TaskListItem
                     key={key}
@@ -16,20 +16,24 @@ class TaskListItems extends React.Component {
             );
         });
 
-        if (taskListItems.length == 0) {
-            taskListItems = <li className="add-task-list-link">Add a task list</li>;
-        }
-
         return (
             <ul className="task-list-items">
                 {taskListItems}
+                <li
+                    className="add-task-list-link"
+                    onClick={() => this.props.handleAddTaskListLinkClick(this.props.projectId)}
+                >
+                    + Add a task list
+                </li>
             </ul>
         );
     }
 }
 
 TaskListItems.propTypes = {
-    taskLists: React.PropTypes.arrayOf(React.PropTypes.object).isRequired
+    taskLists: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
+    projectId: React.PropTypes.number.isRequired,
+    handleAddTaskListLinkClick: React.PropTypes.func.isRequired
 };
 
 export default TaskListItems;

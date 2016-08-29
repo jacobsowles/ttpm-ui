@@ -13,6 +13,11 @@ import projectListActions from './project-list-actions.js';
 
 class ProjectList extends React.Component {
 
+    constructor() {
+        super();
+        this.handleAddTaskListLinkClick = this.handleAddTaskListLinkClick.bind(this);
+    }
+
     componentWillMount() {
         this.props.fetchProjectList();
     }
@@ -22,27 +27,38 @@ class ProjectList extends React.Component {
             <div className="project-list">
                 {this.props.error}
                 <Accordion>
-                    {this.props.projects.map(function(project, key) {
-                        const taskLists = this.props.taskLists.filter(function(taskList) {
-                            return taskList.ProjectId == project.Id;
-                        });
+                    {
+                        this.props.projects.map(function(project, key) {
+                            const taskLists = this.props.taskLists.filter(function(taskList) {
+                                return taskList.ProjectId == project.Id;
+                            });
 
-                        return (
-                            <AccordionItem
-                                key={key}
-                                header={{
-                                    content: project.Name,
-                                    class: 'project'
-                                }}
-                                body={{
-                                    content: <TaskListItems taskLists={taskLists} />
-                                }}
-                            />
-                        );
-                    }.bind(this))}
+                            return (
+                                <AccordionItem
+                                    key={key}
+                                    header={{
+                                        content: project.Name,
+                                        class: 'project'
+                                    }}
+                                    body={{
+                                        content: <TaskListItems
+                                                    taskLists={taskLists}
+                                                    projectId={project.Id}
+                                                    handleAddTaskListLinkClick={this.handleAddTaskListLinkClick}
+                                                 />
+                                    }}
+                                />
+                            );
+                        }.bind(this))
+                    }
                 </Accordion>
             </div>
         );
+    }
+
+    handleAddTaskListLinkClick(projectId) {
+        this.props.addTaskList(projectId);
+        this.props.fetchProjectList();
     }
 }
 
@@ -64,7 +80,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({
-        fetchProjectList: projectListActions.fetchProjectList
+        fetchProjectList: projectListActions.fetchProjectList,
+        addTaskList: projectListActions.addTaskList
     }, dispatch);
 }
 
