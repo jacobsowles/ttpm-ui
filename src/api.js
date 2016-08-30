@@ -18,7 +18,19 @@ module.exports = {
         return new Promise((resolve, reject) => {
             superagent
                 .post('http://api.ttpm.com' + route)
-                .send(params.payload)
+                .send(params)
+                .set('Accept', 'application/json')
+                .end((error, response) => {
+                    error ? reject(error) : resolve(response.body);
+                });
+        });
+    },
+
+    del(route, params, callback) {
+        return new Promise((resolve, reject) => {
+            superagent
+                .del('http://api.ttpm.com' + route)
+                .send(params)
                 .set('Accept', 'application/json')
                 .end((error, response) => {
                     error ? reject(error) : resolve(response.body);

@@ -15,7 +15,9 @@ class ProjectList extends React.Component {
 
     constructor() {
         super();
-        this.handleAddTaskListLinkClick = this.handleAddTaskListLinkClick.bind(this);
+        this.handleAddProjectClick = this.handleAddProjectClick.bind(this);
+        this.handleAddTaskListClick = this.handleAddTaskListClick.bind(this);
+        this.handleDeleteTaskListClick = this.handleDeleteTaskListClick.bind(this);
     }
 
     componentWillMount() {
@@ -26,6 +28,7 @@ class ProjectList extends React.Component {
         return (
             <div className="project-list">
                 {this.props.error}
+
                 <Accordion>
                     {
                         this.props.projects.map(function(project, key) {
@@ -42,22 +45,41 @@ class ProjectList extends React.Component {
                                     }}
                                     body={{
                                         content: <TaskListItems
-                                                    taskLists={taskLists}
-                                                    projectId={project.Id}
-                                                    handleAddTaskListLinkClick={this.handleAddTaskListLinkClick}
-                                                 />
+                                            taskLists={taskLists}
+                                            projectId={project.Id}
+                                            handleAddTaskListClick={this.handleAddTaskListClick}
+                                            handleDeleteTaskListClick={this.handleDeleteTaskListClick}
+                                        />
                                     }}
                                 />
                             );
                         }.bind(this))
                     }
+                    <section>
+                        <a
+                            className='project add-project-link'
+                            onClick={() => this.handleAddProjectClick('New Project')}
+                        >
+                            + Add a new project
+                        </a>
+                    </section>
                 </Accordion>
             </div>
         );
     }
 
-    handleAddTaskListLinkClick(projectId) {
+    handleAddProjectClick(name) {
+        this.props.addProject(name);
+        this.props.fetchProjectList();
+    }
+
+    handleAddTaskListClick(projectId) {
         this.props.addTaskList(projectId);
+        this.props.fetchProjectList();
+    }
+
+    handleDeleteTaskListClick(taskListId) {
+        this.props.deleteTaskList(taskListId);
         this.props.fetchProjectList();
     }
 }
@@ -81,7 +103,9 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({
         fetchProjectList: projectListActions.fetchProjectList,
-        addTaskList: projectListActions.addTaskList
+        addProject: projectListActions.addProject,
+        addTaskList: projectListActions.addTaskList,
+        deleteTaskList: projectListActions.deleteTaskList
     }, dispatch);
 }
 

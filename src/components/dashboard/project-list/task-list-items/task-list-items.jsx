@@ -12,16 +12,17 @@ class TaskListItems extends React.Component {
                 <TaskListItem
                     key={key}
                     taskList={taskList}
+                    handleDeleteTaskListClick={this.props.handleDeleteTaskListClick}
                 />
             );
-        });
+        }.bind(this));
 
         return (
             <ul className="task-list-items">
                 {taskListItems}
                 <li
                     className="add-task-list-link"
-                    onClick={() => this.props.handleAddTaskListLinkClick(this.props.projectId)}
+                    onClick={() => this.props.handleAddTaskListClick(this.props.projectId)}
                 >
                     + Add a task list
                 </li>
@@ -33,7 +34,8 @@ class TaskListItems extends React.Component {
 TaskListItems.propTypes = {
     taskLists: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
     projectId: React.PropTypes.number.isRequired,
-    handleAddTaskListLinkClick: React.PropTypes.func.isRequired
+    handleAddTaskListClick: React.PropTypes.func.isRequired,
+    handleDeleteTaskListClick: React.PropTypes.func.isRequired
 };
 
 export default TaskListItems;
