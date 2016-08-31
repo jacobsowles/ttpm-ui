@@ -30,6 +30,7 @@ class AccordionItem extends React.Component {
 
     render() {
         const stateStyle = this.state.active ? styles.active : styles.inactive;
+        
         return (
             <section>
                 <a onClick={this.handleClick} className={this.props.header.class}>

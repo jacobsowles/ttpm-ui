@@ -1,3 +1,4 @@
+@import "./add-new/add-new.scss";
 @import "./task-list-items/task-list-items.scss";
 
 .project-list {
@@ -7,7 +8,8 @@
         margin-bottom: 0;
     }
 
-    .project {
+    .project,
+    .add-new-project {
         padding: 10px 15px;
         display: block;
         font-size: .9em;
@@ -26,11 +28,22 @@
         }
     }
 
-    .add-project-link {
-        color: #888888 !important;
+    .add-new {
+        input {
+            background: #636066;
+            font-size: .9em !important;
+            margin-left: 15px;
+            padding: 10px 15px;
+            border: none;
+            width: calc(100% - 30px);
 
-        &:hover {
-            color: #DBDBDB !important;
+            &:focus {
+                outline: none;
+            }
+        }
+
+        .add-new-project {
+            color: #888888;
         }
     }
 }

@@ -6,6 +6,7 @@ import { bindActionCreators } from 'redux';
 // components
 import Accordion from '../../accordion/accordion.jsx';
 import AccordionItem from '../../accordion/accordion-item/accordion-item.jsx';
+import AddNew from './add-new/add-new.jsx';
 import TaskListItems from './task-list-items/task-list-items.jsx';
 
 // actions
@@ -55,14 +56,11 @@ class ProjectList extends React.Component {
                             );
                         }.bind(this))
                     }
-                    <section>
-                        <a
-                            className='project add-project-link'
-                            onClick={() => this.handleAddProjectClick('New Project')}
-                        >
-                            + Add a new project
-                        </a>
-                    </section>
+                    <AddNew
+                        entity='project'
+                        class='add-new-project'
+                        handleSubmit={this.handleAddProjectClick}
+                    />
                 </Accordion>
             </div>
         );
