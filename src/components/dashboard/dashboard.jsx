@@ -12,34 +12,25 @@ import StatusBox from './status-box/status-box.jsx';
 
 class Dashboard extends React.Component {
 
-    componentWillMount() {
-    }
-
     render() {
         return (
-            <div>
-                <div className="col-xs-2 no-horizontal-padding">
-                    <div className="row">
-                        <Sidebar>
-                            <SidebarModule>
-                                <StatusBox
-                                    currentPoints={150}
-                                    maxPoints={200}
-                                    level={8}
-                                />
-                            </SidebarModule>
+            <div className="row">
+                <Sidebar>
+                    <SidebarModule>
+                        <StatusBox
+                            currentPoints={150}
+                            maxPoints={200}
+                            level={8}
+                        />
+                    </SidebarModule>
 
-                            <SidebarModule title="Projects">
-                                <ProjectList />
-                            </SidebarModule>
-                        </Sidebar>
-                    </div>
-                </div>
+                    <SidebarModule title="Projects">
+                        <ProjectList />
+                    </SidebarModule>
+                </Sidebar>
 
-                <div className="col-xs-10 no-horizontal-padding">
-                    <div className="row">
-                        <Header />
-                    </div>
+                <div className="content-pane">
+                    <Header />
                 </div>
             </div>
         );

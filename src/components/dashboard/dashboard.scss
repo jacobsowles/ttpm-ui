@@ -2,3 +2,8 @@
 @import "./project-list/project-list.scss";
 @import "./sidebar/sidebar.scss";
 @import "./status-box/status-box.scss";
+
+.content-pane {
+    width: calc(100% - 250px);
+    float: left;
+}
