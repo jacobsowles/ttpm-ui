@@ -22,10 +22,13 @@ class AddNew extends React.Component {
         this.handleClick = this.handleClick.bind(this);
         this.handleKeyDown = this.handleKeyDown.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+
+        this.bindKeyboardShortcuts();
     }
 
     componentDidUpdate(prevProps, prevState) {
-        document.getElementById('input-' + this.props.id).focus();
+        const input = document.getElementById('input-' + this.props.id);
+        input.focus();
     }
 
     handleClick() {
@@ -60,6 +63,19 @@ class AddNew extends React.Component {
         if (value != '') {
             this.props.handleSubmit(value);
         }
+    }
+
+    bindKeyboardShortcuts() {
+        document.onkeydown = function(e) {
+            if (e.target.tagName.toLowerCase() != 'input') {
+                switch (e.key) {
+                    case 'p': {
+                        this.handleClick();
+                        return false;
+                    }
+                }
+            }
+        }.bind(this);
     }
 
     render() {

@@ -33312,13 +33312,16 @@
 	        _this.handleClick = _this.handleClick.bind(_this);
 	        _this.handleKeyDown = _this.handleKeyDown.bind(_this);
 	        _this.handleSubmit = _this.handleSubmit.bind(_this);
+
+	        _this.bindKeyboardShortcuts();
 	        return _this;
 	    }
 
 	    _createClass(AddNew, [{
 	        key: 'componentDidUpdate',
 	        value: function componentDidUpdate(prevProps, prevState) {
-	            document.getElementById('input-' + this.props.id).focus();
+	            var input = document.getElementById('input-' + this.props.id);
+	            input.focus();
 	        }
 	    }, {
 	        key: 'handleClick',
@@ -33358,6 +33361,21 @@
 	            if (value != '') {
 	                this.props.handleSubmit(value);
 	            }
+	        }
+	    }, {
+	        key: 'bindKeyboardShortcuts',
+	        value: function bindKeyboardShortcuts() {
+	            document.onkeydown = function (e) {
+	                if (e.target.tagName.toLowerCase() != 'input') {
+	                    switch (e.key) {
+	                        case 'p':
+	                            {
+	                                this.handleClick();
+	                                return false;
+	                            }
+	                    }
+	                }
+	            }.bind(this);
 	        }
 	    }, {
 	        key: 'render',
