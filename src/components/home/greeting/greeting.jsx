@@ -7,7 +7,7 @@ class Greeting extends React.Component {
             <div className="row">
                 <div className="col-xs-12 content">
                     <h1>Fly, you fools.</h1>
-                    <p>To the <Link to="/dashboard">dashboard</Link>. Away with you.</p>
+                    <p><Link to="/get-it">Get it.</Link></p>
                 </div>
             </div>
         );

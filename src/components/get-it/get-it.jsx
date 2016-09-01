@@ -4,13 +4,14 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 // components
+import BottomDrawer from './bottom-drawer/bottom-drawer.jsx';
 import Header from './header/header.jsx';
 import ProjectList from './project-list/project-list.jsx';
 import Sidebar from './sidebar/sidebar.jsx';
 import SidebarModule from './sidebar/sidebar-module/sidebar-module.jsx';
 import StatusBox from './status-box/status-box.jsx';
 
-class Dashboard extends React.Component {
+class GetIt extends React.Component {
 
     render() {
         return (
@@ -31,10 +32,11 @@ class Dashboard extends React.Component {
 
                 <div className="content-pane">
                     <Header />
+                    <BottomDrawer />
                 </div>
             </div>
         );
     }
 }
 
-export default Dashboard;
+export default GetIt;

@@ -1,3 +1,4 @@
+@import "./bottom-drawer/bottom-drawer.scss";
 @import "./header/header.scss";
 @import "./project-list/project-list.scss";
 @import "./sidebar/sidebar.scss";
@@ -6,4 +7,10 @@
 .content-pane {
     width: calc(100% - 250px);
     float: left;
+    height: 100vh;
+
+    &:after {
+        display: block;
+        content: "";
+    }
 }

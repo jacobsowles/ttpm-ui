@@ -8,7 +8,7 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import store from './store';
 
 // components
-import Dashboard from './components/dashboard/dashboard.jsx';
+import GetIt from './components/get-it/get-it.jsx';
 import Greeting from './components/home/greeting/greeting.jsx';
 import Home from './components/home/home.jsx';
 
@@ -21,7 +21,7 @@ render(
             <Route path="/" component={Home}>
                 <IndexRoute component={Greeting} />
             </Route>
-            <Route path="/dashboard" component={Dashboard} />
+            <Route path="/get-it" component={GetIt} />
         </Router>
     </Provider>, document.getElementById('root')
 );
