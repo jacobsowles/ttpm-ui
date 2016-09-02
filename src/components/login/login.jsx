@@ -19,9 +19,9 @@ class Login extends React.Component {
     render() {
         return (
             <div className="row">
-                <div className="col-xs-3" />
+                <div className="col-xs-2" />
 
-                <div className="col-xs-6">
+                <div className="col-xs-8">
                     <div className="row" id="branding">
                         <img src="/assets/images/tt-logo.png" alt="Logo" height="50" />
                         <span id="logo-text">PROJECT MANAGER</span>
@@ -38,7 +38,7 @@ class Login extends React.Component {
                     </div>
                 </div>
 
-                <div className="col-xs-4" />
+                <div className="col-xs-2" />
             </div>
         );
     }
