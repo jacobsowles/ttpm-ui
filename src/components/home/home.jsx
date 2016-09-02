@@ -1,44 +1,43 @@
 // npm modules
 import React from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 
 // components
-import NavigationBar from './navigation-bar/navigation-bar.jsx';
+import BottomDrawer from './bottom-drawer/bottom-drawer.jsx';
+import Header from './header/header.jsx';
+import ProjectList from './project-list/project-list.jsx';
+import Sidebar from './sidebar/sidebar.jsx';
+import SidebarModule from './sidebar/sidebar-module/sidebar-module.jsx';
+import StatusBox from './status-box/status-box.jsx';
 
 // styles
 require('./home.scss');
 
 class Home extends React.Component {
 
-    constructor(props) {
-        super(props);
-    }
-
-    componentWillMount() {
-    }
-
     render() {
         return (
-            <div>
-                <NavigationBar />
-                {this.props.children}
+            <div className="row">
+                <Sidebar>
+                    <SidebarModule>
+                        <StatusBox
+                            currentPoints={150}
+                            maxPoints={200}
+                            level={8}
+                        />
+                    </SidebarModule>
+
+                    <SidebarModule title="Projects">
+                        <ProjectList />
+                    </SidebarModule>
+                </Sidebar>
+
+                <div className="content-pane">
+                    <Header />
+                    <BottomDrawer />
+                </div>
             </div>
         );
     }
 }
 
-Home.propTypes = {
-};
-
-function mapStateToProps(state) {
-    return {
-    };
-}
-
-function mapDispatchToProps(dispatch) {
-    return bindActionCreators({
-    }, dispatch);
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default Home;

@@ -1,6 +1,9 @@
 // npm modules
 import React from 'react';
 
+// styles
+require('./accordion-item.scss');
+
 const styles = {
     active: {
         display: 'inherit'
