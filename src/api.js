@@ -14,12 +14,13 @@ module.exports = {
         });
     },
 
-    post(route, params) {
+    post(route, params, contentType) {
         return new Promise((resolve, reject) => {
             superagent
                 .post('http://api.ttpm.com' + route)
-                .send(params)
+                .set('Content-Type', contentType || 'application/json')
                 .set('Accept', 'application/json')
+                .send(params)
                 .end((error, response) => {
                     error ? reject(error) : resolve(response.body);
                 });

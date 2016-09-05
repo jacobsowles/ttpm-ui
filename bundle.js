@@ -74,7 +74,7 @@
 
 
 	// components
-	__webpack_require__(498);
+	__webpack_require__(499);
 
 	// app modules
 	// npm modules
@@ -29095,7 +29095,7 @@
 	    switch (action.type) {
 	        // PENDING
 
-	        case 'SOMETHING_PENDING':
+	        case 'LOGIN_PENDING':
 	            {
 	                state = _extends({}, state, {
 	                    isLoading: true,
@@ -29106,7 +29106,7 @@
 
 	        // FULFILLED
 
-	        case 'SOMETHING_FULFILLED':
+	        case 'LOGIN_FULFILLED':
 	            {
 	                state = _extends({}, state, {
 	                    isLoading: false,
@@ -29117,11 +29117,11 @@
 
 	        // REJECTED
 
-	        case 'SOMETHING_REJECTED':
+	        case 'LOGIN_REJECTED':
 	            {
 	                state = _extends({}, state, {
 	                    isLoading: false,
-	                    error: 'Failed to _______.'
+	                    error: 'Failed to log in.'
 	                });
 	                break;
 	            }
@@ -34477,9 +34477,9 @@
 	            });
 	        });
 	    },
-	    post: function post(route, params) {
+	    post: function post(route, params, contentType) {
 	        return new Promise(function (resolve, reject) {
-	            _superagent2.default.post('http://api.ttpm.com' + route).send(params).set('Accept', 'application/json').end(function (error, response) {
+	            _superagent2.default.post('http://api.ttpm.com' + route).set('Content-Type', contentType || 'application/json').set('Accept', 'application/json').send(params).end(function (error, response) {
 	                error ? reject(error) : resolve(response.body);
 	            });
 	        });
@@ -61421,7 +61421,7 @@
 
 	var _loginForm2 = _interopRequireDefault(_loginForm);
 
-	var _registrationForm = __webpack_require__(492);
+	var _registrationForm = __webpack_require__(493);
 
 	var _registrationForm2 = _interopRequireDefault(_registrationForm);
 
@@ -61438,7 +61438,7 @@
 
 
 	// styles
-	__webpack_require__(496);
+	__webpack_require__(497);
 
 	var Login = function (_React$Component) {
 	    _inherits(Login, _React$Component);
@@ -61518,6 +61518,14 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reactRedux = __webpack_require__(172);
+
+	var _redux = __webpack_require__(179);
+
+	var _loginFormActions = __webpack_require__(490);
+
+	var _loginFormActions2 = _interopRequireDefault(_loginFormActions);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -61527,8 +61535,11 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
 
 
+	// actions
+
+
 	// styles
-	__webpack_require__(490);
+	__webpack_require__(491);
 
 	var LoginForm = function (_React$Component) {
 	    _inherits(LoginForm, _React$Component);
@@ -61536,10 +61547,19 @@
 	    function LoginForm(props) {
 	        _classCallCheck(this, LoginForm);
 
-	        return _possibleConstructorReturn(this, (LoginForm.__proto__ || Object.getPrototypeOf(LoginForm)).call(this, props));
+	        var _this = _possibleConstructorReturn(this, (LoginForm.__proto__ || Object.getPrototypeOf(LoginForm)).call(this, props));
+
+	        _this.handleSubmit = _this.handleSubmit.bind(_this);
+	        return _this;
 	    }
 
 	    _createClass(LoginForm, [{
+	        key: 'handleSubmit',
+	        value: function handleSubmit() {
+	            // TODO: Validate form
+	            this.props.login(this.refs.loginEmail.value, this.refs.loginPassword.value);
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
@@ -61551,33 +61571,29 @@
 	                    'Login'
 	                ),
 	                _react2.default.createElement(
-	                    'form',
-	                    null,
+	                    'div',
+	                    { className: 'form-group' },
+	                    _react2.default.createElement('input', { type: 'email', className: 'form-control', ref: 'loginEmail', placeholder: 'Email' })
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'form-group' },
+	                    _react2.default.createElement('input', { type: 'password', className: 'form-control', ref: 'loginPassword', placeholder: 'Password' })
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'checkbox' },
 	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'form-group' },
-	                        _react2.default.createElement('input', { type: 'email', className: 'form-control', id: 'email', placeholder: 'Email' })
-	                    ),
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'form-group' },
-	                        _react2.default.createElement('input', { type: 'password', className: 'form-control', id: 'password', placeholder: 'Password' })
-	                    ),
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'checkbox' },
-	                        _react2.default.createElement(
-	                            'label',
-	                            null,
-	                            _react2.default.createElement('input', { type: 'checkbox' }),
-	                            ' Remember me'
-	                        )
-	                    ),
-	                    _react2.default.createElement(
-	                        'button',
-	                        { type: 'submit', className: 'btn btn-primary' },
-	                        'Get to work'
+	                        'label',
+	                        null,
+	                        _react2.default.createElement('input', { type: 'checkbox' }),
+	                        ' Remember me'
 	                    )
+	                ),
+	                _react2.default.createElement(
+	                    'button',
+	                    { className: 'btn btn-primary', onClick: this.handleSubmit },
+	                    'Get to work'
 	                )
 	            );
 	        }
@@ -61586,16 +61602,58 @@
 	    return LoginForm;
 	}(_react2.default.Component);
 
-	exports.default = LoginForm;
+	function mapStateToProps(state) {
+	    return {
+	        isLoading: state.loginForm.isLoading,
+	        error: state.loginForm.error
+	    };
+	}
+
+	function mapDispatchToProps(dispatch) {
+	    return (0, _redux.bindActionCreators)({
+	        login: _loginFormActions2.default.login
+	    }, dispatch);
+	}
+
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(LoginForm);
 
 /***/ },
 /* 490 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+
+	var _superagent = __webpack_require__(317);
+
+	var _superagent2 = _interopRequireDefault(_superagent);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	module.exports = {
+	    login: function login(email, password) {
+	        return {
+	            type: 'LOGIN',
+	            payload: new Promise(function (resolve, reject) {
+	                _superagent2.default.post('http://api.ttpm.com/token').type('application/x-www-form-urlencoded').send({
+	                    userName: email,
+	                    password: password,
+	                    grant_type: 'password'
+	                }).end(function (error, response) {
+	                    error ? reject(error) : resolve(response.body);
+	                });
+	            })
+	        };
+	    }
+	};
+
+/***/ },
+/* 491 */
+/***/ function(module, exports, __webpack_require__) {
+
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(491);
+	var content = __webpack_require__(492);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(270)(content, {});
@@ -61615,7 +61673,7 @@
 	}
 
 /***/ },
-/* 491 */
+/* 492 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(269)();
@@ -61629,7 +61687,7 @@
 
 
 /***/ },
-/* 492 */
+/* 493 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -61648,7 +61706,7 @@
 
 	var _redux = __webpack_require__(179);
 
-	var _registrationFormActions = __webpack_require__(493);
+	var _registrationFormActions = __webpack_require__(494);
 
 	var _registrationFormActions2 = _interopRequireDefault(_registrationFormActions);
 
@@ -61665,7 +61723,7 @@
 
 
 	// styles
-	__webpack_require__(494);
+	__webpack_require__(495);
 
 	var RegistrationForm = function (_React$Component) {
 	    _inherits(RegistrationForm, _React$Component);
@@ -61748,7 +61806,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(RegistrationForm);
 
 /***/ },
-/* 493 */
+/* 494 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -61765,13 +61823,13 @@
 	};
 
 /***/ },
-/* 494 */
+/* 495 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(495);
+	var content = __webpack_require__(496);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(270)(content, {});
@@ -61791,7 +61849,7 @@
 	}
 
 /***/ },
-/* 495 */
+/* 496 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(269)();
@@ -61805,13 +61863,13 @@
 
 
 /***/ },
-/* 496 */
+/* 497 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(497);
+	var content = __webpack_require__(498);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(270)(content, {});
@@ -61831,7 +61889,7 @@
 	}
 
 /***/ },
-/* 497 */
+/* 498 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(269)();
@@ -61845,13 +61903,13 @@
 
 
 /***/ },
-/* 498 */
+/* 499 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(499);
+	var content = __webpack_require__(500);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(270)(content, {});
@@ -61871,7 +61929,7 @@
 	}
 
 /***/ },
-/* 499 */
+/* 500 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(269)();

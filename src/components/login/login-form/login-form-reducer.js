@@ -7,7 +7,7 @@ export default function reducer(state = initialState, action) {
     switch (action.type) {
         // PENDING
 
-        case 'SOMETHING_PENDING':
+        case 'LOGIN_PENDING':
          {
             state = {
                 ...state,
@@ -19,7 +19,7 @@ export default function reducer(state = initialState, action) {
 
         // FULFILLED
 
-        case 'SOMETHING_FULFILLED': {
+        case 'LOGIN_FULFILLED': {
             state = {
                 ...state,
                 isLoading: false,
@@ -30,11 +30,11 @@ export default function reducer(state = initialState, action) {
 
         // REJECTED
 
-        case 'SOMETHING_REJECTED': {
+        case 'LOGIN_REJECTED': {
             state = {
                 ...state,
                 isLoading: false,
-                error: 'Failed to _______.'
+                error: 'Failed to log in.'
             };
             break;
         }

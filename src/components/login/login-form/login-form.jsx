@@ -1,5 +1,10 @@
 // npm modules
 import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+// actions
+import loginFormActions from './login-form-actions.js';
 
 // styles
 require('./login-form.scss');
@@ -8,27 +13,51 @@ class LoginForm extends React.Component {
 
     constructor(props) {
         super(props);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleSubmit() {
+        // TODO: Validate form
+        this.props.login(
+            this.refs.loginEmail.value,
+            this.refs.loginPassword.value
+        );
     }
 
     render() {
         return (
             <div id="login">
                 <h2>Login</h2>
-                <form>
-                    <div className="form-group">
-                        <input type="email" className="form-control" id="email" placeholder="Email" />
-                    </div>
-                    <div className="form-group">
-                        <input type="password" className="form-control" id="password" placeholder="Password" />
-                    </div>
-                    <div className="checkbox">
-                        <label><input type="checkbox" /> Remember me</label>
-                    </div>
-                    <button type="submit" className="btn btn-primary">Get to work</button>
-                </form>
+
+                <div className="form-group">
+                    <input type="email" className="form-control" ref="loginEmail" placeholder="Email" />
+                </div>
+
+                <div className="form-group">
+                    <input type="password" className="form-control" ref="loginPassword" placeholder="Password" />
+                </div>
+
+                <div className="checkbox">
+                    <label><input type="checkbox" /> Remember me</label>
+                </div>
+
+                <button className="btn btn-primary" onClick={this.handleSubmit}>Get to work</button>
             </div>
         );
     }
 }
 
-export default LoginForm;
+function mapStateToProps(state) {
+    return {
+        isLoading: state.loginForm.isLoading,
+        error: state.loginForm.error
+    };
+}
+
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({
+        login: loginFormActions.login
+    }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);
