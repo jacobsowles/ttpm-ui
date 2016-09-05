@@ -1,3 +1,6 @@
+// utils
+import { saveAuthentication } from '../../../auth';
+
 const initialState = {
     isLoading: false,
     error: ''
@@ -20,8 +23,7 @@ export default function reducer(state = initialState, action) {
         // FULFILLED
 
         case 'LOGIN_FULFILLED': {
-            localStorage.setItem('username', action.payload['userName']);
-            localStorage.setItem('token', action.payload['access_token']);
+            saveAuthentication(action.payload['userName'], action.payload['access_token']);
 
             state = {
                 ...state,

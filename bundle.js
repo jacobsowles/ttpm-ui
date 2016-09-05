@@ -29083,7 +29083,7 @@
 
 /***/ },
 /* 262 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -29091,9 +29091,13 @@
 	    value: true
 	});
 
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; // utils
+
 
 	exports.default = reducer;
+
+	var _auth = __webpack_require__(501);
+
 	var initialState = {
 	    isLoading: false,
 	    error: ''
@@ -29119,8 +29123,7 @@
 
 	        case 'LOGIN_FULFILLED':
 	            {
-	                localStorage.setItem('username', action.payload['userName']);
-	                localStorage.setItem('token', action.payload['access_token']);
+	                (0, _auth.saveAuthentication)(action.payload['userName'], action.payload['access_token']);
 
 	                state = _extends({}, state, {
 	                    isLoading: false,
@@ -61982,11 +61985,15 @@
 /* 501 */
 /***/ function(module, exports) {
 
-	"use strict";
+	'use strict';
 
 	module.exports = {
 	    isLoggedIn: function isLoggedIn() {
 	        return localStorage.token != undefined;
+	    },
+	    saveAuthentication: function saveAuthentication(username, token) {
+	        localStorage.setItem('username', username);
+	        localStorage.setItem('token', token);
 	    }
 	};
 
