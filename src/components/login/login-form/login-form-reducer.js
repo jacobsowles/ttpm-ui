@@ -20,6 +20,9 @@ export default function reducer(state = initialState, action) {
         // FULFILLED
 
         case 'LOGIN_FULFILLED': {
+            localStorage.setItem('username', action.payload['userName']);
+            localStorage.setItem('token', action.payload['access_token']);
+
             state = {
                 ...state,
                 isLoading: false,

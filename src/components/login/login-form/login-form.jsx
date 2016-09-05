@@ -6,6 +6,9 @@ import { bindActionCreators } from 'redux';
 // actions
 import loginFormActions from './login-form-actions.js';
 
+// utils
+import { isLoggedIn } from '../../../auth';
+
 // styles
 require('./login-form.scss');
 
@@ -22,6 +25,12 @@ class LoginForm extends React.Component {
             this.refs.loginEmail.value,
             this.refs.loginPassword.value
         );
+    }
+
+    componentWillUpdate(nextProps, nextState) {
+        if (isLoggedIn()) {
+            window.location = '/';
+        }
     }
 
     render() {

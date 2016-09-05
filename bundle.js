@@ -60,6 +60,8 @@
 
 	var _store2 = _interopRequireDefault(_store);
 
+	var _auth = __webpack_require__(501);
+
 	var _home = __webpack_require__(265);
 
 	var _home2 = _interopRequireDefault(_home);
@@ -74,11 +76,11 @@
 
 
 	// components
-	__webpack_require__(499);
+
 
 	// app modules
 	// npm modules
-
+	__webpack_require__(499);
 
 	(0, _reactDom.render)(_react2.default.createElement(
 	    _reactRedux.Provider,
@@ -86,10 +88,19 @@
 	    _react2.default.createElement(
 	        _reactRouter.Router,
 	        { history: _reactRouter.hashHistory },
-	        _react2.default.createElement(_reactRouter.Route, { path: '/', component: _home2.default }),
+	        _react2.default.createElement(_reactRouter.Route, { path: '/', component: _home2.default, onEnter: requireAuth }),
 	        _react2.default.createElement(_reactRouter.Route, { path: '/login', component: _login2.default })
 	    )
 	), document.getElementById('root'));
+
+	function requireAuth(nextState, replace) {
+	    if (!(0, _auth.isLoggedIn)()) {
+	        replace({
+	            pathname: '/login',
+	            state: { nextPathname: nextState.location.pathname }
+	        });
+	    }
+	}
 
 /***/ },
 /* 1 */
@@ -29108,6 +29119,9 @@
 
 	        case 'LOGIN_FULFILLED':
 	            {
+	                localStorage.setItem('username', action.payload['userName']);
+	                localStorage.setItem('token', action.payload['access_token']);
+
 	                state = _extends({}, state, {
 	                    isLoading: false,
 	                    error: ''
@@ -61425,6 +61439,8 @@
 
 	var _registrationForm2 = _interopRequireDefault(_registrationForm);
 
+	var _auth = __webpack_require__(501);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -61437,6 +61453,9 @@
 	// components
 
 
+	// utils
+
+
 	// styles
 	__webpack_require__(497);
 
@@ -61446,7 +61465,12 @@
 	    function Login(props) {
 	        _classCallCheck(this, Login);
 
-	        return _possibleConstructorReturn(this, (Login.__proto__ || Object.getPrototypeOf(Login)).call(this, props));
+	        var _this = _possibleConstructorReturn(this, (Login.__proto__ || Object.getPrototypeOf(Login)).call(this, props));
+
+	        if ((0, _auth.isLoggedIn)()) {
+	            window.location = '/';
+	        }
+	        return _this;
 	    }
 
 	    _createClass(Login, [{
@@ -61526,6 +61550,8 @@
 
 	var _loginFormActions2 = _interopRequireDefault(_loginFormActions);
 
+	var _auth = __webpack_require__(501);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -61536,6 +61562,9 @@
 
 
 	// actions
+
+
+	// utils
 
 
 	// styles
@@ -61558,6 +61587,13 @@
 	        value: function handleSubmit() {
 	            // TODO: Validate form
 	            this.props.login(this.refs.loginEmail.value, this.refs.loginPassword.value);
+	        }
+	    }, {
+	        key: 'componentWillUpdate',
+	        value: function componentWillUpdate(nextProps, nextState) {
+	            if ((0, _auth.isLoggedIn)()) {
+	                window.location = '/';
+	            }
 	        }
 	    }, {
 	        key: 'render',
@@ -61941,6 +61977,18 @@
 
 	// exports
 
+
+/***/ },
+/* 501 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	module.exports = {
+	    isLoggedIn: function isLoggedIn() {
+	        return localStorage.token != undefined;
+	    }
+	};
 
 /***/ }
 /******/ ]);

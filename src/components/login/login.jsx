@@ -7,6 +7,9 @@ import { bindActionCreators } from 'redux';
 import LoginForm from './login-form/login-form.jsx';
 import RegistrationForm from './registration-form/registration-form.jsx';
 
+// utils
+import { isLoggedIn } from '../../auth';
+
 // styles
 require('./login.scss');
 
@@ -14,6 +17,10 @@ class Login extends React.Component {
 
     constructor(props) {
         super(props);
+
+        if (isLoggedIn()) {
+            window.location = '/';
+        }
     }
 
     render() {
