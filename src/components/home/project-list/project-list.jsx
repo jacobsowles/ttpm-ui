@@ -7,6 +7,7 @@ import { bindActionCreators } from 'redux';
 import Accordion from '../../accordion/accordion.jsx';
 import AccordionItem from '../../accordion/accordion-item/accordion-item.jsx';
 import AddNew from './add-new/add-new.jsx';
+import LoadingGraphic from '../../loading-graphic/loading-graphic.jsx';
 import TaskListItems from './task-list-items/task-list-items.jsx';
 
 // actions
@@ -25,6 +26,8 @@ class ProjectList extends React.Component {
         return (
             <div className="project-list">
                 {this.props.error}
+
+                <LoadingGraphic showLoadingGraphic={this.props.showLoadingGraphic} />
 
                 <Accordion>
                     {
@@ -72,7 +75,7 @@ ProjectList.propTypes = {
 
 function mapStateToProps(state) {
     return {
-        isLoading: state.projectList.isLoading,
+        showLoadingGraphic: state.projectList.isLoading,
         error: state.projectList.error,
         projects: state.projectList.projects,
         taskLists: state.projectList.taskLists
