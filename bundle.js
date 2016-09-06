@@ -36239,7 +36239,7 @@
 
 
 	// module
-	exports.push([module.id, "#sidebar {\n  height: 100vh;\n  background: #3C393F;\n  color: #dbdbdb;\n  width: 250px;\n  float: left; }\n", ""]);
+	exports.push([module.id, "#sidebar {\n  height: 100vh;\n  background: #3C393F;\n  color: #dbdbdb;\n  width: 250px;\n  float: left;\n  overflow-y: auto; }\n", ""]);
 
 	// exports
 
