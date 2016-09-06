@@ -6,5 +6,9 @@ module.exports = {
     saveAuthentication(username, token) {
         localStorage.setItem('username', username);
         localStorage.setItem('token', token);
+    },
+
+    getToken() {
+        return localStorage['token'];
     }
 };

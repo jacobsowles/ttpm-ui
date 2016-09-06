@@ -20,18 +20,14 @@ module.exports = {
     addTaskList(projectId) {
         return {
             type: 'ADD_TASK_LIST',
-            payload: post(`/projects/${projectId}/taskLists`, {
-                id: projectId
-            })
+            payload: post(`/projects/${projectId}/taskLists`)
         };
     },
 
     deleteTaskList(taskListId) {
         return {
             type: 'DELETE_TASK_LIST',
-            payload: del(`/taskLists/${taskListId}`, {
-                id: taskListId
-            })
+            payload: del(`/taskLists/${taskListId}`)
         };
     }
 };
