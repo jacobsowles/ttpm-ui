@@ -33678,12 +33678,7 @@
 	    function ProjectList() {
 	        _classCallCheck(this, ProjectList);
 
-	        var _this = _possibleConstructorReturn(this, (ProjectList.__proto__ || Object.getPrototypeOf(ProjectList)).call(this));
-
-	        _this.handleAddProjectClick = _this.handleAddProjectClick.bind(_this);
-	        _this.handleAddTaskListClick = _this.handleAddTaskListClick.bind(_this);
-	        _this.handleDeleteTaskListClick = _this.handleDeleteTaskListClick.bind(_this);
-	        return _this;
+	        return _possibleConstructorReturn(this, (ProjectList.__proto__ || Object.getPrototypeOf(ProjectList)).apply(this, arguments));
 	    }
 
 	    _createClass(ProjectList, [{
@@ -33716,8 +33711,8 @@
 	                                content: _react2.default.createElement(_taskListItems2.default, {
 	                                    taskLists: taskLists,
 	                                    projectId: project.Id,
-	                                    handleAddTaskListClick: this.handleAddTaskListClick,
-	                                    handleDeleteTaskListClick: this.handleDeleteTaskListClick
+	                                    handleAddTaskListClick: this.props.handleAddTaskListClick,
+	                                    handleDeleteTaskListClick: this.props.handleDeleteTaskListClick
 	                                })
 	                            }
 	                        });
@@ -33725,28 +33720,10 @@
 	                    _react2.default.createElement(_addNew2.default, {
 	                        entity: 'project',
 	                        'class': 'add-new-project',
-	                        handleSubmit: this.handleAddProjectClick
+	                        handleSubmit: this.props.handleAddProjectClick
 	                    })
 	                )
 	            );
-	        }
-	    }, {
-	        key: 'handleAddProjectClick',
-	        value: function handleAddProjectClick(name) {
-	            this.props.addProject(name);
-	            this.props.fetchProjectList();
-	        }
-	    }, {
-	        key: 'handleAddTaskListClick',
-	        value: function handleAddTaskListClick(projectId) {
-	            this.props.addTaskList(projectId);
-	            this.props.fetchProjectList();
-	        }
-	    }, {
-	        key: 'handleDeleteTaskListClick',
-	        value: function handleDeleteTaskListClick(taskListId) {
-	            this.props.deleteTaskList(taskListId);
-	            this.props.fetchProjectList();
 	        }
 	    }]);
 
@@ -33770,12 +33747,26 @@
 	}
 
 	function mapDispatchToProps(dispatch) {
-	    return (0, _redux.bindActionCreators)({
-	        fetchProjectList: _projectListActions2.default.fetchProjectList,
-	        addProject: _projectListActions2.default.addProject,
-	        addTaskList: _projectListActions2.default.addTaskList,
-	        deleteTaskList: _projectListActions2.default.deleteTaskList
-	    }, dispatch);
+	    return {
+	        fetchProjectList: function fetchProjectList() {
+	            dispatch(_projectListActions2.default.fetchProjectList());
+	        },
+	        handleAddProjectClick: function handleAddProjectClick(name) {
+	            dispatch(_projectListActions2.default.addProject(name)).then(function () {
+	                dispatch(_projectListActions2.default.fetchProjectList());
+	            });
+	        },
+	        handleAddTaskListClick: function handleAddTaskListClick(projectId) {
+	            dispatch(_projectListActions2.default.addTaskList(projectId)).then(function () {
+	                dispatch(_projectListActions2.default.fetchProjectList());
+	            });
+	        },
+	        handleDeleteTaskListClick: function handleDeleteTaskListClick(taskListId) {
+	            dispatch(_projectListActions2.default.deleteTaskList(taskListId)).then(function () {
+	                dispatch(_projectListActions2.default.fetchProjectList());
+	            });
+	        }
+	    };
 	}
 
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(ProjectList);

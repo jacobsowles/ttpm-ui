@@ -17,13 +17,6 @@ require('./project-list.scss');
 
 class ProjectList extends React.Component {
 
-    constructor() {
-        super();
-        this.handleAddProjectClick = this.handleAddProjectClick.bind(this);
-        this.handleAddTaskListClick = this.handleAddTaskListClick.bind(this);
-        this.handleDeleteTaskListClick = this.handleDeleteTaskListClick.bind(this);
-    }
-
     componentWillMount() {
         this.props.fetchProjectList();
     }
@@ -51,8 +44,8 @@ class ProjectList extends React.Component {
                                         content: <TaskListItems
                                             taskLists={taskLists}
                                             projectId={project.Id}
-                                            handleAddTaskListClick={this.handleAddTaskListClick}
-                                            handleDeleteTaskListClick={this.handleDeleteTaskListClick}
+                                            handleAddTaskListClick={this.props.handleAddTaskListClick}
+                                            handleDeleteTaskListClick={this.props.handleDeleteTaskListClick}
                                         />
                                     }}
                                 />
@@ -62,26 +55,11 @@ class ProjectList extends React.Component {
                     <AddNew
                         entity='project'
                         class='add-new-project'
-                        handleSubmit={this.handleAddProjectClick}
+                        handleSubmit={this.props.handleAddProjectClick}
                     />
                 </Accordion>
             </div>
         );
-    }
-
-    handleAddProjectClick(name) {
-        this.props.addProject(name);
-        this.props.fetchProjectList();
-    }
-
-    handleAddTaskListClick(projectId) {
-        this.props.addTaskList(projectId);
-        this.props.fetchProjectList();
-    }
-
-    handleDeleteTaskListClick(taskListId) {
-        this.props.deleteTaskList(taskListId);
-        this.props.fetchProjectList();
     }
 }
 
@@ -102,12 +80,26 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({
-        fetchProjectList: projectListActions.fetchProjectList,
-        addProject: projectListActions.addProject,
-        addTaskList: projectListActions.addTaskList,
-        deleteTaskList: projectListActions.deleteTaskList
-    }, dispatch);
+    return {
+        fetchProjectList: function() {
+            dispatch(projectListActions.fetchProjectList());
+        },
+        handleAddProjectClick: function(name) {
+            dispatch(projectListActions.addProject(name)).then(function() {
+                dispatch(projectListActions.fetchProjectList());
+            });
+        },
+        handleAddTaskListClick: function(projectId) {
+            dispatch(projectListActions.addTaskList(projectId)).then(function() {
+                dispatch(projectListActions.fetchProjectList());
+            });
+        },
+        handleDeleteTaskListClick: function(taskListId) {
+            dispatch(projectListActions.deleteTaskList(taskListId)).then(function() {
+                dispatch(projectListActions.fetchProjectList());
+            });
+        }
+    };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProjectList);
