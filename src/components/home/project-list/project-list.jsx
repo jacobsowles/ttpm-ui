@@ -111,22 +111,26 @@ function mapDispatchToProps(dispatch) {
         fetchProjectList: function() {
             dispatch(projectListActions.fetchProjectList());
         },
+
         handleAddProjectClick: function(name) {
             dispatch(projectListActions.addProject(name)).then(function() {
                 dispatch(projectListActions.fetchProjectList());
             });
         },
+
         handleDeleteProjectClick: function(projectId, event) {
             event.stopPropagation(); // prevents the project accordion from expanding
             dispatch(projectListActions.deleteProject(projectId)).then(function() {
                 dispatch(projectListActions.fetchProjectList());
             });
         },
+
         handleAddTaskListClick: function(projectId) {
             dispatch(projectListActions.addTaskList(projectId)).then(function() {
                 dispatch(projectListActions.fetchProjectList());
             });
         },
+
         handleDeleteTaskListClick: function(taskListId) {
             dispatch(projectListActions.deleteTaskList(taskListId)).then(function() {
                 dispatch(projectListActions.fetchProjectList());

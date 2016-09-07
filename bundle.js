@@ -33789,22 +33789,26 @@
 	        fetchProjectList: function fetchProjectList() {
 	            dispatch(_projectListActions2.default.fetchProjectList());
 	        },
+
 	        handleAddProjectClick: function handleAddProjectClick(name) {
 	            dispatch(_projectListActions2.default.addProject(name)).then(function () {
 	                dispatch(_projectListActions2.default.fetchProjectList());
 	            });
 	        },
+
 	        handleDeleteProjectClick: function handleDeleteProjectClick(projectId, event) {
 	            event.stopPropagation(); // prevents the project accordion from expanding
 	            dispatch(_projectListActions2.default.deleteProject(projectId)).then(function () {
 	                dispatch(_projectListActions2.default.fetchProjectList());
 	            });
 	        },
+
 	        handleAddTaskListClick: function handleAddTaskListClick(projectId) {
 	            dispatch(_projectListActions2.default.addTaskList(projectId)).then(function () {
 	                dispatch(_projectListActions2.default.fetchProjectList());
 	            });
 	        },
+
 	        handleDeleteTaskListClick: function handleDeleteTaskListClick(taskListId) {
 	            dispatch(_projectListActions2.default.deleteTaskList(taskListId)).then(function () {
 	                dispatch(_projectListActions2.default.fetchProjectList());
