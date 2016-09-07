@@ -116,7 +116,9 @@ function mapDispatchToProps(dispatch) {
                 dispatch(projectListActions.fetchProjectList());
             });
         },
-        handleDeleteProjectClick: function(projectId) {
+        handleDeleteProjectClick: function(projectId, event) {
+            console.log(event);
+            event.stopPropagation(); // prevents the project accordion from expanding
             dispatch(projectListActions.deleteProject(projectId)).then(function() {
                 dispatch(projectListActions.fetchProjectList());
             });

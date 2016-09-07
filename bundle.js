@@ -33794,7 +33794,9 @@
 	                dispatch(_projectListActions2.default.fetchProjectList());
 	            });
 	        },
-	        handleDeleteProjectClick: function handleDeleteProjectClick(projectId) {
+	        handleDeleteProjectClick: function handleDeleteProjectClick(projectId, event) {
+	            console.log(event);
+	            event.stopPropagation(); // prevents the project accordion from expanding
 	            dispatch(_projectListActions2.default.deleteProject(projectId)).then(function () {
 	                dispatch(_projectListActions2.default.fetchProjectList());
 	            });
@@ -62215,8 +62217,8 @@
 	                        'span',
 	                        {
 	                            className: 'delete-project',
-	                            onClick: function onClick() {
-	                                return _this2.props.handleDeleteProjectClick(_this2.props.projectId);
+	                            onClick: function onClick(event) {
+	                                return _this2.props.handleDeleteProjectClick(_this2.props.projectId, event);
 	                            }
 	                        },
 	                        '×'

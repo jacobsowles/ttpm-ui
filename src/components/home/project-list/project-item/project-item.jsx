@@ -13,7 +13,7 @@ class ProjectItem extends React.Component {
                 <span className="task-list-item-actions">
                     <span
                         className="delete-project"
-                        onClick={() => this.props.handleDeleteProjectClick(this.props.projectId)}
+                        onClick={(event) => this.props.handleDeleteProjectClick(this.props.projectId, event)}
                     >
                         &times;
                     </span>
