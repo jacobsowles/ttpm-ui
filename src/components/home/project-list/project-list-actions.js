@@ -17,6 +17,13 @@ module.exports = {
         };
     },
 
+    deleteProject(projectId) {
+        return {
+            type: 'DELETE_PROJECT',
+            payload: del(`/projects/${projectId}`)
+        };
+    },
+
     addTaskList(projectId) {
         return {
             type: 'ADD_TASK_LIST',
