@@ -19,9 +19,23 @@ require('./project-list.scss');
 
 class ProjectList extends React.Component {
 
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            showLoadingGraphic: true
+        };
+    }
+
     componentWillMount() {
         this.props.fetchProjectList();
         // TODO: ProjectItem and ProjectListItem should really just be one component with different props
+    }
+
+    componentDidMount() {
+        this.state = {
+            showLoadingGraphic: false
+        };
     }
 
     render() {
@@ -29,7 +43,7 @@ class ProjectList extends React.Component {
             <div className="project-list">
                 {this.props.error}
 
-                <LoadingGraphic showLoadingGraphic={this.props.showLoadingGraphic} />
+                <LoadingGraphic showLoadingGraphic={this.state.showLoadingGraphic} />
 
                 <Accordion>
                     {
@@ -73,7 +87,6 @@ class ProjectList extends React.Component {
 }
 
 ProjectList.propTypes = {
-    showLoadingGraphic: React.PropTypes.bool.isRequired,
     error: React.PropTypes.string.isRequired,
     projects: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
     taskLists: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
@@ -87,7 +100,6 @@ ProjectList.propTypes = {
 
 function mapStateToProps(state) {
     return {
-        showLoadingGraphic: state.projectList.isLoading,
         error: state.projectList.error,
         projects: state.projectList.projects,
         taskLists: state.projectList.taskLists

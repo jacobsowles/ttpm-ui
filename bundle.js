@@ -33691,10 +33691,15 @@
 	var ProjectList = function (_React$Component) {
 	    _inherits(ProjectList, _React$Component);
 
-	    function ProjectList() {
+	    function ProjectList(props) {
 	        _classCallCheck(this, ProjectList);
 
-	        return _possibleConstructorReturn(this, (ProjectList.__proto__ || Object.getPrototypeOf(ProjectList)).apply(this, arguments));
+	        var _this = _possibleConstructorReturn(this, (ProjectList.__proto__ || Object.getPrototypeOf(ProjectList)).call(this, props));
+
+	        _this.state = {
+	            showLoadingGraphic: true
+	        };
+	        return _this;
 	    }
 
 	    _createClass(ProjectList, [{
@@ -33704,13 +33709,20 @@
 	            // TODO: ProjectItem and ProjectListItem should really just be one component with different props
 	        }
 	    }, {
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            this.state = {
+	                showLoadingGraphic: false
+	            };
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'div',
 	                { className: 'project-list' },
 	                this.props.error,
-	                _react2.default.createElement(_loadingGraphic2.default, { showLoadingGraphic: this.props.showLoadingGraphic }),
+	                _react2.default.createElement(_loadingGraphic2.default, { showLoadingGraphic: this.state.showLoadingGraphic }),
 	                _react2.default.createElement(
 	                    _accordion2.default,
 	                    null,
@@ -33753,7 +33765,6 @@
 	}(_react2.default.Component);
 
 	ProjectList.propTypes = {
-	    showLoadingGraphic: _react2.default.PropTypes.bool.isRequired,
 	    error: _react2.default.PropTypes.string.isRequired,
 	    projects: _react2.default.PropTypes.arrayOf(_react2.default.PropTypes.object).isRequired,
 	    taskLists: _react2.default.PropTypes.arrayOf(_react2.default.PropTypes.object).isRequired,
@@ -33767,7 +33778,6 @@
 
 	function mapStateToProps(state) {
 	    return {
-	        showLoadingGraphic: state.projectList.isLoading,
 	        error: state.projectList.error,
 	        projects: state.projectList.projects,
 	        taskLists: state.projectList.taskLists
