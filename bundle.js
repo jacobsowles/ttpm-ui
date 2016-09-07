@@ -29492,6 +29492,7 @@
 	        };
 
 	        _this.handleClick = _this.handleClick.bind(_this);
+	        _this.bindKeyboardShortcuts();
 	        return _this;
 	    }
 
@@ -29501,6 +29502,21 @@
 	            this.setState({
 	                active: !this.state.active
 	            });
+	        }
+	    }, {
+	        key: 'bindKeyboardShortcuts',
+	        value: function bindKeyboardShortcuts() {
+	            document.onkeydown = function (e) {
+	                if (e.target.tagName.toLowerCase() != 'input') {
+	                    switch (e.key) {
+	                        case 'a':
+	                            {
+	                                this.handleClick();
+	                                return false;
+	                            }
+	                    }
+	                }
+	            }.bind(this);
 	        }
 	    }, {
 	        key: 'render',

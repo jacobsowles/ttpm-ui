@@ -23,12 +23,26 @@ class BottomDrawer extends React.Component {
         };
 
         this.handleClick = this.handleClick.bind(this);
+        this.bindKeyboardShortcuts();
     }
 
     handleClick() {
         this.setState({
             active: !this.state.active
         });
+    }
+
+    bindKeyboardShortcuts() {
+        document.onkeydown = function(e) {
+            if (e.target.tagName.toLowerCase() != 'input') {
+                switch (e.key) {
+                    case 'a': {
+                        this.handleClick();
+                        return false;
+                    }
+                }
+            }
+        }.bind(this);
     }
 
     render() {
