@@ -4,6 +4,7 @@ import React from 'react';
 // components
 import BottomDrawer from './bottom-drawer/bottom-drawer.jsx';
 import Header from './header/header.jsx';
+import Logo from './logo/logo.jsx';
 import ProjectList from './project-list/project-list.jsx';
 import Sidebar from './sidebar/sidebar.jsx';
 import SidebarModule from './sidebar/sidebar-module/sidebar-module.jsx';
@@ -18,6 +19,10 @@ class Home extends React.Component {
         return (
             <div className="row">
                 <Sidebar>
+                    <SidebarModule>
+                        <Logo />
+                    </SidebarModule>
+                    
                     <SidebarModule>
                         <StatusBox
                             currentPoints={150}

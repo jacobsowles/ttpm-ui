@@ -6,21 +6,7 @@
     float: left;
     width: 100%;
 
-    #logo {
-        font-weight: bold;
-
-        &:hover {
-            text-decoration: none;
-        }
-
-        #logo-text {
-            padding: 16px 0 14px 10px;
-        }
-    }
-
     .text-filter {
-        padding-top: 7px;
-
         input {
             width: 100%;
 
