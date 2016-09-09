@@ -10,7 +10,7 @@ class ProjectItem extends React.Component {
         return (
             <div className="project-item">
                 {this.props.projectName}
-                <span className="task-list-item-actions">
+                <span className="item-actions">
                     <span
                         className="delete-project"
                         onClick={(event) => this.props.handleDeleteProjectClick(this.props.projectId, event)}

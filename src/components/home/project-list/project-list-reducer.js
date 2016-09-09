@@ -2,7 +2,8 @@ const initialState = {
     isLoading: false,
     error: '',
     projects: [],
-    taskLists: []
+    taskLists: [],
+    tasks: []
 };
 
 export default function reducer(state = initialState, action) {
@@ -28,7 +29,8 @@ export default function reducer(state = initialState, action) {
                 isLoading: false,
                 error: '',
                 projects: action.payload.Projects,
-                taskLists: action.payload.TaskLists
+                taskLists: action.payload.TaskLists,
+                tasks: action.payload.Tasks
             };
             break;
         }

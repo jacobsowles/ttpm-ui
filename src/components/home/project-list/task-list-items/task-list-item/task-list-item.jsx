@@ -10,7 +10,7 @@ class TaskListItem extends React.Component {
         return (
             <li className={this.props.class}>
                 {this.props.taskList.Name}
-                <span className="task-list-item-actions">
+                <span className="item-actions">
                     <span
                         className="delete-task-list"
                         onClick={() => this.props.handleDeleteTaskListClick(this.props.taskList.Id)}

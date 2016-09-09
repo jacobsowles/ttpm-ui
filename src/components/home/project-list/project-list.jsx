@@ -29,7 +29,6 @@ class ProjectList extends React.Component {
 
     componentWillMount() {
         this.props.fetchProjectList();
-        // TODO: ProjectItem and ProjectListItem should really just be one component with different props
     }
 
     componentDidMount() {
@@ -90,6 +89,7 @@ ProjectList.propTypes = {
     error: React.PropTypes.string.isRequired,
     projects: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
     taskLists: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
+    tasks: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
 
     fetchProjectList: React.PropTypes.func.isRequired,
     handleAddProjectClick: React.PropTypes.func.isRequired,
@@ -102,7 +102,8 @@ function mapStateToProps(state) {
     return {
         error: state.projectList.error,
         projects: state.projectList.projects,
-        taskLists: state.projectList.taskLists
+        taskLists: state.projectList.taskLists,
+        tasks: state.projectList.tasks
     };
 }
 

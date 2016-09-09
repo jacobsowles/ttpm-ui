@@ -29183,7 +29183,8 @@
 	    isLoading: false,
 	    error: '',
 	    projects: [],
-	    taskLists: []
+	    taskLists: [],
+	    tasks: []
 	};
 
 	function reducer() {
@@ -29212,7 +29213,8 @@
 	                    isLoading: false,
 	                    error: '',
 	                    projects: action.payload.Projects,
-	                    taskLists: action.payload.TaskLists
+	                    taskLists: action.payload.TaskLists,
+	                    tasks: action.payload.Tasks
 	                });
 	                break;
 	            }
@@ -33773,7 +33775,6 @@
 	        key: 'componentWillMount',
 	        value: function componentWillMount() {
 	            this.props.fetchProjectList();
-	            // TODO: ProjectItem and ProjectListItem should really just be one component with different props
 	        }
 	    }, {
 	        key: 'componentDidMount',
@@ -33835,6 +33836,7 @@
 	    error: _react2.default.PropTypes.string.isRequired,
 	    projects: _react2.default.PropTypes.arrayOf(_react2.default.PropTypes.object).isRequired,
 	    taskLists: _react2.default.PropTypes.arrayOf(_react2.default.PropTypes.object).isRequired,
+	    tasks: _react2.default.PropTypes.arrayOf(_react2.default.PropTypes.object).isRequired,
 
 	    fetchProjectList: _react2.default.PropTypes.func.isRequired,
 	    handleAddProjectClick: _react2.default.PropTypes.func.isRequired,
@@ -33847,7 +33849,8 @@
 	    return {
 	        error: state.projectList.error,
 	        projects: state.projectList.projects,
-	        taskLists: state.projectList.taskLists
+	        taskLists: state.projectList.taskLists,
+	        tasks: state.projectList.tasks
 	    };
 	}
 
@@ -34461,7 +34464,7 @@
 	                this.props.projectName,
 	                _react2.default.createElement(
 	                    'span',
-	                    { className: 'task-list-item-actions' },
+	                    { className: 'item-actions' },
 	                    _react2.default.createElement(
 	                        'span',
 	                        {
@@ -34663,7 +34666,7 @@
 	                this.props.taskList.Name,
 	                _react2.default.createElement(
 	                    'span',
-	                    { className: 'task-list-item-actions' },
+	                    { className: 'item-actions' },
 	                    _react2.default.createElement(
 	                        'span',
 	                        {
@@ -34725,7 +34728,7 @@
 
 
 	// module
-	exports.push([module.id, ".task-list-item-actions {\n  float: right;\n  color: #888888; }\n  .task-list-item-actions span {\n    padding: 2px 6px; }\n    .task-list-item-actions span:hover {\n      background: #888888;\n      color: #DBDBDB; }\n\n.add-task-list-link {\n  color: #888888 !important; }\n  .add-task-list-link:hover {\n    color: #DBDBDB !important; }\n", ""]);
+	exports.push([module.id, ".add-task-list-link {\n  color: #888888 !important; }\n  .add-task-list-link:hover {\n    color: #DBDBDB !important; }\n", ""]);
 
 	// exports
 
@@ -36474,7 +36477,7 @@
 
 
 	// module
-	exports.push([module.id, ".project-list ul {\n  list-style-type: none;\n  padding-left: 0;\n  margin-bottom: 0; }\n\n.project-list .project-item,\n.project-list .add-new-project {\n  padding: 10px 15px;\n  display: block;\n  font-size: .9em;\n  margin: 0;\n  color: #DBDBDB;\n  font-weight: bold; }\n  .project-list .project-item:hover,\n  .project-list .add-new-project:hover {\n    background: #312F33;\n    text-decoration: none;\n    cursor: pointer; }\n  .project-list .project-item .active,\n  .project-list .add-new-project .active {\n    background: #312F33; }\n\n.project-list .add-new input {\n  background: #636066;\n  font-size: .9em !important;\n  margin-left: 15px;\n  padding: 10px 15px;\n  border: none;\n  width: calc(100% - 30px); }\n\n.project-list .add-new .add-new-project {\n  color: #888888; }\n", ""]);
+	exports.push([module.id, ".project-list ul {\n  list-style-type: none;\n  padding-left: 0;\n  margin-bottom: 0; }\n\n.project-list a:hover {\n  text-decoration: none; }\n\n.project-list .project-item,\n.project-list .add-new-project {\n  padding: 10px 15px;\n  display: block;\n  font-size: .9em;\n  margin: 0;\n  color: #DBDBDB;\n  font-weight: bold; }\n  .project-list .project-item:hover,\n  .project-list .add-new-project:hover {\n    background: #312F33;\n    text-decoration: none;\n    cursor: pointer; }\n  .project-list .project-item .active,\n  .project-list .add-new-project .active {\n    background: #312F33; }\n\n.project-list .add-new input {\n  background: #636066;\n  font-size: .9em !important;\n  margin-left: 15px;\n  padding: 10px 15px;\n  border: none;\n  width: calc(100% - 30px); }\n\n.project-list .add-new .add-new-project {\n  color: #888888; }\n\n.project-list .item-actions {\n  float: right;\n  color: #888888; }\n  .project-list .item-actions span {\n    padding: 2px 6px; }\n    .project-list .item-actions span:hover {\n      background: #888888;\n      color: #DBDBDB; }\n", ""]);
 
 	// exports
 

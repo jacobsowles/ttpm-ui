@@ -5,6 +5,12 @@
         margin-bottom: 0;
     }
 
+    a {
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
     .project-item,
     .add-new-project {
         padding: 10px 15px;
@@ -37,6 +43,20 @@
 
         .add-new-project {
             color: #888888;
+        }
+    }
+
+    .item-actions {
+        float: right;
+        color: #888888;
+
+        span {
+            padding: 2px 6px;
+
+            &:hover {
+                background: #888888;
+                color: #DBDBDB;
+            }
         }
     }
 }
