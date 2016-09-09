@@ -1,0 +1,10 @@
+#content-pane {
+    width: calc(100% - 250px);
+    float: left;
+    height: 100vh;
+
+    &:after {
+        display: block;
+        content: "";
+    }
+}

@@ -3,6 +3,7 @@ import React from 'react';
 
 // components
 import BottomDrawer from './bottom-drawer/bottom-drawer.jsx';
+import ContentPane from './content-pane/content-pane.jsx';
 import Header from './header/header.jsx';
 import Logo from './logo/logo.jsx';
 import ProjectList from './project-list/project-list.jsx';
@@ -28,10 +29,10 @@ class Home extends React.Component {
                     </SidebarModule>
                 </Sidebar>
 
-                <div className="content-pane">
+                <ContentPane>
                     <Header />
                     <BottomDrawer />
-                </div>
+                </ContentPane>
             </div>
         );
     }
