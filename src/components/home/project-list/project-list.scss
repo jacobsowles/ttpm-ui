@@ -11,8 +11,7 @@
         }
     }
 
-    .project-item,
-    .add-new-project {
+    .project-item {
         padding: 10px 15px;
         display: block;
         font-size: .9em;
@@ -28,21 +27,6 @@
 
         .active {
             background: #312F33;
-        }
-    }
-
-    .add-new {
-        input {
-            background: #636066;
-            font-size: .9em !important;
-            margin-left: 15px;
-            padding: 10px 15px;
-            border: none;
-            width: calc(100% - 30px);
-        }
-
-        .add-new-project {
-            color: #888888;
         }
     }
 

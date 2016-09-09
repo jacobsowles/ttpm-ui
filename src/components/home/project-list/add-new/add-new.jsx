@@ -1,5 +1,6 @@
 // npm modules
 import React from 'react';
+import _ from 'lodash';
 
 // styles
 require('./add-new.scss');
@@ -16,10 +17,12 @@ const styles = {
 class AddNew extends React.Component {
 
     constructor() {
+        // TODO: Rename this to something other than 'add new', since it will likely be used in other places for different purposes.
         super();
 
         this.state = {
-            active: false
+            active: false,
+            id: _.uniqueId('add-new-input-')
         };
 
         this.handleClick = this.handleClick.bind(this);
@@ -30,7 +33,7 @@ class AddNew extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        const input = document.getElementById('input-' + this.props.id);
+        const input = document.getElementById(this.state.id);
         input.focus();
     }
 
@@ -64,7 +67,7 @@ class AddNew extends React.Component {
         });
 
         if (value != '') {
-            this.props.handleSubmit(value);
+            this.props.handleSubmit(value, this.props.includeWithSubmit);
         }
     }
 
@@ -83,16 +86,16 @@ class AddNew extends React.Component {
 
     render() {
         return (
-            <div className="add-new">
+            <div className={`add-new ${this.props.class}`}>
                 <section style={this.state.active ? styles.show : styles.hide}>
                     <input
-                        id={`input-${this.props.id}`}
+                        id={this.state.id}
                         onBlur={(event) => this.handleSubmit(event.target)}
                         onKeyDown={this.handleKeyDown}
                     />
                 </section>
                 <section style={this.state.active ? styles.hide : styles.show}>
-                    <a className={this.props.class} onClick={this.handleClick}>
+                    <a onClick={this.handleClick}>
                         + Add a new {this.props.entity}
                     </a>
                 </section>
@@ -104,11 +107,8 @@ class AddNew extends React.Component {
 AddNew.propTypes = {
     entity: React.PropTypes.string.isRequired,
     class: React.PropTypes.string,
-    handleSubmit: React.PropTypes.func.isRequired
-};
-
-AddNew.defaultProps = {
-    id: Math.floor((Math.random() * 1000000) + 1)
+    handleSubmit: React.PropTypes.func.isRequired,
+    includeWithSubmit: React.PropTypes.object
 };
 
 export default AddNew;

@@ -62,12 +62,23 @@ class ProjectList extends React.Component {
                                         />
                                     }}
                                     body={{
-                                        content: <TaskListItems
-                                            taskLists={taskLists}
-                                            projectId={project.Id}
-                                            handleAddTaskListClick={this.props.handleAddTaskListClick}
-                                            handleDeleteTaskListClick={this.props.handleDeleteTaskListClick}
-                                        />
+                                        content: (
+                                            <div>
+                                                <TaskListItems
+                                                    taskLists={taskLists}
+                                                    projectId={project.Id}
+                                                    handleDeleteTaskListClick={this.props.handleDeleteTaskListClick}
+                                                />
+                                                <AddNew
+                                                    entity='task list'
+                                                    class='add-new-task-list'
+                                                    handleSubmit={this.props.handleAddTaskListClick}
+                                                    includeWithSubmit={{
+                                                        projectId: project.Id
+                                                    }}
+                                                />
+                                            </div>
+                                        )
                                     }}
                                 />
                             );
@@ -125,8 +136,8 @@ function mapDispatchToProps(dispatch) {
             });
         },
 
-        handleAddTaskListClick: function(projectId) {
-            dispatch(projectListActions.addTaskList(projectId)).then(function() {
+        handleAddTaskListClick: function(name, boundData) {
+            dispatch(projectListActions.addTaskList(name, boundData.projectId)).then(function() {
                 dispatch(projectListActions.fetchProjectList());
             });
         },

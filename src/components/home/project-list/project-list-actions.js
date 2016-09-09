@@ -24,10 +24,12 @@ module.exports = {
         };
     },
 
-    addTaskList(projectId) {
+    addTaskList(name, projectId) {
         return {
             type: 'ADD_TASK_LIST',
-            payload: post(`/projects/${projectId}/taskLists`)
+            payload: post(`/projects/${projectId}/taskLists`, {
+                name: name
+            })
         };
     },
 

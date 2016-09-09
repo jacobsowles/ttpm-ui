@@ -1,0 +1,50 @@
+.add-new {
+    font-size: .9em;
+
+    a {
+        color: #888888;
+        display: block;
+        padding: 10px 0 10px 15px;
+
+        &:hover {
+            background: #312F33;
+            text-decoration: none;
+            cursor: pointer;
+            color: #DBDBDB;
+        }
+
+        .active {
+            background: #312F33;
+        }
+    }
+
+    input {
+        background: #636066;
+        padding: 10px 15px;
+        border: none;
+        color: #DBDBDB;
+        width: calc(100% - 30px);
+        margin-left: 15px;
+    }
+}
+
+.add-new-project {
+    a {
+        font-weight: bold;
+    }   
+}
+
+.add-new-task-list {
+    a {
+        padding-left: 30px;
+
+        &:hover {
+            background: #636066;
+        }
+    }
+    
+    input {
+        width: calc(100% - 45px);
+        margin-left: 30px;
+    }
+}
