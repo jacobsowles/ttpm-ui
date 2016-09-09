@@ -22,14 +22,6 @@ class Home extends React.Component {
                     <SidebarModule>
                         <Logo />
                     </SidebarModule>
-                    
-                    <SidebarModule>
-                        <StatusBox
-                            currentPoints={150}
-                            maxPoints={200}
-                            level={8}
-                        />
-                    </SidebarModule>
 
                     <SidebarModule title="Projects">
                         <ProjectList />

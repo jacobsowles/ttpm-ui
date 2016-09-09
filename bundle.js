@@ -29423,15 +29423,6 @@
 	                    ),
 	                    _react2.default.createElement(
 	                        _sidebarModule2.default,
-	                        null,
-	                        _react2.default.createElement(_statusBox2.default, {
-	                            currentPoints: 150,
-	                            maxPoints: 200,
-	                            level: 8
-	                        })
-	                    ),
-	                    _react2.default.createElement(
-	                        _sidebarModule2.default,
 	                        { title: 'Projects' },
 	                        _react2.default.createElement(_projectList2.default, null)
 	                    )
@@ -62457,7 +62448,7 @@
 
 
 	// module
-	exports.push([module.id, "#logo {\n  background: #000;\n  padding: 10px 15px 10px 15px;\n  float: left;\n  width: 100%;\n  margin-bottom: 15px; }\n  #logo img {\n    float: left; }\n  #logo a {\n    color: #DBDBDB; }\n    #logo a:hover {\n      text-decoration: none; }\n  #logo #logo-text {\n    padding: 10px 0 8px 10px;\n    font-size: .9em;\n    letter-spacing: 1px;\n    float: left; }\n", ""]);
+	exports.push([module.id, "#logo {\n  background: #1a1a1a;\n  padding: 10px 15px 10px 15px; }\n  #logo a {\n    color: #DBDBDB;\n    display: inline; }\n    #logo a:hover {\n      text-decoration: none; }\n  #logo #logo-text {\n    padding: 10px 0 8px 10px;\n    font-size: .9em;\n    letter-spacing: 1px; }\n", ""]);
 
 	// exports
 

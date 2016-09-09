@@ -1,16 +1,10 @@
 #logo {
-    background: #000;
+    background: #1a1a1a;
     padding: 10px 15px 10px 15px;
-    float: left;
-    width: 100%;
-    margin-bottom: 15px;
-
-    img {
-        float: left;
-    }
 
     a {
         color: #DBDBDB;
+        display: inline;
 
         &:hover {
             text-decoration: none;
@@ -21,6 +15,5 @@
         padding: 10px 0 8px 10px;
         font-size: .9em;
         letter-spacing: 1px;
-        float: left;
     }
 }
