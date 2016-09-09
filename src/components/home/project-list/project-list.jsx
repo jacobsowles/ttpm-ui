@@ -59,8 +59,7 @@ class ProjectList extends React.Component {
                                             projectName={project.Name}
                                             projectId={project.Id}
                                             handleDeleteProjectClick={this.props.handleDeleteProjectClick}
-                                        />,
-                                        class: 'project'
+                                        />
                                     }}
                                     body={{
                                         content: <TaskListItems

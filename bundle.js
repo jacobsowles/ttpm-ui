@@ -33806,8 +33806,7 @@
 	                                    projectName: project.Name,
 	                                    projectId: project.Id,
 	                                    handleDeleteProjectClick: this.props.handleDeleteProjectClick
-	                                }),
-	                                class: 'project'
+	                                })
 	                            },
 	                            body: {
 	                                content: _react2.default.createElement(_taskListItems2.default, {
