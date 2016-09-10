@@ -79731,10 +79731,11 @@
 	            return _react2.default.createElement(
 	                'tr',
 	                null,
+	                _react2.default.createElement('th', null),
 	                _react2.default.createElement(
 	                    'th',
 	                    null,
-	                    'Name'
+	                    'Task'
 	                ),
 	                _react2.default.createElement(
 	                    'th',
@@ -79833,6 +79834,11 @@
 	            return _react2.default.createElement(
 	                'tr',
 	                null,
+	                _react2.default.createElement(
+	                    'td',
+	                    { style: { width: '30px' } },
+	                    _react2.default.createElement('input', { type: 'checkbox' })
+	                ),
 	                _react2.default.createElement(
 	                    'td',
 	                    null,
