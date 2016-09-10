@@ -13,6 +13,7 @@ import TaskListItems from './task-list-items/task-list-items.jsx';
 
 // actions
 import projectListActions from './project-list-actions.js';
+import taskTableActions from '../task-table/task-table-actions.js';
 
 // styles
 require('./project-list.scss');
@@ -67,6 +68,7 @@ class ProjectList extends React.Component {
                                                 <TaskListItems
                                                     taskLists={taskLists}
                                                     projectId={project.Id}
+                                                    handleItemClick={this.props.handleTaskListClick}
                                                     handleDeleteTaskListClick={this.props.handleDeleteTaskListClick}
                                                 />
                                                 <AddNew
@@ -101,6 +103,7 @@ ProjectList.propTypes = {
     taskLists: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
 
     fetchProjectList: React.PropTypes.func.isRequired,
+    handleTaskListClick: React.PropTypes.func.isRequired,
     handleAddProjectClick: React.PropTypes.func.isRequired,
     handleDeleteProjectClick: React.PropTypes.func.isRequired,
     handleAddTaskListClick: React.PropTypes.func.isRequired,
@@ -119,6 +122,10 @@ function mapDispatchToProps(dispatch) {
     return {
         fetchProjectList: function() {
             dispatch(projectListActions.fetchProjectList());
+        },
+
+        handleTaskListClick: function(taskListId) {
+            dispatch(taskTableActions.filterTaskTableByTaskList(taskListId));
         },
 
         handleAddProjectClick: function(name) {

@@ -1,7 +1,8 @@
 const initialState = {
     isLoading: false,
     error: '',
-    tasks: []
+    tasks: [],
+    filteredTasks: []
 };
 
 export default function reducer(state = initialState, action) {
@@ -22,7 +23,21 @@ export default function reducer(state = initialState, action) {
                 ...state,
                 isLoading: false,
                 error: '',
-                tasks: action.payload.Tasks
+                tasks: action.payload.Tasks,
+                filteredTasks: action.payload.Tasks
+            };
+            break;
+        }
+
+        // FILTER
+        case 'FILTER_TASK_LIST_BY_TASKLIST': {
+            state = {
+                ...state,
+                isLoading: false,
+                error: '',
+                filteredTasks: state.tasks.filter(function(task) {
+                    return task.TaskListId == action.payload;
+                })
             };
             break;
         }

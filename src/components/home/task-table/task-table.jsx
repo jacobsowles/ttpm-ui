@@ -46,7 +46,7 @@ class TaskTable extends React.Component {
                     </thead>
                     <tbody>
                         {
-                            this.props.tasks.map(function(task, key) {
+                            this.props.filteredTasks.map(function(task, key) {
                                 return (
                                     <TaskTableRow
                                         key={key}
@@ -65,6 +65,7 @@ class TaskTable extends React.Component {
 TaskTable.propTypes = {
     error: React.PropTypes.string.isRequired,
     tasks: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
+    filteredTasks: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
 
     fetchTaskTable: React.PropTypes.func.isRequired
 };
@@ -72,7 +73,8 @@ TaskTable.propTypes = {
 function mapStateToProps(state) {
     return {
         error: state.taskTable.error,
-        tasks: state.taskTable.tasks
+        tasks: state.taskTable.tasks,
+        filteredTasks: state.taskTable.filteredTasks
     };
 }
 

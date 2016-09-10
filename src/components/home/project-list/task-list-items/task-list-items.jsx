@@ -18,6 +18,7 @@ class TaskListItems extends React.Component {
                             <TaskListItem
                                 key={key}
                                 taskList={taskList}
+                                handleItemClick={this.props.handleItemClick}
                                 handleDeleteTaskListClick={this.props.handleDeleteTaskListClick}
                             />
                         );
@@ -31,6 +32,7 @@ class TaskListItems extends React.Component {
 TaskListItems.propTypes = {
     taskLists: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
     projectId: React.PropTypes.number.isRequired,
+    handleItemClick: React.PropTypes.func.isRequired,
     handleDeleteTaskListClick: React.PropTypes.func.isRequired
 };
 

@@ -33856,6 +33856,10 @@
 
 	var _projectListActions2 = _interopRequireDefault(_projectListActions);
 
+	var _taskTableActions = __webpack_require__(536);
+
+	var _taskTableActions2 = _interopRequireDefault(_taskTableActions);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -33932,6 +33936,7 @@
 	                                    _react2.default.createElement(_taskListItems2.default, {
 	                                        taskLists: taskLists,
 	                                        projectId: project.Id,
+	                                        handleItemClick: this.props.handleTaskListClick,
 	                                        handleDeleteTaskListClick: this.props.handleDeleteTaskListClick
 	                                    }),
 	                                    _react2.default.createElement(_addNew2.default, {
@@ -33965,6 +33970,7 @@
 	    taskLists: _react2.default.PropTypes.arrayOf(_react2.default.PropTypes.object).isRequired,
 
 	    fetchProjectList: _react2.default.PropTypes.func.isRequired,
+	    handleTaskListClick: _react2.default.PropTypes.func.isRequired,
 	    handleAddProjectClick: _react2.default.PropTypes.func.isRequired,
 	    handleDeleteProjectClick: _react2.default.PropTypes.func.isRequired,
 	    handleAddTaskListClick: _react2.default.PropTypes.func.isRequired,
@@ -33983,6 +33989,10 @@
 	    return {
 	        fetchProjectList: function fetchProjectList() {
 	            dispatch(_projectListActions2.default.fetchProjectList());
+	        },
+
+	        handleTaskListClick: function handleTaskListClick(taskListId) {
+	            dispatch(_taskTableActions2.default.filterTaskTableByTaskList(taskListId));
 	        },
 
 	        handleAddProjectClick: function handleAddProjectClick(name) {
@@ -34714,6 +34724,7 @@
 	                    return _react2.default.createElement(_taskListItem2.default, {
 	                        key: key,
 	                        taskList: taskList,
+	                        handleItemClick: this.props.handleItemClick,
 	                        handleDeleteTaskListClick: this.props.handleDeleteTaskListClick
 	                    });
 	                }.bind(this))
@@ -34727,6 +34738,7 @@
 	TaskListItems.propTypes = {
 	    taskLists: _react2.default.PropTypes.arrayOf(_react2.default.PropTypes.object).isRequired,
 	    projectId: _react2.default.PropTypes.number.isRequired,
+	    handleItemClick: _react2.default.PropTypes.func.isRequired,
 	    handleDeleteTaskListClick: _react2.default.PropTypes.func.isRequired
 	};
 
@@ -34776,7 +34788,9 @@
 
 	            return _react2.default.createElement(
 	                'li',
-	                { className: this.props.class },
+	                { onClick: function onClick() {
+	                        return _this2.props.handleItemClick(_this2.props.taskList.Id);
+	                    } },
 	                this.props.taskList.Name,
 	                _react2.default.createElement(
 	                    'span',
@@ -34801,7 +34815,7 @@
 
 	TaskListItem.propTypes = {
 	    taskList: _react2.default.PropTypes.object.isRequired,
-	    class: _react2.default.PropTypes.string,
+	    handleItemClick: _react2.default.PropTypes.func.isRequired,
 	    handleDeleteTaskListClick: _react2.default.PropTypes.func.isRequired
 	};
 
@@ -79530,7 +79544,7 @@
 	                    _react2.default.createElement(
 	                        'tbody',
 	                        null,
-	                        this.props.tasks.map(function (task, key) {
+	                        this.props.filteredTasks.map(function (task, key) {
 	                            return _react2.default.createElement(_taskTableRow2.default, {
 	                                key: key,
 	                                task: task
@@ -79548,6 +79562,7 @@
 	TaskTable.propTypes = {
 	    error: _react2.default.PropTypes.string.isRequired,
 	    tasks: _react2.default.PropTypes.arrayOf(_react2.default.PropTypes.object).isRequired,
+	    filteredTasks: _react2.default.PropTypes.arrayOf(_react2.default.PropTypes.object).isRequired,
 
 	    fetchTaskTable: _react2.default.PropTypes.func.isRequired
 	};
@@ -79555,7 +79570,8 @@
 	function mapStateToProps(state) {
 	    return {
 	        error: state.taskTable.error,
-	        tasks: state.taskTable.tasks
+	        tasks: state.taskTable.tasks,
+	        filteredTasks: state.taskTable.filteredTasks
 	    };
 	}
 
@@ -79588,7 +79604,8 @@
 	var initialState = {
 	    isLoading: false,
 	    error: '',
-	    tasks: []
+	    tasks: [],
+	    filteredTasks: []
 	};
 
 	function reducer() {
@@ -79612,7 +79629,21 @@
 	                state = _extends({}, state, {
 	                    isLoading: false,
 	                    error: '',
-	                    tasks: action.payload.Tasks
+	                    tasks: action.payload.Tasks,
+	                    filteredTasks: action.payload.Tasks
+	                });
+	                break;
+	            }
+
+	        // FILTER
+	        case 'FILTER_TASK_LIST_BY_TASKLIST':
+	            {
+	                state = _extends({}, state, {
+	                    isLoading: false,
+	                    error: '',
+	                    filteredTasks: state.tasks.filter(function (task) {
+	                        return task.TaskListId == action.payload;
+	                    })
 	                });
 	                break;
 	            }
@@ -79684,6 +79715,12 @@
 	        return {
 	            type: 'FETCH_TASK_TABLE',
 	            payload: (0, _api.get)('/tasks/tasktable')
+	        };
+	    },
+	    filterTaskTableByTaskList: function filterTaskTableByTaskList(taskListId) {
+	        return {
+	            type: 'FILTER_TASK_LIST_BY_TASKLIST',
+	            payload: taskListId
 	        };
 	    }
 	};

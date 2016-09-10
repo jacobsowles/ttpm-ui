@@ -8,7 +8,7 @@ class TaskListItem extends React.Component {
 
     render() {
         return (
-            <li className={this.props.class}>
+            <li onClick={() => this.props.handleItemClick(this.props.taskList.Id)}>
                 {this.props.taskList.Name}
                 <span className="item-actions">
                     <span
@@ -25,7 +25,7 @@ class TaskListItem extends React.Component {
 
 TaskListItem.propTypes = {
     taskList: React.PropTypes.object.isRequired,
-    class: React.PropTypes.string,
+    handleItemClick: React.PropTypes.func.isRequired,
     handleDeleteTaskListClick: React.PropTypes.func.isRequired
 };
 
