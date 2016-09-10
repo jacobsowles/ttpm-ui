@@ -33926,6 +33926,7 @@
 	                                content: _react2.default.createElement(_projectItem2.default, {
 	                                    projectName: project.Name,
 	                                    projectId: project.Id,
+	                                    handleItemClick: this.props.handleProjectClick.bind(this),
 	                                    handleDeleteProjectClick: this.props.handleDeleteProjectClick
 	                                })
 	                            },
@@ -33970,6 +33971,7 @@
 	    taskLists: _react2.default.PropTypes.arrayOf(_react2.default.PropTypes.object).isRequired,
 
 	    fetchProjectList: _react2.default.PropTypes.func.isRequired,
+	    handleProjectClick: _react2.default.PropTypes.func.isRequired,
 	    handleTaskListClick: _react2.default.PropTypes.func.isRequired,
 	    handleAddProjectClick: _react2.default.PropTypes.func.isRequired,
 	    handleDeleteProjectClick: _react2.default.PropTypes.func.isRequired,
@@ -33989,6 +33991,10 @@
 	    return {
 	        fetchProjectList: function fetchProjectList() {
 	            dispatch(_projectListActions2.default.fetchProjectList());
+	        },
+
+	        handleProjectClick: function handleProjectClick(projectId) {
+	            dispatch(_taskTableActions2.default.filterTaskTableByProject(this.props.taskLists, projectId));
 	        },
 
 	        handleTaskListClick: function handleTaskListClick(taskListId) {
@@ -34599,7 +34605,12 @@
 
 	            return _react2.default.createElement(
 	                'div',
-	                { className: 'project-item' },
+	                {
+	                    className: 'project-item',
+	                    onClick: function onClick() {
+	                        return _this2.props.handleItemClick(_this2.props.projectId);
+	                    }
+	                },
 	                this.props.projectName,
 	                _react2.default.createElement(
 	                    'span',
@@ -34625,6 +34636,7 @@
 	ProjectItem.propTypes = {
 	    projectName: _react2.default.PropTypes.string.isRequired,
 	    projectId: _react2.default.PropTypes.number.isRequired,
+	    handleItemClick: _react2.default.PropTypes.func.isRequired,
 	    handleDeleteProjectClick: _react2.default.PropTypes.func.isRequired
 	};
 
@@ -79636,7 +79648,29 @@
 	            }
 
 	        // FILTER
-	        case 'FILTER_TASK_LIST_BY_TASKLIST':
+	        case 'FILTER_TASK_TABLE_BY_PROJECT':
+	            {
+	                var _ret = function () {
+	                    var taskListIds = action.payload.taskLists.filter(function (taskList) {
+	                        return taskList.ProjectId == action.payload.projectId;
+	                    }).map(function (taskList) {
+	                        return taskList.Id;
+	                    });
+
+	                    state = _extends({}, state, {
+	                        isLoading: false,
+	                        error: '',
+	                        filteredTasks: state.tasks.filter(function (task) {
+	                            return taskListIds.includes(task.TaskListId);
+	                        })
+	                    });
+	                    return 'break';
+	                }();
+
+	                if (_ret === 'break') break;
+	            }
+
+	        case 'FILTER_TASK_TABLE_BY_TASK_LIST':
 	            {
 	                state = _extends({}, state, {
 	                    isLoading: false,
@@ -79717,9 +79751,18 @@
 	            payload: (0, _api.get)('/tasks/tasktable')
 	        };
 	    },
+	    filterTaskTableByProject: function filterTaskTableByProject(taskLists, projectId) {
+	        return {
+	            type: 'FILTER_TASK_TABLE_BY_PROJECT',
+	            payload: {
+	                taskLists: taskLists,
+	                projectId: projectId
+	            }
+	        };
+	    },
 	    filterTaskTableByTaskList: function filterTaskTableByTaskList(taskListId) {
 	        return {
-	            type: 'FILTER_TASK_LIST_BY_TASKLIST',
+	            type: 'FILTER_TASK_TABLE_BY_TASK_LIST',
 	            payload: taskListId
 	        };
 	    }

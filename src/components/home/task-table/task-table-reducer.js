@@ -30,7 +30,25 @@ export default function reducer(state = initialState, action) {
         }
 
         // FILTER
-        case 'FILTER_TASK_LIST_BY_TASKLIST': {
+        case 'FILTER_TASK_TABLE_BY_PROJECT': {
+            const taskListIds = action.payload.taskLists.filter(function(taskList) {
+                return taskList.ProjectId == action.payload.projectId;
+            }).map(function(taskList) {
+                return taskList.Id;
+            });
+
+            state = {
+                ...state,
+                isLoading: false,
+                error: '',
+                filteredTasks: state.tasks.filter(function(task) {
+                    return taskListIds.includes(task.TaskListId);
+                })
+            };
+            break;
+        }
+
+        case 'FILTER_TASK_TABLE_BY_TASK_LIST': {
             state = {
                 ...state,
                 isLoading: false,

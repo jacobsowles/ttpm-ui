@@ -59,6 +59,7 @@ class ProjectList extends React.Component {
                                         content: <ProjectItem
                                             projectName={project.Name}
                                             projectId={project.Id}
+                                            handleItemClick={this.props.handleProjectClick.bind(this)}
                                             handleDeleteProjectClick={this.props.handleDeleteProjectClick}
                                         />
                                     }}
@@ -103,6 +104,7 @@ ProjectList.propTypes = {
     taskLists: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
 
     fetchProjectList: React.PropTypes.func.isRequired,
+    handleProjectClick: React.PropTypes.func.isRequired,
     handleTaskListClick: React.PropTypes.func.isRequired,
     handleAddProjectClick: React.PropTypes.func.isRequired,
     handleDeleteProjectClick: React.PropTypes.func.isRequired,
@@ -122,6 +124,10 @@ function mapDispatchToProps(dispatch) {
     return {
         fetchProjectList: function() {
             dispatch(projectListActions.fetchProjectList());
+        },
+
+        handleProjectClick: function(projectId) {
+            dispatch(taskTableActions.filterTaskTableByProject(this.props.taskLists, projectId));
         },
 
         handleTaskListClick: function(taskListId) {

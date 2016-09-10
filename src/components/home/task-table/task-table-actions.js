@@ -8,9 +8,19 @@ module.exports = {
         };
     },
 
+    filterTaskTableByProject(taskLists, projectId) {
+        return {
+            type: 'FILTER_TASK_TABLE_BY_PROJECT',
+            payload: {
+                taskLists: taskLists,
+                projectId: projectId
+            }
+        };
+    },
+
     filterTaskTableByTaskList(taskListId) {
         return {
-            type: 'FILTER_TASK_LIST_BY_TASKLIST',
+            type: 'FILTER_TASK_TABLE_BY_TASK_LIST',
             payload: taskListId
         };
     }

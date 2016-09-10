@@ -8,7 +8,10 @@ class ProjectItem extends React.Component {
 
     render() {
         return (
-            <div className="project-item">
+            <div
+                className="project-item"
+                onClick={() => this.props.handleItemClick(this.props.projectId)}
+            >
                 {this.props.projectName}
                 <span className="item-actions">
                     <span
@@ -26,6 +29,7 @@ class ProjectItem extends React.Component {
 ProjectItem.propTypes = {
     projectName: React.PropTypes.string.isRequired,
     projectId: React.PropTypes.number.isRequired,
+    handleItemClick: React.PropTypes.func.isRequired,
     handleDeleteProjectClick: React.PropTypes.func.isRequired
 };
 
