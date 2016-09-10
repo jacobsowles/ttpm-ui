@@ -4,11 +4,12 @@ import React from 'react';
 // components
 import BottomDrawer from './bottom-drawer/bottom-drawer.jsx';
 import ContentPane from './content-pane/content-pane.jsx';
+import ContentPaneModuleCollection from './content-pane/content-pane-module-collection/content-pane-module-collection.jsx';
 import Header from './header/header.jsx';
 import Logo from './logo/logo.jsx';
+import Module from './module/module.jsx';
 import ProjectList from './project-list/project-list.jsx';
 import Sidebar from './sidebar/sidebar.jsx';
-import SidebarModule from './sidebar/sidebar-module/sidebar-module.jsx';
 import StatusBox from './status-box/status-box.jsx';
 
 // styles
@@ -20,17 +21,21 @@ class Home extends React.Component {
         return (
             <div className="row">
                 <Sidebar>
-                    <SidebarModule>
+                    <Module type="sidebar">
                         <Logo />
-                    </SidebarModule>
+                    </Module>
 
-                    <SidebarModule title="Projects">
+                    <Module
+                        type="sidebar"
+                        title="Projects"
+                    >
                         <ProjectList />
-                    </SidebarModule>
+                    </Module>
                 </Sidebar>
 
                 <ContentPane>
                     <Header />
+                    <ContentPaneModuleCollection />
                     <BottomDrawer />
                 </ContentPane>
             </div>

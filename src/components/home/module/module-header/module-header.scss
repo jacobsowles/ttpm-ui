@@ -1,9 +1,6 @@
-$vertical-padding: 10px;
-$horizontal-padding: 15px;
-
 .sidebar-module-header {
     background: #5e804d;
-    padding: $vertical-padding $horizontal-padding;
+    padding: 10px 15px;
     color: #ffffff;
     letter-spacing: 1px;
 
@@ -26,5 +23,19 @@ $horizontal-padding: 15px;
 
     .controls {
         float: right;
+    }
+}
+
+.content-pane-module-header {
+    padding: 10px 15px;
+    background: #636066;
+    color: #dbdbdb;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    h2 {
+        display: inline;
+        margin: 0;
+        font-size: .9em;
     }
 }

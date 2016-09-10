@@ -29070,16 +29070,19 @@
 
 	var _registrationFormReducer2 = _interopRequireDefault(_registrationFormReducer);
 
+	var _taskTableReducer = __webpack_require__(533);
+
+	var _taskTableReducer2 = _interopRequireDefault(_taskTableReducer);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	// npm modules
+	// reducers
 	exports.default = (0, _redux.combineReducers)({
 	    loginForm: _loginFormReducer2.default,
 	    projectList: _projectListReducer2.default,
-	    registrationForm: _registrationFormReducer2.default
-	});
-
-	// reducers
+	    registrationForm: _registrationFormReducer2.default,
+	    taskTable: _taskTableReducer2.default
+	}); // npm modules
 
 /***/ },
 /* 262 */
@@ -29365,6 +29368,10 @@
 
 	var _contentPane2 = _interopRequireDefault(_contentPane);
 
+	var _contentPaneModuleCollection = __webpack_require__(526);
+
+	var _contentPaneModuleCollection2 = _interopRequireDefault(_contentPaneModuleCollection);
+
 	var _header = __webpack_require__(272);
 
 	var _header2 = _interopRequireDefault(_header);
@@ -29373,6 +29380,10 @@
 
 	var _logo2 = _interopRequireDefault(_logo);
 
+	var _module = __webpack_require__(517);
+
+	var _module2 = _interopRequireDefault(_module);
+
 	var _projectList = __webpack_require__(304);
 
 	var _projectList2 = _interopRequireDefault(_projectList);
@@ -29380,10 +29391,6 @@
 	var _sidebar = __webpack_require__(336);
 
 	var _sidebar2 = _interopRequireDefault(_sidebar);
-
-	var _sidebarModule = __webpack_require__(339);
-
-	var _sidebarModule2 = _interopRequireDefault(_sidebarModule);
 
 	var _statusBox = __webpack_require__(348);
 
@@ -29423,13 +29430,16 @@
 	                    _sidebar2.default,
 	                    null,
 	                    _react2.default.createElement(
-	                        _sidebarModule2.default,
-	                        null,
+	                        _module2.default,
+	                        { type: 'sidebar' },
 	                        _react2.default.createElement(_logo2.default, null)
 	                    ),
 	                    _react2.default.createElement(
-	                        _sidebarModule2.default,
-	                        { title: 'Projects' },
+	                        _module2.default,
+	                        {
+	                            type: 'sidebar',
+	                            title: 'Projects'
+	                        },
 	                        _react2.default.createElement(_projectList2.default, null)
 	                    )
 	                ),
@@ -29437,6 +29447,7 @@
 	                    _contentPane2.default,
 	                    null,
 	                    _react2.default.createElement(_header2.default, null),
+	                    _react2.default.createElement(_contentPaneModuleCollection2.default, null),
 	                    _react2.default.createElement(_bottomDrawer2.default, null)
 	                )
 	            );
@@ -33952,7 +33963,6 @@
 	    error: _react2.default.PropTypes.string.isRequired,
 	    projects: _react2.default.PropTypes.arrayOf(_react2.default.PropTypes.object).isRequired,
 	    taskLists: _react2.default.PropTypes.arrayOf(_react2.default.PropTypes.object).isRequired,
-	    tasks: _react2.default.PropTypes.arrayOf(_react2.default.PropTypes.object).isRequired,
 
 	    fetchProjectList: _react2.default.PropTypes.func.isRequired,
 	    handleAddProjectClick: _react2.default.PropTypes.func.isRequired,
@@ -33965,8 +33975,7 @@
 	    return {
 	        error: state.projectList.error,
 	        projects: state.projectList.projects,
-	        taskLists: state.projectList.taskLists,
-	        tasks: state.projectList.tasks
+	        taskLists: state.projectList.taskLists
 	    };
 	}
 
@@ -36683,315 +36692,15 @@
 
 
 /***/ },
-/* 339 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _React = __webpack_require__(273);
-
-	var _React2 = _interopRequireDefault(_React);
-
-	var _sidebarModuleBody = __webpack_require__(340);
-
-	var _sidebarModuleBody2 = _interopRequireDefault(_sidebarModuleBody);
-
-	var _sidebarModuleHeader = __webpack_require__(343);
-
-	var _sidebarModuleHeader2 = _interopRequireDefault(_sidebarModuleHeader);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
-
-
-	// components
-
-
-	// styles
-	__webpack_require__(346);
-
-	var SidebarModule = function (_React$Component) {
-	    _inherits(SidebarModule, _React$Component);
-
-	    function SidebarModule() {
-	        _classCallCheck(this, SidebarModule);
-
-	        return _possibleConstructorReturn(this, (SidebarModule.__proto__ || Object.getPrototypeOf(SidebarModule)).apply(this, arguments));
-	    }
-
-	    _createClass(SidebarModule, [{
-	        key: 'render',
-	        value: function render() {
-	            var sidebarModuleHeader = this.props.title ? _React2.default.createElement(_sidebarModuleHeader2.default, { title: this.props.title }) : '';
-
-	            return _React2.default.createElement(
-	                'div',
-	                { className: 'sidebar-module' },
-	                sidebarModuleHeader,
-	                _React2.default.createElement(
-	                    _sidebarModuleBody2.default,
-	                    null,
-	                    this.props.children
-	                )
-	            );
-	        }
-	    }]);
-
-	    return SidebarModule;
-	}(_React2.default.Component);
-
-	SidebarModule.propTypes = {
-	    title: _React2.default.PropTypes.string
-	};
-
-	exports.default = SidebarModule;
-
-/***/ },
-/* 340 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _React = __webpack_require__(273);
-
-	var _React2 = _interopRequireDefault(_React);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
-
-
-	// styles
-	__webpack_require__(341);
-
-	var SidebarModuleBody = function (_React$Component) {
-	    _inherits(SidebarModuleBody, _React$Component);
-
-	    function SidebarModuleBody() {
-	        _classCallCheck(this, SidebarModuleBody);
-
-	        return _possibleConstructorReturn(this, (SidebarModuleBody.__proto__ || Object.getPrototypeOf(SidebarModuleBody)).apply(this, arguments));
-	    }
-
-	    _createClass(SidebarModuleBody, [{
-	        key: 'render',
-	        value: function render() {
-	            return _React2.default.createElement(
-	                'div',
-	                { className: 'sidebar-module-body' },
-	                this.props.children
-	            );
-	        }
-	    }]);
-
-	    return SidebarModuleBody;
-	}(_React2.default.Component);
-
-	exports.default = SidebarModuleBody;
-
-/***/ },
-/* 341 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(342);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(271)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../../../../node_modules/css-loader/index.js!./../../../../../../node_modules/sass-loader/index.js!./sidebar-module-body.scss", function() {
-				var newContent = require("!!./../../../../../../node_modules/css-loader/index.js!./../../../../../../node_modules/sass-loader/index.js!./sidebar-module-body.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 342 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(270)();
-	// imports
-
-
-	// module
-	exports.push([module.id, "", ""]);
-
-	// exports
-
-
-/***/ },
-/* 343 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _React = __webpack_require__(273);
-
-	var _React2 = _interopRequireDefault(_React);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
-
-
-	// styles
-	__webpack_require__(344);
-
-	var SidebarModuleHeader = function (_React$Component) {
-	    _inherits(SidebarModuleHeader, _React$Component);
-
-	    function SidebarModuleHeader() {
-	        _classCallCheck(this, SidebarModuleHeader);
-
-	        return _possibleConstructorReturn(this, (SidebarModuleHeader.__proto__ || Object.getPrototypeOf(SidebarModuleHeader)).apply(this, arguments));
-	    }
-
-	    _createClass(SidebarModuleHeader, [{
-	        key: 'render',
-	        value: function render() {
-	            return _React2.default.createElement(
-	                'div',
-	                { className: 'sidebar-module-header' },
-	                _React2.default.createElement(
-	                    'h2',
-	                    null,
-	                    this.props.title
-	                )
-	            );
-	        }
-	    }]);
-
-	    return SidebarModuleHeader;
-	}(_React2.default.Component);
-
-	SidebarModuleHeader.propTypes = {
-	    title: _React2.default.PropTypes.string.isRequired
-	};
-
-	exports.default = SidebarModuleHeader;
-
-/***/ },
-/* 344 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(345);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(271)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../../../../node_modules/css-loader/index.js!./../../../../../../node_modules/sass-loader/index.js!./sidebar-module-header.scss", function() {
-				var newContent = require("!!./../../../../../../node_modules/css-loader/index.js!./../../../../../../node_modules/sass-loader/index.js!./sidebar-module-header.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 345 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(270)();
-	// imports
-
-
-	// module
-	exports.push([module.id, ".sidebar-module-header {\n  background: #5e804d;\n  padding: 10px 15px;\n  color: #ffffff;\n  letter-spacing: 1px; }\n  .sidebar-module-header h2 {\n    display: inline;\n    font-size: .9em;\n    text-transform: uppercase; }\n  .sidebar-module-header a {\n    color: #ffffff;\n    text-decoration: none;\n    padding: 2px 6px; }\n    .sidebar-module-header a :hover {\n      background-color: #476039;\n      text-decoration: none; }\n  .sidebar-module-header .controls {\n    float: right; }\n", ""]);
-
-	// exports
-
-
-/***/ },
-/* 346 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(347);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(271)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./sidebar-module.scss", function() {
-				var newContent = require("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./sidebar-module.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 347 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(270)();
-	// imports
-
-
-	// module
-	exports.push([module.id, "", ""]);
-
-	// exports
-
-
-/***/ },
+/* 339 */,
+/* 340 */,
+/* 341 */,
+/* 342 */,
+/* 343 */,
+/* 344 */,
+/* 345 */,
+/* 346 */,
+/* 347 */,
 /* 348 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -79288,6 +78997,901 @@
 
 	// module
 	exports.push([module.id, "#content-pane {\n  width: calc(100% - 250px);\n  float: left;\n  height: 100vh; }\n  #content-pane:after {\n    display: block;\n    content: \"\"; }\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 517 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _React = __webpack_require__(273);
+
+	var _React2 = _interopRequireDefault(_React);
+
+	var _moduleBody = __webpack_require__(518);
+
+	var _moduleBody2 = _interopRequireDefault(_moduleBody);
+
+	var _moduleHeader = __webpack_require__(521);
+
+	var _moduleHeader2 = _interopRequireDefault(_moduleHeader);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
+
+
+	// components
+
+
+	// styles
+	__webpack_require__(524);
+
+	var Module = function (_React$Component) {
+	    _inherits(Module, _React$Component);
+
+	    function Module() {
+	        _classCallCheck(this, Module);
+
+	        return _possibleConstructorReturn(this, (Module.__proto__ || Object.getPrototypeOf(Module)).apply(this, arguments));
+	    }
+
+	    _createClass(Module, [{
+	        key: 'render',
+	        value: function render() {
+	            return _React2.default.createElement(
+	                'div',
+	                { className: 'module ' + this.props.type + '-module' },
+	                this.props.title ? _React2.default.createElement(_moduleHeader2.default, {
+	                    type: this.props.type,
+	                    title: this.props.title
+	                }) : '',
+	                _React2.default.createElement(
+	                    _moduleBody2.default,
+	                    { type: this.props.type },
+	                    this.props.children
+	                )
+	            );
+	        }
+	    }]);
+
+	    return Module;
+	}(_React2.default.Component);
+
+	Module.propTypes = {
+	    type: _React2.default.PropTypes.string.isRequired,
+	    title: _React2.default.PropTypes.string
+	};
+
+	exports.default = Module;
+
+/***/ },
+/* 518 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _React = __webpack_require__(273);
+
+	var _React2 = _interopRequireDefault(_React);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
+
+
+	// styles
+	__webpack_require__(519);
+
+	var ModuleBody = function (_React$Component) {
+	    _inherits(ModuleBody, _React$Component);
+
+	    function ModuleBody() {
+	        _classCallCheck(this, ModuleBody);
+
+	        return _possibleConstructorReturn(this, (ModuleBody.__proto__ || Object.getPrototypeOf(ModuleBody)).apply(this, arguments));
+	    }
+
+	    _createClass(ModuleBody, [{
+	        key: 'render',
+	        value: function render() {
+	            return _React2.default.createElement(
+	                'div',
+	                { className: 'module-body ' + this.props.type + '-module-body' },
+	                this.props.children
+	            );
+	        }
+	    }]);
+
+	    return ModuleBody;
+	}(_React2.default.Component);
+
+	ModuleBody.propTypes = {
+	    type: _React2.default.PropTypes.string.isRequired
+	};
+
+	exports.default = ModuleBody;
+
+/***/ },
+/* 519 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(520);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(271)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./module-body.scss", function() {
+				var newContent = require("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./module-body.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 520 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(270)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".content-pane-module-body {\n  padding: 15px; }\n  .content-pane-module-body p {\n    margin-bottom: 0; }\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 521 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _React = __webpack_require__(273);
+
+	var _React2 = _interopRequireDefault(_React);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
+
+
+	// styles
+	__webpack_require__(522);
+
+	var ModuleHeader = function (_React$Component) {
+	    _inherits(ModuleHeader, _React$Component);
+
+	    function ModuleHeader() {
+	        _classCallCheck(this, ModuleHeader);
+
+	        return _possibleConstructorReturn(this, (ModuleHeader.__proto__ || Object.getPrototypeOf(ModuleHeader)).apply(this, arguments));
+	    }
+
+	    _createClass(ModuleHeader, [{
+	        key: 'render',
+	        value: function render() {
+	            return _React2.default.createElement(
+	                'div',
+	                { className: 'module-header ' + this.props.type + '-module-header' },
+	                _React2.default.createElement(
+	                    'h2',
+	                    null,
+	                    this.props.title
+	                )
+	            );
+	        }
+	    }]);
+
+	    return ModuleHeader;
+	}(_React2.default.Component);
+
+	ModuleHeader.propTypes = {
+	    type: _React2.default.PropTypes.string.isRequired,
+	    title: _React2.default.PropTypes.string.isRequired
+	};
+
+	exports.default = ModuleHeader;
+
+/***/ },
+/* 522 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(523);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(271)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./module-header.scss", function() {
+				var newContent = require("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./module-header.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 523 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(270)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".sidebar-module-header {\n  background: #5e804d;\n  padding: 10px 15px;\n  color: #ffffff;\n  letter-spacing: 1px; }\n  .sidebar-module-header h2 {\n    display: inline;\n    font-size: .9em;\n    text-transform: uppercase; }\n  .sidebar-module-header a {\n    color: #ffffff;\n    text-decoration: none;\n    padding: 2px 6px; }\n    .sidebar-module-header a :hover {\n      background-color: #476039;\n      text-decoration: none; }\n  .sidebar-module-header .controls {\n    float: right; }\n\n.content-pane-module-header {\n  padding: 10px 15px;\n  background: #636066;\n  color: #dbdbdb;\n  text-transform: uppercase;\n  letter-spacing: 1px; }\n  .content-pane-module-header h2 {\n    display: inline;\n    margin: 0;\n    font-size: .9em; }\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 524 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(525);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(271)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./module.scss", function() {
+				var newContent = require("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./module.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 525 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(270)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".content-pane-module {\n  background: #ffffff;\n  margin-top: 15px;\n  padding-left: 0;\n  padding-right: 0; }\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 526 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _React = __webpack_require__(273);
+
+	var _React2 = _interopRequireDefault(_React);
+
+	var _module = __webpack_require__(517);
+
+	var _module2 = _interopRequireDefault(_module);
+
+	var _taskTable = __webpack_require__(529);
+
+	var _taskTable2 = _interopRequireDefault(_taskTable);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
+
+
+	// components
+
+
+	// styles
+	__webpack_require__(527);
+
+	var ContentPaneModuleCollection = function (_React$Component) {
+	    _inherits(ContentPaneModuleCollection, _React$Component);
+
+	    function ContentPaneModuleCollection() {
+	        _classCallCheck(this, ContentPaneModuleCollection);
+
+	        return _possibleConstructorReturn(this, (ContentPaneModuleCollection.__proto__ || Object.getPrototypeOf(ContentPaneModuleCollection)).apply(this, arguments));
+	    }
+
+	    _createClass(ContentPaneModuleCollection, [{
+	        key: 'render',
+	        value: function render() {
+	            var moduleType = 'content-pane';
+
+	            return _React2.default.createElement(
+	                'div',
+	                { className: 'row' },
+	                _React2.default.createElement(
+	                    'div',
+	                    { className: 'col-xs-12' },
+	                    _React2.default.createElement(
+	                        _module2.default,
+	                        { type: moduleType },
+	                        _React2.default.createElement(_taskTable2.default, null)
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return ContentPaneModuleCollection;
+	}(_React2.default.Component);
+
+	exports.default = ContentPaneModuleCollection;
+
+/***/ },
+/* 527 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(528);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(271)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./content-pane-module-collection.scss", function() {
+				var newContent = require("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./content-pane-module-collection.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 528 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(270)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "", ""]);
+
+	// exports
+
+
+/***/ },
+/* 529 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRedux = __webpack_require__(172);
+
+	var _redux = __webpack_require__(179);
+
+	var _loadingGraphic = __webpack_require__(314);
+
+	var _loadingGraphic2 = _interopRequireDefault(_loadingGraphic);
+
+	var _taskTableHeaderRow = __webpack_require__(537);
+
+	var _taskTableHeaderRow2 = _interopRequireDefault(_taskTableHeaderRow);
+
+	var _taskTableRow = __webpack_require__(540);
+
+	var _taskTableRow2 = _interopRequireDefault(_taskTableRow);
+
+	var _taskTableActions = __webpack_require__(536);
+
+	var _taskTableActions2 = _interopRequireDefault(_taskTableActions);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
+
+
+	// components
+
+
+	// actions
+
+
+	// styles
+	__webpack_require__(534);
+
+	var TaskTable = function (_React$Component) {
+	    _inherits(TaskTable, _React$Component);
+
+	    function TaskTable(props) {
+	        _classCallCheck(this, TaskTable);
+
+	        var _this = _possibleConstructorReturn(this, (TaskTable.__proto__ || Object.getPrototypeOf(TaskTable)).call(this, props));
+
+	        _this.state = {
+	            showLoadingGraphic: true
+	        };
+	        return _this;
+	    }
+
+	    _createClass(TaskTable, [{
+	        key: 'componentWillMount',
+	        value: function componentWillMount() {
+	            this.props.fetchTaskTable();
+	        }
+	    }, {
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            this.state = {
+	                showLoadingGraphic: false
+	            };
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { id: 'task-table', className: 'table-responsive' },
+	                this.props.error,
+	                _react2.default.createElement(_loadingGraphic2.default, { showLoadingGraphic: this.state.showLoadingGraphic }),
+	                _react2.default.createElement(
+	                    'table',
+	                    { className: 'table table-striped' },
+	                    _react2.default.createElement(
+	                        'thead',
+	                        null,
+	                        _react2.default.createElement(_taskTableHeaderRow2.default, null)
+	                    ),
+	                    _react2.default.createElement(
+	                        'tbody',
+	                        null,
+	                        this.props.tasks.map(function (task, key) {
+	                            return _react2.default.createElement(_taskTableRow2.default, {
+	                                key: key,
+	                                task: task
+	                            });
+	                        })
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return TaskTable;
+	}(_react2.default.Component);
+
+	TaskTable.propTypes = {
+	    error: _react2.default.PropTypes.string.isRequired,
+	    tasks: _react2.default.PropTypes.arrayOf(_react2.default.PropTypes.object).isRequired,
+
+	    fetchTaskTable: _react2.default.PropTypes.func.isRequired
+	};
+
+	function mapStateToProps(state) {
+	    return {
+	        error: state.taskTable.error,
+	        tasks: state.taskTable.tasks
+	    };
+	}
+
+	function mapDispatchToProps(dispatch) {
+	    return {
+	        fetchTaskTable: function fetchTaskTable() {
+	            dispatch(_taskTableActions2.default.fetchTaskTable());
+	        }
+	    };
+	}
+
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(TaskTable);
+
+/***/ },
+/* 530 */,
+/* 531 */,
+/* 532 */,
+/* 533 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	exports.default = reducer;
+	var initialState = {
+	    isLoading: false,
+	    error: '',
+	    tasks: []
+	};
+
+	function reducer() {
+	    var state = arguments.length <= 0 || arguments[0] === undefined ? initialState : arguments[0];
+	    var action = arguments[1];
+
+	    switch (action.type) {
+	        // PENDING
+	        case 'FETCH_TASK_TABLE_PENDING':
+	            {
+	                state = _extends({}, state, {
+	                    isLoading: true,
+	                    error: ''
+	                });
+	                break;
+	            }
+
+	        // FULFILLED
+	        case 'FETCH_TASK_TABLE_FULFILLED':
+	            {
+	                state = _extends({}, state, {
+	                    isLoading: false,
+	                    error: '',
+	                    tasks: action.payload.Tasks
+	                });
+	                break;
+	            }
+
+	        // REJECTED
+	        case 'FETCH_TASK_TABLE_REJECTED':
+	            {
+	                state = _extends({}, state, {
+	                    isLoading: false,
+	                    error: 'Failed to get tasks.'
+	                });
+	                break;
+	            }
+	    }
+
+	    return state;
+	}
+
+/***/ },
+/* 534 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(535);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(271)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./task-table.scss", function() {
+				var newContent = require("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./task-table.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 535 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(270)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "", ""]);
+
+	// exports
+
+
+/***/ },
+/* 536 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _api = __webpack_require__(327);
+
+	module.exports = {
+	    fetchTaskTable: function fetchTaskTable() {
+	        return {
+	            type: 'FETCH_TASK_TABLE',
+	            payload: (0, _api.get)('/tasks/tasktable')
+	        };
+	    }
+	};
+
+/***/ },
+/* 537 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
+
+
+	// styles
+	__webpack_require__(538);
+
+	var TaskTableHeaderRow = function (_React$Component) {
+	    _inherits(TaskTableHeaderRow, _React$Component);
+
+	    function TaskTableHeaderRow() {
+	        _classCallCheck(this, TaskTableHeaderRow);
+
+	        return _possibleConstructorReturn(this, (TaskTableHeaderRow.__proto__ || Object.getPrototypeOf(TaskTableHeaderRow)).apply(this, arguments));
+	    }
+
+	    _createClass(TaskTableHeaderRow, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'tr',
+	                null,
+	                _react2.default.createElement(
+	                    'th',
+	                    null,
+	                    'Name'
+	                ),
+	                _react2.default.createElement(
+	                    'th',
+	                    null,
+	                    'Notes'
+	                )
+	            );
+	        }
+	    }]);
+
+	    return TaskTableHeaderRow;
+	}(_react2.default.Component);
+
+	exports.default = TaskTableHeaderRow;
+
+/***/ },
+/* 538 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(539);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(271)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./task-table-header-row.scss", function() {
+				var newContent = require("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./task-table-header-row.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 539 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(270)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "", ""]);
+
+	// exports
+
+
+/***/ },
+/* 540 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
+
+
+	// styles
+	__webpack_require__(541);
+
+	var TaskTableRow = function (_React$Component) {
+	    _inherits(TaskTableRow, _React$Component);
+
+	    function TaskTableRow() {
+	        _classCallCheck(this, TaskTableRow);
+
+	        return _possibleConstructorReturn(this, (TaskTableRow.__proto__ || Object.getPrototypeOf(TaskTableRow)).apply(this, arguments));
+	    }
+
+	    _createClass(TaskTableRow, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'tr',
+	                null,
+	                _react2.default.createElement(
+	                    'td',
+	                    null,
+	                    this.props.task.Name
+	                ),
+	                _react2.default.createElement(
+	                    'td',
+	                    null,
+	                    this.props.task.Notes
+	                )
+	            );
+	        }
+	    }]);
+
+	    return TaskTableRow;
+	}(_react2.default.Component);
+
+	TaskTableRow.propTypes = {
+	    task: _react2.default.PropTypes.object.isRequired
+	};
+
+	exports.default = TaskTableRow;
+
+/***/ },
+/* 541 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(542);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(271)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./task-table-row.scss", function() {
+				var newContent = require("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./task-table-row.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 542 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(270)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "", ""]);
 
 	// exports
 
