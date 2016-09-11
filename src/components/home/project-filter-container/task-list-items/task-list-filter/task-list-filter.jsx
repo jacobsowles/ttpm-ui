@@ -13,7 +13,7 @@ class TaskListFilter extends React.Component {
                 onClick={() => this.props.handleItemClick(this.props.taskList.Id)}
             >
                 {this.props.taskList.Name}
-                <span className="item-actions">
+                <span className="task-list-filter-actions">
                     <span
                         className="delete-task-list"
                         onClick={() => this.props.handleDeleteTaskListClick(this.props.taskList.Id)}

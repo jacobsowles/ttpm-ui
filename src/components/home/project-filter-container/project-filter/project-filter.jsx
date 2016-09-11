@@ -13,7 +13,7 @@ class ProjectFilter extends React.Component {
                 onClick={() => this.props.handleItemClick(this.props.projectId)}
             >
                 {this.props.projectName}
-                <span className="item-actions">
+                <span className="project-filter-actions">
                     <span
                         className="delete-project"
                         onClick={(event) => this.props.handleDeleteProjectClick(this.props.projectId, event)}

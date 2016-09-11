@@ -79808,7 +79808,7 @@
 
 
 	// module
-	exports.push([module.id, ".project-filter-container ul {\n  list-style-type: none;\n  padding-left: 0;\n  margin-bottom: 0; }\n\n.project-filter-container a:hover {\n  text-decoration: none; }\n\n.project-filter-container .project-filter {\n  padding: 10px 15px;\n  display: block;\n  font-size: .9em;\n  margin: 0;\n  color: #DBDBDB;\n  font-weight: bold; }\n  .project-filter-container .project-filter:hover {\n    background: #312F33;\n    text-decoration: none;\n    cursor: pointer; }\n  .project-filter-container .project-filter .active {\n    background: #312F33; }\n\n.project-filter-container .item-actions {\n  float: right;\n  color: #888888; }\n  .project-filter-container .item-actions span {\n    padding: 2px 6px; }\n    .project-filter-container .item-actions span:hover {\n      background: #888888;\n      color: #DBDBDB; }\n", ""]);
+	exports.push([module.id, ".project-filter-container ul {\n  list-style-type: none;\n  padding-left: 0;\n  margin-bottom: 0; }\n\n.project-filter-container a:hover {\n  text-decoration: none; }\n\n.project-filter-container .project-filter {\n  padding: 10px 15px;\n  display: block;\n  font-size: .9em;\n  margin: 0;\n  color: #DBDBDB;\n  font-weight: bold; }\n  .project-filter-container .project-filter:hover {\n    background: #312F33;\n    text-decoration: none;\n    cursor: pointer; }\n  .project-filter-container .project-filter .active {\n    background: #312F33; }\n\n.project-filter-container .project-filter-actions,\n.project-filter-container .task-list-filter-actions {\n  float: right;\n  color: #888888; }\n  .project-filter-container .project-filter-actions span,\n  .project-filter-container .task-list-filter-actions span {\n    padding: 2px 6px; }\n    .project-filter-container .project-filter-actions span:hover,\n    .project-filter-container .task-list-filter-actions span:hover {\n      background: #888888;\n      color: #DBDBDB; }\n", ""]);
 
 	// exports
 
@@ -80055,7 +80055,7 @@
 	                this.props.projectName,
 	                _react2.default.createElement(
 	                    'span',
-	                    { className: 'item-actions' },
+	                    { className: 'project-filter-actions' },
 	                    _react2.default.createElement(
 	                        'span',
 	                        {
@@ -80176,7 +80176,7 @@
 	                this.props.taskList.Name,
 	                _react2.default.createElement(
 	                    'span',
-	                    { className: 'item-actions' },
+	                    { className: 'task-list-filter-actions' },
 	                    _react2.default.createElement(
 	                        'span',
 	                        {
