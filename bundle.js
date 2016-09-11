@@ -60310,9 +60310,9 @@
 
 	var _React2 = _interopRequireDefault(_React);
 
-	var _textFilter = __webpack_require__(485);
+	var _taskSearch = __webpack_require__(591);
 
-	var _textFilter2 = _interopRequireDefault(_textFilter);
+	var _taskSearch2 = _interopRequireDefault(_taskSearch);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -60344,7 +60344,7 @@
 	            return _React2.default.createElement(
 	                'div',
 	                { id: 'header' },
-	                _React2.default.createElement(_textFilter2.default, null)
+	                _React2.default.createElement(_taskSearch2.default, null)
 	            );
 	        }
 	    }]);
@@ -60355,59 +60355,7 @@
 	exports.default = Header;
 
 /***/ },
-/* 485 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _React = __webpack_require__(270);
-
-	var _React2 = _interopRequireDefault(_React);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
-
-
-	// styles
-	var styles = {};
-
-	var TextFilter = function (_React$Component) {
-	    _inherits(TextFilter, _React$Component);
-
-	    function TextFilter() {
-	        _classCallCheck(this, TextFilter);
-
-	        return _possibleConstructorReturn(this, (TextFilter.__proto__ || Object.getPrototypeOf(TextFilter)).apply(this, arguments));
-	    }
-
-	    _createClass(TextFilter, [{
-	        key: "render",
-	        value: function render() {
-	            return _React2.default.createElement(
-	                "div",
-	                { className: "text-filter form-inline", style: styles },
-	                _React2.default.createElement("input", { type: "text", className: "form-control", placeholder: "Filter" })
-	            );
-	        }
-	    }]);
-
-	    return TextFilter;
-	}(_React2.default.Component);
-
-	exports.default = TextFilter;
-
-/***/ },
+/* 485 */,
 /* 486 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -60442,7 +60390,7 @@
 
 
 	// module
-	exports.push([module.id, "#header {\n  background: #ffffff;\n  border-bottom: 1px solid #e0e0e0;\n  padding: 10px 15px;\n  border-radius: 0;\n  float: left;\n  width: 100%;\n  margin-bottom: 15px; }\n  #header .text-filter input {\n    width: 100%; }\n    #header .text-filter input:focus {\n      outline: none;\n      border-color: inherit;\n      -webkit-box-shadow: none;\n      box-shadow: none; }\n", ""]);
+	exports.push([module.id, "#header {\n  background: #ffffff;\n  border-bottom: 1px solid #e0e0e0;\n  padding: 10px 15px;\n  border-radius: 0;\n  float: left;\n  width: 100%;\n  margin-bottom: 15px; }\n", ""]);
 
 	// exports
 
@@ -80151,6 +80099,99 @@
 
 	// module
 	exports.push([module.id, "", ""]);
+
+	// exports
+
+
+/***/ },
+/* 591 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _React = __webpack_require__(270);
+
+	var _React2 = _interopRequireDefault(_React);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
+
+
+	// styles
+	__webpack_require__(592);
+
+	var TaskSearch = function (_React$Component) {
+	    _inherits(TaskSearch, _React$Component);
+
+	    function TaskSearch() {
+	        _classCallCheck(this, TaskSearch);
+
+	        return _possibleConstructorReturn(this, (TaskSearch.__proto__ || Object.getPrototypeOf(TaskSearch)).apply(this, arguments));
+	    }
+
+	    _createClass(TaskSearch, [{
+	        key: 'render',
+	        value: function render() {
+	            return _React2.default.createElement(
+	                'div',
+	                { id: 'task-search', className: 'form-inline' },
+	                _React2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: 'Search' })
+	            );
+	        }
+	    }]);
+
+	    return TaskSearch;
+	}(_React2.default.Component);
+
+	exports.default = TaskSearch;
+
+/***/ },
+/* 592 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(593);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(299)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/sass-loader/index.js!./task-search.scss", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/sass-loader/index.js!./task-search.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 593 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(298)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "#task-search input {\n  width: 100%; }\n  #task-search input:focus {\n    outline: none;\n    border-color: inherit;\n    -webkit-box-shadow: none;\n    box-shadow: none; }\n", ""]);
 
 	// exports
 
