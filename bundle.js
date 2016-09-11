@@ -34042,9 +34042,9 @@
 	    }
 
 	    _createClass(TaskCompletion, [{
-	        key: 'componentRecieveProps',
-	        value: function componentRecieveProps(nextProps) {
-	            this.state.completionPercentage = nextProps.totalTaskCount > 0 ? nextProps.completedTaskCount / nextProps.totalTaskCount : 0;
+	        key: 'componentWillUpdate',
+	        value: function componentWillUpdate(nextProps, nextState) {
+	            this.state.completionPercentage = nextProps.totalTaskCount > 0 ? nextProps.completedTaskCount / nextProps.totalTaskCount * 100 : 0;
 	        }
 	    }, {
 	        key: 'componentDidMount',

@@ -15,10 +15,10 @@ class TaskCompletion extends React.Component {
         };
     }
 
-    componentRecieveProps(nextProps) {
+    componentWillUpdate(nextProps, nextState) {
         this.state.completionPercentage = (
             nextProps.totalTaskCount > 0
-            ? nextProps.completedTaskCount / nextProps.totalTaskCount
+            ? (nextProps.completedTaskCount / nextProps.totalTaskCount) * 100
             : 0
         );
     }
