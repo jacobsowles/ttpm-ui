@@ -2,7 +2,7 @@
 import React from 'react';
 
 // components
-import TaskListItem from './task-list-item/task-list-item.jsx';
+import TaskListFilter from './task-list-filter/task-list-filter.jsx';
 
 // styles
 require('./task-list-items.scss');
@@ -15,7 +15,7 @@ class TaskListItems extends React.Component {
                 {
                     this.props.taskLists.map(function(taskList, key) {
                         return (
-                            <TaskListItem
+                            <TaskListFilter
                                 key={key}
                                 taskList={taskList}
                                 handleItemClick={this.props.handleItemClick}

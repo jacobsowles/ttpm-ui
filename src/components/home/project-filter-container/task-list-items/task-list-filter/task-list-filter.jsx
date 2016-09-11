@@ -2,13 +2,16 @@
 import React from 'react';
 
 // styles
-require('./task-list-item.scss');
+require('./task-list-filter.scss');
 
-class TaskListItem extends React.Component {
+class TaskListFilter extends React.Component {
 
     render() {
         return (
-            <li onClick={() => this.props.handleItemClick(this.props.taskList.Id)}>
+            <li
+                className="task-list-filter"
+                onClick={() => this.props.handleItemClick(this.props.taskList.Id)}
+            >
                 {this.props.taskList.Name}
                 <span className="item-actions">
                     <span
@@ -23,10 +26,10 @@ class TaskListItem extends React.Component {
     }
 }
 
-TaskListItem.propTypes = {
+TaskListFilter.propTypes = {
     taskList: React.PropTypes.object.isRequired,
     handleItemClick: React.PropTypes.func.isRequired,
     handleDeleteTaskListClick: React.PropTypes.func.isRequired
 };
 
-export default TaskListItem;
+export default TaskListFilter;
