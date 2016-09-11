@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 // components
-import Module from '../module/module.jsx';
+import Module from '../../module/module.jsx';
 import TaskCompletion from '../task-completion/task-completion.jsx';
 
 // actions

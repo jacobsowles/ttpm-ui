@@ -7,10 +7,9 @@ import ContentPane from './content-pane/content-pane.jsx';
 import ContentPaneModuleCollection from './content-pane/content-pane-module-collection/content-pane-module-collection.jsx';
 import Header from './header/header.jsx';
 import Logo from './logo/logo.jsx';
-import Module from './module/module.jsx';
+import Module from '../module/module.jsx';
 import ProjectFilterContainer from './project-filter-container/project-filter-container.jsx';
 import Sidebar from './sidebar/sidebar.jsx';
-import StatusBox from './status-box/status-box.jsx';
 
 // styles
 require('./home.scss');

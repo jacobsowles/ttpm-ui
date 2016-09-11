@@ -2,7 +2,7 @@
 import React from 'React';
 
 // components
-import Module from '../../module/module.jsx';
+import Module from '../../../module/module.jsx';
 import TaskTable from '../../task-table/task-table.jsx';
 
 // styles
