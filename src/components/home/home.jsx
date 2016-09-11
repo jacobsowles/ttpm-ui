@@ -8,7 +8,7 @@ import ContentModuleCollection from './content/content-module-collection/content
 import Header from './header/header.jsx';
 import Logo from '../logo/logo.jsx';
 import Module from '../module/module.jsx';
-import ProjectFilterContainer from './project-filter-container/project-filter-container.jsx';
+import TaskFilterContainer from './task-filter-container/task-filter-container.jsx';
 import Sidebar from './sidebar/sidebar.jsx';
 
 // styles
@@ -28,7 +28,7 @@ class Home extends React.Component {
                         type="sidebar"
                         title="Projects"
                     >
-                        <ProjectFilterContainer />
+                        <TaskFilterContainer />
                     </Module>
                 </Sidebar>
 

@@ -6,13 +6,13 @@ import TaskListFilter from './task-list-filter/task-list-filter.jsx';
 import ViewEditToggleField from '../../../view-edit-toggle-field/view-edit-toggle-field.jsx';
 
 // styles
-require('./task-list-filter-container.scss');
+require('./task-list-filter-group.scss');
 
-class TaskListFilterContainer extends React.Component {
+class TaskListFilterGroup extends React.Component {
 
     render() {
         return (
-            <ul className="task-list-filter-container">
+            <ul className="task-list-filter-group">
                 {
                     this.props.taskLists.map(function(taskList, key) {
                         return (
@@ -39,7 +39,7 @@ class TaskListFilterContainer extends React.Component {
     }
 }
 
-TaskListFilterContainer.propTypes = {
+TaskListFilterGroup.propTypes = {
     taskLists: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
     projectId: React.PropTypes.number.isRequired,
 
@@ -48,4 +48,4 @@ TaskListFilterContainer.propTypes = {
     handleDeleteTaskListClick: React.PropTypes.func.isRequired
 };
 
-export default TaskListFilterContainer;
+export default TaskListFilterGroup;
