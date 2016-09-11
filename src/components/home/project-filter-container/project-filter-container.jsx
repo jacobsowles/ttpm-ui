@@ -7,7 +7,7 @@ import { bindActionCreators } from 'redux';
 import Accordion from '../../accordion/accordion.jsx';
 import AccordionItem from '../../accordion/accordion-item/accordion-item.jsx';
 import LoadingGraphic from '../../loading-graphic/loading-graphic.jsx';
-import ProjectItem from './project-item/project-item.jsx';
+import ProjectFilter from './project-filter/project-filter.jsx';
 import TaskListItems from './task-list-items/task-list-items.jsx';
 import ViewEditToggleField from '../../view-edit-toggle-field/view-edit-toggle-field.jsx';
 
@@ -41,7 +41,7 @@ class ProjectFilterContainer extends React.Component {
 
     render() {
         return (
-            <div className="project-filter">
+            <div className="project-filter-container">
                 {this.props.error}
 
                 <LoadingGraphic showLoadingGraphic={this.state.showLoadingGraphic} />
@@ -57,7 +57,7 @@ class ProjectFilterContainer extends React.Component {
                                 <AccordionItem
                                     key={key}
                                     header={{
-                                        content: <ProjectItem
+                                        content: <ProjectFilter
                                             projectName={project.Name}
                                             projectId={project.Id}
                                             handleItemClick={this.props.handleProjectClick.bind(this)}

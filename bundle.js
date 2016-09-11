@@ -79408,9 +79408,9 @@
 
 	var _loadingGraphic2 = _interopRequireDefault(_loadingGraphic);
 
-	var _projectItem = __webpack_require__(542);
+	var _projectFilter = __webpack_require__(557);
 
-	var _projectItem2 = _interopRequireDefault(_projectItem);
+	var _projectFilter2 = _interopRequireDefault(_projectFilter);
 
 	var _taskListItems = __webpack_require__(545);
 
@@ -79481,7 +79481,7 @@
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'div',
-	                { className: 'project-filter' },
+	                { className: 'project-filter-container' },
 	                this.props.error,
 	                _react2.default.createElement(_loadingGraphic2.default, { showLoadingGraphic: this.state.showLoadingGraphic }),
 	                _react2.default.createElement(
@@ -79495,7 +79495,7 @@
 	                        return _react2.default.createElement(_accordionItem2.default, {
 	                            key: key,
 	                            header: {
-	                                content: _react2.default.createElement(_projectItem2.default, {
+	                                content: _react2.default.createElement(_projectFilter2.default, {
 	                                    projectName: project.Name,
 	                                    projectId: project.Id,
 	                                    handleItemClick: this.props.handleProjectClick.bind(this),
@@ -79609,127 +79609,9 @@
 /* 539 */,
 /* 540 */,
 /* 541 */,
-/* 542 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
-
-
-	// styles
-	__webpack_require__(543);
-
-	var ProjectItem = function (_React$Component) {
-	    _inherits(ProjectItem, _React$Component);
-
-	    function ProjectItem() {
-	        _classCallCheck(this, ProjectItem);
-
-	        return _possibleConstructorReturn(this, (ProjectItem.__proto__ || Object.getPrototypeOf(ProjectItem)).apply(this, arguments));
-	    }
-
-	    _createClass(ProjectItem, [{
-	        key: 'render',
-	        value: function render() {
-	            var _this2 = this;
-
-	            return _react2.default.createElement(
-	                'div',
-	                {
-	                    className: 'project-item',
-	                    onClick: function onClick() {
-	                        return _this2.props.handleItemClick(_this2.props.projectId);
-	                    }
-	                },
-	                this.props.projectName,
-	                _react2.default.createElement(
-	                    'span',
-	                    { className: 'item-actions' },
-	                    _react2.default.createElement(
-	                        'span',
-	                        {
-	                            className: 'delete-project',
-	                            onClick: function onClick(event) {
-	                                return _this2.props.handleDeleteProjectClick(_this2.props.projectId, event);
-	                            }
-	                        },
-	                        '×'
-	                    )
-	                )
-	            );
-	        }
-	    }]);
-
-	    return ProjectItem;
-	}(_react2.default.Component);
-
-	ProjectItem.propTypes = {
-	    projectName: _react2.default.PropTypes.string.isRequired,
-	    projectId: _react2.default.PropTypes.number.isRequired,
-	    handleItemClick: _react2.default.PropTypes.func.isRequired,
-	    handleDeleteProjectClick: _react2.default.PropTypes.func.isRequired
-	};
-
-	exports.default = ProjectItem;
-
-/***/ },
-/* 543 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(544);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(299)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./project-item.scss", function() {
-				var newContent = require("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./project-item.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 544 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(298)();
-	// imports
-
-
-	// module
-	exports.push([module.id, "", ""]);
-
-	// exports
-
-
-/***/ },
+/* 542 */,
+/* 543 */,
+/* 544 */,
 /* 545 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -80040,7 +79922,7 @@
 
 
 	// module
-	exports.push([module.id, ".project-filter ul {\n  list-style-type: none;\n  padding-left: 0;\n  margin-bottom: 0; }\n\n.project-filter a:hover {\n  text-decoration: none; }\n\n.project-filter .project-item {\n  padding: 10px 15px;\n  display: block;\n  font-size: .9em;\n  margin: 0;\n  color: #DBDBDB;\n  font-weight: bold; }\n  .project-filter .project-item:hover {\n    background: #312F33;\n    text-decoration: none;\n    cursor: pointer; }\n  .project-filter .project-item .active {\n    background: #312F33; }\n\n.project-filter .item-actions {\n  float: right;\n  color: #888888; }\n  .project-filter .item-actions span {\n    padding: 2px 6px; }\n    .project-filter .item-actions span:hover {\n      background: #888888;\n      color: #DBDBDB; }\n", ""]);
+	exports.push([module.id, ".project-filter-container ul {\n  list-style-type: none;\n  padding-left: 0;\n  margin-bottom: 0; }\n\n.project-filter-container a:hover {\n  text-decoration: none; }\n\n.project-filter-container .project-filter {\n  padding: 10px 15px;\n  display: block;\n  font-size: .9em;\n  margin: 0;\n  color: #DBDBDB;\n  font-weight: bold; }\n  .project-filter-container .project-filter:hover {\n    background: #312F33;\n    text-decoration: none;\n    cursor: pointer; }\n  .project-filter-container .project-filter .active {\n    background: #312F33; }\n\n.project-filter-container .item-actions {\n  float: right;\n  color: #888888; }\n  .project-filter-container .item-actions span {\n    padding: 2px 6px; }\n    .project-filter-container .item-actions span:hover {\n      background: #888888;\n      color: #DBDBDB; }\n", ""]);
 
 	// exports
 
@@ -80230,6 +80112,127 @@
 
 	// module
 	exports.push([module.id, ".view-edit-toggle-field {\n  font-size: .9em; }\n  .view-edit-toggle-field a {\n    color: #888888;\n    display: block;\n    padding: 10px 0 10px 15px; }\n    .view-edit-toggle-field a:hover {\n      background: #312F33;\n      text-decoration: none;\n      cursor: pointer;\n      color: #DBDBDB; }\n    .view-edit-toggle-field a .active {\n      background: #312F33; }\n  .view-edit-toggle-field input {\n    background: #636066;\n    padding: 10px 15px;\n    border: none;\n    color: #DBDBDB;\n    width: calc(100% - 30px);\n    margin-left: 15px; }\n\n.project-view-edit-toggle-field a {\n  font-weight: bold; }\n\n.task-list-view-edit-toggle-field a {\n  padding-left: 30px; }\n  .task-list-view-edit-toggle-field a:hover {\n    background: #636066; }\n\n.task-list-view-edit-toggle-field input {\n  width: calc(100% - 45px);\n  margin-left: 30px; }\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 557 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
+
+
+	// styles
+	__webpack_require__(558);
+
+	var ProjectFilter = function (_React$Component) {
+	    _inherits(ProjectFilter, _React$Component);
+
+	    function ProjectFilter() {
+	        _classCallCheck(this, ProjectFilter);
+
+	        return _possibleConstructorReturn(this, (ProjectFilter.__proto__ || Object.getPrototypeOf(ProjectFilter)).apply(this, arguments));
+	    }
+
+	    _createClass(ProjectFilter, [{
+	        key: 'render',
+	        value: function render() {
+	            var _this2 = this;
+
+	            return _react2.default.createElement(
+	                'div',
+	                {
+	                    className: 'project-filter',
+	                    onClick: function onClick() {
+	                        return _this2.props.handleItemClick(_this2.props.projectId);
+	                    }
+	                },
+	                this.props.projectName,
+	                _react2.default.createElement(
+	                    'span',
+	                    { className: 'item-actions' },
+	                    _react2.default.createElement(
+	                        'span',
+	                        {
+	                            className: 'delete-project',
+	                            onClick: function onClick(event) {
+	                                return _this2.props.handleDeleteProjectClick(_this2.props.projectId, event);
+	                            }
+	                        },
+	                        '×'
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return ProjectFilter;
+	}(_react2.default.Component);
+
+	ProjectFilter.propTypes = {
+	    projectName: _react2.default.PropTypes.string.isRequired,
+	    projectId: _react2.default.PropTypes.number.isRequired,
+	    handleItemClick: _react2.default.PropTypes.func.isRequired,
+	    handleDeleteProjectClick: _react2.default.PropTypes.func.isRequired
+	};
+
+	exports.default = ProjectFilter;
+
+/***/ },
+/* 558 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(559);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(299)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./project-filter.scss", function() {
+				var newContent = require("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./project-filter.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 559 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(298)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "", ""]);
 
 	// exports
 
