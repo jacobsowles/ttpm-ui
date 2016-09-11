@@ -1,4 +1,4 @@
-import { get, post, del } from '../../../api.js';
+import { get, post, del } from '../api.js';
 
 module.exports = {
     fetchProjects() {
@@ -21,22 +21,6 @@ module.exports = {
         return {
             type: 'DELETE_PROJECT',
             payload: del(`/projects/${projectId}`)
-        };
-    },
-
-    addTaskList(name, projectId) {
-        return {
-            type: 'ADD_TASK_LIST',
-            payload: post(`/projects/${projectId}/taskLists`, {
-                name: name
-            })
-        };
-    },
-
-    deleteTaskList(taskListId) {
-        return {
-            type: 'DELETE_TASK_LIST',
-            payload: del(`/taskLists/${taskListId}`)
         };
     }
 };

@@ -1,6 +1,4 @@
 const initialState = {
-    isLoading: false,
-    error: '',
     completedTaskCount: 0,
     totalTaskCount: 0
 };
@@ -10,8 +8,6 @@ export default function reducer(state = initialState, action) {
         case 'REFRESH_ANALYTICS': {
             state = {
                 ...state,
-                isLoading: false,
-                error: '',
                 completedTaskCount: 0,
                 totalTaskCount: 0
             };

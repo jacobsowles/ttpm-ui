@@ -12,9 +12,10 @@ import TaskListFilterContainer from './task-list-filter-container/task-list-filt
 import ViewEditToggleField from '../../view-edit-toggle-field/view-edit-toggle-field.jsx';
 
 // actions
-import bottomDrawerActions from '../bottom-drawer/bottom-drawer-actions.js';
-import projectFilterContainerActions from './project-filter-container-actions.js';
-import taskTableActions from '../task-table/task-table-actions.js';
+import analyticsActions from '../../../actions/analytics-actions.js';
+import projectActions from '../../../actions/project-actions.js';
+import taskActions from '../../../actions/task-actions.js';
+import taskListActions from '../../../actions/task-list-actions.js';
 
 // styles
 require('./project-filter-container.scss');
@@ -31,6 +32,7 @@ class ProjectFilterContainer extends React.Component {
 
     componentWillMount() {
         this.props.fetchProjects();
+        this.props.fetchTaskLists();
     }
 
     componentDidMount() {
@@ -42,17 +44,11 @@ class ProjectFilterContainer extends React.Component {
     render() {
         return (
             <div className="project-filter-container">
-                {this.props.error}
-
                 <LoadingGraphic showLoadingGraphic={this.state.showLoadingGraphic} />
 
                 <Accordion>
                     {
                         this.props.projects.map(function(project, key) {
-                            const taskLists = this.props.taskLists.filter(function(taskList) {
-                                return taskList.ProjectId == project.Id;
-                            });
-
                             return (
                                 <AccordionItem
                                     key={key}
@@ -60,28 +56,19 @@ class ProjectFilterContainer extends React.Component {
                                         content: <ProjectFilter
                                             projectName={project.Name}
                                             projectId={project.Id}
-                                            handleItemClick={this.props.handleProjectClick.bind(this)}
+                                            handleProjectClick={this.props.handleProjectClick.bind(this)}
                                             handleDeleteProjectClick={this.props.handleDeleteProjectClick}
                                         />
                                     }}
                                     body={{
                                         content: (
-                                            <div>
-                                                <TaskListFilterContainer
-                                                    taskLists={taskLists}
-                                                    projectId={project.Id}
-                                                    handleItemClick={this.props.handleTaskListClick}
-                                                    handleDeleteTaskListClick={this.props.handleDeleteTaskListClick}
-                                                />
-                                                <ViewEditToggleField
-                                                    type='task-list'
-                                                    text='+ Add a new task list'
-                                                    handleSubmit={this.props.handleAddTaskListClick}
-                                                    includeWithSubmit={{
-                                                        projectId: project.Id
-                                                    }}
-                                                />
-                                            </div>
+                                            <TaskListFilterContainer
+                                                taskLists={this.props.taskLists.filter(tl => tl.ProjectId == project.Id)}
+                                                projectId={project.Id}
+                                                handleTaskListClick={this.props.handleTaskListClick}
+                                                handleAddTaskListClick={this.props.handleAddTaskListClick}
+                                                handleDeleteTaskListClick={this.props.handleDeleteTaskListClick}
+                                            />
                                         )
                                     }}
                                 />
@@ -100,66 +87,71 @@ class ProjectFilterContainer extends React.Component {
 }
 
 ProjectFilterContainer.propTypes = {
-    error: React.PropTypes.string.isRequired,
     projects: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
     taskLists: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
 
     fetchProjects: React.PropTypes.func.isRequired,
+    fetchTaskLists: React.PropTypes.func.isRequired,
+
     handleProjectClick: React.PropTypes.func.isRequired,
-    handleTaskListClick: React.PropTypes.func.isRequired,
     handleAddProjectClick: React.PropTypes.func.isRequired,
     handleDeleteProjectClick: React.PropTypes.func.isRequired,
+
+    handleTaskListClick: React.PropTypes.func.isRequired,
     handleAddTaskListClick: React.PropTypes.func.isRequired,
     handleDeleteTaskListClick: React.PropTypes.func.isRequired
 };
 
 function mapStateToProps(state) {
     return {
-        error: state.projects.error,
         projects: state.projects.projects,
-        taskLists: state.projects.taskLists
+        taskLists: state.taskLists.taskLists
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
         fetchProjects: function() {
-            dispatch(projectFilterContainerActions.fetchProjects());
+            dispatch(projectActions.fetchProjects());
+        },
+
+        fetchTaskLists: function() {
+            dispatch(taskListActions.fetchTaskLists(this.projectId));
         },
 
         handleProjectClick: function(projectId) {
-            dispatch(taskTableActions.filterTaskTableByProject(this.props.taskLists, projectId)).then(function(tasks) {
+            dispatch(taskActions.filterTasksByProject(this.props.taskLists, projectId));/*.then(function(tasks) {
                 console.log(tasks);
                 dispatch(bottomDrawerActions.refreshAnalytics());
-            });
-        },
-
-        handleTaskListClick: function(taskListId) {
-            dispatch(taskTableActions.filterTaskTableByTaskList(taskListId));
+            });*/
         },
 
         handleAddProjectClick: function(name) {
-            dispatch(projectFilterContainerActions.addProject(name)).then(function() {
-                dispatch(projectFilterContainerActions.fetchProjects());
+            dispatch(projectActions.addProject(name)).then(function() {
+                dispatch(projectActions.fetchProjects());
             });
         },
 
         handleDeleteProjectClick: function(projectId, event) {
             event.stopPropagation(); // prevents the project accordion from expanding
-            dispatch(projectFilterContainerActions.deleteProject(projectId)).then(function() {
-                dispatch(projectFilterContainerActions.fetchProjects());
+            dispatch(projectActions.deleteProject(projectId)).then(function() {
+                dispatch(projectActions.fetchProjects());
             });
         },
 
+        handleTaskListClick: function(taskListId) {
+            dispatch(taskActions.filterTasksByTaskList(taskListId));
+        },
+
         handleAddTaskListClick: function(name, boundData) {
-            dispatch(projectFilterContainerActions.addTaskList(name, boundData.projectId)).then(function() {
-                dispatch(projectFilterContainerActions.fetchProjects());
+            dispatch(taskListActions.addTaskList(name, boundData.projectId)).then(function() {
+                dispatch(taskListActions.fetchTaskLists());
             });
         },
 
         handleDeleteTaskListClick: function(taskListId) {
-            dispatch(projectFilterContainerActions.deleteTaskList(taskListId)).then(function() {
-                dispatch(projectFilterContainerActions.fetchProjects());
+            dispatch(taskListActions.deleteTaskList(taskListId)).then(function() {
+                dispatch(taskListActions.fetchTaskLists());
             });
         }
     };

@@ -10,7 +10,7 @@ class ProjectFilter extends React.Component {
         return (
             <div
                 className="project-filter"
-                onClick={() => this.props.handleItemClick(this.props.projectId)}
+                onClick={() => this.props.handleProjectClick(this.props.projectId)}
             >
                 {this.props.projectName}
                 <span className="project-filter-actions">
@@ -29,7 +29,7 @@ class ProjectFilter extends React.Component {
 ProjectFilter.propTypes = {
     projectName: React.PropTypes.string.isRequired,
     projectId: React.PropTypes.number.isRequired,
-    handleItemClick: React.PropTypes.func.isRequired,
+    handleProjectClick: React.PropTypes.func.isRequired,
     handleDeleteProjectClick: React.PropTypes.func.isRequired
 };
 

@@ -8,7 +8,7 @@ import Module from '../../module/module.jsx';
 import TaskCompletion from './task-completion/task-completion.jsx';
 
 // actions
-import analyticsActions from './analytics-actions.js';
+import analyticsActions from '../../../actions/analytics-actions.js';
 
 // styles
 require('./analytics.scss');
@@ -32,26 +32,12 @@ class Analytics extends React.Component {
         };
 
         this.handleClick = this.handleClick.bind(this);
-        this.bindKeyboardShortcuts();
     }
 
     handleClick() {
         this.setState({
             active: !this.state.active
         });
-    }
-
-    bindKeyboardShortcuts() {
-        document.onkeydown = function(e) {
-            if (e.target.tagName.toLowerCase() != 'input') {
-                switch (e.key) {
-                    case 'a': {
-                        this.handleClick();
-                        return false;
-                    }
-                }
-            }
-        }.bind(this);
     }
 
     render() {
@@ -86,7 +72,6 @@ class Analytics extends React.Component {
 }
 
 Analytics.propTypes = {
-    error: React.PropTypes.string.isRequired,
     completedTaskCount: React.PropTypes.number.isRequired,
     totalTaskCount: React.PropTypes.number.isRequired,
 
@@ -95,9 +80,8 @@ Analytics.propTypes = {
 
 function mapStateToProps(state) {
     return {
-        error: state.bottomDrawer.error,
-        completedTaskCount: state.bottomDrawer.completedTaskCount,
-        totalTaskCount: state.bottomDrawer.totalTaskCount
+        completedTaskCount: state.analytics.completedTaskCount,
+        totalTaskCount: state.analytics.totalTaskCount
     };
 }
 

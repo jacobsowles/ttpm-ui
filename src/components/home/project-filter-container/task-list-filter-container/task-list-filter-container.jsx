@@ -3,6 +3,7 @@ import React from 'react';
 
 // components
 import TaskListFilter from './task-list-filter/task-list-filter.jsx';
+import ViewEditToggleField from '../../../view-edit-toggle-field/view-edit-toggle-field.jsx';
 
 // styles
 require('./task-list-filter-container.scss');
@@ -18,12 +19,21 @@ class TaskListFilterContainer extends React.Component {
                             <TaskListFilter
                                 key={key}
                                 taskList={taskList}
-                                handleItemClick={this.props.handleItemClick}
+                                handleTaskListClick={this.props.handleTaskListClick}
                                 handleDeleteTaskListClick={this.props.handleDeleteTaskListClick}
                             />
                         );
                     }.bind(this))
                 }
+
+                <ViewEditToggleField
+                    type='task-list'
+                    text='+ Add a new task list'
+                    handleSubmit={this.props.handleAddTaskListClick}
+                    includeWithSubmit={{
+                        projectId: this.props.projectId
+                    }}
+                />
             </ul>
         );
     }
@@ -32,7 +42,9 @@ class TaskListFilterContainer extends React.Component {
 TaskListFilterContainer.propTypes = {
     taskLists: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
     projectId: React.PropTypes.number.isRequired,
-    handleItemClick: React.PropTypes.func.isRequired,
+
+    handleTaskListClick: React.PropTypes.func.isRequired,
+    handleAddTaskListClick: React.PropTypes.func.isRequired,
     handleDeleteTaskListClick: React.PropTypes.func.isRequired
 };
 

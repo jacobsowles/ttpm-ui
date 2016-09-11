@@ -9,7 +9,7 @@ import TaskTableHeaderRow from './task-table-header-row/task-table-header-row.js
 import TaskTableRow from './task-table-row/task-table-row.jsx';
 
 // actions
-import taskTableActions from './task-table-actions.js';
+import taskActions from '../../../actions/task-actions.js';
 
 // styles
 require('./task-table.scss');
@@ -25,7 +25,7 @@ class TaskTable extends React.Component {
     }
 
     componentWillMount() {
-        this.props.fetchTaskTable();
+        this.props.fetchTasks();
     }
 
     componentDidMount() {
@@ -37,7 +37,6 @@ class TaskTable extends React.Component {
     render() {
         return (
             <div id="task-table" className="table-responsive">
-                {this.props.error}
                 <LoadingGraphic showLoadingGraphic={this.state.showLoadingGraphic} />
 
                 <table className="table table-striped">
@@ -63,25 +62,23 @@ class TaskTable extends React.Component {
 }
 
 TaskTable.propTypes = {
-    error: React.PropTypes.string.isRequired,
     tasks: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
     filteredTasks: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
 
-    fetchTaskTable: React.PropTypes.func.isRequired
+    fetchTasks: React.PropTypes.func.isRequired
 };
 
 function mapStateToProps(state) {
     return {
-        error: state.taskTable.error,
-        tasks: state.taskTable.tasks,
-        filteredTasks: state.taskTable.filteredTasks
+        tasks: state.tasks.tasks,
+        filteredTasks: state.tasks.filteredTasks
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        fetchTaskTable: function() {
-            dispatch(taskTableActions.fetchTaskTable());
+        fetchTasks: function() {
+            dispatch(taskActions.fetchTasks());
         }
     };
 }

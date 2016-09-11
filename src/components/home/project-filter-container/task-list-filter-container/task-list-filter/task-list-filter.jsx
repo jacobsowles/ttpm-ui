@@ -10,7 +10,7 @@ class TaskListFilter extends React.Component {
         return (
             <li
                 className="task-list-filter"
-                onClick={() => this.props.handleItemClick(this.props.taskList.Id)}
+                onClick={() => this.props.handleTaskListClick(this.props.taskList.Id)}
             >
                 {this.props.taskList.Name}
                 <span className="task-list-filter-actions">
@@ -28,7 +28,7 @@ class TaskListFilter extends React.Component {
 
 TaskListFilter.propTypes = {
     taskList: React.PropTypes.object.isRequired,
-    handleItemClick: React.PropTypes.func.isRequired,
+    handleTaskListClick: React.PropTypes.func.isRequired,
     handleDeleteTaskListClick: React.PropTypes.func.isRequired
 };
 

@@ -1,13 +1,13 @@
 const initialState = {
-    projects: []
+    taskLists: []
 };
 
 export default function reducer(state = initialState, action) {
     switch (action.type) {
         // PENDING
-        case 'FETCH_PROJECTS_PENDING':
-        case 'ADD_PROJECT_PENDING':
-        case 'DELETE_PROJECT_PENDING': {
+        case 'FETCH_TASK_LISTS_PENDING':
+        case 'ADD_TASK_LIST_PENDING':
+        case 'DELETE_TASK_LIST_PENDING': {
             state = {
                 ...state
             };
@@ -15,16 +15,16 @@ export default function reducer(state = initialState, action) {
         }
 
         // FULFILLED
-        case 'FETCH_PROJECTS_FULFILLED': {
+        case 'FETCH_TASK_LISTS_FULFILLED': {
             state = {
                 ...state,
-                projects: action.payload || []
+                taskLists: action.payload || []
             };
             break;
         }
 
-        case 'ADD_PROJECT_FULFILLED':
-        case 'DELETE_PROJECT_FULFILLED': {
+        case 'ADD_TASK_LIST_FULFILLED':
+        case 'DELETE_TASK_LIST_FULFILLED': {
             state = {
                 ...state
             };
@@ -32,9 +32,9 @@ export default function reducer(state = initialState, action) {
         }
 
         // REJECTED
-        case 'FETCH_PROJECTS_REJECTED':
-        case 'ADD_PROJECT_REJECTED':
-        case 'DELETE_PROJECT_REJECTED': {
+        case 'FETCH_TASK_LISTS_REJECTED':
+        case 'ADD_TASK_LIST_REJECTED':
+        case 'DELETE_TASK_LIST_REJECTED': {
             state = {
                 ...state
             };

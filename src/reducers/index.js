@@ -2,16 +2,20 @@
 import { combineReducers } from 'redux';
 
 // reducers
-import bottomDrawerReducer from '../components/home/bottom-drawer/bottom-drawer-reducer.js';
+import analyticsReducer from './analytics-reducer.js';
+import errorReducer from './error-reducer.js';
 import loginFormReducer from '../components/login/login-form/login-form-reducer.js';
 import projectReducer from './project-reducer.js';
 import registrationFormReducer from '../components/login/registration-form/registration-form-reducer.js';
-import taskTableReducer from '../components/home/task-table/task-table-reducer.js';
+import taskListReducer from './task-list-reducer.js';
+import taskReducer from './task-reducer.js';
 
 export default combineReducers({
-    bottomDrawer: bottomDrawerReducer,
+    analytics: analyticsReducer,
+    error: errorReducer,
     loginForm: loginFormReducer,
     projects: projectReducer,
     registrationForm: registrationFormReducer,
-    taskTable: taskTableReducer
+    taskLists: taskListReducer,
+    tasks: taskReducer
 });

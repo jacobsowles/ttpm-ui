@@ -1,6 +1,4 @@
 const initialState = {
-    isLoading: false,
-    error: '',
     tasks: [],
     filteredTasks: []
 };
@@ -8,30 +6,29 @@ const initialState = {
 export default function reducer(state = initialState, action) {
     switch (action.type) {
         // PENDING
-        case 'FETCH_TASK_TABLE_PENDING': {
+        case 'FETCH_TASKS_PENDING': {
             state = {
-                ...state,
-                isLoading: true,
-                error: ''
+                ...state
             };
             break;
         }
 
         // FULFILLED
-        case 'FETCH_TASK_TABLE_FULFILLED': {
+        case 'FETCH_TASKS_FULFILLED': {
             state = {
                 ...state,
-                isLoading: false,
-                error: '',
-                tasks: action.payload.Tasks,
-                filteredTasks: action.payload.Tasks
+                tasks: action.payload || [],
+                filteredTasks: action.payload || []
             };
             break;
         }
 
         // FILTER
-        case 'FILTER_TASK_TABLE_BY_PROJECT': {
-            const taskListIds = action.payload.taskLists.filter(function(taskList) {
+        case 'FILTER_TASKS_BY_PROJECT': {
+            const tasks = state.tasks || [];
+            const taskLists = action.payload.taskLists || [];
+
+            const taskListIds = taskLists.filter(function(taskList) {
                 return taskList.ProjectId == action.payload.projectId;
             }).map(function(taskList) {
                 return taskList.Id;
@@ -39,8 +36,6 @@ export default function reducer(state = initialState, action) {
 
             state = {
                 ...state,
-                isLoading: false,
-                error: '',
                 filteredTasks: state.tasks.filter(function(task) {
                     return taskListIds.includes(task.TaskListId);
                 })
@@ -48,12 +43,11 @@ export default function reducer(state = initialState, action) {
             break;
         }
 
-        case 'FILTER_TASK_TABLE_BY_TASK_LIST': {
+        case 'FILTER_TASKS_BY_TASK_LIST': {
+            const tasks = state.tasks || [];
             state = {
                 ...state,
-                isLoading: false,
-                error: '',
-                filteredTasks: state.tasks.filter(function(task) {
+                filteredTasks: tasks.filter(function(task) {
                     return task.TaskListId == action.payload;
                 })
             };
@@ -61,11 +55,9 @@ export default function reducer(state = initialState, action) {
         }
 
         // REJECTED
-        case 'FETCH_TASK_TABLE_REJECTED': {
+        case 'FETCH_TASKS_REJECTED': {
             state = {
-                ...state,
-                isLoading: false,
-                error: 'Failed to get tasks.'
+                ...state
             };
             break;
         }
