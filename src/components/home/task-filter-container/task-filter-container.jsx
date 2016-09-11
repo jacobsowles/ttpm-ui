@@ -18,9 +18,9 @@ import taskActions from '../../../actions/task-actions.js';
 import taskListActions from '../../../actions/task-list-actions.js';
 
 // styles
-require('./project-filter-container.scss');
+require('./task-filter-container.scss');
 
-class ProjectFilterContainer extends React.Component {
+class TaskFilterContainer extends React.Component {
 
     constructor(props) {
         super(props);
@@ -43,7 +43,7 @@ class ProjectFilterContainer extends React.Component {
 
     render() {
         return (
-            <div className="project-filter-container">
+            <div className="task-filter-container">
                 <LoadingGraphic showLoadingGraphic={this.state.showLoadingGraphic} />
 
                 <Accordion>
@@ -86,7 +86,7 @@ class ProjectFilterContainer extends React.Component {
     }
 }
 
-ProjectFilterContainer.propTypes = {
+TaskFilterContainer.propTypes = {
     projects: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
     taskLists: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
 
@@ -157,4 +157,4 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProjectFilterContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(TaskFilterContainer);
