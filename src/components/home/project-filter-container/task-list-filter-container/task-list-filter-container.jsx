@@ -5,13 +5,13 @@ import React from 'react';
 import TaskListFilter from './task-list-filter/task-list-filter.jsx';
 
 // styles
-require('./task-list-items.scss');
+require('./task-list-filter-container.scss');
 
-class TaskListItems extends React.Component {
+class TaskListFilterContainer extends React.Component {
 
     render() {
         return (
-            <ul className="task-list-items">
+            <ul className="task-list-filter-container">
                 {
                     this.props.taskLists.map(function(taskList, key) {
                         return (
@@ -29,11 +29,11 @@ class TaskListItems extends React.Component {
     }
 }
 
-TaskListItems.propTypes = {
+TaskListFilterContainer.propTypes = {
     taskLists: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
     projectId: React.PropTypes.number.isRequired,
     handleItemClick: React.PropTypes.func.isRequired,
     handleDeleteTaskListClick: React.PropTypes.func.isRequired
 };
 
-export default TaskListItems;
+export default TaskListFilterContainer;

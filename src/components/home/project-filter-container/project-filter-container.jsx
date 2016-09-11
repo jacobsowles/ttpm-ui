@@ -8,7 +8,7 @@ import Accordion from '../../accordion/accordion.jsx';
 import AccordionItem from '../../accordion/accordion-item/accordion-item.jsx';
 import LoadingGraphic from '../../loading-graphic/loading-graphic.jsx';
 import ProjectFilter from './project-filter/project-filter.jsx';
-import TaskListItems from './task-list-items/task-list-items.jsx';
+import TaskListFilterContainer from './task-list-filter-container/task-list-filter-container.jsx';
 import ViewEditToggleField from '../../view-edit-toggle-field/view-edit-toggle-field.jsx';
 
 // actions
@@ -67,7 +67,7 @@ class ProjectFilterContainer extends React.Component {
                                     body={{
                                         content: (
                                             <div>
-                                                <TaskListItems
+                                                <TaskListFilterContainer
                                                     taskLists={taskLists}
                                                     projectId={project.Id}
                                                     handleItemClick={this.props.handleTaskListClick}
