@@ -29058,6 +29058,10 @@
 
 	var _redux = __webpack_require__(179);
 
+	var _bottomDrawerReducer = __webpack_require__(546);
+
+	var _bottomDrawerReducer2 = _interopRequireDefault(_bottomDrawerReducer);
+
 	var _loginFormReducer = __webpack_require__(262);
 
 	var _loginFormReducer2 = _interopRequireDefault(_loginFormReducer);
@@ -29076,13 +29080,16 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	// reducers
+	// npm modules
 	exports.default = (0, _redux.combineReducers)({
+	    bottomDrawer: _bottomDrawerReducer2.default,
 	    loginForm: _loginFormReducer2.default,
 	    projectList: _projectListReducer2.default,
 	    registrationForm: _registrationFormReducer2.default,
 	    taskTable: _taskTableReducer2.default
-	}); // npm modules
+	});
+
+	// reducers
 
 /***/ },
 /* 262 */
@@ -29475,6 +29482,22 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reactRedux = __webpack_require__(172);
+
+	var _redux = __webpack_require__(179);
+
+	var _module = __webpack_require__(517);
+
+	var _module2 = _interopRequireDefault(_module);
+
+	var _taskCompletion = __webpack_require__(543);
+
+	var _taskCompletion2 = _interopRequireDefault(_taskCompletion);
+
+	var _bottomDrawerActions = __webpack_require__(547);
+
+	var _bottomDrawerActions2 = _interopRequireDefault(_bottomDrawerActions);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -29482,6 +29505,12 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
+
+
+	// components
+
+
+	// actions
 
 
 	// styles
@@ -29499,13 +29528,13 @@
 	var BottomDrawer = function (_React$Component) {
 	    _inherits(BottomDrawer, _React$Component);
 
-	    function BottomDrawer() {
+	    function BottomDrawer(props) {
 	        _classCallCheck(this, BottomDrawer);
 
-	        var _this = _possibleConstructorReturn(this, (BottomDrawer.__proto__ || Object.getPrototypeOf(BottomDrawer)).call(this));
+	        var _this = _possibleConstructorReturn(this, (BottomDrawer.__proto__ || Object.getPrototypeOf(BottomDrawer)).call(this, props));
 
 	        _this.state = {
-	            active: false
+	            active: true
 	        };
 
 	        _this.handleClick = _this.handleClick.bind(_this);
@@ -29546,11 +29575,25 @@
 	                _react2.default.createElement(
 	                    'div',
 	                    { className: 'drawer', style: stateStyle },
-	                    _react2.default.createElement('img', { src: 'https://pbs.twimg.com/profile_images/588437976742502400/qwi6wY5t.jpg', width: '200', style: { marginRight: '20px' } }),
-	                    _react2.default.createElement('img', { src: 'https://pbs.twimg.com/profile_images/588437976742502400/qwi6wY5t.jpg', width: '200', style: { marginRight: '20px' } }),
-	                    _react2.default.createElement('img', { src: 'https://pbs.twimg.com/profile_images/588437976742502400/qwi6wY5t.jpg', width: '200', style: { marginRight: '20px' } }),
-	                    _react2.default.createElement('img', { src: 'https://pbs.twimg.com/profile_images/588437976742502400/qwi6wY5t.jpg', width: '200', style: { marginRight: '20px' } }),
-	                    _react2.default.createElement('img', { src: 'https://pbs.twimg.com/profile_images/588437976742502400/qwi6wY5t.jpg', width: '200' })
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'row' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'col-xs-3 no-horizontal-padding' },
+	                            _react2.default.createElement(
+	                                _module2.default,
+	                                {
+	                                    type: 'bottom-drawer',
+	                                    title: 'Completion'
+	                                },
+	                                _react2.default.createElement(_taskCompletion2.default, {
+	                                    completedTaskCount: this.props.completedTaskCount,
+	                                    totalTaskCount: this.props.totalTaskCount
+	                                })
+	                            )
+	                        )
+	                    )
 	                ),
 	                _react2.default.createElement(
 	                    'div',
@@ -29573,7 +29616,31 @@
 	    return BottomDrawer;
 	}(_react2.default.Component);
 
-	exports.default = BottomDrawer;
+	BottomDrawer.propTypes = {
+	    error: _react2.default.PropTypes.string.isRequired,
+	    completedTaskCount: _react2.default.PropTypes.number.isRequired,
+	    totalTaskCount: _react2.default.PropTypes.number.isRequired,
+
+	    refreshAnalytics: _react2.default.PropTypes.func.isRequired
+	};
+
+	function mapStateToProps(state) {
+	    return {
+	        error: state.bottomDrawer.error,
+	        completedTaskCount: state.bottomDrawer.completedTaskCount,
+	        totalTaskCount: state.bottomDrawer.totalTaskCount
+	    };
+	}
+
+	function mapDispatchToProps(dispatch) {
+	    return {
+	        refreshAnalytics: function refreshAnalytics() {
+	            dispatch(_bottomDrawerActions2.default.refreshAnalytics());
+	        }
+	    };
+	}
+
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(BottomDrawer);
 
 /***/ },
 /* 268 */
@@ -29610,7 +29677,7 @@
 
 
 	// module
-	exports.push([module.id, "#bottom-drawer {\n  background: #d3d2d1;\n  border-top: 1px solid #c4c4c4;\n  position: absolute;\n  left: 250px;\n  bottom: 0;\n  width: calc(100% - 250px); }\n  #bottom-drawer .toggle-bar {\n    padding: 10px 20px; }\n    #bottom-drawer .toggle-bar .toggle {\n      font-size: .9em;\n      text-transform: uppercase;\n      color: #373737;\n      letter-spacing: 1px; }\n      #bottom-drawer .toggle-bar .toggle .toggle-button {\n        font-size: 1.2em;\n        margin-right: 10px; }\n      #bottom-drawer .toggle-bar .toggle:hover {\n        cursor: pointer;\n        text-decoration: none; }\n  #bottom-drawer .drawer {\n    padding: 20px 20px 0 20px; }\n", ""]);
+	exports.push([module.id, "#bottom-drawer {\n  background: #d3d2d1;\n  border-top: 1px solid #c4c4c4;\n  position: absolute;\n  left: 250px;\n  bottom: 0;\n  width: calc(100% - 250px); }\n  #bottom-drawer .toggle-bar {\n    padding: 10px 15px; }\n    #bottom-drawer .toggle-bar .toggle {\n      font-size: .9em;\n      text-transform: uppercase;\n      color: #373737;\n      letter-spacing: 1px; }\n      #bottom-drawer .toggle-bar .toggle .toggle-button {\n        font-size: 1.2em;\n        margin-right: 10px; }\n      #bottom-drawer .toggle-bar .toggle:hover {\n        cursor: pointer;\n        text-decoration: none; }\n  #bottom-drawer .drawer {\n    padding: 15px 15px 0 15px; }\n", ""]);
 
 	// exports
 
@@ -33852,6 +33919,10 @@
 
 	var _taskListItems2 = _interopRequireDefault(_taskListItems);
 
+	var _bottomDrawerActions = __webpack_require__(547);
+
+	var _bottomDrawerActions2 = _interopRequireDefault(_bottomDrawerActions);
+
 	var _projectListActions = __webpack_require__(326);
 
 	var _projectListActions2 = _interopRequireDefault(_projectListActions);
@@ -33994,7 +34065,10 @@
 	        },
 
 	        handleProjectClick: function handleProjectClick(projectId) {
-	            dispatch(_taskTableActions2.default.filterTaskTableByProject(this.props.taskLists, projectId));
+	            dispatch(_taskTableActions2.default.filterTaskTableByProject(this.props.taskLists, projectId)).then(function (tasks) {
+	                console.log(tasks);
+	                dispatch(_bottomDrawerActions2.default.refreshAnalytics());
+	            });
 	        },
 
 	        handleTaskListClick: function handleTaskListClick(taskListId) {
@@ -79196,7 +79270,7 @@
 
 
 	// module
-	exports.push([module.id, ".content-pane-module-body {\n  padding: 15px; }\n  .content-pane-module-body p {\n    margin-bottom: 0; }\n", ""]);
+	exports.push([module.id, ".content-pane-module-body,\n.bottom-drawer-module-body {\n  padding: 15px; }\n  .content-pane-module-body p,\n  .bottom-drawer-module-body p {\n    margin-bottom: 0; }\n", ""]);
 
 	// exports
 
@@ -79298,7 +79372,7 @@
 
 
 	// module
-	exports.push([module.id, ".sidebar-module-header {\n  background: #5e804d;\n  padding: 10px 15px;\n  color: #ffffff;\n  letter-spacing: 1px; }\n  .sidebar-module-header h2 {\n    display: inline;\n    font-size: .9em;\n    text-transform: uppercase; }\n  .sidebar-module-header a {\n    color: #ffffff;\n    text-decoration: none;\n    padding: 2px 6px; }\n    .sidebar-module-header a :hover {\n      background-color: #476039;\n      text-decoration: none; }\n  .sidebar-module-header .controls {\n    float: right; }\n\n.content-pane-module-header {\n  padding: 10px 15px;\n  background: #636066;\n  color: #dbdbdb;\n  text-transform: uppercase;\n  letter-spacing: 1px; }\n  .content-pane-module-header h2 {\n    display: inline;\n    margin: 0;\n    font-size: .9em; }\n", ""]);
+	exports.push([module.id, ".sidebar-module-header {\n  background: #5e804d;\n  padding: 10px 15px;\n  color: #ffffff;\n  letter-spacing: 1px; }\n  .sidebar-module-header h2 {\n    display: inline;\n    font-size: .9em;\n    text-transform: uppercase; }\n  .sidebar-module-header a {\n    color: #ffffff;\n    text-decoration: none;\n    padding: 2px 6px; }\n    .sidebar-module-header a :hover {\n      background-color: #476039;\n      text-decoration: none; }\n  .sidebar-module-header .controls {\n    float: right; }\n\n.content-pane-module-header,\n.bottom-drawer-module-header {\n  padding: 10px 15px;\n  background: #636066;\n  color: #dbdbdb;\n  text-transform: uppercase;\n  letter-spacing: 1px; }\n  .content-pane-module-header h2,\n  .bottom-drawer-module-header h2 {\n    display: inline;\n    margin: 0;\n    font-size: .9em; }\n", ""]);
 
 	// exports
 
@@ -79338,7 +79412,7 @@
 
 
 	// module
-	exports.push([module.id, ".content-pane-module {\n  background: #ffffff;\n  margin-top: 15px;\n  padding-left: 0;\n  padding-right: 0; }\n", ""]);
+	exports.push([module.id, ".content-pane-module,\n.bottom-drawer-module {\n  background: #ffffff;\n  padding-left: 0;\n  padding-right: 0; }\n\n.content-pane-module {\n  margin-top: 15px; }\n", ""]);
 
 	// exports
 
@@ -79981,6 +80055,195 @@
 
 	// exports
 
+
+/***/ },
+/* 543 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _React = __webpack_require__(273);
+
+	var _React2 = _interopRequireDefault(_React);
+
+	var _chart = __webpack_require__(349);
+
+	var _chart2 = _interopRequireDefault(_chart);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
+
+
+	// styles
+	__webpack_require__(544);
+
+	var TaskCompletion = function (_React$Component) {
+	    _inherits(TaskCompletion, _React$Component);
+
+	    function TaskCompletion() {
+	        _classCallCheck(this, TaskCompletion);
+
+	        return _possibleConstructorReturn(this, (TaskCompletion.__proto__ || Object.getPrototypeOf(TaskCompletion)).apply(this, arguments));
+	    }
+
+	    _createClass(TaskCompletion, [{
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            this.generateVisualization();
+	        }
+	    }, {
+	        key: 'generateVisualization',
+	        value: function generateVisualization() {
+	            _chart2.default.defaults.global.legend.display = false;
+
+	            var ctx = document.getElementById('task-completion-canvas');
+	            var myChart = new _chart2.default(ctx, {
+	                type: 'doughnut',
+	                data: {
+	                    labels: ['Tasks Completed', 'Tasks Remaining'],
+	                    datasets: [{
+	                        data: [this.props.completedTaskCount, this.props.totalTaskCount - this.props.completedTaskCount],
+	                        backgroundColor: ['#5e804d']
+	                    }]
+	                },
+	                options: {
+	                    cutoutPercentage: 75
+	                }
+	            });
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _React2.default.createElement(
+	                'div',
+	                { id: 'task-completion' },
+	                _React2.default.createElement('canvas', { id: 'task-completion-canvas' }),
+	                _React2.default.createElement(
+	                    'p',
+	                    null,
+	                    this.props.completedTaskCount,
+	                    ' / ',
+	                    this.props.totalTaskCount
+	                )
+	            );
+	        }
+	    }]);
+
+	    return TaskCompletion;
+	}(_React2.default.Component);
+
+	TaskCompletion.propTypes = {
+	    completedTaskCount: _React2.default.PropTypes.number.isRequired,
+	    totalTaskCount: _React2.default.PropTypes.number.isRequired
+	};
+
+	exports.default = TaskCompletion;
+
+/***/ },
+/* 544 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(545);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(271)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./task-completion.scss", function() {
+				var newContent = require("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./task-completion.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 545 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(270)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "", ""]);
+
+	// exports
+
+
+/***/ },
+/* 546 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	exports.default = reducer;
+	var initialState = {
+	    isLoading: false,
+	    error: '',
+	    completedTaskCount: 0,
+	    totalTaskCount: 0
+	};
+
+	function reducer() {
+	    var state = arguments.length <= 0 || arguments[0] === undefined ? initialState : arguments[0];
+	    var action = arguments[1];
+
+	    switch (action.type) {
+	        case 'REFRESH_ANALYTICS':
+	            {
+	                state = _extends({}, state, {
+	                    isLoading: false,
+	                    error: '',
+	                    completedTaskCount: 0,
+	                    totalTaskCount: 0
+	                });
+	                break;
+	            }
+	    }
+
+	    return state;
+	}
+
+/***/ },
+/* 547 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	module.exports = {
+	    refreshAnalytics: function refreshAnalytics(tasks) {
+	        return {
+	            type: 'REFRESH_ANALYTICS',
+	            payload: tasks
+	        };
+	    }
+	};
 
 /***/ }
 /******/ ]);

@@ -1,5 +1,14 @@
 // npm modules
 import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+// components
+import Module from '../module/module.jsx';
+import TaskCompletion from '../task-completion/task-completion.jsx';
+
+// actions
+import bottomDrawerActions from './bottom-drawer-actions';
 
 // styles
 require('./bottom-drawer.scss');
@@ -15,11 +24,11 @@ const styles = {
 
 class BottomDrawer extends React.Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         this.state = {
-            active: false
+            active: true
         };
 
         this.handleClick = this.handleClick.bind(this);
@@ -51,11 +60,19 @@ class BottomDrawer extends React.Component {
         return (
             <div id="bottom-drawer">
                 <div className="drawer" style={stateStyle}>
-                    <img src="https://pbs.twimg.com/profile_images/588437976742502400/qwi6wY5t.jpg" width="200" style={{ marginRight: '20px' }} />
-                    <img src="https://pbs.twimg.com/profile_images/588437976742502400/qwi6wY5t.jpg" width="200" style={{ marginRight: '20px' }} />
-                    <img src="https://pbs.twimg.com/profile_images/588437976742502400/qwi6wY5t.jpg" width="200" style={{ marginRight: '20px' }} />
-                    <img src="https://pbs.twimg.com/profile_images/588437976742502400/qwi6wY5t.jpg" width="200" style={{ marginRight: '20px' }} />
-                    <img src="https://pbs.twimg.com/profile_images/588437976742502400/qwi6wY5t.jpg" width="200" />
+                    <div className="row">
+                        <div className="col-xs-3 no-horizontal-padding">
+                            <Module
+                                type="bottom-drawer"
+                                title="Completion"
+                            >
+                                <TaskCompletion
+                                    completedTaskCount={this.props.completedTaskCount}
+                                    totalTaskCount={this.props.totalTaskCount}
+                                />
+                            </Module>
+                        </div>
+                    </div>
                 </div>
                 <div className="toggle-bar">
                     <a className="toggle" onClick={this.handleClick}>
@@ -68,4 +85,28 @@ class BottomDrawer extends React.Component {
     }
 }
 
-export default BottomDrawer;
+BottomDrawer.propTypes = {
+    error: React.PropTypes.string.isRequired,
+    completedTaskCount: React.PropTypes.number.isRequired,
+    totalTaskCount: React.PropTypes.number.isRequired,
+
+    refreshAnalytics: React.PropTypes.func.isRequired
+};
+
+function mapStateToProps(state) {
+    return {
+        error: state.bottomDrawer.error,
+        completedTaskCount: state.bottomDrawer.completedTaskCount,
+        totalTaskCount: state.bottomDrawer.totalTaskCount
+    };
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        refreshAnalytics: function() {
+            dispatch(bottomDrawerActions.refreshAnalytics());
+        }
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(BottomDrawer);

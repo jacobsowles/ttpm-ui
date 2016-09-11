@@ -12,6 +12,7 @@ import ProjectItem from './project-item/project-item.jsx';
 import TaskListItems from './task-list-items/task-list-items.jsx';
 
 // actions
+import bottomDrawerActions from '../bottom-drawer/bottom-drawer-actions.js';
 import projectListActions from './project-list-actions.js';
 import taskTableActions from '../task-table/task-table-actions.js';
 
@@ -127,7 +128,10 @@ function mapDispatchToProps(dispatch) {
         },
 
         handleProjectClick: function(projectId) {
-            dispatch(taskTableActions.filterTaskTableByProject(this.props.taskLists, projectId));
+            dispatch(taskTableActions.filterTaskTableByProject(this.props.taskLists, projectId)).then(function(tasks) {
+                console.log(tasks);
+                dispatch(bottomDrawerActions.refreshAnalytics());
+            });
         },
 
         handleTaskListClick: function(taskListId) {
