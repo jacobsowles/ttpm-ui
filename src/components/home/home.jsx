@@ -2,7 +2,7 @@
 import React from 'react';
 
 // components
-import BottomDrawer from './bottom-drawer/bottom-drawer.jsx';
+import Analytics from './analytics/analytics.jsx';
 import ContentPane from './content-pane/content-pane.jsx';
 import ContentPaneModuleCollection from './content-pane/content-pane-module-collection/content-pane-module-collection.jsx';
 import Header from './header/header.jsx';
@@ -36,7 +36,7 @@ class Home extends React.Component {
                 <ContentPane>
                     <Header />
                     <ContentPaneModuleCollection />
-                    <BottomDrawer />
+                    <Analytics />
                 </ContentPane>
             </div>
         );

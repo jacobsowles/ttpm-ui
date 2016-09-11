@@ -8,10 +8,10 @@ import Module from '../module/module.jsx';
 import TaskCompletion from '../task-completion/task-completion.jsx';
 
 // actions
-import bottomDrawerActions from './bottom-drawer-actions';
+import analyticsActions from './analytics-actions.js';
 
 // styles
-require('./bottom-drawer.scss');
+require('./analytics.scss');
 
 const styles = {
     active: {
@@ -22,7 +22,7 @@ const styles = {
     }
 };
 
-class BottomDrawer extends React.Component {
+class Analytics extends React.Component {
 
     constructor(props) {
         super(props);
@@ -58,12 +58,12 @@ class BottomDrawer extends React.Component {
         const stateStyle = this.state.active ? styles.active : styles.inactive;
 
         return (
-            <div id="bottom-drawer">
+            <div id="analytics">
                 <div className="drawer" style={stateStyle}>
                     <div className="row">
                         <div className="col-xs-3 no-horizontal-padding">
                             <Module
-                                type="bottom-drawer"
+                                type="analytics"
                                 title="Completion"
                             >
                                 <TaskCompletion
@@ -85,7 +85,7 @@ class BottomDrawer extends React.Component {
     }
 }
 
-BottomDrawer.propTypes = {
+Analytics.propTypes = {
     error: React.PropTypes.string.isRequired,
     completedTaskCount: React.PropTypes.number.isRequired,
     totalTaskCount: React.PropTypes.number.isRequired,
@@ -104,9 +104,9 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         refreshAnalytics: function() {
-            dispatch(bottomDrawerActions.refreshAnalytics());
+            dispatch(analyticsActions.refreshAnalytics());
         }
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(BottomDrawer);
+export default connect(mapStateToProps, mapDispatchToProps)(Analytics);
