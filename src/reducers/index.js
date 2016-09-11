@@ -2,7 +2,6 @@
 import { combineReducers } from 'redux';
 
 // reducers
-import analyticsReducer from './analytics-reducer.js';
 import errorReducer from './error-reducer.js';
 import loginFormReducer from '../components/login/login-form/login-form-reducer.js';
 import projectReducer from './project-reducer.js';
@@ -11,7 +10,6 @@ import taskListReducer from './task-list-reducer.js';
 import taskReducer from './task-reducer.js';
 
 export default combineReducers({
-    analytics: analyticsReducer,
     error: errorReducer,
     loginForm: loginFormReducer,
     projects: projectReducer,

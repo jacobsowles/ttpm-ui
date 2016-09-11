@@ -12,7 +12,6 @@ import TaskListFilterGroup from './task-list-filter-group/task-list-filter-group
 import ViewEditToggleField from '../../view-edit-toggle-field/view-edit-toggle-field.jsx';
 
 // actions
-import analyticsActions from '../../../actions/analytics-actions.js';
 import projectActions from '../../../actions/project-actions.js';
 import taskActions from '../../../actions/task-actions.js';
 import taskListActions from '../../../actions/task-list-actions.js';
@@ -120,10 +119,7 @@ function mapDispatchToProps(dispatch) {
         },
 
         handleProjectClick: function(projectId) {
-            dispatch(taskActions.filterTasksByProject(this.props.taskLists, projectId));/*.then(function(tasks) {
-                console.log(tasks);
-                dispatch(bottomDrawerActions.refreshAnalytics());
-            });*/
+            dispatch(taskActions.filterTasksByProject(this.props.taskLists, projectId));
         },
 
         handleAddProjectClick: function(name) {

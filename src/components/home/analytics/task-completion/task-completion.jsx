@@ -7,7 +7,31 @@ require('./task-completion.scss');
 
 class TaskCompletion extends React.Component {
 
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            completionPercentage: 0
+        };
+    }
+
+    componentRecieveProps(nextProps) {
+        this.state.completionPercentage = (
+            nextProps.totalTaskCount > 0
+            ? nextProps.completedTaskCount / nextProps.totalTaskCount
+            : 0
+        );
+    }
+
     componentDidMount() {
+        this.generateVisualization();
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        return nextProps.isVisible;
+    }
+
+    componentDidUpdate(prevProps, prevState) {
         this.generateVisualization();
     }
 
@@ -37,6 +61,7 @@ class TaskCompletion extends React.Component {
             <div id="task-completion">
                 <canvas id="task-completion-canvas" />
                 <p>{this.props.completedTaskCount} / {this.props.totalTaskCount}</p>
+                <p style={{float: 'right'}}>{this.state.completionPercentage}%</p>
             </div>
         );
     }
@@ -44,7 +69,8 @@ class TaskCompletion extends React.Component {
 
 TaskCompletion.propTypes = {
     completedTaskCount: React.PropTypes.number.isRequired,
-    totalTaskCount: React.PropTypes.number.isRequired
+    totalTaskCount: React.PropTypes.number.isRequired,
+    isVisible: React.PropTypes.bool.isRequired
 };
 
 export default TaskCompletion;

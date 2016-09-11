@@ -7,9 +7,6 @@ import { bindActionCreators } from 'redux';
 import Module from '../../module/module.jsx';
 import TaskCompletion from './task-completion/task-completion.jsx';
 
-// actions
-import analyticsActions from '../../../actions/analytics-actions.js';
-
 // styles
 require('./analytics.scss');
 
@@ -53,8 +50,9 @@ class Analytics extends React.Component {
                                 title="Completion"
                             >
                                 <TaskCompletion
-                                    completedTaskCount={this.props.completedTaskCount}
-                                    totalTaskCount={this.props.totalTaskCount}
+                                    completedTaskCount={this.props.tasks.filter(t => t.Complete).length}
+                                    totalTaskCount={this.props.tasks.length}
+                                    isVisible={this.state.active}
                                 />
                             </Module>
                         </div>
@@ -72,25 +70,13 @@ class Analytics extends React.Component {
 }
 
 Analytics.propTypes = {
-    completedTaskCount: React.PropTypes.number.isRequired,
-    totalTaskCount: React.PropTypes.number.isRequired,
-
-    refreshAnalytics: React.PropTypes.func.isRequired
+    tasks: React.PropTypes.arrayOf(React.PropTypes.object).isRequired
 };
 
 function mapStateToProps(state) {
     return {
-        completedTaskCount: state.analytics.completedTaskCount,
-        totalTaskCount: state.analytics.totalTaskCount
+        tasks: state.tasks.filteredTasks
     };
 }
 
-function mapDispatchToProps(dispatch) {
-    return {
-        refreshAnalytics: function() {
-            dispatch(analyticsActions.refreshAnalytics());
-        }
-    };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Analytics);
+export default connect(mapStateToProps)(Analytics);
