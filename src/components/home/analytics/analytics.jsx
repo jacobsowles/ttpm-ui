@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 
 // components
 import Module from '../../module/module.jsx';
-import TaskCompletion from '../task-completion/task-completion.jsx';
+import TaskCompletion from './task-completion/task-completion.jsx';
 
 // actions
 import analyticsActions from './analytics-actions.js';

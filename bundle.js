@@ -33388,100 +33388,7 @@
 /* 302 */,
 /* 303 */,
 /* 304 */,
-/* 305 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _React = __webpack_require__(270);
-
-	var _React2 = _interopRequireDefault(_React);
-
-	var _chart = __webpack_require__(306);
-
-	var _chart2 = _interopRequireDefault(_chart);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
-
-
-	// styles
-	__webpack_require__(453);
-
-	var TaskCompletion = function (_React$Component) {
-	    _inherits(TaskCompletion, _React$Component);
-
-	    function TaskCompletion() {
-	        _classCallCheck(this, TaskCompletion);
-
-	        return _possibleConstructorReturn(this, (TaskCompletion.__proto__ || Object.getPrototypeOf(TaskCompletion)).apply(this, arguments));
-	    }
-
-	    _createClass(TaskCompletion, [{
-	        key: 'componentDidMount',
-	        value: function componentDidMount() {
-	            this.generateVisualization();
-	        }
-	    }, {
-	        key: 'generateVisualization',
-	        value: function generateVisualization() {
-	            _chart2.default.defaults.global.legend.display = false;
-
-	            var ctx = document.getElementById('task-completion-canvas');
-	            var myChart = new _chart2.default(ctx, {
-	                type: 'doughnut',
-	                data: {
-	                    labels: ['Tasks Completed', 'Tasks Remaining'],
-	                    datasets: [{
-	                        data: [this.props.completedTaskCount, this.props.totalTaskCount - this.props.completedTaskCount],
-	                        backgroundColor: ['#5e804d']
-	                    }]
-	                },
-	                options: {
-	                    cutoutPercentage: 75
-	                }
-	            });
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            return _React2.default.createElement(
-	                'div',
-	                { id: 'task-completion' },
-	                _React2.default.createElement('canvas', { id: 'task-completion-canvas' }),
-	                _React2.default.createElement(
-	                    'p',
-	                    null,
-	                    this.props.completedTaskCount,
-	                    ' / ',
-	                    this.props.totalTaskCount
-	                )
-	            );
-	        }
-	    }]);
-
-	    return TaskCompletion;
-	}(_React2.default.Component);
-
-	TaskCompletion.propTypes = {
-	    completedTaskCount: _React2.default.PropTypes.number.isRequired,
-	    totalTaskCount: _React2.default.PropTypes.number.isRequired
-	};
-
-	exports.default = TaskCompletion;
-
-/***/ },
+/* 305 */,
 /* 306 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -58214,46 +58121,8 @@
 	};
 
 /***/ },
-/* 453 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(454);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(299)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./task-completion.scss", function() {
-				var newContent = require("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./task-completion.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 454 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(298)();
-	// imports
-
-
-	// module
-	exports.push([module.id, "", ""]);
-
-	// exports
-
-
-/***/ },
+/* 453 */,
+/* 454 */,
 /* 455 */
 /***/ function(module, exports) {
 
@@ -79422,7 +79291,7 @@
 
 	var _module2 = _interopRequireDefault(_module);
 
-	var _taskCompletion = __webpack_require__(305);
+	var _taskCompletion = __webpack_require__(588);
 
 	var _taskCompletion2 = _interopRequireDefault(_taskCompletion);
 
@@ -80148,6 +80017,140 @@
 
 	// module
 	exports.push([module.id, "#content {\n  width: calc(100% - 250px);\n  float: left;\n  height: 100vh; }\n  #content:after {\n    display: block;\n    content: \"\"; }\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 588 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _React = __webpack_require__(270);
+
+	var _React2 = _interopRequireDefault(_React);
+
+	var _chart = __webpack_require__(306);
+
+	var _chart2 = _interopRequireDefault(_chart);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
+
+
+	// styles
+	__webpack_require__(589);
+
+	var TaskCompletion = function (_React$Component) {
+	    _inherits(TaskCompletion, _React$Component);
+
+	    function TaskCompletion() {
+	        _classCallCheck(this, TaskCompletion);
+
+	        return _possibleConstructorReturn(this, (TaskCompletion.__proto__ || Object.getPrototypeOf(TaskCompletion)).apply(this, arguments));
+	    }
+
+	    _createClass(TaskCompletion, [{
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            this.generateVisualization();
+	        }
+	    }, {
+	        key: 'generateVisualization',
+	        value: function generateVisualization() {
+	            _chart2.default.defaults.global.legend.display = false;
+
+	            var ctx = document.getElementById('task-completion-canvas');
+	            var myChart = new _chart2.default(ctx, {
+	                type: 'doughnut',
+	                data: {
+	                    labels: ['Tasks Completed', 'Tasks Remaining'],
+	                    datasets: [{
+	                        data: [this.props.completedTaskCount, this.props.totalTaskCount - this.props.completedTaskCount],
+	                        backgroundColor: ['#5e804d']
+	                    }]
+	                },
+	                options: {
+	                    cutoutPercentage: 75
+	                }
+	            });
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _React2.default.createElement(
+	                'div',
+	                { id: 'task-completion' },
+	                _React2.default.createElement('canvas', { id: 'task-completion-canvas' }),
+	                _React2.default.createElement(
+	                    'p',
+	                    null,
+	                    this.props.completedTaskCount,
+	                    ' / ',
+	                    this.props.totalTaskCount
+	                )
+	            );
+	        }
+	    }]);
+
+	    return TaskCompletion;
+	}(_React2.default.Component);
+
+	TaskCompletion.propTypes = {
+	    completedTaskCount: _React2.default.PropTypes.number.isRequired,
+	    totalTaskCount: _React2.default.PropTypes.number.isRequired
+	};
+
+	exports.default = TaskCompletion;
+
+/***/ },
+/* 589 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(590);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(299)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./task-completion.scss", function() {
+				var newContent = require("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./task-completion.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 590 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(298)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "", ""]);
 
 	// exports
 
