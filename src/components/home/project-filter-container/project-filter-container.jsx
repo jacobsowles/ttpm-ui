@@ -6,10 +6,10 @@ import { bindActionCreators } from 'redux';
 // components
 import Accordion from '../../accordion/accordion.jsx';
 import AccordionItem from '../../accordion/accordion-item/accordion-item.jsx';
-import AddNew from './add-new/add-new.jsx';
 import LoadingGraphic from '../../loading-graphic/loading-graphic.jsx';
 import ProjectItem from './project-item/project-item.jsx';
 import TaskListItems from './task-list-items/task-list-items.jsx';
+import ViewEditToggleField from '../../view-edit-toggle-field/view-edit-toggle-field.jsx';
 
 // actions
 import bottomDrawerActions from '../bottom-drawer/bottom-drawer-actions.js';
@@ -73,9 +73,9 @@ class ProjectFilterContainer extends React.Component {
                                                     handleItemClick={this.props.handleTaskListClick}
                                                     handleDeleteTaskListClick={this.props.handleDeleteTaskListClick}
                                                 />
-                                                <AddNew
-                                                    entity='task list'
-                                                    class='add-new-task-list'
+                                                <ViewEditToggleField
+                                                    type='task-list'
+                                                    text='+ Add a new task list'
                                                     handleSubmit={this.props.handleAddTaskListClick}
                                                     includeWithSubmit={{
                                                         projectId: project.Id
@@ -88,9 +88,9 @@ class ProjectFilterContainer extends React.Component {
                             );
                         }.bind(this))
                     }
-                    <AddNew
-                        entity='project'
-                        class='add-new-project'
+                    <ViewEditToggleField
+                        type='project'
+                        text='+ Add a new project'
                         handleSubmit={this.props.handleAddProjectClick}
                     />
                 </Accordion>
@@ -140,26 +140,26 @@ function mapDispatchToProps(dispatch) {
 
         handleAddProjectClick: function(name) {
             dispatch(projectFilterContainerActions.addProject(name)).then(function() {
-                dispatch(projectFilterContainerActions.fetchProjectList());
+                dispatch(projectFilterContainerActions.fetchProjects());
             });
         },
 
         handleDeleteProjectClick: function(projectId, event) {
             event.stopPropagation(); // prevents the project accordion from expanding
             dispatch(projectFilterContainerActions.deleteProject(projectId)).then(function() {
-                dispatch(projectFilterContainerActions.fetchProjectList());
+                dispatch(projectFilterContainerActions.fetchProjects());
             });
         },
 
         handleAddTaskListClick: function(name, boundData) {
             dispatch(projectFilterContainerActions.addTaskList(name, boundData.projectId)).then(function() {
-                dispatch(projectFilterContainerActions.fetchProjectList());
+                dispatch(projectFilterContainerActions.fetchProjects());
             });
         },
 
         handleDeleteTaskListClick: function(taskListId) {
             dispatch(projectFilterContainerActions.deleteTaskList(taskListId)).then(function() {
-                dispatch(projectFilterContainerActions.fetchProjectList());
+                dispatch(projectFilterContainerActions.fetchProjects());
             });
         }
     };

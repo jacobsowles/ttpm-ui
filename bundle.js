@@ -79404,10 +79404,6 @@
 
 	var _accordionItem2 = _interopRequireDefault(_accordionItem);
 
-	var _addNew = __webpack_require__(539);
-
-	var _addNew2 = _interopRequireDefault(_addNew);
-
 	var _loadingGraphic = __webpack_require__(463);
 
 	var _loadingGraphic2 = _interopRequireDefault(_loadingGraphic);
@@ -79419,6 +79415,10 @@
 	var _taskListItems = __webpack_require__(545);
 
 	var _taskListItems2 = _interopRequireDefault(_taskListItems);
+
+	var _viewEditToggleField = __webpack_require__(554);
+
+	var _viewEditToggleField2 = _interopRequireDefault(_viewEditToggleField);
 
 	var _bottomDrawerActions = __webpack_require__(455);
 
@@ -79512,9 +79512,9 @@
 	                                        handleItemClick: this.props.handleTaskListClick,
 	                                        handleDeleteTaskListClick: this.props.handleDeleteTaskListClick
 	                                    }),
-	                                    _react2.default.createElement(_addNew2.default, {
-	                                        entity: 'task list',
-	                                        'class': 'add-new-task-list',
+	                                    _react2.default.createElement(_viewEditToggleField2.default, {
+	                                        type: 'task-list',
+	                                        text: '+ Add a new task list',
 	                                        handleSubmit: this.props.handleAddTaskListClick,
 	                                        includeWithSubmit: {
 	                                            projectId: project.Id
@@ -79524,9 +79524,9 @@
 	                            }
 	                        });
 	                    }.bind(this)),
-	                    _react2.default.createElement(_addNew2.default, {
-	                        entity: 'project',
-	                        'class': 'add-new-project',
+	                    _react2.default.createElement(_viewEditToggleField2.default, {
+	                        type: 'project',
+	                        text: '+ Add a new project',
 	                        handleSubmit: this.props.handleAddProjectClick
 	                    })
 	                )
@@ -79578,26 +79578,26 @@
 
 	        handleAddProjectClick: function handleAddProjectClick(name) {
 	            dispatch(_projectFilterContainerActions2.default.addProject(name)).then(function () {
-	                dispatch(_projectFilterContainerActions2.default.fetchProjectList());
+	                dispatch(_projectFilterContainerActions2.default.fetchProjects());
 	            });
 	        },
 
 	        handleDeleteProjectClick: function handleDeleteProjectClick(projectId, event) {
 	            event.stopPropagation(); // prevents the project accordion from expanding
 	            dispatch(_projectFilterContainerActions2.default.deleteProject(projectId)).then(function () {
-	                dispatch(_projectFilterContainerActions2.default.fetchProjectList());
+	                dispatch(_projectFilterContainerActions2.default.fetchProjects());
 	            });
 	        },
 
 	        handleAddTaskListClick: function handleAddTaskListClick(name, boundData) {
 	            dispatch(_projectFilterContainerActions2.default.addTaskList(name, boundData.projectId)).then(function () {
-	                dispatch(_projectFilterContainerActions2.default.fetchProjectList());
+	                dispatch(_projectFilterContainerActions2.default.fetchProjects());
 	            });
 	        },
 
 	        handleDeleteTaskListClick: function handleDeleteTaskListClick(taskListId) {
 	            dispatch(_projectFilterContainerActions2.default.deleteTaskList(taskListId)).then(function () {
-	                dispatch(_projectFilterContainerActions2.default.fetchProjectList());
+	                dispatch(_projectFilterContainerActions2.default.fetchProjects());
 	            });
 	        }
 	    };
@@ -79606,215 +79606,9 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(ProjectFilterContainer);
 
 /***/ },
-/* 539 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _lodash = __webpack_require__(521);
-
-	var _lodash2 = _interopRequireDefault(_lodash);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
-
-
-	// styles
-	__webpack_require__(540);
-
-	var styles = {
-	    show: {
-	        display: 'inherit'
-	    },
-	    hide: {
-	        display: 'none'
-	    }
-	};
-
-	var AddNew = function (_React$Component) {
-	    _inherits(AddNew, _React$Component);
-
-	    function AddNew() {
-	        _classCallCheck(this, AddNew);
-
-	        var _this = _possibleConstructorReturn(this, (AddNew.__proto__ || Object.getPrototypeOf(AddNew)).call(this));
-	        // TODO: Rename this to something other than 'add new', since it will likely be used in other places for different purposes.
-
-
-	        _this.state = {
-	            active: false,
-	            id: _lodash2.default.uniqueId('add-new-input-')
-	        };
-
-	        _this.handleClick = _this.handleClick.bind(_this);
-	        _this.handleKeyDown = _this.handleKeyDown.bind(_this);
-	        _this.handleSubmit = _this.handleSubmit.bind(_this);
-
-	        _this.bindKeyboardShortcuts();
-	        return _this;
-	    }
-
-	    _createClass(AddNew, [{
-	        key: 'componentDidUpdate',
-	        value: function componentDidUpdate(prevProps, prevState) {
-	            var input = document.getElementById(this.state.id);
-	            input.focus();
-	        }
-	    }, {
-	        key: 'handleClick',
-	        value: function handleClick() {
-	            this.setState({
-	                active: true
-	            });
-	        }
-	    }, {
-	        key: 'handleKeyDown',
-	        value: function handleKeyDown(event) {
-	            switch (event.key) {
-	                case 'Escape':
-	                    {
-	                        event.target.value = '';
-	                        this.handleSubmit(event.target);
-	                        break;
-	                    }
-
-	                case 'Enter':
-	                    {
-	                        this.handleSubmit(event.target);
-	                        break;
-	                    }
-	            }
-	        }
-	    }, {
-	        key: 'handleSubmit',
-	        value: function handleSubmit(element) {
-	            var value = element.value;
-	            element.value = '';
-
-	            this.setState({
-	                active: false
-	            });
-
-	            if (value != '') {
-	                this.props.handleSubmit(value, this.props.includeWithSubmit);
-	            }
-	        }
-	    }, {
-	        key: 'bindKeyboardShortcuts',
-	        value: function bindKeyboardShortcuts() {
-	            document.onkeydown = function (e) {
-	                if (e.target.tagName.toLowerCase() != 'input') {
-	                    switch (e.key) {
-	                        case 'p':
-	                            {
-	                                this.handleClick();
-	                                return false;
-	                            }
-	                    }
-	                }
-	            }.bind(this);
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            var _this2 = this;
-
-	            return _react2.default.createElement(
-	                'div',
-	                { className: 'add-new ' + this.props.class },
-	                _react2.default.createElement(
-	                    'section',
-	                    { style: this.state.active ? styles.show : styles.hide },
-	                    _react2.default.createElement('input', {
-	                        id: this.state.id,
-	                        onBlur: function onBlur(event) {
-	                            return _this2.handleSubmit(event.target);
-	                        },
-	                        onKeyDown: this.handleKeyDown
-	                    })
-	                ),
-	                _react2.default.createElement(
-	                    'section',
-	                    { style: this.state.active ? styles.hide : styles.show },
-	                    _react2.default.createElement(
-	                        'a',
-	                        { onClick: this.handleClick },
-	                        '+ Add a new ',
-	                        this.props.entity
-	                    )
-	                )
-	            );
-	        }
-	    }]);
-
-	    return AddNew;
-	}(_react2.default.Component);
-
-	AddNew.propTypes = {
-	    entity: _react2.default.PropTypes.string.isRequired,
-	    class: _react2.default.PropTypes.string,
-	    handleSubmit: _react2.default.PropTypes.func.isRequired,
-	    includeWithSubmit: _react2.default.PropTypes.object
-	};
-
-	exports.default = AddNew;
-
-/***/ },
-/* 540 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(541);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(299)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./add-new.scss", function() {
-				var newContent = require("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./add-new.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 541 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(298)();
-	// imports
-
-
-	// module
-	exports.push([module.id, ".add-new {\n  font-size: .9em; }\n  .add-new a {\n    color: #888888;\n    display: block;\n    padding: 10px 0 10px 15px; }\n    .add-new a:hover {\n      background: #312F33;\n      text-decoration: none;\n      cursor: pointer;\n      color: #DBDBDB; }\n    .add-new a .active {\n      background: #312F33; }\n  .add-new input {\n    background: #636066;\n    padding: 10px 15px;\n    border: none;\n    color: #DBDBDB;\n    width: calc(100% - 30px);\n    margin-left: 15px; }\n\n.add-new-project a {\n  font-weight: bold; }\n\n.add-new-task-list a {\n  padding-left: 30px; }\n  .add-new-task-list a:hover {\n    background: #636066; }\n\n.add-new-task-list input {\n  width: calc(100% - 45px);\n  margin-left: 30px; }\n", ""]);
-
-	// exports
-
-
-/***/ },
+/* 539 */,
+/* 540 */,
+/* 541 */,
 /* 542 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -80247,6 +80041,195 @@
 
 	// module
 	exports.push([module.id, ".project-filter ul {\n  list-style-type: none;\n  padding-left: 0;\n  margin-bottom: 0; }\n\n.project-filter a:hover {\n  text-decoration: none; }\n\n.project-filter .project-item {\n  padding: 10px 15px;\n  display: block;\n  font-size: .9em;\n  margin: 0;\n  color: #DBDBDB;\n  font-weight: bold; }\n  .project-filter .project-item:hover {\n    background: #312F33;\n    text-decoration: none;\n    cursor: pointer; }\n  .project-filter .project-item .active {\n    background: #312F33; }\n\n.project-filter .item-actions {\n  float: right;\n  color: #888888; }\n  .project-filter .item-actions span {\n    padding: 2px 6px; }\n    .project-filter .item-actions span:hover {\n      background: #888888;\n      color: #DBDBDB; }\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 554 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _lodash = __webpack_require__(521);
+
+	var _lodash2 = _interopRequireDefault(_lodash);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
+
+
+	// styles
+	__webpack_require__(555);
+
+	var styles = {
+	    show: {
+	        display: 'inherit'
+	    },
+	    hide: {
+	        display: 'none'
+	    }
+	};
+
+	var ViewEditToggleField = function (_React$Component) {
+	    _inherits(ViewEditToggleField, _React$Component);
+
+	    function ViewEditToggleField(props) {
+	        _classCallCheck(this, ViewEditToggleField);
+
+	        var _this = _possibleConstructorReturn(this, (ViewEditToggleField.__proto__ || Object.getPrototypeOf(ViewEditToggleField)).call(this, props));
+
+	        _this.state = {
+	            active: false,
+	            id: _lodash2.default.uniqueId('view-edit-toggle-field-')
+	        };
+
+	        _this.handleClick = _this.handleClick.bind(_this);
+	        _this.handleKeyDown = _this.handleKeyDown.bind(_this);
+	        _this.handleSubmit = _this.handleSubmit.bind(_this);
+	        return _this;
+	    }
+
+	    _createClass(ViewEditToggleField, [{
+	        key: 'componentDidUpdate',
+	        value: function componentDidUpdate(prevProps, prevState) {
+	            var input = document.getElementById(this.state.id);
+	            input.focus();
+	        }
+	    }, {
+	        key: 'handleClick',
+	        value: function handleClick() {
+	            this.setState({
+	                active: true
+	            });
+	        }
+	    }, {
+	        key: 'handleKeyDown',
+	        value: function handleKeyDown(event) {
+	            switch (event.key) {
+	                case 'Escape':
+	                    {
+	                        event.target.value = '';
+	                        this.handleSubmit(event.target);
+	                        break;
+	                    }
+
+	                case 'Enter':
+	                    {
+	                        this.handleSubmit(event.target);
+	                        break;
+	                    }
+	            }
+	        }
+	    }, {
+	        key: 'handleSubmit',
+	        value: function handleSubmit(element) {
+	            var value = element.value;
+	            element.value = '';
+
+	            this.setState({
+	                active: false
+	            });
+
+	            if (value != '') {
+	                this.props.handleSubmit(value, this.props.includeWithSubmit);
+	            }
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var _this2 = this;
+
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'view-edit-toggle-field ' + this.props.type + '-view-edit-toggle-field' },
+	                _react2.default.createElement(
+	                    'section',
+	                    { style: this.state.active ? styles.show : styles.hide },
+	                    _react2.default.createElement('input', {
+	                        id: this.state.id,
+	                        onBlur: function onBlur(event) {
+	                            return _this2.handleSubmit(event.target);
+	                        },
+	                        onKeyDown: this.handleKeyDown
+	                    })
+	                ),
+	                _react2.default.createElement(
+	                    'section',
+	                    { style: this.state.active ? styles.hide : styles.show },
+	                    _react2.default.createElement(
+	                        'a',
+	                        { onClick: this.handleClick },
+	                        this.props.text
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return ViewEditToggleField;
+	}(_react2.default.Component);
+
+	ViewEditToggleField.propTypes = {
+	    type: _react2.default.PropTypes.string,
+	    text: _react2.default.PropTypes.string.isRequired,
+	    handleSubmit: _react2.default.PropTypes.func.isRequired,
+	    includeWithSubmit: _react2.default.PropTypes.object
+	};
+
+	exports.default = ViewEditToggleField;
+
+/***/ },
+/* 555 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(556);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(299)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/sass-loader/index.js!./view-edit-toggle-field.scss", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/sass-loader/index.js!./view-edit-toggle-field.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 556 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(298)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".view-edit-toggle-field {\n  font-size: .9em; }\n  .view-edit-toggle-field a {\n    color: #888888;\n    display: block;\n    padding: 10px 0 10px 15px; }\n    .view-edit-toggle-field a:hover {\n      background: #312F33;\n      text-decoration: none;\n      cursor: pointer;\n      color: #DBDBDB; }\n    .view-edit-toggle-field a .active {\n      background: #312F33; }\n  .view-edit-toggle-field input {\n    background: #636066;\n    padding: 10px 15px;\n    border: none;\n    color: #DBDBDB;\n    width: calc(100% - 30px);\n    margin-left: 15px; }\n\n.project-view-edit-toggle-field a {\n  font-weight: bold; }\n\n.task-list-view-edit-toggle-field a {\n  padding-left: 30px; }\n  .task-list-view-edit-toggle-field a:hover {\n    background: #636066; }\n\n.task-list-view-edit-toggle-field input {\n  width: calc(100% - 45px);\n  margin-left: 30px; }\n", ""]);
 
 	// exports
 
