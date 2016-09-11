@@ -6,11 +6,11 @@ import Module from '../../../module/module.jsx';
 import TaskTable from '../../task-table/task-table.jsx';
 
 // styles
-require('./content-pane-module-collection.scss');
+require('./content-module-collection.scss');
 
-class ContentPaneModuleCollection extends React.Component {
+class ContentModuleCollection extends React.Component {
     render() {
-        const moduleType = 'content-pane';
+        const moduleType = 'content';
 
         return (
             <div className="row">
@@ -24,4 +24,4 @@ class ContentPaneModuleCollection extends React.Component {
     }
 }
 
-export default ContentPaneModuleCollection;
+export default ContentModuleCollection;

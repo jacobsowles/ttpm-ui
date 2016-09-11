@@ -3,8 +3,8 @@ import React from 'react';
 
 // components
 import Analytics from './analytics/analytics.jsx';
-import ContentPane from './content-pane/content-pane.jsx';
-import ContentPaneModuleCollection from './content-pane/content-pane-module-collection/content-pane-module-collection.jsx';
+import Content from './content/content.jsx';
+import ContentModuleCollection from './content/content-module-collection/content-module-collection.jsx';
 import Header from './header/header.jsx';
 import Logo from './logo/logo.jsx';
 import Module from '../module/module.jsx';
@@ -32,11 +32,11 @@ class Home extends React.Component {
                     </Module>
                 </Sidebar>
 
-                <ContentPane>
+                <Content>
                     <Header />
-                    <ContentPaneModuleCollection />
+                    <ContentModuleCollection />
                     <Analytics />
-                </ContentPane>
+                </Content>
             </div>
         );
     }
