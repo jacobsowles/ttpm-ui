@@ -13,13 +13,13 @@ import TaskListItems from './task-list-items/task-list-items.jsx';
 
 // actions
 import bottomDrawerActions from '../bottom-drawer/bottom-drawer-actions.js';
-import projectListActions from './project-list-actions.js';
+import projectFilterContainerActions from './project-filter-container-actions.js';
 import taskTableActions from '../task-table/task-table-actions.js';
 
 // styles
-require('./project-list.scss');
+require('./project-filter-container.scss');
 
-class ProjectList extends React.Component {
+class ProjectFilterContainer extends React.Component {
 
     constructor(props) {
         super(props);
@@ -30,7 +30,7 @@ class ProjectList extends React.Component {
     }
 
     componentWillMount() {
-        this.props.fetchProjectList();
+        this.props.fetchProjects();
     }
 
     componentDidMount() {
@@ -41,7 +41,7 @@ class ProjectList extends React.Component {
 
     render() {
         return (
-            <div className="project-list">
+            <div className="project-filter">
                 {this.props.error}
 
                 <LoadingGraphic showLoadingGraphic={this.state.showLoadingGraphic} />
@@ -99,12 +99,12 @@ class ProjectList extends React.Component {
     }
 }
 
-ProjectList.propTypes = {
+ProjectFilterContainer.propTypes = {
     error: React.PropTypes.string.isRequired,
     projects: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
     taskLists: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
 
-    fetchProjectList: React.PropTypes.func.isRequired,
+    fetchProjects: React.PropTypes.func.isRequired,
     handleProjectClick: React.PropTypes.func.isRequired,
     handleTaskListClick: React.PropTypes.func.isRequired,
     handleAddProjectClick: React.PropTypes.func.isRequired,
@@ -115,16 +115,16 @@ ProjectList.propTypes = {
 
 function mapStateToProps(state) {
     return {
-        error: state.projectList.error,
-        projects: state.projectList.projects,
-        taskLists: state.projectList.taskLists
+        error: state.projects.error,
+        projects: state.projects.projects,
+        taskLists: state.projects.taskLists
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        fetchProjectList: function() {
-            dispatch(projectListActions.fetchProjectList());
+        fetchProjects: function() {
+            dispatch(projectFilterContainerActions.fetchProjects());
         },
 
         handleProjectClick: function(projectId) {
@@ -139,30 +139,30 @@ function mapDispatchToProps(dispatch) {
         },
 
         handleAddProjectClick: function(name) {
-            dispatch(projectListActions.addProject(name)).then(function() {
-                dispatch(projectListActions.fetchProjectList());
+            dispatch(projectFilterContainerActions.addProject(name)).then(function() {
+                dispatch(projectFilterContainerActions.fetchProjectList());
             });
         },
 
         handleDeleteProjectClick: function(projectId, event) {
             event.stopPropagation(); // prevents the project accordion from expanding
-            dispatch(projectListActions.deleteProject(projectId)).then(function() {
-                dispatch(projectListActions.fetchProjectList());
+            dispatch(projectFilterContainerActions.deleteProject(projectId)).then(function() {
+                dispatch(projectFilterContainerActions.fetchProjectList());
             });
         },
 
         handleAddTaskListClick: function(name, boundData) {
-            dispatch(projectListActions.addTaskList(name, boundData.projectId)).then(function() {
-                dispatch(projectListActions.fetchProjectList());
+            dispatch(projectFilterContainerActions.addTaskList(name, boundData.projectId)).then(function() {
+                dispatch(projectFilterContainerActions.fetchProjectList());
             });
         },
 
         handleDeleteTaskListClick: function(taskListId) {
-            dispatch(projectListActions.deleteTaskList(taskListId)).then(function() {
-                dispatch(projectListActions.fetchProjectList());
+            dispatch(projectFilterContainerActions.deleteTaskList(taskListId)).then(function() {
+                dispatch(projectFilterContainerActions.fetchProjectList());
             });
         }
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProjectList);
+export default connect(mapStateToProps, mapDispatchToProps)(ProjectFilterContainer);

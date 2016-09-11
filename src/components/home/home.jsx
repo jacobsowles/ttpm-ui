@@ -8,7 +8,7 @@ import ContentPaneModuleCollection from './content-pane/content-pane-module-coll
 import Header from './header/header.jsx';
 import Logo from './logo/logo.jsx';
 import Module from './module/module.jsx';
-import ProjectList from './project-list/project-list.jsx';
+import ProjectFilterContainer from './project-filter-container/project-filter-container.jsx';
 import Sidebar from './sidebar/sidebar.jsx';
 import StatusBox from './status-box/status-box.jsx';
 
@@ -29,7 +29,7 @@ class Home extends React.Component {
                         type="sidebar"
                         title="Projects"
                     >
-                        <ProjectList />
+                        <ProjectFilterContainer />
                     </Module>
                 </Sidebar>
 

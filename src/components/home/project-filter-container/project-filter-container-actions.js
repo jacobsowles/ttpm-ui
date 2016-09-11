@@ -1,9 +1,9 @@
 import { get, post, del } from '../../../api.js';
 
 module.exports = {
-    fetchProjectList() {
+    fetchProjects() {
         return {
-            type: 'FETCH_PROJECT_LIST',
+            type: 'FETCH_PROJECTS',
             payload: get('/projects')
         };
     },

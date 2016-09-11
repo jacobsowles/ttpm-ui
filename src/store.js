@@ -5,7 +5,7 @@ import thunk from 'redux-thunk';
 import promise from 'redux-promise-middleware';
 
 // app modules
-import reducer from './reducer.js';
+import reducer from './reducers/index.js';
 
 const middleware = applyMiddleware(promise(), thunk, logger());
 

@@ -9,7 +9,7 @@ const initialState = {
 export default function reducer(state = initialState, action) {
     switch (action.type) {
         // PENDING
-        case 'FETCH_PROJECT_LIST_PENDING':
+        case 'FETCH_PROJECTS_PENDING':
         case 'ADD_PROJECT_PENDING':
         case 'DELETE_PROJECT_PENDING':
         case 'ADD_TASK_LIST_PENDING':
@@ -23,7 +23,7 @@ export default function reducer(state = initialState, action) {
         }
 
         // FULFILLED
-        case 'FETCH_PROJECT_LIST_FULFILLED': {
+        case 'FETCH_PROJECTS_FULFILLED': {
             state = {
                 ...state,
                 isLoading: false,
@@ -48,11 +48,11 @@ export default function reducer(state = initialState, action) {
         }
 
         // REJECTED
-        case 'FETCH_PROJECT_LIST_REJECTED': {
+        case 'FETCH_PROJECTS_REJECTED': {
             state = {
                 ...state,
                 isLoading: false,
-                error: 'Failed to load project list.'
+                error: 'Failed to load projects.'
             };
             break;
         }
