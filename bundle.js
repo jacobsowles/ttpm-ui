@@ -59494,10 +59494,6 @@
 
 	        var _this = _possibleConstructorReturn(this, (TaskTableRow.__proto__ || Object.getPrototypeOf(TaskTableRow)).call(this, props));
 
-	        _this.state = {
-	            complete: props.task.Complete
-	        };
-
 	        _this.handleCompletionToggle = _this.handleCompletionToggle.bind(_this);
 	        return _this;
 	    }
@@ -59505,9 +59501,6 @@
 	    _createClass(TaskTableRow, [{
 	        key: 'handleCompletionToggle',
 	        value: function handleCompletionToggle() {
-	            this.setState({
-	                complete: !this.state.complete
-	            });
 	            this.props.handleCompletionToggle(this.props.task.Id);
 	        }
 	    }, {
@@ -59515,7 +59508,7 @@
 	        value: function render() {
 	            var _this2 = this;
 
-	            var stateStyle = this.state.complete ? 'complete' : '';
+	            var stateStyle = this.props.task.Complete ? 'complete' : '';
 
 	            var checkbox = this.props.task.Complete ? _react2.default.createElement('input', { type: 'checkbox', onChange: function onChange() {
 	                    return _this2.handleCompletionToggle();
