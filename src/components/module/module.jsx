@@ -11,7 +11,7 @@ require('./module.scss');
 class Module extends React.Component {
     render() {
         return (
-            <div className={`module ${this.props.type}-module`}>
+            <div id={this.props.id} className={`module ${this.props.type}-module`}>
                 {
                     this.props.title
                     ? <ModuleHeader
@@ -30,6 +30,7 @@ class Module extends React.Component {
 }
 
 Module.propTypes = {
+    id: React.PropTypes.string,
     type: React.PropTypes.string.isRequired,
     title: React.PropTypes.string
 };

@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 
 // components
 import Module from '../../module/module.jsx';
+import TaskAge from './task-age/task-age.jsx';
 import TaskCompletion from './task-completion/task-completion.jsx';
 
 // styles
@@ -56,6 +57,18 @@ class Analytics extends React.Component {
                                 />
                             </Module>
                         </div>
+
+                        {/*<div className="col-xs-3">
+                            <Module
+                                id="task-age-module"
+                                type="analytics"
+                                title="Oldest Open Tasks"
+                            >
+                                <TaskAge
+                                    isVisible={this.state.active}
+                                />
+                            </Module>
+                        </div>*/}
                     </div>
                 </div>
                 <div className="toggle-bar">
