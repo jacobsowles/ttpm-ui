@@ -50,9 +50,10 @@ class TaskTable extends React.Component {
                                     <TaskTableRow
                                         key={key}
                                         task={task}
+                                        handleCompletionToggle={this.props.handleCompletionToggle}
                                     />
                                 );
-                            })
+                            }.bind(this))
                         }
                     </tbody>
                 </table>
@@ -65,7 +66,8 @@ TaskTable.propTypes = {
     tasks: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
     filteredTasks: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
 
-    fetchTasks: React.PropTypes.func.isRequired
+    fetchTasks: React.PropTypes.func.isRequired,
+    handleCompletionToggle: React.PropTypes.func.isRequired
 };
 
 function mapStateToProps(state) {
@@ -79,6 +81,10 @@ function mapDispatchToProps(dispatch) {
     return {
         fetchTasks: function() {
             dispatch(taskActions.fetchTasks());
+        },
+
+        handleCompletionToggle: function(taskId) {
+            dispatch(taskActions.toggleComplete(taskId));
         }
     };
 }

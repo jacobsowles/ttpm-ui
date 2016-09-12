@@ -17,6 +17,18 @@ module.exports = {
         });
     },
 
+    put(route, body, query) {
+        return new Promise((resolve, reject) => {
+            superagent
+                .put('http://api.ttpm.com' + route)
+                .query(`${query || ''}&access_token=${auth.getToken()}`)
+                .send(body)
+                .end((error, response) => {
+                    error ? reject(error) : resolve(response.body);
+                });
+        });
+    },
+
     post(route, body, query) {
         return new Promise((resolve, reject) => {
             superagent

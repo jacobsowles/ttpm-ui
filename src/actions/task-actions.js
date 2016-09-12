@@ -1,4 +1,4 @@
-import { get } from '../api.js';
+import { get, put } from '../api.js';
 
 module.exports = {
     fetchTasks() {
@@ -22,6 +22,13 @@ module.exports = {
         return {
             type: 'FILTER_TASKS_BY_TASK_LIST',
             payload: taskListId
+        };
+    },
+
+    toggleComplete(taskId) {
+        return {
+            type: 'TOGGLE_TASK_COMPLETE',
+            payload: put(`/tasks/${taskId}/toggleComplete`)
         };
     }
 };
