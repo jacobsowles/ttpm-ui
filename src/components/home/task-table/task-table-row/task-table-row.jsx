@@ -6,22 +6,12 @@ require('./task-table-row.scss');
 
 class TaskTableRow extends React.Component {
 
-    constructor(props) {
-        super(props);
-
-        this.handleCompletionToggle = this.handleCompletionToggle.bind(this);
-    }
-
-    handleCompletionToggle() {
-        this.props.handleCompletionToggle(this.props.task.Id);
-    }
-
     render() {
         const stateStyle = this.props.task.Complete ? 'complete' : '';
 
         const checkbox = this.props.task.Complete
-            ? <input type="checkbox" onChange={() => this.handleCompletionToggle()} defaultChecked />
-            : <input type="checkbox" onChange={() => this.handleCompletionToggle()} />;
+            ? <input type="checkbox" onChange={() => this.props.handleCompletionToggle(this.props.task.Id)} defaultChecked />
+            : <input type="checkbox" onChange={() => this.props.handleCompletionToggle(this.props.task.Id)} />;
 
         return (
             <tr className={stateStyle}>

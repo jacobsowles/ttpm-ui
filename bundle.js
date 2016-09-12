@@ -59489,21 +59489,13 @@
 	var TaskTableRow = function (_React$Component) {
 	    _inherits(TaskTableRow, _React$Component);
 
-	    function TaskTableRow(props) {
+	    function TaskTableRow() {
 	        _classCallCheck(this, TaskTableRow);
 
-	        var _this = _possibleConstructorReturn(this, (TaskTableRow.__proto__ || Object.getPrototypeOf(TaskTableRow)).call(this, props));
-
-	        _this.handleCompletionToggle = _this.handleCompletionToggle.bind(_this);
-	        return _this;
+	        return _possibleConstructorReturn(this, (TaskTableRow.__proto__ || Object.getPrototypeOf(TaskTableRow)).apply(this, arguments));
 	    }
 
 	    _createClass(TaskTableRow, [{
-	        key: 'handleCompletionToggle',
-	        value: function handleCompletionToggle() {
-	            this.props.handleCompletionToggle(this.props.task.Id);
-	        }
-	    }, {
 	        key: 'render',
 	        value: function render() {
 	            var _this2 = this;
@@ -59511,9 +59503,9 @@
 	            var stateStyle = this.props.task.Complete ? 'complete' : '';
 
 	            var checkbox = this.props.task.Complete ? _react2.default.createElement('input', { type: 'checkbox', onChange: function onChange() {
-	                    return _this2.handleCompletionToggle();
+	                    return _this2.props.handleCompletionToggle(_this2.props.task.Id);
 	                }, defaultChecked: true }) : _react2.default.createElement('input', { type: 'checkbox', onChange: function onChange() {
-	                    return _this2.handleCompletionToggle();
+	                    return _this2.props.handleCompletionToggle(_this2.props.task.Id);
 	                } });
 
 	            return _react2.default.createElement(
