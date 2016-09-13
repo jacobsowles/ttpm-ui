@@ -1,6 +1,9 @@
 // npm modules
 import React from 'react';
 
+// components
+import ViewEditToggleField from '../../../fields/view-edit-toggle-field/view-edit-toggle-field.jsx';
+
 // styles
 require('./task-table-row.scss');
 
@@ -16,7 +19,12 @@ class TaskTableRow extends React.Component {
         return (
             <tr className={stateStyle}>
                 <td style={{width: '30px'}}>{checkbox}</td>
-                <td>{this.props.task.Name}</td>
+                <td>
+                    <ViewEditToggleField
+                        text={this.props.task.Name}
+                        handleSubmit={this.props.handleTaskNameEdit}
+                        includeWithSubmit={this.props.task}
+                    /></td>
                 <td>{this.props.task.Notes}</td>
             </tr>
         );
@@ -29,7 +37,8 @@ TaskTableRow.propTypes = {
         Notes: React.PropTypes.string.isRequired,
         Complete: React.PropTypes.bool.isRequired
     }),
-    handleCompletionToggle: React.PropTypes.func.isRequired
+    handleCompletionToggle: React.PropTypes.func.isRequired,
+    handleTaskNameEdit: React.PropTypes.func.isRequired
 };
 
 export default TaskTableRow;

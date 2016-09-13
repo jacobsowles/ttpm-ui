@@ -15,8 +15,8 @@ const styles = {
 
 class AccordionItem extends React.Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         this.state = {
             active: false

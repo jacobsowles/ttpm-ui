@@ -7,7 +7,8 @@ export default function reducer(state = initialState, action) {
     switch (action.type) {
         // PENDING
         case 'FETCH_TASKS_PENDING':
-        case 'TOGGLE_TASK_COMPLETE_PENDING': {
+        case 'TOGGLE_TASK_COMPLETE_PENDING':
+        case 'UPDATE_TASK_PENDING': {
             state = {
                 ...state
             };
@@ -24,7 +25,8 @@ export default function reducer(state = initialState, action) {
             break;
         }
 
-        case 'TOGGLE_TASK_COMPLETE_FULFILLED': {
+        case 'TOGGLE_TASK_COMPLETE_FULFILLED':
+        case 'UPDATE_TASK_FULFILLED': {
             const tasks = Object.assign([], state.tasks);
             const filteredTasks = Object.assign([], state.filteredTasks);
 

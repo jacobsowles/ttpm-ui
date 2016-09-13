@@ -3,7 +3,7 @@ import React from 'react';
 import _ from 'lodash';
 
 // styles
-require('./view-edit-toggle-field.scss');
+require('./swapout-input-field.scss');
 
 const styles = {
     show: {
@@ -14,14 +14,14 @@ const styles = {
     }
 };
 
-class ViewEditToggleField extends React.Component {
+class SwapoutInputField extends React.Component {
 
     constructor(props) {
         super(props);
 
         this.state = {
             active: false,
-            id: _.uniqueId('view-edit-toggle-field-')
+            id: _.uniqueId('swapout-input-field-')
         };
 
         this.handleClick = this.handleClick.bind(this);
@@ -70,7 +70,7 @@ class ViewEditToggleField extends React.Component {
 
     render() {
         return (
-            <div className={`view-edit-toggle-field ${this.props.type}-view-edit-toggle-field`}>
+            <div className={`swapout-input-field ${this.props.type}-swapout-input-field`}>
                 <section style={this.state.active ? styles.show : styles.hide}>
                     <input
                         id={this.state.id}
@@ -79,20 +79,20 @@ class ViewEditToggleField extends React.Component {
                     />
                 </section>
                 <section style={this.state.active ? styles.hide : styles.show}>
-                    <a onClick={this.handleClick}>
+                    <span onClick={this.handleClick}>
                         {this.props.text}
-                    </a>
+                    </span>
                 </section>
             </div>
         );
     }
 }
 
-ViewEditToggleField.propTypes = {
+SwapoutInputField.propTypes = {
     type: React.PropTypes.string,
     text: React.PropTypes.string.isRequired,
     handleSubmit: React.PropTypes.func.isRequired,
     includeWithSubmit: React.PropTypes.object
 };
 
-export default ViewEditToggleField;
+export default SwapoutInputField;

@@ -30,5 +30,12 @@ module.exports = {
             type: 'TOGGLE_TASK_COMPLETE',
             payload: put(`/tasks/${taskId}/toggleComplete`)
         };
+    },
+
+    updateTask(task) {
+        return {
+            type: 'UPDATE_TASK',
+            payload: put('/tasks/', task)
+        };
     }
 };

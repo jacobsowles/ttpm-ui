@@ -1,15 +1,30 @@
-.view-edit-toggle-field {
+.swapout-input-field {
     font-size: .9em;
 
-    a {
+    span {
+        width: 100%;
+        
+        &:hover {
+            text-decoration: none;
+            cursor: pointer;
+        }
+    }
+
+    input {
+        width: 100%;
+    }
+}
+
+.project-swapout-input-field,
+.task-list-swapout-input-field
+ {
+    span {
         color: #888888;
         display: block;
         padding: 10px 0 10px 15px;
 
         &:hover {
             background: #312F33;
-            text-decoration: none;
-            cursor: pointer;
             color: #DBDBDB;
         }
 
@@ -28,14 +43,14 @@
     }
 }
 
-.project-view-edit-toggle-field {
-    a {
+.project-swapout-input-field {
+    span {
         font-weight: bold;
     }   
 }
 
-.task-list-view-edit-toggle-field {
-    a {
+.task-list-swapout-input-field {
+    span {
         padding-left: 30px;
 
         &:hover {

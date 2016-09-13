@@ -8,8 +8,8 @@ import Accordion from '../../accordion/accordion.jsx';
 import AccordionItem from '../../accordion/accordion-item/accordion-item.jsx';
 import LoadingGraphic from '../../loading-graphic/loading-graphic.jsx';
 import ProjectFilter from './project-filter/project-filter.jsx';
+import SwapoutInputField from '../../fields/swapout-input-field/swapout-input-field.jsx';
 import TaskListFilterGroup from './task-list-filter-group/task-list-filter-group.jsx';
-import ViewEditToggleField from '../../view-edit-toggle-field/view-edit-toggle-field.jsx';
 
 // actions
 import projectActions from '../../../actions/project-actions.js';
@@ -74,7 +74,7 @@ class TaskFilterContainer extends React.Component {
                             );
                         }.bind(this))
                     }
-                    <ViewEditToggleField
+                    <SwapoutInputField
                         type='project'
                         text='+ Add a new project'
                         handleSubmit={this.props.handleAddProjectClick}

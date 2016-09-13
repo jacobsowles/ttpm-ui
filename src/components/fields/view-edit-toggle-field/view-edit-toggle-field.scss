@@ -1,0 +1,15 @@
+.view-edit-toggle-field,
+.view-edit-toggle-field-edit-mode {
+    input {
+        background: none;
+        border: none;
+    }
+}
+
+.view-edit-toggle-field {
+    input {
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}

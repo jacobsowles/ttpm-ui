@@ -1,6 +1,10 @@
 #task-table {
     .complete td {
         text-decoration: line-through;
-        color: #d3d2d1;
+        color: #b3b3b3;
+
+        input {
+            text-decoration: line-through;
+        }
     }
 }

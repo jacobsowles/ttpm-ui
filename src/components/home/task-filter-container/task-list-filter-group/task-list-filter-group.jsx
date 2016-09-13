@@ -3,7 +3,7 @@ import React from 'react';
 
 // components
 import TaskListFilter from './task-list-filter/task-list-filter.jsx';
-import ViewEditToggleField from '../../../view-edit-toggle-field/view-edit-toggle-field.jsx';
+import SwapoutInputField from '../../../fields/swapout-input-field/swapout-input-field.jsx';
 
 // styles
 require('./task-list-filter-group.scss');
@@ -26,7 +26,7 @@ class TaskListFilterGroup extends React.Component {
                     }.bind(this))
                 }
 
-                <ViewEditToggleField
+                <SwapoutInputField
                     type='task-list'
                     text='+ Add a new task list'
                     handleSubmit={this.props.handleAddTaskListClick}
