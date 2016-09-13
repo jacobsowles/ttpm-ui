@@ -77,9 +77,13 @@ class ViewEditToggleField extends React.Component {
 
 ViewEditToggleField.propTypes = {
     type: React.PropTypes.string,
-    text: React.PropTypes.string.isRequired,
+    text: React.PropTypes.string,
     handleSubmit: React.PropTypes.func.isRequired,
     includeWithSubmit: React.PropTypes.object
+};
+
+ViewEditToggleField.getDefaultProps = {
+    text: ''
 };
 
 export default ViewEditToggleField;

@@ -42,7 +42,7 @@ class TaskTableRow extends React.Component {
 TaskTableRow.propTypes = {
     task: React.PropTypes.shape({
         Name: React.PropTypes.string.isRequired,
-        Notes: React.PropTypes.string.isRequired,
+        Notes: React.PropTypes.string,
         Complete: React.PropTypes.bool.isRequired
     }),
     handleCompletionToggle: React.PropTypes.func.isRequired,

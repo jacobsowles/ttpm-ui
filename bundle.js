@@ -59760,7 +59760,7 @@
 	TaskTableRow.propTypes = {
 	    task: _react2.default.PropTypes.shape({
 	        Name: _react2.default.PropTypes.string.isRequired,
-	        Notes: _react2.default.PropTypes.string.isRequired,
+	        Notes: _react2.default.PropTypes.string,
 	        Complete: _react2.default.PropTypes.bool.isRequired
 	    }),
 	    handleCompletionToggle: _react2.default.PropTypes.func.isRequired,
@@ -59891,9 +59891,13 @@
 
 	ViewEditToggleField.propTypes = {
 	    type: _react2.default.PropTypes.string,
-	    text: _react2.default.PropTypes.string.isRequired,
+	    text: _react2.default.PropTypes.string,
 	    handleSubmit: _react2.default.PropTypes.func.isRequired,
 	    includeWithSubmit: _react2.default.PropTypes.object
+	};
+
+	ViewEditToggleField.getDefaultProps = {
+	    text: ''
 	};
 
 	exports.default = ViewEditToggleField;
