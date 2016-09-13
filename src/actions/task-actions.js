@@ -1,4 +1,4 @@
-import { get, put } from '../api.js';
+import { get, put, del } from '../api.js';
 
 module.exports = {
     fetchTasks() {
@@ -36,6 +36,13 @@ module.exports = {
         return {
             type: 'UPDATE_TASK',
             payload: put('/tasks/', task)
+        };
+    },
+
+    deleteTask(taskId) {
+        return {
+            type: 'DELETE_TASK',
+            payload: del(`/tasks/${taskId}`)
         };
     }
 };

@@ -8,7 +8,8 @@ export default function reducer(state = initialState, action) {
         // PENDING
         case 'FETCH_TASKS_PENDING':
         case 'TOGGLE_TASK_COMPLETE_PENDING':
-        case 'UPDATE_TASK_PENDING': {
+        case 'UPDATE_TASK_PENDING':
+        case 'DELETE_TASK_PENDING': {
             state = {
                 ...state
             };
@@ -32,6 +33,21 @@ export default function reducer(state = initialState, action) {
 
             tasks.splice(tasks.findIndex(t => t.Id == action.payload.Id), 1, action.payload);
             filteredTasks.splice(filteredTasks.findIndex(t => t.Id == action.payload.Id), 1, action.payload);
+
+            state = {
+                ...state,
+                tasks: tasks,
+                filteredTasks: filteredTasks
+            };
+            break;
+        }
+
+        case 'DELETE_TASK_FULFILLED': {
+            const tasks = Object.assign([], state.tasks);
+            const filteredTasks = Object.assign([], state.filteredTasks);
+
+            tasks.splice(tasks.findIndex(t => t.Id == action.payload.Id), 1);
+            filteredTasks.splice(filteredTasks.findIndex(t => t.Id == action.payload.Id), 1);
 
             state = {
                 ...state,

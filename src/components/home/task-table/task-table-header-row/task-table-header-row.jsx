@@ -9,9 +9,10 @@ class TaskTableHeaderRow extends React.Component {
     render() {
         return (
             <tr>
-                <th></th>
+                <th style={{width: '30px'}}></th>
                 <th>Task</th>
                 <th>Notes</th>
+                <th style={{width: '30px'}}></th>
             </tr>
         );
     }
