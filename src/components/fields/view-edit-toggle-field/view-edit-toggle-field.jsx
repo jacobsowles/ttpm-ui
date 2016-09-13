@@ -10,12 +10,17 @@ class ViewEditToggleField extends React.Component {
         super(props);
 
         this.state = {
+            hasBeenSubmitted: false,
             isEditMode: false
         };
 
         this.handleFocus = this.handleFocus.bind(this);
         this.handleKeyDown = this.handleKeyDown.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        this.state.hasBeenSubmitted = false;
     }
 
     handleFocus() {
@@ -27,27 +32,30 @@ class ViewEditToggleField extends React.Component {
     handleKeyDown(event) {
         switch (event.key) {
             case 'Escape': {
-                this.handleSubmit(event.target);
+                this.handleSubmit(event);
                 break;
             }
 
             case 'Enter': {
-                this.handleSubmit(event.target);
+                this.handleSubmit(event);
                 break;
             }
         }
     }
 
-    handleSubmit(element) {
-        const value = element.value;
-        element.blur();
+    handleSubmit(event) {
+        if (!this.state.hasBeenSubmitted) {
+            this.state.hasBeenSubmitted = true;
+            const value = event.target.value;
+            event.target.blur();
 
-        this.setState({
-            isEditMode: false
-        });
+            this.setState({
+                isEditMode: false
+            });
 
-        if (value != '') {
-            this.props.handleSubmit(value, this.props.includeWithSubmit);
+            if (value != '') {
+                this.props.handleSubmit(value, this.props.includeWithSubmit);
+            }
         }
     }
 
@@ -59,7 +67,7 @@ class ViewEditToggleField extends React.Component {
                 <input
                     defaultValue={this.props.text}
                     onFocus={this.handleFocus}
-                    onBlur={(event) => this.handleSubmit(event.target)}
+                    onBlur={(event) => this.handleSubmit(event)}
                     onKeyDown={this.handleKeyDown}
                 />
             </div>

@@ -80396,6 +80396,7 @@
 	        var _this = _possibleConstructorReturn(this, (ViewEditToggleField.__proto__ || Object.getPrototypeOf(ViewEditToggleField)).call(this, props));
 
 	        _this.state = {
+	            hasBeenSubmitted: false,
 	            isEditMode: false
 	        };
 
@@ -80406,6 +80407,11 @@
 	    }
 
 	    _createClass(ViewEditToggleField, [{
+	        key: 'componentDidUpdate',
+	        value: function componentDidUpdate(prevProps, prevState) {
+	            this.state.hasBeenSubmitted = false;
+	        }
+	    }, {
 	        key: 'handleFocus',
 	        value: function handleFocus() {
 	            this.setState({
@@ -80418,29 +80424,32 @@
 	            switch (event.key) {
 	                case 'Escape':
 	                    {
-	                        this.handleSubmit(event.target);
+	                        this.handleSubmit(event);
 	                        break;
 	                    }
 
 	                case 'Enter':
 	                    {
-	                        this.handleSubmit(event.target);
+	                        this.handleSubmit(event);
 	                        break;
 	                    }
 	            }
 	        }
 	    }, {
 	        key: 'handleSubmit',
-	        value: function handleSubmit(element) {
-	            var value = element.value;
-	            element.blur();
+	        value: function handleSubmit(event) {
+	            if (!this.state.hasBeenSubmitted) {
+	                this.state.hasBeenSubmitted = true;
+	                var value = event.target.value;
+	                event.target.blur();
 
-	            this.setState({
-	                isEditMode: false
-	            });
+	                this.setState({
+	                    isEditMode: false
+	                });
 
-	            if (value != '') {
-	                this.props.handleSubmit(value, this.props.includeWithSubmit);
+	                if (value != '') {
+	                    this.props.handleSubmit(value, this.props.includeWithSubmit);
+	                }
 	            }
 	        }
 	    }, {
@@ -80457,7 +80466,7 @@
 	                    defaultValue: this.props.text,
 	                    onFocus: this.handleFocus,
 	                    onBlur: function onBlur(event) {
-	                        return _this2.handleSubmit(event.target);
+	                        return _this2.handleSubmit(event);
 	                    },
 	                    onKeyDown: this.handleKeyDown
 	                })
