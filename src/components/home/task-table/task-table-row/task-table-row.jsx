@@ -9,6 +9,18 @@ require('./task-table-row.scss');
 
 class TaskTableRow extends React.Component {
 
+    buildField(text, eventHandler) {
+        return this.props.task.Complete
+            ? <input type="text" value={text} disabled />
+            : (
+                <ViewEditToggleField
+                    text={text}
+                    handleSubmit={eventHandler}
+                    includeWithSubmit={this.props.task}
+                />
+            );
+    }
+
     render() {
         const stateStyle = this.props.task.Complete ? 'complete' : '';
 
@@ -19,13 +31,8 @@ class TaskTableRow extends React.Component {
         return (
             <tr className={stateStyle}>
                 <td style={{width: '30px'}}>{checkbox}</td>
-                <td>
-                    <ViewEditToggleField
-                        text={this.props.task.Name}
-                        handleSubmit={this.props.handleTaskNameEdit}
-                        includeWithSubmit={this.props.task}
-                    /></td>
-                <td>{this.props.task.Notes}</td>
+                <td>{this.buildField(this.props.task.Name, this.props.handleTaskNameEdit)}</td>
+                <td>{this.buildField(this.props.task.Notes)}</td>
             </tr>
         );
     }

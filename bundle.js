@@ -59668,6 +59668,15 @@
 	    }
 
 	    _createClass(TaskTableRow, [{
+	        key: 'buildField',
+	        value: function buildField(text, eventHandler) {
+	            return this.props.task.Complete ? _react2.default.createElement('input', { type: 'text', value: text, disabled: true }) : _react2.default.createElement(_viewEditToggleField2.default, {
+	                text: text,
+	                handleSubmit: eventHandler,
+	                includeWithSubmit: this.props.task
+	            });
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
 	            var _this2 = this;
@@ -59691,16 +59700,12 @@
 	                _react2.default.createElement(
 	                    'td',
 	                    null,
-	                    _react2.default.createElement(_viewEditToggleField2.default, {
-	                        text: this.props.task.Name,
-	                        handleSubmit: this.props.handleTaskNameEdit,
-	                        includeWithSubmit: this.props.task
-	                    })
+	                    this.buildField(this.props.task.Name, this.props.handleTaskNameEdit)
 	                ),
 	                _react2.default.createElement(
 	                    'td',
 	                    null,
-	                    this.props.task.Notes
+	                    this.buildField(this.props.task.Notes)
 	                )
 	            );
 	        }
@@ -59756,7 +59761,7 @@
 
 
 	// module
-	exports.push([module.id, "", ""]);
+	exports.push([module.id, "#task-table .complete td {\n  text-decoration: line-through;\n  color: #b3b3b3; }\n  #task-table .complete td input {\n    text-decoration: line-through;\n    background: none;\n    border: none; }\n", ""]);
 
 	// exports
 
@@ -61473,7 +61478,7 @@
 
 
 	// module
-	exports.push([module.id, "#task-table .complete td {\n  text-decoration: line-through;\n  color: #b3b3b3; }\n  #task-table .complete td input {\n    text-decoration: line-through; }\n", ""]);
+	exports.push([module.id, "", ""]);
 
 	// exports
 
