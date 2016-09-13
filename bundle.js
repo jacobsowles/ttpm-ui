@@ -59376,7 +59376,8 @@
 	                                key: key,
 	                                task: task,
 	                                handleCompletionToggle: this.props.handleCompletionToggle,
-	                                handleTaskNameEdit: this.props.handleTaskNameEdit
+	                                handleNameEdit: this.props.handleTaskNameEdit,
+	                                handleNotesEdit: this.props.handleTaskNotesEdit
 	                            });
 	                        }.bind(this))
 	                    )
@@ -59416,6 +59417,11 @@
 
 	        handleTaskNameEdit: function handleTaskNameEdit(newName, task) {
 	            task.Name = newName;
+	            dispatch(_taskActions2.default.updateTask(task));
+	        },
+
+	        handleTaskNotesEdit: function handleTaskNotesEdit(newNotes, task) {
+	            task.Notes = newNotes;
 	            dispatch(_taskActions2.default.updateTask(task));
 	        }
 	    };
@@ -59700,12 +59706,12 @@
 	                _react2.default.createElement(
 	                    'td',
 	                    null,
-	                    this.buildField(this.props.task.Name, this.props.handleTaskNameEdit)
+	                    this.buildField(this.props.task.Name, this.props.handleNameEdit)
 	                ),
 	                _react2.default.createElement(
 	                    'td',
 	                    null,
-	                    this.buildField(this.props.task.Notes)
+	                    this.buildField(this.props.task.Notes, this.props.handleNotesEdit)
 	                )
 	            );
 	        }
@@ -59721,7 +59727,8 @@
 	        Complete: _react2.default.PropTypes.bool.isRequired
 	    }),
 	    handleCompletionToggle: _react2.default.PropTypes.func.isRequired,
-	    handleTaskNameEdit: _react2.default.PropTypes.func.isRequired
+	    handleNameEdit: _react2.default.PropTypes.func.isRequired,
+	    handleNotesEdit: _react2.default.PropTypes.func.isRequired
 	};
 
 	exports.default = TaskTableRow;

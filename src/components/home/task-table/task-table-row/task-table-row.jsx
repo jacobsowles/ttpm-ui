@@ -31,8 +31,8 @@ class TaskTableRow extends React.Component {
         return (
             <tr className={stateStyle}>
                 <td style={{width: '30px'}}>{checkbox}</td>
-                <td>{this.buildField(this.props.task.Name, this.props.handleTaskNameEdit)}</td>
-                <td>{this.buildField(this.props.task.Notes)}</td>
+                <td>{this.buildField(this.props.task.Name, this.props.handleNameEdit)}</td>
+                <td>{this.buildField(this.props.task.Notes, this.props.handleNotesEdit)}</td>
             </tr>
         );
     }
@@ -45,7 +45,8 @@ TaskTableRow.propTypes = {
         Complete: React.PropTypes.bool.isRequired
     }),
     handleCompletionToggle: React.PropTypes.func.isRequired,
-    handleTaskNameEdit: React.PropTypes.func.isRequired
+    handleNameEdit: React.PropTypes.func.isRequired,
+    handleNotesEdit: React.PropTypes.func.isRequired
 };
 
 export default TaskTableRow;

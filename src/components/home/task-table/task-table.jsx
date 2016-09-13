@@ -51,7 +51,8 @@ class TaskTable extends React.Component {
                                         key={key}
                                         task={task}
                                         handleCompletionToggle={this.props.handleCompletionToggle}
-                                        handleTaskNameEdit={this.props.handleTaskNameEdit}
+                                        handleNameEdit={this.props.handleTaskNameEdit}
+                                        handleNotesEdit={this.props.handleTaskNotesEdit}
                                     />
                                 );
                             }.bind(this))
@@ -91,6 +92,11 @@ function mapDispatchToProps(dispatch) {
 
         handleTaskNameEdit: function(newName, task) {
             task.Name = newName;
+            dispatch(taskActions.updateTask(task));
+        },
+
+        handleTaskNotesEdit: function(newNotes, task) {
+            task.Notes = newNotes;
             dispatch(taskActions.updateTask(task));
         }
     };
