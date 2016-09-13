@@ -151,7 +151,9 @@ function mapDispatchToProps(dispatch) {
 
         handleDeleteTaskListClick: function(taskListId) {
             dispatch(taskListActions.deleteTaskList(taskListId)).then(function() {
-                dispatch(taskListActions.fetchTaskLists());
+                dispatch(taskListActions.fetchTaskLists()).then(function() {
+                    dispatch(taskActions.fetchTasks());
+                });
             });
         }
     };

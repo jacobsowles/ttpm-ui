@@ -62250,7 +62250,9 @@
 
 	        handleDeleteTaskListClick: function handleDeleteTaskListClick(taskListId) {
 	            dispatch(_taskListActions2.default.deleteTaskList(taskListId)).then(function () {
-	                dispatch(_taskListActions2.default.fetchTaskLists());
+	                dispatch(_taskListActions2.default.fetchTaskLists()).then(function () {
+	                    dispatch(_taskActions2.default.fetchTasks());
+	                });
 	            });
 	        }
 	    };
