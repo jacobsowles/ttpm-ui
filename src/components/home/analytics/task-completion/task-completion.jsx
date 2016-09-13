@@ -15,6 +15,16 @@ class TaskCompletion extends React.Component {
         };
     }
 
+    shouldComponentUpdate(nextProps, nextState) {
+        return (
+            nextProps.isVisible &&
+            (
+                this.props.completedTaskCount != nextProps.completedTaskCount ||
+                this.props.totalTaskCount != nextProps.totalTaskCount
+            )
+        );
+    }
+
     componentWillUpdate(nextProps, nextState) {
         this.state.completionPercentage = (
             nextProps.totalTaskCount > 0
@@ -25,10 +35,6 @@ class TaskCompletion extends React.Component {
 
     componentDidMount() {
         this.generateVisualization();
-    }
-
-    shouldComponentUpdate(nextProps, nextState) {
-        return nextProps.isVisible;
     }
 
     componentDidUpdate(prevProps, prevState) {

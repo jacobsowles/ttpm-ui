@@ -34220,6 +34220,11 @@
 	    }
 
 	    _createClass(TaskCompletion, [{
+	        key: 'shouldComponentUpdate',
+	        value: function shouldComponentUpdate(nextProps, nextState) {
+	            return nextProps.isVisible && (this.props.completedTaskCount != nextProps.completedTaskCount || this.props.totalTaskCount != nextProps.totalTaskCount);
+	        }
+	    }, {
 	        key: 'componentWillUpdate',
 	        value: function componentWillUpdate(nextProps, nextState) {
 	            this.state.completionPercentage = nextProps.totalTaskCount > 0 ? nextProps.completedTaskCount / nextProps.totalTaskCount * 100 : 0;
@@ -34228,11 +34233,6 @@
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
 	            this.generateVisualization();
-	        }
-	    }, {
-	        key: 'shouldComponentUpdate',
-	        value: function shouldComponentUpdate(nextProps, nextState) {
-	            return nextProps.isVisible;
 	        }
 	    }, {
 	        key: 'componentDidUpdate',
