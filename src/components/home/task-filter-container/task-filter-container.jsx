@@ -131,7 +131,11 @@ function mapDispatchToProps(dispatch) {
         handleDeleteProjectClick: function(projectId, event) {
             event.stopPropagation(); // prevents the project accordion from expanding
             dispatch(projectActions.deleteProject(projectId)).then(function() {
-                dispatch(projectActions.fetchProjects());
+                dispatch(projectActions.fetchProjects()).then(function() {
+                    dispatch(taskListActions.fetchTaskLists()).then(function() {
+                        dispatch(taskActions.fetchTasks());
+                    });
+                });
             });
         },
 

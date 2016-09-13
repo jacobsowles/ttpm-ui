@@ -62230,7 +62230,11 @@
 	        handleDeleteProjectClick: function handleDeleteProjectClick(projectId, event) {
 	            event.stopPropagation(); // prevents the project accordion from expanding
 	            dispatch(_projectActions2.default.deleteProject(projectId)).then(function () {
-	                dispatch(_projectActions2.default.fetchProjects());
+	                dispatch(_projectActions2.default.fetchProjects()).then(function () {
+	                    dispatch(_taskListActions2.default.fetchTaskLists()).then(function () {
+	                        dispatch(_taskActions2.default.fetchTasks());
+	                    });
+	                });
 	            });
 	        },
 
