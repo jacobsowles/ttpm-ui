@@ -60,8 +60,9 @@ class Analytics extends React.Component {
                         <div className="row">
                             <div className="col-xs-3 no-horizontal-padding">
                                 <Module
+                                    id="completion-module"
                                     type="analytics"
-                                    title="Completion"
+                                    title="Progress"
                                     iconClass="fa fa-check"
                                 >
                                     <TaskCompletion
@@ -77,6 +78,7 @@ class Analytics extends React.Component {
                                     id="task-age-module"
                                     type="analytics"
                                     title="Oldest Open Tasks"
+                                    iconClass="fa fa-hourglass-end"
                                 >
                                     <TaskAge
                                         isVisible={this.state.active}

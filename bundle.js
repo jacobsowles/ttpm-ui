@@ -29778,8 +29778,9 @@
 	                            _react2.default.createElement(
 	                                _module2.default,
 	                                {
+	                                    id: 'completion-module',
 	                                    type: 'analytics',
-	                                    title: 'Completion',
+	                                    title: 'Progress',
 	                                    iconClass: 'fa fa-check'
 	                                },
 	                                _react2.default.createElement(_taskCompletion2.default, {
@@ -34046,7 +34047,7 @@
 
 
 	// module
-	exports.push([module.id, ".sidebar-module-header {\n  background: #5e804d;\n  padding: 10px;\n  color: #ffffff;\n  letter-spacing: 1px; }\n  .sidebar-module-header h2 {\n    display: inline;\n    font-size: .9em;\n    text-transform: uppercase; }\n  .sidebar-module-header a {\n    color: #ffffff;\n    text-decoration: none;\n    padding: 2px 6px; }\n    .sidebar-module-header a :hover {\n      background-color: #476039;\n      text-decoration: none; }\n  .sidebar-module-header .controls {\n    float: right; }\n\n.content-module-header,\n.analytics-module-header {\n  padding: 10px 15px;\n  background: #636066;\n  color: #dbdbdb;\n  text-transform: uppercase;\n  letter-spacing: 1px; }\n  .content-module-header h2,\n  .analytics-module-header h2 {\n    display: inline;\n    margin: 0;\n    font-size: .9em; }\n", ""]);
+	exports.push([module.id, ".module-header i {\n  margin-right: 10px; }\n\n.module-header h2 {\n  display: inline;\n  font-size: .9em;\n  margin: 0;\n  text-transform: uppercase;\n  letter-spacing: 1px; }\n\n.module-header .controls {\n  float: right; }\n\n.sidebar-module-header {\n  background: #5e804d;\n  padding: 10px;\n  color: #ffffff; }\n  .sidebar-module-header a {\n    color: #ffffff;\n    text-decoration: none;\n    padding: 2px 6px; }\n    .sidebar-module-header a :hover {\n      background-color: #476039;\n      text-decoration: none; }\n\n.content-module-header,\n.analytics-module-header {\n  padding: 10px 15px;\n  background: #636066;\n  color: #dbdbdb; }\n", ""]);
 
 	// exports
 
@@ -34086,7 +34087,7 @@
 
 
 	// module
-	exports.push([module.id, ".content-module,\n.analytics-module {\n  background: #ffffff;\n  padding-left: 0;\n  padding-right: 0; }\n\n.content-module {\n  margin-top: 15px; }\n\n.module i {\n  margin-right: 8px; }\n", ""]);
+	exports.push([module.id, ".content-module,\n.analytics-module {\n  background: #ffffff;\n  padding-left: 0;\n  padding-right: 0; }\n\n.content-module {\n  margin-top: 15px; }\n", ""]);
 
 	// exports
 

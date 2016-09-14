@@ -1,14 +1,25 @@
-.sidebar-module-header {
-    background: #5e804d;
-    padding: 10px;
-    color: #ffffff;
-    letter-spacing: 1px;
+.module-header {
+    i {
+        margin-right: 10px;
+    }
 
     h2 {
         display: inline;
         font-size: .9em;
+        margin: 0;
         text-transform: uppercase;
+        letter-spacing: 1px;
     }
+
+    .controls {
+        float: right;
+    }
+}
+
+.sidebar-module-header {
+    background: #5e804d;
+    padding: 10px;
+    color: #ffffff;
 
     a {
         color: #ffffff;
@@ -19,11 +30,7 @@
             background-color: #476039;
             text-decoration: none;
         }
-    }
-
-    .controls {
-        float: right;
-    }
+    }    
 }
 
 .content-module-header,
@@ -31,12 +38,4 @@
     padding: 10px 15px;
     background: #636066;
     color: #dbdbdb;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-
-    h2 {
-        display: inline;
-        margin: 0;
-        font-size: .9em;
-    }
 }
