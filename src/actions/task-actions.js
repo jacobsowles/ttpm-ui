@@ -1,4 +1,4 @@
-import { get, put, del } from '../api.js';
+import { get, put, post, del } from '../api.js';
 
 module.exports = {
     fetchTasks() {
@@ -22,6 +22,13 @@ module.exports = {
         return {
             type: 'FILTER_TASKS_BY_TASK_LIST',
             payload: taskListId
+        };
+    },
+
+    createTask(task) {
+        return {
+            type: 'CREATE_TASK',
+            payload: post(`/taskLists/${task.TaskListId}/tasks`, task)
         };
     },
 

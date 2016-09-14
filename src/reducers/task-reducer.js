@@ -1,12 +1,14 @@
 const initialState = {
     tasks: [],
-    filteredTasks: []
+    filteredTasks: [],
+    activeTaskListId: 0
 };
 
 export default function reducer(state = initialState, action) {
     switch (action.type) {
         // PENDING
         case 'FETCH_TASKS_PENDING':
+        case 'CREATE_TASK_PENDING':
         case 'TOGGLE_TASK_COMPLETE_PENDING':
         case 'UPDATE_TASK_PENDING':
         case 'DELETE_TASK_PENDING': {
@@ -22,6 +24,21 @@ export default function reducer(state = initialState, action) {
                 ...state,
                 tasks: action.payload || [],
                 filteredTasks: action.payload || []
+            };
+            break;
+        }
+
+        case 'CREATE_TASK_FULFILLED': {
+            const tasks = Object.assign([], state.tasks);
+            const filteredTasks = Object.assign([], state.filteredTasks);
+
+            tasks.push(action.payload);
+            filteredTasks.push(action.payload);
+
+            state = {
+                ...state,
+                tasks: tasks,
+                filteredTasks: filteredTasks
             };
             break;
         }
@@ -81,6 +98,7 @@ export default function reducer(state = initialState, action) {
             const tasks = state.tasks || [];
             state = {
                 ...state,
+                activeTaskListId: tasks.length > 0 ? tasks[0].TaskListId : 0,
                 filteredTasks: tasks.filter(function(task) {
                     return task.TaskListId == action.payload;
                 })
@@ -90,7 +108,10 @@ export default function reducer(state = initialState, action) {
 
         // REJECTED
         case 'FETCH_TASKS_REJECTED':
-        case 'TOGGLE_TASK_COMPLETE_REJECTED': {
+        case 'CREATE_TASK_REJECTED':
+        case 'TOGGLE_TASK_COMPLETE_REJECTED':
+        case 'UPDATE_TASK_REJECTED':
+        case 'DELETE_TASK_REJECTED': {
             state = {
                 ...state
             };

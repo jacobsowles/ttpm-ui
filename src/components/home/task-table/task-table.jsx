@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 
 // components
 import LoadingGraphic from '../../loading-graphic/loading-graphic.jsx';
+import NewTaskRow from './new-task-row/new-task-row.jsx';
 import TaskTableHeaderRow from './task-table-header-row/task-table-header-row.jsx';
 import TaskTableRow from './task-table-row/task-table-row.jsx';
 
@@ -22,6 +23,8 @@ class TaskTable extends React.Component {
         this.state = {
             showLoadingGraphic: true
         };
+
+        this.handleNewTask = this.handleNewTask.bind(this);
     }
 
     componentWillMount() {
@@ -32,6 +35,11 @@ class TaskTable extends React.Component {
         this.state = {
             showLoadingGraphic: false
         };
+    }
+
+    handleNewTask(task) {
+        task.TaskListId = this.props.activeTaskListId;
+        this.props.handleNewTask(task);
     }
 
     render() {
@@ -58,6 +66,9 @@ class TaskTable extends React.Component {
                                 );
                             }.bind(this))
                         }
+                        {
+                            this.props.activeTaskListId != 0 ? <NewTaskRow handleNewTask={this.handleNewTask} /> : ''
+                        }
                     </tbody>
                 </table>
             </div>
@@ -68,8 +79,10 @@ class TaskTable extends React.Component {
 TaskTable.propTypes = {
     tasks: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
     filteredTasks: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
+    activeTaskListId: React.PropTypes.number.isRequired,
 
     fetchTasks: React.PropTypes.func.isRequired,
+    handleNewTask: React.PropTypes.func.isRequired,
     handleCompletionToggle: React.PropTypes.func.isRequired,
     handleTaskNameEdit: React.PropTypes.func.isRequired
 };
@@ -77,7 +90,8 @@ TaskTable.propTypes = {
 function mapStateToProps(state) {
     return {
         tasks: state.tasks.tasks,
-        filteredTasks: state.tasks.filteredTasks
+        filteredTasks: state.tasks.filteredTasks,
+        activeTaskListId: state.tasks.activeTaskListId
     };
 }
 
@@ -85,6 +99,10 @@ function mapDispatchToProps(dispatch) {
     return {
         fetchTasks: function() {
             dispatch(taskActions.fetchTasks());
+        },
+
+        handleNewTask: function(task) {
+            dispatch(taskActions.createTask(task));
         },
 
         handleCompletionToggle: function(taskId) {
