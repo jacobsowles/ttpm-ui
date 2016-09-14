@@ -34271,7 +34271,7 @@
 	        var _this = _possibleConstructorReturn(this, (TaskCompletion.__proto__ || Object.getPrototypeOf(TaskCompletion)).call(this, props));
 
 	        _this.state = {
-	            completionPercentage: 0
+	            completionPercentage: Math.round(props.completedTaskCount / props.totalTaskCount * 100)
 	        };
 	        return _this;
 	    }
@@ -34284,7 +34284,7 @@
 	    }, {
 	        key: 'componentWillUpdate',
 	        value: function componentWillUpdate(nextProps, nextState) {
-	            this.state.completionPercentage = nextProps.totalTaskCount > 0 ? nextProps.completedTaskCount / nextProps.totalTaskCount * 100 : 0;
+	            this.state.completionPercentage = nextProps.totalTaskCount > 0 ? Math.round(nextProps.completedTaskCount / nextProps.totalTaskCount * 100) : 0;
 	        }
 	    }, {
 	        key: 'componentDidMount',

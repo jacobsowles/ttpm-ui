@@ -11,7 +11,7 @@ class TaskCompletion extends React.Component {
         super(props);
 
         this.state = {
-            completionPercentage: 0
+            completionPercentage: Math.round((props.completedTaskCount / props.totalTaskCount) * 100)
         };
     }
 
@@ -28,7 +28,7 @@ class TaskCompletion extends React.Component {
     componentWillUpdate(nextProps, nextState) {
         this.state.completionPercentage = (
             nextProps.totalTaskCount > 0
-            ? (nextProps.completedTaskCount / nextProps.totalTaskCount) * 100
+            ? Math.round((nextProps.completedTaskCount / nextProps.totalTaskCount) * 100)
             : 0
         );
     }
