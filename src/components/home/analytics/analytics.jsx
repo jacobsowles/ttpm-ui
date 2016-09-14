@@ -62,6 +62,7 @@ class Analytics extends React.Component {
                                 <Module
                                     type="analytics"
                                     title="Completion"
+                                    iconClass="fa fa-check"
                                 >
                                     <TaskCompletion
                                         completedTaskCount={this.props.tasks.filter(t => t.Complete).length}

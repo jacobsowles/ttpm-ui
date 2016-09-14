@@ -17,6 +17,7 @@ class Module extends React.Component {
                     ? <ModuleHeader
                         type={this.props.type}
                         title={this.props.title}
+                        iconClass={this.props.iconClass}
                     />
                     : ''
                 }
@@ -32,7 +33,8 @@ class Module extends React.Component {
 Module.propTypes = {
     id: React.PropTypes.string,
     type: React.PropTypes.string.isRequired,
-    title: React.PropTypes.string
+    title: React.PropTypes.string,
+    iconClass: React.PropTypes.string
 };
 
 export default Module;

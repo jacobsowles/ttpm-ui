@@ -27,6 +27,7 @@ class Home extends React.Component {
                     <Module
                         type="sidebar"
                         title="Projects"
+                        iconClass="fa fa-folder-open-o"
                     >
                         <TaskFilterContainer />
                     </Module>

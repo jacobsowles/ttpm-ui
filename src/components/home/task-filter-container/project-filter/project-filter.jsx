@@ -12,8 +12,15 @@ class ProjectFilter extends React.Component {
                 className="project-filter"
                 onClick={() => this.props.handleProjectClick(this.props.projectId)}
             >
+                <i className="fa fa-angle-down" style={{marginRight: '10px'}}></i>
                 {this.props.projectName}
+
                 <span className="project-filter-actions">
+                    <span
+                        className="edit-project"
+                    >
+                        &#9998;
+                    </span>
                     <span
                         className="delete-project"
                         onClick={(event) => this.props.handleDeleteProjectClick(this.props.projectId, event)}

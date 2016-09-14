@@ -76,7 +76,7 @@ class TaskFilterContainer extends React.Component {
                     }
                     <SwapoutInputField
                         type='project'
-                        text='+ Add a new project'
+                        text='Add a new project'
                         handleSubmit={this.props.handleAddProjectClick}
                     />
                 </Accordion>

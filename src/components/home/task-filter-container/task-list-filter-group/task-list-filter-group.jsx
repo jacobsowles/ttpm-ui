@@ -28,7 +28,7 @@ class TaskListFilterGroup extends React.Component {
 
                 <SwapoutInputField
                     type='task-list'
-                    text='+ Add a new task list'
+                    text='Add a new task list'
                     handleSubmit={this.props.handleAddTaskListClick}
                     includeWithSubmit={{
                         projectId: this.props.projectId

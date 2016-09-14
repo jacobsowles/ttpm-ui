@@ -11,35 +11,17 @@
         }
     }
 
-    .project-filter {
-        padding: 10px 15px;
-        display: block;
-        font-size: .9em;
-        margin: 0;
-        color: #DBDBDB;
-        font-weight: bold;
-
-        &:hover {
-            background: #312F33;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .active {
-            background: #312F33;
-        }
-    }
-
     .project-filter-actions,
     .task-list-filter-actions {
         float: right;
         color: #888888;
+        margin-left: 10px;
 
         span {
             padding: 2px 6px;
 
             &:hover {
-                background: #888888;
+                //background: #888888;
                 color: #DBDBDB;
             }
         }

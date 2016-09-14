@@ -1,0 +1,20 @@
+.task-filter-container {
+    .project-filter {
+        padding: 10px 10px 10px 10px;
+        display: block;
+        font-size: .9em;
+        margin: 0;
+        color: #DBDBDB;
+        font-weight: bold;
+
+        &:hover {
+            background: #312F33;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .active {
+            background: #312F33;
+        }
+    }
+}

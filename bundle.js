@@ -29641,7 +29641,8 @@
 	                        _module2.default,
 	                        {
 	                            type: 'sidebar',
-	                            title: 'Projects'
+	                            title: 'Projects',
+	                            iconClass: 'fa fa-folder-open-o'
 	                        },
 	                        _react2.default.createElement(_taskFilterContainer2.default, null)
 	                    )
@@ -29778,7 +29779,8 @@
 	                                _module2.default,
 	                                {
 	                                    type: 'analytics',
-	                                    title: 'Completion'
+	                                    title: 'Completion',
+	                                    iconClass: 'fa fa-check'
 	                                },
 	                                _react2.default.createElement(_taskCompletion2.default, {
 	                                    completedTaskCount: this.props.tasks.filter(function (t) {
@@ -29880,7 +29882,8 @@
 	                { id: this.props.id, className: 'module ' + this.props.type + '-module' },
 	                this.props.title ? _React2.default.createElement(_moduleHeader2.default, {
 	                    type: this.props.type,
-	                    title: this.props.title
+	                    title: this.props.title,
+	                    iconClass: this.props.iconClass
 	                }) : '',
 	                _React2.default.createElement(
 	                    _moduleBody2.default,
@@ -29897,7 +29900,8 @@
 	Module.propTypes = {
 	    id: _React2.default.PropTypes.string,
 	    type: _React2.default.PropTypes.string.isRequired,
-	    title: _React2.default.PropTypes.string
+	    title: _React2.default.PropTypes.string,
+	    iconClass: _React2.default.PropTypes.string
 	};
 
 	exports.default = Module;
@@ -33977,9 +33981,16 @@
 	    _createClass(ModuleHeader, [{
 	        key: 'render',
 	        value: function render() {
+	            var icon = void 0;
+
+	            if (this.props.iconClass) {
+	                icon = _React2.default.createElement('i', { className: this.props.iconClass, 'aria-hidden': 'true' });
+	            }
+
 	            return _React2.default.createElement(
 	                'div',
 	                { className: 'module-header ' + this.props.type + '-module-header' },
+	                icon,
 	                _React2.default.createElement(
 	                    'h2',
 	                    null,
@@ -33994,7 +34005,8 @@
 
 	ModuleHeader.propTypes = {
 	    type: _React2.default.PropTypes.string.isRequired,
-	    title: _React2.default.PropTypes.string.isRequired
+	    title: _React2.default.PropTypes.string.isRequired,
+	    iconClass: _React2.default.PropTypes.string
 	};
 
 	exports.default = ModuleHeader;
@@ -34034,7 +34046,7 @@
 
 
 	// module
-	exports.push([module.id, ".sidebar-module-header {\n  background: #5e804d;\n  padding: 10px 15px;\n  color: #ffffff;\n  letter-spacing: 1px; }\n  .sidebar-module-header h2 {\n    display: inline;\n    font-size: .9em;\n    text-transform: uppercase; }\n  .sidebar-module-header a {\n    color: #ffffff;\n    text-decoration: none;\n    padding: 2px 6px; }\n    .sidebar-module-header a :hover {\n      background-color: #476039;\n      text-decoration: none; }\n  .sidebar-module-header .controls {\n    float: right; }\n\n.content-module-header,\n.analytics-module-header {\n  padding: 10px 15px;\n  background: #636066;\n  color: #dbdbdb;\n  text-transform: uppercase;\n  letter-spacing: 1px; }\n  .content-module-header h2,\n  .analytics-module-header h2 {\n    display: inline;\n    margin: 0;\n    font-size: .9em; }\n", ""]);
+	exports.push([module.id, ".sidebar-module-header {\n  background: #5e804d;\n  padding: 10px;\n  color: #ffffff;\n  letter-spacing: 1px; }\n  .sidebar-module-header h2 {\n    display: inline;\n    font-size: .9em;\n    text-transform: uppercase; }\n  .sidebar-module-header a {\n    color: #ffffff;\n    text-decoration: none;\n    padding: 2px 6px; }\n    .sidebar-module-header a :hover {\n      background-color: #476039;\n      text-decoration: none; }\n  .sidebar-module-header .controls {\n    float: right; }\n\n.content-module-header,\n.analytics-module-header {\n  padding: 10px 15px;\n  background: #636066;\n  color: #dbdbdb;\n  text-transform: uppercase;\n  letter-spacing: 1px; }\n  .content-module-header h2,\n  .analytics-module-header h2 {\n    display: inline;\n    margin: 0;\n    font-size: .9em; }\n", ""]);
 
 	// exports
 
@@ -34074,7 +34086,7 @@
 
 
 	// module
-	exports.push([module.id, ".content-module,\n.analytics-module {\n  background: #ffffff;\n  padding-left: 0;\n  padding-right: 0; }\n\n.content-module {\n  margin-top: 15px; }\n", ""]);
+	exports.push([module.id, ".content-module,\n.analytics-module {\n  background: #ffffff;\n  padding-left: 0;\n  padding-right: 0; }\n\n.content-module {\n  margin-top: 15px; }\n\n.module i {\n  margin-right: 8px; }\n", ""]);
 
 	// exports
 
@@ -59276,7 +59288,7 @@
 
 
 	// module
-	exports.push([module.id, "#analytics {\n  background: #d3d2d1;\n  border-top: 1px solid #c4c4c4;\n  position: absolute;\n  left: 250px;\n  bottom: 0;\n  width: calc(100% - 250px); }\n  #analytics .toggle-bar {\n    padding: 10px 15px; }\n    #analytics .toggle-bar .toggle {\n      font-size: .9em;\n      text-transform: uppercase;\n      color: #373737;\n      letter-spacing: 1px; }\n      #analytics .toggle-bar .toggle .toggle-button {\n        font-size: 1.2em;\n        margin-right: 10px; }\n      #analytics .toggle-bar .toggle:hover {\n        cursor: pointer;\n        text-decoration: none; }\n  #analytics .drawer {\n    padding: 15px 15px 0 15px; }\n  #analytics #no-analytics-available {\n    margin-bottom: 30px;\n    font-size: .9em; }\n  #analytics .quotation {\n    margin-left: 40px; }\n", ""]);
+	exports.push([module.id, "#analytics {\n  background: #d3d2d1;\n  border-top: 1px solid #c4c4c4;\n  position: absolute;\n  left: 275px;\n  bottom: 0;\n  width: calc(100% - 275px); }\n  #analytics .toggle-bar {\n    padding: 10px 15px; }\n    #analytics .toggle-bar .toggle {\n      font-size: .9em;\n      text-transform: uppercase;\n      color: #373737;\n      letter-spacing: 1px; }\n      #analytics .toggle-bar .toggle .toggle-button {\n        font-size: 1.2em;\n        margin-right: 10px; }\n      #analytics .toggle-bar .toggle:hover {\n        cursor: pointer;\n        text-decoration: none; }\n  #analytics .drawer {\n    padding: 15px 15px 0 15px; }\n  #analytics #no-analytics-available {\n    margin-bottom: 30px;\n    font-size: .9em; }\n  #analytics .quotation {\n    margin-left: 40px; }\n", ""]);
 
 	// exports
 
@@ -59369,7 +59381,7 @@
 
 
 	// module
-	exports.push([module.id, "#content {\n  width: calc(100% - 250px);\n  float: left;\n  height: 100vh; }\n  #content:after {\n    display: block;\n    content: \"\"; }\n", ""]);
+	exports.push([module.id, "#content {\n  width: calc(100% - 275px);\n  float: left;\n  height: 100vh; }\n  #content:after {\n    display: block;\n    content: \"\"; }\n", ""]);
 
 	// exports
 
@@ -59817,7 +59829,7 @@
 	                _react2.default.createElement(
 	                    'td',
 	                    null,
-	                    _react2.default.createElement('input', { type: 'text', ref: 'newTaskName', placeholder: '+ Add a new task', onKeyDown: this.handleKeyDown })
+	                    _react2.default.createElement('input', { type: 'text', ref: 'newTaskName', placeholder: 'Add a new task', onKeyDown: this.handleKeyDown })
 	                ),
 	                _react2.default.createElement(
 	                    'td',
@@ -62368,7 +62380,7 @@
 
 
 	// module
-	exports.push([module.id, "#logo {\n  background: #1a1a1a;\n  padding: 10px 15px 10px 15px; }\n  #logo a {\n    color: #DBDBDB;\n    display: inline; }\n    #logo a:hover {\n      text-decoration: none; }\n  #logo #logo-text {\n    padding: 10px 0 8px 10px;\n    font-size: .9em;\n    letter-spacing: 1px; }\n", ""]);
+	exports.push([module.id, "#logo {\n  background: #1a1a1a;\n  padding: 10px; }\n  #logo a {\n    color: #DBDBDB;\n    display: inline; }\n    #logo a:hover {\n      text-decoration: none; }\n  #logo #logo-text {\n    padding: 10px 0 8px 10px;\n    font-size: .9em;\n    letter-spacing: 1px; }\n", ""]);
 
 	// exports
 
@@ -62510,7 +62522,7 @@
 	                    }.bind(this)),
 	                    _react2.default.createElement(_swapoutInputField2.default, {
 	                        type: 'project',
-	                        text: '+ Add a new project',
+	                        text: 'Add a new project',
 	                        handleSubmit: this.props.handleAddProjectClick
 	                    })
 	                )
@@ -62872,10 +62884,18 @@
 	                        return _this2.props.handleProjectClick(_this2.props.projectId);
 	                    }
 	                },
+	                _react2.default.createElement('i', { className: 'fa fa-angle-down', style: { marginRight: '10px' } }),
 	                this.props.projectName,
 	                _react2.default.createElement(
 	                    'span',
 	                    { className: 'project-filter-actions' },
+	                    _react2.default.createElement(
+	                        'span',
+	                        {
+	                            className: 'edit-project'
+	                        },
+	                        '✎'
+	                    ),
 	                    _react2.default.createElement(
 	                        'span',
 	                        {
@@ -62938,7 +62958,7 @@
 
 
 	// module
-	exports.push([module.id, "", ""]);
+	exports.push([module.id, ".task-filter-container .project-filter {\n  padding: 10px 10px 10px 10px;\n  display: block;\n  font-size: .9em;\n  margin: 0;\n  color: #DBDBDB;\n  font-weight: bold; }\n  .task-filter-container .project-filter:hover {\n    background: #312F33;\n    text-decoration: none;\n    cursor: pointer; }\n  .task-filter-container .project-filter .active {\n    background: #312F33; }\n", ""]);
 
 	// exports
 
@@ -79867,7 +79887,7 @@
 
 
 	// module
-	exports.push([module.id, ".swapout-input-field {\n  font-size: .9em; }\n  .swapout-input-field span {\n    width: 100%; }\n    .swapout-input-field span:hover {\n      text-decoration: none;\n      cursor: pointer; }\n  .swapout-input-field input {\n    width: 100%; }\n\n.project-swapout-input-field span,\n.task-list-swapout-input-field span {\n  color: #888888;\n  display: block;\n  padding: 10px 0 10px 15px; }\n  .project-swapout-input-field span:hover,\n  .task-list-swapout-input-field span:hover {\n    background: #312F33;\n    color: #DBDBDB; }\n  .project-swapout-input-field span .active,\n  .task-list-swapout-input-field span .active {\n    background: #312F33; }\n\n.project-swapout-input-field input,\n.task-list-swapout-input-field input {\n  background: #636066;\n  padding: 10px 15px;\n  border: none;\n  color: #DBDBDB;\n  width: calc(100% - 30px);\n  margin-left: 15px; }\n\n.project-swapout-input-field span {\n  font-weight: bold; }\n\n.task-list-swapout-input-field span {\n  padding-left: 30px; }\n  .task-list-swapout-input-field span:hover {\n    background: #636066; }\n\n.task-list-swapout-input-field input {\n  width: calc(100% - 45px);\n  margin-left: 30px; }\n", ""]);
+	exports.push([module.id, ".swapout-input-field {\n  font-size: .9em; }\n  .swapout-input-field span {\n    width: 100%; }\n    .swapout-input-field span:hover {\n      text-decoration: none;\n      cursor: pointer; }\n  .swapout-input-field input {\n    width: 100%; }\n\n.project-swapout-input-field span,\n.task-list-swapout-input-field span {\n  color: #888888;\n  display: block;\n  padding: 10px 0 10px 15px; }\n  .project-swapout-input-field span:hover,\n  .task-list-swapout-input-field span:hover {\n    background: #312F33;\n    color: #DBDBDB; }\n  .project-swapout-input-field span .active,\n  .task-list-swapout-input-field span .active {\n    background: #312F33; }\n\n.project-swapout-input-field input,\n.task-list-swapout-input-field input {\n  background: #636066;\n  padding: 10px 15px;\n  border: none;\n  color: #DBDBDB;\n  width: calc(100% - 30px);\n  margin-left: 15px; }\n\n.project-swapout-input-field span {\n  font-weight: bold;\n  padding-left: 10px; }\n\n.task-list-swapout-input-field span {\n  padding-left: 30px; }\n  .task-list-swapout-input-field span:hover {\n    background: #636066; }\n\n.task-list-swapout-input-field input {\n  width: calc(100% - 45px);\n  margin-left: 30px; }\n", ""]);
 
 	// exports
 
@@ -79936,7 +79956,7 @@
 	                }.bind(this)),
 	                _react2.default.createElement(_swapoutInputField2.default, {
 	                    type: 'task-list',
-	                    text: '+ Add a new task list',
+	                    text: 'Add a new task list',
 	                    handleSubmit: this.props.handleAddTaskListClick,
 	                    includeWithSubmit: {
 	                        projectId: this.props.projectId
@@ -80014,6 +80034,13 @@
 	                _react2.default.createElement(
 	                    'span',
 	                    { className: 'task-list-filter-actions' },
+	                    _react2.default.createElement(
+	                        'span',
+	                        {
+	                            className: 'edit-project'
+	                        },
+	                        '✎'
+	                    ),
 	                    _react2.default.createElement(
 	                        'span',
 	                        {
@@ -80115,7 +80142,7 @@
 
 
 	// module
-	exports.push([module.id, ".task-list-filter-group li {\n  padding: 10px 15px 10px 30px;\n  display: block;\n  font-size: .9em;\n  color: #DBDBDB;\n  font-weight: normal;\n  margin: 0; }\n  .task-list-filter-group li:hover {\n    background: #636066;\n    cursor: pointer; }\n", ""]);
+	exports.push([module.id, ".task-list-filter-group li {\n  padding: 10px 10px 10px 30px;\n  display: block;\n  font-size: .9em;\n  color: #DBDBDB;\n  font-weight: normal;\n  margin: 0; }\n  .task-list-filter-group li:hover {\n    background: #636066;\n    cursor: pointer; }\n", ""]);
 
 	// exports
 
@@ -80217,7 +80244,7 @@
 
 
 	// module
-	exports.push([module.id, ".task-filter-container ul {\n  list-style-type: none;\n  padding-left: 0;\n  margin-bottom: 0; }\n\n.task-filter-container a:hover {\n  text-decoration: none; }\n\n.task-filter-container .project-filter {\n  padding: 10px 15px;\n  display: block;\n  font-size: .9em;\n  margin: 0;\n  color: #DBDBDB;\n  font-weight: bold; }\n  .task-filter-container .project-filter:hover {\n    background: #312F33;\n    text-decoration: none;\n    cursor: pointer; }\n  .task-filter-container .project-filter .active {\n    background: #312F33; }\n\n.task-filter-container .project-filter-actions,\n.task-filter-container .task-list-filter-actions {\n  float: right;\n  color: #888888; }\n  .task-filter-container .project-filter-actions span,\n  .task-filter-container .task-list-filter-actions span {\n    padding: 2px 6px; }\n    .task-filter-container .project-filter-actions span:hover,\n    .task-filter-container .task-list-filter-actions span:hover {\n      background: #888888;\n      color: #DBDBDB; }\n", ""]);
+	exports.push([module.id, ".task-filter-container ul {\n  list-style-type: none;\n  padding-left: 0;\n  margin-bottom: 0; }\n\n.task-filter-container a:hover {\n  text-decoration: none; }\n\n.task-filter-container .project-filter-actions,\n.task-filter-container .task-list-filter-actions {\n  float: right;\n  color: #888888;\n  margin-left: 10px; }\n  .task-filter-container .project-filter-actions span,\n  .task-filter-container .task-list-filter-actions span {\n    padding: 2px 6px; }\n    .task-filter-container .project-filter-actions span:hover,\n    .task-filter-container .task-list-filter-actions span:hover {\n      color: #DBDBDB; }\n", ""]);
 
 	// exports
 
@@ -80310,7 +80337,7 @@
 
 
 	// module
-	exports.push([module.id, "#sidebar {\n  height: 100vh;\n  background: #3C393F;\n  color: #dbdbdb;\n  width: 250px;\n  float: left;\n  overflow-y: auto; }\n", ""]);
+	exports.push([module.id, "#sidebar {\n  height: 100vh;\n  background: #3C393F;\n  color: #dbdbdb;\n  float: left;\n  overflow-y: auto;\n  width: 275px; }\n", ""]);
 
 	// exports
 

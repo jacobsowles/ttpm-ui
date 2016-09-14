@@ -15,6 +15,11 @@ class TaskListFilter extends React.Component {
                 {this.props.taskList.Name}
                 <span className="task-list-filter-actions">
                     <span
+                        className="edit-project"
+                    >
+                        &#9998;
+                    </span>
+                    <span
                         className="delete-task-list"
                         onClick={() => this.props.handleDeleteTaskListClick(this.props.taskList.Id)}
                     >
