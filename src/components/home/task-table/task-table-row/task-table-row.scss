@@ -1,4 +1,8 @@
 #task-table {
+    input {
+        width: 100%;
+    }
+    
     .complete {
         td:not(.delete-task) {
             text-decoration: line-through;

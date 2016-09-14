@@ -59885,7 +59885,7 @@
 
 
 	// module
-	exports.push([module.id, ".new-task-row td input {\n  background: none;\n  border: none; }\n  .new-task-row td input::-moz-placeholder {\n    color: #b3b3b3;\n    font-style: normal; }\n  .new-task-row td input:-moz-placeholder {\n    color: #b3b3b3;\n    font-style: normal; }\n  .new-task-row td input::-webkit-input-placeholder {\n    color: #b3b3b3;\n    font-style: normal; }\n  .new-task-row td input:-ms-input-placeholder {\n    color: #b3b3b3;\n    font-style: normal; }\n", ""]);
+	exports.push([module.id, ".new-task-row td input {\n  background: none;\n  border: none; }\n  .new-task-row td input:hover {\n    cursor: pointer; }\n  .new-task-row td input:focus {\n    cursor: text; }\n  .new-task-row td input::-moz-placeholder {\n    color: #b3b3b3;\n    font-style: normal; }\n  .new-task-row td input:-moz-placeholder {\n    color: #b3b3b3;\n    font-style: normal; }\n  .new-task-row td input::-webkit-input-placeholder {\n    color: #b3b3b3;\n    font-style: normal; }\n  .new-task-row td input:-ms-input-placeholder {\n    color: #b3b3b3;\n    font-style: normal; }\n", ""]);
 
 	// exports
 
@@ -60316,7 +60316,7 @@
 
 
 	// module
-	exports.push([module.id, "#task-table .complete td:not(.delete-task) {\n  text-decoration: line-through;\n  color: #b3b3b3; }\n  #task-table .complete td:not(.delete-task) input {\n    text-decoration: line-through;\n    background: none;\n    border: none; }\n\n#task-table .delete-task span {\n  padding: 2px 7px; }\n  #task-table .delete-task span:hover {\n    background: #d3d2d1;\n    cursor: pointer; }\n", ""]);
+	exports.push([module.id, "#task-table input {\n  width: 100%; }\n\n#task-table .complete td:not(.delete-task) {\n  text-decoration: line-through;\n  color: #b3b3b3; }\n  #task-table .complete td:not(.delete-task) input {\n    text-decoration: line-through;\n    background: none;\n    border: none; }\n\n#task-table .delete-task span {\n  padding: 2px 7px; }\n  #task-table .delete-task span:hover {\n    background: #d3d2d1;\n    cursor: pointer; }\n", ""]);
 
 	// exports
 

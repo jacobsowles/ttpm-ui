@@ -4,6 +4,14 @@
             background: none;
             border: none;
 
+            &:hover {
+                cursor: pointer;
+            }
+
+            &:focus {
+                cursor: text;
+            }
+
             &::-moz-placeholder {
                 color: #b3b3b3;
                 font-style: normal;
