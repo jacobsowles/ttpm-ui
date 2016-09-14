@@ -59873,7 +59873,7 @@
 
 
 	// module
-	exports.push([module.id, ".new-task-row td input {\n  background: none;\n  border: none; }\n  .new-task-row td input::-moz-placeholder {\n    color: #b3b3b3; }\n  .new-task-row td input:-moz-placeholder {\n    color: #b3b3b3; }\n  .new-task-row td input::-webkit-input-placeholder {\n    color: #b3b3b3; }\n  .new-task-row td input:-ms-input-placeholder {\n    color: #b3b3b3; }\n", ""]);
+	exports.push([module.id, ".new-task-row td input {\n  background: none;\n  border: none; }\n  .new-task-row td input::-moz-placeholder {\n    color: #b3b3b3;\n    font-style: normal; }\n  .new-task-row td input:-moz-placeholder {\n    color: #b3b3b3;\n    font-style: normal; }\n  .new-task-row td input::-webkit-input-placeholder {\n    color: #b3b3b3;\n    font-style: normal; }\n  .new-task-row td input:-ms-input-placeholder {\n    color: #b3b3b3;\n    font-style: normal; }\n", ""]);
 
 	// exports
 
