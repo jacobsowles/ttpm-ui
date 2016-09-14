@@ -29528,7 +29528,7 @@
 	            {
 	                var _tasks3 = state.tasks || [];
 	                state = _extends({}, state, {
-	                    activeTaskListId: _tasks3.length > 0 ? _tasks3[0].TaskListId : 0,
+	                    activeTaskListId: action.payload,
 	                    filteredTasks: _tasks3.filter(function (task) {
 	                        return task.TaskListId == action.payload;
 	                    })

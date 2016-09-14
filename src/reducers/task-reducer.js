@@ -98,7 +98,7 @@ export default function reducer(state = initialState, action) {
             const tasks = state.tasks || [];
             state = {
                 ...state,
-                activeTaskListId: tasks.length > 0 ? tasks[0].TaskListId : 0,
+                activeTaskListId: action.payload,
                 filteredTasks: tasks.filter(function(task) {
                     return task.TaskListId == action.payload;
                 })
