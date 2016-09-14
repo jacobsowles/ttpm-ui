@@ -29695,10 +29695,6 @@
 
 	var _taskCompletion2 = _interopRequireDefault(_taskCompletion);
 
-	var _quotation = __webpack_require__(460);
-
-	var _quotation2 = _interopRequireDefault(_quotation);
-
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -29764,11 +29760,7 @@
 	                            'p',
 	                            { id: 'no-analytics-available' },
 	                            'Let\'s be real: you haven\'t done anything yet. Add some tasks and we\'ll get you some neat data.'
-	                        ),
-	                        _react2.default.createElement(_quotation2.default, {
-	                            quote: 'You miss 100% of the shots you don\'t take.',
-	                            attribution: 'Michael Jordan'
-	                        })
+	                        )
 	                    ) : _react2.default.createElement(
 	                        'div',
 	                        { className: 'row' },
@@ -59137,124 +59129,9 @@
 
 
 /***/ },
-/* 460 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
-
-
-	// styles
-	__webpack_require__(461);
-
-	var Quotation = function (_React$Component) {
-	    _inherits(Quotation, _React$Component);
-
-	    function Quotation() {
-	        _classCallCheck(this, Quotation);
-
-	        return _possibleConstructorReturn(this, (Quotation.__proto__ || Object.getPrototypeOf(Quotation)).apply(this, arguments));
-	    }
-
-	    _createClass(Quotation, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'div',
-	                { className: 'quotation' },
-	                _react2.default.createElement('img', { src: '/assets/images/gray-quotation-marks.png', width: '50' }),
-	                _react2.default.createElement(
-	                    'span',
-	                    null,
-	                    _react2.default.createElement(
-	                        'p',
-	                        { className: 'quote' },
-	                        this.props.quote
-	                    ),
-	                    _react2.default.createElement(
-	                        'p',
-	                        { className: 'attribution' },
-	                        '- ',
-	                        this.props.attribution
-	                    )
-	                ),
-	                _react2.default.createElement('img', { src: '/assets/images/gray-quotation-marks.png', width: '50' })
-	            );
-	        }
-	    }]);
-
-	    return Quotation;
-	}(_react2.default.Component);
-
-	Quotation.propTypes = {
-	    quote: _react2.default.PropTypes.string.isRequired,
-	    attribution: _react2.default.PropTypes.string
-	};
-
-	Quotation.getDefaultProps = {
-	    attribution: 'Unknown'
-	};
-
-	exports.default = Quotation;
-
-/***/ },
-/* 461 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(462);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(301)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/sass-loader/index.js!./quotation.scss", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/sass-loader/index.js!./quotation.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 462 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(300)();
-	// imports
-
-
-	// module
-	exports.push([module.id, ".quotation img {\n  vertical-align: top;\n  display: inline-block; }\n  .quotation img:last-child {\n    margin-top: 10px;\n    transform: scale(-1, -1); }\n\n.quotation span {\n  margin: 0 30px;\n  display: inline-block;\n  font-size: .9em; }\n\n.quotation p {\n  color: #888888; }\n\n.quotation .attribution {\n  text-align: right;\n  font-style: italic;\n  margin-right: 20px; }\n", ""]);
-
-	// exports
-
-
-/***/ },
+/* 460 */,
+/* 461 */,
+/* 462 */,
 /* 463 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -59289,7 +59166,7 @@
 
 
 	// module
-	exports.push([module.id, "#analytics {\n  background: #d3d2d1;\n  border-top: 1px solid #c4c4c4;\n  position: absolute;\n  left: 275px;\n  bottom: 0;\n  width: calc(100% - 275px); }\n  #analytics .toggle-bar {\n    padding: 10px 15px; }\n    #analytics .toggle-bar .toggle {\n      font-size: .9em;\n      text-transform: uppercase;\n      color: #373737;\n      letter-spacing: 1px; }\n      #analytics .toggle-bar .toggle .toggle-button {\n        font-size: 1.2em;\n        margin-right: 10px; }\n      #analytics .toggle-bar .toggle:hover {\n        cursor: pointer;\n        text-decoration: none; }\n  #analytics .drawer {\n    padding: 15px 15px 0 15px; }\n  #analytics #no-analytics-available {\n    margin-bottom: 30px;\n    font-size: .9em; }\n  #analytics .quotation {\n    margin-left: 40px; }\n", ""]);
+	exports.push([module.id, "#analytics {\n  background: #d3d2d1;\n  border-top: 1px solid #c4c4c4;\n  position: absolute;\n  left: 275px;\n  bottom: 0;\n  width: calc(100% - 275px);\n  font-size: .9em; }\n  #analytics .toggle-bar {\n    padding: 10px 15px; }\n    #analytics .toggle-bar .toggle {\n      text-transform: uppercase;\n      color: #373737;\n      letter-spacing: 1px; }\n      #analytics .toggle-bar .toggle .toggle-button {\n        font-size: 1.2em;\n        margin-right: 10px; }\n      #analytics .toggle-bar .toggle:hover {\n        cursor: pointer;\n        text-decoration: none; }\n  #analytics .drawer {\n    padding: 15px 15px 0 15px; }\n  #analytics #no-analytics-available {\n    margin: 40px 0 20px 0;\n    text-align: center;\n    color: #888888; }\n", ""]);
 
 	// exports
 

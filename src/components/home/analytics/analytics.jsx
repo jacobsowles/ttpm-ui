@@ -7,7 +7,6 @@ import { bindActionCreators } from 'redux';
 import Module from '../../module/module.jsx';
 import TaskAge from './task-age/task-age.jsx';
 import TaskCompletion from './task-completion/task-completion.jsx';
-import Quotation from '../../quotation/quotation.jsx';
 
 // styles
 require('./analytics.scss');
@@ -50,10 +49,6 @@ class Analytics extends React.Component {
                     ? (
                         <div>
                             <p id="no-analytics-available">Let's be real: you haven't done anything yet. Add some tasks and we'll get you some neat data.</p>
-                            <Quotation
-                                quote="You miss 100% of the shots you don't take."
-                                attribution="Michael Jordan"
-                            />
                         </div>
                     )
                     : (
