@@ -59812,17 +59812,17 @@
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'tr',
-	                null,
+	                { className: 'new-task-row' },
 	                _react2.default.createElement('td', null),
 	                _react2.default.createElement(
 	                    'td',
 	                    null,
-	                    _react2.default.createElement('input', { type: 'text', ref: 'newTaskName', onKeyDown: this.handleKeyDown })
+	                    _react2.default.createElement('input', { type: 'text', ref: 'newTaskName', placeholder: '+ Add a new task', onKeyDown: this.handleKeyDown })
 	                ),
 	                _react2.default.createElement(
 	                    'td',
 	                    null,
-	                    _react2.default.createElement('input', { type: 'text', ref: 'newTaskNotes', onKeyDown: this.handleKeyDown })
+	                    _react2.default.createElement('input', { type: 'text', ref: 'newTaskNotes', placeholder: 'Optional notes', onKeyDown: this.handleKeyDown })
 	                ),
 	                _react2.default.createElement('td', null)
 	            );
@@ -59873,7 +59873,7 @@
 
 
 	// module
-	exports.push([module.id, "", ""]);
+	exports.push([module.id, ".new-task-row td input {\n  background: none;\n  border: none; }\n  .new-task-row td input::-moz-placeholder {\n    color: #b3b3b3; }\n  .new-task-row td input:-moz-placeholder {\n    color: #b3b3b3; }\n  .new-task-row td input::-webkit-input-placeholder {\n    color: #b3b3b3; }\n  .new-task-row td input:-ms-input-placeholder {\n    color: #b3b3b3; }\n", ""]);
 
 	// exports
 

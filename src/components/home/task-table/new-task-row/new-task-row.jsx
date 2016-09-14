@@ -49,10 +49,10 @@ class NewTaskRow extends React.Component {
 
     render() {
         return (
-            <tr>
+            <tr className="new-task-row">
                 <td></td>
-                <td><input type="text" ref="newTaskName" onKeyDown={this.handleKeyDown} /></td>
-                <td><input type="text" ref="newTaskNotes" onKeyDown={this.handleKeyDown} /></td>
+                <td><input type="text" ref="newTaskName" placeholder="+ Add a new task" onKeyDown={this.handleKeyDown} /></td>
+                <td><input type="text" ref="newTaskNotes" placeholder="Optional notes" onKeyDown={this.handleKeyDown} /></td>
                 <td></td>
             </tr>
         );
