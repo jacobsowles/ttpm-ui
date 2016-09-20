@@ -22,14 +22,12 @@ class TaskTableRow extends React.Component {
     }
 
     render() {
-        const stateStyle = this.props.task.Complete ? 'complete' : '';
-
         const checkbox = this.props.task.Complete
             ? <input type="checkbox" onChange={() => this.props.handleCompletionToggle(this.props.task.Id)} defaultChecked />
             : <input type="checkbox" onChange={() => this.props.handleCompletionToggle(this.props.task.Id)} />;
 
         return (
-            <tr className={stateStyle}>
+            <tr className={this.props.task.Complete ? 'complete' : ''}>
                 <td>{checkbox}</td>
                 <td>{this.buildField(this.props.task.Name, this.props.handleNameEdit)}</td>
                 <td>{this.buildField(this.props.task.Notes, this.props.handleNotesEdit)}</td>

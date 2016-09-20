@@ -67,7 +67,7 @@ class TaskTable extends React.Component {
                             }.bind(this))
                         }
                         {
-                            this.props.activeTaskListId != 0 ? <NewTaskRow handleNewTask={this.handleNewTask} /> : ''
+                            this.props.activeTaskListId != 0 ? <NewTaskRow handleNewTask={this.handleNewTask} /> : null
                         }
                     </tbody>
                 </table>

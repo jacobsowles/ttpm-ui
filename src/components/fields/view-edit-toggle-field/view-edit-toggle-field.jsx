@@ -23,10 +23,12 @@ class ViewEditToggleField extends React.Component {
         this.state.hasBeenSubmitted = false;
     }
 
+    handleChange(event) {
+        this.setState({value: event.target.value});
+    }
+
     handleFocus() {
-        this.setState({
-            isEditMode: true
-        });
+        this.setState({isEditMode: true});
     }
 
     handleKeyDown(event) {
@@ -65,7 +67,8 @@ class ViewEditToggleField extends React.Component {
         return (
             <div className={`${stateClass} ${this.props.type}-view-edit-toggle-field`}>
                 <input
-                    defaultValue={this.props.text}
+                    value={this.props.text}
+                    onChange={this.handleChange}
                     onFocus={this.handleFocus}
                     onBlur={(event) => this.handleSubmit(event)}
                     onKeyDown={this.handleKeyDown}

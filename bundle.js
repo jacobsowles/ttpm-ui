@@ -66,7 +66,7 @@
 
 	var _home2 = _interopRequireDefault(_home);
 
-	var _login = __webpack_require__(535);
+	var _login = __webpack_require__(532);
 
 	var _login2 = _interopRequireDefault(_login);
 
@@ -80,7 +80,7 @@
 
 	// app modules
 	// npm modules
-	__webpack_require__(546);
+	__webpack_require__(543);
 
 	(0, _reactDom.render)(_react2.default.createElement(
 	    _reactRedux.Provider,
@@ -29571,19 +29571,19 @@
 
 	var _analytics2 = _interopRequireDefault(_analytics);
 
-	var _content = __webpack_require__(465);
+	var _content = __webpack_require__(462);
 
 	var _content2 = _interopRequireDefault(_content);
 
-	var _contentModuleCollection = __webpack_require__(468);
+	var _contentModuleCollection = __webpack_require__(465);
 
 	var _contentModuleCollection2 = _interopRequireDefault(_contentModuleCollection);
 
-	var _header = __webpack_require__(497);
+	var _header = __webpack_require__(494);
 
 	var _header2 = _interopRequireDefault(_header);
 
-	var _logo = __webpack_require__(503);
+	var _logo = __webpack_require__(500);
 
 	var _logo2 = _interopRequireDefault(_logo);
 
@@ -29591,11 +29591,11 @@
 
 	var _module2 = _interopRequireDefault(_module);
 
-	var _taskFilterContainer = __webpack_require__(506);
+	var _taskFilterContainer = __webpack_require__(503);
 
 	var _taskFilterContainer2 = _interopRequireDefault(_taskFilterContainer);
 
-	var _sidebar = __webpack_require__(530);
+	var _sidebar = __webpack_require__(527);
 
 	var _sidebar2 = _interopRequireDefault(_sidebar);
 
@@ -29612,7 +29612,7 @@
 
 
 	// styles
-	__webpack_require__(533);
+	__webpack_require__(530);
 
 	var Home = function (_React$Component) {
 	    _inherits(Home, _React$Component);
@@ -29708,7 +29708,7 @@
 
 
 	// styles
-	__webpack_require__(463);
+	__webpack_require__(460);
 
 	var styles = {
 	    active: {
@@ -59129,16 +59129,13 @@
 
 
 /***/ },
-/* 460 */,
-/* 461 */,
-/* 462 */,
-/* 463 */
+/* 460 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(464);
+	var content = __webpack_require__(461);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(301)(content, {});
@@ -59158,7 +59155,7 @@
 	}
 
 /***/ },
-/* 464 */
+/* 461 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(300)();
@@ -59172,7 +59169,7 @@
 
 
 /***/ },
-/* 465 */
+/* 462 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -59197,7 +59194,7 @@
 
 
 	// styles
-	__webpack_require__(466);
+	__webpack_require__(463);
 
 	var Content = function (_React$Component) {
 	    _inherits(Content, _React$Component);
@@ -59225,13 +59222,13 @@
 	exports.default = Content;
 
 /***/ },
-/* 466 */
+/* 463 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(467);
+	var content = __webpack_require__(464);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(301)(content, {});
@@ -59251,7 +59248,7 @@
 	}
 
 /***/ },
-/* 467 */
+/* 464 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(300)();
@@ -59265,7 +59262,7 @@
 
 
 /***/ },
-/* 468 */
+/* 465 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -59284,7 +59281,7 @@
 
 	var _module2 = _interopRequireDefault(_module);
 
-	var _taskTable = __webpack_require__(469);
+	var _taskTable = __webpack_require__(466);
 
 	var _taskTable2 = _interopRequireDefault(_taskTable);
 
@@ -59301,7 +59298,7 @@
 
 
 	// styles
-	__webpack_require__(495);
+	__webpack_require__(492);
 
 	var ContentModuleCollection = function (_React$Component) {
 	    _inherits(ContentModuleCollection, _React$Component);
@@ -59339,7 +59336,7 @@
 	exports.default = ContentModuleCollection;
 
 /***/ },
-/* 469 */
+/* 466 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -59358,23 +59355,23 @@
 
 	var _redux = __webpack_require__(179);
 
-	var _loadingGraphic = __webpack_require__(470);
+	var _loadingGraphic = __webpack_require__(467);
 
 	var _loadingGraphic2 = _interopRequireDefault(_loadingGraphic);
 
-	var _newTaskRow = __webpack_require__(473);
+	var _newTaskRow = __webpack_require__(470);
 
 	var _newTaskRow2 = _interopRequireDefault(_newTaskRow);
 
-	var _taskTableHeaderRow = __webpack_require__(476);
+	var _taskTableHeaderRow = __webpack_require__(473);
 
 	var _taskTableHeaderRow2 = _interopRequireDefault(_taskTableHeaderRow);
 
-	var _taskTableRow = __webpack_require__(479);
+	var _taskTableRow = __webpack_require__(476);
 
 	var _taskTableRow2 = _interopRequireDefault(_taskTableRow);
 
-	var _taskActions = __webpack_require__(485);
+	var _taskActions = __webpack_require__(482);
 
 	var _taskActions2 = _interopRequireDefault(_taskActions);
 
@@ -59394,7 +59391,7 @@
 
 
 	// styles
-	__webpack_require__(493);
+	__webpack_require__(490);
 
 	var TaskTable = function (_React$Component) {
 	    _inherits(TaskTable, _React$Component);
@@ -59458,7 +59455,7 @@
 	                                handleTaskDelete: this.props.handleTaskDelete
 	                            });
 	                        }.bind(this)),
-	                        this.props.activeTaskListId != 0 ? _react2.default.createElement(_newTaskRow2.default, { handleNewTask: this.handleNewTask }) : ''
+	                        this.props.activeTaskListId != 0 ? _react2.default.createElement(_newTaskRow2.default, { handleNewTask: this.handleNewTask }) : null
 	                    )
 	                )
 	            );
@@ -59520,7 +59517,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(TaskTable);
 
 /***/ },
-/* 470 */
+/* 467 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -59545,7 +59542,7 @@
 
 
 	// styles
-	__webpack_require__(471);
+	__webpack_require__(468);
 
 	var LoadingGraphic = function (_React$Component) {
 	    _inherits(LoadingGraphic, _React$Component);
@@ -59577,13 +59574,13 @@
 	exports.default = LoadingGraphic;
 
 /***/ },
-/* 471 */
+/* 468 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(472);
+	var content = __webpack_require__(469);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(301)(content, {});
@@ -59603,7 +59600,7 @@
 	}
 
 /***/ },
-/* 472 */
+/* 469 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(300)();
@@ -59617,7 +59614,7 @@
 
 
 /***/ },
-/* 473 */
+/* 470 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -59642,7 +59639,7 @@
 
 
 	// styles
-	__webpack_require__(474);
+	__webpack_require__(471);
 
 	var NewTaskRow = function (_React$Component) {
 	    _inherits(NewTaskRow, _React$Component);
@@ -59729,13 +59726,13 @@
 	exports.default = NewTaskRow;
 
 /***/ },
-/* 474 */
+/* 471 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(475);
+	var content = __webpack_require__(472);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(301)(content, {});
@@ -59755,7 +59752,7 @@
 	}
 
 /***/ },
-/* 475 */
+/* 472 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(300)();
@@ -59769,7 +59766,7 @@
 
 
 /***/ },
-/* 476 */
+/* 473 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -59794,7 +59791,7 @@
 
 
 	// styles
-	__webpack_require__(477);
+	__webpack_require__(474);
 
 	var TaskTableHeaderRow = function (_React$Component) {
 	    _inherits(TaskTableHeaderRow, _React$Component);
@@ -59833,13 +59830,13 @@
 	exports.default = TaskTableHeaderRow;
 
 /***/ },
-/* 477 */
+/* 474 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(478);
+	var content = __webpack_require__(475);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(301)(content, {});
@@ -59859,7 +59856,7 @@
 	}
 
 /***/ },
-/* 478 */
+/* 475 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(300)();
@@ -59873,7 +59870,7 @@
 
 
 /***/ },
-/* 479 */
+/* 476 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -59888,7 +59885,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _viewEditToggleField = __webpack_require__(480);
+	var _viewEditToggleField = __webpack_require__(477);
 
 	var _viewEditToggleField2 = _interopRequireDefault(_viewEditToggleField);
 
@@ -59905,7 +59902,7 @@
 
 
 	// styles
-	__webpack_require__(483);
+	__webpack_require__(480);
 
 	var TaskTableRow = function (_React$Component) {
 	    _inherits(TaskTableRow, _React$Component);
@@ -59930,8 +59927,6 @@
 	        value: function render() {
 	            var _this2 = this;
 
-	            var stateStyle = this.props.task.Complete ? 'complete' : '';
-
 	            var checkbox = this.props.task.Complete ? _react2.default.createElement('input', { type: 'checkbox', onChange: function onChange() {
 	                    return _this2.props.handleCompletionToggle(_this2.props.task.Id);
 	                }, defaultChecked: true }) : _react2.default.createElement('input', { type: 'checkbox', onChange: function onChange() {
@@ -59940,7 +59935,7 @@
 
 	            return _react2.default.createElement(
 	                'tr',
-	                { className: stateStyle },
+	                { className: this.props.task.Complete ? 'complete' : '' },
 	                _react2.default.createElement(
 	                    'td',
 	                    null,
@@ -59989,7 +59984,7 @@
 	exports.default = TaskTableRow;
 
 /***/ },
-/* 480 */
+/* 477 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -60014,7 +60009,7 @@
 
 
 	// styles
-	__webpack_require__(481);
+	__webpack_require__(478);
 
 	var ViewEditToggleField = function (_React$Component) {
 	    _inherits(ViewEditToggleField, _React$Component);
@@ -60041,11 +60036,14 @@
 	            this.state.hasBeenSubmitted = false;
 	        }
 	    }, {
+	        key: 'handleChange',
+	        value: function handleChange(event) {
+	            this.setState({ value: event.target.value });
+	        }
+	    }, {
 	        key: 'handleFocus',
 	        value: function handleFocus() {
-	            this.setState({
-	                isEditMode: true
-	            });
+	            this.setState({ isEditMode: true });
 	        }
 	    }, {
 	        key: 'handleKeyDown',
@@ -60092,7 +60090,8 @@
 	                'div',
 	                { className: stateClass + ' ' + this.props.type + '-view-edit-toggle-field' },
 	                _react2.default.createElement('input', {
-	                    defaultValue: this.props.text,
+	                    value: this.props.text,
+	                    onChange: this.handleChange,
 	                    onFocus: this.handleFocus,
 	                    onBlur: function onBlur(event) {
 	                        return _this2.handleSubmit(event);
@@ -60120,13 +60119,13 @@
 	exports.default = ViewEditToggleField;
 
 /***/ },
-/* 481 */
+/* 478 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(482);
+	var content = __webpack_require__(479);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(301)(content, {});
@@ -60146,7 +60145,7 @@
 	}
 
 /***/ },
-/* 482 */
+/* 479 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(300)();
@@ -60160,13 +60159,13 @@
 
 
 /***/ },
-/* 483 */
+/* 480 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(484);
+	var content = __webpack_require__(481);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(301)(content, {});
@@ -60186,7 +60185,7 @@
 	}
 
 /***/ },
-/* 484 */
+/* 481 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(300)();
@@ -60200,12 +60199,12 @@
 
 
 /***/ },
-/* 485 */
+/* 482 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _api = __webpack_require__(486);
+	var _api = __webpack_require__(483);
 
 	module.exports = {
 	    fetchTasks: function fetchTasks() {
@@ -60256,12 +60255,12 @@
 	};
 
 /***/ },
-/* 486 */
+/* 483 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _superagent = __webpack_require__(487);
+	var _superagent = __webpack_require__(484);
 
 	var _superagent2 = _interopRequireDefault(_superagent);
 
@@ -60271,7 +60270,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	__webpack_require__(492)(_superagent2.default);
+	__webpack_require__(489)(_superagent2.default);
 
 	// utils
 	// npm modules
@@ -60309,7 +60308,7 @@
 	};
 
 /***/ },
-/* 487 */
+/* 484 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -60326,9 +60325,9 @@
 	  root = this;
 	}
 
-	var Emitter = __webpack_require__(488);
-	var requestBase = __webpack_require__(489);
-	var isObject = __webpack_require__(490);
+	var Emitter = __webpack_require__(485);
+	var requestBase = __webpack_require__(486);
+	var isObject = __webpack_require__(487);
 
 	/**
 	 * Noop.
@@ -60340,7 +60339,7 @@
 	 * Expose `request`.
 	 */
 
-	var request = module.exports = __webpack_require__(491).bind(null, Request);
+	var request = module.exports = __webpack_require__(488).bind(null, Request);
 
 	/**
 	 * Determine XHR.
@@ -61291,7 +61290,7 @@
 
 
 /***/ },
-/* 488 */
+/* 485 */
 /***/ function(module, exports, __webpack_require__) {
 
 	
@@ -61460,13 +61459,13 @@
 
 
 /***/ },
-/* 489 */
+/* 486 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Module of mixed-in functions shared between node and client code
 	 */
-	var isObject = __webpack_require__(490);
+	var isObject = __webpack_require__(487);
 
 	/**
 	 * Clear previous timeout.
@@ -61813,7 +61812,7 @@
 
 
 /***/ },
-/* 490 */
+/* 487 */
 /***/ function(module, exports) {
 
 	/**
@@ -61832,7 +61831,7 @@
 
 
 /***/ },
-/* 491 */
+/* 488 */
 /***/ function(module, exports) {
 
 	// The node and browser modules expose versions of this with the
@@ -61870,7 +61869,7 @@
 
 
 /***/ },
-/* 492 */
+/* 489 */
 /***/ function(module, exports) {
 
 	/**
@@ -61889,13 +61888,13 @@
 
 
 /***/ },
-/* 493 */
+/* 490 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(494);
+	var content = __webpack_require__(491);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(301)(content, {});
@@ -61915,7 +61914,7 @@
 	}
 
 /***/ },
-/* 494 */
+/* 491 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(300)();
@@ -61929,13 +61928,13 @@
 
 
 /***/ },
-/* 495 */
+/* 492 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(496);
+	var content = __webpack_require__(493);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(301)(content, {});
@@ -61955,7 +61954,7 @@
 	}
 
 /***/ },
-/* 496 */
+/* 493 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(300)();
@@ -61969,7 +61968,7 @@
 
 
 /***/ },
-/* 497 */
+/* 494 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -61984,7 +61983,7 @@
 
 	var _React2 = _interopRequireDefault(_React);
 
-	var _taskSearch = __webpack_require__(498);
+	var _taskSearch = __webpack_require__(495);
 
 	var _taskSearch2 = _interopRequireDefault(_taskSearch);
 
@@ -62001,7 +62000,7 @@
 
 
 	// styles
-	__webpack_require__(501);
+	__webpack_require__(498);
 
 	var Header = function (_React$Component) {
 	    _inherits(Header, _React$Component);
@@ -62029,7 +62028,7 @@
 	exports.default = Header;
 
 /***/ },
-/* 498 */
+/* 495 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62054,7 +62053,7 @@
 
 
 	// styles
-	__webpack_require__(499);
+	__webpack_require__(496);
 
 	var TaskSearch = function (_React$Component) {
 	    _inherits(TaskSearch, _React$Component);
@@ -62082,13 +62081,13 @@
 	exports.default = TaskSearch;
 
 /***/ },
-/* 499 */
+/* 496 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(500);
+	var content = __webpack_require__(497);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(301)(content, {});
@@ -62108,7 +62107,7 @@
 	}
 
 /***/ },
-/* 500 */
+/* 497 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(300)();
@@ -62122,13 +62121,13 @@
 
 
 /***/ },
-/* 501 */
+/* 498 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(502);
+	var content = __webpack_require__(499);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(301)(content, {});
@@ -62148,7 +62147,7 @@
 	}
 
 /***/ },
-/* 502 */
+/* 499 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(300)();
@@ -62162,7 +62161,7 @@
 
 
 /***/ },
-/* 503 */
+/* 500 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62187,7 +62186,7 @@
 
 
 	// styles
-	__webpack_require__(504);
+	__webpack_require__(501);
 
 	var Logo = function (_React$Component) {
 	    _inherits(Logo, _React$Component);
@@ -62224,13 +62223,13 @@
 	exports.default = Logo;
 
 /***/ },
-/* 504 */
+/* 501 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(505);
+	var content = __webpack_require__(502);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(301)(content, {});
@@ -62250,7 +62249,7 @@
 	}
 
 /***/ },
-/* 505 */
+/* 502 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(300)();
@@ -62264,7 +62263,7 @@
 
 
 /***/ },
-/* 506 */
+/* 503 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62283,39 +62282,39 @@
 
 	var _redux = __webpack_require__(179);
 
-	var _accordion = __webpack_require__(507);
+	var _accordion = __webpack_require__(504);
 
 	var _accordion2 = _interopRequireDefault(_accordion);
 
-	var _accordionItem = __webpack_require__(510);
+	var _accordionItem = __webpack_require__(507);
 
 	var _accordionItem2 = _interopRequireDefault(_accordionItem);
 
-	var _loadingGraphic = __webpack_require__(470);
+	var _loadingGraphic = __webpack_require__(467);
 
 	var _loadingGraphic2 = _interopRequireDefault(_loadingGraphic);
 
-	var _projectFilter = __webpack_require__(513);
+	var _projectFilter = __webpack_require__(510);
 
 	var _projectFilter2 = _interopRequireDefault(_projectFilter);
 
-	var _swapoutInputField = __webpack_require__(516);
+	var _swapoutInputField = __webpack_require__(513);
 
 	var _swapoutInputField2 = _interopRequireDefault(_swapoutInputField);
 
-	var _taskListFilterGroup = __webpack_require__(520);
+	var _taskListFilterGroup = __webpack_require__(517);
 
 	var _taskListFilterGroup2 = _interopRequireDefault(_taskListFilterGroup);
 
-	var _projectActions = __webpack_require__(526);
+	var _projectActions = __webpack_require__(523);
 
 	var _projectActions2 = _interopRequireDefault(_projectActions);
 
-	var _taskActions = __webpack_require__(485);
+	var _taskActions = __webpack_require__(482);
 
 	var _taskActions2 = _interopRequireDefault(_taskActions);
 
-	var _taskListActions = __webpack_require__(527);
+	var _taskListActions = __webpack_require__(524);
 
 	var _taskListActions2 = _interopRequireDefault(_taskListActions);
 
@@ -62335,7 +62334,7 @@
 
 
 	// styles
-	__webpack_require__(528);
+	__webpack_require__(525);
 
 	var TaskFilterContainer = function (_React$Component) {
 	    _inherits(TaskFilterContainer, _React$Component);
@@ -62488,7 +62487,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(TaskFilterContainer);
 
 /***/ },
-/* 507 */
+/* 504 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62513,7 +62512,7 @@
 
 
 	// styles
-	__webpack_require__(508);
+	__webpack_require__(505);
 
 	var Accordion = function (_React$Component) {
 	    _inherits(Accordion, _React$Component);
@@ -62541,13 +62540,13 @@
 	exports.default = Accordion;
 
 /***/ },
-/* 508 */
+/* 505 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(509);
+	var content = __webpack_require__(506);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(301)(content, {});
@@ -62567,7 +62566,7 @@
 	}
 
 /***/ },
-/* 509 */
+/* 506 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(300)();
@@ -62581,7 +62580,7 @@
 
 
 /***/ },
-/* 510 */
+/* 507 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62606,7 +62605,7 @@
 
 
 	// styles
-	__webpack_require__(511);
+	__webpack_require__(508);
 
 	var styles = {
 	    active: {
@@ -62673,13 +62672,13 @@
 	exports.default = AccordionItem;
 
 /***/ },
-/* 511 */
+/* 508 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(512);
+	var content = __webpack_require__(509);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(301)(content, {});
@@ -62699,7 +62698,7 @@
 	}
 
 /***/ },
-/* 512 */
+/* 509 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(300)();
@@ -62713,7 +62712,7 @@
 
 
 /***/ },
-/* 513 */
+/* 510 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62738,7 +62737,7 @@
 
 
 	// styles
-	__webpack_require__(514);
+	__webpack_require__(511);
 
 	var ProjectFilter = function (_React$Component) {
 	    _inherits(ProjectFilter, _React$Component);
@@ -62802,13 +62801,13 @@
 	exports.default = ProjectFilter;
 
 /***/ },
-/* 514 */
+/* 511 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(515);
+	var content = __webpack_require__(512);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(301)(content, {});
@@ -62828,7 +62827,7 @@
 	}
 
 /***/ },
-/* 515 */
+/* 512 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(300)();
@@ -62842,7 +62841,7 @@
 
 
 /***/ },
-/* 516 */
+/* 513 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62857,7 +62856,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _lodash = __webpack_require__(517);
+	var _lodash = __webpack_require__(514);
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
@@ -62871,7 +62870,7 @@
 
 
 	// styles
-	__webpack_require__(518);
+	__webpack_require__(515);
 
 	var styles = {
 	    show: {
@@ -62991,7 +62990,7 @@
 	exports.default = SwapoutInputField;
 
 /***/ },
-/* 517 */
+/* 514 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(global, module) {/**
@@ -79731,13 +79730,13 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(342)(module)))
 
 /***/ },
-/* 518 */
+/* 515 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(519);
+	var content = __webpack_require__(516);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(301)(content, {});
@@ -79757,7 +79756,7 @@
 	}
 
 /***/ },
-/* 519 */
+/* 516 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(300)();
@@ -79771,7 +79770,7 @@
 
 
 /***/ },
-/* 520 */
+/* 517 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -79786,11 +79785,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _taskListFilter = __webpack_require__(521);
+	var _taskListFilter = __webpack_require__(518);
 
 	var _taskListFilter2 = _interopRequireDefault(_taskListFilter);
 
-	var _swapoutInputField = __webpack_require__(516);
+	var _swapoutInputField = __webpack_require__(513);
 
 	var _swapoutInputField2 = _interopRequireDefault(_swapoutInputField);
 
@@ -79807,7 +79806,7 @@
 
 
 	// styles
-	__webpack_require__(524);
+	__webpack_require__(521);
 
 	var TaskListFilterGroup = function (_React$Component) {
 	    _inherits(TaskListFilterGroup, _React$Component);
@@ -79859,7 +79858,7 @@
 	exports.default = TaskListFilterGroup;
 
 /***/ },
-/* 521 */
+/* 518 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -79884,7 +79883,7 @@
 
 
 	// styles
-	__webpack_require__(522);
+	__webpack_require__(519);
 
 	var TaskListFilter = function (_React$Component) {
 	    _inherits(TaskListFilter, _React$Component);
@@ -79946,13 +79945,13 @@
 	exports.default = TaskListFilter;
 
 /***/ },
-/* 522 */
+/* 519 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(523);
+	var content = __webpack_require__(520);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(301)(content, {});
@@ -79972,7 +79971,7 @@
 	}
 
 /***/ },
-/* 523 */
+/* 520 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(300)();
@@ -79986,13 +79985,13 @@
 
 
 /***/ },
-/* 524 */
+/* 521 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(525);
+	var content = __webpack_require__(522);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(301)(content, {});
@@ -80012,7 +80011,7 @@
 	}
 
 /***/ },
-/* 525 */
+/* 522 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(300)();
@@ -80026,12 +80025,12 @@
 
 
 /***/ },
-/* 526 */
+/* 523 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _api = __webpack_require__(486);
+	var _api = __webpack_require__(483);
 
 	module.exports = {
 	    fetchProjects: function fetchProjects() {
@@ -80057,12 +80056,12 @@
 	};
 
 /***/ },
-/* 527 */
+/* 524 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _api = __webpack_require__(486);
+	var _api = __webpack_require__(483);
 
 	module.exports = {
 	    fetchTaskLists: function fetchTaskLists() {
@@ -80088,13 +80087,13 @@
 	};
 
 /***/ },
-/* 528 */
+/* 525 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(529);
+	var content = __webpack_require__(526);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(301)(content, {});
@@ -80114,7 +80113,7 @@
 	}
 
 /***/ },
-/* 529 */
+/* 526 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(300)();
@@ -80128,7 +80127,7 @@
 
 
 /***/ },
-/* 530 */
+/* 527 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -80153,7 +80152,7 @@
 
 
 	// styles
-	__webpack_require__(531);
+	__webpack_require__(528);
 
 	var Sidebar = function (_React$Component) {
 	    _inherits(Sidebar, _React$Component);
@@ -80181,13 +80180,13 @@
 	exports.default = Sidebar;
 
 /***/ },
-/* 531 */
+/* 528 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(532);
+	var content = __webpack_require__(529);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(301)(content, {});
@@ -80207,7 +80206,7 @@
 	}
 
 /***/ },
-/* 532 */
+/* 529 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(300)();
@@ -80221,13 +80220,13 @@
 
 
 /***/ },
-/* 533 */
+/* 530 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(534);
+	var content = __webpack_require__(531);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(301)(content, {});
@@ -80247,7 +80246,7 @@
 	}
 
 /***/ },
-/* 534 */
+/* 531 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(300)();
@@ -80261,7 +80260,7 @@
 
 
 /***/ },
-/* 535 */
+/* 532 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -80280,11 +80279,11 @@
 
 	var _redux = __webpack_require__(179);
 
-	var _loginForm = __webpack_require__(536);
+	var _loginForm = __webpack_require__(533);
 
 	var _loginForm2 = _interopRequireDefault(_loginForm);
 
-	var _registrationForm = __webpack_require__(540);
+	var _registrationForm = __webpack_require__(537);
 
 	var _registrationForm2 = _interopRequireDefault(_registrationForm);
 
@@ -80306,7 +80305,7 @@
 
 
 	// styles
-	__webpack_require__(544);
+	__webpack_require__(541);
 
 	var Login = function (_React$Component) {
 	    _inherits(Login, _React$Component);
@@ -80376,7 +80375,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Login);
 
 /***/ },
-/* 536 */
+/* 533 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -80395,7 +80394,7 @@
 
 	var _redux = __webpack_require__(179);
 
-	var _loginFormActions = __webpack_require__(537);
+	var _loginFormActions = __webpack_require__(534);
 
 	var _loginFormActions2 = _interopRequireDefault(_loginFormActions);
 
@@ -80417,7 +80416,7 @@
 
 
 	// styles
-	__webpack_require__(538);
+	__webpack_require__(535);
 
 	var LoginForm = function (_React$Component) {
 	    _inherits(LoginForm, _React$Component);
@@ -80503,12 +80502,12 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(LoginForm);
 
 /***/ },
-/* 537 */
+/* 534 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _superagent = __webpack_require__(487);
+	var _superagent = __webpack_require__(484);
 
 	var _superagent2 = _interopRequireDefault(_superagent);
 
@@ -80532,13 +80531,13 @@
 	};
 
 /***/ },
-/* 538 */
+/* 535 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(539);
+	var content = __webpack_require__(536);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(301)(content, {});
@@ -80558,7 +80557,7 @@
 	}
 
 /***/ },
-/* 539 */
+/* 536 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(300)();
@@ -80572,7 +80571,7 @@
 
 
 /***/ },
-/* 540 */
+/* 537 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -80591,7 +80590,7 @@
 
 	var _redux = __webpack_require__(179);
 
-	var _registrationFormActions = __webpack_require__(541);
+	var _registrationFormActions = __webpack_require__(538);
 
 	var _registrationFormActions2 = _interopRequireDefault(_registrationFormActions);
 
@@ -80608,7 +80607,7 @@
 
 
 	// styles
-	__webpack_require__(542);
+	__webpack_require__(539);
 
 	var RegistrationForm = function (_React$Component) {
 	    _inherits(RegistrationForm, _React$Component);
@@ -80691,12 +80690,12 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(RegistrationForm);
 
 /***/ },
-/* 541 */
+/* 538 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _api = __webpack_require__(486);
+	var _api = __webpack_require__(483);
 
 	module.exports = {
 	    registerUser: function registerUser(options) {
@@ -80708,13 +80707,13 @@
 	};
 
 /***/ },
-/* 542 */
+/* 539 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(543);
+	var content = __webpack_require__(540);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(301)(content, {});
@@ -80734,7 +80733,7 @@
 	}
 
 /***/ },
-/* 543 */
+/* 540 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(300)();
@@ -80748,13 +80747,13 @@
 
 
 /***/ },
-/* 544 */
+/* 541 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(545);
+	var content = __webpack_require__(542);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(301)(content, {});
@@ -80774,7 +80773,7 @@
 	}
 
 /***/ },
-/* 545 */
+/* 542 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(300)();
@@ -80788,13 +80787,13 @@
 
 
 /***/ },
-/* 546 */
+/* 543 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(547);
+	var content = __webpack_require__(544);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(301)(content, {});
@@ -80814,7 +80813,7 @@
 	}
 
 /***/ },
-/* 547 */
+/* 544 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(300)();
