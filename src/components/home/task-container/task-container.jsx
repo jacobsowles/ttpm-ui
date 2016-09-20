@@ -4,18 +4,14 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 // components
+import Analytics from './analytics/analytics.jsx';
 import LoadingGraphic from '../../loading-graphic/loading-graphic.jsx';
-import NewTaskRow from './new-task-row/new-task-row.jsx';
-import TaskTableHeaderRow from './task-table-header-row/task-table-header-row.jsx';
-import TaskTableRow from './task-table-row/task-table-row.jsx';
+import TaskTable from './task-table/task-table.jsx';
 
 // actions
 import taskActions from '../../../actions/task-actions.js';
 
-// styles
-require('./task-table.scss');
-
-class TaskTable extends React.Component {
+class TaskContainer extends React.Component {
 
     constructor(props) {
         super(props);
@@ -38,60 +34,68 @@ class TaskTable extends React.Component {
     }
 
     handleNewTask(task) {
-        task.TaskListId = this.props.activeTaskListId;
+        task.TaskListId = this.props.filters.taskListId;
         this.props.handleNewTask(task);
     }
 
     render() {
         return (
-            <div id="task-table" className="table-responsive">
+            <div>
                 <LoadingGraphic showLoadingGraphic={this.state.showLoadingGraphic} />
 
-                <table className="table table-striped">
-                    <thead>
-                        <TaskTableHeaderRow />
-                    </thead>
-                    <tbody>
-                        {
-                            this.props.filteredTasks.map(function(task, key) {
-                                return (
-                                    <TaskTableRow
-                                        key={key}
-                                        task={task}
-                                        handleCompletionToggle={this.props.handleCompletionToggle}
-                                        handleNameEdit={this.props.handleTaskNameEdit}
-                                        handleNotesEdit={this.props.handleTaskNotesEdit}
-                                        handleTaskDelete={this.props.handleTaskDelete}
-                                    />
-                                );
-                            }.bind(this))
-                        }
-                        {
-                            this.props.activeTaskListId != 0 ? <NewTaskRow handleNewTask={this.handleNewTask} /> : null
-                        }
-                    </tbody>
-                </table>
+                <TaskTable
+                    tasks={this.props.filteredTasks}
+                    taskListId={this.props.filters.taskListId}
+                    handleNewTask={this.handleNewTask}
+                    handleCompletionToggle={this.props.handleCompletionToggle}
+                    handleTaskNameEdit={this.props.handleTaskNameEdit}
+                    handleTaskNotesEdit={this.props.handleTaskNotesEdit}
+                    handleTaskDelete={this.props.handleTaskDelete}
+                />
+
+                <Analytics
+                    tasks={this.props.filteredTasks}
+                />
             </div>
         );
     }
 }
 
-TaskTable.propTypes = {
+TaskContainer.propTypes = {
     tasks: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
     filteredTasks: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
-    activeTaskListId: React.PropTypes.number.isRequired,
 
     fetchTasks: React.PropTypes.func.isRequired,
     handleNewTask: React.PropTypes.func.isRequired,
     handleCompletionToggle: React.PropTypes.func.isRequired,
-    handleTaskNameEdit: React.PropTypes.func.isRequired
+    handleTaskNameEdit: React.PropTypes.func.isRequired,
+    handleTaskNotesEdit: React.PropTypes.func.isRequired,
+    handleTaskDelete: React.PropTypes.func.isRequired
 };
+
+function filterTasks(tasks, taskLists, projects, filters) {
+    if (filters.projectId) {
+        if (filters.taskListId) {
+            return tasks.filter(t => t.TaskListId == filters.taskListId);
+        }
+
+        const taskListIds = taskLists.filter((taskList) => {
+            return taskList.ProjectId == filters.projectId;
+        }).map((taskList) => {
+            return taskList.Id;
+        });
+
+        return tasks.filter(t => taskListIds.includes(t.TaskListId));
+    }
+
+    return tasks;
+}
 
 function mapStateToProps(state) {
     return {
-        tasks: state.tasks.tasks,
-        filteredTasks: state.tasks.filteredTasks,
-        activeTaskListId: state.tasks.activeTaskListId
+        tasks: state.tasks,
+        filteredTasks: filterTasks(state.tasks, state.taskLists, state.projects, state.filters),
+        filters: state.filters
     };
 }
 
@@ -125,4 +129,4 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TaskTable);
+export default connect(mapStateToProps, mapDispatchToProps)(TaskContainer);

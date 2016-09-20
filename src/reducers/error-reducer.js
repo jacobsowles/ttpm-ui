@@ -1,23 +1,11 @@
-const initialState = {
-    message: ''
-};
-
-export default function reducer(state = initialState, action) {
+export default function reducer(state = '', action) {
     switch (action.type) {
         case 'SET_ERROR_MESSAGE': {
-            state = {
-                ...state,
-                message: action.payload
-            };
-            break;
+            return action.payload;
         }
 
         case 'SET_DEFAULT_ERROR_MESSAGE': {
-            state = {
-                ...state,
-                message: 'The fox is in the hen house! Something has gone wrong, and we\'re very sorry.'
-            };
-            break;
+            return 'The fox is in the hen house! Something has gone wrong, and we\'re very sorry.';
         }
     }
 

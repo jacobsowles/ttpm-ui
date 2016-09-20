@@ -8,23 +8,6 @@ module.exports = {
         };
     },
 
-    filterTasksByProject(taskLists, projectId) {
-        return {
-            type: 'FILTER_TASKS_BY_PROJECT',
-            payload: {
-                taskLists: taskLists,
-                projectId: projectId
-            }
-        };
-    },
-
-    filterTasksByTaskList(taskListId) {
-        return {
-            type: 'FILTER_TASKS_BY_TASK_LIST',
-            payload: taskListId
-        };
-    },
-
     createTask(task) {
         return {
             type: 'CREATE_TASK',

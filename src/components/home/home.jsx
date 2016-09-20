@@ -2,14 +2,13 @@
 import React from 'react';
 
 // components
-import Analytics from './analytics/analytics.jsx';
 import Content from './content/content.jsx';
-import ContentModuleCollection from './content/content-module-collection/content-module-collection.jsx';
 import Header from './header/header.jsx';
 import Logo from '../logo/logo.jsx';
 import Module from '../module/module.jsx';
-import TaskFilterContainer from './task-filter-container/task-filter-container.jsx';
 import Sidebar from './sidebar/sidebar.jsx';
+import TaskContainer from './task-container/task-container.jsx';
+import TaskFilterContainer from './task-filter-container/task-filter-container.jsx';
 
 // styles
 require('./home.scss');
@@ -35,8 +34,7 @@ class Home extends React.Component {
 
                 <Content>
                     <Header />
-                    <ContentModuleCollection />
-                    <Analytics />
+                    <TaskContainer />
                 </Content>
             </div>
         );

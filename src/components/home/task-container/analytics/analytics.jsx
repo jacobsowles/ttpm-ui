@@ -1,10 +1,8 @@
 // npm modules
 import React from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 
 // components
-import Module from '../../module/module.jsx';
+import Module from '../../../module/module.jsx';
 import TaskAge from './task-age/task-age.jsx';
 import TaskCompletion from './task-completion/task-completion.jsx';
 
@@ -39,11 +37,9 @@ class Analytics extends React.Component {
     }
 
     render() {
-        const stateStyle = this.state.active ? styles.active : styles.inactive;
-
         return (
             <div id="analytics">
-                <div className="drawer" style={stateStyle}>
+                <div className="drawer" style={this.state.active ? styles.active : styles.inactive}>
                 {
                     this.props.tasks.length == 0
                     ? (
@@ -99,10 +95,4 @@ Analytics.propTypes = {
     tasks: React.PropTypes.arrayOf(React.PropTypes.object).isRequired
 };
 
-function mapStateToProps(state) {
-    return {
-        tasks: state.tasks.filteredTasks
-    };
-}
-
-export default connect(mapStateToProps)(Analytics);
+export default Analytics;

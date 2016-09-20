@@ -12,6 +12,7 @@ import SwapoutInputField from '../../fields/swapout-input-field/swapout-input-fi
 import TaskListFilterGroup from './task-list-filter-group/task-list-filter-group.jsx';
 
 // actions
+import filterActions from '../../../actions/filter-actions.js';
 import projectActions from '../../../actions/project-actions.js';
 import taskActions from '../../../actions/task-actions.js';
 import taskListActions from '../../../actions/task-list-actions.js';
@@ -103,8 +104,8 @@ TaskFilterContainer.propTypes = {
 
 function mapStateToProps(state) {
     return {
-        projects: state.projects.projects,
-        taskLists: state.taskLists.taskLists
+        projects: state.projects,
+        taskLists: state.taskLists
     };
 }
 
@@ -119,7 +120,7 @@ function mapDispatchToProps(dispatch) {
         },
 
         handleProjectClick: function(projectId) {
-            dispatch(taskActions.filterTasksByProject(this.props.taskLists, projectId));
+            dispatch(filterActions.setProjectFilter(projectId));
         },
 
         handleAddProjectClick: function(name) {
@@ -140,7 +141,7 @@ function mapDispatchToProps(dispatch) {
         },
 
         handleTaskListClick: function(taskListId) {
-            dispatch(taskActions.filterTasksByTaskList(taskListId));
+            dispatch(filterActions.setTaskListFilter(taskListId));
         },
 
         handleAddTaskListClick: function(name, boundData) {
