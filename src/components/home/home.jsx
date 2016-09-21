@@ -9,6 +9,8 @@ import Logo from '../logo/logo.jsx';
 import Module from '../module/module.jsx';
 import Sidebar from './sidebar/sidebar.jsx';
 import TaskContainer from './task-container/task-container.jsx';
+import TaskSearch from './task-search/task-search.jsx';
+import UserControls from './user-controls/user-controls.jsx';
 
 // styles
 require('./home.scss');
@@ -33,7 +35,11 @@ class Home extends React.Component {
                 </Sidebar>
 
                 <Content>
-                    <Header />
+                    <Header>
+                        <TaskSearch />
+                        <UserControls />
+                    </Header>
+
                     <TaskContainer />
                 </Content>
             </div>
