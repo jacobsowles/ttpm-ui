@@ -79631,19 +79631,15 @@
 	        value: function render() {
 	            var _this2 = this;
 
-	            var checkbox = this.props.task.Complete ? _react2.default.createElement('input', { type: 'checkbox', onChange: function onChange() {
-	                    return _this2.props.handleCompletionToggle(_this2.props.task.Id);
-	                }, defaultChecked: true }) : _react2.default.createElement('input', { type: 'checkbox', onChange: function onChange() {
-	                    return _this2.props.handleCompletionToggle(_this2.props.task.Id);
-	                } });
-
 	            return _react2.default.createElement(
 	                'tr',
 	                { className: this.props.task.Complete ? 'task-table-row-complete' : '' },
 	                _react2.default.createElement(
 	                    'td',
 	                    null,
-	                    checkbox
+	                    _react2.default.createElement('input', { type: 'checkbox', checked: this.props.task.Complete, onChange: function onChange() {
+	                            return _this2.props.handleCompletionToggle(_this2.props.task.Id);
+	                        } })
 	                ),
 	                _react2.default.createElement(
 	                    'td',
