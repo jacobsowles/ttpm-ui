@@ -70,9 +70,21 @@ TaskContainer.propTypes = {
     handleTaskDelete: React.PropTypes.func.isRequired
 };
 
-function filterTasks(tasks, filters) {
+function allDescendents(taskGroups, taskGroupId) {
+    let ids = [taskGroupId];
+
+    taskGroups
+        .filter(tg => tg.ParentTaskGroupId == taskGroupId)
+        .forEach((taskGroup) => {
+            ids = ids.concat(allDescendents(taskGroups, taskGroup.Id));
+        });
+
+    return ids;
+}
+
+function filterTasks(tasks, taskGroups, filters) {
     if (filters.taskGroupId) {
-        return tasks.filter(t => t.TaskGroupId == filters.taskGroupId);
+        return tasks.filter(t => allDescendents(taskGroups, filters.taskGroupId).includes(t.TaskGroupId));
     }
 
     return tasks;
@@ -81,7 +93,7 @@ function filterTasks(tasks, filters) {
 function mapStateToProps(state) {
     return {
         tasks: state.tasks,
-        filteredTasks: filterTasks(state.tasks, state.filters),
+        filteredTasks: filterTasks(state.tasks, state.taskGroups, state.filters),
         filters: state.filters
     };
 }

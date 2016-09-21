@@ -53934,10 +53934,22 @@
 	    handleTaskDelete: _react2.default.PropTypes.func.isRequired
 	};
 
-	function filterTasks(tasks, filters) {
+	function allDescendents(taskGroups, taskGroupId) {
+	    var ids = [taskGroupId];
+
+	    taskGroups.filter(function (tg) {
+	        return tg.ParentTaskGroupId == taskGroupId;
+	    }).forEach(function (taskGroup) {
+	        ids = ids.concat(allDescendents(taskGroups, taskGroup.Id));
+	    });
+
+	    return ids;
+	}
+
+	function filterTasks(tasks, taskGroups, filters) {
 	    if (filters.taskGroupId) {
 	        return tasks.filter(function (t) {
-	            return t.TaskGroupId == filters.taskGroupId;
+	            return allDescendents(taskGroups, filters.taskGroupId).includes(t.TaskGroupId);
 	        });
 	    }
 
@@ -53947,7 +53959,7 @@
 	function mapStateToProps(state) {
 	    return {
 	        tasks: state.tasks,
-	        filteredTasks: filterTasks(state.tasks, state.filters),
+	        filteredTasks: filterTasks(state.tasks, state.taskGroups, state.filters),
 	        filters: state.filters
 	    };
 	}
