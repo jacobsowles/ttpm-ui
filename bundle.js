@@ -53947,7 +53947,8 @@
 	function mapStateToProps(state) {
 	    return {
 	        tasks: state.tasks,
-	        filteredTasks: filterTasks(state.tasks, state.filters)
+	        filteredTasks: filterTasks(state.tasks, state.filters),
+	        filters: state.filters
 	    };
 	}
 
