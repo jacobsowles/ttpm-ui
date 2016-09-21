@@ -25,7 +25,7 @@ class Home extends React.Component {
 
                     <Module
                         type="sidebar"
-                        title="Projects"
+                        title="Groups"
                         iconClass="fa fa-folder-open-o"
                     >
                         <GroupFilterContainer />

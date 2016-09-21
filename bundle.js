@@ -29452,7 +29452,7 @@
 	                        _module2.default,
 	                        {
 	                            type: 'sidebar',
-	                            title: 'Projects',
+	                            title: 'Groups',
 	                            iconClass: 'fa fa-folder-open-o'
 	                        },
 	                        _react2.default.createElement(_groupFilterContainer2.default, null)
