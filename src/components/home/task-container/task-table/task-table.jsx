@@ -15,7 +15,7 @@ class TaskTable extends React.Component {
         return (
             <div className="row">
                 <div className="col-xs-12">
-                    <div id="task-table" className="table-responsive" style={{background: '#ffffff', padding: '15px'}}>
+                    <div className="task-table table-responsive" style={{background: '#ffffff', padding: '15px'}}>
                         <table className="table table-striped">
                             <thead>
                                 <TaskTableHeaderRow />

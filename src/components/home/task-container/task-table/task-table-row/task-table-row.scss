@@ -1,29 +1,21 @@
-#task-table {
-    input {
-        width: 100%;
-    }
-    
-    .complete {
-        td:not(.delete-task) {
+.task-table-row-complete {
+    td:not(.task-table-delete-task) {
+        text-decoration: line-through;
+        color: #b3b3b3;
+        input {
             text-decoration: line-through;
-            color: #b3b3b3;
-
-            input {
-                text-decoration: line-through;
-                background: none;
-                border: none;
-            }
+            background: none;
+            border: none;
         }
     }
+}
 
-    .delete-task {
-        span {
-            padding: 2px 7px;
-
-            &:hover {
-                background: #d3d2d1;
-                cursor: pointer;
-            }
+.task-table-delete-task {
+    span {
+        padding: 2px 7px;
+        &:hover {
+            background: #d3d2d1;
+            cursor: pointer;
         }
     }
 }

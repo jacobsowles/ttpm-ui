@@ -79273,7 +79273,7 @@
 	                    { className: 'col-xs-12' },
 	                    _react2.default.createElement(
 	                        'div',
-	                        { id: 'task-table', className: 'table-responsive', style: { background: '#ffffff', padding: '15px' } },
+	                        { className: 'task-table table-responsive', style: { background: '#ffffff', padding: '15px' } },
 	                        _react2.default.createElement(
 	                            'table',
 	                            { className: 'table table-striped' },
@@ -79639,7 +79639,7 @@
 
 	            return _react2.default.createElement(
 	                'tr',
-	                { className: this.props.task.Complete ? 'complete' : '' },
+	                { className: this.props.task.Complete ? 'task-table-row-complete' : '' },
 	                _react2.default.createElement(
 	                    'td',
 	                    null,
@@ -79657,7 +79657,7 @@
 	                ),
 	                _react2.default.createElement(
 	                    'td',
-	                    { className: 'delete-task' },
+	                    { className: 'task-table-delete-task' },
 	                    _react2.default.createElement(
 	                        'span',
 	                        { onClick: function onClick() {
@@ -79722,7 +79722,7 @@
 
 
 	// module
-	exports.push([module.id, "#task-table input {\n  width: 100%; }\n\n#task-table .complete td:not(.delete-task) {\n  text-decoration: line-through;\n  color: #b3b3b3; }\n  #task-table .complete td:not(.delete-task) input {\n    text-decoration: line-through;\n    background: none;\n    border: none; }\n\n#task-table .delete-task span {\n  padding: 2px 7px; }\n  #task-table .delete-task span:hover {\n    background: #d3d2d1;\n    cursor: pointer; }\n", ""]);
+	exports.push([module.id, ".task-table-row-complete td:not(.task-table-delete-task) {\n  text-decoration: line-through;\n  color: #b3b3b3; }\n  .task-table-row-complete td:not(.task-table-delete-task) input {\n    text-decoration: line-through;\n    background: none;\n    border: none; }\n\n.task-table-delete-task span {\n  padding: 2px 7px; }\n  .task-table-delete-task span:hover {\n    background: #d3d2d1;\n    cursor: pointer; }\n", ""]);
 
 	// exports
 
@@ -79762,7 +79762,7 @@
 
 
 	// module
-	exports.push([module.id, "", ""]);
+	exports.push([module.id, ".task-table {\n  font-size: .9em; }\n  .task-table input {\n    width: 100%; }\n", ""]);
 
 	// exports
 

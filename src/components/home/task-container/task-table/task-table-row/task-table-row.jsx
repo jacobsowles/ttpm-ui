@@ -27,11 +27,11 @@ class TaskTableRow extends React.Component {
             : <input type="checkbox" onChange={() => this.props.handleCompletionToggle(this.props.task.Id)} />;
 
         return (
-            <tr className={this.props.task.Complete ? 'complete' : ''}>
+            <tr className={this.props.task.Complete ? 'task-table-row-complete' : ''}>
                 <td>{checkbox}</td>
                 <td>{this.buildField(this.props.task.Name, this.props.handleNameEdit)}</td>
                 <td>{this.buildField(this.props.task.Notes, this.props.handleNotesEdit)}</td>
-                <td className="delete-task"><span onClick={() => this.props.handleTaskDelete(this.props.task.Id)}>&times;</span></td>
+                <td className="task-table-delete-task"><span onClick={() => this.props.handleTaskDelete(this.props.task.Id)}>&times;</span></td>
             </tr>
         );
     }
