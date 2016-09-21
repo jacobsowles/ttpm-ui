@@ -51398,8 +51398,14 @@
 	        });
 	    },
 	    post: function post(route, body, query) {
+	        var token = _auth2.default.getToken();
+
+	        if (token) {
+	            token = '&access_token=' + token;
+	        }
+
 	        return new Promise(function (resolve, reject) {
-	            _superagent2.default.post('http://api.ttpm.com' + route).query((query || '') + '&access_token=' + _auth2.default.getToken()).send(body).end(function (error, response) {
+	            _superagent2.default.post('http://api.ttpm.com' + route).query('' + (query || '') + (token || '')).send(body).end(function (error, response) {
 	                error ? reject(error) : resolve(response.body);
 	            });
 	        });

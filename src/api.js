@@ -30,10 +30,16 @@ module.exports = {
     },
 
     post(route, body, query) {
+        let token = auth.getToken();
+
+        if (token) {
+            token = `&access_token=${token}`;
+        }
+
         return new Promise((resolve, reject) => {
             superagent
                 .post('http://api.ttpm.com' + route)
-                .query(`${query || ''}&access_token=${auth.getToken()}`)
+                .query(`${query || ''}${token || ''}`)
                 .send(body)
                 .end((error, response) => {
                     error ? reject(error) : resolve(response.body);
