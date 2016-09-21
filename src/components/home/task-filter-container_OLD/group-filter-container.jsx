@@ -20,7 +20,7 @@ import taskListActions from '../../../actions/task-list-actions.js';
 // styles
 require('./task-filter-container.scss');
 
-class TaskFilterContainer extends React.Component {
+class GroupFilterContainer extends React.Component {
 
     constructor(props) {
         super(props);
@@ -86,7 +86,7 @@ class TaskFilterContainer extends React.Component {
     }
 }
 
-TaskFilterContainer.propTypes = {
+GroupFilterContainer.propTypes = {
     projects: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
     taskLists: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
 
@@ -160,4 +160,4 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TaskFilterContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(GroupFilterContainer);

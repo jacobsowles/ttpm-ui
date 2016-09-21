@@ -35,9 +35,8 @@ class TaskTable extends React.Component {
                                         );
                                     })
                                 }
-                                {
-                                    this.props.taskListId != 0 ? <NewTaskRow handleNewTask={this.props.handleNewTask} /> : null
-                                }
+
+                                <NewTaskRow handleNewTask={this.props.handleNewTask} />
                             </tbody>
                         </table>
                     </div>
@@ -49,7 +48,6 @@ class TaskTable extends React.Component {
 
 TaskTable.propTypes = {
     tasks: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
-    taskListId: React.PropTypes.number.isRequired,
 
     handleNewTask: React.PropTypes.func.isRequired,
     handleCompletionToggle: React.PropTypes.func.isRequired,

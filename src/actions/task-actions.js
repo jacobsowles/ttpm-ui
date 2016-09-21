@@ -4,35 +4,35 @@ module.exports = {
     fetchTasks() {
         return {
             type: 'FETCH_TASKS',
-            payload: get('/tasks')
+            payload: get('/Tasks')
         };
     },
 
     createTask(task) {
         return {
             type: 'CREATE_TASK',
-            payload: post(`/taskLists/${task.TaskListId}/tasks`, task)
+            payload: task.TaskGroupId == null ? post('/Tasks', task) : post(`/TaskGroups/${task.TaskGroupId}/Tasks`, task)
         };
     },
 
     toggleComplete(taskId) {
         return {
             type: 'TOGGLE_TASK_COMPLETE',
-            payload: put(`/tasks/${taskId}/toggleComplete`)
+            payload: put(`/Tasks/${taskId}/ToggleComplete`)
         };
     },
 
     updateTask(task) {
         return {
             type: 'UPDATE_TASK',
-            payload: put('/tasks/', task)
+            payload: put('/Tasks/', task)
         };
     },
 
     deleteTask(taskId) {
         return {
             type: 'DELETE_TASK',
-            payload: del(`/tasks/${taskId}`)
+            payload: del(`/Tasks/${taskId}`)
         };
     }
 };

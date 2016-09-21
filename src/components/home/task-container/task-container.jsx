@@ -34,7 +34,7 @@ class TaskContainer extends React.Component {
     }
 
     handleNewTask(task) {
-        task.TaskListId = this.props.filters.taskListId;
+        task.TaskGroupId = this.props.filters.taskGroupId > 0 ? this.props.filters.taskGroupId : undefined;
         this.props.handleNewTask(task);
     }
 
@@ -45,7 +45,6 @@ class TaskContainer extends React.Component {
 
                 <TaskTable
                     tasks={this.props.filteredTasks}
-                    taskListId={this.props.filters.taskListId}
                     handleNewTask={this.handleNewTask}
                     handleCompletionToggle={this.props.handleCompletionToggle}
                     handleTaskNameEdit={this.props.handleTaskNameEdit}
@@ -53,9 +52,7 @@ class TaskContainer extends React.Component {
                     handleTaskDelete={this.props.handleTaskDelete}
                 />
 
-                <Analytics
-                    tasks={this.props.filteredTasks}
-                />
+                <Analytics tasks={this.props.filteredTasks} />
             </div>
         );
     }
@@ -73,19 +70,9 @@ TaskContainer.propTypes = {
     handleTaskDelete: React.PropTypes.func.isRequired
 };
 
-function filterTasks(tasks, taskLists, projects, filters) {
-    if (filters.projectId) {
-        if (filters.taskListId) {
-            return tasks.filter(t => t.TaskListId == filters.taskListId);
-        }
-
-        const taskListIds = taskLists.filter((taskList) => {
-            return taskList.ProjectId == filters.projectId;
-        }).map((taskList) => {
-            return taskList.Id;
-        });
-
-        return tasks.filter(t => taskListIds.includes(t.TaskListId));
+function filterTasks(tasks, filters) {
+    if (filters.taskGroupId) {
+        return tasks.filter(t => t.TaskGroupId == filters.taskGroupId);
     }
 
     return tasks;
@@ -94,8 +81,7 @@ function filterTasks(tasks, taskLists, projects, filters) {
 function mapStateToProps(state) {
     return {
         tasks: state.tasks,
-        filteredTasks: filterTasks(state.tasks, state.taskLists, state.projects, state.filters),
-        filters: state.filters
+        filteredTasks: filterTasks(state.tasks, state.filters)
     };
 }
 

@@ -1,0 +1,29 @@
+.group-filter-container {
+    ul {
+        list-style-type: none;
+        padding-left: 0;
+        margin-bottom: 0;
+    }
+
+    a {
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    .project-filter-actions,
+    .task-list-filter-actions {
+        float: right;
+        color: #888888;
+        margin-left: 10px;
+
+        span {
+            padding: 2px 6px;
+
+            &:hover {
+                //background: #888888;
+                color: #DBDBDB;
+            }
+        }
+    }
+}

@@ -3,12 +3,12 @@ import React from 'react';
 
 // components
 import Content from './content/content.jsx';
+import GroupFilterContainer from './group-filter-container/group-filter-container.jsx';
 import Header from './header/header.jsx';
 import Logo from '../logo/logo.jsx';
 import Module from '../module/module.jsx';
 import Sidebar from './sidebar/sidebar.jsx';
 import TaskContainer from './task-container/task-container.jsx';
-import TaskFilterContainer from './task-filter-container/task-filter-container.jsx';
 
 // styles
 require('./home.scss');
@@ -28,7 +28,7 @@ class Home extends React.Component {
                         title="Projects"
                         iconClass="fa fa-folder-open-o"
                     >
-                        <TaskFilterContainer />
+                        <GroupFilterContainer />
                     </Module>
                 </Sidebar>
 

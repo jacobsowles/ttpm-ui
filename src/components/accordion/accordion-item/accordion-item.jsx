@@ -32,17 +32,26 @@ class AccordionItem extends React.Component {
     }
 
     render() {
-        const stateStyle = this.state.active ? styles.active : styles.inactive;
-
         return (
-            <section>
-                <a onClick={this.handleClick} className={this.props.header.class}>
-                    {this.props.header.content}
-                </a>
-                <div style={stateStyle} className={this.props.body.class}>
-                    {this.props.body.content}
+            <div className={`accordion-item ${this.state.active ? 'accordion-item-active' : ''}`}>
+                <div className="accordion-header">
+                    <i
+                        className={`accordion-toggle fa fa-angle-${this.state.active ? 'down' : 'right'}`}
+                        onClick={this.handleClick}
+                    />
+
+                    <span className="accordion-header-content">
+                        {this.props.header}
+                    </span>
                 </div>
-            </section>
+
+                <div
+                    className="accordion-body-content"
+                    style={this.state.active ? styles.active : styles.inactive}
+                >
+                    {this.props.body}
+                </div>
+            </div>
         );
     }
 }

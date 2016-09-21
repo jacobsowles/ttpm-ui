@@ -1,15 +1,8 @@
 module.exports = {
-    setProjectFilter(projectId) {
+    setTaskGroupFilter(taskGroupId) {
         return {
-            type: 'SET_PROJECT_FILTER',
-            payload: projectId
-        };
-    },
-
-    setTaskListFilter(taskListId) {
-        return {
-            type: 'SET_TASK_LIST_FILTER',
-            payload: taskListId
+            type: 'SET_TASK_GROUP_FILTER',
+            payload: taskGroupId
         };
     },
 

@@ -1,0 +1,29 @@
+.accordion-item {
+    .accordion-toggle {
+        padding: 6px 0;
+        width: 13px;
+        text-align: center;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    .accordion-header-content {
+        display: inline-block;
+        width: calc(100% - 13px);
+    }
+}
+
+.sidebar {
+    .accordion-item {
+        .accordion-header {
+            padding-left: 10px;
+            border-bottom: 1px solid #4a474c;
+        }
+
+        .accordion-header-content {
+            padding: 10px;
+        }
+    }
+}

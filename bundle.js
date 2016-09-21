@@ -29070,17 +29070,13 @@
 
 	var _loginFormReducer2 = _interopRequireDefault(_loginFormReducer);
 
-	var _projectReducer = __webpack_require__(266);
-
-	var _projectReducer2 = _interopRequireDefault(_projectReducer);
-
 	var _registrationFormReducer = __webpack_require__(267);
 
 	var _registrationFormReducer2 = _interopRequireDefault(_registrationFormReducer);
 
-	var _taskListReducer = __webpack_require__(268);
+	var _taskGroupReducer = __webpack_require__(548);
 
-	var _taskListReducer2 = _interopRequireDefault(_taskListReducer);
+	var _taskGroupReducer2 = _interopRequireDefault(_taskGroupReducer);
 
 	var _taskReducer = __webpack_require__(269);
 
@@ -29088,18 +29084,15 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	// npm modules
+	// reducers
 	exports.default = (0, _redux.combineReducers)({
 	    error: _errorReducer2.default,
 	    filters: _filterReducer2.default,
 	    loginForm: _loginFormReducer2.default,
-	    projects: _projectReducer2.default,
 	    registrationForm: _registrationFormReducer2.default,
-	    taskLists: _taskListReducer2.default,
+	    taskGroups: _taskGroupReducer2.default,
 	    tasks: _taskReducer2.default
-	});
-
-	// reducers
+	}); // npm modules
 
 /***/ },
 /* 262 */
@@ -29144,8 +29137,7 @@
 
 	exports.default = reducer;
 	var initialState = {
-	    projectId: 0,
-	    taskListId: 0,
+	    taskGroupId: 0,
 	    showCompleted: false
 	};
 
@@ -29154,19 +29146,10 @@
 	    var action = arguments[1];
 
 	    switch (action.type) {
-	        case 'SET_PROJECT_FILTER':
+	        case 'SET_TASK_GROUP_FILTER':
 	            {
 	                state = _extends({}, state, {
-	                    projectId: action.payload,
-	                    taskListId: 0
-	                });
-	                break;
-	            }
-
-	        case 'SET_TASK_LIST_FILTER':
-	            {
-	                state = _extends({}, state, {
-	                    taskListId: action.payload
+	                    taskGroupId: action.payload
 	                });
 	                break;
 	            }
@@ -29175,42 +29158,6 @@
 	            {
 	                state = _extends({}, state, {
 	                    showCompleted: action.payload
-	                });
-	                break;
-	            }
-
-	        // FILTER
-	        case 'FILTER_TASKS_BY_PROJECT':
-	            {
-	                var _ret = function () {
-	                    var tasks = state.tasks || [];
-	                    var taskLists = action.payload.taskLists || [];
-
-	                    var taskListIds = taskLists.filter(function (taskList) {
-	                        return taskList.ProjectId == action.payload.projectId;
-	                    }).map(function (taskList) {
-	                        return taskList.Id;
-	                    });
-
-	                    state = _extends({}, state, {
-	                        filteredTasks: state.tasks.filter(function (task) {
-	                            return taskListIds.includes(task.TaskListId);
-	                        })
-	                    });
-	                    return 'break';
-	                }();
-
-	                if (_ret === 'break') break;
-	            }
-
-	        case 'FILTER_TASKS_BY_TASK_LIST':
-	            {
-	                var _tasks = state.tasks || [];
-	                state = _extends({}, state, {
-	                    activeTaskListId: action.payload,
-	                    filteredTasks: _tasks.filter(function (task) {
-	                        return task.TaskListId == action.payload;
-	                    })
 	                });
 	                break;
 	            }
@@ -29305,30 +29252,7 @@
 	};
 
 /***/ },
-/* 266 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports.default = reducer;
-	function reducer() {
-	    var state = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
-	    var action = arguments[1];
-
-	    switch (action.type) {
-	        case 'FETCH_PROJECTS_FULFILLED':
-	            {
-	                return action.payload || [];
-	            }
-	    }
-
-	    return state;
-	}
-
-/***/ },
+/* 266 */,
 /* 267 */
 /***/ function(module, exports) {
 
@@ -29389,30 +29313,7 @@
 	}
 
 /***/ },
-/* 268 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports.default = reducer;
-	function reducer() {
-	    var state = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
-	    var action = arguments[1];
-
-	    switch (action.type) {
-	        case 'FETCH_TASK_LISTS_FULFILLED':
-	            {
-	                return action.payload || [];
-	            }
-	    }
-
-	    return state;
-	}
-
-/***/ },
+/* 268 */,
 /* 269 */
 /***/ function(module, exports) {
 
@@ -29485,6 +29386,10 @@
 
 	var _content2 = _interopRequireDefault(_content);
 
+	var _groupFilterContainer = __webpack_require__(549);
+
+	var _groupFilterContainer2 = _interopRequireDefault(_groupFilterContainer);
+
 	var _header = __webpack_require__(313);
 
 	var _header2 = _interopRequireDefault(_header);
@@ -29504,10 +29409,6 @@
 	var _taskContainer = __webpack_require__(377);
 
 	var _taskContainer2 = _interopRequireDefault(_taskContainer);
-
-	var _taskFilterContainer = __webpack_require__(322);
-
-	var _taskFilterContainer2 = _interopRequireDefault(_taskFilterContainer);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -29554,7 +29455,7 @@
 	                            title: 'Projects',
 	                            iconClass: 'fa fa-folder-open-o'
 	                        },
-	                        _react2.default.createElement(_taskFilterContainer2.default, null)
+	                        _react2.default.createElement(_groupFilterContainer2.default, null)
 	                    )
 	                ),
 	                _react2.default.createElement(
@@ -34229,234 +34130,7 @@
 
 
 /***/ },
-/* 322 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRedux = __webpack_require__(172);
-
-	var _redux = __webpack_require__(179);
-
-	var _accordion = __webpack_require__(323);
-
-	var _accordion2 = _interopRequireDefault(_accordion);
-
-	var _accordionItem = __webpack_require__(326);
-
-	var _accordionItem2 = _interopRequireDefault(_accordionItem);
-
-	var _loadingGraphic = __webpack_require__(329);
-
-	var _loadingGraphic2 = _interopRequireDefault(_loadingGraphic);
-
-	var _projectFilter = __webpack_require__(332);
-
-	var _projectFilter2 = _interopRequireDefault(_projectFilter);
-
-	var _swapoutInputField = __webpack_require__(335);
-
-	var _swapoutInputField2 = _interopRequireDefault(_swapoutInputField);
-
-	var _taskListFilterGroup = __webpack_require__(340);
-
-	var _taskListFilterGroup2 = _interopRequireDefault(_taskListFilterGroup);
-
-	var _filterActions = __webpack_require__(346);
-
-	var _filterActions2 = _interopRequireDefault(_filterActions);
-
-	var _projectActions = __webpack_require__(347);
-
-	var _projectActions2 = _interopRequireDefault(_projectActions);
-
-	var _taskActions = __webpack_require__(355);
-
-	var _taskActions2 = _interopRequireDefault(_taskActions);
-
-	var _taskListActions = __webpack_require__(356);
-
-	var _taskListActions2 = _interopRequireDefault(_taskListActions);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
-
-
-	// components
-
-
-	// actions
-
-
-	// styles
-	__webpack_require__(357);
-
-	var TaskFilterContainer = function (_React$Component) {
-	    _inherits(TaskFilterContainer, _React$Component);
-
-	    function TaskFilterContainer(props) {
-	        _classCallCheck(this, TaskFilterContainer);
-
-	        var _this = _possibleConstructorReturn(this, (TaskFilterContainer.__proto__ || Object.getPrototypeOf(TaskFilterContainer)).call(this, props));
-
-	        _this.state = {
-	            showLoadingGraphic: true
-	        };
-	        return _this;
-	    }
-
-	    _createClass(TaskFilterContainer, [{
-	        key: 'componentWillMount',
-	        value: function componentWillMount() {
-	            this.props.fetchProjects();
-	            this.props.fetchTaskLists();
-	        }
-	    }, {
-	        key: 'componentDidMount',
-	        value: function componentDidMount() {
-	            this.state = {
-	                showLoadingGraphic: false
-	            };
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'div',
-	                { className: 'task-filter-container' },
-	                _react2.default.createElement(_loadingGraphic2.default, { showLoadingGraphic: this.state.showLoadingGraphic }),
-	                _react2.default.createElement(
-	                    _accordion2.default,
-	                    null,
-	                    this.props.projects.map(function (project, key) {
-	                        return _react2.default.createElement(_accordionItem2.default, {
-	                            key: key,
-	                            header: {
-	                                content: _react2.default.createElement(_projectFilter2.default, {
-	                                    projectName: project.Name,
-	                                    projectId: project.Id,
-	                                    handleProjectClick: this.props.handleProjectClick.bind(this),
-	                                    handleDeleteProjectClick: this.props.handleDeleteProjectClick
-	                                })
-	                            },
-	                            body: {
-	                                content: _react2.default.createElement(_taskListFilterGroup2.default, {
-	                                    taskLists: this.props.taskLists.filter(function (tl) {
-	                                        return tl.ProjectId == project.Id;
-	                                    }),
-	                                    projectId: project.Id,
-	                                    handleTaskListClick: this.props.handleTaskListClick,
-	                                    handleAddTaskListClick: this.props.handleAddTaskListClick,
-	                                    handleDeleteTaskListClick: this.props.handleDeleteTaskListClick
-	                                })
-	                            }
-	                        });
-	                    }.bind(this)),
-	                    _react2.default.createElement(_swapoutInputField2.default, {
-	                        type: 'project',
-	                        text: 'Add a new project',
-	                        handleSubmit: this.props.handleAddProjectClick
-	                    })
-	                )
-	            );
-	        }
-	    }]);
-
-	    return TaskFilterContainer;
-	}(_react2.default.Component);
-
-	TaskFilterContainer.propTypes = {
-	    projects: _react2.default.PropTypes.arrayOf(_react2.default.PropTypes.object).isRequired,
-	    taskLists: _react2.default.PropTypes.arrayOf(_react2.default.PropTypes.object).isRequired,
-
-	    fetchProjects: _react2.default.PropTypes.func.isRequired,
-	    fetchTaskLists: _react2.default.PropTypes.func.isRequired,
-
-	    handleProjectClick: _react2.default.PropTypes.func.isRequired,
-	    handleAddProjectClick: _react2.default.PropTypes.func.isRequired,
-	    handleDeleteProjectClick: _react2.default.PropTypes.func.isRequired,
-
-	    handleTaskListClick: _react2.default.PropTypes.func.isRequired,
-	    handleAddTaskListClick: _react2.default.PropTypes.func.isRequired,
-	    handleDeleteTaskListClick: _react2.default.PropTypes.func.isRequired
-	};
-
-	function mapStateToProps(state) {
-	    return {
-	        projects: state.projects,
-	        taskLists: state.taskLists
-	    };
-	}
-
-	function mapDispatchToProps(dispatch) {
-	    return {
-	        fetchProjects: function fetchProjects() {
-	            dispatch(_projectActions2.default.fetchProjects());
-	        },
-
-	        fetchTaskLists: function fetchTaskLists() {
-	            dispatch(_taskListActions2.default.fetchTaskLists(this.projectId));
-	        },
-
-	        handleProjectClick: function handleProjectClick(projectId) {
-	            dispatch(_filterActions2.default.setProjectFilter(projectId));
-	        },
-
-	        handleAddProjectClick: function handleAddProjectClick(name) {
-	            dispatch(_projectActions2.default.addProject(name)).then(function () {
-	                dispatch(_projectActions2.default.fetchProjects());
-	            });
-	        },
-
-	        handleDeleteProjectClick: function handleDeleteProjectClick(projectId, event) {
-	            event.stopPropagation(); // prevents the project accordion from expanding
-	            dispatch(_projectActions2.default.deleteProject(projectId)).then(function () {
-	                dispatch(_projectActions2.default.fetchProjects()).then(function () {
-	                    dispatch(_taskListActions2.default.fetchTaskLists()).then(function () {
-	                        dispatch(_taskActions2.default.fetchTasks());
-	                    });
-	                });
-	            });
-	        },
-
-	        handleTaskListClick: function handleTaskListClick(taskListId) {
-	            dispatch(_filterActions2.default.setTaskListFilter(taskListId));
-	        },
-
-	        handleAddTaskListClick: function handleAddTaskListClick(name, boundData) {
-	            dispatch(_taskListActions2.default.addTaskList(name, boundData.projectId)).then(function () {
-	                dispatch(_taskListActions2.default.fetchTaskLists());
-	            });
-	        },
-
-	        handleDeleteTaskListClick: function handleDeleteTaskListClick(taskListId) {
-	            dispatch(_taskListActions2.default.deleteTaskList(taskListId)).then(function () {
-	                dispatch(_taskListActions2.default.fetchTaskLists()).then(function () {
-	                    dispatch(_taskActions2.default.fetchTasks());
-	                });
-	            });
-	        }
-	    };
-	}
-
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(TaskFilterContainer);
-
-/***/ },
+/* 322 */,
 /* 323 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -34612,20 +34286,29 @@
 	    }, {
 	        key: 'render',
 	        value: function render() {
-	            var stateStyle = this.state.active ? styles.active : styles.inactive;
-
 	            return _react2.default.createElement(
-	                'section',
-	                null,
+	                'div',
+	                { className: 'accordion-item ' + (this.state.active ? 'accordion-item-active' : '') },
 	                _react2.default.createElement(
-	                    'a',
-	                    { onClick: this.handleClick, className: this.props.header.class },
-	                    this.props.header.content
+	                    'div',
+	                    { className: 'accordion-header' },
+	                    _react2.default.createElement('i', {
+	                        className: 'accordion-toggle fa fa-angle-' + (this.state.active ? 'down' : 'right'),
+	                        onClick: this.handleClick
+	                    }),
+	                    _react2.default.createElement(
+	                        'span',
+	                        { className: 'accordion-header-content' },
+	                        this.props.header
+	                    )
 	                ),
 	                _react2.default.createElement(
 	                    'div',
-	                    { style: stateStyle, className: this.props.body.class },
-	                    this.props.body.content
+	                    {
+	                        className: 'accordion-body-content',
+	                        style: this.state.active ? styles.active : styles.inactive
+	                    },
+	                    this.props.body
 	                )
 	            );
 	        }
@@ -34676,7 +34359,7 @@
 
 
 	// module
-	exports.push([module.id, "", ""]);
+	exports.push([module.id, ".accordion-item .accordion-toggle {\n  padding: 6px 0;\n  width: 13px;\n  text-align: center; }\n  .accordion-item .accordion-toggle:hover {\n    cursor: pointer; }\n\n.accordion-item .accordion-header-content {\n  display: inline-block;\n  width: calc(100% - 13px); }\n\n.sidebar .accordion-item .accordion-header {\n  padding-left: 10px;\n  border-bottom: 1px solid #4a474c; }\n\n.sidebar .accordion-item .accordion-header-content {\n  padding: 10px; }\n", ""]);
 
 	// exports
 
@@ -34779,135 +34462,9 @@
 
 
 /***/ },
-/* 332 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
-
-
-	// styles
-	__webpack_require__(333);
-
-	var ProjectFilter = function (_React$Component) {
-	    _inherits(ProjectFilter, _React$Component);
-
-	    function ProjectFilter() {
-	        _classCallCheck(this, ProjectFilter);
-
-	        return _possibleConstructorReturn(this, (ProjectFilter.__proto__ || Object.getPrototypeOf(ProjectFilter)).apply(this, arguments));
-	    }
-
-	    _createClass(ProjectFilter, [{
-	        key: 'render',
-	        value: function render() {
-	            var _this2 = this;
-
-	            return _react2.default.createElement(
-	                'div',
-	                {
-	                    className: 'project-filter',
-	                    onClick: function onClick() {
-	                        return _this2.props.handleProjectClick(_this2.props.projectId);
-	                    }
-	                },
-	                _react2.default.createElement('i', { className: 'fa fa-angle-down', style: { marginRight: '10px' } }),
-	                this.props.projectName,
-	                _react2.default.createElement(
-	                    'span',
-	                    { className: 'project-filter-actions' },
-	                    _react2.default.createElement(
-	                        'span',
-	                        {
-	                            className: 'edit-project'
-	                        },
-	                        '✎'
-	                    ),
-	                    _react2.default.createElement(
-	                        'span',
-	                        {
-	                            className: 'delete-project',
-	                            onClick: function onClick(event) {
-	                                return _this2.props.handleDeleteProjectClick(_this2.props.projectId, event);
-	                            }
-	                        },
-	                        '×'
-	                    )
-	                )
-	            );
-	        }
-	    }]);
-
-	    return ProjectFilter;
-	}(_react2.default.Component);
-
-	ProjectFilter.propTypes = {
-	    projectName: _react2.default.PropTypes.string.isRequired,
-	    projectId: _react2.default.PropTypes.number.isRequired,
-	    handleProjectClick: _react2.default.PropTypes.func.isRequired,
-	    handleDeleteProjectClick: _react2.default.PropTypes.func.isRequired
-	};
-
-	exports.default = ProjectFilter;
-
-/***/ },
-/* 333 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(334);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(300)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./project-filter.scss", function() {
-				var newContent = require("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./project-filter.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 334 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(299)();
-	// imports
-
-
-	// module
-	exports.push([module.id, ".task-filter-container .project-filter {\n  padding: 10px 10px 10px 10px;\n  display: block;\n  font-size: .9em;\n  margin: 0;\n  color: #DBDBDB;\n  font-weight: bold; }\n  .task-filter-container .project-filter:hover {\n    background: #312F33;\n    text-decoration: none;\n    cursor: pointer; }\n  .task-filter-container .project-filter .active {\n    background: #312F33; }\n", ""]);
-
-	// exports
-
-
-/***/ },
+/* 332 */,
+/* 333 */,
+/* 334 */,
 /* 335 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -51853,277 +51410,22 @@
 
 
 /***/ },
-/* 340 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _taskListFilter = __webpack_require__(341);
-
-	var _taskListFilter2 = _interopRequireDefault(_taskListFilter);
-
-	var _swapoutInputField = __webpack_require__(335);
-
-	var _swapoutInputField2 = _interopRequireDefault(_swapoutInputField);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
-
-
-	// components
-
-
-	// styles
-	__webpack_require__(344);
-
-	var TaskListFilterGroup = function (_React$Component) {
-	    _inherits(TaskListFilterGroup, _React$Component);
-
-	    function TaskListFilterGroup() {
-	        _classCallCheck(this, TaskListFilterGroup);
-
-	        return _possibleConstructorReturn(this, (TaskListFilterGroup.__proto__ || Object.getPrototypeOf(TaskListFilterGroup)).apply(this, arguments));
-	    }
-
-	    _createClass(TaskListFilterGroup, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'ul',
-	                { className: 'task-list-filter-group' },
-	                this.props.taskLists.map(function (taskList, key) {
-	                    return _react2.default.createElement(_taskListFilter2.default, {
-	                        key: key,
-	                        taskList: taskList,
-	                        handleTaskListClick: this.props.handleTaskListClick,
-	                        handleDeleteTaskListClick: this.props.handleDeleteTaskListClick
-	                    });
-	                }.bind(this)),
-	                _react2.default.createElement(_swapoutInputField2.default, {
-	                    type: 'task-list',
-	                    text: 'Add a new task list',
-	                    handleSubmit: this.props.handleAddTaskListClick,
-	                    includeWithSubmit: {
-	                        projectId: this.props.projectId
-	                    }
-	                })
-	            );
-	        }
-	    }]);
-
-	    return TaskListFilterGroup;
-	}(_react2.default.Component);
-
-	TaskListFilterGroup.propTypes = {
-	    taskLists: _react2.default.PropTypes.arrayOf(_react2.default.PropTypes.object).isRequired,
-	    projectId: _react2.default.PropTypes.number.isRequired,
-
-	    handleTaskListClick: _react2.default.PropTypes.func.isRequired,
-	    handleAddTaskListClick: _react2.default.PropTypes.func.isRequired,
-	    handleDeleteTaskListClick: _react2.default.PropTypes.func.isRequired
-	};
-
-	exports.default = TaskListFilterGroup;
-
-/***/ },
-/* 341 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
-
-
-	// styles
-	__webpack_require__(342);
-
-	var TaskListFilter = function (_React$Component) {
-	    _inherits(TaskListFilter, _React$Component);
-
-	    function TaskListFilter() {
-	        _classCallCheck(this, TaskListFilter);
-
-	        return _possibleConstructorReturn(this, (TaskListFilter.__proto__ || Object.getPrototypeOf(TaskListFilter)).apply(this, arguments));
-	    }
-
-	    _createClass(TaskListFilter, [{
-	        key: 'render',
-	        value: function render() {
-	            var _this2 = this;
-
-	            return _react2.default.createElement(
-	                'li',
-	                {
-	                    className: 'task-list-filter',
-	                    onClick: function onClick() {
-	                        return _this2.props.handleTaskListClick(_this2.props.taskList.Id);
-	                    }
-	                },
-	                this.props.taskList.Name,
-	                _react2.default.createElement(
-	                    'span',
-	                    { className: 'task-list-filter-actions' },
-	                    _react2.default.createElement(
-	                        'span',
-	                        {
-	                            className: 'edit-project'
-	                        },
-	                        '✎'
-	                    ),
-	                    _react2.default.createElement(
-	                        'span',
-	                        {
-	                            className: 'delete-task-list',
-	                            onClick: function onClick() {
-	                                return _this2.props.handleDeleteTaskListClick(_this2.props.taskList.Id);
-	                            }
-	                        },
-	                        '×'
-	                    )
-	                )
-	            );
-	        }
-	    }]);
-
-	    return TaskListFilter;
-	}(_react2.default.Component);
-
-	TaskListFilter.propTypes = {
-	    taskList: _react2.default.PropTypes.object.isRequired,
-	    handleTaskListClick: _react2.default.PropTypes.func.isRequired,
-	    handleDeleteTaskListClick: _react2.default.PropTypes.func.isRequired
-	};
-
-	exports.default = TaskListFilter;
-
-/***/ },
-/* 342 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(343);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(300)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../../../../node_modules/css-loader/index.js!./../../../../../../node_modules/sass-loader/index.js!./task-list-filter.scss", function() {
-				var newContent = require("!!./../../../../../../node_modules/css-loader/index.js!./../../../../../../node_modules/sass-loader/index.js!./task-list-filter.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 343 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(299)();
-	// imports
-
-
-	// module
-	exports.push([module.id, "", ""]);
-
-	// exports
-
-
-/***/ },
-/* 344 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(345);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(300)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./task-list-filter-group.scss", function() {
-				var newContent = require("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./task-list-filter-group.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 345 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(299)();
-	// imports
-
-
-	// module
-	exports.push([module.id, ".task-list-filter-group li {\n  padding: 10px 10px 10px 30px;\n  display: block;\n  font-size: .9em;\n  color: #DBDBDB;\n  font-weight: normal;\n  margin: 0; }\n  .task-list-filter-group li:hover {\n    background: #636066;\n    cursor: pointer; }\n", ""]);
-
-	// exports
-
-
-/***/ },
+/* 340 */,
+/* 341 */,
+/* 342 */,
+/* 343 */,
+/* 344 */,
+/* 345 */,
 /* 346 */
 /***/ function(module, exports) {
 
 	'use strict';
 
 	module.exports = {
-	    setProjectFilter: function setProjectFilter(projectId) {
+	    setTaskGroupFilter: function setTaskGroupFilter(taskGroupId) {
 	        return {
-	            type: 'SET_PROJECT_FILTER',
-	            payload: projectId
-	        };
-	    },
-	    setTaskListFilter: function setTaskListFilter(taskListId) {
-	        return {
-	            type: 'SET_TASK_LIST_FILTER',
-	            payload: taskListId
+	            type: 'SET_TASK_GROUP_FILTER',
+	            payload: taskGroupId
 	        };
 	    },
 	    setShowCompletedFilter: function setShowCompletedFilter(showCompleted) {
@@ -52135,37 +51437,7 @@
 	};
 
 /***/ },
-/* 347 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _api = __webpack_require__(348);
-
-	module.exports = {
-	    fetchProjects: function fetchProjects() {
-	        return {
-	            type: 'FETCH_PROJECTS',
-	            payload: (0, _api.get)('/projects')
-	        };
-	    },
-	    addProject: function addProject(name) {
-	        return {
-	            type: 'ADD_PROJECT',
-	            payload: (0, _api.post)('/projects', {
-	                name: name
-	            })
-	        };
-	    },
-	    deleteProject: function deleteProject(projectId) {
-	        return {
-	            type: 'DELETE_PROJECT',
-	            payload: (0, _api.del)('/projects/' + projectId)
-	        };
-	    }
-	};
-
-/***/ },
+/* 347 */,
 /* 348 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -53810,107 +53082,39 @@
 	    fetchTasks: function fetchTasks() {
 	        return {
 	            type: 'FETCH_TASKS',
-	            payload: (0, _api.get)('/tasks')
+	            payload: (0, _api.get)('/Tasks')
 	        };
 	    },
 	    createTask: function createTask(task) {
 	        return {
 	            type: 'CREATE_TASK',
-	            payload: (0, _api.post)('/taskLists/' + task.TaskListId + '/tasks', task)
+	            payload: task.TaskGroupId == null ? (0, _api.post)('/Tasks', task) : (0, _api.post)('/TaskGroups/' + task.TaskGroupId + '/Tasks', task)
 	        };
 	    },
 	    toggleComplete: function toggleComplete(taskId) {
 	        return {
 	            type: 'TOGGLE_TASK_COMPLETE',
-	            payload: (0, _api.put)('/tasks/' + taskId + '/toggleComplete')
+	            payload: (0, _api.put)('/Tasks/' + taskId + '/ToggleComplete')
 	        };
 	    },
 	    updateTask: function updateTask(task) {
 	        return {
 	            type: 'UPDATE_TASK',
-	            payload: (0, _api.put)('/tasks/', task)
+	            payload: (0, _api.put)('/Tasks/', task)
 	        };
 	    },
 	    deleteTask: function deleteTask(taskId) {
 	        return {
 	            type: 'DELETE_TASK',
-	            payload: (0, _api.del)('/tasks/' + taskId)
+	            payload: (0, _api.del)('/Tasks/' + taskId)
 	        };
 	    }
 	};
 
 /***/ },
-/* 356 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _api = __webpack_require__(348);
-
-	module.exports = {
-	    fetchTaskLists: function fetchTaskLists() {
-	        return {
-	            type: 'FETCH_TASK_LISTS',
-	            payload: (0, _api.get)('/taskLists')
-	        };
-	    },
-	    addTaskList: function addTaskList(name, projectId) {
-	        return {
-	            type: 'ADD_TASK_LIST',
-	            payload: (0, _api.post)('/projects/' + projectId + '/taskLists', {
-	                name: name
-	            })
-	        };
-	    },
-	    deleteTaskList: function deleteTaskList(taskListId) {
-	        return {
-	            type: 'DELETE_TASK_LIST',
-	            payload: (0, _api.del)('/taskLists/' + taskListId)
-	        };
-	    }
-	};
-
-/***/ },
-/* 357 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(358);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(300)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./task-filter-container.scss", function() {
-				var newContent = require("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./task-filter-container.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 358 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(299)();
-	// imports
-
-
-	// module
-	exports.push([module.id, ".task-filter-container ul {\n  list-style-type: none;\n  padding-left: 0;\n  margin-bottom: 0; }\n\n.task-filter-container a:hover {\n  text-decoration: none; }\n\n.task-filter-container .project-filter-actions,\n.task-filter-container .task-list-filter-actions {\n  float: right;\n  color: #888888;\n  margin-left: 10px; }\n  .task-filter-container .project-filter-actions span,\n  .task-filter-container .task-list-filter-actions span {\n    padding: 2px 6px; }\n    .task-filter-container .project-filter-actions span:hover,\n    .task-filter-container .task-list-filter-actions span:hover {\n      color: #DBDBDB; }\n", ""]);
-
-	// exports
-
-
-/***/ },
+/* 356 */,
+/* 357 */,
+/* 358 */,
 /* 359 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -53952,7 +53156,7 @@
 	        value: function render() {
 	            return _React2.default.createElement(
 	                'div',
-	                { id: 'sidebar' },
+	                { className: 'sidebar' },
 	                this.props.children
 	            );
 	        }
@@ -53998,7 +53202,7 @@
 
 
 	// module
-	exports.push([module.id, "#sidebar {\n  height: 100vh;\n  background: #3C393F;\n  color: #dbdbdb;\n  float: left;\n  overflow-y: auto;\n  width: 275px; }\n", ""]);
+	exports.push([module.id, ".sidebar {\n  height: 100vh;\n  background: #3C393F;\n  color: #dbdbdb;\n  float: left;\n  overflow-y: auto;\n  width: 275px;\n  font-size: .9em; }\n", ""]);
 
 	// exports
 
@@ -54620,8 +53824,6 @@
 	    value: true
 	});
 
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
-
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
@@ -54694,7 +53896,7 @@
 	    }, {
 	        key: 'handleNewTask',
 	        value: function handleNewTask(task) {
-	            task.TaskListId = this.props.filters.taskListId;
+	            task.TaskGroupId = this.props.filters.taskGroupId > 0 ? this.props.filters.taskGroupId : undefined;
 	            this.props.handleNewTask(task);
 	        }
 	    }, {
@@ -54706,16 +53908,13 @@
 	                _react2.default.createElement(_loadingGraphic2.default, { showLoadingGraphic: this.state.showLoadingGraphic }),
 	                _react2.default.createElement(_taskTable2.default, {
 	                    tasks: this.props.filteredTasks,
-	                    taskListId: this.props.filters.taskListId,
 	                    handleNewTask: this.handleNewTask,
 	                    handleCompletionToggle: this.props.handleCompletionToggle,
 	                    handleTaskNameEdit: this.props.handleTaskNameEdit,
 	                    handleTaskNotesEdit: this.props.handleTaskNotesEdit,
 	                    handleTaskDelete: this.props.handleTaskDelete
 	                }),
-	                _react2.default.createElement(_analytics2.default, {
-	                    tasks: this.props.filteredTasks
-	                })
+	                _react2.default.createElement(_analytics2.default, { tasks: this.props.filteredTasks })
 	            );
 	        }
 	    }]);
@@ -54735,31 +53934,11 @@
 	    handleTaskDelete: _react2.default.PropTypes.func.isRequired
 	};
 
-	function filterTasks(tasks, taskLists, projects, filters) {
-	    if (filters.projectId) {
-	        var _ret = function () {
-	            if (filters.taskListId) {
-	                return {
-	                    v: tasks.filter(function (t) {
-	                        return t.TaskListId == filters.taskListId;
-	                    })
-	                };
-	            }
-
-	            var taskListIds = taskLists.filter(function (taskList) {
-	                return taskList.ProjectId == filters.projectId;
-	            }).map(function (taskList) {
-	                return taskList.Id;
-	            });
-
-	            return {
-	                v: tasks.filter(function (t) {
-	                    return taskListIds.includes(t.TaskListId);
-	                })
-	            };
-	        }();
-
-	        if ((typeof _ret === 'undefined' ? 'undefined' : _typeof(_ret)) === "object") return _ret.v;
+	function filterTasks(tasks, filters) {
+	    if (filters.taskGroupId) {
+	        return tasks.filter(function (t) {
+	            return t.TaskGroupId == filters.taskGroupId;
+	        });
 	    }
 
 	    return tasks;
@@ -54768,8 +53947,7 @@
 	function mapStateToProps(state) {
 	    return {
 	        tasks: state.tasks,
-	        filteredTasks: filterTasks(state.tasks, state.taskLists, state.projects, state.filters),
-	        filters: state.filters
+	        filteredTasks: filterTasks(state.tasks, state.filters)
 	    };
 	}
 
@@ -80104,7 +79282,7 @@
 	                                        handleTaskDelete: _this2.props.handleTaskDelete
 	                                    });
 	                                }),
-	                                this.props.taskListId != 0 ? _react2.default.createElement(_newTaskRow2.default, { handleNewTask: this.props.handleNewTask }) : null
+	                                _react2.default.createElement(_newTaskRow2.default, { handleNewTask: this.props.handleNewTask })
 	                            )
 	                        )
 	                    )
@@ -80118,7 +79296,6 @@
 
 	TaskTable.propTypes = {
 	    tasks: _react2.default.PropTypes.arrayOf(_react2.default.PropTypes.object).isRequired,
-	    taskListId: _react2.default.PropTypes.number.isRequired,
 
 	    handleNewTask: _react2.default.PropTypes.func.isRequired,
 	    handleCompletionToggle: _react2.default.PropTypes.func.isRequired,
@@ -80748,6 +79925,393 @@
 
 	// module
 	exports.push([module.id, ".view-edit-toggle-field input,\n.view-edit-toggle-field-edit-mode input {\n  background: none;\n  border: none; }\n\n.view-edit-toggle-field input:hover {\n  cursor: pointer; }\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 548 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.default = reducer;
+	function reducer() {
+	    var state = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
+	    var action = arguments[1];
+
+	    switch (action.type) {
+	        case 'FETCH_TASK_GROUPS_FULFILLED':
+	            {
+	                return action.payload || [];
+	            }
+	    }
+
+	    return state;
+	}
+
+/***/ },
+/* 549 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRedux = __webpack_require__(172);
+
+	var _accordion = __webpack_require__(323);
+
+	var _accordion2 = _interopRequireDefault(_accordion);
+
+	var _accordionItem = __webpack_require__(326);
+
+	var _accordionItem2 = _interopRequireDefault(_accordionItem);
+
+	var _groupFilter = __webpack_require__(554);
+
+	var _groupFilter2 = _interopRequireDefault(_groupFilter);
+
+	var _loadingGraphic = __webpack_require__(329);
+
+	var _loadingGraphic2 = _interopRequireDefault(_loadingGraphic);
+
+	var _swapoutInputField = __webpack_require__(335);
+
+	var _swapoutInputField2 = _interopRequireDefault(_swapoutInputField);
+
+	var _filterActions = __webpack_require__(346);
+
+	var _filterActions2 = _interopRequireDefault(_filterActions);
+
+	var _taskActions = __webpack_require__(355);
+
+	var _taskActions2 = _interopRequireDefault(_taskActions);
+
+	var _taskGroupActions = __webpack_require__(550);
+
+	var _taskGroupActions2 = _interopRequireDefault(_taskGroupActions);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
+
+
+	// components
+
+
+	// actions
+
+
+	var GroupFilterContainer = function (_React$Component) {
+	    _inherits(GroupFilterContainer, _React$Component);
+
+	    function GroupFilterContainer(props) {
+	        _classCallCheck(this, GroupFilterContainer);
+
+	        var _this = _possibleConstructorReturn(this, (GroupFilterContainer.__proto__ || Object.getPrototypeOf(GroupFilterContainer)).call(this, props));
+
+	        _this.state = {
+	            showLoadingGraphic: true
+	        };
+	        return _this;
+	    }
+
+	    _createClass(GroupFilterContainer, [{
+	        key: 'componentWillMount',
+	        value: function componentWillMount() {
+	            this.props.fetchTaskGroups();
+	        }
+	    }, {
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            this.state = {
+	                showLoadingGraphic: false
+	            };
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var _this2 = this;
+
+	            return _react2.default.createElement(
+	                'div',
+	                null,
+	                _react2.default.createElement(_loadingGraphic2.default, { showLoadingGraphic: this.state.showLoadingGraphic }),
+	                this.props.taskGroups.filter(function (tg) {
+	                    return tg.ParentTaskGroupId == null;
+	                }).map(function (taskGroup, key) {
+	                    return _react2.default.createElement(_groupFilter2.default, {
+	                        key: key,
+	                        taskGroup: taskGroup,
+	                        taskGroups: _this2.props.taskGroups,
+	                        level: 0,
+	                        handleTaskGroupClick: _this2.props.handleTaskGroupClick,
+	                        handleDeleteTaskGroupClick: _this2.props.handleDeleteTaskGroupClick
+	                    });
+	                })
+	            );
+	        }
+	    }]);
+
+	    return GroupFilterContainer;
+	}(_react2.default.Component);
+
+	GroupFilterContainer.propTypes = {
+	    taskGroups: _react2.default.PropTypes.arrayOf(_react2.default.PropTypes.object).isRequired,
+
+	    fetchTaskGroups: _react2.default.PropTypes.func.isRequired,
+	    handleTaskGroupClick: _react2.default.PropTypes.func.isRequired,
+	    handleAddTaskGroupClick: _react2.default.PropTypes.func.isRequired,
+	    handleDeleteTaskGroupClick: _react2.default.PropTypes.func.isRequired
+	};
+
+	function mapStateToProps(state) {
+	    return {
+	        taskGroups: state.taskGroups
+	    };
+	}
+
+	function mapDispatchToProps(dispatch) {
+	    return {
+	        fetchTaskGroups: function fetchTaskGroups() {
+	            dispatch(_taskGroupActions2.default.fetchTaskGroups());
+	        },
+
+	        handleTaskGroupClick: function handleTaskGroupClick(taskGroupId) {
+	            dispatch(_filterActions2.default.setTaskGroupFilter(taskGroupId));
+	        },
+
+	        handleAddTaskGroupClick: function handleAddTaskGroupClick(name) {
+	            dispatch(_taskGroupActions2.default.addTaskGroup({
+	                name: name
+	            })).then(function () {
+	                dispatch(_taskGroupActions2.default.fetchTaskGroups());
+	            });
+	        },
+
+	        handleDeleteTaskGroupClick: function handleDeleteTaskGroupClick(taskGroupId, event) {
+	            event.stopPropagation(); // prevents the task group accordion from expanding
+	            dispatch(_taskGroupActions2.default.deleteTaskGroup(taskGroupId)).then(function () {
+	                dispatch(_taskGroupActions2.default.fetchTaskGroups()).then(function () {
+	                    dispatch(_taskActions2.default.fetchTasks());
+	                });
+	            });
+	        }
+	    };
+	}
+
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(GroupFilterContainer);
+
+/***/ },
+/* 550 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _api = __webpack_require__(348);
+
+	module.exports = {
+	    fetchTaskGroups: function fetchTaskGroups() {
+	        return {
+	            type: 'FETCH_TASK_GROUPS',
+	            payload: (0, _api.get)('/TaskGroups')
+	        };
+	    },
+	    addTaskGroup: function addTaskGroup(taskGroup) {
+	        return {
+	            type: 'ADD_TASK_GROUP',
+	            payload: (0, _api.post)('/TaskGroups', taskGroup)
+	        };
+	    },
+	    deleteTaskGroup: function deleteTaskGroup(taskGroupId) {
+	        return {
+	            type: 'DELETE_TASK_GROUP',
+	            payload: (0, _api.del)('/TaskGroups/' + taskGroupId)
+	        };
+	    }
+	};
+
+/***/ },
+/* 551 */,
+/* 552 */,
+/* 553 */,
+/* 554 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _accordion = __webpack_require__(323);
+
+	var _accordion2 = _interopRequireDefault(_accordion);
+
+	var _accordionItem = __webpack_require__(326);
+
+	var _accordionItem2 = _interopRequireDefault(_accordionItem);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
+
+
+	// components
+
+
+	// styles
+	__webpack_require__(555);
+
+	var GroupFilter = function (_React$Component) {
+	    _inherits(GroupFilter, _React$Component);
+
+	    function GroupFilter() {
+	        _classCallCheck(this, GroupFilter);
+
+	        return _possibleConstructorReturn(this, (GroupFilter.__proto__ || Object.getPrototypeOf(GroupFilter)).apply(this, arguments));
+	    }
+
+	    _createClass(GroupFilter, [{
+	        key: 'render',
+	        value: function render() {
+	            var _this2 = this;
+
+	            return _react2.default.createElement(
+	                _accordion2.default,
+	                null,
+	                _react2.default.createElement(_accordionItem2.default, {
+	                    header: _react2.default.createElement(
+	                        'div',
+	                        { className: 'group-filter' },
+	                        _react2.default.createElement(
+	                            'span',
+	                            {
+	                                className: 'group-filter-name',
+	                                onClick: function onClick() {
+	                                    return _this2.props.handleTaskGroupClick(_this2.props.taskGroup.Id);
+	                                }
+	                            },
+	                            this.props.taskGroup.Name
+	                        ),
+	                        _react2.default.createElement(
+	                            'span',
+	                            { className: 'group-filter-actions' },
+	                            _react2.default.createElement(
+	                                'span',
+	                                { className: 'edit-group' },
+	                                '✎'
+	                            ),
+	                            _react2.default.createElement(
+	                                'span',
+	                                {
+	                                    className: 'delete-group',
+	                                    onClick: function onClick(event) {
+	                                        return _this2.props.handleDeleteTaskGroupClick(_this2.props.taskGroup.Id, event);
+	                                    }
+	                                },
+	                                '×'
+	                            )
+	                        )
+	                    ),
+
+	                    body: _react2.default.createElement(
+	                        'div',
+	                        { style: { paddingLeft: 20 * (this.props.level + 1) + 'px' } },
+	                        this.props.taskGroups.filter(function (tg) {
+	                            return tg.ParentTaskGroupId == _this2.props.taskGroup.Id;
+	                        }).map(function (taskGroup, key) {
+	                            return _react2.default.createElement(GroupFilter, {
+	                                key: key,
+	                                taskGroup: taskGroup,
+	                                taskGroups: _this2.props.taskGroups,
+	                                level: _this2.props.level,
+	                                handleTaskGroupClick: _this2.props.handleTaskGroupClick,
+	                                handleDeleteTaskGroupClick: _this2.props.handleDeleteTaskGroupClick
+	                            });
+	                        })
+	                    )
+	                })
+	            );
+	        }
+	    }]);
+
+	    return GroupFilter;
+	}(_react2.default.Component);
+
+	GroupFilter.propTypes = {
+	    taskGroup: _react2.default.PropTypes.object.isRequired,
+	    taskGroups: _react2.default.PropTypes.arrayOf(_react2.default.PropTypes.object).isRequired,
+	    level: _react2.default.PropTypes.number.isRequired,
+
+	    handleTaskGroupClick: _react2.default.PropTypes.func.isRequired,
+	    handleDeleteTaskGroupClick: _react2.default.PropTypes.func.isRequired
+	};
+
+	exports.default = GroupFilter;
+
+/***/ },
+/* 555 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(556);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(300)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./group-filter.scss", function() {
+				var newContent = require("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./group-filter.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 556 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(299)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".group-filter .group-filter-name:hover {\n  cursor: pointer; }\n\n.group-filter .group-filter-actions {\n  float: right;\n  color: #888888;\n  margin-left: 10px; }\n  .group-filter .group-filter-actions span {\n    padding: 2px 6px; }\n    .group-filter .group-filter-actions span:hover {\n      color: #DBDBDB;\n      cursor: pointer; }\n", ""]);
 
 	// exports
 
