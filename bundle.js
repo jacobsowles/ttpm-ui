@@ -34359,7 +34359,7 @@
 
 
 	// module
-	exports.push([module.id, ".accordion-item .accordion-toggle {\n  padding: 6px 0;\n  width: 13px;\n  text-align: center; }\n  .accordion-item .accordion-toggle:hover {\n    cursor: pointer; }\n\n.accordion-item .accordion-header-content {\n  display: inline-block;\n  width: calc(100% - 13px); }\n\n.sidebar .accordion-item .accordion-header {\n  padding-left: 10px;\n  border-bottom: 1px solid #4a474c; }\n\n.sidebar .accordion-item .accordion-header-content {\n  padding: 10px; }\n", ""]);
+	exports.push([module.id, ".accordion-item .accordion-toggle {\n  padding: 6px 0;\n  width: 13px;\n  text-align: center; }\n  .accordion-item .accordion-toggle:hover {\n    cursor: pointer; }\n\n.accordion-item .accordion-header-content {\n  display: inline-block;\n  width: calc(100% - 13px); }\n\n.sidebar .accordion-item .accordion-header {\n  padding-left: 10px; }\n\n.sidebar .accordion-item .accordion-header-content {\n  padding: 10px; }\n", ""]);
 
 	// exports
 
