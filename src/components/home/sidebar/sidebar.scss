@@ -6,4 +6,13 @@
     overflow-y: auto;
     width: 275px;
     font-size: .9em;
+
+    .task-group-view-edit-toggle-field {
+        padding: 10px 10px 10px 13px;
+        color: #888888;
+
+        &:hover {
+            color: inherit;
+        }
+    }
 }
