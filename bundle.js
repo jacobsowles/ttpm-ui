@@ -62321,7 +62321,7 @@
 	                                ) : _react2.default.createElement(
 	                                    'span',
 	                                    null,
-	                                    'Showing ungrouped tasks'
+	                                    'Showing all tasks'
 	                                )
 	                            ),
 	                            _react2.default.createElement(

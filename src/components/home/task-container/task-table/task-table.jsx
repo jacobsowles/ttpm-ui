@@ -24,7 +24,7 @@ class TaskTable extends React.Component {
                                 {
                                     this.props.taskGroupName
                                         ? <span>Showing tasks in <strong>{this.props.taskGroupName}</strong> group | <a href="/">show ungrouped tasks</a></span>
-                                        : <span>Showing ungrouped tasks</span>
+                                        : <span>Showing all tasks</span>
                                 }
                             </caption>
                             <tbody>
