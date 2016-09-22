@@ -62252,6 +62252,10 @@
 
 	var _taskTableRow2 = _interopRequireDefault(_taskTableRow);
 
+	var _filterActions = __webpack_require__(346);
+
+	var _filterActions2 = _interopRequireDefault(_filterActions);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -62262,6 +62266,9 @@
 
 
 	// components
+
+
+	// actions
 
 
 	// styles
@@ -62296,7 +62303,26 @@
 	                            _react2.default.createElement(
 	                                'caption',
 	                                null,
-	                                this.props.taskGroupName ? 'Showing tasks in ' + this.props.taskGroupName + ' group' : 'Showing ungrouped tasks'
+	                                this.props.taskGroupName ? _react2.default.createElement(
+	                                    'span',
+	                                    null,
+	                                    'Showing tasks in ',
+	                                    _react2.default.createElement(
+	                                        'strong',
+	                                        null,
+	                                        this.props.taskGroupName
+	                                    ),
+	                                    ' group | ',
+	                                    _react2.default.createElement(
+	                                        'a',
+	                                        { href: '/' },
+	                                        'show ungrouped tasks'
+	                                    )
+	                                ) : _react2.default.createElement(
+	                                    'span',
+	                                    null,
+	                                    'Showing ungrouped tasks'
+	                                )
 	                            ),
 	                            _react2.default.createElement(
 	                                'tbody',

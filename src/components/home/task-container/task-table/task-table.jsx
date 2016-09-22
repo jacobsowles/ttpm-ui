@@ -6,6 +6,9 @@ import NewTaskRow from './new-task-row/new-task-row.jsx';
 import TaskTableHeaderRow from './task-table-header-row/task-table-header-row.jsx';
 import TaskTableRow from './task-table-row/task-table-row.jsx';
 
+// actions
+import filterActions from '../../../../actions/filter-actions.js';
+
 // styles
 require('./task-table.scss');
 
@@ -20,8 +23,8 @@ class TaskTable extends React.Component {
                             <caption>
                                 {
                                     this.props.taskGroupName
-                                        ? `Showing tasks in ${this.props.taskGroupName} group`
-                                        : 'Showing ungrouped tasks'
+                                        ? <span>Showing tasks in <strong>{this.props.taskGroupName}</strong> group | <a href="/">show ungrouped tasks</a></span>
+                                        : <span>Showing ungrouped tasks</span>
                                 }
                             </caption>
                             <tbody>
