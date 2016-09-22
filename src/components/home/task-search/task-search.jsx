@@ -8,7 +8,7 @@ class TaskSearch extends React.Component {
     render() {
         return (
             <div id="task-search" className="form-inline">
-                <input type="text" className="form-control" placeholder="Search" />
+                {/*<input type="text" className="form-control" placeholder="Search" />*/}
             </div>
         );
     }

@@ -63401,11 +63401,7 @@
 	    _createClass(TaskSearch, [{
 	        key: 'render',
 	        value: function render() {
-	            return _React2.default.createElement(
-	                'div',
-	                { id: 'task-search', className: 'form-inline' },
-	                _React2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: 'Search' })
-	            );
+	            return _React2.default.createElement('div', { id: 'task-search', className: 'form-inline' });
 	        }
 	    }]);
 
