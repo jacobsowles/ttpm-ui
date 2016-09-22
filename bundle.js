@@ -63141,7 +63141,6 @@
 	        },
 
 	        handleDeleteTaskGroupClick: function handleDeleteTaskGroupClick(taskGroupId, event) {
-	            event.stopPropagation(); // prevents the task group accordion from expanding
 	            dispatch(_taskGroupActions2.default.deleteTaskGroup(taskGroupId)).then(function () {
 	                dispatch(_taskGroupActions2.default.fetchTaskGroups()).then(function () {
 	                    dispatch(_taskActions2.default.fetchTasks());

@@ -103,7 +103,6 @@ function mapDispatchToProps(dispatch) {
         },
 
         handleDeleteTaskGroupClick: function(taskGroupId, event) {
-            event.stopPropagation(); // prevents the task group accordion from expanding
             dispatch(taskGroupActions.deleteTaskGroup(taskGroupId)).then(() => {
                 dispatch(taskGroupActions.fetchTaskGroups()).then(() => {
                     dispatch(taskActions.fetchTasks());
