@@ -17,9 +17,13 @@ class TaskTable extends React.Component {
                 <div className="col-xs-12">
                     <div className="task-table table-responsive" style={{background: '#ffffff', padding: '15px'}}>
                         <table className="table table-striped">
-                            <thead>
-                                <TaskTableHeaderRow />
-                            </thead>
+                            <caption>
+                                {
+                                    this.props.taskGroupName
+                                        ? `Showing tasks in ${this.props.taskGroupName} group`
+                                        : 'Showing ungrouped tasks'
+                                }
+                            </caption>
                             <tbody>
                                 {
                                     this.props.tasks.map((task, key) => {
@@ -48,6 +52,7 @@ class TaskTable extends React.Component {
 
 TaskTable.propTypes = {
     tasks: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
+    taskGroupName: React.PropTypes.string,
 
     handleNewTask: React.PropTypes.func.isRequired,
     handleCompletionToggle: React.PropTypes.func.isRequired,

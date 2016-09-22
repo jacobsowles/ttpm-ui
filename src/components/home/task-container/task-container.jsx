@@ -45,6 +45,7 @@ class TaskContainer extends React.Component {
 
                 <TaskTable
                     tasks={this.props.filteredTasks}
+                    taskGroupName={this.props.taskGroupName}
                     handleNewTask={this.handleNewTask}
                     handleCompletionToggle={this.props.handleCompletionToggle}
                     handleTaskNameEdit={this.props.handleTaskNameEdit}
@@ -90,10 +91,19 @@ function filterTasks(tasks, taskGroups, filters) {
     return tasks;
 }
 
+function getCurrentTaskGroupFilterName(taskGroups, taskGroupId) {
+    if (!taskGroupId) {
+        return;
+    }
+
+    return taskGroups.find(tg => tg.Id == taskGroupId).Name;
+}
+
 function mapStateToProps(state) {
     return {
         tasks: state.tasks,
         filteredTasks: filterTasks(state.tasks, state.taskGroups, state.filters),
+        taskGroupName: getCurrentTaskGroupFilterName(state.taskGroups, state.filters.taskGroupId),
         filters: state.filters
     };
 }

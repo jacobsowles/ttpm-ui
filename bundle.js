@@ -36912,6 +36912,7 @@
 	                _react2.default.createElement(_loadingGraphic2.default, { showLoadingGraphic: this.state.showLoadingGraphic }),
 	                _react2.default.createElement(_taskTable2.default, {
 	                    tasks: this.props.filteredTasks,
+	                    taskGroupName: this.props.taskGroupName,
 	                    handleNewTask: this.handleNewTask,
 	                    handleCompletionToggle: this.props.handleCompletionToggle,
 	                    handleTaskNameEdit: this.props.handleTaskNameEdit,
@@ -36960,10 +36961,21 @@
 	    return tasks;
 	}
 
+	function getCurrentTaskGroupFilterName(taskGroups, taskGroupId) {
+	    if (!taskGroupId) {
+	        return;
+	    }
+
+	    return taskGroups.find(function (tg) {
+	        return tg.Id == taskGroupId;
+	    }).Name;
+	}
+
 	function mapStateToProps(state) {
 	    return {
 	        tasks: state.tasks,
 	        filteredTasks: filterTasks(state.tasks, state.taskGroups, state.filters),
+	        taskGroupName: getCurrentTaskGroupFilterName(state.taskGroups, state.filters.taskGroupId),
 	        filters: state.filters
 	    };
 	}
@@ -62282,9 +62294,9 @@
 	                            'table',
 	                            { className: 'table table-striped' },
 	                            _react2.default.createElement(
-	                                'thead',
+	                                'caption',
 	                                null,
-	                                _react2.default.createElement(_taskTableHeaderRow2.default, null)
+	                                this.props.taskGroupName ? 'Showing tasks in ' + this.props.taskGroupName + ' group' : 'Showing ungrouped tasks'
 	                            ),
 	                            _react2.default.createElement(
 	                                'tbody',
@@ -62313,6 +62325,7 @@
 
 	TaskTable.propTypes = {
 	    tasks: _react2.default.PropTypes.arrayOf(_react2.default.PropTypes.object).isRequired,
+	    taskGroupName: _react2.default.PropTypes.string,
 
 	    handleNewTask: _react2.default.PropTypes.func.isRequired,
 	    handleCompletionToggle: _react2.default.PropTypes.func.isRequired,
@@ -62408,7 +62421,7 @@
 	            return _react2.default.createElement(
 	                'tr',
 	                { className: 'new-task-row' },
-	                _react2.default.createElement('td', null),
+	                _react2.default.createElement('td', { style: { width: '30px' } }),
 	                _react2.default.createElement(
 	                    'td',
 	                    null,
@@ -62419,7 +62432,7 @@
 	                    null,
 	                    _react2.default.createElement('input', { type: 'text', ref: 'newTaskNotes', placeholder: 'Optional notes', onKeyDown: this.handleKeyDown })
 	                ),
-	                _react2.default.createElement('td', null)
+	                _react2.default.createElement('td', { style: { width: '30px' } })
 	            );
 	        }
 	    }]);
@@ -62516,7 +62529,7 @@
 	            return _react2.default.createElement(
 	                'tr',
 	                null,
-	                _react2.default.createElement('th', { style: { width: '30px' } }),
+	                _react2.default.createElement('th', null),
 	                _react2.default.createElement(
 	                    'th',
 	                    null,
@@ -62527,7 +62540,7 @@
 	                    null,
 	                    'Notes'
 	                ),
-	                _react2.default.createElement('th', { style: { width: '30px' } })
+	                _react2.default.createElement('th', null)
 	            );
 	        }
 	    }]);
@@ -62640,7 +62653,7 @@
 	                { className: this.props.task.Complete ? 'task-table-row-complete' : '' },
 	                _react2.default.createElement(
 	                    'td',
-	                    null,
+	                    { style: { width: '30px' } },
 	                    _react2.default.createElement('input', { type: 'checkbox', checked: this.props.task.Complete, onChange: function onChange() {
 	                            return _this2.props.handleCompletionToggle(_this2.props.task.Id);
 	                        } })
@@ -62657,7 +62670,7 @@
 	                ),
 	                _react2.default.createElement(
 	                    'td',
-	                    { className: 'task-table-delete-task' },
+	                    { className: 'task-table-delete-task', style: { width: '30px' } },
 	                    _react2.default.createElement(
 	                        'span',
 	                        { onClick: function onClick() {
@@ -62762,7 +62775,7 @@
 
 
 	// module
-	exports.push([module.id, ".task-table {\n  font-size: .9em; }\n  .task-table input {\n    width: 100%; }\n", ""]);
+	exports.push([module.id, ".task-table {\n  font-size: .9em; }\n  .task-table caption {\n    padding: 0 0 10px 0;\n    font-size: .9em;\n    text-align: right; }\n  .task-table input {\n    width: 100%; }\n", ""]);
 
 	// exports
 
