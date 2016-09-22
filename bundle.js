@@ -62316,7 +62316,7 @@
 	                                    _react2.default.createElement(
 	                                        'a',
 	                                        { href: '/' },
-	                                        'show ungrouped tasks'
+	                                        'show all tasks'
 	                                    )
 	                                ) : _react2.default.createElement(
 	                                    'span',
