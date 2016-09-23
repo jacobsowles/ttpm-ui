@@ -1,5 +1,6 @@
 // npm modules
 import React from 'react';
+import { connect } from 'react-redux';
 
 // components
 import Content from './content/content.jsx';
@@ -12,10 +13,19 @@ import TaskContainer from './task-container/task-container.jsx';
 import TaskSearch from './task-search/task-search.jsx';
 import UserControls from './user-controls/user-controls.jsx';
 
+// actions
+import settingActions from '../../actions/setting-actions.js';
+import userSettingActions from '../../actions/user-setting-actions.js';
+
 // styles
 require('./home.scss');
 
 class Home extends React.Component {
+
+    componentWillMount() {
+        this.props.fetchUserSettings();
+        this.props.fetchSettings();
+    }
 
     render() {
         return (
@@ -39,12 +49,37 @@ class Home extends React.Component {
                         <TaskSearch />
                         <UserControls />
                     </Header>
-
-                    <TaskContainer />
+                    <TaskContainer defaultShowAnalytics={this.props.defaultShowAnalytics} />
                 </Content>
             </div>
         );
     }
 }
 
-export default Home;
+function getAnalyticsDefault(userSettings, settings) {
+    if (userSettings.defaultShowAnalytics) {
+        return Boolean(userSettings.defaultShowAnalytics.Value);
+    }
+
+    return Boolean(settings.defaultShowAnalytics.DefaultValue);
+}
+
+function mapStateToProps(state) {
+    return {
+        defaultShowAnalytics: getAnalyticsDefault(state.userSettings, state.settings)
+    };
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        fetchSettings: function() {
+            dispatch(settingActions.fetchSettings());
+        },
+
+        fetchUserSettings: function() {
+            dispatch(userSettingActions.fetchUserSettings());
+        }
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

@@ -53,7 +53,10 @@ class TaskContainer extends React.Component {
                     handleTaskDelete={this.props.handleTaskDelete}
                 />
 
-                <Analytics tasks={this.props.filteredTasks} />
+                <Analytics
+                    tasks={this.props.filteredTasks}
+                    defaultActive={this.props.defaultShowAnalytics}
+                />
             </div>
         );
     }
@@ -62,6 +65,7 @@ class TaskContainer extends React.Component {
 TaskContainer.propTypes = {
     tasks: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
     filteredTasks: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
+    defaultShowAnalytics: React.PropTypes.bool.isRequired,
 
     fetchTasks: React.PropTypes.func.isRequired,
     handleNewTask: React.PropTypes.func.isRequired,

@@ -24,7 +24,7 @@ class Analytics extends React.Component {
         super(props);
 
         this.state = {
-            active: true
+            active: props.defaultActive
         };
 
         this.handleClick = this.handleClick.bind(this);
@@ -92,7 +92,12 @@ class Analytics extends React.Component {
 }
 
 Analytics.propTypes = {
-    tasks: React.PropTypes.arrayOf(React.PropTypes.object).isRequired
+    tasks: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
+    defaultActive: React.PropTypes.bool
+};
+
+Analytics.getDefaultProps = {
+    defaultActive: true
 };
 
 export default Analytics;
