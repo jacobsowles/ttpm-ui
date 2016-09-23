@@ -14,7 +14,7 @@ class UserControls extends React.Component {
         return (
             <div id="user-controls">
                 {localStorage.getItem('username')} |&nbsp;
-                <a onClick={() => this.props.handleLogout()}>Log out</a>
+                <a onClick={() => this.props.handleLogout()}>log out</a>
             </div>
         );
     }

@@ -62318,7 +62318,7 @@
 	                                this.props.taskGroupName ? _react2.default.createElement(
 	                                    'span',
 	                                    null,
-	                                    'Showing tasks in ',
+	                                    'showing tasks in the ',
 	                                    _react2.default.createElement(
 	                                        'strong',
 	                                        null,
@@ -62333,7 +62333,7 @@
 	                                ) : _react2.default.createElement(
 	                                    'span',
 	                                    null,
-	                                    'Showing all tasks'
+	                                    'showing all tasks'
 	                                )
 	                            ),
 	                            _react2.default.createElement(
@@ -63565,7 +63565,7 @@
 	                    { onClick: function onClick() {
 	                            return _this2.props.handleLogout();
 	                        } },
-	                    'Log out'
+	                    'log out'
 	                )
 	            );
 	        }
@@ -63792,7 +63792,7 @@
 
 
 	// module
-	exports.push([module.id, ".task-table-task-details {\n  margin-top: 15px;\n  font-size: .9em; }\n  .task-table-task-details textarea.form-control {\n    height: 150px;\n    font-size: .9em; }\n  .task-table-task-details button {\n    font-size: .9em;\n    margin-top: 10px; }\n", ""]);
+	exports.push([module.id, ".task-table-task-details {\n  margin: 15px 15px auto auto;\n  font-size: .9em; }\n  .task-table-task-details textarea.form-control {\n    height: 150px;\n    font-size: .9em; }\n  .task-table-task-details button {\n    font-size: .9em;\n    margin-top: 10px; }\n", ""]);
 
 	// exports
 
