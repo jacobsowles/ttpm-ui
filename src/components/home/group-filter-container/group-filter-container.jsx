@@ -102,8 +102,8 @@ function mapDispatchToProps(dispatch) {
             });
         },
 
-        handleDeleteTaskGroupClick: function(taskGroupId, event) {
-            dispatch(taskGroupActions.deleteTaskGroup(taskGroupId)).then(() => {
+        handleDeleteTaskGroupClick: function(taskGroup, event) {
+            dispatch(taskGroupActions.deleteTaskGroup(taskGroup.Id)).then(() => {
                 dispatch(taskGroupActions.fetchTaskGroups()).then(() => {
                     dispatch(taskActions.fetchTasks());
                 });

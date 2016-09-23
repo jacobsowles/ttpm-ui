@@ -9,14 +9,16 @@ class TaskTableTaskDetails extends React.Component {
     render() {
         return (
             <div className="task-table-task-details form-group">
-                <label for="notes">Notes</label>
+                <label>Notes</label>
+
                 <textarea
                     type="text"
                     className="form-control"
-                    onBlur={() => this.props.handleNotesEdit()}
+                    defaultValue={this.props.task.Notes}
+                    onBlur={(event) => this.props.handleNotesEdit(event.target.value)}
                 >
-                    {this.props.task.Notes}
                 </textarea>
+
                 <button className="btn btn-danger" onClick={() => this.props.handleTaskDelete(this.props.task.Id)}>Delete Task</button>
             </div>
         );

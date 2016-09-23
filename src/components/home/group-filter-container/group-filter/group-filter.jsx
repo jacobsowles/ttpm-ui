@@ -49,6 +49,7 @@ class GroupFilter extends React.Component {
                                             taskGroup={taskGroup}
                                             taskGroups={this.props.taskGroups}
                                             level={this.props.level}
+                                            handleAddTaskGroupClick={this.props.handleAddTaskGroupClick}
                                             handleTaskGroupClick={this.props.handleTaskGroupClick}
                                             handleDeleteTaskGroupClick={this.props.handleDeleteTaskGroupClick}
                                         />
@@ -60,7 +61,7 @@ class GroupFilter extends React.Component {
                                 text='Add a new task group'
                                 clearTextOnClick={true}
                                 handleSubmit={this.props.handleAddTaskGroupClick}
-                                includeWithSubmit={this.props.taskGroup.Id}
+                                includeWithSubmit={this.props.taskGroup}
                             />
                         </div>
                     )}
@@ -76,6 +77,7 @@ GroupFilter.propTypes = {
     level: React.PropTypes.number.isRequired,
 
     handleTaskGroupClick: React.PropTypes.func.isRequired,
+    handleAddTaskGroupClick: React.PropTypes.func.isRequired,
     handleDeleteTaskGroupClick: React.PropTypes.func.isRequired
 };
 

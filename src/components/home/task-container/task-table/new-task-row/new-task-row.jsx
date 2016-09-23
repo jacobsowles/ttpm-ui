@@ -19,7 +19,6 @@ class NewTaskRow extends React.Component {
 
     resetFields() {
         this.refs.newTaskName.value = '';
-        this.refs.newTaskNotes.value = '';
     }
 
     handleKeyDown(event) {
@@ -39,8 +38,7 @@ class NewTaskRow extends React.Component {
     handleSubmit() {
         if (this.refs.newTaskName) {
             const task = {
-                Name: this.refs.newTaskName.value,
-                Notes: this.refs.newTaskNotes.value
+                Name: this.refs.newTaskName.value
             };
 
             this.props.handleNewTask(task);

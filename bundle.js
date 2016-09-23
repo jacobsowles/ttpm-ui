@@ -62422,7 +62422,6 @@
 	        key: 'resetFields',
 	        value: function resetFields() {
 	            this.refs.newTaskName.value = '';
-	            this.refs.newTaskNotes.value = '';
 	        }
 	    }, {
 	        key: 'handleKeyDown',
@@ -62446,8 +62445,7 @@
 	        value: function handleSubmit() {
 	            if (this.refs.newTaskName) {
 	                var task = {
-	                    Name: this.refs.newTaskName.value,
-	                    Notes: this.refs.newTaskNotes.value
+	                    Name: this.refs.newTaskName.value
 	                };
 
 	                this.props.handleNewTask(task);
@@ -63194,8 +63192,8 @@
 	            });
 	        },
 
-	        handleDeleteTaskGroupClick: function handleDeleteTaskGroupClick(taskGroupId, event) {
-	            dispatch(_taskGroupActions2.default.deleteTaskGroup(taskGroupId)).then(function () {
+	        handleDeleteTaskGroupClick: function handleDeleteTaskGroupClick(taskGroup, event) {
+	            dispatch(_taskGroupActions2.default.deleteTaskGroup(taskGroup.Id)).then(function () {
 	                dispatch(_taskGroupActions2.default.fetchTaskGroups()).then(function () {
 	                    dispatch(_taskActions2.default.fetchTasks());
 	                });
@@ -63344,6 +63342,7 @@
 	                                taskGroup: taskGroup,
 	                                taskGroups: _this2.props.taskGroups,
 	                                level: _this2.props.level,
+	                                handleAddTaskGroupClick: _this2.props.handleAddTaskGroupClick,
 	                                handleTaskGroupClick: _this2.props.handleTaskGroupClick,
 	                                handleDeleteTaskGroupClick: _this2.props.handleDeleteTaskGroupClick
 	                            });
@@ -63353,7 +63352,7 @@
 	                            text: 'Add a new task group',
 	                            clearTextOnClick: true,
 	                            handleSubmit: this.props.handleAddTaskGroupClick,
-	                            includeWithSubmit: this.props.taskGroup.Id
+	                            includeWithSubmit: this.props.taskGroup
 	                        })
 	                    )
 	                })
@@ -63370,6 +63369,7 @@
 	    level: _react2.default.PropTypes.number.isRequired,
 
 	    handleTaskGroupClick: _react2.default.PropTypes.func.isRequired,
+	    handleAddTaskGroupClick: _react2.default.PropTypes.func.isRequired,
 	    handleDeleteTaskGroupClick: _react2.default.PropTypes.func.isRequired
 	};
 
@@ -63720,20 +63720,17 @@
 	                { className: 'task-table-task-details form-group' },
 	                _react2.default.createElement(
 	                    'label',
-	                    { 'for': 'notes' },
+	                    null,
 	                    'Notes'
 	                ),
-	                _react2.default.createElement(
-	                    'textarea',
-	                    {
-	                        type: 'text',
-	                        className: 'form-control',
-	                        onBlur: function onBlur() {
-	                            return _this2.props.handleNotesEdit();
-	                        }
-	                    },
-	                    this.props.task.Notes
-	                ),
+	                _react2.default.createElement('textarea', {
+	                    type: 'text',
+	                    className: 'form-control',
+	                    defaultValue: this.props.task.Notes,
+	                    onBlur: function onBlur(event) {
+	                        return _this2.props.handleNotesEdit(event.target.value);
+	                    }
+	                }),
 	                _react2.default.createElement(
 	                    'button',
 	                    { className: 'btn btn-danger', onClick: function onClick() {
