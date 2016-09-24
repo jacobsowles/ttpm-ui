@@ -61,6 +61,7 @@ class GroupFilterContainer extends React.Component {
                     type='task-group'
                     text='Add a new task group'
                     clearTextOnClick={true}
+                    resetToOriginalOnSubmit={true}
                     handleSubmit={this.props.handleAddTaskGroupClick}
                 />
             </div>

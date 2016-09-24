@@ -33810,6 +33810,7 @@
 	                    type: 'task-group',
 	                    text: 'Add a new task group',
 	                    clearTextOnClick: true,
+	                    resetToOriginalOnSubmit: true,
 	                    handleSubmit: this.props.handleAddTaskGroupClick
 	                })
 	            );
@@ -34226,6 +34227,7 @@
 	                            type: 'task-group',
 	                            text: 'Add a new task group',
 	                            clearTextOnClick: true,
+	                            resetToOriginalOnSubmit: true,
 	                            handleSubmit: this.props.handleAddTaskGroupClick,
 	                            includeWithSubmit: this.props.taskGroup
 	                        })
@@ -34289,6 +34291,7 @@
 	        _this.state = {
 	            value: props.text,
 	            hasBeenSubmitted: false,
+	            shouldSubmit: true,
 	            isEditMode: false
 	        };
 
@@ -34325,13 +34328,17 @@
 	            switch (event.key) {
 	                case 'Escape':
 	                    {
-	                        event.target.value = '';
-	                        this.handleSubmit(event);
+	                        this.setState({
+	                            value: this.props.text
+	                        });
+	                        this.state.shouldSubmit = false;
+	                        event.target.blur();
 	                        break;
 	                    }
 
 	                case 'Enter':
 	                    {
+	                        this.state.shouldSubmit = true;
 	                        this.handleSubmit(event);
 	                        break;
 	                    }
@@ -34340,22 +34347,23 @@
 	    }, {
 	        key: 'handleSubmit',
 	        value: function handleSubmit(event) {
-	            if (!this.state.hasBeenSubmitted) {
+	            if (!this.state.hasBeenSubmitted && this.state.shouldSubmit) {
 	                this.state.hasBeenSubmitted = true;
-	                var value = event.target.value;
 	                event.target.blur();
 
 	                this.setState({
 	                    isEditMode: false
 	                });
 
-	                if (value != '') {
-	                    this.props.handleSubmit(value, this.props.includeWithSubmit);
+	                if (event.target.value != '') {
+	                    this.props.handleSubmit(event.target.value, this.props.includeWithSubmit);
 	                }
 
-	                this.setState({
-	                    value: this.props.text
-	                });
+	                if (this.props.resetToOriginalOnSubmit) {
+	                    this.setState({
+	                        value: this.props.text
+	                    });
+	                }
 	            }
 	        }
 	    }, {
@@ -34388,14 +34396,17 @@
 	    type: _react2.default.PropTypes.string,
 	    text: _react2.default.PropTypes.string,
 	    clearTextOnClick: _react2.default.PropTypes.bool,
-	    handleSubmit: _react2.default.PropTypes.func.isRequired,
+	    resetToOriginalOnSubmit: _react2.default.PropTypes.bool,
+	    isReadOnly: _react2.default.PropTypes.bool,
 	    includeWithSubmit: _react2.default.PropTypes.object,
-	    isReadOnly: _react2.default.PropTypes.bool
+
+	    handleSubmit: _react2.default.PropTypes.func.isRequired
 	};
 
 	ViewEditToggleField.getDefaultProps = {
 	    text: '',
 	    clearTextOnClick: false,
+	    resetToOriginalOnSubmit: false,
 	    isReadOnly: false
 	};
 

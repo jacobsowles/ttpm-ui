@@ -12,6 +12,7 @@ class ViewEditToggleField extends React.Component {
         this.state = {
             value: props.text,
             hasBeenSubmitted: false,
+            shouldSubmit: true,
             isEditMode: false
         };
 
@@ -41,12 +42,16 @@ class ViewEditToggleField extends React.Component {
     handleKeyDown(event) {
         switch (event.key) {
             case 'Escape': {
-                event.target.value = '';
-                this.handleSubmit(event);
+                this.setState({
+                    value: this.props.text
+                });
+                this.state.shouldSubmit = false;
+                event.target.blur();
                 break;
             }
 
             case 'Enter': {
+                this.state.shouldSubmit = true;
                 this.handleSubmit(event);
                 break;
             }
@@ -54,22 +59,23 @@ class ViewEditToggleField extends React.Component {
     }
 
     handleSubmit(event) {
-        if (!this.state.hasBeenSubmitted) {
+        if (!this.state.hasBeenSubmitted && this.state.shouldSubmit) {
             this.state.hasBeenSubmitted = true;
-            const value = event.target.value;
             event.target.blur();
 
             this.setState({
                 isEditMode: false
             });
 
-            if (value != '') {
-                this.props.handleSubmit(value, this.props.includeWithSubmit);
+            if (event.target.value != '') {
+                this.props.handleSubmit(event.target.value, this.props.includeWithSubmit);
             }
 
-            this.setState({
-                value: this.props.text
-            });
+            if (this.props.resetToOriginalOnSubmit) {
+                this.setState({
+                    value: this.props.text
+                });
+            }
         }
     }
 
@@ -100,14 +106,17 @@ ViewEditToggleField.propTypes = {
     type: React.PropTypes.string,
     text: React.PropTypes.string,
     clearTextOnClick: React.PropTypes.bool,
-    handleSubmit: React.PropTypes.func.isRequired,
+    resetToOriginalOnSubmit: React.PropTypes.bool,
+    isReadOnly: React.PropTypes.bool,
     includeWithSubmit: React.PropTypes.object,
-    isReadOnly: React.PropTypes.bool
+
+    handleSubmit: React.PropTypes.func.isRequired
 };
 
 ViewEditToggleField.getDefaultProps = {
     text: '',
     clearTextOnClick: false,
+    resetToOriginalOnSubmit: false,
     isReadOnly: false
 };
 
