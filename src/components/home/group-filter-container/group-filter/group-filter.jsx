@@ -29,7 +29,7 @@ class GroupFilter extends React.Component {
 
                                 <span
                                     className="delete-group"
-                                    onClick={(event) => this.props.handleDeleteTaskGroupClick(this.props.taskGroup.Id, event)}
+                                    onClick={(event) => this.props.handleDeleteTaskGroupClick(this.props.taskGroup, event)}
                                 >
                                     &times;
                                 </span>

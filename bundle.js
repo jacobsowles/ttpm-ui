@@ -34199,7 +34199,7 @@
 	                                {
 	                                    className: 'delete-group',
 	                                    onClick: function onClick(event) {
-	                                        return _this2.props.handleDeleteTaskGroupClick(_this2.props.taskGroup.Id, event);
+	                                        return _this2.props.handleDeleteTaskGroupClick(_this2.props.taskGroup, event);
 	                                    }
 	                                },
 	                                '×'
