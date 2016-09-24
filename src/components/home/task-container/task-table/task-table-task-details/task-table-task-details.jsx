@@ -15,11 +15,16 @@ class TaskTableTaskDetails extends React.Component {
                     type="text"
                     className="form-control"
                     defaultValue={this.props.task.Notes}
-                    onBlur={(event) => this.props.handleNotesEdit(event.target.value)}
+                    onBlur={(event) => this.props.handleNotesEdit(event.target.value, this.props.task)}
                 >
                 </textarea>
 
-                <button className="btn btn-danger" onClick={() => this.props.handleTaskDelete(this.props.task.Id)}>Delete Task</button>
+                <button
+                    className="btn btn-danger"
+                    onClick={() => this.props.handleTaskDelete(this.props.task.Id)}
+                >
+                    Delete Task
+                </button>
             </div>
         );
     }

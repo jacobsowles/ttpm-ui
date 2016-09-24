@@ -62483,7 +62483,8 @@
 
 	    handleNewTask: _react2.default.PropTypes.func.isRequired,
 	    handleCompletionToggle: _react2.default.PropTypes.func.isRequired,
-	    handleTaskNameEdit: _react2.default.PropTypes.func.isRequired
+	    handleTaskNameEdit: _react2.default.PropTypes.func.isRequired,
+	    handleTaskNotesEdit: _react2.default.PropTypes.func.isRequired
 	};
 
 	exports.default = TaskTable;
@@ -62910,14 +62911,17 @@
 	                    className: 'form-control',
 	                    defaultValue: this.props.task.Notes,
 	                    onBlur: function onBlur(event) {
-	                        return _this2.props.handleNotesEdit(event.target.value);
+	                        return _this2.props.handleNotesEdit(event.target.value, _this2.props.task);
 	                    }
 	                }),
 	                _react2.default.createElement(
 	                    'button',
-	                    { className: 'btn btn-danger', onClick: function onClick() {
+	                    {
+	                        className: 'btn btn-danger',
+	                        onClick: function onClick() {
 	                            return _this2.props.handleTaskDelete(_this2.props.task.Id);
-	                        } },
+	                        }
+	                    },
 	                    'Delete Task'
 	                )
 	            );

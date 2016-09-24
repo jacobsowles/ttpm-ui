@@ -59,7 +59,8 @@ TaskTable.propTypes = {
 
     handleNewTask: React.PropTypes.func.isRequired,
     handleCompletionToggle: React.PropTypes.func.isRequired,
-    handleTaskNameEdit: React.PropTypes.func.isRequired
+    handleTaskNameEdit: React.PropTypes.func.isRequired,
+    handleTaskNotesEdit: React.PropTypes.func.isRequired
 };
 
 export default TaskTable;
