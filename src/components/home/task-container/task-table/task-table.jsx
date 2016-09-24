@@ -12,15 +12,31 @@ import filterActions from '../../../../actions/filter-actions.js';
 // styles
 require('./task-table.scss');
 
+const styles = {
+    taskTable: {
+        fontSize: '.9em',
+        background: '#ffffff',
+        padding: '15px'
+    },
+
+    caption: {
+        padding: '0 0 10px 0',
+        fontSize: '.9em',
+        textAlign: 'right'
+    }
+};
+
 class TaskTable extends React.Component {
 
     render() {
         return (
             <div className="row">
                 <div className="col-xs-12">
-                    <div className="task-table table-responsive" style={{background: '#ffffff', padding: '15px'}}>
+                    <div
+                        className="task-table table-responsive"
+                        style={styles.taskTable}>
                         <table className="table table-striped">
-                            <caption>
+                            <caption styles={styles.caption}>
                                 {
                                     this.props.taskGroupName
                                         ? <span>showing tasks in the <strong>{this.props.taskGroupName}</strong> group | <a href="/">show all tasks</a></span>

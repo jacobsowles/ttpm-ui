@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 
 // components
 import Analytics from './analytics/analytics.jsx';
-import LoadingGraphic from '../../loading-graphic/loading-graphic.jsx';
+import LoadingGraphic from '../../loading-graphic.jsx';
 import TaskTable from './task-table/task-table.jsx';
 
 // actions

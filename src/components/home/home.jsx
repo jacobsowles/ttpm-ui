@@ -17,9 +17,6 @@ import UserControls from './user-controls/user-controls.jsx';
 import settingActions from '../../actions/setting-actions.js';
 import userSettingActions from '../../actions/user-setting-actions.js';
 
-// styles
-require('./home.scss');
-
 class Home extends React.Component {
 
     componentWillMount() {

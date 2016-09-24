@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import Accordion from '../../accordion/accordion.jsx';
 import AccordionItem from '../../accordion/accordion-item/accordion-item.jsx';
 import GroupFilter from './group-filter/group-filter.jsx';
-import LoadingGraphic from '../../loading-graphic/loading-graphic.jsx';
+import LoadingGraphic from '../../loading-graphic.jsx';
 import NewTaskGroupLink from './new-task-group-link.jsx';
 
 // actions

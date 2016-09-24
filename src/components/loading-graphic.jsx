@@ -2,7 +2,16 @@
 import React from 'react';
 
 // styles
-require('./loading-graphic.scss');
+const styles = {
+    loadingGraphic: {
+        background: 'url("/assets/images/spinner.gif")',
+        backgroundPosition: 'center',
+        backgroundSize: '20px',
+        backgroundRepeat: 'no-repeat',
+        margin: '10px 0',
+        height: '20px'
+    }
+};
 
 class LoadingGraphic extends React.Component {
 
@@ -11,8 +20,10 @@ class LoadingGraphic extends React.Component {
             <div
                 className="loading-graphic"
                 style={{
+                    ...styles.loadingGraphic,
                     display: this.props.showLoadingGraphic ? 'inherit' : 'none'
-                }}>
+                }}
+            >
             </div>
         );
     }
