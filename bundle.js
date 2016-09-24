@@ -34368,7 +34368,7 @@
 	            return _react2.default.createElement(
 	                'div',
 	                { className: stateClass + ' ' + this.props.type + '-view-edit-toggle-field' },
-	                _react2.default.createElement('input', {
+	                this.props.isReadOnly ? _react2.default.createElement('input', { type: 'text', value: this.props.task.Name, disabled: true }) : _react2.default.createElement('input', {
 	                    value: this.state.value,
 	                    onChange: this.handleChange,
 	                    onFocus: this.handleFocus,
@@ -34389,12 +34389,14 @@
 	    text: _react2.default.PropTypes.string,
 	    clearTextOnClick: _react2.default.PropTypes.bool,
 	    handleSubmit: _react2.default.PropTypes.func.isRequired,
-	    includeWithSubmit: _react2.default.PropTypes.object
+	    includeWithSubmit: _react2.default.PropTypes.object,
+	    isReadOnly: _react2.default.PropTypes.bool
 	};
 
 	ViewEditToggleField.getDefaultProps = {
 	    text: '',
-	    clearTextOnClick: false
+	    clearTextOnClick: false,
+	    isReadOnly: false
 	};
 
 	exports.default = ViewEditToggleField;
@@ -62794,28 +62796,6 @@
 	    }
 
 	    _createClass(TaskTableRow, [{
-	        key: 'buildField',
-	        value: function buildField() {
-	            return this.props.task.Complete ? _react2.default.createElement('input', { type: 'text', value: this.props.task.Name, disabled: true }) : _react2.default.createElement(
-	                _accordion2.default,
-	                null,
-	                _react2.default.createElement(_accordionItem2.default, {
-	                    header: _react2.default.createElement(_viewEditToggleField2.default, {
-	                        text: this.props.task.Name,
-	                        handleSubmit: this.props.handleNameEdit,
-	                        includeWithSubmit: this.props.task
-	                    }),
-	                    body: _react2.default.createElement(_taskTableTaskDetails2.default, {
-	                        task: this.props.task,
-	                        handleNotesEdit: this.props.handleNotesEdit,
-	                        handleTaskDelete: this.props.handleTaskDelete
-	                    }),
-	                    activateOnHeaderClick: true,
-	                    showIconOnRight: true
-	                })
-	            );
-	        }
-	    }, {
 	        key: 'render',
 	        value: function render() {
 	            var _this2 = this;
@@ -62826,14 +62806,36 @@
 	                _react2.default.createElement(
 	                    'td',
 	                    { style: { width: '30px' } },
-	                    _react2.default.createElement('input', { type: 'checkbox', checked: this.props.task.Complete, onChange: function onChange() {
+	                    _react2.default.createElement('input', {
+	                        type: 'checkbox',
+	                        checked: this.props.task.Complete,
+	                        onChange: function onChange() {
 	                            return _this2.props.handleCompletionToggle(_this2.props.task.Id);
-	                        } })
+	                        }
+	                    })
 	                ),
 	                _react2.default.createElement(
 	                    'td',
 	                    null,
-	                    this.buildField(this.props.task, this.props.handleNameEdit)
+	                    _react2.default.createElement(
+	                        _accordion2.default,
+	                        null,
+	                        _react2.default.createElement(_accordionItem2.default, {
+	                            header: _react2.default.createElement(_viewEditToggleField2.default, {
+	                                text: this.props.task.Name,
+	                                handleSubmit: this.props.handleNameEdit,
+	                                includeWithSubmit: this.props.task,
+	                                isEditable: !this.props.task.Complete
+	                            }),
+	                            body: _react2.default.createElement(_taskTableTaskDetails2.default, {
+	                                task: this.props.task,
+	                                handleNotesEdit: this.props.handleNotesEdit,
+	                                handleTaskDelete: this.props.handleTaskDelete
+	                            }),
+	                            activateOnHeaderClick: true,
+	                            showIconOnRight: true
+	                        })
+	                    )
 	                )
 	            );
 	        }

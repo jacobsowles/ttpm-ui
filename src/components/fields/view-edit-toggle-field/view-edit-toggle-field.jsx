@@ -78,13 +78,19 @@ class ViewEditToggleField extends React.Component {
 
         return (
             <div className={`${stateClass} ${this.props.type}-view-edit-toggle-field`}>
-                <input
-                    value={this.state.value}
-                    onChange={this.handleChange}
-                    onFocus={this.handleFocus}
-                    onBlur={(event) => this.handleSubmit(event)}
-                    onKeyDown={this.handleKeyDown}
-                />
+                {
+                    this.props.isReadOnly
+                        ? <input type="text" value={this.props.task.Name} disabled />
+                        : (
+                            <input
+                                value={this.state.value}
+                                onChange={this.handleChange}
+                                onFocus={this.handleFocus}
+                                onBlur={(event) => this.handleSubmit(event)}
+                                onKeyDown={this.handleKeyDown}
+                            />
+                        )
+                }
             </div>
         );
     }
@@ -95,12 +101,14 @@ ViewEditToggleField.propTypes = {
     text: React.PropTypes.string,
     clearTextOnClick: React.PropTypes.bool,
     handleSubmit: React.PropTypes.func.isRequired,
-    includeWithSubmit: React.PropTypes.object
+    includeWithSubmit: React.PropTypes.object,
+    isReadOnly: React.PropTypes.bool
 };
 
 ViewEditToggleField.getDefaultProps = {
     text: '',
-    clearTextOnClick: false
+    clearTextOnClick: false,
+    isReadOnly: false
 };
 
 export default ViewEditToggleField;

@@ -12,38 +12,39 @@ require('./task-table-row.scss');
 
 class TaskTableRow extends React.Component {
 
-    buildField() {
-        return this.props.task.Complete
-            ? <input type="text" value={this.props.task.Name} disabled />
-            : (
-                <Accordion>
-                    <AccordionItem
-                        header={(
-                            <ViewEditToggleField
-                                text={this.props.task.Name}
-                                handleSubmit={this.props.handleNameEdit}
-                                includeWithSubmit={this.props.task}
-                            />
-                        )}
-                        body={(
-                            <TaskTableTaskDetails
-                                task={this.props.task}
-                                handleNotesEdit={this.props.handleNotesEdit}
-                                handleTaskDelete={this.props.handleTaskDelete}
-                            />
-                        )}
-                        activateOnHeaderClick={true}
-                        showIconOnRight={true}
-                    />
-                </Accordion>
-            );
-    }
-
     render() {
         return (
             <tr className={this.props.task.Complete ? 'task-table-row-complete' : ''}>
-                <td style={{width: '30px'}}><input type="checkbox" checked={this.props.task.Complete} onChange={() => this.props.handleCompletionToggle(this.props.task.Id)} /></td>
-                <td>{this.buildField(this.props.task, this.props.handleNameEdit)}</td>
+                <td style={{width: '30px'}}>
+                    <input
+                        type="checkbox"
+                        checked={this.props.task.Complete}
+                        onChange={() => this.props.handleCompletionToggle(this.props.task.Id)}
+                    />
+                </td>
+                <td>
+                    <Accordion>
+                        <AccordionItem
+                            header={(
+                                <ViewEditToggleField
+                                    text={this.props.task.Name}
+                                    handleSubmit={this.props.handleNameEdit}
+                                    includeWithSubmit={this.props.task}
+                                    isEditable={!this.props.task.Complete}
+                                />
+                            )}
+                            body={(
+                                <TaskTableTaskDetails
+                                    task={this.props.task}
+                                    handleNotesEdit={this.props.handleNotesEdit}
+                                    handleTaskDelete={this.props.handleTaskDelete}
+                                />
+                            )}
+                            activateOnHeaderClick={true}
+                            showIconOnRight={true}
+                        />
+                    </Accordion>
+                </td>
             </tr>
         );
     }
