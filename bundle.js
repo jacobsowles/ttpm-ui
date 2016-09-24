@@ -33727,9 +33727,9 @@
 
 	var _loadingGraphic2 = _interopRequireDefault(_loadingGraphic);
 
-	var _viewEditToggleField = __webpack_require__(311);
+	var _newTaskGroupLink = __webpack_require__(543);
 
-	var _viewEditToggleField2 = _interopRequireDefault(_viewEditToggleField);
+	var _newTaskGroupLink2 = _interopRequireDefault(_newTaskGroupLink);
 
 	var _filterActions = __webpack_require__(319);
 
@@ -33806,13 +33806,7 @@
 	                        handleDeleteTaskGroupClick: _this2.props.handleDeleteTaskGroupClick
 	                    });
 	                }),
-	                _react2.default.createElement(_viewEditToggleField2.default, {
-	                    type: 'task-group',
-	                    text: 'Add a new task group',
-	                    clearTextOnClick: true,
-	                    resetToOriginalOnSubmit: true,
-	                    handleSubmit: this.props.handleAddTaskGroupClick
-	                })
+	                _react2.default.createElement(_newTaskGroupLink2.default, { handleSubmit: this.props.handleAddTaskGroupClick })
 	            );
 	        }
 	    }]);
@@ -33845,9 +33839,11 @@
 	            dispatch(_filterActions2.default.setTaskGroupFilter(taskGroupId));
 	        },
 
-	        handleAddTaskGroupClick: function handleAddTaskGroupClick(name, taskGroupId) {
+	        handleAddTaskGroupClick: function handleAddTaskGroupClick(name, taskGroup) {
+	            var parentTaskGroupId = taskGroup ? taskGroup.Id : null;
+
 	            dispatch(_taskGroupActions2.default.addTaskGroup({
-	                parentTaskGroupId: taskGroupId || null,
+	                parentTaskGroupId: parentTaskGroupId,
 	                name: name
 	            })).then(function () {
 	                dispatch(_taskGroupActions2.default.fetchTaskGroups());
@@ -34319,7 +34315,7 @@
 	        value: function handleFocus() {
 	            this.setState({
 	                isEditMode: true,
-	                value: this.props.clearTextOnClick ? '' : this.state.value
+	                value: this.props.clearTextOnClick ? '' : this.props.text
 	            });
 	        }
 	    }, {
@@ -63948,6 +63944,69 @@
 
 	// exports
 
+
+/***/ },
+/* 543 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _viewEditToggleField = __webpack_require__(311);
+
+	var _viewEditToggleField2 = _interopRequireDefault(_viewEditToggleField);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
+
+
+	// components
+
+
+	var NewTaskGroupLink = function (_React$Component) {
+	    _inherits(NewTaskGroupLink, _React$Component);
+
+	    function NewTaskGroupLink() {
+	        _classCallCheck(this, NewTaskGroupLink);
+
+	        return _possibleConstructorReturn(this, (NewTaskGroupLink.__proto__ || Object.getPrototypeOf(NewTaskGroupLink)).apply(this, arguments));
+	    }
+
+	    _createClass(NewTaskGroupLink, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(_viewEditToggleField2.default, {
+	                type: 'task-group',
+	                text: 'Add a new task group',
+	                clearTextOnClick: true,
+	                resetToOriginalOnSubmit: true,
+	                handleSubmit: this.props.handleSubmit
+	            });
+	        }
+	    }]);
+
+	    return NewTaskGroupLink;
+	}(_react2.default.Component);
+
+	NewTaskGroupLink.propTypes = {
+	    handleSubmit: _react2.default.PropTypes.func.isRequired
+	};
+
+	exports.default = NewTaskGroupLink;
 
 /***/ }
 /******/ ]);

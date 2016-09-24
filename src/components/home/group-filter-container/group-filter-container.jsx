@@ -7,7 +7,7 @@ import Accordion from '../../accordion/accordion.jsx';
 import AccordionItem from '../../accordion/accordion-item/accordion-item.jsx';
 import GroupFilter from './group-filter/group-filter.jsx';
 import LoadingGraphic from '../../loading-graphic/loading-graphic.jsx';
-import ViewEditToggleField from '../../fields/view-edit-toggle-field/view-edit-toggle-field.jsx';
+import NewTaskGroupLink from './new-task-group-link.jsx';
 
 // actions
 import filterActions from '../../../actions/filter-actions.js';
@@ -57,13 +57,7 @@ class GroupFilterContainer extends React.Component {
                     })
                 }
 
-                <ViewEditToggleField
-                    type='task-group'
-                    text='Add a new task group'
-                    clearTextOnClick={true}
-                    resetToOriginalOnSubmit={true}
-                    handleSubmit={this.props.handleAddTaskGroupClick}
-                />
+                <NewTaskGroupLink handleSubmit={this.props.handleAddTaskGroupClick} />
             </div>
         );
     }
@@ -94,9 +88,11 @@ function mapDispatchToProps(dispatch) {
             dispatch(filterActions.setTaskGroupFilter(taskGroupId));
         },
 
-        handleAddTaskGroupClick: function(name, taskGroupId) {
+        handleAddTaskGroupClick: function(name, taskGroup) {
+            const parentTaskGroupId = taskGroup ? taskGroup.Id : null;
+
             dispatch(taskGroupActions.addTaskGroup({
-                parentTaskGroupId: taskGroupId || null,
+                parentTaskGroupId: parentTaskGroupId,
                 name: name
             })).then(() => {
                 dispatch(taskGroupActions.fetchTaskGroups());
