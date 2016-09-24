@@ -4,7 +4,7 @@ import React from 'react';
 // components
 import Accordion from '../../../accordion/accordion.jsx';
 import AccordionItem from '../../../accordion/accordion-item/accordion-item.jsx';
-import ViewEditToggleField from '../../../fields/view-edit-toggle-field/view-edit-toggle-field.jsx';
+import NewTaskGroupLink from '../new-task-group-link.jsx';
 
 // styles
 require('./group-filter.scss');
@@ -56,11 +56,7 @@ class GroupFilter extends React.Component {
                                     );
                                 })
                         }
-                            <ViewEditToggleField
-                                type='task-group'
-                                text='Add a new task group'
-                                clearTextOnClick={true}
-                                resetToOriginalOnSubmit={true}
+                            <NewTaskGroupLink
                                 handleSubmit={this.props.handleAddTaskGroupClick}
                                 includeWithSubmit={this.props.taskGroup}
                             />

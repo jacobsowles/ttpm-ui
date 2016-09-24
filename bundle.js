@@ -34132,9 +34132,9 @@
 
 	var _accordionItem2 = _interopRequireDefault(_accordionItem);
 
-	var _viewEditToggleField = __webpack_require__(311);
+	var _newTaskGroupLink = __webpack_require__(543);
 
-	var _viewEditToggleField2 = _interopRequireDefault(_viewEditToggleField);
+	var _newTaskGroupLink2 = _interopRequireDefault(_newTaskGroupLink);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -34219,11 +34219,7 @@
 	                                handleDeleteTaskGroupClick: _this2.props.handleDeleteTaskGroupClick
 	                            });
 	                        }),
-	                        _react2.default.createElement(_viewEditToggleField2.default, {
-	                            type: 'task-group',
-	                            text: 'Add a new task group',
-	                            clearTextOnClick: true,
-	                            resetToOriginalOnSubmit: true,
+	                        _react2.default.createElement(_newTaskGroupLink2.default, {
 	                            handleSubmit: this.props.handleAddTaskGroupClick,
 	                            includeWithSubmit: this.props.taskGroup
 	                        })
@@ -63994,6 +63990,7 @@
 	                text: 'Add a new task group',
 	                clearTextOnClick: true,
 	                resetToOriginalOnSubmit: true,
+	                includeWithSubmit: this.props.includeWithSubmit,
 	                handleSubmit: this.props.handleSubmit
 	            });
 	        }
@@ -64003,6 +64000,7 @@
 	}(_react2.default.Component);
 
 	NewTaskGroupLink.propTypes = {
+	    includeWithSubmit: _react2.default.PropTypes.object,
 	    handleSubmit: _react2.default.PropTypes.func.isRequired
 	};
 

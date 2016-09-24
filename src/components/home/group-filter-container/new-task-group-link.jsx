@@ -13,6 +13,7 @@ class NewTaskGroupLink extends React.Component {
                 text='Add a new task group'
                 clearTextOnClick={true}
                 resetToOriginalOnSubmit={true}
+                includeWithSubmit={this.props.includeWithSubmit}
                 handleSubmit={this.props.handleSubmit}
             />
         );
@@ -20,6 +21,7 @@ class NewTaskGroupLink extends React.Component {
 }
 
 NewTaskGroupLink.propTypes = {
+    includeWithSubmit: React.PropTypes.object,
     handleSubmit: React.PropTypes.func.isRequired
 };
 
