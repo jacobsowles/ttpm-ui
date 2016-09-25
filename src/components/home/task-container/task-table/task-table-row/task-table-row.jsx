@@ -2,6 +2,7 @@
 import React from 'react';
 
 // components
+import Checkbox from '../../../../fields/checkbox.jsx';
 import TaskTableTask from '../task-table-task.jsx';
 
 // styles
@@ -9,32 +10,14 @@ require('./task-table-row.scss');
 
 class TaskTableRow extends React.Component {
 
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            complete: props.task.Complete
-        };
-
-        this.handleCompletionToggle = this.handleCompletionToggle.bind(this);
-    }
-
-    handleCompletionToggle() {
-        this.setState({
-            complete: !this.state.complete
-        });
-
-        this.props.handleCompletionToggle(this.props.task.Id);
-    }
-
     render() {
         return (
-            <tr className={this.state.complete ? 'task-table-row-complete' : ''}>
+            <tr className={this.props.task.Complete ? 'task-table-row-complete' : ''}>
                 <td style={{width: '30px'}}>
-                    <input
-                        type="checkbox"
-                        checked={this.state.complete}
-                        onChange={() => this.handleCompletionToggle()}
+                    <Checkbox
+                        checked={this.props.task.Complete}
+                        includeWithChange={this.props.task}
+                        handleChange={this.props.handleCompletionToggle}
                     />
                 </td>
                 <td>

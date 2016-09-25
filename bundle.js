@@ -36995,8 +36995,8 @@
 	            dispatch(_taskActions2.default.createTask(task));
 	        },
 
-	        handleCompletionToggle: function handleCompletionToggle(taskId) {
-	            dispatch(_taskActions2.default.toggleComplete(taskId));
+	        handleCompletionToggle: function handleCompletionToggle(task) {
+	            dispatch(_taskActions2.default.toggleComplete(task.Id));
 	        },
 
 	        handleTaskNameEdit: function handleTaskNameEdit(newName, task) {
@@ -62567,6 +62567,10 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _checkbox = __webpack_require__(549);
+
+	var _checkbox2 = _interopRequireDefault(_checkbox);
+
 	var _taskTableTask = __webpack_require__(547);
 
 	var _taskTableTask2 = _interopRequireDefault(_taskTableTask);
@@ -62589,45 +62593,25 @@
 	var TaskTableRow = function (_React$Component) {
 	    _inherits(TaskTableRow, _React$Component);
 
-	    function TaskTableRow(props) {
+	    function TaskTableRow() {
 	        _classCallCheck(this, TaskTableRow);
 
-	        var _this = _possibleConstructorReturn(this, (TaskTableRow.__proto__ || Object.getPrototypeOf(TaskTableRow)).call(this, props));
-
-	        _this.state = {
-	            complete: props.task.Complete
-	        };
-
-	        _this.handleCompletionToggle = _this.handleCompletionToggle.bind(_this);
-	        return _this;
+	        return _possibleConstructorReturn(this, (TaskTableRow.__proto__ || Object.getPrototypeOf(TaskTableRow)).apply(this, arguments));
 	    }
 
 	    _createClass(TaskTableRow, [{
-	        key: 'handleCompletionToggle',
-	        value: function handleCompletionToggle() {
-	            this.setState({
-	                complete: !this.state.complete
-	            });
-
-	            this.props.handleCompletionToggle(this.props.task.Id);
-	        }
-	    }, {
 	        key: 'render',
 	        value: function render() {
-	            var _this2 = this;
-
 	            return _react2.default.createElement(
 	                'tr',
-	                { className: this.state.complete ? 'task-table-row-complete' : '' },
+	                { className: this.props.task.Complete ? 'task-table-row-complete' : '' },
 	                _react2.default.createElement(
 	                    'td',
 	                    { style: { width: '30px' } },
-	                    _react2.default.createElement('input', {
-	                        type: 'checkbox',
-	                        checked: this.state.complete,
-	                        onChange: function onChange() {
-	                            return _this2.handleCompletionToggle();
-	                        }
+	                    _react2.default.createElement(_checkbox2.default, {
+	                        checked: this.props.task.Complete,
+	                        includeWithChange: this.props.task,
+	                        handleChange: this.props.handleCompletionToggle
 	                    })
 	                ),
 	                _react2.default.createElement(
@@ -63917,6 +63901,86 @@
 	};
 
 	exports.default = TaskTableTaskDetails;
+
+/***/ },
+/* 549 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
+
+
+	var Checkbox = function (_React$Component) {
+	    _inherits(Checkbox, _React$Component);
+
+	    function Checkbox(props) {
+	        _classCallCheck(this, Checkbox);
+
+	        var _this = _possibleConstructorReturn(this, (Checkbox.__proto__ || Object.getPrototypeOf(Checkbox)).call(this, props));
+
+	        _this.state = {
+	            checked: props.checked
+	        };
+
+	        _this.handleChange = _this.handleChange.bind(_this);
+	        return _this;
+	    }
+
+	    _createClass(Checkbox, [{
+	        key: "handleChange",
+	        value: function handleChange() {
+	            this.setState({
+	                checked: !this.state.checked
+	            });
+
+	            this.props.handleChange(this.props.includeWithChange);
+	        }
+	    }, {
+	        key: "render",
+	        value: function render() {
+	            var _this2 = this;
+
+	            return _react2.default.createElement("input", {
+	                type: "checkbox",
+	                checked: this.state.checked,
+	                onChange: function onChange() {
+	                    return _this2.handleChange();
+	                }
+	            });
+	        }
+	    }]);
+
+	    return Checkbox;
+	}(_react2.default.Component);
+
+	Checkbox.propTypes = {
+	    checked: _react2.default.PropTypes.bool,
+	    includeWithChange: _react2.default.PropTypes.object,
+	    handleChange: _react2.default.PropTypes.func.isRequired
+	};
+
+	Checkbox.getDefaultProps = {
+	    checked: false
+	};
+
+	exports.default = Checkbox;
 
 /***/ }
 /******/ ]);

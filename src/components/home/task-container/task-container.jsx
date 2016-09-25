@@ -122,8 +122,8 @@ function mapDispatchToProps(dispatch) {
             dispatch(taskActions.createTask(task));
         },
 
-        handleCompletionToggle: function(taskId) {
-            dispatch(taskActions.toggleComplete(taskId));
+        handleCompletionToggle: function(task) {
+            dispatch(taskActions.toggleComplete(task.Id));
         },
 
         handleTaskNameEdit: function(newName, task) {
