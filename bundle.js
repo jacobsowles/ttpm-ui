@@ -34458,7 +34458,7 @@
 
 
 	// module
-	exports.push([module.id, ".view-edit-toggle-field input,\n.view-edit-toggle-field-edit-mode input {\n  background: none;\n  border: none; }\n\n.view-edit-toggle-field input:hover {\n  cursor: pointer; }\n", ""]);
+	exports.push([module.id, ".view-edit-toggle-field input,\n.view-edit-toggle-field-edit-mode input {\n  width: 100%;\n  background: none;\n  border: none; }\n\n.view-edit-toggle-field input:hover {\n  cursor: pointer; }\n", ""]);
 
 	// exports
 
@@ -62694,7 +62694,7 @@
 
 
 	// module
-	exports.push([module.id, ".task-table input {\n  width: 100%; }\n", ""]);
+	exports.push([module.id, "", ""]);
 
 	// exports
 
