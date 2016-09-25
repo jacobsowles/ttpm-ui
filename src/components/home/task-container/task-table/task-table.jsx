@@ -36,7 +36,7 @@ class TaskTable extends React.Component {
                         className="task-table table-responsive"
                         style={styles.taskTable}>
                         <table className="table table-striped">
-                            <caption styles={styles.caption}>
+                            <caption style={styles.caption}>
                                 {
                                     this.props.taskGroupName
                                         ? <span>showing tasks in the <strong>{this.props.taskGroupName}</strong> group | <a href="/">show all tasks</a></span>

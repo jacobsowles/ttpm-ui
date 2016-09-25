@@ -62344,7 +62344,7 @@
 	                            { className: 'table table-striped' },
 	                            _react2.default.createElement(
 	                                'caption',
-	                                { styles: styles.caption },
+	                                { style: styles.caption },
 	                                this.props.taskGroupName ? _react2.default.createElement(
 	                                    'span',
 	                                    null,
