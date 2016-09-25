@@ -10,6 +10,7 @@ import ViewEditToggleField from '../../../fields/view-edit-toggle-field/view-edi
 class TaskTableTask extends React.Component {
 
     render() {
+        console.log(this.props.task);
         return (
             <Accordion>
                 <AccordionItem

@@ -66,7 +66,7 @@
 
 	var _home2 = _interopRequireDefault(_home);
 
-	var _login = __webpack_require__(520);
+	var _login = __webpack_require__(519);
 
 	var _login2 = _interopRequireDefault(_login);
 
@@ -80,7 +80,7 @@
 
 	// app modules
 	// npm modules
-	__webpack_require__(531);
+	__webpack_require__(530);
 
 	(0, _reactDom.render)(_react2.default.createElement(
 	    _reactRedux.Provider,
@@ -29543,19 +29543,19 @@
 
 	var _taskContainer2 = _interopRequireDefault(_taskContainer);
 
-	var _taskSearch = __webpack_require__(511);
+	var _taskSearch = __webpack_require__(510);
 
 	var _taskSearch2 = _interopRequireDefault(_taskSearch);
 
-	var _userControls = __webpack_require__(514);
+	var _userControls = __webpack_require__(513);
 
 	var _userControls2 = _interopRequireDefault(_userControls);
 
-	var _settingActions = __webpack_require__(518);
+	var _settingActions = __webpack_require__(517);
 
 	var _settingActions2 = _interopRequireDefault(_settingActions);
 
-	var _userSettingActions = __webpack_require__(519);
+	var _userSettingActions = __webpack_require__(518);
 
 	var _userSettingActions2 = _interopRequireDefault(_userSettingActions);
 
@@ -34314,6 +34314,13 @@
 	    }
 
 	    _createClass(ViewEditToggleField, [{
+	        key: 'componentWillUpdate',
+	        value: function componentWillUpdate(nextProps, nextState) {
+	            if (!nextProps.clearTextOnClick) {
+	                nextState.value = nextProps.text;
+	            }
+	        }
+	    }, {
 	        key: 'componentDidUpdate',
 	        value: function componentDidUpdate(prevProps, prevState) {
 	            this.state.hasBeenSubmitted = false;
@@ -62335,15 +62342,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _newTaskRow = __webpack_require__(502);
+	var _newTaskRow = __webpack_require__(500);
 
 	var _newTaskRow2 = _interopRequireDefault(_newTaskRow);
 
-	var _taskTableCaption = __webpack_require__(500);
+	var _taskTableCaption = __webpack_require__(503);
 
 	var _taskTableCaption2 = _interopRequireDefault(_taskTableCaption);
 
-	var _taskTableRow = __webpack_require__(505);
+	var _taskTableRow = __webpack_require__(504);
 
 	var _taskTableRow2 = _interopRequireDefault(_taskTableRow);
 
@@ -62466,90 +62473,8 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
 
 
-	var styles = {
-	    caption: {
-	        padding: '0 0 10px 0',
-	        fontSize: '.9em',
-	        textAlign: 'right'
-	    }
-	};
-
-	var TaskTableCaption = function (_React$Component) {
-	    _inherits(TaskTableCaption, _React$Component);
-
-	    function TaskTableCaption() {
-	        _classCallCheck(this, TaskTableCaption);
-
-	        return _possibleConstructorReturn(this, (TaskTableCaption.__proto__ || Object.getPrototypeOf(TaskTableCaption)).apply(this, arguments));
-	    }
-
-	    _createClass(TaskTableCaption, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'caption',
-	                { style: styles.caption },
-	                this.props.taskGroupName ? _react2.default.createElement(
-	                    'span',
-	                    null,
-	                    'showing tasks in the ',
-	                    _react2.default.createElement(
-	                        'strong',
-	                        null,
-	                        this.props.taskGroupName
-	                    ),
-	                    ' group | ',
-	                    _react2.default.createElement(
-	                        'a',
-	                        { href: '/' },
-	                        'show all tasks'
-	                    )
-	                ) : _react2.default.createElement(
-	                    'span',
-	                    null,
-	                    'showing all tasks'
-	                )
-	            );
-	        }
-	    }]);
-
-	    return TaskTableCaption;
-	}(_react2.default.Component);
-
-	TaskTableCaption.propTypes = {
-	    taskGroupName: _react2.default.PropTypes.string
-	};
-
-	exports.default = TaskTableCaption;
-
-/***/ },
-/* 501 */,
-/* 502 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
-
-
 	// styles
-	__webpack_require__(503);
+	__webpack_require__(501);
 
 	var NewTaskRow = function (_React$Component) {
 	    _inherits(NewTaskRow, _React$Component);
@@ -62628,13 +62553,13 @@
 	exports.default = NewTaskRow;
 
 /***/ },
-/* 503 */
+/* 501 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(504);
+	var content = __webpack_require__(502);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(302)(content, {});
@@ -62654,7 +62579,7 @@
 	}
 
 /***/ },
-/* 504 */
+/* 502 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(301)();
@@ -62668,7 +62593,7 @@
 
 
 /***/ },
-/* 505 */
+/* 503 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62683,11 +62608,92 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _checkbox = __webpack_require__(506);
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
+
+
+	var styles = {
+	    caption: {
+	        padding: '0 0 10px 0',
+	        fontSize: '.9em',
+	        textAlign: 'right'
+	    }
+	};
+
+	var TaskTableCaption = function (_React$Component) {
+	    _inherits(TaskTableCaption, _React$Component);
+
+	    function TaskTableCaption() {
+	        _classCallCheck(this, TaskTableCaption);
+
+	        return _possibleConstructorReturn(this, (TaskTableCaption.__proto__ || Object.getPrototypeOf(TaskTableCaption)).apply(this, arguments));
+	    }
+
+	    _createClass(TaskTableCaption, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'caption',
+	                { style: styles.caption },
+	                this.props.taskGroupName ? _react2.default.createElement(
+	                    'span',
+	                    null,
+	                    'showing tasks in the ',
+	                    _react2.default.createElement(
+	                        'strong',
+	                        null,
+	                        this.props.taskGroupName
+	                    ),
+	                    ' group | ',
+	                    _react2.default.createElement(
+	                        'a',
+	                        { href: '/' },
+	                        'show all tasks'
+	                    )
+	                ) : _react2.default.createElement(
+	                    'span',
+	                    null,
+	                    'showing all tasks'
+	                )
+	            );
+	        }
+	    }]);
+
+	    return TaskTableCaption;
+	}(_react2.default.Component);
+
+	TaskTableCaption.propTypes = {
+	    taskGroupName: _react2.default.PropTypes.string
+	};
+
+	exports.default = TaskTableCaption;
+
+/***/ },
+/* 504 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _checkbox = __webpack_require__(505);
 
 	var _checkbox2 = _interopRequireDefault(_checkbox);
 
-	var _taskTableTask = __webpack_require__(507);
+	var _taskTableTask = __webpack_require__(506);
 
 	var _taskTableTask2 = _interopRequireDefault(_taskTableTask);
 
@@ -62704,7 +62710,7 @@
 
 
 	// styles
-	__webpack_require__(509);
+	__webpack_require__(508);
 
 	var TaskTableRow = function (_React$Component) {
 	    _inherits(TaskTableRow, _React$Component);
@@ -62762,7 +62768,7 @@
 	exports.default = TaskTableRow;
 
 /***/ },
-/* 506 */
+/* 505 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -62803,6 +62809,11 @@
 	    }
 
 	    _createClass(Checkbox, [{
+	        key: "componentWillUpdate",
+	        value: function componentWillUpdate(nextProps, nextState) {
+	            nextState.checked = nextProps.checked;
+	        }
+	    }, {
 	        key: "handleChange",
 	        value: function handleChange() {
 	            this.setState({
@@ -62842,7 +62853,7 @@
 	exports.default = Checkbox;
 
 /***/ },
-/* 507 */
+/* 506 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62865,7 +62876,7 @@
 
 	var _accordionItem2 = _interopRequireDefault(_accordionItem);
 
-	var _taskTableTaskDetails = __webpack_require__(508);
+	var _taskTableTaskDetails = __webpack_require__(507);
 
 	var _taskTableTaskDetails2 = _interopRequireDefault(_taskTableTaskDetails);
 
@@ -62897,6 +62908,7 @@
 	    _createClass(TaskTableTask, [{
 	        key: 'render',
 	        value: function render() {
+	            console.log(this.props.task);
 	            return _react2.default.createElement(
 	                _accordion2.default,
 	                null,
@@ -62936,7 +62948,7 @@
 	exports.default = TaskTableTask;
 
 /***/ },
-/* 508 */
+/* 507 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63043,13 +63055,13 @@
 	exports.default = TaskTableTaskDetails;
 
 /***/ },
-/* 509 */
+/* 508 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(510);
+	var content = __webpack_require__(509);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(302)(content, {});
@@ -63069,7 +63081,7 @@
 	}
 
 /***/ },
-/* 510 */
+/* 509 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(301)();
@@ -63083,7 +63095,7 @@
 
 
 /***/ },
-/* 511 */
+/* 510 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63108,7 +63120,7 @@
 
 
 	// styles
-	__webpack_require__(512);
+	__webpack_require__(511);
 
 	var TaskSearch = function (_React$Component) {
 	    _inherits(TaskSearch, _React$Component);
@@ -63132,13 +63144,13 @@
 	exports.default = TaskSearch;
 
 /***/ },
-/* 512 */
+/* 511 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(513);
+	var content = __webpack_require__(512);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(302)(content, {});
@@ -63158,7 +63170,7 @@
 	}
 
 /***/ },
-/* 513 */
+/* 512 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(301)();
@@ -63172,7 +63184,7 @@
 
 
 /***/ },
-/* 514 */
+/* 513 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63189,7 +63201,7 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _userActions = __webpack_require__(515);
+	var _userActions = __webpack_require__(514);
 
 	var _userActions2 = _interopRequireDefault(_userActions);
 
@@ -63206,7 +63218,7 @@
 
 
 	// styles
-	__webpack_require__(516);
+	__webpack_require__(515);
 
 	var UserControls = function (_React$Component) {
 	    _inherits(UserControls, _React$Component);
@@ -63258,7 +63270,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(UserControls);
 
 /***/ },
-/* 515 */
+/* 514 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63275,13 +63287,13 @@
 	};
 
 /***/ },
-/* 516 */
+/* 515 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(517);
+	var content = __webpack_require__(516);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(302)(content, {});
@@ -63301,7 +63313,7 @@
 	}
 
 /***/ },
-/* 517 */
+/* 516 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(301)();
@@ -63315,7 +63327,7 @@
 
 
 /***/ },
-/* 518 */
+/* 517 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63332,7 +63344,7 @@
 	};
 
 /***/ },
-/* 519 */
+/* 518 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63349,7 +63361,7 @@
 	};
 
 /***/ },
-/* 520 */
+/* 519 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63368,11 +63380,11 @@
 
 	var _redux = __webpack_require__(179);
 
-	var _loginForm = __webpack_require__(521);
+	var _loginForm = __webpack_require__(520);
 
 	var _loginForm2 = _interopRequireDefault(_loginForm);
 
-	var _registrationForm = __webpack_require__(525);
+	var _registrationForm = __webpack_require__(524);
 
 	var _registrationForm2 = _interopRequireDefault(_registrationForm);
 
@@ -63394,7 +63406,7 @@
 
 
 	// styles
-	__webpack_require__(529);
+	__webpack_require__(528);
 
 	var Login = function (_React$Component) {
 	    _inherits(Login, _React$Component);
@@ -63464,7 +63476,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Login);
 
 /***/ },
-/* 521 */
+/* 520 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63483,7 +63495,7 @@
 
 	var _redux = __webpack_require__(179);
 
-	var _loginFormActions = __webpack_require__(522);
+	var _loginFormActions = __webpack_require__(521);
 
 	var _loginFormActions2 = _interopRequireDefault(_loginFormActions);
 
@@ -63505,7 +63517,7 @@
 
 
 	// styles
-	__webpack_require__(523);
+	__webpack_require__(522);
 
 	var LoginForm = function (_React$Component) {
 	    _inherits(LoginForm, _React$Component);
@@ -63591,7 +63603,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(LoginForm);
 
 /***/ },
-/* 522 */
+/* 521 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63620,13 +63632,13 @@
 	};
 
 /***/ },
-/* 523 */
+/* 522 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(524);
+	var content = __webpack_require__(523);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(302)(content, {});
@@ -63646,7 +63658,7 @@
 	}
 
 /***/ },
-/* 524 */
+/* 523 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(301)();
@@ -63660,7 +63672,7 @@
 
 
 /***/ },
-/* 525 */
+/* 524 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63679,7 +63691,7 @@
 
 	var _redux = __webpack_require__(179);
 
-	var _registrationFormActions = __webpack_require__(526);
+	var _registrationFormActions = __webpack_require__(525);
 
 	var _registrationFormActions2 = _interopRequireDefault(_registrationFormActions);
 
@@ -63696,7 +63708,7 @@
 
 
 	// styles
-	__webpack_require__(527);
+	__webpack_require__(526);
 
 	var RegistrationForm = function (_React$Component) {
 	    _inherits(RegistrationForm, _React$Component);
@@ -63779,7 +63791,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(RegistrationForm);
 
 /***/ },
-/* 526 */
+/* 525 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63796,13 +63808,13 @@
 	};
 
 /***/ },
-/* 527 */
+/* 526 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(528);
+	var content = __webpack_require__(527);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(302)(content, {});
@@ -63822,7 +63834,7 @@
 	}
 
 /***/ },
-/* 528 */
+/* 527 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(301)();
@@ -63836,13 +63848,13 @@
 
 
 /***/ },
-/* 529 */
+/* 528 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(530);
+	var content = __webpack_require__(529);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(302)(content, {});
@@ -63862,7 +63874,7 @@
 	}
 
 /***/ },
-/* 530 */
+/* 529 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(301)();
@@ -63876,13 +63888,13 @@
 
 
 /***/ },
-/* 531 */
+/* 530 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(532);
+	var content = __webpack_require__(531);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(302)(content, {});
@@ -63902,7 +63914,7 @@
 	}
 
 /***/ },
-/* 532 */
+/* 531 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(301)();

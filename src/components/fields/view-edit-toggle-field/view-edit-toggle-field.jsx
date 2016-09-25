@@ -22,6 +22,12 @@ class ViewEditToggleField extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    componentWillUpdate(nextProps, nextState) {
+        if (!nextProps.clearTextOnClick) {
+            nextState.value = nextProps.text;
+        }
+    }
+
     componentDidUpdate(prevProps, prevState) {
         this.state.hasBeenSubmitted = false;
     }

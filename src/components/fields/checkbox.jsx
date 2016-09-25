@@ -13,6 +13,10 @@ class Checkbox extends React.Component {
         this.handleChange = this.handleChange.bind(this);
     }
 
+    componentWillUpdate(nextProps, nextState) {
+        nextState.checked = nextProps.checked;
+    }
+
     handleChange() {
         this.setState({
             checked: !this.state.checked
