@@ -62270,9 +62270,9 @@
 
 	var _newTaskRow2 = _interopRequireDefault(_newTaskRow);
 
-	var _taskTableHeaderRow = __webpack_require__(546);
+	var _taskTableCaption = __webpack_require__(550);
 
-	var _taskTableHeaderRow2 = _interopRequireDefault(_taskTableHeaderRow);
+	var _taskTableCaption2 = _interopRequireDefault(_taskTableCaption);
 
 	var _taskTableRow = __webpack_require__(505);
 
@@ -62305,12 +62305,6 @@
 	        fontSize: '.9em',
 	        background: '#ffffff',
 	        padding: '15px'
-	    },
-
-	    caption: {
-	        padding: '0 0 10px 0',
-	        fontSize: '.9em',
-	        textAlign: 'right'
 	    }
 	};
 
@@ -62343,30 +62337,7 @@
 	                        _react2.default.createElement(
 	                            'table',
 	                            { className: 'table table-striped' },
-	                            _react2.default.createElement(
-	                                'caption',
-	                                { style: styles.caption },
-	                                this.props.taskGroupName ? _react2.default.createElement(
-	                                    'span',
-	                                    null,
-	                                    'showing tasks in the ',
-	                                    _react2.default.createElement(
-	                                        'strong',
-	                                        null,
-	                                        this.props.taskGroupName
-	                                    ),
-	                                    ' group | ',
-	                                    _react2.default.createElement(
-	                                        'a',
-	                                        { href: '/' },
-	                                        'show all tasks'
-	                                    )
-	                                ) : _react2.default.createElement(
-	                                    'span',
-	                                    null,
-	                                    'showing all tasks'
-	                                )
-	                            ),
+	                            _react2.default.createElement(_taskTableCaption2.default, { taskGroupName: this.props.taskGroupName }),
 	                            _react2.default.createElement(
 	                                'tbody',
 	                                null,
@@ -63641,67 +63612,7 @@
 /* 543 */,
 /* 544 */,
 /* 545 */,
-/* 546 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
-
-
-	var TaskTableHeaderRow = function (_React$Component) {
-	    _inherits(TaskTableHeaderRow, _React$Component);
-
-	    function TaskTableHeaderRow() {
-	        _classCallCheck(this, TaskTableHeaderRow);
-
-	        return _possibleConstructorReturn(this, (TaskTableHeaderRow.__proto__ || Object.getPrototypeOf(TaskTableHeaderRow)).apply(this, arguments));
-	    }
-
-	    _createClass(TaskTableHeaderRow, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'tr',
-	                null,
-	                _react2.default.createElement('th', null),
-	                _react2.default.createElement(
-	                    'th',
-	                    null,
-	                    'Task'
-	                ),
-	                _react2.default.createElement(
-	                    'th',
-	                    null,
-	                    'Notes'
-	                ),
-	                _react2.default.createElement('th', null)
-	            );
-	        }
-	    }]);
-
-	    return TaskTableHeaderRow;
-	}(_react2.default.Component);
-
-	exports.default = TaskTableHeaderRow;
-
-/***/ },
+/* 546 */,
 /* 547 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -63981,6 +63892,87 @@
 	};
 
 	exports.default = Checkbox;
+
+/***/ },
+/* 550 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
+
+
+	var styles = {
+	    caption: {
+	        padding: '0 0 10px 0',
+	        fontSize: '.9em',
+	        textAlign: 'right'
+	    }
+	};
+
+	var TaskTableCaption = function (_React$Component) {
+	    _inherits(TaskTableCaption, _React$Component);
+
+	    function TaskTableCaption() {
+	        _classCallCheck(this, TaskTableCaption);
+
+	        return _possibleConstructorReturn(this, (TaskTableCaption.__proto__ || Object.getPrototypeOf(TaskTableCaption)).apply(this, arguments));
+	    }
+
+	    _createClass(TaskTableCaption, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'caption',
+	                { style: styles.caption },
+	                this.props.taskGroupName ? _react2.default.createElement(
+	                    'span',
+	                    null,
+	                    'showing tasks in the ',
+	                    _react2.default.createElement(
+	                        'strong',
+	                        null,
+	                        this.props.taskGroupName
+	                    ),
+	                    ' group | ',
+	                    _react2.default.createElement(
+	                        'a',
+	                        { href: '/' },
+	                        'show all tasks'
+	                    )
+	                ) : _react2.default.createElement(
+	                    'span',
+	                    null,
+	                    'showing all tasks'
+	                )
+	            );
+	        }
+	    }]);
+
+	    return TaskTableCaption;
+	}(_react2.default.Component);
+
+	TaskTableCaption.propTypes = {
+	    taskGroupName: _react2.default.PropTypes.string
+	};
+
+	exports.default = TaskTableCaption;
 
 /***/ }
 /******/ ]);

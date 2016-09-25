@@ -3,7 +3,7 @@ import React from 'react';
 
 // components
 import NewTaskRow from './new-task-row/new-task-row.jsx';
-import TaskTableHeaderRow from './task-table-header-row.jsx';
+import TaskTableCaption from './task-table-caption.jsx';
 import TaskTableRow from './task-table-row/task-table-row.jsx';
 
 // actions
@@ -17,12 +17,6 @@ const styles = {
         fontSize: '.9em',
         background: '#ffffff',
         padding: '15px'
-    },
-
-    caption: {
-        padding: '0 0 10px 0',
-        fontSize: '.9em',
-        textAlign: 'right'
     }
 };
 
@@ -37,13 +31,7 @@ class TaskTable extends React.Component {
                         style={styles.taskTable}
                     >
                         <table className="table table-striped">
-                            <caption style={styles.caption}>
-                                {
-                                    this.props.taskGroupName
-                                        ? <span>showing tasks in the <strong>{this.props.taskGroupName}</strong> group | <a href="/">show all tasks</a></span>
-                                        : <span>showing all tasks</span>
-                                }
-                            </caption>
+                            <TaskTableCaption taskGroupName={this.props.taskGroupName} />
                             <tbody>
                                 {
                                     this.props.tasks.map((task, key) => {
