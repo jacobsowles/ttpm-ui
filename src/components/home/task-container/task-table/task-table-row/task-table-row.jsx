@@ -2,10 +2,7 @@
 import React from 'react';
 
 // components
-import Accordion from '../../../../accordion/accordion.jsx';
-import AccordionItem from '../../../../accordion/accordion-item/accordion-item.jsx';
-import TaskTableTaskDetails from '../task-table-task-details/task-table-task-details.jsx';
-import ViewEditToggleField from '../../../../fields/view-edit-toggle-field/view-edit-toggle-field.jsx';
+import TaskTableTask from '../task-table-task/task-table-task.jsx';
 
 // styles
 require('./task-table-row.scss');
@@ -41,27 +38,12 @@ class TaskTableRow extends React.Component {
                     />
                 </td>
                 <td>
-                    <Accordion>
-                        <AccordionItem
-                            header={(
-                                <ViewEditToggleField
-                                    text={this.props.task.Name}
-                                    handleSubmit={this.props.handleNameEdit}
-                                    includeWithSubmit={this.props.task}
-                                    isEditable={!this.state.complete}
-                                />
-                            )}
-                            body={(
-                                <TaskTableTaskDetails
-                                    task={this.props.task}
-                                    handleNotesEdit={this.props.handleNotesEdit}
-                                    handleTaskDelete={this.props.handleTaskDelete}
-                                />
-                            )}
-                            activateOnHeaderClick={true}
-                            showIconOnRight={true}
-                        />
-                    </Accordion>
+                    <TaskTableTask
+                        task={this.props.task}
+                        handleNameEdit={this.props.handleNameEdit}
+                        handleNotesEdit={this.props.handleNotesEdit}
+                        handleTaskDelete={this.props.handleTaskDelete}
+                    />
                 </td>
             </tr>
         );

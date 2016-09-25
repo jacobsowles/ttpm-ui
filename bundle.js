@@ -62668,21 +62668,9 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _accordion = __webpack_require__(304);
+	var _taskTableTask = __webpack_require__(539);
 
-	var _accordion2 = _interopRequireDefault(_accordion);
-
-	var _accordionItem = __webpack_require__(305);
-
-	var _accordionItem2 = _interopRequireDefault(_accordionItem);
-
-	var _taskTableTaskDetails = __webpack_require__(506);
-
-	var _taskTableTaskDetails2 = _interopRequireDefault(_taskTableTaskDetails);
-
-	var _viewEditToggleField = __webpack_require__(310);
-
-	var _viewEditToggleField2 = _interopRequireDefault(_viewEditToggleField);
+	var _taskTableTask2 = _interopRequireDefault(_taskTableTask);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -62746,25 +62734,12 @@
 	                _react2.default.createElement(
 	                    'td',
 	                    null,
-	                    _react2.default.createElement(
-	                        _accordion2.default,
-	                        null,
-	                        _react2.default.createElement(_accordionItem2.default, {
-	                            header: _react2.default.createElement(_viewEditToggleField2.default, {
-	                                text: this.props.task.Name,
-	                                handleSubmit: this.props.handleNameEdit,
-	                                includeWithSubmit: this.props.task,
-	                                isEditable: !this.state.complete
-	                            }),
-	                            body: _react2.default.createElement(_taskTableTaskDetails2.default, {
-	                                task: this.props.task,
-	                                handleNotesEdit: this.props.handleNotesEdit,
-	                                handleTaskDelete: this.props.handleTaskDelete
-	                            }),
-	                            activateOnHeaderClick: true,
-	                            showIconOnRight: true
-	                        })
-	                    )
+	                    _react2.default.createElement(_taskTableTask2.default, {
+	                        task: this.props.task,
+	                        handleNameEdit: this.props.handleNameEdit,
+	                        handleNotesEdit: this.props.handleNotesEdit,
+	                        handleTaskDelete: this.props.handleTaskDelete
+	                    })
 	                )
 	            );
 	        }
@@ -62788,133 +62763,9 @@
 	exports.default = TaskTableRow;
 
 /***/ },
-/* 506 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
-
-
-	// styles
-	__webpack_require__(507);
-
-	var TaskTableTaskDetails = function (_React$Component) {
-	    _inherits(TaskTableTaskDetails, _React$Component);
-
-	    function TaskTableTaskDetails() {
-	        _classCallCheck(this, TaskTableTaskDetails);
-
-	        return _possibleConstructorReturn(this, (TaskTableTaskDetails.__proto__ || Object.getPrototypeOf(TaskTableTaskDetails)).apply(this, arguments));
-	    }
-
-	    _createClass(TaskTableTaskDetails, [{
-	        key: 'render',
-	        value: function render() {
-	            var _this2 = this;
-
-	            return _react2.default.createElement(
-	                'div',
-	                { className: 'task-table-task-details form-group' },
-	                _react2.default.createElement(
-	                    'label',
-	                    null,
-	                    'Notes'
-	                ),
-	                _react2.default.createElement('textarea', {
-	                    type: 'text',
-	                    className: 'form-control',
-	                    defaultValue: this.props.task.Notes,
-	                    onBlur: function onBlur(event) {
-	                        return _this2.props.handleNotesEdit(event.target.value, _this2.props.task);
-	                    }
-	                }),
-	                _react2.default.createElement(
-	                    'button',
-	                    {
-	                        className: 'btn btn-danger',
-	                        onClick: function onClick() {
-	                            return _this2.props.handleTaskDelete(_this2.props.task.Id);
-	                        }
-	                    },
-	                    'Delete Task'
-	                )
-	            );
-	        }
-	    }]);
-
-	    return TaskTableTaskDetails;
-	}(_react2.default.Component);
-
-	TaskTableTaskDetails.propTypes = {
-	    task: _react2.default.PropTypes.shape({
-	        Name: _react2.default.PropTypes.string.isRequired,
-	        Notes: _react2.default.PropTypes.string,
-	        Complete: _react2.default.PropTypes.bool.isRequired
-	    }),
-	    handleNotesEdit: _react2.default.PropTypes.func.isRequired,
-	    handleTaskDelete: _react2.default.PropTypes.func.isRequired
-	};
-
-	exports.default = TaskTableTaskDetails;
-
-/***/ },
-/* 507 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(508);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(302)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../../../../node_modules/css-loader/index.js!./../../../../../../node_modules/sass-loader/index.js!./task-table-task-details.scss", function() {
-				var newContent = require("!!./../../../../../../node_modules/css-loader/index.js!./../../../../../../node_modules/sass-loader/index.js!./task-table-task-details.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 508 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(301)();
-	// imports
-
-
-	// module
-	exports.push([module.id, ".task-table-task-details {\n  margin: 15px 15px auto auto;\n  font-size: .9em; }\n  .task-table-task-details textarea.form-control {\n    height: 150px;\n    font-size: .9em; }\n  .task-table-task-details button {\n    font-size: .9em;\n    margin-top: 10px; }\n", ""]);
-
-	// exports
-
-
-/***/ },
+/* 506 */,
+/* 507 */,
+/* 508 */,
 /* 509 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -63895,6 +63746,256 @@
 	};
 
 	exports.default = LoadingGraphic;
+
+/***/ },
+/* 536 */,
+/* 537 */,
+/* 538 */,
+/* 539 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _accordion = __webpack_require__(304);
+
+	var _accordion2 = _interopRequireDefault(_accordion);
+
+	var _accordionItem = __webpack_require__(305);
+
+	var _accordionItem2 = _interopRequireDefault(_accordionItem);
+
+	var _taskTableTaskDetails = __webpack_require__(545);
+
+	var _taskTableTaskDetails2 = _interopRequireDefault(_taskTableTaskDetails);
+
+	var _viewEditToggleField = __webpack_require__(310);
+
+	var _viewEditToggleField2 = _interopRequireDefault(_viewEditToggleField);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
+
+
+	// components
+
+
+	// styles
+	__webpack_require__(543);
+
+	var TaskTableTask = function (_React$Component) {
+	    _inherits(TaskTableTask, _React$Component);
+
+	    function TaskTableTask() {
+	        _classCallCheck(this, TaskTableTask);
+
+	        return _possibleConstructorReturn(this, (TaskTableTask.__proto__ || Object.getPrototypeOf(TaskTableTask)).apply(this, arguments));
+	    }
+
+	    _createClass(TaskTableTask, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                _accordion2.default,
+	                null,
+	                _react2.default.createElement(_accordionItem2.default, {
+	                    header: _react2.default.createElement(_viewEditToggleField2.default, {
+	                        text: this.props.task.Name,
+	                        handleSubmit: this.props.handleNameEdit,
+	                        includeWithSubmit: this.props.task,
+	                        isEditable: !this.props.task.Complete
+	                    }),
+	                    body: _react2.default.createElement(_taskTableTaskDetails2.default, {
+	                        task: this.props.task,
+	                        handleNotesEdit: this.props.handleNotesEdit,
+	                        handleTaskDelete: this.props.handleTaskDelete
+	                    }),
+	                    activateOnHeaderClick: true,
+	                    showIconOnRight: true
+	                })
+	            );
+	        }
+	    }]);
+
+	    return TaskTableTask;
+	}(_react2.default.Component);
+
+	TaskTableTask.propTypes = {
+	    task: _react2.default.PropTypes.shape({
+	        Name: _react2.default.PropTypes.string.isRequired,
+	        Notes: _react2.default.PropTypes.string,
+	        Complete: _react2.default.PropTypes.bool.isRequired
+	    }),
+	    handleNameEdit: _react2.default.PropTypes.func.isRequired,
+	    handleNotesEdit: _react2.default.PropTypes.func.isRequired,
+	    handleTaskDelete: _react2.default.PropTypes.func.isRequired
+	};
+
+	exports.default = TaskTableTask;
+
+/***/ },
+/* 540 */,
+/* 541 */,
+/* 542 */,
+/* 543 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(544);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(302)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../../../node_modules/css-loader/index.js!./../../../../../../node_modules/sass-loader/index.js!./task-table-task.scss", function() {
+				var newContent = require("!!./../../../../../../node_modules/css-loader/index.js!./../../../../../../node_modules/sass-loader/index.js!./task-table-task.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 544 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(301)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "", ""]);
+
+	// exports
+
+
+/***/ },
+/* 545 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
+
+
+	// styles
+	var styles = {
+	    details: {
+	        margin: '15px 15px auto auto',
+	        fontSize: '.9em'
+	    },
+
+	    textarea: {
+	        height: '150px',
+	        fontSize: '.9em'
+	    },
+
+	    button: {
+	        fontSize: '.9em',
+	        marginTop: '10px'
+	    }
+	};
+
+	var TaskTableTaskDetails = function (_React$Component) {
+	    _inherits(TaskTableTaskDetails, _React$Component);
+
+	    function TaskTableTaskDetails() {
+	        _classCallCheck(this, TaskTableTaskDetails);
+
+	        return _possibleConstructorReturn(this, (TaskTableTaskDetails.__proto__ || Object.getPrototypeOf(TaskTableTaskDetails)).apply(this, arguments));
+	    }
+
+	    _createClass(TaskTableTaskDetails, [{
+	        key: 'render',
+	        value: function render() {
+	            var _this2 = this;
+
+	            return _react2.default.createElement(
+	                'div',
+	                {
+	                    className: 'task-table-task-details form-group',
+	                    style: styles.details
+	                },
+	                _react2.default.createElement(
+	                    'label',
+	                    null,
+	                    'Notes'
+	                ),
+	                _react2.default.createElement('textarea', {
+	                    type: 'text',
+	                    className: 'form-control',
+	                    style: styles.textarea,
+	                    defaultValue: this.props.task.Notes,
+	                    onBlur: function onBlur(event) {
+	                        return _this2.props.handleNotesEdit(event.target.value, _this2.props.task);
+	                    }
+	                }),
+	                _react2.default.createElement(
+	                    'button',
+	                    {
+	                        className: 'btn btn-danger',
+	                        style: styles.button,
+	                        onClick: function onClick() {
+	                            return _this2.props.handleTaskDelete(_this2.props.task.Id);
+	                        }
+	                    },
+	                    'Delete Task'
+	                )
+	            );
+	        }
+	    }]);
+
+	    return TaskTableTaskDetails;
+	}(_react2.default.Component);
+
+	TaskTableTaskDetails.propTypes = {
+	    task: _react2.default.PropTypes.shape({
+	        Name: _react2.default.PropTypes.string.isRequired,
+	        Notes: _react2.default.PropTypes.string,
+	        Complete: _react2.default.PropTypes.bool.isRequired
+	    }),
+	    handleNotesEdit: _react2.default.PropTypes.func.isRequired,
+	    handleTaskDelete: _react2.default.PropTypes.func.isRequired
+	};
+
+	exports.default = TaskTableTaskDetails;
 
 /***/ }
 /******/ ]);
