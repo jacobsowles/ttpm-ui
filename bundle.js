@@ -62708,7 +62708,7 @@
 	        var _this = _possibleConstructorReturn(this, (TaskTableRow.__proto__ || Object.getPrototypeOf(TaskTableRow)).call(this, props));
 
 	        _this.state = {
-	            complete: _this.props.task.Complete
+	            complete: props.task.Complete
 	        };
 
 	        _this.handleCompletionToggle = _this.handleCompletionToggle.bind(_this);

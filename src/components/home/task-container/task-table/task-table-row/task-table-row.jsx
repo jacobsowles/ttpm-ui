@@ -16,7 +16,7 @@ class TaskTableRow extends React.Component {
         super(props);
 
         this.state = {
-            complete: this.props.task.Complete
+            complete: props.task.Complete
         };
 
         this.handleCompletionToggle = this.handleCompletionToggle.bind(this);
