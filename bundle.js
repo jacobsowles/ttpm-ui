@@ -62270,7 +62270,7 @@
 
 	var _newTaskRow2 = _interopRequireDefault(_newTaskRow);
 
-	var _taskTableHeaderRow = __webpack_require__(502);
+	var _taskTableHeaderRow = __webpack_require__(546);
 
 	var _taskTableHeaderRow2 = _interopRequireDefault(_taskTableHeaderRow);
 
@@ -62549,110 +62549,9 @@
 
 
 /***/ },
-/* 502 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
-
-
-	// styles
-	__webpack_require__(503);
-
-	var TaskTableHeaderRow = function (_React$Component) {
-	    _inherits(TaskTableHeaderRow, _React$Component);
-
-	    function TaskTableHeaderRow() {
-	        _classCallCheck(this, TaskTableHeaderRow);
-
-	        return _possibleConstructorReturn(this, (TaskTableHeaderRow.__proto__ || Object.getPrototypeOf(TaskTableHeaderRow)).apply(this, arguments));
-	    }
-
-	    _createClass(TaskTableHeaderRow, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'tr',
-	                null,
-	                _react2.default.createElement('th', null),
-	                _react2.default.createElement(
-	                    'th',
-	                    null,
-	                    'Task'
-	                ),
-	                _react2.default.createElement(
-	                    'th',
-	                    null,
-	                    'Notes'
-	                ),
-	                _react2.default.createElement('th', null)
-	            );
-	        }
-	    }]);
-
-	    return TaskTableHeaderRow;
-	}(_react2.default.Component);
-
-	exports.default = TaskTableHeaderRow;
-
-/***/ },
-/* 503 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(504);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(302)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../../../../node_modules/css-loader/index.js!./../../../../../../node_modules/sass-loader/index.js!./task-table-header-row.scss", function() {
-				var newContent = require("!!./../../../../../../node_modules/css-loader/index.js!./../../../../../../node_modules/sass-loader/index.js!./task-table-header-row.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 504 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(301)();
-	// imports
-
-
-	// module
-	exports.push([module.id, "", ""]);
-
-	// exports
-
-
-/***/ },
+/* 502 */,
+/* 503 */,
+/* 504 */,
 /* 505 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -62668,7 +62567,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _taskTableTask = __webpack_require__(539);
+	var _taskTableTask = __webpack_require__(547);
 
 	var _taskTableTask2 = _interopRequireDefault(_taskTableTask);
 
@@ -63751,7 +63650,75 @@
 /* 536 */,
 /* 537 */,
 /* 538 */,
-/* 539 */
+/* 539 */,
+/* 540 */,
+/* 541 */,
+/* 542 */,
+/* 543 */,
+/* 544 */,
+/* 545 */,
+/* 546 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
+
+
+	var TaskTableHeaderRow = function (_React$Component) {
+	    _inherits(TaskTableHeaderRow, _React$Component);
+
+	    function TaskTableHeaderRow() {
+	        _classCallCheck(this, TaskTableHeaderRow);
+
+	        return _possibleConstructorReturn(this, (TaskTableHeaderRow.__proto__ || Object.getPrototypeOf(TaskTableHeaderRow)).apply(this, arguments));
+	    }
+
+	    _createClass(TaskTableHeaderRow, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'tr',
+	                null,
+	                _react2.default.createElement('th', null),
+	                _react2.default.createElement(
+	                    'th',
+	                    null,
+	                    'Task'
+	                ),
+	                _react2.default.createElement(
+	                    'th',
+	                    null,
+	                    'Notes'
+	                ),
+	                _react2.default.createElement('th', null)
+	            );
+	        }
+	    }]);
+
+	    return TaskTableHeaderRow;
+	}(_react2.default.Component);
+
+	exports.default = TaskTableHeaderRow;
+
+/***/ },
+/* 547 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63774,7 +63741,7 @@
 
 	var _accordionItem2 = _interopRequireDefault(_accordionItem);
 
-	var _taskTableTaskDetails = __webpack_require__(545);
+	var _taskTableTaskDetails = __webpack_require__(548);
 
 	var _taskTableTaskDetails2 = _interopRequireDefault(_taskTableTaskDetails);
 
@@ -63793,9 +63760,6 @@
 
 	// components
 
-
-	// styles
-	__webpack_require__(543);
 
 	var TaskTableTask = function (_React$Component) {
 	    _inherits(TaskTableTask, _React$Component);
@@ -63848,50 +63812,7 @@
 	exports.default = TaskTableTask;
 
 /***/ },
-/* 540 */,
-/* 541 */,
-/* 542 */,
-/* 543 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(544);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(302)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../../../../node_modules/css-loader/index.js!./../../../../../../node_modules/sass-loader/index.js!./task-table-task.scss", function() {
-				var newContent = require("!!./../../../../../../node_modules/css-loader/index.js!./../../../../../../node_modules/sass-loader/index.js!./task-table-task.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 544 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(301)();
-	// imports
-
-
-	// module
-	exports.push([module.id, "", ""]);
-
-	// exports
-
-
-/***/ },
-/* 545 */
+/* 548 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';

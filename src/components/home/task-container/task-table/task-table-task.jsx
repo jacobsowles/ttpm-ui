@@ -2,13 +2,10 @@
 import React from 'react';
 
 // components
-import Accordion from '../../../../accordion/accordion.jsx';
-import AccordionItem from '../../../../accordion/accordion-item/accordion-item.jsx';
+import Accordion from '../../../accordion/accordion.jsx';
+import AccordionItem from '../../../accordion/accordion-item/accordion-item.jsx';
 import TaskTableTaskDetails from './task-table-task-details.jsx';
-import ViewEditToggleField from '../../../../fields/view-edit-toggle-field/view-edit-toggle-field.jsx';
-
-// styles
-require('./task-table-task.scss');
+import ViewEditToggleField from '../../../fields/view-edit-toggle-field/view-edit-toggle-field.jsx';
 
 class TaskTableTask extends React.Component {
 

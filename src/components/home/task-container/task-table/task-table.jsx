@@ -3,7 +3,7 @@ import React from 'react';
 
 // components
 import NewTaskRow from './new-task-row/new-task-row.jsx';
-import TaskTableHeaderRow from './task-table-header-row/task-table-header-row.jsx';
+import TaskTableHeaderRow from './task-table-header-row.jsx';
 import TaskTableRow from './task-table-row/task-table-row.jsx';
 
 // actions

@@ -2,7 +2,7 @@
 import React from 'react';
 
 // components
-import TaskTableTask from '../task-table-task/task-table-task.jsx';
+import TaskTableTask from '../task-table-task.jsx';
 
 // styles
 require('./task-table-row.scss');
