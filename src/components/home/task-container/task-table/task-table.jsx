@@ -9,9 +9,6 @@ import TaskTableRow from './task-table-row/task-table-row.jsx';
 // actions
 import filterActions from '../../../../actions/filter-actions.js';
 
-// styles
-require('./task-table.scss');
-
 const styles = {
     taskTable: {
         fontSize: '.9em',
