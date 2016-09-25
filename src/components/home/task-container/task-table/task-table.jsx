@@ -34,7 +34,8 @@ class TaskTable extends React.Component {
                 <div className="col-xs-12">
                     <div
                         className="task-table table-responsive"
-                        style={styles.taskTable}>
+                        style={styles.taskTable}
+                    >
                         <table className="table table-striped">
                             <caption style={styles.caption}>
                                 {

@@ -12,14 +12,32 @@ require('./task-table-row.scss');
 
 class TaskTableRow extends React.Component {
 
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            complete: this.props.task.Complete
+        };
+
+        this.handleCompletionToggle = this.handleCompletionToggle.bind(this);
+    }
+
+    handleCompletionToggle() {
+        this.setState({
+            complete: !this.state.complete
+        });
+
+        this.props.handleCompletionToggle(this.props.task.Id);
+    }
+
     render() {
         return (
-            <tr className={this.props.task.Complete ? 'task-table-row-complete' : ''}>
+            <tr className={this.state.complete ? 'task-table-row-complete' : ''}>
                 <td style={{width: '30px'}}>
                     <input
                         type="checkbox"
-                        checked={this.props.task.Complete}
-                        onChange={() => this.props.handleCompletionToggle(this.props.task.Id)}
+                        checked={this.state.complete}
+                        onChange={() => this.handleCompletionToggle()}
                     />
                 </td>
                 <td>
@@ -30,7 +48,7 @@ class TaskTableRow extends React.Component {
                                     text={this.props.task.Name}
                                     handleSubmit={this.props.handleNameEdit}
                                     includeWithSubmit={this.props.task}
-                                    isEditable={!this.props.task.Complete}
+                                    isEditable={!this.state.complete}
                                 />
                             )}
                             body={(

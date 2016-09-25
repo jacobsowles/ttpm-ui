@@ -62338,7 +62338,8 @@
 	                        'div',
 	                        {
 	                            className: 'task-table table-responsive',
-	                            style: styles.taskTable },
+	                            style: styles.taskTable
+	                        },
 	                        _react2.default.createElement(
 	                            'table',
 	                            { className: 'table table-striped' },
@@ -62701,28 +62702,44 @@
 	var TaskTableRow = function (_React$Component) {
 	    _inherits(TaskTableRow, _React$Component);
 
-	    function TaskTableRow() {
+	    function TaskTableRow(props) {
 	        _classCallCheck(this, TaskTableRow);
 
-	        return _possibleConstructorReturn(this, (TaskTableRow.__proto__ || Object.getPrototypeOf(TaskTableRow)).apply(this, arguments));
+	        var _this = _possibleConstructorReturn(this, (TaskTableRow.__proto__ || Object.getPrototypeOf(TaskTableRow)).call(this, props));
+
+	        _this.state = {
+	            complete: _this.props.task.Complete
+	        };
+
+	        _this.handleCompletionToggle = _this.handleCompletionToggle.bind(_this);
+	        return _this;
 	    }
 
 	    _createClass(TaskTableRow, [{
+	        key: 'handleCompletionToggle',
+	        value: function handleCompletionToggle() {
+	            this.setState({
+	                complete: !this.state.complete
+	            });
+
+	            this.props.handleCompletionToggle(this.props.task.Id);
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
 	            var _this2 = this;
 
 	            return _react2.default.createElement(
 	                'tr',
-	                { className: this.props.task.Complete ? 'task-table-row-complete' : '' },
+	                { className: this.state.complete ? 'task-table-row-complete' : '' },
 	                _react2.default.createElement(
 	                    'td',
 	                    { style: { width: '30px' } },
 	                    _react2.default.createElement('input', {
 	                        type: 'checkbox',
-	                        checked: this.props.task.Complete,
+	                        checked: this.state.complete,
 	                        onChange: function onChange() {
-	                            return _this2.props.handleCompletionToggle(_this2.props.task.Id);
+	                            return _this2.handleCompletionToggle();
 	                        }
 	                    })
 	                ),
@@ -62737,7 +62754,7 @@
 	                                text: this.props.task.Name,
 	                                handleSubmit: this.props.handleNameEdit,
 	                                includeWithSubmit: this.props.task,
-	                                isEditable: !this.props.task.Complete
+	                                isEditable: !this.state.complete
 	                            }),
 	                            body: _react2.default.createElement(_taskTableTaskDetails2.default, {
 	                                task: this.props.task,
