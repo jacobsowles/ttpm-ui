@@ -5,6 +5,7 @@ import React from 'react';
 import DownAngleIcon from '~/icons/down-angle-icon';
 import RightAngleIcon from '~/icons/right-angle-icon';
 import TaskTableTaskDetails from './task-table-task-details';
+import TextBox from '~/fields/text-box';
 import Toggler from '../toggler/toggler';
 
 // styles
@@ -22,7 +23,7 @@ class TaskTableTask extends React.Component {
         this.handleNameClick = this.handleNameClick.bind(this);
         this.handleDeleteClick = this.handleDeleteClick.bind(this);
 
-        this.handleNameChange = this.handleNameChange.bind(this);
+        this.handleNameSave = this.handleNameSave.bind(this);
         this.handleNotesSave = this.handleNotesSave.bind(this);
     }
 
@@ -38,7 +39,7 @@ class TaskTableTask extends React.Component {
         });
     }
 
-    handleNameChange(event) {
+    handleNameSave(event) {
         console.log('new name: ' + event.target.value);
     }
 
@@ -50,10 +51,9 @@ class TaskTableTask extends React.Component {
         return (
             <div className="task-table-task">
                 <div className="task-name" onClick={() => this.handleNameClick()}>
-                    <input
-                        type="text"
+                    <TextBox
                         value={this.props.task.Name}
-                        onChange={this.handleNameChange}
+                        onBlur={this.handleNameSave}
                     />
                     {this.state.detailsAreVisible ? <DownAngleIcon /> : <RightAngleIcon />}
                 </div>

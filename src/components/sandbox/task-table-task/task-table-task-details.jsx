@@ -5,7 +5,7 @@ import React from 'react';
 import DeleteButton from '~/buttons/delete-button';
 import FormGroup from '~/forms/form-group';
 import SaveButton from '~/buttons/save-button';
-import TextArea from '~/fields/textarea';
+import TextArea from '~/fields/text-area';
 
 // styles
 require('./task-table-task-details.scss');
