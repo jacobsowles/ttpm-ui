@@ -13,7 +13,7 @@ class TaskTableTaskBrief extends React.Component {
 
     render() {
         return (
-            <div className="task-table-task-brief">
+            <div className={`task-table-task-brief ${this.props.detailsAreVisible ? 'edit-mode' : ''}`}>
                 <TextBox
                     value={this.props.taskName}
                     handleClick={this.props.handleNameClick}

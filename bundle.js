@@ -64599,7 +64599,7 @@
 
 
 	// module
-	exports.push([module.id, ".task-table-task-details {\n  margin: 15px 15px auto auto; }\n  .task-table-task-details textarea {\n    height: 150px; }\n", ""]);
+	exports.push([module.id, ".task-table-task-details {\n  margin: 15px 15px auto auto; }\n  .task-table-task-details textarea.form-control {\n    height: 150px;\n    padding: 10px; }\n", ""]);
 
 	// exports
 
@@ -64963,7 +64963,7 @@
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'div',
-	                { className: 'task-table-task-brief' },
+	                { className: 'task-table-task-brief ' + (this.props.detailsAreVisible ? 'edit-mode' : '') },
 	                _react2.default.createElement(_textBox2.default, {
 	                    value: this.props.taskName,
 	                    handleClick: this.props.handleNameClick,
@@ -65024,7 +65024,7 @@
 
 
 	// module
-	exports.push([module.id, ".task-table-task-brief input {\n  width: calc(100% - 20px);\n  display: inline-block; }\n\n.task-table-task-brief i {\n  width: 20px;\n  text-align: center; }\n", ""]);
+	exports.push([module.id, ".task-table-task-brief input {\n  width: calc(100% - 20px);\n  display: inline-block;\n  background: none;\n  border: none; }\n  .task-table-task-brief input:hover {\n    cursor: pointer; }\n  .task-table-task-brief input:focus {\n    outline: none;\n    border-color: inherit;\n    -webkit-box-shadow: none;\n    box-shadow: none; }\n\n.task-table-task-brief i {\n  width: 20px;\n  text-align: center; }\n  .task-table-task-brief i:hover {\n    cursor: pointer; }\n\n.task-table-task-brief.edit-mode input:hover {\n  cursor: inherit; }\n", ""]);
 
 	// exports
 
