@@ -3,9 +3,19 @@ const path = require('path');
 const LiveReloadPlugin = require('webpack-livereload-plugin');
 
 module.exports = {
-    entry: './src/index.js',
     eslint: {
         configFile: '.eslintrc'
+    },
+    entry: './src/index.js',
+    output: {
+        path: __dirname,
+        filename: 'bundle.js'
+    },
+    plugins: [
+        new LiveReloadPlugin()
+    ],
+    resolve: {
+        extensions: ['', '.js', '.jsx']
     },
     module: {
         loaders: [
@@ -28,15 +38,5 @@ module.exports = {
                 include: path.join(__dirname, 'src')
             }
         ]
-    },
-    output: {
-        path: __dirname,
-        filename: 'bundle.js'
-    },
-    plugins: [
-        new LiveReloadPlugin()
-    ],
-    resolve: {
-        extensions: ['', '.js', '.jsx']
     }
 };
