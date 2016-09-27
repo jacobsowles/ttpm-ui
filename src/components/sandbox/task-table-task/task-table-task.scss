@@ -1,6 +1,23 @@
 .task-table-task {
+    font-size: .9em;
+
+    label,
+    input,
+    textarea,
+    button {
+        font-size: .9em;
+    }
+
     .task-name {
-        
+        input {
+            width: calc(100% - 20px);
+            display: inline-block;
+        }
+
+        i {
+            width: 20px;
+            text-align: center;
+        }
     }
 
     .delete-task {

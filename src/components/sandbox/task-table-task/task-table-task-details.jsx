@@ -4,7 +4,6 @@ import React from 'react';
 // components
 import DeleteButton from '~/buttons/delete-button';
 import FormGroup from '~/forms/form-group';
-import SaveButton from '~/buttons/save-button';
 import TextArea from '~/fields/text-area';
 
 // styles
@@ -24,7 +23,6 @@ class TaskTableTaskDetails extends React.Component {
                 </FormGroup>
 
                 <DeleteButton handleClick={this.props.handleDeleteClick} />
-                <SaveButton handleClick={this.props.handleSaveClick} />
             </div>
         );
     }

@@ -64305,10 +64305,6 @@
 
 	var _formGroup2 = _interopRequireDefault(_formGroup);
 
-	var _saveButton = __webpack_require__(541);
-
-	var _saveButton2 = _interopRequireDefault(_saveButton);
-
 	var _textArea = __webpack_require__(551);
 
 	var _textArea2 = _interopRequireDefault(_textArea);
@@ -64356,8 +64352,7 @@
 	                        onBlur: this.props.handleNotesSave
 	                    })
 	                ),
-	                _react2.default.createElement(_deleteButton2.default, { handleClick: this.props.handleDeleteClick }),
-	                _react2.default.createElement(_saveButton2.default, { handleClick: this.props.handleSaveClick })
+	                _react2.default.createElement(_deleteButton2.default, { handleClick: this.props.handleDeleteClick })
 	            );
 	        }
 	    }]);
@@ -64553,68 +64548,7 @@
 	exports.default = FormGroup;
 
 /***/ },
-/* 541 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _button = __webpack_require__(539);
-
-	var _button2 = _interopRequireDefault(_button);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var SaveButton = function (_React$Component) {
-	    _inherits(SaveButton, _React$Component);
-
-	    function SaveButton() {
-	        _classCallCheck(this, SaveButton);
-
-	        return _possibleConstructorReturn(this, (SaveButton.__proto__ || Object.getPrototypeOf(SaveButton)).apply(this, arguments));
-	    }
-
-	    _createClass(SaveButton, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(_button2.default, _extends({
-	                className: 'btn btn-success'
-	            }, this.props));
-	        }
-	    }]);
-
-	    return SaveButton;
-	}(_react2.default.Component);
-
-	SaveButton.PropTypes = {
-	    text: _react2.default.PropTypes.string,
-	    handleClick: _react2.default.PropTypes.func.isRequired
-	};
-
-	SaveButton.defaultProps = {
-	    text: 'Save'
-	};
-
-	exports.default = SaveButton;
-
-/***/ },
+/* 541 */,
 /* 542 */,
 /* 543 */
 /***/ function(module, exports, __webpack_require__) {
@@ -64650,7 +64584,7 @@
 
 
 	// module
-	exports.push([module.id, ".task-table-task-details {\n  margin: 15px 15px auto auto;\n  font-size: .9em;\n  button-font-size: .9em;\n  button-margin-top: 10px; }\n  .task-table-task-details textarea {\n    height: 150px;\n    font-size: .9em; }\n", ""]);
+	exports.push([module.id, ".task-table-task-details {\n  margin: 15px 15px auto auto;\n  button-margin-top: 10px; }\n  .task-table-task-details textarea {\n    height: 150px; }\n", ""]);
 
 	// exports
 
@@ -64787,7 +64721,7 @@
 
 
 	// module
-	exports.push([module.id, ".task-table-task .delete-task span {\n  padding: 2px 7px; }\n  .task-table-task .delete-task span:hover {\n    background: #d3d2d1;\n    cursor: pointer; }\n", ""]);
+	exports.push([module.id, ".task-table-task {\n  font-size: .9em; }\n  .task-table-task label,\n  .task-table-task input,\n  .task-table-task textarea,\n  .task-table-task button {\n    font-size: .9em; }\n  .task-table-task .task-name input {\n    width: calc(100% - 20px);\n    display: inline-block; }\n  .task-table-task .task-name i {\n    width: 20px;\n    text-align: center; }\n  .task-table-task .delete-task span {\n    padding: 2px 7px; }\n    .task-table-task .delete-task span:hover {\n      background: #d3d2d1;\n      cursor: pointer; }\n", ""]);
 
 	// exports
 
