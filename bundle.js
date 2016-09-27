@@ -64058,25 +64058,22 @@
 
 	        _this.handleNameClick = _this.handleNameClick.bind(_this);
 	        _this.handleDeleteClick = _this.handleDeleteClick.bind(_this);
-
 	        _this.handleNameSave = _this.handleNameSave.bind(_this);
 	        _this.handleNotesSave = _this.handleNotesSave.bind(_this);
+	        _this.hideDetails = _this.hideDetails.bind(_this);
+	        _this.showDetails = _this.showDetails.bind(_this);
 	        return _this;
 	    }
 
 	    _createClass(TaskTableTask, [{
 	        key: 'handleNameClick',
 	        value: function handleNameClick() {
-	            this.setState({
-	                detailsAreVisible: true
-	            });
+	            this.showDetails();
 	        }
 	    }, {
 	        key: 'handleDeleteClick',
 	        value: function handleDeleteClick() {
-	            this.setState({
-	                detailsAreVisible: false
-	            });
+	            this.hideDetails();
 	        }
 	    }, {
 	        key: 'handleNameSave',
@@ -64089,23 +64086,34 @@
 	            console.log('new notes: ' + event.target.value);
 	        }
 	    }, {
+	        key: 'hideDetails',
+	        value: function hideDetails() {
+	            this.setState({
+	                detailsAreVisible: false
+	            });
+	        }
+	    }, {
+	        key: 'showDetails',
+	        value: function showDetails() {
+	            this.setState({
+	                detailsAreVisible: true
+	            });
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
-	            var _this2 = this;
-
 	            return _react2.default.createElement(
 	                'div',
 	                { className: 'task-table-task' },
 	                _react2.default.createElement(
 	                    'div',
-	                    { className: 'task-name', onClick: function onClick() {
-	                            return _this2.handleNameClick();
-	                        } },
+	                    { className: 'task-name' },
 	                    _react2.default.createElement(_textBox2.default, {
 	                        value: this.props.task.Name,
-	                        onBlur: this.handleNameSave
+	                        handleClick: this.handleNameClick,
+	                        handleBlur: this.handleNameSave
 	                    }),
-	                    this.state.detailsAreVisible ? _react2.default.createElement(_downAngleIcon2.default, null) : _react2.default.createElement(_rightAngleIcon2.default, null)
+	                    this.state.detailsAreVisible ? _react2.default.createElement(_downAngleIcon2.default, { handleClick: this.hideDetails }) : _react2.default.createElement(_rightAngleIcon2.default, { handleClick: this.showDetails })
 	                ),
 	                _react2.default.createElement(
 	                    _toggler2.default,
@@ -64173,12 +64181,19 @@
 	    _createClass(DownAngleIcon, [{
 	        key: 'render',
 	        value: function render() {
-	            return _react2.default.createElement(_icon2.default, { glyph: 'angle-down' });
+	            return _react2.default.createElement(_icon2.default, {
+	                glyph: 'angle-down',
+	                handleClick: this.props.handleClick
+	            });
 	        }
 	    }]);
 
 	    return DownAngleIcon;
 	}(_react2.default.Component);
+
+	DownAngleIcon.propTypes = {
+	    handleClick: _react2.default.PropTypes.func
+	};
 
 	exports.default = DownAngleIcon;
 
@@ -64204,8 +64219,7 @@
 
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
-
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var Icon = function (_React$Component) {
 	    _inherits(Icon, _React$Component);
@@ -64219,7 +64233,10 @@
 	    _createClass(Icon, [{
 	        key: 'render',
 	        value: function render() {
-	            return _react2.default.createElement('i', { className: 'fa fa-' + this.props.glyph });
+	            return _react2.default.createElement('i', {
+	                className: 'fa fa-' + this.props.glyph,
+	                onClick: this.props.handleClick
+	            });
 	        }
 	    }]);
 
@@ -64227,7 +64244,8 @@
 	}(_react2.default.Component);
 
 	Icon.propTypes = {
-	    glyph: _react2.default.PropTypes.string.isRequired
+	    glyph: _react2.default.PropTypes.string.isRequired,
+	    handleClick: _react2.default.PropTypes.func
 	};
 
 	exports.default = Icon;
@@ -64272,12 +64290,19 @@
 	    _createClass(RightAngleIcon, [{
 	        key: 'render',
 	        value: function render() {
-	            return _react2.default.createElement(_icon2.default, { glyph: 'angle-right' });
+	            return _react2.default.createElement(_icon2.default, {
+	                glyph: 'angle-right',
+	                handleClick: this.props.handleClick
+	            });
 	        }
 	    }]);
 
 	    return RightAngleIcon;
 	}(_react2.default.Component);
+
+	RightAngleIcon.propTypes = {
+	    handleClick: _react2.default.PropTypes.func
+	};
 
 	exports.default = RightAngleIcon;
 
@@ -64763,18 +64788,18 @@
 	            value: props.value
 	        };
 
-	        _this.onChange = _this.onChange.bind(_this);
+	        _this.handleChange = _this.handleChange.bind(_this);
 	        return _this;
 	    }
 
 	    _createClass(TextBox, [{
-	        key: "onChange",
-	        value: function onChange(event) {
+	        key: "handleChange",
+	        value: function handleChange(event) {
 	            this.setState({
 	                value: event.target.value
 	            });
 
-	            this.props.onChange(event);
+	            this.props.handleChange(event);
 	        }
 	    }, {
 	        key: "render",
@@ -64783,8 +64808,9 @@
 	                type: "text",
 	                className: "form-control",
 	                value: this.state.value,
-	                onBlur: this.props.onBlur,
-	                onChange: this.onChange
+	                onBlur: this.props.handleBlur,
+	                onChange: this.handleChange,
+	                onClick: this.props.handleClick
 	            });
 	        }
 	    }]);
@@ -64794,14 +64820,16 @@
 
 	TextBox.propTypes = {
 	    value: _react2.default.PropTypes.string,
-	    onBlur: _react2.default.PropTypes.func,
-	    onChange: _react2.default.PropTypes.func
+	    handleBlur: _react2.default.PropTypes.func,
+	    handleChange: _react2.default.PropTypes.func,
+	    handleClick: _react2.default.PropTypes.func
 	};
 
 	TextBox.defaultProps = {
 	    value: '',
-	    onBlur: function onBlur(event) {},
-	    onChange: function onChange(event) {}
+	    handleBlur: function handleBlur(event) {},
+	    handleChange: function handleChange(event) {},
+	    handleClick: function handleClick(event) {}
 	};
 
 	exports.default = TextBox;
@@ -64843,18 +64871,18 @@
 	            value: props.value
 	        };
 
-	        _this.onChange = _this.onChange.bind(_this);
+	        _this.handleChange = _this.handleChange.bind(_this);
 	        return _this;
 	    }
 
 	    _createClass(TextArea, [{
-	        key: 'onChange',
-	        value: function onChange(event) {
+	        key: 'handleChange',
+	        value: function handleChange(event) {
 	            this.setState({
 	                value: event.target.value
 	            });
 
-	            this.props.onChange(event);
+	            this.props.handleChange(event);
 	        }
 	    }, {
 	        key: 'render',
@@ -64862,8 +64890,9 @@
 	            return _react2.default.createElement('textarea', {
 	                className: 'form-control',
 	                value: this.state.value,
-	                onBlur: this.props.onBlur,
-	                onChange: this.onChange
+	                onBlur: this.props.handleBlur,
+	                onChange: this.handleChange,
+	                onClick: this.props.handleClick
 	            });
 	        }
 	    }]);
@@ -64873,14 +64902,16 @@
 
 	TextArea.propTypes = {
 	    value: _react2.default.PropTypes.string,
-	    onBlur: _react2.default.PropTypes.func,
-	    onChange: _react2.default.PropTypes.func
+	    handleBlur: _react2.default.PropTypes.func,
+	    handleChange: _react2.default.PropTypes.func,
+	    handleClick: _react2.default.PropTypes.func
 	};
 
 	TextArea.defaultProps = {
 	    value: '',
-	    onBlur: function onBlur(event) {},
-	    onChange: function onChange(event) {}
+	    handleBlur: function handleBlur(event) {},
+	    handleChange: function handleChange(event) {},
+	    handleClick: function handleClick(event) {}
 	};
 
 	exports.default = TextArea;

@@ -10,15 +10,15 @@ class TextArea extends React.Component {
             value: props.value
         };
 
-        this.onChange = this.onChange.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
 
-    onChange(event) {
+    handleChange(event) {
         this.setState({
             value: event.target.value
         });
 
-        this.props.onChange(event);
+        this.props.handleChange(event);
     }
 
     render() {
@@ -26,8 +26,9 @@ class TextArea extends React.Component {
             <textarea
                 className="form-control"
                 value={this.state.value}
-                onBlur={this.props.onBlur}
-                onChange={this.onChange}
+                onBlur={this.props.handleBlur}
+                onChange={this.handleChange}
+                onClick={this.props.handleClick}
             />
         );
     }
@@ -35,14 +36,16 @@ class TextArea extends React.Component {
 
 TextArea.propTypes = {
     value: React.PropTypes.string,
-    onBlur: React.PropTypes.func,
-    onChange: React.PropTypes.func
+    handleBlur: React.PropTypes.func,
+    handleChange: React.PropTypes.func,
+    handleClick: React.PropTypes.func
 };
 
 TextArea.defaultProps = {
     value: '',
-    onBlur: (event) => {},
-    onChange: (event) => {}
+    handleBlur: (event) => {},
+    handleChange: (event) => {},
+    handleClick: (event) => {}
 };
 
 export default TextArea;

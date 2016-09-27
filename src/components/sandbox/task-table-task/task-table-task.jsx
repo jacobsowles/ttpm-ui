@@ -22,21 +22,18 @@ class TaskTableTask extends React.Component {
 
         this.handleNameClick = this.handleNameClick.bind(this);
         this.handleDeleteClick = this.handleDeleteClick.bind(this);
-
         this.handleNameSave = this.handleNameSave.bind(this);
         this.handleNotesSave = this.handleNotesSave.bind(this);
+        this.hideDetails = this.hideDetails.bind(this);
+        this.showDetails = this.showDetails.bind(this);
     }
 
     handleNameClick() {
-        this.setState({
-            detailsAreVisible: true
-        });
+        this.showDetails();
     }
 
     handleDeleteClick() {
-        this.setState({
-            detailsAreVisible: false
-        });
+        this.hideDetails();
     }
 
     handleNameSave(event) {
@@ -47,15 +44,32 @@ class TaskTableTask extends React.Component {
         console.log('new notes: ' + event.target.value);
     }
 
+    hideDetails() {
+        this.setState({
+            detailsAreVisible: false
+        });
+    }
+
+    showDetails() {
+        this.setState({
+            detailsAreVisible: true
+        });
+    }
+
     render() {
         return (
             <div className="task-table-task">
-                <div className="task-name" onClick={() => this.handleNameClick()}>
+                <div className="task-name">
                     <TextBox
                         value={this.props.task.Name}
-                        onBlur={this.handleNameSave}
+                        handleClick={this.handleNameClick}
+                        handleBlur={this.handleNameSave}
                     />
-                    {this.state.detailsAreVisible ? <DownAngleIcon /> : <RightAngleIcon />}
+                    {
+                        this.state.detailsAreVisible
+                            ? <DownAngleIcon handleClick={this.hideDetails} />
+                            : <RightAngleIcon handleClick={this.showDetails} />
+                    }
                 </div>
 
                 <Toggler isVisible={this.state.detailsAreVisible}>
