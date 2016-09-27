@@ -64599,7 +64599,7 @@
 
 
 	// module
-	exports.push([module.id, ".task-table-task-details {\n  margin: 15px 15px auto auto;\n  button-margin-top: 10px; }\n  .task-table-task-details textarea {\n    height: 150px; }\n", ""]);
+	exports.push([module.id, ".task-table-task-details {\n  margin: 15px 15px auto auto; }\n  .task-table-task-details textarea {\n    height: 150px; }\n", ""]);
 
 	// exports
 
@@ -64736,7 +64736,7 @@
 
 
 	// module
-	exports.push([module.id, ".task-table-task {\n  font-size: .9em; }\n  .task-table-task label,\n  .task-table-task input,\n  .task-table-task textarea,\n  .task-table-task button {\n    font-size: .9em; }\n  .task-table-task .delete-task span {\n    padding: 2px 7px; }\n    .task-table-task .delete-task span:hover {\n      background: #d3d2d1;\n      cursor: pointer; }\n", ""]);
+	exports.push([module.id, ".task-table-task {\n  font-size: .9em; }\n  .task-table-task label,\n  .task-table-task input,\n  .task-table-task textarea,\n  .task-table-task button {\n    font-size: .9em; }\n", ""]);
 
 	// exports
 

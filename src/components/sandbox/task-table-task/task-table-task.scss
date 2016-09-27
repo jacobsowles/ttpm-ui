@@ -7,14 +7,4 @@
     button {
         font-size: .9em;
     }
-
-    .delete-task {
-        span {
-            padding: 2px 7px;
-            &:hover {
-                background: #d3d2d1;
-                cursor: pointer;
-            }
-        }
-    }
 }
