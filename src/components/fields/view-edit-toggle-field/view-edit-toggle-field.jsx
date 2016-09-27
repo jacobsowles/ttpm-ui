@@ -23,7 +23,9 @@ class ViewEditToggleField extends React.Component {
     }
 
     componentWillUpdate(nextProps, nextState) {
-        if (!nextProps.clearTextOnClick) {
+        console.log(nextProps);
+        if (!nextProps.clearTextOnClick && !nextState.isEditMode) {
+            console.log('will update...');
             nextState.value = nextProps.text;
         }
     }
@@ -41,7 +43,7 @@ class ViewEditToggleField extends React.Component {
     handleFocus() {
         this.setState({
             isEditMode: true,
-            value: this.props.clearTextOnClick ? '' : this.props.text
+            value: this.props.clearTextOnClick ? '' : this.state.value
         });
     }
 

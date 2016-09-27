@@ -34316,7 +34316,9 @@
 	    _createClass(ViewEditToggleField, [{
 	        key: 'componentWillUpdate',
 	        value: function componentWillUpdate(nextProps, nextState) {
-	            if (!nextProps.clearTextOnClick) {
+	            console.log(nextProps);
+	            if (!nextProps.clearTextOnClick && !nextState.isEditMode) {
+	                console.log('will update...');
 	                nextState.value = nextProps.text;
 	            }
 	        }
@@ -34337,7 +34339,7 @@
 	        value: function handleFocus() {
 	            this.setState({
 	                isEditMode: true,
-	                value: this.props.clearTextOnClick ? '' : this.props.text
+	                value: this.props.clearTextOnClick ? '' : this.state.value
 	            });
 	        }
 	    }, {
