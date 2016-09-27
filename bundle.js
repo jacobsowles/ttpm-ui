@@ -64009,21 +64009,13 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _downAngleIcon = __webpack_require__(534);
+	var _taskTableTaskBrief = __webpack_require__(552);
 
-	var _downAngleIcon2 = _interopRequireDefault(_downAngleIcon);
-
-	var _rightAngleIcon = __webpack_require__(536);
-
-	var _rightAngleIcon2 = _interopRequireDefault(_rightAngleIcon);
+	var _taskTableTaskBrief2 = _interopRequireDefault(_taskTableTaskBrief);
 
 	var _taskTableTaskDetails = __webpack_require__(537);
 
 	var _taskTableTaskDetails2 = _interopRequireDefault(_taskTableTaskDetails);
-
-	var _textBox = __webpack_require__(550);
-
-	var _textBox2 = _interopRequireDefault(_textBox);
 
 	var _toggler = __webpack_require__(545);
 
@@ -64105,16 +64097,14 @@
 	            return _react2.default.createElement(
 	                'div',
 	                { className: 'task-table-task' },
-	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'task-name' },
-	                    _react2.default.createElement(_textBox2.default, {
-	                        value: this.props.task.Name,
-	                        handleClick: this.handleNameClick,
-	                        handleBlur: this.handleNameSave
-	                    }),
-	                    this.state.detailsAreVisible ? _react2.default.createElement(_downAngleIcon2.default, { handleClick: this.hideDetails }) : _react2.default.createElement(_rightAngleIcon2.default, { handleClick: this.showDetails })
-	                ),
+	                _react2.default.createElement(_taskTableTaskBrief2.default, {
+	                    taskName: this.props.task.Name,
+	                    detailsAreVisible: this.state.detailsAreVisible,
+	                    handleNameClick: this.handleNameClick,
+	                    handleNameSave: this.handleNameSave,
+	                    hideDetails: this.hideDetails,
+	                    showDetails: this.showDetails
+	                }),
 	                _react2.default.createElement(
 	                    _toggler2.default,
 	                    { isVisible: this.state.detailsAreVisible },
@@ -64374,7 +64364,7 @@
 	                    ),
 	                    _react2.default.createElement(_textArea2.default, {
 	                        value: this.props.taskNotes,
-	                        onBlur: this.props.handleNotesSave
+	                        handleBlur: this.props.handleNotesSave
 	                    })
 	                ),
 	                _react2.default.createElement(_deleteButton2.default, { handleClick: this.props.handleDeleteClick })
@@ -64746,7 +64736,7 @@
 
 
 	// module
-	exports.push([module.id, ".task-table-task {\n  font-size: .9em; }\n  .task-table-task label,\n  .task-table-task input,\n  .task-table-task textarea,\n  .task-table-task button {\n    font-size: .9em; }\n  .task-table-task .task-name input {\n    width: calc(100% - 20px);\n    display: inline-block; }\n  .task-table-task .task-name i {\n    width: 20px;\n    text-align: center; }\n  .task-table-task .delete-task span {\n    padding: 2px 7px; }\n    .task-table-task .delete-task span:hover {\n      background: #d3d2d1;\n      cursor: pointer; }\n", ""]);
+	exports.push([module.id, ".task-table-task {\n  font-size: .9em; }\n  .task-table-task label,\n  .task-table-task input,\n  .task-table-task textarea,\n  .task-table-task button {\n    font-size: .9em; }\n  .task-table-task .delete-task span {\n    padding: 2px 7px; }\n    .task-table-task .delete-task span:hover {\n      background: #d3d2d1;\n      cursor: pointer; }\n", ""]);
 
 	// exports
 
@@ -64915,6 +64905,129 @@
 	};
 
 	exports.default = TextArea;
+
+/***/ },
+/* 552 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _downAngleIcon = __webpack_require__(534);
+
+	var _downAngleIcon2 = _interopRequireDefault(_downAngleIcon);
+
+	var _rightAngleIcon = __webpack_require__(536);
+
+	var _rightAngleIcon2 = _interopRequireDefault(_rightAngleIcon);
+
+	var _textBox = __webpack_require__(550);
+
+	var _textBox2 = _interopRequireDefault(_textBox);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
+
+
+	// components
+
+
+	// styles
+	__webpack_require__(553);
+
+	var TaskTableTaskBrief = function (_React$Component) {
+	    _inherits(TaskTableTaskBrief, _React$Component);
+
+	    function TaskTableTaskBrief() {
+	        _classCallCheck(this, TaskTableTaskBrief);
+
+	        return _possibleConstructorReturn(this, (TaskTableTaskBrief.__proto__ || Object.getPrototypeOf(TaskTableTaskBrief)).apply(this, arguments));
+	    }
+
+	    _createClass(TaskTableTaskBrief, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'task-table-task-brief' },
+	                _react2.default.createElement(_textBox2.default, {
+	                    value: this.props.taskName,
+	                    handleClick: this.props.handleNameClick,
+	                    handleBlur: this.props.handleNameSave
+	                }),
+	                this.props.detailsAreVisible ? _react2.default.createElement(_downAngleIcon2.default, { handleClick: this.props.hideDetails }) : _react2.default.createElement(_rightAngleIcon2.default, { handleClick: this.props.showDetails })
+	            );
+	        }
+	    }]);
+
+	    return TaskTableTaskBrief;
+	}(_react2.default.Component);
+
+	TaskTableTaskBrief.propTypes = {
+	    taskName: _react2.default.PropTypes.string.isRequired,
+	    detailsAreVisible: _react2.default.PropTypes.bool.isRequired,
+
+	    handleNameClick: _react2.default.PropTypes.func.isRequired,
+	    handleNameSave: _react2.default.PropTypes.func.isRequired,
+	    hideDetails: _react2.default.PropTypes.func.isRequired,
+	    showDetails: _react2.default.PropTypes.func.isRequired
+	};
+
+	exports.default = TaskTableTaskBrief;
+
+/***/ },
+/* 553 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(554);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(302)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./task-table-task-brief.scss", function() {
+				var newContent = require("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./task-table-task-brief.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 554 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(301)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".task-table-task-brief input {\n  width: calc(100% - 20px);\n  display: inline-block; }\n\n.task-table-task-brief i {\n  width: 20px;\n  text-align: center; }\n", ""]);
+
+	// exports
+
 
 /***/ }
 /******/ ]);

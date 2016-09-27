@@ -8,18 +8,6 @@
         font-size: .9em;
     }
 
-    .task-name {
-        input {
-            width: calc(100% - 20px);
-            display: inline-block;
-        }
-
-        i {
-            width: 20px;
-            text-align: center;
-        }
-    }
-
     .delete-task {
         span {
             padding: 2px 7px;

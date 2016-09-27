@@ -18,7 +18,7 @@ class TaskTableTaskDetails extends React.Component {
                     <label>Notes</label>
                     <TextArea
                         value={this.props.taskNotes}
-                        onBlur={this.props.handleNotesSave}
+                        handleBlur={this.props.handleNotesSave}
                     />
                 </FormGroup>
 

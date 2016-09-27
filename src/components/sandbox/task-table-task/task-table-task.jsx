@@ -2,10 +2,8 @@
 import React from 'react';
 
 // components
-import DownAngleIcon from '~/icons/down-angle-icon';
-import RightAngleIcon from '~/icons/right-angle-icon';
+import TaskTableTaskBrief from './task-table-task-brief';
 import TaskTableTaskDetails from './task-table-task-details';
-import TextBox from '~/fields/text-box';
 import Toggler from '../toggler/toggler';
 
 // styles
@@ -59,18 +57,14 @@ class TaskTableTask extends React.Component {
     render() {
         return (
             <div className="task-table-task">
-                <div className="task-name">
-                    <TextBox
-                        value={this.props.task.Name}
-                        handleClick={this.handleNameClick}
-                        handleBlur={this.handleNameSave}
-                    />
-                    {
-                        this.state.detailsAreVisible
-                            ? <DownAngleIcon handleClick={this.hideDetails} />
-                            : <RightAngleIcon handleClick={this.showDetails} />
-                    }
-                </div>
+                <TaskTableTaskBrief
+                    taskName={this.props.task.Name}
+                    detailsAreVisible={this.state.detailsAreVisible}
+                    handleNameClick={this.handleNameClick}
+                    handleNameSave={this.handleNameSave}
+                    hideDetails={this.hideDetails}
+                    showDetails={this.showDetails}
+                />
 
                 <Toggler isVisible={this.state.detailsAreVisible}>
                     <TaskTableTaskDetails

@@ -1,0 +1,11 @@
+.task-table-task-brief {
+    input {
+        width: calc(100% - 20px);
+        display: inline-block;
+    }
+
+    i {
+        width: 20px;
+        text-align: center;
+    }
+}
