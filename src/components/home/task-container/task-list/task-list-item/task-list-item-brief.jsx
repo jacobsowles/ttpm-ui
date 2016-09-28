@@ -6,14 +6,11 @@ import DownAngleIcon from '~/icons/down-angle-icon';
 import RightAngleIcon from '~/icons/right-angle-icon';
 import TextBox from '~/fields/text-box';
 
-// styles
-require('./task-table-task-brief.scss');
-
-class TaskTableTaskBrief extends React.Component {
+class TaskListItemBrief extends React.Component {
 
     render() {
         return (
-            <div className={`task-table-task-brief ${this.props.detailsAreVisible ? 'edit-mode' : ''}`}>
+            <div className={`task-brief ${this.props.detailsAreVisible ? 'edit-mode' : ''}`}>
                 <TextBox
                     value={this.props.taskName}
                     handleClick={this.props.handleNameClick}
@@ -30,7 +27,7 @@ class TaskTableTaskBrief extends React.Component {
     }
 }
 
-TaskTableTaskBrief.propTypes = {
+TaskListItemBrief.propTypes = {
     taskName: React.PropTypes.string.isRequired,
     detailsAreVisible: React.PropTypes.bool.isRequired,
 
@@ -40,4 +37,4 @@ TaskTableTaskBrief.propTypes = {
     showDetails: React.PropTypes.func.isRequired
 };
 
-export default TaskTableTaskBrief;
+export default TaskListItemBrief;

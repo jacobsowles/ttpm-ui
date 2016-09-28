@@ -6,14 +6,11 @@ import DeleteButton from '~/buttons/delete-button';
 import FormGroup from '~/forms/form-group';
 import TextArea from '~/fields/text-area';
 
-// styles
-require('./task-table-task-details.scss');
-
-class TaskTableTaskDetails extends React.Component {
+class TaskListItemDetails extends React.Component {
 
     render() {
         return (
-            <div className="task-table-task-details">
+            <div className="task-details">
                 <FormGroup>
                     <label>Notes</label>
                     <TextArea
@@ -28,15 +25,14 @@ class TaskTableTaskDetails extends React.Component {
     }
 }
 
-TaskTableTaskDetails.propTypes = {
+TaskListItemDetails.propTypes = {
     taskNotes: React.PropTypes.string,
-
     handleDeleteClick: React.PropTypes.func.isRequired,
     handleNotesSave: React.PropTypes.func.isRequired
 };
 
-TaskTableTaskDetails.defaultProps = {
+TaskListItemDetails.defaultProps = {
     taskNotes: ''
 };
 
-export default TaskTableTaskDetails;
+export default TaskListItemDetails;

@@ -2,9 +2,9 @@
 import React from 'react';
 
 // styles
-require('./new-task-row.scss');
+require('./task-list-new-item.scss');
 
-class NewTaskRow extends React.Component {
+class TaskListNewItem extends React.Component {
 
     constructor(props) {
         super(props);
@@ -47,16 +47,15 @@ class NewTaskRow extends React.Component {
 
     render() {
         return (
-            <tr className="new-task-row">
-                <td style={{width: '30px'}}></td>
-                <td><input type="text" ref="newTaskName" placeholder="Add a new task" onKeyDown={this.handleKeyDown} /></td>
-            </tr>
+            <div className="task-list-new-item">
+                <input type="text" ref="newTaskName" placeholder="Add a new task" onKeyDown={this.handleKeyDown} />
+            </div>
         );
     }
 }
 
-NewTaskRow.propTypes = {
+TaskListNewItem.propTypes = {
     handleNewTask: React.PropTypes.func.isRequired
 };
 
-export default NewTaskRow;
+export default TaskListNewItem;

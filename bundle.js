@@ -66,18 +66,18 @@
 
 	var _home2 = _interopRequireDefault(_home);
 
-	var _login = __webpack_require__(519);
+	var _login = __webpack_require__(508);
 
 	var _login2 = _interopRequireDefault(_login);
 
-	var _sandbox = __webpack_require__(532);
+	var _sandbox = __webpack_require__(519);
 
 	var _sandbox2 = _interopRequireDefault(_sandbox);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	// styles
-	__webpack_require__(530);
+	__webpack_require__(520);
 
 	// components
 
@@ -29548,19 +29548,19 @@
 
 	var _taskContainer2 = _interopRequireDefault(_taskContainer);
 
-	var _taskSearch = __webpack_require__(510);
+	var _taskSearch = __webpack_require__(499);
 
 	var _taskSearch2 = _interopRequireDefault(_taskSearch);
 
-	var _userControls = __webpack_require__(513);
+	var _userControls = __webpack_require__(502);
 
 	var _userControls2 = _interopRequireDefault(_userControls);
 
-	var _settingActions = __webpack_require__(517);
+	var _settingActions = __webpack_require__(506);
 
 	var _settingActions2 = _interopRequireDefault(_settingActions);
 
-	var _userSettingActions = __webpack_require__(518);
+	var _userSettingActions = __webpack_require__(507);
 
 	var _userSettingActions2 = _interopRequireDefault(_userSettingActions);
 
@@ -36920,8 +36920,6 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _redux = __webpack_require__(179);
-
 	var _analytics = __webpack_require__(343);
 
 	var _analytics2 = _interopRequireDefault(_analytics);
@@ -36930,9 +36928,9 @@
 
 	var _loadingGraphic2 = _interopRequireDefault(_loadingGraphic);
 
-	var _taskTable = __webpack_require__(499);
+	var _taskList = __webpack_require__(522);
 
-	var _taskTable2 = _interopRequireDefault(_taskTable);
+	var _taskList2 = _interopRequireDefault(_taskList);
 
 	var _taskActions = __webpack_require__(317);
 
@@ -36994,7 +36992,7 @@
 	                'div',
 	                null,
 	                _react2.default.createElement(_loadingGraphic2.default, { showLoadingGraphic: this.state.showLoadingGraphic }),
-	                _react2.default.createElement(_taskTable2.default, {
+	                _react2.default.createElement(_taskList2.default, {
 	                    tasks: this.props.filteredTasks,
 	                    taskGroupName: this.props.taskGroupName,
 	                    handleNewTask: this.handleNewTask,
@@ -62345,774 +62343,6 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _newTaskRow = __webpack_require__(500);
-
-	var _newTaskRow2 = _interopRequireDefault(_newTaskRow);
-
-	var _taskTableCaption = __webpack_require__(503);
-
-	var _taskTableCaption2 = _interopRequireDefault(_taskTableCaption);
-
-	var _taskTableRow = __webpack_require__(504);
-
-	var _taskTableRow2 = _interopRequireDefault(_taskTableRow);
-
-	var _filterActions = __webpack_require__(316);
-
-	var _filterActions2 = _interopRequireDefault(_filterActions);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
-
-
-	// components
-
-
-	// actions
-
-
-	var styles = {
-	    taskTable: {
-	        fontSize: '.9em',
-	        background: '#ffffff',
-	        padding: '15px'
-	    }
-	};
-
-	var TaskTable = function (_React$Component) {
-	    _inherits(TaskTable, _React$Component);
-
-	    function TaskTable() {
-	        _classCallCheck(this, TaskTable);
-
-	        return _possibleConstructorReturn(this, (TaskTable.__proto__ || Object.getPrototypeOf(TaskTable)).apply(this, arguments));
-	    }
-
-	    _createClass(TaskTable, [{
-	        key: 'render',
-	        value: function render() {
-	            var _this2 = this;
-
-	            return _react2.default.createElement(
-	                'div',
-	                { className: 'row' },
-	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'col-xs-12' },
-	                    _react2.default.createElement(
-	                        'div',
-	                        {
-	                            className: 'task-table table-responsive',
-	                            style: styles.taskTable
-	                        },
-	                        _react2.default.createElement(
-	                            'table',
-	                            { className: 'table table-striped' },
-	                            _react2.default.createElement(_taskTableCaption2.default, { taskGroupName: this.props.taskGroupName }),
-	                            _react2.default.createElement(
-	                                'tbody',
-	                                null,
-	                                this.props.tasks.map(function (task, key) {
-	                                    return _react2.default.createElement(_taskTableRow2.default, {
-	                                        key: key,
-	                                        task: task,
-	                                        handleCompletionToggle: _this2.props.handleCompletionToggle,
-	                                        handleNameEdit: _this2.props.handleTaskNameEdit,
-	                                        handleNotesEdit: _this2.props.handleTaskNotesEdit,
-	                                        handleTaskDelete: _this2.props.handleTaskDelete
-	                                    });
-	                                }),
-	                                _react2.default.createElement(_newTaskRow2.default, { handleNewTask: this.props.handleNewTask })
-	                            )
-	                        )
-	                    )
-	                )
-	            );
-	        }
-	    }]);
-
-	    return TaskTable;
-	}(_react2.default.Component);
-
-	TaskTable.propTypes = {
-	    tasks: _react2.default.PropTypes.arrayOf(_react2.default.PropTypes.object).isRequired,
-	    taskGroupName: _react2.default.PropTypes.string,
-
-	    handleNewTask: _react2.default.PropTypes.func.isRequired,
-	    handleCompletionToggle: _react2.default.PropTypes.func.isRequired,
-	    handleTaskNameEdit: _react2.default.PropTypes.func.isRequired,
-	    handleTaskNotesEdit: _react2.default.PropTypes.func.isRequired
-	};
-
-	exports.default = TaskTable;
-
-/***/ },
-/* 500 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
-
-
-	// styles
-	__webpack_require__(501);
-
-	var NewTaskRow = function (_React$Component) {
-	    _inherits(NewTaskRow, _React$Component);
-
-	    function NewTaskRow(props) {
-	        _classCallCheck(this, NewTaskRow);
-
-	        var _this = _possibleConstructorReturn(this, (NewTaskRow.__proto__ || Object.getPrototypeOf(NewTaskRow)).call(this, props));
-
-	        _this.handleKeyDown = _this.handleKeyDown.bind(_this);
-	        _this.handleSubmit = _this.handleSubmit.bind(_this);
-	        return _this;
-	    }
-
-	    _createClass(NewTaskRow, [{
-	        key: 'componentDidUpdate',
-	        value: function componentDidUpdate(prevProps, prevState) {
-	            this.resetFields();
-	        }
-	    }, {
-	        key: 'resetFields',
-	        value: function resetFields() {
-	            this.refs.newTaskName.value = '';
-	        }
-	    }, {
-	        key: 'handleKeyDown',
-	        value: function handleKeyDown(event) {
-	            switch (event.key) {
-	                case 'Escape':
-	                    {
-	                        this.resetFields();
-	                        break;
-	                    }
-
-	                case 'Enter':
-	                    {
-	                        this.handleSubmit();
-	                        break;
-	                    }
-	            }
-	        }
-	    }, {
-	        key: 'handleSubmit',
-	        value: function handleSubmit() {
-	            if (this.refs.newTaskName) {
-	                var task = {
-	                    Name: this.refs.newTaskName.value
-	                };
-
-	                this.props.handleNewTask(task);
-	            }
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'tr',
-	                { className: 'new-task-row' },
-	                _react2.default.createElement('td', { style: { width: '30px' } }),
-	                _react2.default.createElement(
-	                    'td',
-	                    null,
-	                    _react2.default.createElement('input', { type: 'text', ref: 'newTaskName', placeholder: 'Add a new task', onKeyDown: this.handleKeyDown })
-	                )
-	            );
-	        }
-	    }]);
-
-	    return NewTaskRow;
-	}(_react2.default.Component);
-
-	NewTaskRow.propTypes = {
-	    handleNewTask: _react2.default.PropTypes.func.isRequired
-	};
-
-	exports.default = NewTaskRow;
-
-/***/ },
-/* 501 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(502);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(302)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../../../../node_modules/css-loader/index.js!./../../../../../../node_modules/sass-loader/index.js!./new-task-row.scss", function() {
-				var newContent = require("!!./../../../../../../node_modules/css-loader/index.js!./../../../../../../node_modules/sass-loader/index.js!./new-task-row.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 502 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(301)();
-	// imports
-
-
-	// module
-	exports.push([module.id, ".new-task-row td input {\n  background: none;\n  border: none; }\n  .new-task-row td input:hover {\n    cursor: pointer; }\n  .new-task-row td input:focus {\n    cursor: text; }\n  .new-task-row td input::-moz-placeholder {\n    color: #b3b3b3;\n    font-style: normal; }\n  .new-task-row td input:-moz-placeholder {\n    color: #b3b3b3;\n    font-style: normal; }\n  .new-task-row td input::-webkit-input-placeholder {\n    color: #b3b3b3;\n    font-style: normal; }\n  .new-task-row td input:-ms-input-placeholder {\n    color: #b3b3b3;\n    font-style: normal; }\n", ""]);
-
-	// exports
-
-
-/***/ },
-/* 503 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
-
-
-	var styles = {
-	    caption: {
-	        padding: '0 0 10px 0',
-	        fontSize: '.9em',
-	        textAlign: 'right'
-	    }
-	};
-
-	var TaskTableCaption = function (_React$Component) {
-	    _inherits(TaskTableCaption, _React$Component);
-
-	    function TaskTableCaption() {
-	        _classCallCheck(this, TaskTableCaption);
-
-	        return _possibleConstructorReturn(this, (TaskTableCaption.__proto__ || Object.getPrototypeOf(TaskTableCaption)).apply(this, arguments));
-	    }
-
-	    _createClass(TaskTableCaption, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'caption',
-	                { style: styles.caption },
-	                this.props.taskGroupName ? _react2.default.createElement(
-	                    'span',
-	                    null,
-	                    'showing tasks in the ',
-	                    _react2.default.createElement(
-	                        'strong',
-	                        null,
-	                        this.props.taskGroupName
-	                    ),
-	                    ' group | ',
-	                    _react2.default.createElement(
-	                        'a',
-	                        { href: '/' },
-	                        'show all tasks'
-	                    )
-	                ) : _react2.default.createElement(
-	                    'span',
-	                    null,
-	                    'showing all tasks'
-	                )
-	            );
-	        }
-	    }]);
-
-	    return TaskTableCaption;
-	}(_react2.default.Component);
-
-	TaskTableCaption.propTypes = {
-	    taskGroupName: _react2.default.PropTypes.string
-	};
-
-	exports.default = TaskTableCaption;
-
-/***/ },
-/* 504 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _checkbox = __webpack_require__(505);
-
-	var _checkbox2 = _interopRequireDefault(_checkbox);
-
-	var _taskTableTask = __webpack_require__(506);
-
-	var _taskTableTask2 = _interopRequireDefault(_taskTableTask);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
-
-
-	// components
-
-
-	// styles
-	__webpack_require__(508);
-
-	var TaskTableRow = function (_React$Component) {
-	    _inherits(TaskTableRow, _React$Component);
-
-	    function TaskTableRow() {
-	        _classCallCheck(this, TaskTableRow);
-
-	        return _possibleConstructorReturn(this, (TaskTableRow.__proto__ || Object.getPrototypeOf(TaskTableRow)).apply(this, arguments));
-	    }
-
-	    _createClass(TaskTableRow, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'tr',
-	                { className: this.props.task.Complete ? 'task-table-row-complete' : '' },
-	                _react2.default.createElement(
-	                    'td',
-	                    { style: { width: '30px' } },
-	                    _react2.default.createElement(_checkbox2.default, {
-	                        checked: this.props.task.Complete,
-	                        includeWithChange: this.props.task,
-	                        handleChange: this.props.handleCompletionToggle
-	                    })
-	                ),
-	                _react2.default.createElement(
-	                    'td',
-	                    null,
-	                    _react2.default.createElement(_taskTableTask2.default, {
-	                        task: this.props.task,
-	                        handleNameEdit: this.props.handleNameEdit,
-	                        handleNotesEdit: this.props.handleNotesEdit,
-	                        handleTaskDelete: this.props.handleTaskDelete
-	                    })
-	                )
-	            );
-	        }
-	    }]);
-
-	    return TaskTableRow;
-	}(_react2.default.Component);
-
-	TaskTableRow.propTypes = {
-	    task: _react2.default.PropTypes.shape({
-	        Name: _react2.default.PropTypes.string.isRequired,
-	        Notes: _react2.default.PropTypes.string,
-	        Complete: _react2.default.PropTypes.bool.isRequired
-	    }),
-	    handleCompletionToggle: _react2.default.PropTypes.func.isRequired,
-	    handleNameEdit: _react2.default.PropTypes.func.isRequired,
-	    handleNotesEdit: _react2.default.PropTypes.func.isRequired,
-	    handleTaskDelete: _react2.default.PropTypes.func.isRequired
-	};
-
-	exports.default = TaskTableRow;
-
-/***/ },
-/* 505 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
-
-
-	var Checkbox = function (_React$Component) {
-	    _inherits(Checkbox, _React$Component);
-
-	    function Checkbox(props) {
-	        _classCallCheck(this, Checkbox);
-
-	        var _this = _possibleConstructorReturn(this, (Checkbox.__proto__ || Object.getPrototypeOf(Checkbox)).call(this, props));
-
-	        _this.state = {
-	            checked: props.checked
-	        };
-
-	        _this.handleChange = _this.handleChange.bind(_this);
-	        return _this;
-	    }
-
-	    _createClass(Checkbox, [{
-	        key: "componentWillUpdate",
-	        value: function componentWillUpdate(nextProps, nextState) {
-	            nextState.checked = nextProps.checked;
-	        }
-	    }, {
-	        key: "handleChange",
-	        value: function handleChange() {
-	            this.setState({
-	                checked: !this.state.checked
-	            });
-
-	            this.props.handleChange(this.props.includeWithChange);
-	        }
-	    }, {
-	        key: "render",
-	        value: function render() {
-	            var _this2 = this;
-
-	            return _react2.default.createElement("input", {
-	                type: "checkbox",
-	                checked: this.state.checked,
-	                onChange: function onChange() {
-	                    return _this2.handleChange();
-	                }
-	            });
-	        }
-	    }]);
-
-	    return Checkbox;
-	}(_react2.default.Component);
-
-	Checkbox.propTypes = {
-	    checked: _react2.default.PropTypes.bool,
-	    includeWithChange: _react2.default.PropTypes.object,
-	    handleChange: _react2.default.PropTypes.func.isRequired
-	};
-
-	Checkbox.getDefaultProps = {
-	    checked: false
-	};
-
-	exports.default = Checkbox;
-
-/***/ },
-/* 506 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _accordion = __webpack_require__(304);
-
-	var _accordion2 = _interopRequireDefault(_accordion);
-
-	var _accordionItem = __webpack_require__(305);
-
-	var _accordionItem2 = _interopRequireDefault(_accordionItem);
-
-	var _taskTableTaskDetails = __webpack_require__(507);
-
-	var _taskTableTaskDetails2 = _interopRequireDefault(_taskTableTaskDetails);
-
-	var _viewEditToggleField = __webpack_require__(310);
-
-	var _viewEditToggleField2 = _interopRequireDefault(_viewEditToggleField);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
-
-
-	// components
-
-
-	var TaskTableTask = function (_React$Component) {
-	    _inherits(TaskTableTask, _React$Component);
-
-	    function TaskTableTask() {
-	        _classCallCheck(this, TaskTableTask);
-
-	        return _possibleConstructorReturn(this, (TaskTableTask.__proto__ || Object.getPrototypeOf(TaskTableTask)).apply(this, arguments));
-	    }
-
-	    _createClass(TaskTableTask, [{
-	        key: 'render',
-	        value: function render() {
-	            console.log(this.props.task);
-	            return _react2.default.createElement(
-	                _accordion2.default,
-	                null,
-	                _react2.default.createElement(_accordionItem2.default, {
-	                    header: _react2.default.createElement(_viewEditToggleField2.default, {
-	                        text: this.props.task.Name,
-	                        handleSubmit: this.props.handleNameEdit,
-	                        includeWithSubmit: this.props.task,
-	                        isEditable: !this.props.task.Complete
-	                    }),
-	                    body: _react2.default.createElement(_taskTableTaskDetails2.default, {
-	                        task: this.props.task,
-	                        handleNotesEdit: this.props.handleNotesEdit,
-	                        handleTaskDelete: this.props.handleTaskDelete
-	                    }),
-	                    activateOnHeaderClick: true,
-	                    showIconOnRight: true
-	                })
-	            );
-	        }
-	    }]);
-
-	    return TaskTableTask;
-	}(_react2.default.Component);
-
-	TaskTableTask.propTypes = {
-	    task: _react2.default.PropTypes.shape({
-	        Name: _react2.default.PropTypes.string.isRequired,
-	        Notes: _react2.default.PropTypes.string,
-	        Complete: _react2.default.PropTypes.bool.isRequired
-	    }),
-	    handleNameEdit: _react2.default.PropTypes.func.isRequired,
-	    handleNotesEdit: _react2.default.PropTypes.func.isRequired,
-	    handleTaskDelete: _react2.default.PropTypes.func.isRequired
-	};
-
-	exports.default = TaskTableTask;
-
-/***/ },
-/* 507 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
-
-
-	// styles
-	var styles = {
-	    details: {
-	        margin: '15px 15px auto auto',
-	        fontSize: '.9em'
-	    },
-
-	    textarea: {
-	        height: '150px',
-	        fontSize: '.9em'
-	    },
-
-	    button: {
-	        fontSize: '.9em',
-	        marginTop: '10px'
-	    }
-	};
-
-	var TaskTableTaskDetails = function (_React$Component) {
-	    _inherits(TaskTableTaskDetails, _React$Component);
-
-	    function TaskTableTaskDetails() {
-	        _classCallCheck(this, TaskTableTaskDetails);
-
-	        return _possibleConstructorReturn(this, (TaskTableTaskDetails.__proto__ || Object.getPrototypeOf(TaskTableTaskDetails)).apply(this, arguments));
-	    }
-
-	    _createClass(TaskTableTaskDetails, [{
-	        key: 'render',
-	        value: function render() {
-	            var _this2 = this;
-
-	            return _react2.default.createElement(
-	                'div',
-	                {
-	                    className: 'task-table-task-details form-group',
-	                    style: styles.details
-	                },
-	                _react2.default.createElement(
-	                    'label',
-	                    null,
-	                    'Notes'
-	                ),
-	                _react2.default.createElement('textarea', {
-	                    type: 'text',
-	                    className: 'form-control',
-	                    style: styles.textarea,
-	                    defaultValue: this.props.task.Notes,
-	                    onBlur: function onBlur(event) {
-	                        return _this2.props.handleNotesEdit(event.target.value, _this2.props.task);
-	                    }
-	                }),
-	                _react2.default.createElement(
-	                    'button',
-	                    {
-	                        className: 'btn btn-danger',
-	                        style: styles.button,
-	                        onClick: function onClick() {
-	                            return _this2.props.handleTaskDelete(_this2.props.task.Id);
-	                        }
-	                    },
-	                    'Delete Task'
-	                )
-	            );
-	        }
-	    }]);
-
-	    return TaskTableTaskDetails;
-	}(_react2.default.Component);
-
-	TaskTableTaskDetails.propTypes = {
-	    task: _react2.default.PropTypes.shape({
-	        Name: _react2.default.PropTypes.string.isRequired,
-	        Notes: _react2.default.PropTypes.string,
-	        Complete: _react2.default.PropTypes.bool.isRequired
-	    }),
-	    handleNotesEdit: _react2.default.PropTypes.func.isRequired,
-	    handleTaskDelete: _react2.default.PropTypes.func.isRequired
-	};
-
-	exports.default = TaskTableTaskDetails;
-
-/***/ },
-/* 508 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(509);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(302)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../../../../node_modules/css-loader/index.js!./../../../../../../node_modules/sass-loader/index.js!./task-table-row.scss", function() {
-				var newContent = require("!!./../../../../../../node_modules/css-loader/index.js!./../../../../../../node_modules/sass-loader/index.js!./task-table-row.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 509 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(301)();
-	// imports
-
-
-	// module
-	exports.push([module.id, ".task-table-row-complete td:not(.task-table-delete-task) {\n  text-decoration: line-through;\n  color: #b3b3b3; }\n  .task-table-row-complete td:not(.task-table-delete-task) input {\n    text-decoration: line-through;\n    background: none;\n    border: none; }\n\n.task-table-delete-task span {\n  padding: 2px 7px; }\n  .task-table-delete-task span:hover {\n    background: #d3d2d1;\n    cursor: pointer; }\n", ""]);
-
-	// exports
-
-
-/***/ },
-/* 510 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	var _React = __webpack_require__(274);
 
 	var _React2 = _interopRequireDefault(_React);
@@ -63127,7 +62357,7 @@
 
 
 	// styles
-	__webpack_require__(511);
+	__webpack_require__(500);
 
 	var TaskSearch = function (_React$Component) {
 	    _inherits(TaskSearch, _React$Component);
@@ -63151,13 +62381,13 @@
 	exports.default = TaskSearch;
 
 /***/ },
-/* 511 */
+/* 500 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(512);
+	var content = __webpack_require__(501);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(302)(content, {});
@@ -63177,7 +62407,7 @@
 	}
 
 /***/ },
-/* 512 */
+/* 501 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(301)();
@@ -63191,7 +62421,7 @@
 
 
 /***/ },
-/* 513 */
+/* 502 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63208,7 +62438,7 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _userActions = __webpack_require__(514);
+	var _userActions = __webpack_require__(503);
 
 	var _userActions2 = _interopRequireDefault(_userActions);
 
@@ -63225,7 +62455,7 @@
 
 
 	// styles
-	__webpack_require__(515);
+	__webpack_require__(504);
 
 	var UserControls = function (_React$Component) {
 	    _inherits(UserControls, _React$Component);
@@ -63277,7 +62507,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(UserControls);
 
 /***/ },
-/* 514 */
+/* 503 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63294,13 +62524,13 @@
 	};
 
 /***/ },
-/* 515 */
+/* 504 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(516);
+	var content = __webpack_require__(505);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(302)(content, {});
@@ -63320,7 +62550,7 @@
 	}
 
 /***/ },
-/* 516 */
+/* 505 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(301)();
@@ -63334,7 +62564,7 @@
 
 
 /***/ },
-/* 517 */
+/* 506 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63351,7 +62581,7 @@
 	};
 
 /***/ },
-/* 518 */
+/* 507 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63368,7 +62598,7 @@
 	};
 
 /***/ },
-/* 519 */
+/* 508 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63387,11 +62617,11 @@
 
 	var _redux = __webpack_require__(179);
 
-	var _loginForm = __webpack_require__(520);
+	var _loginForm = __webpack_require__(509);
 
 	var _loginForm2 = _interopRequireDefault(_loginForm);
 
-	var _registrationForm = __webpack_require__(524);
+	var _registrationForm = __webpack_require__(513);
 
 	var _registrationForm2 = _interopRequireDefault(_registrationForm);
 
@@ -63413,7 +62643,7 @@
 
 
 	// styles
-	__webpack_require__(528);
+	__webpack_require__(517);
 
 	var Login = function (_React$Component) {
 	    _inherits(Login, _React$Component);
@@ -63483,7 +62713,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Login);
 
 /***/ },
-/* 520 */
+/* 509 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63502,7 +62732,7 @@
 
 	var _redux = __webpack_require__(179);
 
-	var _loginFormActions = __webpack_require__(521);
+	var _loginFormActions = __webpack_require__(510);
 
 	var _loginFormActions2 = _interopRequireDefault(_loginFormActions);
 
@@ -63524,7 +62754,7 @@
 
 
 	// styles
-	__webpack_require__(522);
+	__webpack_require__(511);
 
 	var LoginForm = function (_React$Component) {
 	    _inherits(LoginForm, _React$Component);
@@ -63610,7 +62840,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(LoginForm);
 
 /***/ },
-/* 521 */
+/* 510 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63639,13 +62869,13 @@
 	};
 
 /***/ },
-/* 522 */
+/* 511 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(523);
+	var content = __webpack_require__(512);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(302)(content, {});
@@ -63665,7 +62895,7 @@
 	}
 
 /***/ },
-/* 523 */
+/* 512 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(301)();
@@ -63679,7 +62909,7 @@
 
 
 /***/ },
-/* 524 */
+/* 513 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63698,7 +62928,7 @@
 
 	var _redux = __webpack_require__(179);
 
-	var _registrationFormActions = __webpack_require__(525);
+	var _registrationFormActions = __webpack_require__(514);
 
 	var _registrationFormActions2 = _interopRequireDefault(_registrationFormActions);
 
@@ -63715,7 +62945,7 @@
 
 
 	// styles
-	__webpack_require__(526);
+	__webpack_require__(515);
 
 	var RegistrationForm = function (_React$Component) {
 	    _inherits(RegistrationForm, _React$Component);
@@ -63798,7 +63028,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(RegistrationForm);
 
 /***/ },
-/* 525 */
+/* 514 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63815,13 +63045,13 @@
 	};
 
 /***/ },
-/* 526 */
+/* 515 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(527);
+	var content = __webpack_require__(516);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(302)(content, {});
@@ -63841,7 +63071,7 @@
 	}
 
 /***/ },
-/* 527 */
+/* 516 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(301)();
@@ -63855,13 +63085,13 @@
 
 
 /***/ },
-/* 528 */
+/* 517 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(529);
+	var content = __webpack_require__(518);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(302)(content, {});
@@ -63881,7 +63111,7 @@
 	}
 
 /***/ },
-/* 529 */
+/* 518 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(301)();
@@ -63895,13 +63125,61 @@
 
 
 /***/ },
-/* 530 */
+/* 519 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
+
+
+	// components
+
+	var Sandbox = function (_React$Component) {
+	    _inherits(Sandbox, _React$Component);
+
+	    function Sandbox() {
+	        _classCallCheck(this, Sandbox);
+
+	        return _possibleConstructorReturn(this, (Sandbox.__proto__ || Object.getPrototypeOf(Sandbox)).apply(this, arguments));
+	    }
+
+	    _createClass(Sandbox, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement('span', null);
+	        }
+	    }]);
+
+	    return Sandbox;
+	}(_react2.default.Component);
+
+	exports.default = Sandbox;
+
+/***/ },
+/* 520 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(531);
+	var content = __webpack_require__(521);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(302)(content, {});
@@ -63921,7 +63199,7 @@
 	}
 
 /***/ },
-/* 531 */
+/* 521 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(301)();
@@ -63935,7 +63213,7 @@
 
 
 /***/ },
-/* 532 */
+/* 522 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63950,9 +63228,21 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _taskTableTask = __webpack_require__(533);
+	var _taskListNewItem = __webpack_require__(523);
 
-	var _taskTableTask2 = _interopRequireDefault(_taskTableTask);
+	var _taskListNewItem2 = _interopRequireDefault(_taskListNewItem);
+
+	var _filterIndicator = __webpack_require__(526);
+
+	var _filterIndicator2 = _interopRequireDefault(_filterIndicator);
+
+	var _taskListItem = __webpack_require__(529);
+
+	var _taskListItem2 = _interopRequireDefault(_taskListItem);
+
+	var _filterActions = __webpack_require__(316);
+
+	var _filterActions2 = _interopRequireDefault(_filterActions);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -63966,35 +63256,70 @@
 	// components
 
 
-	var Sandbox = function (_React$Component) {
-	    _inherits(Sandbox, _React$Component);
+	// actions
 
-	    function Sandbox() {
-	        _classCallCheck(this, Sandbox);
 
-	        return _possibleConstructorReturn(this, (Sandbox.__proto__ || Object.getPrototypeOf(Sandbox)).apply(this, arguments));
+	// styles
+	__webpack_require__(546);
+
+	var TaskList = function (_React$Component) {
+	    _inherits(TaskList, _React$Component);
+
+	    function TaskList() {
+	        _classCallCheck(this, TaskList);
+
+	        return _possibleConstructorReturn(this, (TaskList.__proto__ || Object.getPrototypeOf(TaskList)).apply(this, arguments));
 	    }
 
-	    _createClass(Sandbox, [{
+	    _createClass(TaskList, [{
 	        key: 'render',
 	        value: function render() {
-	            return _react2.default.createElement(_taskTableTask2.default, {
-	                task: {
-	                    Name: 'Task Name',
-	                    Notes: 'These are some sick notes, bro.',
-	                    Complete: false
-	                }
-	            });
+	            var _this2 = this;
+
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'row' },
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'col-xs-12', style: { height: '100vh', overflow: 'scroll' } },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'task-list' },
+	                        _react2.default.createElement(_filterIndicator2.default, { taskGroupName: this.props.taskGroupName }),
+	                        this.props.tasks.map(function (task, key) {
+	                            return _react2.default.createElement(_taskListItem2.default, {
+	                                key: key,
+	                                task: task,
+	                                handleCompletionToggle: _this2.props.handleCompletionToggle,
+	                                handleNameEdit: _this2.props.handleTaskNameEdit,
+	                                handleNotesEdit: _this2.props.handleTaskNotesEdit,
+	                                handleTaskDelete: _this2.props.handleTaskDelete
+	                            });
+	                        }),
+	                        _react2.default.createElement(_taskListNewItem2.default, { handleNewTask: this.props.handleNewTask })
+	                    )
+	                )
+	            );
 	        }
 	    }]);
 
-	    return Sandbox;
+	    return TaskList;
 	}(_react2.default.Component);
 
-	exports.default = Sandbox;
+	TaskList.propTypes = {
+	    tasks: _react2.default.PropTypes.arrayOf(_react2.default.PropTypes.object).isRequired,
+	    taskGroupName: _react2.default.PropTypes.string,
+
+	    handleNewTask: _react2.default.PropTypes.func.isRequired,
+	    handleCompletionToggle: _react2.default.PropTypes.func.isRequired,
+	    handleTaskNameEdit: _react2.default.PropTypes.func.isRequired,
+	    handleTaskNotesEdit: _react2.default.PropTypes.func.isRequired
+	};
+
+	exports.default = TaskList;
 
 /***/ },
-/* 533 */
+/* 523 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -64009,15 +63334,272 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _taskTableTaskBrief = __webpack_require__(552);
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var _taskTableTaskBrief2 = _interopRequireDefault(_taskTableTaskBrief);
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var _taskTableTaskDetails = __webpack_require__(537);
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-	var _taskTableTaskDetails2 = _interopRequireDefault(_taskTableTaskDetails);
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
 
-	var _toggler = __webpack_require__(545);
+
+	// styles
+	__webpack_require__(524);
+
+	var TaskListNewItem = function (_React$Component) {
+	    _inherits(TaskListNewItem, _React$Component);
+
+	    function TaskListNewItem(props) {
+	        _classCallCheck(this, TaskListNewItem);
+
+	        var _this = _possibleConstructorReturn(this, (TaskListNewItem.__proto__ || Object.getPrototypeOf(TaskListNewItem)).call(this, props));
+
+	        _this.handleKeyDown = _this.handleKeyDown.bind(_this);
+	        _this.handleSubmit = _this.handleSubmit.bind(_this);
+	        return _this;
+	    }
+
+	    _createClass(TaskListNewItem, [{
+	        key: 'componentDidUpdate',
+	        value: function componentDidUpdate(prevProps, prevState) {
+	            this.resetFields();
+	        }
+	    }, {
+	        key: 'resetFields',
+	        value: function resetFields() {
+	            this.refs.newTaskName.value = '';
+	        }
+	    }, {
+	        key: 'handleKeyDown',
+	        value: function handleKeyDown(event) {
+	            switch (event.key) {
+	                case 'Escape':
+	                    {
+	                        this.resetFields();
+	                        break;
+	                    }
+
+	                case 'Enter':
+	                    {
+	                        this.handleSubmit();
+	                        break;
+	                    }
+	            }
+	        }
+	    }, {
+	        key: 'handleSubmit',
+	        value: function handleSubmit() {
+	            if (this.refs.newTaskName) {
+	                var task = {
+	                    Name: this.refs.newTaskName.value
+	                };
+
+	                this.props.handleNewTask(task);
+	            }
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'task-list-new-item' },
+	                _react2.default.createElement('input', { type: 'text', ref: 'newTaskName', placeholder: 'Add a new task', onKeyDown: this.handleKeyDown })
+	            );
+	        }
+	    }]);
+
+	    return TaskListNewItem;
+	}(_react2.default.Component);
+
+	TaskListNewItem.propTypes = {
+	    handleNewTask: _react2.default.PropTypes.func.isRequired
+	};
+
+	exports.default = TaskListNewItem;
+
+/***/ },
+/* 524 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(525);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(302)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../../../node_modules/css-loader/index.js!./../../../../../../node_modules/sass-loader/index.js!./task-list-new-item.scss", function() {
+				var newContent = require("!!./../../../../../../node_modules/css-loader/index.js!./../../../../../../node_modules/sass-loader/index.js!./task-list-new-item.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 525 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(301)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".task-list-new-item {\n  margin-left: 30px; }\n  .task-list-new-item input {\n    padding: 5px 8px;\n    border: none; }\n    .task-list-new-item input:hover {\n      cursor: pointer; }\n    .task-list-new-item input:focus {\n      cursor: text; }\n    .task-list-new-item input::-moz-placeholder {\n      color: #b3b3b3;\n      font-style: normal;\n      line-height: 16.2px; }\n    .task-list-new-item input:-moz-placeholder {\n      color: #b3b3b3;\n      font-style: normal;\n      line-height: 16.2px; }\n    .task-list-new-item input::-webkit-input-placeholder {\n      color: #b3b3b3;\n      font-style: normal;\n      line-height: 16.2px; }\n    .task-list-new-item input:-ms-input-placeholder {\n      color: #b3b3b3;\n      font-style: normal;\n      line-height: 16.2px; }\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 526 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	__webpack_require__(527);
+
+	var FilterIndicator = function (_React$Component) {
+	    _inherits(FilterIndicator, _React$Component);
+
+	    function FilterIndicator() {
+	        _classCallCheck(this, FilterIndicator);
+
+	        return _possibleConstructorReturn(this, (FilterIndicator.__proto__ || Object.getPrototypeOf(FilterIndicator)).apply(this, arguments));
+	    }
+
+	    _createClass(FilterIndicator, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'filter-indicator' },
+	                this.props.taskGroupName ? _react2.default.createElement(
+	                    'span',
+	                    null,
+	                    'showing tasks in the ',
+	                    _react2.default.createElement(
+	                        'strong',
+	                        null,
+	                        this.props.taskGroupName
+	                    ),
+	                    ' group | ',
+	                    _react2.default.createElement(
+	                        'a',
+	                        { href: '/' },
+	                        'show all tasks'
+	                    )
+	                ) : _react2.default.createElement(
+	                    'span',
+	                    null,
+	                    'showing all tasks'
+	                )
+	            );
+	        }
+	    }]);
+
+	    return FilterIndicator;
+	}(_react2.default.Component);
+
+	FilterIndicator.propTypes = {
+	    taskGroupName: _react2.default.PropTypes.string
+	};
+
+	exports.default = FilterIndicator;
+
+/***/ },
+/* 527 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(528);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(302)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./filter-indicator.scss", function() {
+				var newContent = require("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./filter-indicator.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 528 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(301)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".filter-indicator {\n  width: 100%;\n  padding: 0 0 10px 0;\n  font-size: .9em;\n  text-align: right; }\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 529 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _checkbox = __webpack_require__(530);
+
+	var _checkbox2 = _interopRequireDefault(_checkbox);
+
+	var _taskListItemBrief = __webpack_require__(531);
+
+	var _taskListItemBrief2 = _interopRequireDefault(_taskListItemBrief);
+
+	var _taskListItemDetails = __webpack_require__(536);
+
+	var _taskListItemDetails2 = _interopRequireDefault(_taskListItemDetails);
+
+	var _toggler = __webpack_require__(541);
 
 	var _toggler2 = _interopRequireDefault(_toggler);
 
@@ -64034,15 +63616,15 @@
 
 
 	// styles
-	__webpack_require__(548);
+	__webpack_require__(544);
 
-	var TaskTableTask = function (_React$Component) {
-	    _inherits(TaskTableTask, _React$Component);
+	var TaskListItem = function (_React$Component) {
+	    _inherits(TaskListItem, _React$Component);
 
-	    function TaskTableTask(props) {
-	        _classCallCheck(this, TaskTableTask);
+	    function TaskListItem(props) {
+	        _classCallCheck(this, TaskListItem);
 
-	        var _this = _possibleConstructorReturn(this, (TaskTableTask.__proto__ || Object.getPrototypeOf(TaskTableTask)).call(this, props));
+	        var _this = _possibleConstructorReturn(this, (TaskListItem.__proto__ || Object.getPrototypeOf(TaskListItem)).call(this, props));
 
 	        _this.state = {
 	            detailsAreVisible: false
@@ -64057,7 +63639,7 @@
 	        return _this;
 	    }
 
-	    _createClass(TaskTableTask, [{
+	    _createClass(TaskListItem, [{
 	        key: 'handleNameClick',
 	        value: function handleNameClick() {
 	            this.showDetails();
@@ -64096,8 +63678,13 @@
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'div',
-	                { className: 'task-table-task' },
-	                _react2.default.createElement(_taskTableTaskBrief2.default, {
+	                { className: 'task-list-item' },
+	                _react2.default.createElement(_checkbox2.default, {
+	                    checked: this.props.task.Complete,
+	                    includeWithChange: this.props.task,
+	                    handleChange: this.props.handleCompletionToggle
+	                }),
+	                _react2.default.createElement(_taskListItemBrief2.default, {
 	                    taskName: this.props.task.Name,
 	                    detailsAreVisible: this.state.detailsAreVisible,
 	                    handleNameClick: this.handleNameClick,
@@ -64108,7 +63695,7 @@
 	                _react2.default.createElement(
 	                    _toggler2.default,
 	                    { isVisible: this.state.detailsAreVisible },
-	                    _react2.default.createElement(_taskTableTaskDetails2.default, {
+	                    _react2.default.createElement(_taskListItemDetails2.default, {
 	                        taskNotes: this.props.task.Notes,
 	                        handleDeleteClick: this.handleDeleteClick,
 	                        handleNotesSave: this.handleNotesSave
@@ -64118,21 +63705,107 @@
 	        }
 	    }]);
 
-	    return TaskTableTask;
+	    return TaskListItem;
 	}(_react2.default.Component);
 
-	TaskTableTask.propTypes = {
+	TaskListItem.propTypes = {
 	    task: _react2.default.PropTypes.shape({
 	        Name: _react2.default.PropTypes.string.isRequired,
 	        Notes: _react2.default.PropTypes.string,
 	        Complete: _react2.default.PropTypes.bool.isRequired
-	    }).isRequired
+	    }).isRequired,
+	    handleCompletionToggle: _react2.default.PropTypes.func.isRequired
 	};
 
-	exports.default = TaskTableTask;
+	exports.default = TaskListItem;
 
 /***/ },
-/* 534 */
+/* 530 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
+
+
+	var Checkbox = function (_React$Component) {
+	    _inherits(Checkbox, _React$Component);
+
+	    function Checkbox(props) {
+	        _classCallCheck(this, Checkbox);
+
+	        var _this = _possibleConstructorReturn(this, (Checkbox.__proto__ || Object.getPrototypeOf(Checkbox)).call(this, props));
+
+	        _this.state = {
+	            checked: props.checked
+	        };
+
+	        _this.handleChange = _this.handleChange.bind(_this);
+	        return _this;
+	    }
+
+	    _createClass(Checkbox, [{
+	        key: "componentWillUpdate",
+	        value: function componentWillUpdate(nextProps, nextState) {
+	            nextState.checked = nextProps.checked;
+	        }
+	    }, {
+	        key: "handleChange",
+	        value: function handleChange() {
+	            this.setState({
+	                checked: !this.state.checked
+	            });
+
+	            this.props.handleChange(this.props.includeWithChange);
+	        }
+	    }, {
+	        key: "render",
+	        value: function render() {
+	            var _this2 = this;
+
+	            return _react2.default.createElement("input", {
+	                type: "checkbox",
+	                checked: this.state.checked,
+	                onChange: function onChange() {
+	                    return _this2.handleChange();
+	                }
+	            });
+	        }
+	    }]);
+
+	    return Checkbox;
+	}(_react2.default.Component);
+
+	Checkbox.propTypes = {
+	    checked: _react2.default.PropTypes.bool,
+	    includeWithChange: _react2.default.PropTypes.object,
+	    handleChange: _react2.default.PropTypes.func.isRequired
+	};
+
+	Checkbox.getDefaultProps = {
+	    checked: false
+	};
+
+	exports.default = Checkbox;
+
+/***/ },
+/* 531 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -64147,7 +63820,87 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _icon = __webpack_require__(535);
+	var _downAngleIcon = __webpack_require__(532);
+
+	var _downAngleIcon2 = _interopRequireDefault(_downAngleIcon);
+
+	var _rightAngleIcon = __webpack_require__(534);
+
+	var _rightAngleIcon2 = _interopRequireDefault(_rightAngleIcon);
+
+	var _textBox = __webpack_require__(535);
+
+	var _textBox2 = _interopRequireDefault(_textBox);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
+
+
+	// components
+
+
+	var TaskListItemBrief = function (_React$Component) {
+	    _inherits(TaskListItemBrief, _React$Component);
+
+	    function TaskListItemBrief() {
+	        _classCallCheck(this, TaskListItemBrief);
+
+	        return _possibleConstructorReturn(this, (TaskListItemBrief.__proto__ || Object.getPrototypeOf(TaskListItemBrief)).apply(this, arguments));
+	    }
+
+	    _createClass(TaskListItemBrief, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'task-brief ' + (this.props.detailsAreVisible ? 'edit-mode' : '') },
+	                _react2.default.createElement(_textBox2.default, {
+	                    value: this.props.taskName,
+	                    handleClick: this.props.handleNameClick,
+	                    handleBlur: this.props.handleNameSave
+	                }),
+	                this.props.detailsAreVisible ? _react2.default.createElement(_downAngleIcon2.default, { handleClick: this.props.hideDetails }) : _react2.default.createElement(_rightAngleIcon2.default, { handleClick: this.props.showDetails })
+	            );
+	        }
+	    }]);
+
+	    return TaskListItemBrief;
+	}(_react2.default.Component);
+
+	TaskListItemBrief.propTypes = {
+	    taskName: _react2.default.PropTypes.string.isRequired,
+	    detailsAreVisible: _react2.default.PropTypes.bool.isRequired,
+
+	    handleNameClick: _react2.default.PropTypes.func.isRequired,
+	    handleNameSave: _react2.default.PropTypes.func.isRequired,
+	    hideDetails: _react2.default.PropTypes.func.isRequired,
+	    showDetails: _react2.default.PropTypes.func.isRequired
+	};
+
+	exports.default = TaskListItemBrief;
+
+/***/ },
+/* 532 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _icon = __webpack_require__(533);
 
 	var _icon2 = _interopRequireDefault(_icon);
 
@@ -64188,7 +63941,7 @@
 	exports.default = DownAngleIcon;
 
 /***/ },
-/* 535 */
+/* 533 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -64241,7 +63994,7 @@
 	exports.default = Icon;
 
 /***/ },
-/* 536 */
+/* 534 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -64256,7 +64009,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _icon = __webpack_require__(535);
+	var _icon = __webpack_require__(533);
 
 	var _icon2 = _interopRequireDefault(_icon);
 
@@ -64297,452 +64050,7 @@
 	exports.default = RightAngleIcon;
 
 /***/ },
-/* 537 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _deleteButton = __webpack_require__(538);
-
-	var _deleteButton2 = _interopRequireDefault(_deleteButton);
-
-	var _formGroup = __webpack_require__(540);
-
-	var _formGroup2 = _interopRequireDefault(_formGroup);
-
-	var _textArea = __webpack_require__(551);
-
-	var _textArea2 = _interopRequireDefault(_textArea);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
-
-
-	// components
-
-
-	// styles
-	__webpack_require__(543);
-
-	var TaskTableTaskDetails = function (_React$Component) {
-	    _inherits(TaskTableTaskDetails, _React$Component);
-
-	    function TaskTableTaskDetails() {
-	        _classCallCheck(this, TaskTableTaskDetails);
-
-	        return _possibleConstructorReturn(this, (TaskTableTaskDetails.__proto__ || Object.getPrototypeOf(TaskTableTaskDetails)).apply(this, arguments));
-	    }
-
-	    _createClass(TaskTableTaskDetails, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'div',
-	                { className: 'task-table-task-details' },
-	                _react2.default.createElement(
-	                    _formGroup2.default,
-	                    null,
-	                    _react2.default.createElement(
-	                        'label',
-	                        null,
-	                        'Notes'
-	                    ),
-	                    _react2.default.createElement(_textArea2.default, {
-	                        value: this.props.taskNotes,
-	                        handleBlur: this.props.handleNotesSave
-	                    })
-	                ),
-	                _react2.default.createElement(_deleteButton2.default, { handleClick: this.props.handleDeleteClick })
-	            );
-	        }
-	    }]);
-
-	    return TaskTableTaskDetails;
-	}(_react2.default.Component);
-
-	TaskTableTaskDetails.propTypes = {
-	    taskNotes: _react2.default.PropTypes.string,
-
-	    handleDeleteClick: _react2.default.PropTypes.func.isRequired,
-	    handleNotesSave: _react2.default.PropTypes.func.isRequired
-	};
-
-	TaskTableTaskDetails.defaultProps = {
-	    taskNotes: ''
-	};
-
-	exports.default = TaskTableTaskDetails;
-
-/***/ },
-/* 538 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _button = __webpack_require__(539);
-
-	var _button2 = _interopRequireDefault(_button);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var DeleteButton = function (_React$Component) {
-	    _inherits(DeleteButton, _React$Component);
-
-	    function DeleteButton() {
-	        _classCallCheck(this, DeleteButton);
-
-	        return _possibleConstructorReturn(this, (DeleteButton.__proto__ || Object.getPrototypeOf(DeleteButton)).apply(this, arguments));
-	    }
-
-	    _createClass(DeleteButton, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(_button2.default, _extends({
-	                className: 'btn btn-danger'
-	            }, this.props));
-	        }
-	    }]);
-
-	    return DeleteButton;
-	}(_react2.default.Component);
-
-	DeleteButton.PropTypes = {
-	    text: _react2.default.PropTypes.string,
-	    handleClick: _react2.default.PropTypes.func.isRequired
-	};
-
-	DeleteButton.defaultProps = {
-	    text: 'Delete'
-	};
-
-	exports.default = DeleteButton;
-
-/***/ },
-/* 539 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var Button = function (_React$Component) {
-	    _inherits(Button, _React$Component);
-
-	    function Button() {
-	        _classCallCheck(this, Button);
-
-	        return _possibleConstructorReturn(this, (Button.__proto__ || Object.getPrototypeOf(Button)).apply(this, arguments));
-	    }
-
-	    _createClass(Button, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'button',
-	                {
-	                    className: 'btn ' + this.props.className,
-	                    onClick: this.props.handleClick
-	                },
-	                this.props.text
-	            );
-	        }
-	    }]);
-
-	    return Button;
-	}(_react2.default.Component);
-
-	Button.PropTypes = {
-	    text: _react2.default.PropTypes.string.isRequired,
-	    className: _react2.default.PropTypes.string,
-	    handleClick: _react2.default.PropTypes.func.isRequired
-	};
-
-	Button.defaultProps = {
-	    className: ''
-	};
-
-	exports.default = Button;
-
-/***/ },
-/* 540 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
-
-
-	var FormGroup = function (_React$Component) {
-	    _inherits(FormGroup, _React$Component);
-
-	    function FormGroup() {
-	        _classCallCheck(this, FormGroup);
-
-	        return _possibleConstructorReturn(this, (FormGroup.__proto__ || Object.getPrototypeOf(FormGroup)).apply(this, arguments));
-	    }
-
-	    _createClass(FormGroup, [{
-	        key: "render",
-	        value: function render() {
-	            return _react2.default.createElement(
-	                "div",
-	                { className: "form-group" },
-	                this.props.children
-	            );
-	        }
-	    }]);
-
-	    return FormGroup;
-	}(_react2.default.Component);
-
-	exports.default = FormGroup;
-
-/***/ },
-/* 541 */,
-/* 542 */,
-/* 543 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(544);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(302)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./task-table-task-details.scss", function() {
-				var newContent = require("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./task-table-task-details.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 544 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(301)();
-	// imports
-
-
-	// module
-	exports.push([module.id, ".task-table-task-details {\n  margin: 15px 15px auto auto; }\n  .task-table-task-details textarea.form-control {\n    height: 150px;\n    padding: 10px; }\n", ""]);
-
-	// exports
-
-
-/***/ },
-/* 545 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
-
-
-	// styles
-	__webpack_require__(546);
-
-	var Toggler = function (_React$Component) {
-	    _inherits(Toggler, _React$Component);
-
-	    function Toggler() {
-	        _classCallCheck(this, Toggler);
-
-	        return _possibleConstructorReturn(this, (Toggler.__proto__ || Object.getPrototypeOf(Toggler)).apply(this, arguments));
-	    }
-
-	    _createClass(Toggler, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'div',
-	                { className: 'toggler toggler-' + (this.props.isVisible ? 'visible' : 'hidden') },
-	                this.props.children
-	            );
-	        }
-	    }]);
-
-	    return Toggler;
-	}(_react2.default.Component);
-
-	Toggler.propTypes = {
-	    isVisible: _react2.default.PropTypes.bool.isRequired
-	};
-
-	exports.default = Toggler;
-
-/***/ },
-/* 546 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(547);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(302)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./toggler.scss", function() {
-				var newContent = require("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./toggler.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 547 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(301)();
-	// imports
-
-
-	// module
-	exports.push([module.id, ".toggler-visible {\n  display: inherit; }\n\n.toggler-hidden {\n  display: none; }\n", ""]);
-
-	// exports
-
-
-/***/ },
-/* 548 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(549);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(302)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./task-table-task.scss", function() {
-				var newContent = require("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./task-table-task.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 549 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(301)();
-	// imports
-
-
-	// module
-	exports.push([module.id, ".task-table-task {\n  font-size: .9em; }\n  .task-table-task label,\n  .task-table-task input,\n  .task-table-task textarea,\n  .task-table-task button {\n    font-size: .9em; }\n", ""]);
-
-	// exports
-
-
-/***/ },
-/* 550 */
+/* 535 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -64825,7 +64133,269 @@
 	exports.default = TextBox;
 
 /***/ },
-/* 551 */
+/* 536 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _deleteButton = __webpack_require__(537);
+
+	var _deleteButton2 = _interopRequireDefault(_deleteButton);
+
+	var _formGroup = __webpack_require__(539);
+
+	var _formGroup2 = _interopRequireDefault(_formGroup);
+
+	var _textArea = __webpack_require__(540);
+
+	var _textArea2 = _interopRequireDefault(_textArea);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
+
+
+	// components
+
+
+	var TaskListItemDetails = function (_React$Component) {
+	    _inherits(TaskListItemDetails, _React$Component);
+
+	    function TaskListItemDetails() {
+	        _classCallCheck(this, TaskListItemDetails);
+
+	        return _possibleConstructorReturn(this, (TaskListItemDetails.__proto__ || Object.getPrototypeOf(TaskListItemDetails)).apply(this, arguments));
+	    }
+
+	    _createClass(TaskListItemDetails, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'task-details' },
+	                _react2.default.createElement(
+	                    _formGroup2.default,
+	                    null,
+	                    _react2.default.createElement(
+	                        'label',
+	                        null,
+	                        'Notes'
+	                    ),
+	                    _react2.default.createElement(_textArea2.default, {
+	                        value: this.props.taskNotes,
+	                        handleBlur: this.props.handleNotesSave
+	                    })
+	                ),
+	                _react2.default.createElement(_deleteButton2.default, { handleClick: this.props.handleDeleteClick })
+	            );
+	        }
+	    }]);
+
+	    return TaskListItemDetails;
+	}(_react2.default.Component);
+
+	TaskListItemDetails.propTypes = {
+	    taskNotes: _react2.default.PropTypes.string,
+	    handleDeleteClick: _react2.default.PropTypes.func.isRequired,
+	    handleNotesSave: _react2.default.PropTypes.func.isRequired
+	};
+
+	TaskListItemDetails.defaultProps = {
+	    taskNotes: ''
+	};
+
+	exports.default = TaskListItemDetails;
+
+/***/ },
+/* 537 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _button = __webpack_require__(538);
+
+	var _button2 = _interopRequireDefault(_button);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var DeleteButton = function (_React$Component) {
+	    _inherits(DeleteButton, _React$Component);
+
+	    function DeleteButton() {
+	        _classCallCheck(this, DeleteButton);
+
+	        return _possibleConstructorReturn(this, (DeleteButton.__proto__ || Object.getPrototypeOf(DeleteButton)).apply(this, arguments));
+	    }
+
+	    _createClass(DeleteButton, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(_button2.default, _extends({
+	                className: 'btn btn-danger'
+	            }, this.props));
+	        }
+	    }]);
+
+	    return DeleteButton;
+	}(_react2.default.Component);
+
+	DeleteButton.PropTypes = {
+	    text: _react2.default.PropTypes.string,
+	    handleClick: _react2.default.PropTypes.func.isRequired
+	};
+
+	DeleteButton.defaultProps = {
+	    text: 'Delete'
+	};
+
+	exports.default = DeleteButton;
+
+/***/ },
+/* 538 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Button = function (_React$Component) {
+	    _inherits(Button, _React$Component);
+
+	    function Button() {
+	        _classCallCheck(this, Button);
+
+	        return _possibleConstructorReturn(this, (Button.__proto__ || Object.getPrototypeOf(Button)).apply(this, arguments));
+	    }
+
+	    _createClass(Button, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'button',
+	                {
+	                    className: 'btn ' + this.props.className,
+	                    onClick: this.props.handleClick
+	                },
+	                this.props.text
+	            );
+	        }
+	    }]);
+
+	    return Button;
+	}(_react2.default.Component);
+
+	Button.PropTypes = {
+	    text: _react2.default.PropTypes.string.isRequired,
+	    className: _react2.default.PropTypes.string,
+	    handleClick: _react2.default.PropTypes.func.isRequired
+	};
+
+	Button.defaultProps = {
+	    className: ''
+	};
+
+	exports.default = Button;
+
+/***/ },
+/* 539 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
+
+
+	var FormGroup = function (_React$Component) {
+	    _inherits(FormGroup, _React$Component);
+
+	    function FormGroup() {
+	        _classCallCheck(this, FormGroup);
+
+	        return _possibleConstructorReturn(this, (FormGroup.__proto__ || Object.getPrototypeOf(FormGroup)).apply(this, arguments));
+	    }
+
+	    _createClass(FormGroup, [{
+	        key: "render",
+	        value: function render() {
+	            return _react2.default.createElement(
+	                "div",
+	                { className: "form-group" },
+	                this.props.children
+	            );
+	        }
+	    }]);
+
+	    return FormGroup;
+	}(_react2.default.Component);
+
+	exports.default = FormGroup;
+
+/***/ },
+/* 540 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -64907,7 +64477,7 @@
 	exports.default = TextArea;
 
 /***/ },
-/* 552 */
+/* 541 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -64922,18 +64492,6 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _downAngleIcon = __webpack_require__(534);
-
-	var _downAngleIcon2 = _interopRequireDefault(_downAngleIcon);
-
-	var _rightAngleIcon = __webpack_require__(536);
-
-	var _rightAngleIcon2 = _interopRequireDefault(_rightAngleIcon);
-
-	var _textBox = __webpack_require__(550);
-
-	var _textBox2 = _interopRequireDefault(_textBox);
-
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -64943,60 +64501,46 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
 
 
-	// components
-
-
 	// styles
-	__webpack_require__(553);
+	__webpack_require__(542);
 
-	var TaskTableTaskBrief = function (_React$Component) {
-	    _inherits(TaskTableTaskBrief, _React$Component);
+	var Toggler = function (_React$Component) {
+	    _inherits(Toggler, _React$Component);
 
-	    function TaskTableTaskBrief() {
-	        _classCallCheck(this, TaskTableTaskBrief);
+	    function Toggler() {
+	        _classCallCheck(this, Toggler);
 
-	        return _possibleConstructorReturn(this, (TaskTableTaskBrief.__proto__ || Object.getPrototypeOf(TaskTableTaskBrief)).apply(this, arguments));
+	        return _possibleConstructorReturn(this, (Toggler.__proto__ || Object.getPrototypeOf(Toggler)).apply(this, arguments));
 	    }
 
-	    _createClass(TaskTableTaskBrief, [{
+	    _createClass(Toggler, [{
 	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'div',
-	                { className: 'task-table-task-brief ' + (this.props.detailsAreVisible ? 'edit-mode' : '') },
-	                _react2.default.createElement(_textBox2.default, {
-	                    value: this.props.taskName,
-	                    handleClick: this.props.handleNameClick,
-	                    handleBlur: this.props.handleNameSave
-	                }),
-	                this.props.detailsAreVisible ? _react2.default.createElement(_downAngleIcon2.default, { handleClick: this.props.hideDetails }) : _react2.default.createElement(_rightAngleIcon2.default, { handleClick: this.props.showDetails })
+	                { className: 'toggler toggler-' + (this.props.isVisible ? 'visible' : 'hidden') },
+	                this.props.children
 	            );
 	        }
 	    }]);
 
-	    return TaskTableTaskBrief;
+	    return Toggler;
 	}(_react2.default.Component);
 
-	TaskTableTaskBrief.propTypes = {
-	    taskName: _react2.default.PropTypes.string.isRequired,
-	    detailsAreVisible: _react2.default.PropTypes.bool.isRequired,
-
-	    handleNameClick: _react2.default.PropTypes.func.isRequired,
-	    handleNameSave: _react2.default.PropTypes.func.isRequired,
-	    hideDetails: _react2.default.PropTypes.func.isRequired,
-	    showDetails: _react2.default.PropTypes.func.isRequired
+	Toggler.propTypes = {
+	    isVisible: _react2.default.PropTypes.bool.isRequired
 	};
 
-	exports.default = TaskTableTaskBrief;
+	exports.default = Toggler;
 
 /***/ },
-/* 553 */
+/* 542 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(554);
+	var content = __webpack_require__(543);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(302)(content, {});
@@ -65005,8 +64549,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./task-table-task-brief.scss", function() {
-				var newContent = require("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./task-table-task-brief.scss");
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/sass-loader/index.js!./toggler.scss", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/sass-loader/index.js!./toggler.scss");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -65016,7 +64560,7 @@
 	}
 
 /***/ },
-/* 554 */
+/* 543 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(301)();
@@ -65024,7 +64568,87 @@
 
 
 	// module
-	exports.push([module.id, ".task-table-task-brief input {\n  width: calc(100% - 20px);\n  display: inline-block;\n  background: none;\n  border: none; }\n  .task-table-task-brief input:hover {\n    cursor: pointer; }\n  .task-table-task-brief input:focus {\n    outline: none;\n    border-color: inherit;\n    -webkit-box-shadow: none;\n    box-shadow: none; }\n\n.task-table-task-brief i {\n  width: 20px;\n  text-align: center; }\n  .task-table-task-brief i:hover {\n    cursor: pointer; }\n\n.task-table-task-brief.edit-mode input:hover {\n  cursor: inherit; }\n", ""]);
+	exports.push([module.id, ".toggler-visible {\n  display: inherit; }\n\n.toggler-hidden {\n  display: none; }\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 544 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(545);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(302)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../../../node_modules/css-loader/index.js!./../../../../../../node_modules/sass-loader/index.js!./task-list-item.scss", function() {
+				var newContent = require("!!./../../../../../../node_modules/css-loader/index.js!./../../../../../../node_modules/sass-loader/index.js!./task-list-item.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 545 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(301)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".task-list-item {\n  width: 100%;\n  border-bottom: 1px solid #e6e6e8; }\n  .task-list-item input[type=checkbox] {\n    width: 30px;\n    display: inline-block; }\n  .task-list-item .task-brief {\n    display: inline-block;\n    width: calc(100% - 30px);\n    margin: 0px auto; }\n    .task-list-item .task-brief input {\n      width: calc(100% - 30px);\n      margin-right: 10px;\n      padding: 5px 10px;\n      display: inline-block;\n      background: none;\n      border: none;\n      outline: none;\n      -webkit-box-shadow: none;\n      box-shadow: none; }\n      .task-list-item .task-brief input:hover {\n        cursor: pointer; }\n      .task-list-item .task-brief input:focus {\n        outline: none;\n        border-color: inherit;\n        -webkit-box-shadow: none;\n        box-shadow: none; }\n    .task-list-item .task-brief i {\n      width: 20px;\n      text-align: center; }\n      .task-list-item .task-brief i:hover {\n        cursor: pointer; }\n  .task-list-item .task-brief.edit-mode input {\n    border: 1px solid #cccccc;\n    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); }\n    .task-list-item .task-brief.edit-mode input:hover {\n      cursor: inherit; }\n    .task-list-item .task-brief.edit-mode input:focus {\n      outline: none;\n      border-color: inherit;\n      -webkit-box-shadow: none;\n      box-shadow: none; }\n  .task-list-item .task-details {\n    margin: 15px 30px 15px 30px; }\n    .task-list-item .task-details textarea.form-control {\n      height: 150px;\n      padding: 10px; }\n      .task-list-item .task-details textarea.form-control:focus {\n        outline: none;\n        border-color: inherit;\n        -webkit-box-shadow: none;\n        box-shadow: none; }\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 546 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(547);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(302)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./task-list.scss", function() {
+				var newContent = require("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./task-list.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 547 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(301)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".task-list {\n  font-size: .9em;\n  background: #ffffff;\n  padding: 15px; }\n  .task-list label,\n  .task-list input,\n  .task-list textarea,\n  .task-list button {\n    font-size: .9em; }\n", ""]);
 
 	// exports
 

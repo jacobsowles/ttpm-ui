@@ -2,14 +2,15 @@
 import React from 'react';
 
 // components
-import TaskTableTaskBrief from './task-table-task-brief';
-import TaskTableTaskDetails from './task-table-task-details';
-import Toggler from '../toggler/toggler';
+import Checkbox from '~/fields/checkbox';
+import TaskListItemBrief from './task-list-item-brief';
+import TaskListItemDetails from './task-list-item-details';
+import Toggler from '~/toggler/toggler';
 
 // styles
-require('./task-table-task.scss');
+require('./task-list-item.scss');
 
-class TaskTableTask extends React.Component {
+class TaskListItem extends React.Component {
 
     constructor(props) {
         super(props);
@@ -56,8 +57,14 @@ class TaskTableTask extends React.Component {
 
     render() {
         return (
-            <div className="task-table-task">
-                <TaskTableTaskBrief
+            <div className="task-list-item">
+                <Checkbox
+                    checked={this.props.task.Complete}
+                    includeWithChange={this.props.task}
+                    handleChange={this.props.handleCompletionToggle}
+                />
+
+                <TaskListItemBrief
                     taskName={this.props.task.Name}
                     detailsAreVisible={this.state.detailsAreVisible}
                     handleNameClick={this.handleNameClick}
@@ -67,7 +74,7 @@ class TaskTableTask extends React.Component {
                 />
 
                 <Toggler isVisible={this.state.detailsAreVisible}>
-                    <TaskTableTaskDetails
+                    <TaskListItemDetails
                         taskNotes={this.props.task.Notes}
                         handleDeleteClick={this.handleDeleteClick}
                         handleNotesSave={this.handleNotesSave}
@@ -78,12 +85,13 @@ class TaskTableTask extends React.Component {
     }
 }
 
-TaskTableTask.propTypes = {
+TaskListItem.propTypes = {
     task: React.PropTypes.shape({
         Name: React.PropTypes.string.isRequired,
         Notes: React.PropTypes.string,
         Complete: React.PropTypes.bool.isRequired
-    }).isRequired
+    }).isRequired,
+    handleCompletionToggle: React.PropTypes.func.isRequired
 };
 
-export default TaskTableTask;
+export default TaskListItem;

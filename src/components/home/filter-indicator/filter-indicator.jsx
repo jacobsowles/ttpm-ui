@@ -1,31 +1,23 @@
-// npm modules
 import React from 'react';
+require('./filter-indicator.scss');
 
-const styles = {
-    caption: {
-        padding: '0 0 10px 0',
-        fontSize: '.9em',
-        textAlign: 'right'
-    }
-};
-
-class TaskTableCaption extends React.Component {
+class FilterIndicator extends React.Component {
 
     render() {
         return (
-            <caption style={styles.caption}>
+            <div className="filter-indicator">
                 {
                     this.props.taskGroupName
                         ? <span>showing tasks in the <strong>{this.props.taskGroupName}</strong> group | <a href="/">show all tasks</a></span>
                         : <span>showing all tasks</span>
                 }
-            </caption>
+            </div>
         );
     }
 }
 
-TaskTableCaption.propTypes = {
+FilterIndicator.propTypes = {
     taskGroupName: React.PropTypes.string
 };
 
-export default TaskTableCaption;
+export default FilterIndicator;

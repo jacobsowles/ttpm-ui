@@ -1,15 +1,14 @@
 // npm modules
 import React from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 
 // components
-import Analytics from './analytics/analytics.jsx';
-import LoadingGraphic from '../../loading-graphic.jsx';
-import TaskTable from './task-table/task-table.jsx';
+import Analytics from './analytics/analytics';
+import LoadingGraphic from '~/loading-graphic';
+import TaskList from './task-list/task-list';
 
 // actions
-import taskActions from '../../../actions/task-actions.js';
+import taskActions from '@/actions/task-actions';
 
 class TaskContainer extends React.Component {
 
@@ -43,7 +42,7 @@ class TaskContainer extends React.Component {
             <div>
                 <LoadingGraphic showLoadingGraphic={this.state.showLoadingGraphic} />
 
-                <TaskTable
+                <TaskList
                     tasks={this.props.filteredTasks}
                     taskGroupName={this.props.taskGroupName}
                     handleNewTask={this.handleNewTask}
