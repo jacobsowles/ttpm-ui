@@ -14,19 +14,10 @@
             display: inline-block;
             background: none;
             border: none;
-            outline: none;
-            -webkit-box-shadow: none;
-            box-shadow: none;
+            border-left: 1px solid #ffffff;
             
             &:hover {
                 cursor: pointer;
-            }
-
-            &:focus {
-                outline: none;
-                border-color: inherit;
-                -webkit-box-shadow: none;
-                box-shadow: none;
             }
         }
 
@@ -42,35 +33,15 @@
 
     .task-brief.edit-mode {
         input {
-            border: 1px solid #cccccc;
-            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            border: 1px solid #e6e6e8;
 
             &:hover {
                 cursor: inherit;
-            }
-
-            &:focus {
-                outline: none;
-                border-color: inherit;
-                -webkit-box-shadow: none;
-                box-shadow: none;
             }
         }
     }
 
     .task-details {
         margin: 15px 30px 15px 30px;
-
-        textarea.form-control {
-            height: 150px;
-            padding: 10px;
-            
-            &:focus {
-                outline: none;
-                border-color: inherit;
-                -webkit-box-shadow: none;
-                box-shadow: none;
-            }
-        }
     }
 }

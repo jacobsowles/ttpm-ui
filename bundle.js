@@ -63000,7 +63000,7 @@
 
 	var _rightAngleIcon2 = _interopRequireDefault(_rightAngleIcon);
 
-	var _textBox = __webpack_require__(514);
+	var _textBox = __webpack_require__(554);
 
 	var _textBox2 = _interopRequireDefault(_textBox);
 
@@ -63222,89 +63222,7 @@
 	exports.default = RightAngleIcon;
 
 /***/ },
-/* 514 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
-
-
-	var TextBox = function (_React$Component) {
-	    _inherits(TextBox, _React$Component);
-
-	    function TextBox(props) {
-	        _classCallCheck(this, TextBox);
-
-	        var _this = _possibleConstructorReturn(this, (TextBox.__proto__ || Object.getPrototypeOf(TextBox)).call(this, props));
-
-	        _this.state = {
-	            value: props.value
-	        };
-
-	        _this.handleChange = _this.handleChange.bind(_this);
-	        return _this;
-	    }
-
-	    _createClass(TextBox, [{
-	        key: "handleChange",
-	        value: function handleChange(event) {
-	            this.setState({
-	                value: event.target.value
-	            });
-
-	            this.props.handleChange(event);
-	        }
-	    }, {
-	        key: "render",
-	        value: function render() {
-	            return _react2.default.createElement("input", {
-	                type: "text",
-	                className: "form-control",
-	                value: this.state.value,
-	                onBlur: this.props.handleBlur,
-	                onChange: this.handleChange,
-	                onClick: this.props.handleClick
-	            });
-	        }
-	    }]);
-
-	    return TextBox;
-	}(_react2.default.Component);
-
-	TextBox.propTypes = {
-	    value: _react2.default.PropTypes.string,
-	    handleBlur: _react2.default.PropTypes.func,
-	    handleChange: _react2.default.PropTypes.func,
-	    handleClick: _react2.default.PropTypes.func
-	};
-
-	TextBox.defaultProps = {
-	    value: '',
-	    handleBlur: function handleBlur(event) {},
-	    handleChange: function handleChange(event) {},
-	    handleClick: function handleClick(event) {}
-	};
-
-	exports.default = TextBox;
-
-/***/ },
+/* 514 */,
 /* 515 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -63328,7 +63246,7 @@
 
 	var _formGroup2 = _interopRequireDefault(_formGroup);
 
-	var _textArea = __webpack_require__(519);
+	var _textArea = __webpack_require__(551);
 
 	var _textArea2 = _interopRequireDefault(_textArea);
 
@@ -63567,88 +63485,7 @@
 	exports.default = FormGroup;
 
 /***/ },
-/* 519 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
-
-
-	var TextArea = function (_React$Component) {
-	    _inherits(TextArea, _React$Component);
-
-	    function TextArea(props) {
-	        _classCallCheck(this, TextArea);
-
-	        var _this = _possibleConstructorReturn(this, (TextArea.__proto__ || Object.getPrototypeOf(TextArea)).call(this, props));
-
-	        _this.state = {
-	            value: props.value
-	        };
-
-	        _this.handleChange = _this.handleChange.bind(_this);
-	        return _this;
-	    }
-
-	    _createClass(TextArea, [{
-	        key: 'handleChange',
-	        value: function handleChange(event) {
-	            this.setState({
-	                value: event.target.value
-	            });
-
-	            this.props.handleChange(event);
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement('textarea', {
-	                className: 'form-control',
-	                value: this.state.value,
-	                onBlur: this.props.handleBlur,
-	                onChange: this.handleChange,
-	                onClick: this.props.handleClick
-	            });
-	        }
-	    }]);
-
-	    return TextArea;
-	}(_react2.default.Component);
-
-	TextArea.propTypes = {
-	    value: _react2.default.PropTypes.string,
-	    handleBlur: _react2.default.PropTypes.func,
-	    handleChange: _react2.default.PropTypes.func,
-	    handleClick: _react2.default.PropTypes.func
-	};
-
-	TextArea.defaultProps = {
-	    value: '',
-	    handleBlur: function handleBlur(event) {},
-	    handleChange: function handleChange(event) {},
-	    handleClick: function handleClick(event) {}
-	};
-
-	exports.default = TextArea;
-
-/***/ },
+/* 519 */,
 /* 520 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -63780,7 +63617,7 @@
 
 
 	// module
-	exports.push([module.id, ".task-list-item {\n  width: 100%;\n  border-bottom: 1px solid #e6e6e8; }\n  .task-list-item .task-brief {\n    display: inline-block;\n    width: calc(100% - 30px);\n    margin: 0 0 0 15px; }\n    .task-list-item .task-brief input {\n      width: calc(100% - 30px);\n      margin-right: 10px;\n      padding: 5px 10px;\n      display: inline-block;\n      background: none;\n      border: none;\n      outline: none;\n      -webkit-box-shadow: none;\n      box-shadow: none; }\n      .task-list-item .task-brief input:hover {\n        cursor: pointer; }\n      .task-list-item .task-brief input:focus {\n        outline: none;\n        border-color: inherit;\n        -webkit-box-shadow: none;\n        box-shadow: none; }\n    .task-list-item .task-brief i {\n      width: 20px;\n      text-align: center; }\n      .task-list-item .task-brief i:hover {\n        cursor: pointer; }\n  .task-list-item .task-brief.edit-mode input {\n    border: 1px solid #cccccc;\n    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); }\n    .task-list-item .task-brief.edit-mode input:hover {\n      cursor: inherit; }\n    .task-list-item .task-brief.edit-mode input:focus {\n      outline: none;\n      border-color: inherit;\n      -webkit-box-shadow: none;\n      box-shadow: none; }\n  .task-list-item .task-details {\n    margin: 15px 30px 15px 30px; }\n    .task-list-item .task-details textarea.form-control {\n      height: 150px;\n      padding: 10px; }\n      .task-list-item .task-details textarea.form-control:focus {\n        outline: none;\n        border-color: inherit;\n        -webkit-box-shadow: none;\n        box-shadow: none; }\n", ""]);
+	exports.push([module.id, ".task-list-item {\n  width: 100%;\n  border-bottom: 1px solid #e6e6e8; }\n  .task-list-item .task-brief {\n    display: inline-block;\n    width: calc(100% - 30px);\n    margin: 0 0 0 15px; }\n    .task-list-item .task-brief input {\n      width: calc(100% - 30px);\n      margin-right: 10px;\n      padding: 5px 10px;\n      display: inline-block;\n      background: none;\n      border: none;\n      border-left: 1px solid #ffffff; }\n      .task-list-item .task-brief input:hover {\n        cursor: pointer; }\n    .task-list-item .task-brief i {\n      width: 20px;\n      text-align: center; }\n      .task-list-item .task-brief i:hover {\n        cursor: pointer; }\n  .task-list-item .task-brief.edit-mode input {\n    border: 1px solid #e6e6e8; }\n    .task-list-item .task-brief.edit-mode input:hover {\n      cursor: inherit; }\n  .task-list-item .task-details {\n    margin: 15px 30px 15px 30px; }\n", ""]);
 
 	// exports
 
@@ -66259,6 +66096,212 @@
 	  }
 	}.call(this));
 
+
+/***/ },
+/* 551 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	__webpack_require__(552);
+
+	var TextArea = function (_React$Component) {
+	    _inherits(TextArea, _React$Component);
+
+	    function TextArea(props) {
+	        _classCallCheck(this, TextArea);
+
+	        var _this = _possibleConstructorReturn(this, (TextArea.__proto__ || Object.getPrototypeOf(TextArea)).call(this, props));
+
+	        _this.state = {
+	            value: props.value
+	        };
+
+	        _this.handleChange = _this.handleChange.bind(_this);
+	        return _this;
+	    }
+
+	    _createClass(TextArea, [{
+	        key: 'handleChange',
+	        value: function handleChange(event) {
+	            this.setState({
+	                value: event.target.value
+	            });
+
+	            this.props.handleChange(event);
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement('textarea', {
+	                className: 'form-control',
+	                value: this.state.value,
+	                onBlur: this.props.handleBlur,
+	                onChange: this.handleChange,
+	                onClick: this.props.handleClick
+	            });
+	        }
+	    }]);
+
+	    return TextArea;
+	}(_react2.default.Component);
+
+	TextArea.propTypes = {
+	    value: _react2.default.PropTypes.string,
+	    handleBlur: _react2.default.PropTypes.func,
+	    handleChange: _react2.default.PropTypes.func,
+	    handleClick: _react2.default.PropTypes.func
+	};
+
+	TextArea.defaultProps = {
+	    value: '',
+	    handleBlur: function handleBlur(event) {},
+	    handleChange: function handleChange(event) {},
+	    handleClick: function handleClick(event) {}
+	};
+
+	exports.default = TextArea;
+
+/***/ },
+/* 552 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(553);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(302)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./text-area.scss", function() {
+				var newContent = require("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./text-area.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 553 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(301)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "input[type=text],\ntextarea,\ntextarea.form-control {\n  border: 1px solid #e6e6e8;\n  padding: 10px;\n  -webkit-box-shadow: none;\n  box-shadow: none;\n  transition: none; }\n  input[type=text]:focus,\n  textarea:focus,\n  textarea.form-control:focus {\n    outline: none;\n    border-color: #e6e6e8;\n    box-shadow: none;\n    -webkit-box-shadow: none; }\n\ntextarea,\ntextarea.form-control {\n  height: 150px; }\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 554 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
+
+
+	var TextBox = function (_React$Component) {
+	    _inherits(TextBox, _React$Component);
+
+	    function TextBox(props) {
+	        _classCallCheck(this, TextBox);
+
+	        var _this = _possibleConstructorReturn(this, (TextBox.__proto__ || Object.getPrototypeOf(TextBox)).call(this, props));
+
+	        _this.state = {
+	            value: props.value
+	        };
+
+	        _this.handleChange = _this.handleChange.bind(_this);
+	        return _this;
+	    }
+
+	    _createClass(TextBox, [{
+	        key: "handleChange",
+	        value: function handleChange(event) {
+	            this.setState({
+	                value: event.target.value
+	            });
+
+	            this.props.handleChange(event);
+	        }
+	    }, {
+	        key: "render",
+	        value: function render() {
+	            return _react2.default.createElement("input", {
+	                type: "text",
+	                className: "form-control",
+	                value: this.state.value,
+	                onBlur: this.props.handleBlur,
+	                onChange: this.handleChange,
+	                onClick: this.props.handleClick
+	            });
+	        }
+	    }]);
+
+	    return TextBox;
+	}(_react2.default.Component);
+
+	TextBox.propTypes = {
+	    value: _react2.default.PropTypes.string,
+	    handleBlur: _react2.default.PropTypes.func,
+	    handleChange: _react2.default.PropTypes.func,
+	    handleClick: _react2.default.PropTypes.func
+	};
+
+	TextBox.defaultProps = {
+	    value: '',
+	    handleBlur: function handleBlur(event) {},
+	    handleChange: function handleChange(event) {},
+	    handleClick: function handleClick(event) {}
+	};
+
+	exports.default = TextBox;
 
 /***/ }
 /******/ ]);

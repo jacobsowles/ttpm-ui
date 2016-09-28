@@ -1,5 +1,5 @@
-// npm modules
 import React from 'react';
+require('./text-area.scss');
 
 class TextArea extends React.Component {
 

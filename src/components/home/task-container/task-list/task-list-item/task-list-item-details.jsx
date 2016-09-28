@@ -4,7 +4,7 @@ import React from 'react';
 // components
 import DeleteButton from '~/buttons/delete-button';
 import FormGroup from '~/forms/form-group';
-import TextArea from '~/fields/text-area';
+import TextArea from '~/fields/text-area/text-area';
 
 class TaskListItemDetails extends React.Component {
 
