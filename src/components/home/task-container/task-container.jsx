@@ -54,7 +54,7 @@ class TaskContainer extends React.Component {
 
                 <Analytics
                     tasks={this.props.filteredTasks}
-                    defaultActive={this.props.defaultShowAnalytics}
+                    defaultActive={false}
                 />
             </div>
         );

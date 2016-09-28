@@ -26,10 +26,12 @@ class TextBox extends React.Component {
             <input
                 type="text"
                 className="form-control"
+                placeholder={this.props.placeholder}
                 value={this.state.value}
                 onBlur={this.props.handleBlur}
                 onChange={this.handleChange}
                 onClick={this.props.handleClick}
+                onKeyDown={this.props.handleKeyDown}
             />
         );
     }
@@ -37,16 +39,20 @@ class TextBox extends React.Component {
 
 TextBox.propTypes = {
     value: React.PropTypes.string,
+    placeholder: React.PropTypes.string,
     handleBlur: React.PropTypes.func,
     handleChange: React.PropTypes.func,
-    handleClick: React.PropTypes.func
+    handleClick: React.PropTypes.func,
+    handleKeyDown: React.PropTypes.func
 };
 
 TextBox.defaultProps = {
     value: '',
+    placeholder: '',
     handleBlur: (event) => {},
     handleChange: (event) => {},
-    handleClick: (event) => {}
+    handleClick: (event) => {},
+    handleKeyDown: (event) => {}
 };
 
 export default TextBox;
