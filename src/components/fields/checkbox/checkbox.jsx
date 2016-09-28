@@ -1,4 +1,6 @@
 import React from 'react';
+import _ from 'underscore';
+
 require('./checkbox.scss');
 
 class Checkbox extends React.Component {
@@ -26,15 +28,17 @@ class Checkbox extends React.Component {
     }
 
     render() {
+        const uniqueId = 'checkbox' + _.uniqueId();
+
         return (
             <span>
                 <input
                     type="checkbox"
-                    id="checkbox"
+                    id={uniqueId}
                     checked={this.state.checked}
                     onChange={() => this.handleChange()}
                 />
-                <label htmlFor="checkbox" />
+                <label htmlFor={uniqueId} />
             </span>
         );
     }
