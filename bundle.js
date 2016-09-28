@@ -63587,7 +63587,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _checkbox = __webpack_require__(530);
+	var _checkbox = __webpack_require__(548);
 
 	var _checkbox2 = _interopRequireDefault(_checkbox);
 
@@ -63720,91 +63720,7 @@
 	exports.default = TaskListItem;
 
 /***/ },
-/* 530 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
-
-
-	var Checkbox = function (_React$Component) {
-	    _inherits(Checkbox, _React$Component);
-
-	    function Checkbox(props) {
-	        _classCallCheck(this, Checkbox);
-
-	        var _this = _possibleConstructorReturn(this, (Checkbox.__proto__ || Object.getPrototypeOf(Checkbox)).call(this, props));
-
-	        _this.state = {
-	            checked: props.checked
-	        };
-
-	        _this.handleChange = _this.handleChange.bind(_this);
-	        return _this;
-	    }
-
-	    _createClass(Checkbox, [{
-	        key: "componentWillUpdate",
-	        value: function componentWillUpdate(nextProps, nextState) {
-	            nextState.checked = nextProps.checked;
-	        }
-	    }, {
-	        key: "handleChange",
-	        value: function handleChange() {
-	            this.setState({
-	                checked: !this.state.checked
-	            });
-
-	            this.props.handleChange(this.props.includeWithChange);
-	        }
-	    }, {
-	        key: "render",
-	        value: function render() {
-	            var _this2 = this;
-
-	            return _react2.default.createElement("input", {
-	                type: "checkbox",
-	                checked: this.state.checked,
-	                onChange: function onChange() {
-	                    return _this2.handleChange();
-	                }
-	            });
-	        }
-	    }]);
-
-	    return Checkbox;
-	}(_react2.default.Component);
-
-	Checkbox.propTypes = {
-	    checked: _react2.default.PropTypes.bool,
-	    includeWithChange: _react2.default.PropTypes.object,
-	    handleChange: _react2.default.PropTypes.func.isRequired
-	};
-
-	Checkbox.getDefaultProps = {
-	    checked: false
-	};
-
-	exports.default = Checkbox;
-
-/***/ },
+/* 530 */,
 /* 531 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -64608,7 +64524,7 @@
 
 
 	// module
-	exports.push([module.id, ".task-list-item {\n  width: 100%;\n  border-bottom: 1px solid #e6e6e8; }\n  .task-list-item input[type=checkbox] {\n    width: 30px;\n    display: inline-block; }\n  .task-list-item .task-brief {\n    display: inline-block;\n    width: calc(100% - 30px);\n    margin: 0px auto; }\n    .task-list-item .task-brief input {\n      width: calc(100% - 30px);\n      margin-right: 10px;\n      padding: 5px 10px;\n      display: inline-block;\n      background: none;\n      border: none;\n      outline: none;\n      -webkit-box-shadow: none;\n      box-shadow: none; }\n      .task-list-item .task-brief input:hover {\n        cursor: pointer; }\n      .task-list-item .task-brief input:focus {\n        outline: none;\n        border-color: inherit;\n        -webkit-box-shadow: none;\n        box-shadow: none; }\n    .task-list-item .task-brief i {\n      width: 20px;\n      text-align: center; }\n      .task-list-item .task-brief i:hover {\n        cursor: pointer; }\n  .task-list-item .task-brief.edit-mode input {\n    border: 1px solid #cccccc;\n    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); }\n    .task-list-item .task-brief.edit-mode input:hover {\n      cursor: inherit; }\n    .task-list-item .task-brief.edit-mode input:focus {\n      outline: none;\n      border-color: inherit;\n      -webkit-box-shadow: none;\n      box-shadow: none; }\n  .task-list-item .task-details {\n    margin: 15px 30px 15px 30px; }\n    .task-list-item .task-details textarea.form-control {\n      height: 150px;\n      padding: 10px; }\n      .task-list-item .task-details textarea.form-control:focus {\n        outline: none;\n        border-color: inherit;\n        -webkit-box-shadow: none;\n        box-shadow: none; }\n", ""]);
+	exports.push([module.id, ".task-list-item {\n  width: 100%;\n  border-bottom: 1px solid #e6e6e8; }\n  .task-list-item .task-brief {\n    display: inline-block;\n    width: calc(100% - 30px);\n    margin: 0 0 0 15px; }\n    .task-list-item .task-brief input {\n      width: calc(100% - 30px);\n      margin-right: 10px;\n      padding: 5px 10px;\n      display: inline-block;\n      background: none;\n      border: none;\n      outline: none;\n      -webkit-box-shadow: none;\n      box-shadow: none; }\n      .task-list-item .task-brief input:hover {\n        cursor: pointer; }\n      .task-list-item .task-brief input:focus {\n        outline: none;\n        border-color: inherit;\n        -webkit-box-shadow: none;\n        box-shadow: none; }\n    .task-list-item .task-brief i {\n      width: 20px;\n      text-align: center; }\n      .task-list-item .task-brief i:hover {\n        cursor: pointer; }\n  .task-list-item .task-brief.edit-mode input {\n    border: 1px solid #cccccc;\n    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); }\n    .task-list-item .task-brief.edit-mode input:hover {\n      cursor: inherit; }\n    .task-list-item .task-brief.edit-mode input:focus {\n      outline: none;\n      border-color: inherit;\n      -webkit-box-shadow: none;\n      box-shadow: none; }\n  .task-list-item .task-details {\n    margin: 15px 30px 15px 30px; }\n    .task-list-item .task-details textarea.form-control {\n      height: 150px;\n      padding: 10px; }\n      .task-list-item .task-details textarea.form-control:focus {\n        outline: none;\n        border-color: inherit;\n        -webkit-box-shadow: none;\n        box-shadow: none; }\n", ""]);
 
 	// exports
 
@@ -64649,6 +64565,138 @@
 
 	// module
 	exports.push([module.id, ".task-list {\n  font-size: .9em;\n  background: #ffffff;\n  padding: 15px; }\n  .task-list label,\n  .task-list input,\n  .task-list textarea,\n  .task-list button {\n    font-size: .9em; }\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 548 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	__webpack_require__(549);
+
+	var Checkbox = function (_React$Component) {
+	    _inherits(Checkbox, _React$Component);
+
+	    function Checkbox(props) {
+	        _classCallCheck(this, Checkbox);
+
+	        var _this = _possibleConstructorReturn(this, (Checkbox.__proto__ || Object.getPrototypeOf(Checkbox)).call(this, props));
+
+	        _this.state = {
+	            checked: props.checked
+	        };
+
+	        _this.handleChange = _this.handleChange.bind(_this);
+	        return _this;
+	    }
+
+	    _createClass(Checkbox, [{
+	        key: 'componentWillUpdate',
+	        value: function componentWillUpdate(nextProps, nextState) {
+	            nextState.checked = nextProps.checked;
+	        }
+	    }, {
+	        key: 'handleChange',
+	        value: function handleChange() {
+	            this.setState({
+	                checked: !this.state.checked
+	            });
+
+	            this.props.handleChange(this.props.includeWithChange);
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var _this2 = this;
+
+	            return _react2.default.createElement(
+	                'span',
+	                null,
+	                _react2.default.createElement('input', {
+	                    type: 'checkbox',
+	                    id: 'checkbox',
+	                    checked: this.state.checked,
+	                    onChange: function onChange() {
+	                        return _this2.handleChange();
+	                    }
+	                }),
+	                _react2.default.createElement('label', { htmlFor: 'checkbox' })
+	            );
+	        }
+	    }]);
+
+	    return Checkbox;
+	}(_react2.default.Component);
+
+	Checkbox.propTypes = {
+	    checked: _react2.default.PropTypes.bool,
+	    includeWithChange: _react2.default.PropTypes.object,
+	    handleChange: _react2.default.PropTypes.func.isRequired
+	};
+
+	Checkbox.getDefaultProps = {
+	    checked: false
+	};
+
+	exports.default = Checkbox;
+
+/***/ },
+/* 549 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(550);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(302)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./checkbox.scss", function() {
+				var newContent = require("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./checkbox.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 550 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(301)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "input[type=checkbox] {\n  display: none; }\n\ninput[type=checkbox] + label {\n  width: 15px;\n  height: 15px;\n  display: inline-block;\n  border: 1px solid #e6e6e8;\n  padding: 0;\n  vertical-align: middle;\n  margin-top: 5px; }\n  input[type=checkbox] + label:hover {\n    cursor: pointer; }\n\ninput[type=checkbox]:checked + label {\n  background: url(\"/assets/images/checkmark-green-3.png\") no-repeat;\n  background-size: 100%;\n  border: 0; }\n", ""]);
 
 	// exports
 

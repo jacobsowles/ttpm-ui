@@ -1,5 +1,5 @@
-// npm modules
 import React from 'react';
+require('./checkbox.scss');
 
 class Checkbox extends React.Component {
 
@@ -27,11 +27,15 @@ class Checkbox extends React.Component {
 
     render() {
         return (
-            <input
-                type="checkbox"
-                checked={this.state.checked}
-                onChange={() => this.handleChange()}
-            />
+            <span>
+                <input
+                    type="checkbox"
+                    id="checkbox"
+                    checked={this.state.checked}
+                    onChange={() => this.handleChange()}
+                />
+                <label htmlFor="checkbox" />
+            </span>
         );
     }
 }

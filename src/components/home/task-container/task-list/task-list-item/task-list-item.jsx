@@ -2,7 +2,7 @@
 import React from 'react';
 
 // components
-import Checkbox from '~/fields/checkbox';
+import Checkbox from '~/fields/checkbox/checkbox';
 import TaskListItemBrief from './task-list-item-brief';
 import TaskListItemDetails from './task-list-item-details';
 import Toggler from '~/toggler/toggler';
