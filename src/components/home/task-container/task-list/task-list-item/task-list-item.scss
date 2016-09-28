@@ -1,6 +1,8 @@
 .task-list-item {
     width: 100%;
-    border-bottom: 1px solid #e6e6e8;
+    padding: 15px 15px;
+    background: #ffffff;
+    margin-bottom: 5px;
 
     .task-brief {
         display: inline-block;
@@ -15,6 +17,7 @@
             background: none;
             border: none;
             border-left: 1px solid #ffffff;
+            font-size: 1.1em;
             
             &:hover {
                 cursor: pointer;
@@ -42,6 +45,6 @@
     }
 
     .task-details {
-        margin: 15px 30px 15px 30px;
+        margin: 15px 30px 0 30px;
     }
 }

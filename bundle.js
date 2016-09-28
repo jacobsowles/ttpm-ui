@@ -63617,7 +63617,7 @@
 
 
 	// module
-	exports.push([module.id, ".task-list-item {\n  width: 100%;\n  border-bottom: 1px solid #e6e6e8; }\n  .task-list-item .task-brief {\n    display: inline-block;\n    width: calc(100% - 30px);\n    margin: 0 0 0 15px; }\n    .task-list-item .task-brief input {\n      width: calc(100% - 30px);\n      margin-right: 10px;\n      padding: 5px 10px;\n      display: inline-block;\n      background: none;\n      border: none;\n      border-left: 1px solid #ffffff; }\n      .task-list-item .task-brief input:hover {\n        cursor: pointer; }\n    .task-list-item .task-brief i {\n      width: 20px;\n      text-align: center; }\n      .task-list-item .task-brief i:hover {\n        cursor: pointer; }\n  .task-list-item .task-brief.edit-mode input {\n    border: 1px solid #e6e6e8; }\n    .task-list-item .task-brief.edit-mode input:hover {\n      cursor: inherit; }\n  .task-list-item .task-details {\n    margin: 15px 30px 15px 30px; }\n", ""]);
+	exports.push([module.id, ".task-list-item {\n  width: 100%;\n  padding: 15px 15px;\n  background: #ffffff;\n  margin-bottom: 5px; }\n  .task-list-item .task-brief {\n    display: inline-block;\n    width: calc(100% - 30px);\n    margin: 0 0 0 15px; }\n    .task-list-item .task-brief input {\n      width: calc(100% - 30px);\n      margin-right: 10px;\n      padding: 5px 10px;\n      display: inline-block;\n      background: none;\n      border: none;\n      border-left: 1px solid #ffffff;\n      font-size: 1.1em; }\n      .task-list-item .task-brief input:hover {\n        cursor: pointer; }\n    .task-list-item .task-brief i {\n      width: 20px;\n      text-align: center; }\n      .task-list-item .task-brief i:hover {\n        cursor: pointer; }\n  .task-list-item .task-brief.edit-mode input {\n    border: 1px solid #e6e6e8; }\n    .task-list-item .task-brief.edit-mode input:hover {\n      cursor: inherit; }\n  .task-list-item .task-details {\n    margin: 15px 30px 0 30px; }\n", ""]);
 
 	// exports
 
@@ -63657,7 +63657,7 @@
 
 
 	// module
-	exports.push([module.id, ".task-list {\n  font-size: .9em;\n  background: #ffffff;\n  padding: 15px; }\n  .task-list label,\n  .task-list input,\n  .task-list textarea,\n  .task-list button {\n    font-size: .9em; }\n", ""]);
+	exports.push([module.id, ".task-list {\n  font-size: .9em; }\n  .task-list label,\n  .task-list input,\n  .task-list textarea,\n  .task-list button {\n    font-size: .9em; }\n", ""]);
 
 	// exports
 
