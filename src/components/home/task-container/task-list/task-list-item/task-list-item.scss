@@ -34,6 +34,13 @@
         }
     }
 
+    .task-brief.task-complete {
+        input {
+            text-decoration: line-through;
+            color: #cccccc;
+        }
+    }
+
     .task-brief.edit-mode {
         input {
             border: 1px solid #e6e6e8;

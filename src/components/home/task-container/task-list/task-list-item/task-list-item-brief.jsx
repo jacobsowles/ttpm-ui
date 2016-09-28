@@ -10,7 +10,11 @@ class TaskListItemBrief extends React.Component {
 
     render() {
         return (
-            <div className={`task-brief ${this.props.detailsAreVisible ? 'edit-mode' : ''}`}>
+            <div className={`
+                task-brief
+                ${this.props.detailsAreVisible ? 'edit-mode' : ''}
+                ${this.props.taskComplete ? 'task-complete' : ''}
+            `}>
                 <TextBox
                     value={this.props.taskName}
                     handleClick={this.props.handleNameClick}
@@ -29,6 +33,7 @@ class TaskListItemBrief extends React.Component {
 
 TaskListItemBrief.propTypes = {
     taskName: React.PropTypes.string.isRequired,
+    taskComplete: React.PropTypes.bool.isRequired,
     detailsAreVisible: React.PropTypes.bool.isRequired,
 
     handleNameClick: React.PropTypes.func.isRequired,

@@ -66,6 +66,7 @@ class TaskListItem extends React.Component {
 
                 <TaskListItemBrief
                     taskName={this.props.task.Name}
+                    taskComplete={this.props.task.Complete}
                     detailsAreVisible={this.state.detailsAreVisible}
                     handleNameClick={this.handleNameClick}
                     handleNameSave={this.handleNameSave}

@@ -38,7 +38,10 @@ class Checkbox extends React.Component {
                     checked={this.state.checked}
                     onChange={() => this.handleChange()}
                 />
-                <label htmlFor={uniqueId} />
+                <label
+                    htmlFor={uniqueId}
+                    className={`${this.state.checked ? 'animated rotateIn' : ''}`}
+                />
             </span>
         );
     }
