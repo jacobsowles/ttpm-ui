@@ -87,6 +87,18 @@ function allDescendents(taskGroups, taskGroupId) {
     return ids;
 }
 
+function compareDisplayOrder(a, b) {
+    if (a.DisplayOrder > b.DisplayOrder) {
+        return 1;
+    }
+
+    if (a.DisplayOrder < b.DisplayOrder) {
+        return -1;
+    }
+
+    return 0;
+}
+
 function filterTasks(tasks, taskGroups, filters) {
     if (filters.taskGroupId) {
         return tasks
@@ -96,15 +108,7 @@ function filterTasks(tasks, taskGroups, filters) {
                 b = filters.displayOrders.find(tgdo => tgdo.TaskId == b.Id);
 
                 if (a && b) {
-                    if (a.DisplayOrder > b.DisplayOrder) {
-                        return 1;
-                    }
-
-                    if (a.DisplayOrder < b.DisplayOrder) {
-                        return -1;
-                    }
-
-                    return 0;
+                    return compareDisplayOrder(a, b);
                 }
 
                 return 0;
@@ -112,15 +116,7 @@ function filterTasks(tasks, taskGroups, filters) {
     }
 
     return tasks.sort((a, b) => {
-        if (a.DisplayOrder > b.DisplayOrder) {
-            return 1;
-        }
-
-        if (a.DisplayOrder < b.DisplayOrder) {
-            return -1;
-        }
-
-        return 0;
+        return compareDisplayOrder(a, b);
     });
 }
 
