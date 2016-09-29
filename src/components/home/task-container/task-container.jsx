@@ -50,7 +50,7 @@ class TaskContainer extends React.Component {
                     handleTaskNameEdit={this.props.handleTaskNameEdit}
                     handleTaskNotesEdit={this.props.handleTaskNotesEdit}
                     handleTaskDelete={this.props.handleTaskDelete}
-                    updateDisplayOrder={this.props.swapDisplayOrder}
+                    updateDisplayOrder={this.props.updateDisplayOrder}
                 />
 
                 <Analytics
@@ -140,7 +140,7 @@ function mapDispatchToProps(dispatch) {
             dispatch(taskActions.deleteTask(taskId));
         },
 
-        swapDisplayOrder: function(firstTask, secondTask) {
+        updateDisplayOrder: function(firstTask, secondTask) {
             dispatch(taskActions.swapDisplayOrder(firstTask.Id, secondTask.Id)).then(() => {
                 dispatch(taskActions.fetchTasks());
             });

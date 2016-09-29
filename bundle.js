@@ -37010,7 +37010,7 @@
 	                    handleTaskNameEdit: this.props.handleTaskNameEdit,
 	                    handleTaskNotesEdit: this.props.handleTaskNotesEdit,
 	                    handleTaskDelete: this.props.handleTaskDelete,
-	                    updateDisplayOrder: this.props.swapDisplayOrder
+	                    updateDisplayOrder: this.props.updateDisplayOrder
 	                }),
 	                _react2.default.createElement(_analytics2.default, {
 	                    tasks: this.props.filteredTasks,
@@ -37105,7 +37105,7 @@
 	            dispatch(_taskActions2.default.deleteTask(taskId));
 	        },
 
-	        swapDisplayOrder: function swapDisplayOrder(firstTask, secondTask) {
+	        updateDisplayOrder: function updateDisplayOrder(firstTask, secondTask) {
 	            dispatch(_taskActions2.default.swapDisplayOrder(firstTask.Id, secondTask.Id)).then(function () {
 	                dispatch(_taskActions2.default.fetchTasks());
 	            });
@@ -62364,23 +62364,9 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _update = __webpack_require__(500);
-
-	var _update2 = _interopRequireDefault(_update);
-
-	var _reactDnd = __webpack_require__(501);
-
-	var _reactDndHtml5Backend = __webpack_require__(611);
-
-	var _reactDndHtml5Backend2 = _interopRequireDefault(_reactDndHtml5Backend);
-
 	var _draggableList = __webpack_require__(641);
 
 	var _draggableList2 = _interopRequireDefault(_draggableList);
-
-	var _draggableListItem = __webpack_require__(644);
-
-	var _draggableListItem2 = _interopRequireDefault(_draggableListItem);
 
 	var _filterIndicator = __webpack_require__(648);
 
@@ -62416,8 +62402,8 @@
 	// styles
 	__webpack_require__(676);
 
-	var TaskList = function (_React$Component) {
-	    _inherits(TaskList, _React$Component);
+	var TaskList = function (_Component) {
+	    _inherits(TaskList, _Component);
 
 	    function TaskList() {
 	        _classCallCheck(this, TaskList);
@@ -62465,17 +62451,17 @@
 	    }]);
 
 	    return TaskList;
-	}(_react2.default.Component);
+	}(_react.Component);
 
 	TaskList.propTypes = {
-	    tasks: _react2.default.PropTypes.arrayOf(_react2.default.PropTypes.object).isRequired,
-	    taskGroupName: _react2.default.PropTypes.string,
+	    tasks: _react.PropTypes.arrayOf(_react.PropTypes.object).isRequired,
+	    taskGroupName: _react.PropTypes.string,
 
-	    handleNewTask: _react2.default.PropTypes.func.isRequired,
-	    handleCompletionToggle: _react2.default.PropTypes.func.isRequired,
-	    handleTaskNameEdit: _react2.default.PropTypes.func.isRequired,
-	    handleTaskNotesEdit: _react2.default.PropTypes.func.isRequired,
-	    updateDisplayOrder: _react2.default.PropTypes.func.isRequired
+	    handleNewTask: _react.PropTypes.func.isRequired,
+	    handleCompletionToggle: _react.PropTypes.func.isRequired,
+	    handleTaskNameEdit: _react.PropTypes.func.isRequired,
+	    handleTaskNotesEdit: _react.PropTypes.func.isRequired,
+	    updateDisplayOrder: _react.PropTypes.func.isRequired
 	};
 
 	exports.default = TaskList;

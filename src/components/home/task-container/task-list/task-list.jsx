@@ -1,12 +1,8 @@
 // npm modules
-import React from 'react';
-import update from 'react/lib/update';
-import { DragDropContext } from 'react-dnd';
-import HTML5Backend from 'react-dnd-html5-backend';
+import React, { Component, PropTypes } from 'react';
 
 // components
 import DraggableList from '~/draggable/draggable-list/draggable-list';
-import DraggableListItem from '~/draggable/draggable-list/draggable-list-item';
 import FilterIndicator from '~/home/filter-indicator/filter-indicator';
 import TaskListItem from './task-list-item/task-list-item';
 import TaskListNewItem from './task-list-new-item/task-list-new-item';
@@ -17,7 +13,7 @@ import filterActions from '@/actions/filter-actions.js';
 // styles
 require('./task-list.scss');
 
-class TaskList extends React.Component {
+class TaskList extends Component {
 
     render() {
         return (
@@ -55,14 +51,14 @@ class TaskList extends React.Component {
 }
 
 TaskList.propTypes = {
-    tasks: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
-    taskGroupName: React.PropTypes.string,
+    tasks: PropTypes.arrayOf(PropTypes.object).isRequired,
+    taskGroupName: PropTypes.string,
 
-    handleNewTask: React.PropTypes.func.isRequired,
-    handleCompletionToggle: React.PropTypes.func.isRequired,
-    handleTaskNameEdit: React.PropTypes.func.isRequired,
-    handleTaskNotesEdit: React.PropTypes.func.isRequired,
-    updateDisplayOrder: React.PropTypes.func.isRequired
+    handleNewTask: PropTypes.func.isRequired,
+    handleCompletionToggle: PropTypes.func.isRequired,
+    handleTaskNameEdit: PropTypes.func.isRequired,
+    handleTaskNotesEdit: PropTypes.func.isRequired,
+    updateDisplayOrder: PropTypes.func.isRequired
 };
 
 export default TaskList;
