@@ -86,6 +86,7 @@ function mapDispatchToProps(dispatch) {
 
         handleTaskGroupClick: function(taskGroupId) {
             dispatch(filterActions.setTaskGroupFilter(taskGroupId));
+            dispatch(filterActions.fetchTaskGroupDisplayOrder(taskGroupId));
         },
 
         handleAddTaskGroupClick: function(name, taskGroup) {

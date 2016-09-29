@@ -89,10 +89,39 @@ function allDescendents(taskGroups, taskGroupId) {
 
 function filterTasks(tasks, taskGroups, filters) {
     if (filters.taskGroupId) {
-        return tasks.filter(t => allDescendents(taskGroups, filters.taskGroupId).includes(t.TaskGroupId));
+        return tasks
+            .filter(t => allDescendents(taskGroups, filters.taskGroupId).includes(t.TaskGroupId))
+            .sort((a, b) => {
+                a = filters.displayOrders.find(tgdo => tgdo.TaskId == a.Id);
+                b = filters.displayOrders.find(tgdo => tgdo.TaskId == b.Id);
+
+                if (a && b) {
+                    if (a.DisplayOrder > b.DisplayOrder) {
+                        return 1;
+                    }
+
+                    if (a.DisplayOrder < b.DisplayOrder) {
+                        return -1;
+                    }
+
+                    return 0;
+                }
+
+                return 0;
+            });
     }
 
-    return tasks;
+    return tasks.sort((a, b) => {
+        if (a.DisplayOrder > b.DisplayOrder) {
+            return 1;
+        }
+
+        if (a.DisplayOrder < b.DisplayOrder) {
+            return -1;
+        }
+
+        return 0;
+    });
 }
 
 function getCurrentTaskGroupFilterName(taskGroups, taskGroupId) {
@@ -141,6 +170,9 @@ function mapDispatchToProps(dispatch) {
         },
 
         updateDisplayOrder: function(firstTask, secondTask) {
+            console.log('updating display order');
+            console.log(firstTask);
+            console.log(secondTask);
             dispatch(taskActions.swapDisplayOrder(firstTask.Id, secondTask.Id)).then(() => {
                 dispatch(taskActions.fetchTasks());
             });
