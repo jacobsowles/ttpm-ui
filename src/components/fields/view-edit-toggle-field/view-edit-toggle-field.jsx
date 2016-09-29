@@ -23,9 +23,7 @@ class ViewEditToggleField extends React.Component {
     }
 
     componentWillUpdate(nextProps, nextState) {
-        console.log(nextProps);
         if (!nextProps.clearTextOnClick && !nextState.isEditMode) {
-            console.log('will update...');
             nextState.value = nextProps.text;
         }
     }

@@ -25,7 +25,7 @@ class TextArea extends React.Component {
         return (
             <textarea
                 className="form-control"
-                value={this.state.value}
+                value={this.state.value || ''}
                 onBlur={this.props.handleBlur}
                 onChange={this.handleChange}
                 onClick={this.props.handleClick}

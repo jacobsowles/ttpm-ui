@@ -24,7 +24,19 @@ module.exports = {
                 loader: 'babel-loader',
                 exclude: /node_modules/,
                 query: {
-                    presets:[ 'es2015', 'react', 'stage-2' ]
+                    'plugins': [
+                        'transform-decorators-legacy',
+                        [
+                            'babel-root-import', [{
+                                'rootPathPrefix': '~',
+                                'rootPathSuffix': 'src/components'
+                            }, {
+                                'rootPathPrefix': '@',
+                                'rootPathSuffix': 'src'
+                            }]
+                        ]
+                    ],
+                    presets:[ 'es2015', 'stage-2', 'react' ]
                 }
             },
             {

@@ -1,6 +1,8 @@
 // npm modules
 import React from 'react';
 import { connect } from 'react-redux';
+import { DragDropContext } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
 
 // components
 import Content from './content/content.jsx';
@@ -79,4 +81,4 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default DragDropContext(HTML5Backend)(connect(mapStateToProps, mapDispatchToProps)(Home));

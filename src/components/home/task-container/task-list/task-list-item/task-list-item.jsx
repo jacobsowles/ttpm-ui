@@ -1,5 +1,5 @@
 // npm modules
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 
 // components
 import Checkbox from '~/fields/checkbox/checkbox';
@@ -10,7 +10,7 @@ import Toggler from '~/toggler/toggler';
 // styles
 require('./task-list-item.scss');
 
-class TaskListItem extends React.Component {
+class TaskListItem extends Component {
 
     constructor(props) {
         super(props);
@@ -56,6 +56,9 @@ class TaskListItem extends React.Component {
     }
 
     render() {
+        const { text, isDragging, connectDragSource, connectDropTarget } = this.props;
+        const opacity = isDragging ? 0 : 1;
+
         return (
             <div className="task-list-item">
                 <Checkbox
@@ -87,12 +90,12 @@ class TaskListItem extends React.Component {
 }
 
 TaskListItem.propTypes = {
-    task: React.PropTypes.shape({
-        Name: React.PropTypes.string.isRequired,
-        Notes: React.PropTypes.string,
-        Complete: React.PropTypes.bool.isRequired
+    task: PropTypes.shape({
+        Name: PropTypes.string.isRequired,
+        Notes: PropTypes.string,
+        Complete: PropTypes.bool.isRequired
     }).isRequired,
-    handleCompletionToggle: React.PropTypes.func.isRequired
+    handleCompletionToggle: PropTypes.func.isRequired
 };
 
 export default TaskListItem;

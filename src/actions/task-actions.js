@@ -34,5 +34,12 @@ module.exports = {
             type: 'DELETE_TASK',
             payload: del(`/Tasks/${taskId}`)
         };
+    },
+
+    swapDisplayOrder(firstTaskId, secondTaskId) {
+        return {
+            type: 'SWAP_TASK_DISPLAY_ORDER',
+            payload: put(`/Tasks/${firstTaskId}/SwapDisplayOrder/${secondTaskId}`)
+        };
     }
 };

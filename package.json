@@ -49,6 +49,8 @@
     "react": "^15.3.1",
     "react-bootstrap": "^0.30.3",
     "react-chartjs-2": "^1.2.4",
+    "react-dnd": "^2.1.4",
+    "react-dnd-html5-backend": "^2.1.2",
     "react-dom": "^15.3.1",
     "react-grid-layout": "^0.13.5",
     "react-redux": "^4.4.5",
@@ -61,11 +63,5 @@
     "superagent": "^2.2.0",
     "superagent-auth-bearer": "0.0.1",
     "underscore": "^1.8.3"
-  },
-  "babel": {
-    "presets": [
-      "es2015",
-      "react"
-    ]
   }
 }
