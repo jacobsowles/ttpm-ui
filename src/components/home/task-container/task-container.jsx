@@ -163,8 +163,8 @@ function mapDispatchToProps(dispatch) {
             dispatch(taskActions.updateTask(task));
         },
 
-        handleTaskDelete: function(taskId) {
-            dispatch(taskActions.deleteTask(taskId));
+        handleTaskDelete: function(event) {
+            dispatch(taskActions.deleteTask(event.target.value));
         },
 
         updateDisplayOrder: function(firstTask, secondTask) {

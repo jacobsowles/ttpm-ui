@@ -1,12 +1,12 @@
 // npm modules
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 
 // components
 import DeleteButton from '~/buttons/delete-button';
 import FormGroup from '~/forms/form-group';
 import TextArea from '~/fields/text-area/text-area';
 
-class TaskListItemDetails extends React.Component {
+class TaskListItemDetails extends Component {
 
     render() {
         return (
@@ -19,16 +19,20 @@ class TaskListItemDetails extends React.Component {
                     />
                 </FormGroup>
 
-                <DeleteButton handleClick={this.props.handleDeleteClick} />
+                <DeleteButton
+                    value={this.props.taskId}
+                    handleClick={this.props.handleTaskDelete}
+                />
             </div>
         );
     }
 }
 
 TaskListItemDetails.propTypes = {
-    taskNotes: React.PropTypes.string,
-    handleDeleteClick: React.PropTypes.func.isRequired,
-    handleNotesSave: React.PropTypes.func.isRequired
+    taskId: PropTypes.number.isRequired,
+    taskNotes: PropTypes.string,
+    handleTaskDelete: PropTypes.func.isRequired,
+    handleNotesSave: PropTypes.func.isRequired
 };
 
 TaskListItemDetails.defaultProps = {

@@ -20,7 +20,7 @@ class TaskListItem extends Component {
         };
 
         this.handleNameClick = this.handleNameClick.bind(this);
-        this.handleDeleteClick = this.handleDeleteClick.bind(this);
+        this.handleTaskDelete = this.handleTaskDelete.bind(this);
         this.handleNameSave = this.handleNameSave.bind(this);
         this.handleNotesSave = this.handleNotesSave.bind(this);
         this.hideDetails = this.hideDetails.bind(this);
@@ -31,8 +31,9 @@ class TaskListItem extends Component {
         this.showDetails();
     }
 
-    handleDeleteClick() {
+    handleTaskDelete(event) {
         this.hideDetails();
+        this.props.handleTaskDelete(event);
     }
 
     handleNameSave(event) {
@@ -79,8 +80,9 @@ class TaskListItem extends Component {
 
                 <Toggler isVisible={this.state.detailsAreVisible}>
                     <TaskListItemDetails
+                        taskId={this.props.task.Id}
                         taskNotes={this.props.task.Notes}
-                        handleDeleteClick={this.handleDeleteClick}
+                        handleTaskDelete={this.handleTaskDelete}
                         handleNotesSave={this.handleNotesSave}
                     />
                 </Toggler>
@@ -91,11 +93,13 @@ class TaskListItem extends Component {
 
 TaskListItem.propTypes = {
     task: PropTypes.shape({
+        Id: PropTypes.number.isRequired,
         Name: PropTypes.string.isRequired,
         Notes: PropTypes.string,
         Complete: PropTypes.bool.isRequired
     }).isRequired,
-    handleCompletionToggle: PropTypes.func.isRequired
+    handleCompletionToggle: PropTypes.func.isRequired,
+    handleTaskDelete: PropTypes.func.isRequired
 };
 
 export default TaskListItem;
