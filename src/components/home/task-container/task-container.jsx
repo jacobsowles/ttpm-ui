@@ -144,7 +144,9 @@ function mapDispatchToProps(dispatch) {
         },
 
         handleNewTask: function(task) {
-            dispatch(taskActions.createTask(task));
+            dispatch(taskActions.createTask(task)).then(() => {
+                dispatch(taskActions.fetchTasks());
+            });
         },
 
         handleCompletionToggle: function(task) {
