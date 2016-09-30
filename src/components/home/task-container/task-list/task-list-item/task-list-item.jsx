@@ -21,8 +21,7 @@ class TaskListItem extends Component {
 
         this.handleNameClick = this.handleNameClick.bind(this);
         this.handleTaskDelete = this.handleTaskDelete.bind(this);
-        this.handleNameSave = this.handleNameSave.bind(this);
-        this.handleNotesSave = this.handleNotesSave.bind(this);
+        this.handleTaskSave = this.handleTaskSave.bind(this);
         this.hideDetails = this.hideDetails.bind(this);
         this.showDetails = this.showDetails.bind(this);
     }
@@ -36,12 +35,8 @@ class TaskListItem extends Component {
         this.props.handleTaskDelete(event);
     }
 
-    handleNameSave(event) {
-        console.log('new name: ' + event.target.value);
-    }
-
-    handleNotesSave(event) {
-        console.log('new notes: ' + event.target.value);
+    handleTaskSave(taskId, body) {
+        this.props.handleTaskSave(taskId, body);
     }
 
     hideDetails() {
@@ -69,11 +64,12 @@ class TaskListItem extends Component {
                 />
 
                 <TaskListItemBrief
+                    taskId={this.props.task.Id}
                     taskName={this.props.task.Name}
                     taskComplete={this.props.task.Complete}
                     detailsAreVisible={this.state.detailsAreVisible}
                     handleNameClick={this.handleNameClick}
-                    handleNameSave={this.handleNameSave}
+                    handleNameSave={this.handleTaskSave}
                     hideDetails={this.hideDetails}
                     showDetails={this.showDetails}
                 />
@@ -83,7 +79,7 @@ class TaskListItem extends Component {
                         taskId={this.props.task.Id}
                         taskNotes={this.props.task.Notes}
                         handleTaskDelete={this.handleTaskDelete}
-                        handleNotesSave={this.handleNotesSave}
+                        handleNotesSave={this.handleTaskSave}
                     />
                 </Toggler>
             </div>
@@ -98,8 +94,10 @@ TaskListItem.propTypes = {
         Notes: PropTypes.string,
         Complete: PropTypes.bool.isRequired
     }).isRequired,
+
     handleCompletionToggle: PropTypes.func.isRequired,
-    handleTaskDelete: PropTypes.func.isRequired
+    handleTaskDelete: PropTypes.func.isRequired,
+    handleTaskSave: PropTypes.func.isRequired
 };
 
 export default TaskListItem;

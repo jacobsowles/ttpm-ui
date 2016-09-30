@@ -47,8 +47,7 @@ class TaskContainer extends React.Component {
                     taskGroupName={this.props.taskGroupName}
                     handleNewTask={this.handleNewTask}
                     handleCompletionToggle={this.props.handleCompletionToggle}
-                    handleTaskNameEdit={this.props.handleTaskNameEdit}
-                    handleTaskNotesEdit={this.props.handleTaskNotesEdit}
+                    handleTaskSave={this.props.handleTaskSave}
                     handleTaskDelete={this.props.handleTaskDelete}
                     updateDisplayOrder={this.props.updateDisplayOrder}
                 />
@@ -70,8 +69,7 @@ TaskContainer.propTypes = {
     fetchTasks: React.PropTypes.func.isRequired,
     handleNewTask: React.PropTypes.func.isRequired,
     handleCompletionToggle: React.PropTypes.func.isRequired,
-    handleTaskNameEdit: React.PropTypes.func.isRequired,
-    handleTaskNotesEdit: React.PropTypes.func.isRequired,
+    handleTaskSave: React.PropTypes.func.isRequired,
     handleTaskDelete: React.PropTypes.func.isRequired
 };
 
@@ -153,14 +151,8 @@ function mapDispatchToProps(dispatch) {
             dispatch(taskActions.toggleComplete(task.Id));
         },
 
-        handleTaskNameEdit: function(newName, task) {
-            task.Name = newName;
-            dispatch(taskActions.updateTask(task));
-        },
-
-        handleTaskNotesEdit: function(newNotes, task) {
-            task.Notes = newNotes;
-            dispatch(taskActions.updateTask(task));
+        handleTaskSave: function(taskId, body) {
+            dispatch(taskActions.updateTask(taskId, body));
         },
 
         handleTaskDelete: function(event) {

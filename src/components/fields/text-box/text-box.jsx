@@ -28,10 +28,10 @@ class TextBox extends React.Component {
                 className="form-control"
                 placeholder={this.props.placeholder}
                 value={this.state.value}
-                onBlur={this.props.handleBlur}
-                onChange={this.handleChange}
-                onClick={this.props.handleClick}
-                onKeyDown={this.props.handleKeyDown}
+                onBlur={(event) => this.props.handleBlur(event)}
+                onChange={(event) => this.handleChange(event)}
+                onClick={(event) => this.props.handleClick(event)}
+                onKeyDown={(event) => this.props.handleKeyDown(event)}
             />
         );
     }

@@ -26,9 +26,10 @@ class TextArea extends React.Component {
             <textarea
                 className="form-control"
                 value={this.state.value || ''}
-                onBlur={this.props.handleBlur}
-                onChange={this.handleChange}
-                onClick={this.props.handleClick}
+                onBlur={(event) => this.props.handleBlur(event)}
+                onChange={(event) => this.handleChange(event)}
+                onClick={(event) => this.props.handleClick(event)}
+                onKeyDown={(event) => this.props.handleKeyDown(event)}
             />
         );
     }
@@ -38,14 +39,16 @@ TextArea.propTypes = {
     value: React.PropTypes.string,
     handleBlur: React.PropTypes.func,
     handleChange: React.PropTypes.func,
-    handleClick: React.PropTypes.func
+    handleClick: React.PropTypes.func,
+    handleKeyDown: React.PropTypes.func
 };
 
 TextArea.defaultProps = {
     value: '',
     handleBlur: (event) => {},
     handleChange: (event) => {},
-    handleClick: (event) => {}
+    handleClick: (event) => {},
+    handleKeyDown: (event) => {}
 };
 
 export default TextArea;

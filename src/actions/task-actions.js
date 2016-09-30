@@ -22,10 +22,10 @@ module.exports = {
         };
     },
 
-    updateTask(task) {
+    updateTask(taskId, body) {
         return {
             type: 'UPDATE_TASK',
-            payload: put('/Tasks/', task)
+            payload: put(`/Tasks/${taskId}`, body)
         };
     },
 

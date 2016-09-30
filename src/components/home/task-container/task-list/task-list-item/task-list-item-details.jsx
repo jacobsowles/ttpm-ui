@@ -8,6 +8,17 @@ import TextArea from '~/fields/text-area/text-area';
 
 class TaskListItemDetails extends Component {
 
+    constructor(props) {
+        super(props);
+        this.handleNotesSave = this.handleNotesSave.bind(this);
+    }
+
+    handleNotesSave(event) {
+        this.props.handleNotesSave(this.props.taskId, {
+            Notes: event.target.value
+        });
+    }
+
     render() {
         return (
             <div className="task-details">
@@ -15,7 +26,7 @@ class TaskListItemDetails extends Component {
                     <label>Notes</label>
                     <TextArea
                         value={this.props.taskNotes}
-                        handleBlur={this.props.handleNotesSave}
+                        handleBlur={this.handleNotesSave}
                     />
                 </FormGroup>
 

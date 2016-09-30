@@ -33,8 +33,7 @@ class TaskList extends Component {
                                             key={key}
                                             task={task}
                                             handleCompletionToggle={this.props.handleCompletionToggle}
-                                            handleNameEdit={this.props.handleTaskNameEdit}
-                                            handleNotesEdit={this.props.handleTaskNotesEdit}
+                                            handleTaskSave={this.props.handleTaskSave}
                                             handleTaskDelete={this.props.handleTaskDelete}
                                         />
                                     );
@@ -56,8 +55,7 @@ TaskList.propTypes = {
 
     handleNewTask: PropTypes.func.isRequired,
     handleCompletionToggle: PropTypes.func.isRequired,
-    handleTaskNameEdit: PropTypes.func.isRequired,
-    handleTaskNotesEdit: PropTypes.func.isRequired,
+    handleTaskSave: PropTypes.func.isRequired,
     updateDisplayOrder: PropTypes.func.isRequired
 };
 
