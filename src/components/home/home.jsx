@@ -5,19 +5,19 @@ import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 
 // components
-import Content from './content/content.jsx';
-import GroupFilterContainer from './group-filter-container/group-filter-container.jsx';
-import Header from './header/header.jsx';
-import Logo from '../logo/logo.jsx';
-import Module from '../module/module.jsx';
-import Sidebar from './sidebar/sidebar.jsx';
-import TaskContainer from './task-container/task-container.jsx';
-import TaskSearch from './task-search/task-search.jsx';
-import UserControls from './user-controls/user-controls.jsx';
+import Content from './content/content';
+import GroupFilterContainer from './group-filter/group-filter-container';
+import Header from './header/header';
+import Logo from '~/logo/logo';
+import Module from '~/module/module';
+import Sidebar from './sidebar/sidebar';
+import TaskContainer from './task-container/task-container';
+import TaskSearch from './task-search/task-search';
+import UserControls from './user-controls/user-controls';
 
 // actions
-import settingActions from '../../actions/setting-actions.js';
-import userSettingActions from '../../actions/user-setting-actions.js';
+import settingActions from '@/actions/setting-actions';
+import userSettingActions from '@/actions/user-setting-actions';
 
 class Home extends React.Component {
 

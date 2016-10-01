@@ -3,7 +3,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
 // components
-import GroupFilterList from './group-filter/group-filter-list';
+import GroupFilterList from './group-filter-list';
 import LoadingGraphic from '~/loading-graphic';
 import NewTaskGroupLink from './new-task-group-link';
 

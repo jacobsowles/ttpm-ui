@@ -1,13 +1,7 @@
-// npm modules
 import React, { Component, PropTypes } from 'react';
-
-// components
-import CheckmarkIcon from '~/icons/checkmark-icon';
-import PencilIcon from '~/icons/pencil-icon';
+import GroupFilterActions from './group-filter-actions';
 import TextBox from '~/fields/text-box';
-import TimesIcon from '~/icons/times-icon';
 
-// styles
 require('./group-filter-header.scss');
 
 class GroupFilterHeader extends Component {
@@ -21,7 +15,6 @@ class GroupFilterHeader extends Component {
 
         this.handleNameSave = this.handleNameSave.bind(this);
         this.setEditMode = this.setEditMode.bind(this);
-        this.switchToEditMode = this.switchToEditMode.bind(this);
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -34,10 +27,6 @@ class GroupFilterHeader extends Component {
         this.setState({
             isEditMode: mode
         });
-    }
-
-    switchToEditMode() {
-        this.setEditMode(true);
     }
 
     handleNameSave(event) {
@@ -69,10 +58,12 @@ class GroupFilterHeader extends Component {
                         )
                 }
 
-                <span className="group-filter-actions">
-                    {this.state.isEditMode ? <CheckmarkIcon /> : <PencilIcon handleClick={() => this.switchToEditMode()} />}
-                    <TimesIcon handleClick={(event) => this.props.handleDeleteTaskGroupClick(this.props.taskGroupId, event)} />
-                </span>
+                <GroupFilterActions
+                    isEditMode={this.state.isEditMode}
+                    taskGroupId={this.props.taskGroupId}
+                    setEditMode={this.setEditMode}
+                    handleDelete={this.props.handleDeleteTaskGroupClick}
+                />
             </div>
         );
     }

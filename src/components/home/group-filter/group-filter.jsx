@@ -6,7 +6,6 @@ import Accordion from '~/accordion/accordion';
 import AccordionItem from '~/accordion/accordion-item';
 import GroupFilterHeader from './group-filter-header';
 import GroupFilterList from './group-filter-list';
-import NewTaskGroupLink from '../new-task-group-link';
 
 // styles
 require('./group-filter.scss');

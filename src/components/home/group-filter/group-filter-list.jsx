@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import GroupFilter from './group-filter';
-import NewTaskGroupLink from '../new-task-group-link';
+import NewTaskGroupLink from './new-task-group-link';
 
 require('./group-filter-list.scss');
 
