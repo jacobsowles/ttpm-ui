@@ -7,6 +7,16 @@
     width: 275px;
     font-size: .9em;
 
+    .accordion-item {
+        .accordion-header {
+            padding-left: 10px;
+        }
+
+        .accordion-header-content {
+            padding: 10px;
+        }
+    }
+
     .task-group-view-edit-toggle-field {
         padding: 10px 10px 10px 13px;
         color: #888888;
