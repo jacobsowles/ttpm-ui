@@ -5,7 +5,9 @@ import React, { Component, PropTypes } from 'react';
 import Accordion from '~/accordion/accordion';
 import AccordionItem from '~/accordion/accordion-item/accordion-item';
 import CheckmarkIcon from '~/icons/checkmark-icon';
+import PencilIcon from '~/icons/pencil-icon';
 import TextBox from '~/fields/text-box';
+import TimesIcon from '~/icons/times-icon';
 import NewTaskGroupLink from '../new-task-group-link';
 
 // styles
@@ -74,27 +76,8 @@ class GroupFilter extends Component {
                             }
 
                             <span className="group-filter-actions">
-                                {
-                                    this.state.isEditMode
-                                        ? (
-                                            <CheckmarkIcon />
-                                        )
-                                        : (
-                                            <span
-                                                className="edit-group"
-                                                onClick={() => this.switchToEditMode()}
-                                            >
-                                                &#9998;
-                                            </span>
-                                        )
-                                }
-                                
-                                <span
-                                    className="delete-group"
-                                    onClick={(event) => this.props.handleDeleteTaskGroupClick(this.props.taskGroup, event)}
-                                >
-                                    &times;
-                                </span>
+                                {this.state.isEditMode ? <CheckmarkIcon /> : <PencilIcon handleClick={() => this.switchToEditMode()} />}
+                                <TimesIcon handleClick={(event) => this.props.handleDeleteTaskGroupClick(this.props.taskGroup, event)} />
                             </span>
                         </div>
                     )}
