@@ -1,10 +1,8 @@
 // npm modules
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
 // components
-import Accordion from '../../accordion/accordion.jsx';
-import AccordionItem from '../../accordion/accordion-item/accordion-item.jsx';
 import GroupFilter from './group-filter/group-filter.jsx';
 import LoadingGraphic from '../../loading-graphic.jsx';
 import NewTaskGroupLink from './new-task-group-link.jsx';
@@ -14,7 +12,7 @@ import filterActions from '../../../actions/filter-actions.js';
 import taskActions from '../../../actions/task-actions.js';
 import taskGroupActions from '../../../actions/task-group-actions.js';
 
-class GroupFilterContainer extends React.Component {
+class GroupFilterContainer extends Component {
 
     constructor(props) {
         super(props);
@@ -65,13 +63,13 @@ class GroupFilterContainer extends React.Component {
 }
 
 GroupFilterContainer.propTypes = {
-    taskGroups: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
+    taskGroups: PropTypes.arrayOf(React.PropTypes.object).isRequired,
 
-    fetchTaskGroups: React.PropTypes.func.isRequired,
-    handleTaskGroupClick: React.PropTypes.func.isRequired,
-    handleAddTaskGroupClick: React.PropTypes.func.isRequired,
-    handleDeleteTaskGroupClick: React.PropTypes.func.isRequired,
-    handleTaskGroupSave: React.PropTypes.func.isRequired
+    fetchTaskGroups: PropTypes.func.isRequired,
+    handleTaskGroupClick: PropTypes.func.isRequired,
+    handleAddTaskGroupClick: PropTypes.func.isRequired,
+    handleDeleteTaskGroupClick: PropTypes.func.isRequired,
+    handleTaskGroupSave: PropTypes.func.isRequired
 };
 
 function mapStateToProps(state) {

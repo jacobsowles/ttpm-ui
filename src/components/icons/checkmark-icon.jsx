@@ -7,14 +7,10 @@ class CheckmarkIcon extends React.Component {
         return (
             <Icon
                 glyph="check"
-                handleClick={this.props.handleClick}
+                {...this.props}
             />
         );
     }
 }
-
-CheckmarkIcon.propTypes = {
-    handleClick: React.PropTypes.func
-};
 
 export default CheckmarkIcon;

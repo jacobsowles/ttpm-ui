@@ -1,4 +1,3 @@
-// npm modules
 import React from 'react';
 
 class Accordion extends React.Component {

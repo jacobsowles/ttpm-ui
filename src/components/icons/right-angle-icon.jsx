@@ -7,14 +7,10 @@ class RightAngleIcon extends React.Component {
         return (
             <Icon
                 glyph="angle-right"
-                handleClick={this.props.handleClick}
+                {...this.props}
             />
         );
     }
 }
-
-RightAngleIcon.propTypes = {
-    handleClick: React.PropTypes.func
-};
 
 export default RightAngleIcon;

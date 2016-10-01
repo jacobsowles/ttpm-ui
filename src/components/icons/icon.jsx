@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 
-class Icon extends React.Component {
+class Icon extends Component {
 
     render() {
         return (
             <i
-                className={`fa fa-${this.props.glyph}`}
+                className={`fa fa-${this.props.glyph} ${this.props.className}`}
                 onClick={this.props.handleClick}
             />
         );
@@ -13,8 +13,14 @@ class Icon extends React.Component {
 }
 
 Icon.propTypes = {
-    glyph: React.PropTypes.string.isRequired,
-    handleClick: React.PropTypes.func
+    glyph: PropTypes.string.isRequired,
+    className: PropTypes.string,
+    handleClick: PropTypes.func
+};
+
+Icon.defaultProps = {
+    className: '',
+    handleClick: (event) => {}
 };
 
 export default Icon;

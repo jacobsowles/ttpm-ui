@@ -1,7 +1,7 @@
-// npm modules
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
+import DownAngleIcon from '~/icons/down-angle-icon';
+import RightAngleIcon from '~/icons/right-angle-icon';
 
-// styles
 require('./accordion-item.scss');
 
 const styles = {
@@ -13,7 +13,7 @@ const styles = {
     }
 };
 
-class AccordionItem extends React.Component {
+class AccordionItem extends Component {
 
     constructor(props) {
         super(props);
@@ -32,33 +32,24 @@ class AccordionItem extends React.Component {
     }
 
     render() {
-        const icon = (
-            <i
-                className={`accordion-toggle fa fa-angle-${this.state.active ? 'down' : 'right'}`}
-                onClick={!this.props.activateOnHeaderClick ? this.handleClick : null}
-            />
-        );
+        const handleClick = !this.props.activateOnHeaderClick ? this.handleClick : null;
 
         return (
             <div className={`accordion-item ${this.state.active ? 'accordion-item-active' : ''}`}>
                 <div className="accordion-header" onClick={this.props.activateOnHeaderClick ? this.handleClick : null}>
                     {
-                        this.props.hideIcon ||
-                        this.props.showIconOnRight
+                        !this.props.showIcon
                             ? null
-                            : icon
+                            : (
+                                this.state.active
+                                    ? <DownAngleIcon className="toggle" handleClick={handleClick} />
+                                    : <RightAngleIcon className="toggle" handleClick={handleClick} />
+                            )
                     }
 
                     <span className="accordion-header-content">
                         {this.props.header}
                     </span>
-
-                    {
-                        this.props.hideIcon ||
-                        !this.props.showIconOnRight
-                            ? null
-                            : icon
-                    }
                 </div>
 
                 <div
@@ -73,17 +64,15 @@ class AccordionItem extends React.Component {
 }
 
 AccordionItem.propTypes = {
-    header: React.PropTypes.object.isRequired,
-    body: React.PropTypes.object.isRequired,
-    activateOnHeaderClick: React.PropTypes.bool,
-    hideIcon: React.PropTypes.bool,
-    showIconOnRight: React.PropTypes.bool
+    header: PropTypes.object.isRequired,
+    body: PropTypes.object.isRequired,
+    activateOnHeaderClick: PropTypes.bool,
+    showIcon: PropTypes.bool
 };
 
-AccordionItem.getDefaultProps = {
+AccordionItem.defaultProps = {
     activateOnHeaderClick: false,
-    hideIcon: false,
-    showIconOnRight: false
+    showIcon: true
 };
 
 export default AccordionItem;

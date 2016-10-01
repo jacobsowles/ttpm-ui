@@ -7,14 +7,10 @@ class PencilIcon extends React.Component {
         return (
             <Icon
                 glyph="pencil"
-                handleClick={this.props.handleClick}
+                {...this.props}
             />
         );
     }
 }
-
-PencilIcon.propTypes = {
-    handleClick: React.PropTypes.func
-};
 
 export default PencilIcon;

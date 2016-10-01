@@ -3,7 +3,7 @@ import React, { Component, PropTypes } from 'react';
 
 // components
 import Accordion from '~/accordion/accordion';
-import AccordionItem from '~/accordion/accordion-item/accordion-item';
+import AccordionItem from '~/accordion/accordion-item';
 import CheckmarkIcon from '~/icons/checkmark-icon';
 import PencilIcon from '~/icons/pencil-icon';
 import TextBox from '~/fields/text-box';
@@ -51,6 +51,8 @@ class GroupFilter extends Component {
     }
 
     render() {
+        const paddingLeft = 20 * (this.props.level + 1);
+
         return (
             <Accordion>
                 <AccordionItem
@@ -61,6 +63,7 @@ class GroupFilter extends Component {
                                     ? (
                                         <TextBox
                                             id={`group-filter-${this.props.taskGroup.Id}`}
+                                            style={{width: `${195 - paddingLeft}px`}}
                                             value={this.props.taskGroup.Name}
                                             handleBlur={(event) => this.handleNameSave(event)}
                                         />
@@ -83,7 +86,7 @@ class GroupFilter extends Component {
                     )}
 
                     body={(
-                        <div style={{paddingLeft: `${20 * (this.props.level + 1)}px`}}>
+                        <div style={{paddingLeft: `${paddingLeft}px`}}>
                         {
                             this.props.taskGroups
                                 .filter(tg => tg.ParentTaskGroupId == this.props.taskGroup.Id)

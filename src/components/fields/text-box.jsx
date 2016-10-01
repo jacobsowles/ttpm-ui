@@ -27,6 +27,7 @@ class TextBox extends Component {
                 type="text"
                 className="form-control"
                 id={this.props.id}
+                style={this.props.style}
                 placeholder={this.props.placeholder}
                 value={this.state.value}
                 onBlur={(event) => this.props.handleBlur(event)}
@@ -41,6 +42,7 @@ class TextBox extends Component {
 TextBox.propTypes = {
     value: PropTypes.string,
     id: PropTypes.string,
+    style: PropTypes.object,
     placeholder: PropTypes.string,
     handleBlur: PropTypes.func,
     handleChange: PropTypes.func,
@@ -51,6 +53,7 @@ TextBox.propTypes = {
 TextBox.defaultProps = {
     value: '',
     id: '',
+    style: {},
     placeholder: '',
     handleBlur: (event) => {},
     handleChange: (event) => {},

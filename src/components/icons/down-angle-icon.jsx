@@ -7,14 +7,10 @@ class DownAngleIcon extends React.Component {
         return (
             <Icon
                 glyph="angle-down"
-                handleClick={this.props.handleClick}
+                {...this.props}
             />
         );
     }
 }
-
-DownAngleIcon.propTypes = {
-    handleClick: React.PropTypes.func
-};
 
 export default DownAngleIcon;

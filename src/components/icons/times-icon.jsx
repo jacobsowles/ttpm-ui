@@ -7,14 +7,10 @@ class TimesIcon extends React.Component {
         return (
             <Icon
                 glyph="times"
-                handleClick={this.props.handleClick}
+                {...this.props}
             />
         );
     }
 }
-
-TimesIcon.propTypes = {
-    handleClick: React.PropTypes.func
-};
 
 export default TimesIcon;

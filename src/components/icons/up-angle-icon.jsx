@@ -7,14 +7,10 @@ class UpAngleIcon extends React.Component {
         return (
             <Icon
                 glyph="angle-up"
-                handleClick={this.props.handleClick}
+                {...this.props}
             />
         );
     }
 }
-
-UpAngleIcon.propTypes = {
-    handleClick: React.PropTypes.func
-};
 
 export default UpAngleIcon;
