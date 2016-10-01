@@ -2,7 +2,7 @@
 import React from 'react';
 
 // components
-import ViewEditToggleField from '../../fields/view-edit-toggle-field/view-edit-toggle-field.jsx';
+import ViewEditToggleField from '~/fields/view-edit-toggle-field/view-edit-toggle-field';
 
 class NewTaskGroupLink extends React.Component {
 

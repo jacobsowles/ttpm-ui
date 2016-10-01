@@ -4,7 +4,7 @@ import React, { Component, PropTypes } from 'react';
 // components
 import DownAngleIcon from '~/icons/down-angle-icon';
 import RightAngleIcon from '~/icons/right-angle-icon';
-import TextBox from '~/fields/text-box/text-box';
+import TextBox from '~/fields/text-box';
 
 class TaskListItemBrief extends Component {
 

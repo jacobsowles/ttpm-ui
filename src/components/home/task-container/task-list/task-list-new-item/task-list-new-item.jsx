@@ -1,10 +1,6 @@
-// npm modules
 import React from 'react';
+import TextBox from '~/fields/text-box';
 
-// components
-import TextBox from '~/fields/text-box/text-box';
-
-// styles
 require('./task-list-new-item.scss');
 
 class TaskListNewItem extends React.Component {

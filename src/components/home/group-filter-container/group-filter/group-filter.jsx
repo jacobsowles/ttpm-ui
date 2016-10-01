@@ -1,15 +1,40 @@
 // npm modules
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 
 // components
-import Accordion from '../../../accordion/accordion.jsx';
-import AccordionItem from '../../../accordion/accordion-item/accordion-item.jsx';
-import NewTaskGroupLink from '../new-task-group-link.jsx';
+import Accordion from '~/accordion/accordion';
+import AccordionItem from '~/accordion/accordion-item/accordion-item';
+import TextBox from '~/fields/text-box';
+import NewTaskGroupLink from '../new-task-group-link';
 
 // styles
 require('./group-filter.scss');
 
-class GroupFilter extends React.Component {
+class GroupFilter extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            isEditMode: false
+        };
+
+        this.setEditMode = this.setEditMode.bind(this);
+        this.handleNameSave = this.handleNameSave.bind(this);
+    }
+
+    setEditMode(mode) {
+        this.setState({
+            isEditMode: mode
+        });
+    }
+
+    handleNameSave(event) {
+        this.setEditMode(false);
+        this.props.handleTaskGroupSave(this.props.taskGroup.Id, {
+            Name: event.target.value
+        });
+    }
 
     render() {
         return (
@@ -17,15 +42,31 @@ class GroupFilter extends React.Component {
                 <AccordionItem
                     header={(
                         <div className="group-filter">
-                            <span
-                                className="group-filter-name"
-                                onClick={() => this.props.handleTaskGroupClick(this.props.taskGroup.Id)}
-                            >
-                                {this.props.taskGroup.Name}
-                            </span>
+                            {
+                                this.state.isEditMode
+                                    ? (
+                                        <TextBox
+                                            value={this.props.taskGroup.Name}
+                                            handleBlur={(event) => this.handleNameSave(event)}
+                                        />
+                                    )
+                                    : (
+                                        <span
+                                            className="group-filter-name"
+                                            onClick={() => this.props.handleTaskGroupClick(this.props.taskGroup.Id)}
+                                        >
+                                            {this.props.taskGroup.Name}
+                                        </span>
+                                    )
+                            }
 
                             <span className="group-filter-actions">
-                                <span className="edit-group">&#9998;</span>
+                                <span
+                                    className="edit-group"
+                                    onClick={() => this.setEditMode(true)}
+                                >
+                                    &#9998;
+                                </span>
 
                                 <span
                                     className="delete-group"
@@ -52,6 +93,7 @@ class GroupFilter extends React.Component {
                                             handleAddTaskGroupClick={this.props.handleAddTaskGroupClick}
                                             handleTaskGroupClick={this.props.handleTaskGroupClick}
                                             handleDeleteTaskGroupClick={this.props.handleDeleteTaskGroupClick}
+                                            handleTaskGroupSave={this.props.handleTaskGroupSave}
                                         />
                                     );
                                 })
@@ -69,13 +111,14 @@ class GroupFilter extends React.Component {
 }
 
 GroupFilter.propTypes = {
-    taskGroup: React.PropTypes.object.isRequired,
-    taskGroups: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
-    level: React.PropTypes.number.isRequired,
+    taskGroup: PropTypes.object.isRequired,
+    taskGroups: PropTypes.arrayOf(React.PropTypes.object).isRequired,
+    level: PropTypes.number.isRequired,
 
-    handleTaskGroupClick: React.PropTypes.func.isRequired,
-    handleAddTaskGroupClick: React.PropTypes.func.isRequired,
-    handleDeleteTaskGroupClick: React.PropTypes.func.isRequired
+    handleTaskGroupClick: PropTypes.func.isRequired,
+    handleAddTaskGroupClick: PropTypes.func.isRequired,
+    handleDeleteTaskGroupClick: PropTypes.func.isRequired,
+    handleTaskGroupSave: PropTypes.func.isRequired
 };
 
 export default GroupFilter;

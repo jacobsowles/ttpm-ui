@@ -35,8 +35,8 @@ class TaskListItem extends Component {
         this.props.handleTaskDelete(event);
     }
 
-    handleTaskSave(taskId, body) {
-        this.props.handleTaskSave(taskId, body);
+    handleTaskSave(taskId, task) {
+        this.props.handleTaskSave(taskId, task);
     }
 
     hideDetails() {

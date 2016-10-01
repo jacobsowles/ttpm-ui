@@ -151,8 +151,8 @@ function mapDispatchToProps(dispatch) {
             dispatch(taskActions.toggleComplete(task.Id));
         },
 
-        handleTaskSave: function(taskId, body) {
-            dispatch(taskActions.updateTask(taskId, body));
+        handleTaskSave: function(taskId, task) {
+            dispatch(taskActions.updateTask(taskId, task));
         },
 
         handleTaskDelete: function(event) {

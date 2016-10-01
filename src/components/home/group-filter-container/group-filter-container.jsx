@@ -52,6 +52,7 @@ class GroupFilterContainer extends React.Component {
                                     handleTaskGroupClick={this.props.handleTaskGroupClick}
                                     handleAddTaskGroupClick={this.props.handleAddTaskGroupClick}
                                     handleDeleteTaskGroupClick={this.props.handleDeleteTaskGroupClick}
+                                    handleTaskGroupSave={this.props.handleTaskGroupSave}
                                 />
                             );
                     })
@@ -69,7 +70,8 @@ GroupFilterContainer.propTypes = {
     fetchTaskGroups: React.PropTypes.func.isRequired,
     handleTaskGroupClick: React.PropTypes.func.isRequired,
     handleAddTaskGroupClick: React.PropTypes.func.isRequired,
-    handleDeleteTaskGroupClick: React.PropTypes.func.isRequired
+    handleDeleteTaskGroupClick: React.PropTypes.func.isRequired,
+    handleTaskGroupSave: React.PropTypes.func.isRequired
 };
 
 function mapStateToProps(state) {
@@ -105,6 +107,12 @@ function mapDispatchToProps(dispatch) {
                 dispatch(taskGroupActions.fetchTaskGroups()).then(() => {
                     dispatch(taskActions.fetchTasks());
                 });
+            });
+        },
+
+        handleTaskGroupSave: function(taskGroupId, taskGroup) {
+            dispatch(taskGroupActions.updateTaskGroup(taskGroupId, taskGroup)).then(() => {
+                dispatch(taskGroupActions.fetchTaskGroups());
             });
         }
     };
