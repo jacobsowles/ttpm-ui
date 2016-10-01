@@ -1,10 +1,7 @@
-// npm modules
-import React from 'react';
-
-// styles
+import React, { Component, PropTypes } from 'react';
 require('./view-edit-toggle-field.scss');
 
-class ViewEditToggleField extends React.Component {
+class ViewEditToggleField extends Component {
 
     constructor(props) {
         super(props);
@@ -74,7 +71,7 @@ class ViewEditToggleField extends React.Component {
             });
 
             if (event.target.value != '') {
-                this.props.handleSubmit(event.target.value, this.props.includeWithSubmit);
+                this.props.handleSubmit(event);
             }
 
             if (this.props.resetToOriginalOnSubmit) {
@@ -109,17 +106,16 @@ class ViewEditToggleField extends React.Component {
 }
 
 ViewEditToggleField.propTypes = {
-    type: React.PropTypes.string,
-    text: React.PropTypes.string,
-    clearTextOnClick: React.PropTypes.bool,
-    resetToOriginalOnSubmit: React.PropTypes.bool,
-    isReadOnly: React.PropTypes.bool,
-    includeWithSubmit: React.PropTypes.object,
+    type: PropTypes.string,
+    text: PropTypes.string,
+    clearTextOnClick: PropTypes.bool,
+    resetToOriginalOnSubmit: PropTypes.bool,
+    isReadOnly: PropTypes.bool,
 
-    handleSubmit: React.PropTypes.func.isRequired
+    handleSubmit: PropTypes.func.isRequired
 };
 
-ViewEditToggleField.getDefaultProps = {
+ViewEditToggleField.defaultProps = {
     text: '',
     clearTextOnClick: false,
     resetToOriginalOnSubmit: false,

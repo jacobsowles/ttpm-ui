@@ -3,14 +3,14 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
 // components
-import GroupFilter from './group-filter/group-filter.jsx';
-import LoadingGraphic from '../../loading-graphic.jsx';
-import NewTaskGroupLink from './new-task-group-link.jsx';
+import GroupFilterList from './group-filter/group-filter-list';
+import LoadingGraphic from '~/loading-graphic';
+import NewTaskGroupLink from './new-task-group-link';
 
 // actions
-import filterActions from '../../../actions/filter-actions.js';
-import taskActions from '../../../actions/task-actions.js';
-import taskGroupActions from '../../../actions/task-group-actions.js';
+import filterActions from '@/actions/filter-actions';
+import taskActions from '@/actions/task-actions';
+import taskGroupActions from '@/actions/task-group-actions';
 
 class GroupFilterContainer extends Component {
 
@@ -37,26 +37,13 @@ class GroupFilterContainer extends Component {
             <div>
                 <LoadingGraphic showLoadingGraphic={this.state.showLoadingGraphic} />
 
-                {
-                    this.props.taskGroups
-                        .filter(tg => tg.ParentTaskGroupId == null)
-                        .map((taskGroup, key) => {
-                            return (
-                                <GroupFilter
-                                    key={key}
-                                    taskGroup={taskGroup}
-                                    taskGroups={this.props.taskGroups}
-                                    level={0}
-                                    handleTaskGroupClick={this.props.handleTaskGroupClick}
-                                    handleAddTaskGroupClick={this.props.handleAddTaskGroupClick}
-                                    handleDeleteTaskGroupClick={this.props.handleDeleteTaskGroupClick}
-                                    handleTaskGroupSave={this.props.handleTaskGroupSave}
-                                />
-                            );
-                    })
-                }
-
-                <NewTaskGroupLink handleSubmit={this.props.handleAddTaskGroupClick} />
+                <GroupFilterList
+                    taskGroups={this.props.taskGroups}
+                    handleTaskGroupClick={this.props.handleTaskGroupClick}
+                    handleAddTaskGroupClick={this.props.handleAddTaskGroupClick}
+                    handleDeleteTaskGroupClick={this.props.handleDeleteTaskGroupClick}
+                    handleTaskGroupSave={this.props.handleTaskGroupSave}
+                />
             </div>
         );
     }
@@ -89,17 +76,17 @@ function mapDispatchToProps(dispatch) {
             dispatch(filterActions.fetchTaskGroupDisplayOrder(taskGroupId));
         },
 
-        handleAddTaskGroupClick: function(name, taskGroup) {
+        handleAddTaskGroupClick: function(taskGroupId, event) {
             dispatch(taskGroupActions.addTaskGroup({
-                parentTaskGroupId: taskGroup ? taskGroup.Id : null,
-                name: name
+                parentTaskGroupId: taskGroupId,
+                name: event.target.value
             })).then(() => {
                 dispatch(taskGroupActions.fetchTaskGroups());
             });
         },
 
-        handleDeleteTaskGroupClick: function(taskGroup, event) {
-            dispatch(taskGroupActions.deleteTaskGroup(taskGroup.Id)).then(() => {
+        handleDeleteTaskGroupClick: function(taskGroupId, event) {
+            dispatch(taskGroupActions.deleteTaskGroup(taskGroupId)).then(() => {
                 dispatch(taskGroupActions.fetchTaskGroups()).then(() => {
                     dispatch(taskActions.fetchTasks());
                 });

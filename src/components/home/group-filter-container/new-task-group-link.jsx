@@ -1,10 +1,16 @@
-// npm modules
-import React from 'react';
-
-// components
+import React, { Component, PropTypes } from 'react';
 import ViewEditToggleField from '~/fields/view-edit-toggle-field/view-edit-toggle-field';
 
-class NewTaskGroupLink extends React.Component {
+class NewTaskGroupLink extends Component {
+
+    constructor(props) {
+        super(props);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleSubmit(event) {
+        this.props.handleSubmit(this.props.taskGroupId, event);
+    }
 
     render() {
         return (
@@ -13,16 +19,19 @@ class NewTaskGroupLink extends React.Component {
                 text='Add a new task group'
                 clearTextOnClick={true}
                 resetToOriginalOnSubmit={true}
-                includeWithSubmit={this.props.includeWithSubmit}
-                handleSubmit={this.props.handleSubmit}
+                handleSubmit={this.handleSubmit}
             />
         );
     }
 }
 
 NewTaskGroupLink.propTypes = {
-    includeWithSubmit: React.PropTypes.object,
-    handleSubmit: React.PropTypes.func.isRequired
+    taskGroupId: PropTypes.number,
+    handleSubmit: PropTypes.func.isRequired
+};
+
+NewTaskGroupLink.defaultProps = {
+    taskGroupId: null
 };
 
 export default NewTaskGroupLink;
