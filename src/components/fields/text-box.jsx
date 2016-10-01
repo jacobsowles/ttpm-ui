@@ -1,7 +1,7 @@
 // npm modules
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 
-class TextBox extends React.Component {
+class TextBox extends Component {
 
     constructor(props) {
         super(props);
@@ -26,6 +26,7 @@ class TextBox extends React.Component {
             <input
                 type="text"
                 className="form-control"
+                id={this.props.id}
                 placeholder={this.props.placeholder}
                 value={this.state.value}
                 onBlur={(event) => this.props.handleBlur(event)}
@@ -38,16 +39,18 @@ class TextBox extends React.Component {
 }
 
 TextBox.propTypes = {
-    value: React.PropTypes.string,
-    placeholder: React.PropTypes.string,
-    handleBlur: React.PropTypes.func,
-    handleChange: React.PropTypes.func,
-    handleClick: React.PropTypes.func,
-    handleKeyDown: React.PropTypes.func
+    value: PropTypes.string,
+    id: PropTypes.string,
+    placeholder: PropTypes.string,
+    handleBlur: PropTypes.func,
+    handleChange: PropTypes.func,
+    handleClick: PropTypes.func,
+    handleKeyDown: PropTypes.func
 };
 
 TextBox.defaultProps = {
     value: '',
+    id: '',
     placeholder: '',
     handleBlur: (event) => {},
     handleChange: (event) => {},

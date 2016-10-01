@@ -4,6 +4,7 @@ import React, { Component, PropTypes } from 'react';
 // components
 import Accordion from '~/accordion/accordion';
 import AccordionItem from '~/accordion/accordion-item/accordion-item';
+import CheckmarkIcon from '~/icons/checkmark-icon';
 import TextBox from '~/fields/text-box';
 import NewTaskGroupLink from '../new-task-group-link';
 
@@ -19,14 +20,25 @@ class GroupFilter extends Component {
             isEditMode: false
         };
 
-        this.setEditMode = this.setEditMode.bind(this);
         this.handleNameSave = this.handleNameSave.bind(this);
+        this.setEditMode = this.setEditMode.bind(this);
+        this.switchToEditMode = this.switchToEditMode.bind(this);
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if (this.state.isEditMode) {
+            document.getElementById(`group-filter-${this.props.taskGroup.Id}`).focus();
+        }
     }
 
     setEditMode(mode) {
         this.setState({
             isEditMode: mode
         });
+    }
+
+    switchToEditMode() {
+        this.setEditMode(true);
     }
 
     handleNameSave(event) {
@@ -46,6 +58,7 @@ class GroupFilter extends Component {
                                 this.state.isEditMode
                                     ? (
                                         <TextBox
+                                            id={`group-filter-${this.props.taskGroup.Id}`}
                                             value={this.props.taskGroup.Name}
                                             handleBlur={(event) => this.handleNameSave(event)}
                                         />
@@ -61,13 +74,21 @@ class GroupFilter extends Component {
                             }
 
                             <span className="group-filter-actions">
-                                <span
-                                    className="edit-group"
-                                    onClick={() => this.setEditMode(true)}
-                                >
-                                    &#9998;
-                                </span>
-
+                                {
+                                    this.state.isEditMode
+                                        ? (
+                                            <CheckmarkIcon />
+                                        )
+                                        : (
+                                            <span
+                                                className="edit-group"
+                                                onClick={() => this.switchToEditMode()}
+                                            >
+                                                &#9998;
+                                            </span>
+                                        )
+                                }
+                                
                                 <span
                                     className="delete-group"
                                     onClick={(event) => this.props.handleDeleteTaskGroupClick(this.props.taskGroup, event)}

@@ -92,10 +92,8 @@ function mapDispatchToProps(dispatch) {
         },
 
         handleAddTaskGroupClick: function(name, taskGroup) {
-            const parentTaskGroupId = taskGroup ? taskGroup.Id : null;
-
             dispatch(taskGroupActions.addTaskGroup({
-                parentTaskGroupId: parentTaskGroupId,
+                parentTaskGroupId: taskGroup ? taskGroup.Id : null,
                 name: name
             })).then(() => {
                 dispatch(taskGroupActions.fetchTaskGroups());
