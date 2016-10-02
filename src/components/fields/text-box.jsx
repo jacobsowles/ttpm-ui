@@ -10,6 +10,7 @@ class TextBox extends Component {
             value: props.value
         };
 
+        this.handleKeyDown = this.handleKeyDown.bind(this);
         this.handleChange = this.handleChange.bind(this);
     }
 
@@ -19,6 +20,24 @@ class TextBox extends Component {
         });
 
         this.props.handleChange(event);
+    }
+
+    handleKeyDown(event) {
+        switch (event.key) {
+            case 'Escape': {
+                this.setState({
+                    value: this.props.value
+                });
+                break;
+            }
+
+            case 'Enter': {
+                event.target.blur();
+                break;
+            }
+        }
+
+        this.props.handleKeyDown(event);
     }
 
     render() {
@@ -33,7 +52,7 @@ class TextBox extends Component {
                 onBlur={(event) => this.props.handleBlur(event)}
                 onChange={(event) => this.handleChange(event)}
                 onClick={(event) => this.props.handleClick(event)}
-                onKeyDown={(event) => this.props.handleKeyDown(event)}
+                onKeyDown={this.handleKeyDown}
             />
         );
     }
