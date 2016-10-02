@@ -14,9 +14,18 @@ class TaskListItemDetails extends Component {
     }
 
     handleNotesSave(event) {
+        const message = document.getElementById(`task-details-message-${this.props.taskId}`);
+
         this.props.handleNotesSave(this.props.taskId, {
             Notes: event.target.value
         });
+
+        message.textContent = 'Task notes updated.';
+        message.className = 'task-details-message animated fadeIn';
+
+        setTimeout(() => {
+            message.className = 'task-details-message animated fadeOut';
+        }, 3000);
     }
 
     render() {
@@ -24,6 +33,7 @@ class TaskListItemDetails extends Component {
             <div className="task-details">
                 <FormGroup>
                     <label>Notes</label>
+
                     <TextArea
                         value={this.props.taskNotes}
                         handleBlur={this.handleNotesSave}
@@ -34,6 +44,9 @@ class TaskListItemDetails extends Component {
                     value={this.props.taskId}
                     handleClick={this.props.handleTaskDelete}
                 />
+
+                <span className="task-details-message hidden" id={`task-details-message-${this.props.taskId}`}>
+                </span>
             </div>
         );
     }
