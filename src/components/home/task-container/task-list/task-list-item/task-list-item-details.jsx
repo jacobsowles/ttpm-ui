@@ -14,18 +14,20 @@ class TaskListItemDetails extends Component {
     }
 
     handleNotesSave(event) {
-        const message = document.getElementById(`task-details-message-${this.props.taskId}`);
+        if (event.target.value != this.props.taskNotes) {
+            const message = document.getElementById(`task-details-message-${this.props.taskId}`);
 
-        this.props.handleNotesSave(this.props.taskId, {
-            Notes: event.target.value
-        });
+            this.props.handleNotesSave(this.props.taskId, {
+                Notes: event.target.value
+            });
 
-        message.textContent = 'Task notes updated.';
-        message.className = 'task-details-message animated fadeIn';
+            message.textContent = 'Task notes updated.';
+            message.className = 'task-details-message animated fadeIn';
 
-        setTimeout(() => {
-            message.className = 'task-details-message animated fadeOut';
-        }, 3000);
+            setTimeout(() => {
+                message.className = 'task-details-message animated fadeOut';
+            }, 3000);
+        }
     }
 
     render() {

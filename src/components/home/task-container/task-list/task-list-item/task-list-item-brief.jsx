@@ -14,9 +14,11 @@ class TaskListItemBrief extends Component {
     }
 
     handleNameSave(event) {
-        this.props.handleNameSave(this.props.taskId, {
-            Name: event.target.value
-        });
+        if (event.target.value != this.props.taskName) {
+            this.props.handleNameSave(this.props.taskId, {
+                Name: event.target.value
+            });
+        }
     }
 
     render() {
