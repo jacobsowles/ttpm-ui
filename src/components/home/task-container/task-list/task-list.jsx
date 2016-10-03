@@ -6,6 +6,7 @@ import DraggableList from '~/draggable/draggable-list/draggable-list';
 import FilterIndicator from '~/home/filter-indicator/filter-indicator';
 import TaskListItem from './task-list-item/task-list-item';
 import TaskListNewItem from './task-list-new-item/task-list-new-item';
+import TaskListPlaceholder from './task-list-placeholder';
 
 // actions
 import filterActions from '@/actions/filter-actions.js';
@@ -82,20 +83,22 @@ class TaskList extends Component {
                         <FilterIndicator taskGroupName={this.props.taskGroupName} />
 
                         {
-                            this.state.openTaskIds.length == 0
-                                ? (
-                                    <DraggableList
-                                        items={this.props.tasks}
-                                        updateDisplayOrder={this.props.updateDisplayOrder}
-                                    >
-                                        {listItems}
-                                    </DraggableList>
-                                )
-                                : (
-                                    <div>
-                                        {listItems}
-                                    </div>
-                                )
+                            this.props.tasks.length == 0
+                                ? <TaskListPlaceholder />
+                                : this.state.openTaskIds.length == 0
+                                    ? (
+                                        <DraggableList
+                                            items={this.props.tasks}
+                                            updateDisplayOrder={this.props.updateDisplayOrder}
+                                        >
+                                            {listItems}
+                                        </DraggableList>
+                                    )
+                                    : (
+                                        <div>
+                                            {listItems}
+                                        </div>
+                                    )
                         }
 
                         <TaskListNewItem handleNewTask={this.props.handleNewTask} />

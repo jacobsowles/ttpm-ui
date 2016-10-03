@@ -69047,6 +69047,10 @@
 
 	var _taskListNewItem2 = _interopRequireDefault(_taskListNewItem);
 
+	var _taskListPlaceholder = __webpack_require__(739);
+
+	var _taskListPlaceholder2 = _interopRequireDefault(_taskListPlaceholder);
+
 	var _filterActions = __webpack_require__(456);
 
 	var _filterActions2 = _interopRequireDefault(_filterActions);
@@ -69150,7 +69154,7 @@
 	                        'div',
 	                        { className: 'task-list' },
 	                        _react2.default.createElement(_filterIndicator2.default, { taskGroupName: this.props.taskGroupName }),
-	                        this.state.openTaskIds.length == 0 ? _react2.default.createElement(
+	                        this.props.tasks.length == 0 ? _react2.default.createElement(_taskListPlaceholder2.default, null) : this.state.openTaskIds.length == 0 ? _react2.default.createElement(
 	                            _draggableList2.default,
 	                            {
 	                                items: this.props.tasks,
@@ -69603,23 +69607,17 @@
 	var TaskListItem = function (_Component) {
 	    _inherits(TaskListItem, _Component);
 
-	    function TaskListItem(props) {
+	    function TaskListItem() {
 	        _classCallCheck(this, TaskListItem);
 
-	        var _this = _possibleConstructorReturn(this, (TaskListItem.__proto__ || Object.getPrototypeOf(TaskListItem)).call(this, props));
-
-	        _this.handleCompletionToggle = _this.handleCompletionToggle.bind(_this);
-	        return _this;
+	        return _possibleConstructorReturn(this, (TaskListItem.__proto__ || Object.getPrototypeOf(TaskListItem)).apply(this, arguments));
 	    }
 
 	    _createClass(TaskListItem, [{
-	        key: 'handleCompletionToggle',
-	        value: function handleCompletionToggle(event) {
-	            this.props.handleCompletionToggle(this.props.task.Id, event);
-	        }
-	    }, {
 	        key: 'render',
 	        value: function render() {
+	            var _this2 = this;
+
 	            var _props = this.props;
 	            var text = _props.text;
 	            var isDragging = _props.isDragging;
@@ -69633,7 +69631,9 @@
 	                { className: 'task-list-item ' + (this.props.isDimmed ? 'dimmed' : '') },
 	                _react2.default.createElement(_checkbox2.default, {
 	                    checked: this.props.task.Complete,
-	                    handleChange: this.handleCompletionToggle
+	                    handleChange: function handleChange(event) {
+	                        return _this2.props.handleCompletionToggle(_this2.props.task.Id, event);
+	                    }
 	                }),
 	                _react2.default.createElement(_taskListItemBrief2.default, {
 	                    taskId: this.props.task.Id,
@@ -69720,6 +69720,7 @@
 
 	        var _this = _possibleConstructorReturn(this, (Checkbox.__proto__ || Object.getPrototypeOf(Checkbox)).call(this, props));
 
+	        _this.uniqueId = _underscore2.default.uniqueId();
 	        _this.state = {
 	            checked: props.checked
 	        };
@@ -69736,6 +69737,12 @@
 	    }, {
 	        key: 'handleChange',
 	        value: function handleChange(event) {
+	            var label = document.getElementById('label-' + this.uniqueId);
+
+	            if (!this.state.checked) {
+	                label.className = 'animated rotateIn';
+	            }
+
 	            this.setState({
 	                checked: !this.state.checked
 	            });
@@ -69747,22 +69754,20 @@
 	        value: function render() {
 	            var _this2 = this;
 
-	            var uniqueId = 'checkbox' + _underscore2.default.uniqueId();
-
 	            return _react2.default.createElement(
 	                'span',
 	                null,
 	                _react2.default.createElement('input', {
 	                    type: 'checkbox',
-	                    id: uniqueId,
+	                    id: 'checkbox-' + this.uniqueId,
 	                    checked: this.state.checked,
 	                    onChange: function onChange(event) {
 	                        return _this2.handleChange(event);
 	                    }
 	                }),
 	                _react2.default.createElement('label', {
-	                    htmlFor: uniqueId,
-	                    className: '' + (this.state.checked ? 'animated rotateIn' : '')
+	                    htmlFor: 'checkbox-' + this.uniqueId,
+	                    id: 'label-' + this.uniqueId
 	                })
 	            );
 	        }
@@ -71454,6 +71459,7 @@
 	                'div',
 	                { className: '\n                task-brief\n                ' + (this.props.isOpen ? 'edit-mode' : '') + '\n                ' + (this.props.taskComplete ? 'task-complete' : '') + '\n            ' },
 	                _react2.default.createElement(_textBox2.default, {
+	                    isDisabled: this.props.taskComplete,
 	                    value: this.props.taskName,
 	                    handleClick: this.handleNameClick,
 	                    handleBlur: this.handleNameSave
@@ -72325,49 +72331,17 @@
 
 	        var _this = _possibleConstructorReturn(this, (TaskListNewItem.__proto__ || Object.getPrototypeOf(TaskListNewItem)).call(this, props));
 
-	        _this.state = {
-	            value: ''
-	        };
-
-	        _this.handleKeyDown = _this.handleKeyDown.bind(_this);
-	        _this.handleSubmit = _this.handleSubmit.bind(_this);
+	        _this.handleBlur = _this.handleBlur.bind(_this);
 	        return _this;
 	    }
 
 	    _createClass(TaskListNewItem, [{
-	        key: 'resetFields',
-	        value: function resetFields() {
-	            this.setState({
-	                value: ''
-	            });
-	        }
-	    }, {
-	        key: 'handleKeyDown',
-	        value: function handleKeyDown(event) {
-	            switch (event.key) {
-	                case 'Escape':
-	                    {
-	                        this.resetFields(event);
-	                        break;
-	                    }
-
-	                case 'Enter':
-	                    {
-	                        this.handleSubmit(event);
-	                        break;
-	                    }
-	            }
-	        }
-	    }, {
-	        key: 'handleSubmit',
-	        value: function handleSubmit(event) {
+	        key: 'handleBlur',
+	        value: function handleBlur(event) {
 	            if (event.target.value != '') {
-	                var task = {
+	                this.props.handleNewTask({
 	                    Name: event.target.value
-	                };
-
-	                this.resetFields();
-	                this.props.handleNewTask(task);
+	                });
 	            }
 	        }
 	    }, {
@@ -72378,8 +72352,8 @@
 	                { className: 'task-list-new-item' },
 	                _react2.default.createElement(_textBox2.default, {
 	                    placeholder: 'Add a new task',
-	                    value: this.state.value,
-	                    handleKeyDown: this.handleKeyDown
+	                    clearOnBlur: true,
+	                    handleBlur: this.handleBlur
 	                })
 	            );
 	        }
@@ -73391,8 +73365,7 @@
 
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
-
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var TextBox = function (_Component) {
 	    _inherits(TextBox, _Component);
@@ -73406,12 +73379,32 @@
 	            value: props.value
 	        };
 
-	        _this.handleKeyDown = _this.handleKeyDown.bind(_this);
+	        _this.handleBlur = _this.handleBlur.bind(_this);
 	        _this.handleChange = _this.handleChange.bind(_this);
+	        _this.handleKeyDown = _this.handleKeyDown.bind(_this);
+	        _this.keyDownHandlerOverwritten = _this.keyDownHandlerOverwritten.bind(_this);
 	        return _this;
 	    }
 
 	    _createClass(TextBox, [{
+	        key: 'keyDownHandlerOverwritten',
+	        value: function keyDownHandlerOverwritten(key) {
+	            return this.props.keyDownHandlers.filter(function (handler) {
+	                return handler.key == key;
+	            }).length > 0;
+	        }
+	    }, {
+	        key: 'handleBlur',
+	        value: function handleBlur(event) {
+	            if (this.props.clearOnBlur) {
+	                this.setState({
+	                    value: ''
+	                });
+	            }
+
+	            this.props.handleBlur(event);
+	        }
+	    }, {
 	        key: 'handleChange',
 	        value: function handleChange(event) {
 	            this.setState({
@@ -73423,28 +73416,36 @@
 	    }, {
 	        key: 'handleKeyDown',
 	        value: function handleKeyDown(event) {
-	            switch (event.key) {
-	                case 'Escape':
-	                    {
-	                        this.setState({
-	                            value: this.props.value
-	                        });
-	                        break;
-	                    }
+	            var _this2 = this;
 
-	                case 'Enter':
-	                    {
-	                        event.target.blur();
-	                        break;
-	                    }
+	            this.props.keyDownHandlers.forEach(function (handler) {
+	                if (event.key == handler.key) {
+	                    handler.action(_this2.state.value);
+	                }
+	            });
+
+	            if (!this.keyDownHandlerOverwritten(event.key)) {
+	                switch (event.key) {
+	                    case 'Escape':
+	                        {
+	                            this.setState({
+	                                value: this.props.value
+	                            });
+	                            break;
+	                        }
+
+	                    case 'Enter':
+	                        {
+	                            event.target.blur();
+	                            break;
+	                        }
+	                }
 	            }
-
-	            this.props.handleKeyDown(event);
 	        }
 	    }, {
 	        key: 'render',
 	        value: function render() {
-	            var _this2 = this;
+	            var _this3 = this;
 
 	            return _react2.default.createElement('input', {
 	                type: 'text',
@@ -73454,15 +73455,16 @@
 	                placeholder: this.props.placeholder,
 	                value: this.state.value,
 	                onBlur: function onBlur(event) {
-	                    return _this2.props.handleBlur(event);
+	                    return _this3.handleBlur(event);
 	                },
 	                onChange: function onChange(event) {
-	                    return _this2.handleChange(event);
+	                    return _this3.handleChange(event);
 	                },
 	                onClick: function onClick(event) {
-	                    return _this2.props.handleClick(event);
+	                    return _this3.props.handleClick(event);
 	                },
-	                onKeyDown: this.handleKeyDown
+	                onKeyDown: this.handleKeyDown,
+	                disabled: this.props.isDisabled ? 'disabled' : ''
 	            });
 	        }
 	    }]);
@@ -73475,10 +73477,15 @@
 	    id: _react.PropTypes.string,
 	    style: _react.PropTypes.object,
 	    placeholder: _react.PropTypes.string,
+	    clearOnBlur: _react.PropTypes.bool,
+	    isDisabled: _react.PropTypes.bool,
 	    handleBlur: _react.PropTypes.func,
 	    handleChange: _react.PropTypes.func,
 	    handleClick: _react.PropTypes.func,
-	    handleKeyDown: _react.PropTypes.func
+	    keyDownHandlers: _react.PropTypes.arrayOf(_react.PropTypes.shape({
+	        key: _react.PropTypes.string.isRequired,
+	        action: _react.PropTypes.func.isRequired
+	    }))
 	};
 
 	TextBox.defaultProps = {
@@ -73486,10 +73493,12 @@
 	    id: '',
 	    style: {},
 	    placeholder: '',
+	    clearOnBlur: false,
+	    isDisabled: false,
 	    handleBlur: function handleBlur(event) {},
 	    handleChange: function handleChange(event) {},
 	    handleClick: function handleClick(event) {},
-	    handleKeyDown: function handleKeyDown(event) {}
+	    keyDownHandlers: []
 	};
 
 	exports.default = TextBox;
@@ -74743,6 +74752,102 @@
 	};
 
 	exports.default = NewTaskGroupLink;
+
+/***/ },
+/* 739 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	__webpack_require__(740);
+
+	var TaskListPlaceholder = function (_React$Component) {
+	    _inherits(TaskListPlaceholder, _React$Component);
+
+	    function TaskListPlaceholder() {
+	        _classCallCheck(this, TaskListPlaceholder);
+
+	        return _possibleConstructorReturn(this, (TaskListPlaceholder.__proto__ || Object.getPrototypeOf(TaskListPlaceholder)).apply(this, arguments));
+	    }
+
+	    _createClass(TaskListPlaceholder, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'p',
+	                { className: 'task-list-placeholder' },
+	                _react2.default.createElement(
+	                    'span',
+	                    { className: 'large' },
+	                    'Hello?'
+	                ),
+	                'It\'s looking a little barren in here. Use the link below to add tasks.'
+	            );
+	        }
+	    }]);
+
+	    return TaskListPlaceholder;
+	}(_react2.default.Component);
+
+	exports.default = TaskListPlaceholder;
+
+/***/ },
+/* 740 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(741);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(442)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./task-list-placeholder.scss", function() {
+				var newContent = require("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./task-list-placeholder.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 741 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(441)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".task-list-placeholder {\n  margin-left: 55px;\n  border-left: 5px solid #e5e3e3;\n  padding: 5px 0 15px 20px;\n  font-size: 1.3em;\n  color: #888888; }\n  .task-list-placeholder .large {\n    font-size: 3em;\n    font-weight: 100;\n    font-family: 'Roboto';\n    margin-left: -4px;\n    display: block; }\n", ""]);
+
+	// exports
+
 
 /***/ }
 /******/ ]);
