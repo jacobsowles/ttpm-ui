@@ -12,6 +12,11 @@ class TextBox extends Component {
         this.handleBlur = this.handleBlur.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleKeyDown = this.handleKeyDown.bind(this);
+        this.keyDownHandlerOverwritten = this.keyDownHandlerOverwritten.bind(this);
+    }
+
+    keyDownHandlerOverwritten(key) {
+        return this.props.keyDownHandlers.filter(handler => handler.key == key).length > 0;
     }
 
     handleBlur(event) {
@@ -33,23 +38,25 @@ class TextBox extends Component {
     }
 
     handleKeyDown(event) {
-        this.props.handleKeyDown.forEach((keyHandler) => {
-            if (event.key == keyHandler.key) {
-                keyHandler.action(event);
+        this.props.keyDownHandlers.forEach((handler) => {
+            if (event.key == handler.key) {
+                handler.action(this.state.value);
             }
         });
 
-        switch (event.key) {
-            case 'Escape': {
-                this.setState({
-                    value: this.props.value
-                });
-                break;
-            }
+        if (!this.keyDownHandlerOverwritten(event.key)) {
+            switch (event.key) {
+                case 'Escape': {
+                    this.setState({
+                        value: this.props.value
+                    });
+                    break;
+                }
 
-            case 'Enter': {
-                event.target.blur();
-                break;
+                case 'Enter': {
+                    event.target.blur();
+                    break;
+                }
             }
         }
     }
@@ -83,7 +90,7 @@ TextBox.propTypes = {
     handleBlur: PropTypes.func,
     handleChange: PropTypes.func,
     handleClick: PropTypes.func,
-    handleKeyDown: PropTypes.arrayOf(PropTypes.shape({
+    keyDownHandlers: PropTypes.arrayOf(PropTypes.shape({
         key: PropTypes.string.isRequired,
         action: PropTypes.func.isRequired
     }))
@@ -99,7 +106,7 @@ TextBox.defaultProps = {
     handleBlur: (event) => {},
     handleChange: (event) => {},
     handleClick: (event) => {},
-    handleKeyDown: []
+    keyDownHandlers: []
 };
 
 export default TextBox;
