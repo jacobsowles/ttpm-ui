@@ -1,4 +1,3 @@
-// npm modules
 import React, { Component, PropTypes } from 'react';
 
 class TextBox extends Component {
@@ -10,8 +9,19 @@ class TextBox extends Component {
             value: props.value
         };
 
-        this.handleKeyDown = this.handleKeyDown.bind(this);
+        this.handleBlur = this.handleBlur.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.handleKeyDown = this.handleKeyDown.bind(this);
+    }
+
+    handleBlur(event) {
+        if (this.props.clearOnBlur) {
+            this.setState({
+                value: ''
+            });
+        }
+
+        this.props.handleBlur(event);
     }
 
     handleChange(event) {
@@ -23,6 +33,12 @@ class TextBox extends Component {
     }
 
     handleKeyDown(event) {
+        this.props.handleKeyDown.forEach((keyHandler) => {
+            if (event.key == keyHandler.key) {
+                keyHandler.action(event);
+            }
+        });
+
         switch (event.key) {
             case 'Escape': {
                 this.setState({
@@ -36,8 +52,6 @@ class TextBox extends Component {
                 break;
             }
         }
-
-        this.props.handleKeyDown(event);
     }
 
     render() {
@@ -49,7 +63,7 @@ class TextBox extends Component {
                 style={this.props.style}
                 placeholder={this.props.placeholder}
                 value={this.state.value}
-                onBlur={(event) => this.props.handleBlur(event)}
+                onBlur={(event) => this.handleBlur(event)}
                 onChange={(event) => this.handleChange(event)}
                 onClick={(event) => this.props.handleClick(event)}
                 onKeyDown={this.handleKeyDown}
@@ -63,10 +77,14 @@ TextBox.propTypes = {
     id: PropTypes.string,
     style: PropTypes.object,
     placeholder: PropTypes.string,
+    clearOnBlur: PropTypes.bool,
     handleBlur: PropTypes.func,
     handleChange: PropTypes.func,
     handleClick: PropTypes.func,
-    handleKeyDown: PropTypes.func
+    handleKeyDown: PropTypes.arrayOf(PropTypes.shape({
+        key: PropTypes.string.isRequired,
+        action: PropTypes.func.isRequired
+    }))
 };
 
 TextBox.defaultProps = {
@@ -74,10 +92,11 @@ TextBox.defaultProps = {
     id: '',
     style: {},
     placeholder: '',
+    clearOnBlur: false,
     handleBlur: (event) => {},
     handleChange: (event) => {},
     handleClick: (event) => {},
-    handleKeyDown: (event) => {}
+    handleKeyDown: []
 };
 
 export default TextBox;

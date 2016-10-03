@@ -7,43 +7,14 @@ class TaskListNewItem extends React.Component {
 
     constructor(props) {
         super(props);
-
-        this.state = {
-            value: ''
-        };
-
-        this.handleKeyDown = this.handleKeyDown.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleBlur = this.handleBlur.bind(this);
     }
 
-    resetFields() {
-        this.setState({
-            value: ''
-        });
-    }
-
-    handleKeyDown(event) {
-        switch (event.key) {
-            case 'Escape': {
-                this.resetFields(event);
-                break;
-            }
-
-            case 'Enter': {
-                this.handleSubmit(event);
-                break;
-            }
-        }
-    }
-
-    handleSubmit(event) {
+    handleBlur(event) {
         if (event.target.value != '') {
-            const task = {
+            this.props.handleNewTask({
                 Name: event.target.value
-            };
-
-            this.resetFields();
-            this.props.handleNewTask(task);
+            });
         }
     }
 
@@ -52,8 +23,8 @@ class TaskListNewItem extends React.Component {
             <div className="task-list-new-item">
                 <TextBox
                     placeholder="Add a new task"
-                    value={this.state.value}
-                    handleKeyDown={this.handleKeyDown}
+                    clearOnBlur={true}
+                    handleBlur={this.handleBlur}
                 />
             </div>
         );
