@@ -12,15 +12,6 @@ require('./task-list-item.scss');
 
 class TaskListItem extends Component {
 
-    constructor(props) {
-        super(props);
-        this.handleCompletionToggle = this.handleCompletionToggle.bind(this);
-    }
-
-    handleCompletionToggle(event) {
-        this.props.handleCompletionToggle(this.props.task.Id, event);
-    }
-
     render() {
         const { text, isDragging, connectDragSource, connectDropTarget } = this.props;
         const opacity = isDragging ? 0 : 1;
@@ -29,7 +20,7 @@ class TaskListItem extends Component {
             <div className={`task-list-item ${this.props.isDimmed ? 'dimmed' : ''}`}>
                 <Checkbox
                     checked={this.props.task.Complete}
-                    handleChange={this.handleCompletionToggle}
+                    handleChange={(event) => this.props.handleCompletionToggle(this.props.task.Id, event)}
                 />
 
                 <TaskListItemBrief
