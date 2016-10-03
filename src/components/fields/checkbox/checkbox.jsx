@@ -8,6 +8,7 @@ class Checkbox extends Component {
     constructor(props) {
         super(props);
 
+        this.uniqueId = _.uniqueId();
         this.state = {
             checked: props.checked
         };
@@ -20,6 +21,12 @@ class Checkbox extends Component {
     }
 
     handleChange(event) {
+        const label = document.getElementById(`label-${this.uniqueId}`);
+
+        if (!this.state.checked) {
+            label.className = 'animated rotateIn';
+        }
+
         this.setState({
             checked: !this.state.checked
         });
@@ -28,19 +35,17 @@ class Checkbox extends Component {
     }
 
     render() {
-        const uniqueId = 'checkbox' + _.uniqueId();
-
         return (
             <span>
                 <input
                     type="checkbox"
-                    id={uniqueId}
+                    id={`checkbox-${this.uniqueId}`}
                     checked={this.state.checked}
                     onChange={(event) => this.handleChange(event)}
                 />
                 <label
-                    htmlFor={uniqueId}
-                    className={`${this.state.checked ? 'animated rotateIn' : ''}`}
+                    htmlFor={`checkbox-${this.uniqueId}`}
+                    id={`label-${this.uniqueId}`}
                 />
             </span>
         );
