@@ -10,7 +10,15 @@ class TaskListItemBrief extends Component {
 
     constructor(props) {
         super(props);
+
+        this.handleNameClick = this.handleNameClick.bind(this);
         this.handleNameSave = this.handleNameSave.bind(this);
+    }
+
+    handleNameClick(event) {
+        if (!this.props.isOpen) {
+            this.props.handleNameClick(this.props.taskId, event);
+        }
     }
 
     handleNameSave(event) {
@@ -25,19 +33,19 @@ class TaskListItemBrief extends Component {
         return (
             <div className={`
                 task-brief
-                ${this.props.detailsAreVisible ? 'edit-mode' : ''}
+                ${this.props.isOpen ? 'edit-mode' : ''}
                 ${this.props.taskComplete ? 'task-complete' : ''}
             `}>
                 <TextBox
                     value={this.props.taskName}
-                    handleClick={this.props.handleNameClick}
+                    handleClick={this.handleNameClick}
                     handleBlur={this.handleNameSave}
                 />
 
                 {
-                    this.props.detailsAreVisible
-                        ? <DownAngleIcon handleClick={this.props.hideDetails} />
-                        : <RightAngleIcon handleClick={this.props.showDetails} />
+                    this.props.isOpen
+                        ? <DownAngleIcon handleClick={(event) => this.props.hideDetails(this.props.taskId, event)} />
+                        : <RightAngleIcon handleClick={(event) => this.props.showDetails(this.props.taskId, event)} />
                 }
             </div>
         );
@@ -48,7 +56,7 @@ TaskListItemBrief.propTypes = {
     taskId: PropTypes.number.isRequired,
     taskName: PropTypes.string.isRequired,
     taskComplete: PropTypes.bool.isRequired,
-    detailsAreVisible: PropTypes.bool.isRequired,
+    isOpen: PropTypes.bool.isRequired,
 
     handleNameClick: PropTypes.func.isRequired,
     handleNameSave: PropTypes.func.isRequired,

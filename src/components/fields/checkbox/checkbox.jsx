@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import _ from 'underscore';
 
 require('./checkbox.scss');
 
-class Checkbox extends React.Component {
+class Checkbox extends Component {
 
     constructor(props) {
         super(props);
@@ -19,12 +19,12 @@ class Checkbox extends React.Component {
         nextState.checked = nextProps.checked;
     }
 
-    handleChange() {
+    handleChange(event) {
         this.setState({
             checked: !this.state.checked
         });
 
-        this.props.handleChange(this.props.includeWithChange);
+        this.props.handleChange(event);
     }
 
     render() {
@@ -36,7 +36,7 @@ class Checkbox extends React.Component {
                     type="checkbox"
                     id={uniqueId}
                     checked={this.state.checked}
-                    onChange={() => this.handleChange()}
+                    onChange={(event) => this.handleChange(event)}
                 />
                 <label
                     htmlFor={uniqueId}
@@ -48,9 +48,8 @@ class Checkbox extends React.Component {
 }
 
 Checkbox.propTypes = {
-    checked: React.PropTypes.bool,
-    includeWithChange: React.PropTypes.object,
-    handleChange: React.PropTypes.func.isRequired
+    checked: PropTypes.bool,
+    handleChange: PropTypes.func.isRequired
 };
 
 Checkbox.getDefaultProps = {

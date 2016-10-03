@@ -15,31 +15,88 @@ require('./task-list.scss');
 
 class TaskList extends Component {
 
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            openTaskIds: []
+        };
+
+        this.openTask = this.openTask.bind(this);
+        this.closeTask = this.closeTask.bind(this);
+        this.handleTaskNameClick = this.handleTaskNameClick.bind(this);
+        this.handleTaskDelete = this.handleTaskDelete.bind(this);
+    }
+
+    openTask(taskId, event) {
+        if (!this.state.openTaskIds.includes(taskId)) {
+            this.setState({
+                openTaskIds: this.state.openTaskIds.concat(taskId)
+            });
+        }
+    }
+
+    closeTask(taskId, event) {
+        const newList = Object.assign([], this.state.openTaskIds);
+        newList.splice(this.state.openTaskIds.indexOf(taskId), 1);
+
+        this.setState({
+            openTaskIds: newList
+        });
+    }
+
+    handleTaskNameClick(taskId, event) {
+        this.openTask(taskId);
+    }
+
+    handleTaskDelete(event) {
+        this.closeTask(event.target.value);
+        this.props.handleTaskDelete(event);
+    }
+
     render() {
+        const listItems =
+            this.props.tasks.map((task, key) => {
+                const isOpen = this.state.openTaskIds.includes(task.Id);
+
+                return (
+                    <TaskListItem
+                        key={key}
+                        task={task}
+                        isOpen={isOpen}
+                        isDimmed={!isOpen && this.state.openTaskIds.length != 0}
+                        openTask={this.openTask}
+                        closeTask={this.closeTask}
+                        handleNameClick={this.handleTaskNameClick}
+                        handleCompletionToggle={this.props.handleCompletionToggle}
+                        handleSave={this.props.handleTaskSave}
+                        handleDelete={this.handleTaskDelete}
+                    />
+                );
+            });
+
         return (
             <div className="row">
                 <div className="col-xs-12">
                     <div className="task-list">
                         <FilterIndicator taskGroupName={this.props.taskGroupName} />
 
-                        <DraggableList
-                            items={this.props.tasks}
-                            updateDisplayOrder={this.props.updateDisplayOrder}
-                        >
-                            {
-                                this.props.tasks.map((task, key) => {
-                                    return (
-                                        <TaskListItem
-                                            key={key}
-                                            task={task}
-                                            handleCompletionToggle={this.props.handleCompletionToggle}
-                                            handleTaskSave={this.props.handleTaskSave}
-                                            handleTaskDelete={this.props.handleTaskDelete}
-                                        />
-                                    );
-                                })
-                            }
-                        </DraggableList>
+                        {
+                            this.state.openTaskIds.length == 0
+                                ? (
+                                    <DraggableList
+                                        items={this.props.tasks}
+                                        updateDisplayOrder={this.props.updateDisplayOrder}
+                                    >
+                                        {listItems}
+                                    </DraggableList>
+                                )
+                                : (
+                                    <div>
+                                        {listItems}
+                                    </div>
+                                )
+                        }
 
                         <TaskListNewItem handleNewTask={this.props.handleNewTask} />
                     </div>

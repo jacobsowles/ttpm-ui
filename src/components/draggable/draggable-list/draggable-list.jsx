@@ -15,8 +15,8 @@ class DraggableList extends Component {
         this.moveItem = this.moveItem.bind(this);
     }
 
-    moveItem(dragIndex, hoverIndex) {
-        this.props.updateDisplayOrder(this.props.items[dragIndex], this.props.items[hoverIndex]);
+    moveItem(dragIndex, dropIndex) {
+        this.props.updateDisplayOrder(this.props.items[dragIndex], this.props.items[dropIndex]);
     }
 
     render() {

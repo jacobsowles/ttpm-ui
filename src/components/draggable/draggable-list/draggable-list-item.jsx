@@ -6,16 +6,23 @@ import TaskListItem from '~/home/task-container/task-list/task-list-item/task-li
 
 require('./draggable-list-item.scss');
 
-const taskSource = {
+const itemSource = {
     beginDrag(props) {
         return {
             id: props.id,
             index: props.index
         };
+    },
+
+    endDrag(props, monitor) {
+        const sourceItem = monitor.getItem();
+        const dropItem = monitor.getDropResult();
+
+        props.moveItem(sourceItem, dropItem);
     }
 };
 
-const taskTarget = {
+const itemTarget = {
     hover(props, monitor, component) {
         const dragIndex = monitor.getItem().index;
         const hoverIndex = props.index;
@@ -50,15 +57,10 @@ const taskTarget = {
         if (dragIndex > hoverIndex && hoverClientY > hoverMiddleY) {
             return;
         }
+    },
 
-        // Time to actually perform the action
-        props.moveItem(dragIndex, hoverIndex);
-
-        // Note: we're mutating the monitor item here!
-        // Generally it's better to avoid mutations,
-        // but it's good here for the sake of performance
-        // to avoid expensive index searches.
-        monitor.getItem().index = hoverIndex;
+    drop(props, monitor, component) {
+        return props;
     }
 };
 
@@ -100,8 +102,8 @@ DraggableListItem.propTypes = {
 };
 
 export default
-    DragSource(DraggableItemType.TASK, taskSource, dragSourceCollect)(
-        DropTarget(DraggableItemType.TASK, taskTarget, dropTargetCollect)(
+    DragSource(DraggableItemType.TASK, itemSource, dragSourceCollect)(
+        DropTarget(DraggableItemType.TASK, itemTarget, dropTargetCollect)(
             DraggableListItem
         )
     );

@@ -44,7 +44,7 @@ class TaskListItemDetails extends Component {
 
                 <DeleteButton
                     value={this.props.taskId}
-                    handleClick={this.props.handleTaskDelete}
+                    handleClick={this.props.handleDelete}
                 />
 
                 <span className="task-details-message hidden" id={`task-details-message-${this.props.taskId}`}>
@@ -57,7 +57,7 @@ class TaskListItemDetails extends Component {
 TaskListItemDetails.propTypes = {
     taskId: PropTypes.number.isRequired,
     taskNotes: PropTypes.string,
-    handleTaskDelete: PropTypes.func.isRequired,
+    handleDelete: PropTypes.func.isRequired,
     handleNotesSave: PropTypes.func.isRequired
 };
 

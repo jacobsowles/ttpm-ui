@@ -147,8 +147,8 @@ function mapDispatchToProps(dispatch) {
             });
         },
 
-        handleCompletionToggle: function(task) {
-            dispatch(taskActions.toggleComplete(task.Id));
+        handleCompletionToggle: function(taskId, event) {
+            dispatch(taskActions.toggleComplete(taskId));
         },
 
         handleTaskSave: function(taskId, task) {

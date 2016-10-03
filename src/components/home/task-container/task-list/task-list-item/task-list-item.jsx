@@ -14,41 +14,11 @@ class TaskListItem extends Component {
 
     constructor(props) {
         super(props);
-
-        this.state = {
-            detailsAreVisible: false
-        };
-
-        this.handleNameClick = this.handleNameClick.bind(this);
-        this.handleTaskDelete = this.handleTaskDelete.bind(this);
-        this.handleTaskSave = this.handleTaskSave.bind(this);
-        this.hideDetails = this.hideDetails.bind(this);
-        this.showDetails = this.showDetails.bind(this);
+        this.handleCompletionToggle = this.handleCompletionToggle.bind(this);
     }
 
-    handleNameClick() {
-        this.showDetails();
-    }
-
-    handleTaskDelete(event) {
-        this.hideDetails();
-        this.props.handleTaskDelete(event);
-    }
-
-    handleTaskSave(taskId, task) {
-        this.props.handleTaskSave(taskId, task);
-    }
-
-    hideDetails() {
-        this.setState({
-            detailsAreVisible: false
-        });
-    }
-
-    showDetails() {
-        this.setState({
-            detailsAreVisible: true
-        });
+    handleCompletionToggle(event) {
+        this.props.handleCompletionToggle(this.props.task.Id, event);
     }
 
     render() {
@@ -56,30 +26,29 @@ class TaskListItem extends Component {
         const opacity = isDragging ? 0 : 1;
 
         return (
-            <div className="task-list-item">
+            <div className={`task-list-item ${this.props.isDimmed ? 'dimmed' : ''}`}>
                 <Checkbox
                     checked={this.props.task.Complete}
-                    includeWithChange={this.props.task}
-                    handleChange={this.props.handleCompletionToggle}
+                    handleChange={this.handleCompletionToggle}
                 />
 
                 <TaskListItemBrief
                     taskId={this.props.task.Id}
                     taskName={this.props.task.Name}
                     taskComplete={this.props.task.Complete}
-                    detailsAreVisible={this.state.detailsAreVisible}
-                    handleNameClick={this.handleNameClick}
-                    handleNameSave={this.handleTaskSave}
-                    hideDetails={this.hideDetails}
-                    showDetails={this.showDetails}
+                    isOpen={this.props.isOpen}
+                    handleNameClick={this.props.handleNameClick}
+                    handleNameSave={this.props.handleSave}
+                    hideDetails={this.props.closeTask}
+                    showDetails={this.props.openTask}
                 />
 
-                <Toggler isVisible={this.state.detailsAreVisible}>
+                <Toggler isVisible={this.props.isOpen}>
                     <TaskListItemDetails
                         taskId={this.props.task.Id}
                         taskNotes={this.props.task.Notes}
-                        handleTaskDelete={this.handleTaskDelete}
-                        handleNotesSave={this.handleTaskSave}
+                        handleDelete={this.props.handleDelete}
+                        handleNotesSave={this.props.handleSave}
                     />
                 </Toggler>
             </div>
@@ -94,10 +63,15 @@ TaskListItem.propTypes = {
         Notes: PropTypes.string,
         Complete: PropTypes.bool.isRequired
     }).isRequired,
+    isOpen: PropTypes.bool.isRequired,
+    isDimmed: PropTypes.bool.isRequired,
 
+    openTask: PropTypes.func.isRequired,
+    closeTask: PropTypes.func.isRequired,
+    handleNameClick: PropTypes.func.isRequired,
     handleCompletionToggle: PropTypes.func.isRequired,
-    handleTaskDelete: PropTypes.func.isRequired,
-    handleTaskSave: PropTypes.func.isRequired
+    handleDelete: PropTypes.func.isRequired,
+    handleSave: PropTypes.func.isRequired
 };
 
 export default TaskListItem;
