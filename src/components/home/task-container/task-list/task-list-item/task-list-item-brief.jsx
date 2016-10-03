@@ -37,6 +37,7 @@ class TaskListItemBrief extends Component {
                 ${this.props.taskComplete ? 'task-complete' : ''}
             `}>
                 <TextBox
+                    isDisabled={this.props.taskComplete}
                     value={this.props.taskName}
                     handleClick={this.handleNameClick}
                     handleBlur={this.handleNameSave}

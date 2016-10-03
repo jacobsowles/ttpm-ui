@@ -67,6 +67,7 @@ class TextBox extends Component {
                 onChange={(event) => this.handleChange(event)}
                 onClick={(event) => this.props.handleClick(event)}
                 onKeyDown={this.handleKeyDown}
+                disabled={this.props.isDisabled ? 'disabled' : ''}
             />
         );
     }
@@ -78,6 +79,7 @@ TextBox.propTypes = {
     style: PropTypes.object,
     placeholder: PropTypes.string,
     clearOnBlur: PropTypes.bool,
+    isDisabled: PropTypes.bool,
     handleBlur: PropTypes.func,
     handleChange: PropTypes.func,
     handleClick: PropTypes.func,
@@ -93,6 +95,7 @@ TextBox.defaultProps = {
     style: {},
     placeholder: '',
     clearOnBlur: false,
+    isDisabled: false,
     handleBlur: (event) => {},
     handleChange: (event) => {},
     handleClick: (event) => {},
