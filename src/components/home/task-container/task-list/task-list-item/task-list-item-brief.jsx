@@ -13,8 +13,10 @@ class TaskListItemBrief extends Component {
     constructor(props) {
         super(props);
 
+        this.handleDueDateSave = this.handleDueDateSave.bind(this);
         this.handleNameClick = this.handleNameClick.bind(this);
         this.handleNameSave = this.handleNameSave.bind(this);
+        this.handlePlannedDateSave = this.handlePlannedDateSave.bind(this);
     }
 
     handleNameClick(event) {
@@ -24,9 +26,25 @@ class TaskListItemBrief extends Component {
     }
 
     handleNameSave(event) {
-        if (event.target.value != this.props.taskName) {
-            this.props.handleNameSave(this.props.taskId, {
+        if (event.target.value != this.props.name) {
+            this.props.handleSave(this.props.id, {
                 Name: event.target.value
+            });
+        }
+    }
+
+    handlePlannedDateSave(date) {
+        if (date != this.props.plannedDate) {
+            this.props.handleSave(this.props.id, {
+                PlannedDate: date || ''
+            });
+        }
+    }
+
+    handleDueDateSave(date) {
+        if (date != this.props.dueDate) {
+            this.props.handleSave(this.props.id, {
+                DueDate: date || ''
             });
         }
     }
@@ -36,7 +54,7 @@ class TaskListItemBrief extends Component {
             <div className={`
                 task-brief
                 ${this.props.isOpen ? 'edit-mode' : ''}
-                ${this.props.taskComplete ? 'task-complete' : ''}
+                ${this.props.complete ? 'task-complete' : ''}
             `}>
                 <Flexbox flexDirection="row">
                     <Flexbox
@@ -44,30 +62,50 @@ class TaskListItemBrief extends Component {
                         className="task-name"
                     >
                         <TextBox
-                            isDisabled={this.props.taskComplete}
-                            value={this.props.taskName}
+                            isDisabled={this.props.complete}
+                            value={this.props.name}
                             handleClick={this.handleNameClick}
                             handleBlur={this.handleNameSave}
                         />
                     </Flexbox>
 
-                    <Flexbox>
-                        <DateBox
-                            label="planned for"
-                        />
-                    </Flexbox>
+                    {
+                        this.props.complete
+                            ? (
+                                <Flexbox>
+                                    <DateBox
+                                        label="completed"
+                                        value={this.props.lastDateCompleted}
+                                        isDisabled={true}
+                                    />
+                                </Flexbox>
+                            )
+                            : (
+                                <Flexbox>
+                                    <Flexbox>
+                                        <DateBox
+                                            label="planned for"
+                                            value={this.props.plannedDate}
+                                            handleChange={this.handlePlannedDateSave}
+                                        />
+                                    </Flexbox>
 
-                    <Flexbox>
-                        <DateBox
-                            label="due on"
-                        />
-                    </Flexbox>
+                                    <Flexbox>
+                                        <DateBox
+                                            label="due"
+                                            value={this.props.dueDate}
+                                            handleChange={this.handleDueDateSave}
+                                        />
+                                    </Flexbox>
+                                </Flexbox>
+                            )
+                    }                    
 
                     <Flexbox>
                         {
                             this.props.isOpen
-                                ? <DownAngleIcon handleClick={(event) => this.props.hideDetails(this.props.taskId, event)} />
-                                : <RightAngleIcon handleClick={(event) => this.props.showDetails(this.props.taskId, event)} />
+                                ? <DownAngleIcon handleClick={(event) => this.props.hideDetails(this.props.id, event)} />
+                                : <RightAngleIcon handleClick={(event) => this.props.showDetails(this.props.id, event)} />
                         }
                     </Flexbox>
                 </Flexbox>
@@ -77,13 +115,16 @@ class TaskListItemBrief extends Component {
 }
 
 TaskListItemBrief.propTypes = {
-    taskId: PropTypes.number.isRequired,
-    taskName: PropTypes.string.isRequired,
-    taskComplete: PropTypes.bool.isRequired,
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    complete: PropTypes.bool.isRequired,
+    lastDateCompleted: PropTypes.string,
+    plannedDate: PropTypes.string,
+    dueDate: PropTypes.string,
     isOpen: PropTypes.bool.isRequired,
 
     handleNameClick: PropTypes.func.isRequired,
-    handleNameSave: PropTypes.func.isRequired,
+    handleSave: PropTypes.func.isRequired,
     hideDetails: PropTypes.func.isRequired,
     showDetails: PropTypes.func.isRequired
 };

@@ -24,12 +24,15 @@ class TaskListItem extends Component {
                 />
 
                 <TaskListItemBrief
-                    taskId={this.props.task.Id}
-                    taskName={this.props.task.Name}
-                    taskComplete={this.props.task.Complete}
+                    id={this.props.task.Id}
+                    name={this.props.task.Name}
+                    complete={this.props.task.Complete}
+                    lastDateCompleted={this.props.task.LastDateCompleted}
+                    plannedDate={this.props.task.PlannedDate}
+                    dueDate={this.props.task.DueDate}
                     isOpen={this.props.isOpen}
                     handleNameClick={this.props.handleNameClick}
-                    handleNameSave={this.props.handleSave}
+                    handleSave={this.props.handleSave}
                     hideDetails={this.props.closeTask}
                     showDetails={this.props.openTask}
                 />
@@ -52,7 +55,10 @@ TaskListItem.propTypes = {
         Id: PropTypes.number.isRequired,
         Name: PropTypes.string.isRequired,
         Notes: PropTypes.string,
-        Complete: PropTypes.bool.isRequired
+        Complete: PropTypes.bool.isRequired,
+        LastDateCompleted: PropTypes.string,
+        PlannedDate: PropTypes.string,
+        DueDate: PropTypes.string
     }).isRequired,
     isOpen: PropTypes.bool.isRequired,
     isDimmed: PropTypes.bool.isRequired,

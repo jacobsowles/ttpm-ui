@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import DatePicker from 'react-datepicker';
+import moment from 'moment';
 import _ from 'underscore';
 
 require('./date-box.scss');
@@ -33,7 +34,7 @@ class DateBox extends Component {
                     id={this.id}
                     dateFormat="MM/DD"
                     placeholderText={this.props.placeholder}
-                    selected={this.state.value}
+                    selected={this.state.value ? moment(this.state.value) : null}
                     todayButton="Today"
                     disabled={this.props.isDisabled}
                     popoverAttachment="top right"
@@ -47,24 +48,18 @@ class DateBox extends Component {
 }
 
 DateBox.propTypes = {
-    value: PropTypes.object,
+    value: PropTypes.string,
     label: PropTypes.string,
     placeholder: PropTypes.string,
     isDisabled: PropTypes.bool,
-    handleBlur: PropTypes.func,
-    handleChange: PropTypes.func,
-    handleClick: PropTypes.func,
-    keyDownHandlers: PropTypes.arrayOf(PropTypes.shape({
-        key: PropTypes.string.isRequired,
-        action: PropTypes.func.isRequired
-    }))
+    handleChange: PropTypes.func
 };
 
 DateBox.defaultProps = {
     label: '',
     placeholder: 'set date',
     isDisabled: false,
-    handleChange: (event) => {}
+    handleChange: () => {}
 };
 
 export default DateBox;
