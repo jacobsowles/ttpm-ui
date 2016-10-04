@@ -1,0 +1,113 @@
+.task-list-item {
+    width: 100%;
+    padding: 15px;
+    background: #ffffff;
+    margin-bottom: 5px;
+
+    .task-brief {
+        display: inline-block;
+        width: calc(100% - 30px);
+        margin: 0 0 0 15px;
+        
+        input {
+            display: inline-block;
+            background: none;
+            border: 1px solid #ffffff;
+            font-size: 1.1em;
+            
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        i {
+            width: 20px;
+            padding: 15px 0 5px 0;
+            text-align: center;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        // children of flexbox row
+        div > div {
+            margin-left: 10px;
+        }
+
+        .task-name {
+            margin-left: 0;
+            font-size: 1.3em;
+            font-family: 'Roboto';
+            font-weight: 300;
+        }
+
+        .date-box {
+            input {
+                padding: 2px;
+            }
+        }
+    }
+
+    .task-brief.task-complete {
+        input {
+            text-decoration: line-through;
+            color: #cccccc;
+        }
+    }
+
+    .task-brief.edit-mode {
+        input {
+            border: 1px solid #e6e6e8;
+
+            &:hover {
+                cursor: inherit;
+            }
+        }
+    }
+
+    .task-details {
+        margin: 15px 30px 0 30px;
+        
+        textarea.form-control {
+            height: 100px;
+        }
+
+        .task-details-message {
+            font-size: .8em;
+            color: #888888;
+            margin-left: 10px;
+            display: inline-block;
+
+            /*&:after {
+                overflow: hidden;
+                display: inline-block;
+                vertical-align: bottom;
+                -webkit-animation: ellipsis steps(4,end) 900ms infinite;      
+                animation: ellipsis steps(4,end) 900ms infinite;
+                content: "\2026";
+                width: 0px;
+            }
+
+            @keyframes ellipsis {
+                to {
+                    width: 1.25em;    
+                }
+            }
+
+            @-webkit-keyframes ellipsis {
+                to {
+                    width: 1.25em;    
+                }
+            }*/
+        }
+
+        .hidden {
+            opacity: 0;
+        }
+    }
+}
+
+.task-list-item.dimmed {
+    opacity: .5;
+}

@@ -1,0 +1,15 @@
+.group-filter-actions {
+    float: right;
+    color: #888888;
+    margin-left: 10px;
+
+    span,
+    i {
+        padding: 2px 5px;
+
+        &:hover {
+            color: #DBDBDB;
+            cursor: pointer;
+        }
+    }
+}

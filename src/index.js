@@ -9,9 +9,9 @@ import store from './store';
 import { isLoggedIn } from './auth';
 
 // components
-import Home from './components/home/home.jsx';
-import Login from './components/login/login.jsx';
-import Sandbox from './components/sandbox.jsx';
+import Home from '~/home/home';
+import Login from '~/login/login';
+import Sandbox from '~/sandbox/sandbox';
 
 // styles
 require('./index.scss');

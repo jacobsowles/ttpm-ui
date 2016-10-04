@@ -1,4 +1,4 @@
-import { get, post, del } from '../api.js';
+import { get, post, put, del } from '../api.js';
 
 module.exports = {
     fetchTaskGroups() {
@@ -19,6 +19,13 @@ module.exports = {
         return {
             type: 'DELETE_TASK_GROUP',
             payload: del(`/TaskGroups/${taskGroupId}`)
+        };
+    },
+
+    updateTaskGroup(taskGroupId, taskGroup) {
+        return {
+            type: 'UPDATE_TASK_GROUP',
+            payload: put(`/TaskGroups/${taskGroupId}`, taskGroup)
         };
     }
 };

@@ -1,0 +1,22 @@
+input[type=checkbox] {
+    display: none;
+}
+
+input[type=checkbox] + label {
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    border: 1px solid #e6e6e8;
+    padding: 0;
+    vertical-align: middle;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+input[type=checkbox]:checked + label {
+    background: url('/assets/images/checkmark-green-3.png') no-repeat;
+    background-size: 100%;
+    border: 0;
+}

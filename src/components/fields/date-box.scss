@@ -1,0 +1,41 @@
+@import '../../../node_modules/react-datepicker/dist/react-datepicker.css';
+
+.date-box {
+    width: 66px;
+    margin-left: 0 !important;
+
+    div {
+        margin-left: 0 !important;
+    }
+
+    label {
+        display: block;
+        text-align: center;
+        margin: 0;
+    }
+
+    input {
+        width: 100%;
+        text-align: center;
+
+        &::-moz-placeholder {
+            font-style: normal;
+            font-size: .9em;
+        }
+
+        &:-moz-placeholder {
+            font-style: normal;
+            font-size: .9em;
+        }
+
+        &::-webkit-input-placeholder {
+            font-style: normal;
+            font-size: .9em;
+        }
+            
+        &:-ms-input-placeholder {
+            font-style: normal;
+            font-size: .9em;
+        }
+    }
+}

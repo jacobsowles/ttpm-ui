@@ -4,13 +4,6 @@ export default function reducer(state = [], action) {
             return action.payload || [];
         }
 
-        case 'CREATE_TASK_FULFILLED': {
-            const tasks = Object.assign([], state);
-            tasks.push(action.payload);
-
-            return tasks;
-        }
-
         case 'TOGGLE_TASK_COMPLETE_FULFILLED':
         case 'UPDATE_TASK_FULFILLED': {
             const tasks = Object.assign([], state);

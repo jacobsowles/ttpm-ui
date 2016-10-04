@@ -1,0 +1,16 @@
+.accordion-item {
+    .toggle {
+        padding: 6px 0;
+        width: 13px;
+        text-align: center;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    .accordion-header-content {
+        display: inline-block;
+        width: calc(100% - 13px);
+    }
+}

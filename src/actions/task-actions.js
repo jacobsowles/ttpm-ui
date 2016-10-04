@@ -22,10 +22,10 @@ module.exports = {
         };
     },
 
-    updateTask(task) {
+    updateTask(taskId, task) {
         return {
             type: 'UPDATE_TASK',
-            payload: put('/Tasks/', task)
+            payload: put(`/Tasks/${taskId}`, task)
         };
     },
 
@@ -33,6 +33,13 @@ module.exports = {
         return {
             type: 'DELETE_TASK',
             payload: del(`/Tasks/${taskId}`)
+        };
+    },
+
+    swapDisplayOrder(firstTaskId, secondTaskId) {
+        return {
+            type: 'SWAP_TASK_DISPLAY_ORDER',
+            payload: put(`/Tasks/${firstTaskId}/SwapDisplayOrder/${secondTaskId}`)
         };
     }
 };

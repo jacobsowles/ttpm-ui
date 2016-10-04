@@ -1,0 +1,38 @@
+.task-list-new-item {
+    background: #F5F3F2;
+    padding: 0px 15px 0px 45px;
+
+    input {
+        padding: 10px;
+        border: none !important;
+        background: none;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &:focus {
+            cursor: text;
+        }
+
+        &::-moz-placeholder {
+            font-style: normal;
+            color: #888888;
+        }
+
+        &:-moz-placeholder {
+            font-style: normal;
+            color: #888888;
+        }
+
+        &::-webkit-input-placeholder {
+            font-style: normal;
+            color: #888888;
+        }
+            
+        &:-ms-input-placeholder {
+            font-style: normal;
+            color: #888888;
+        }
+    }
+}

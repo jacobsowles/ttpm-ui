@@ -1,0 +1,18 @@
+.group-filter-header {
+    input[type=text] {
+        display: inline-block;
+        width: calc(100% - 55px);
+        padding: 0;
+        height: auto;
+        font-size: 1em;
+        border: none;
+        color: #dbdbdb;
+        background: none;
+    }
+
+    .group-filter-name {
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}

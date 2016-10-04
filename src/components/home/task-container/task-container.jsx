@@ -1,15 +1,14 @@
 // npm modules
 import React from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 
 // components
-import Analytics from './analytics/analytics.jsx';
-import LoadingGraphic from '../../loading-graphic.jsx';
-import TaskTable from './task-table/task-table.jsx';
+import Analytics from './analytics/analytics';
+import LoadingGraphic from '~/loading-graphic';
+import TaskList from './task-list/task-list';
 
 // actions
-import taskActions from '../../../actions/task-actions.js';
+import taskActions from '@/actions/task-actions';
 
 class TaskContainer extends React.Component {
 
@@ -43,19 +42,19 @@ class TaskContainer extends React.Component {
             <div>
                 <LoadingGraphic showLoadingGraphic={this.state.showLoadingGraphic} />
 
-                <TaskTable
+                <TaskList
                     tasks={this.props.filteredTasks}
                     taskGroupName={this.props.taskGroupName}
                     handleNewTask={this.handleNewTask}
                     handleCompletionToggle={this.props.handleCompletionToggle}
-                    handleTaskNameEdit={this.props.handleTaskNameEdit}
-                    handleTaskNotesEdit={this.props.handleTaskNotesEdit}
+                    handleTaskSave={this.props.handleTaskSave}
                     handleTaskDelete={this.props.handleTaskDelete}
+                    updateDisplayOrder={this.props.updateDisplayOrder}
                 />
 
                 <Analytics
                     tasks={this.props.filteredTasks}
-                    defaultActive={this.props.defaultShowAnalytics}
+                    defaultActive={false}
                 />
             </div>
         );
@@ -70,8 +69,7 @@ TaskContainer.propTypes = {
     fetchTasks: React.PropTypes.func.isRequired,
     handleNewTask: React.PropTypes.func.isRequired,
     handleCompletionToggle: React.PropTypes.func.isRequired,
-    handleTaskNameEdit: React.PropTypes.func.isRequired,
-    handleTaskNotesEdit: React.PropTypes.func.isRequired,
+    handleTaskSave: React.PropTypes.func.isRequired,
     handleTaskDelete: React.PropTypes.func.isRequired
 };
 
@@ -87,12 +85,37 @@ function allDescendents(taskGroups, taskGroupId) {
     return ids;
 }
 
-function filterTasks(tasks, taskGroups, filters) {
-    if (filters.taskGroupId) {
-        return tasks.filter(t => allDescendents(taskGroups, filters.taskGroupId).includes(t.TaskGroupId));
+function compareDisplayOrder(a, b) {
+    if (a.DisplayOrder > b.DisplayOrder) {
+        return 1;
     }
 
-    return tasks;
+    if (a.DisplayOrder < b.DisplayOrder) {
+        return -1;
+    }
+
+    return 0;
+}
+
+function filterTasks(tasks, taskGroups, filters) {
+    if (filters.taskGroupId) {
+        return tasks
+            .filter(t => allDescendents(taskGroups, filters.taskGroupId).includes(t.TaskGroupId))
+            .sort((a, b) => {
+                a = filters.displayOrders.find(tgdo => tgdo.TaskId == a.Id);
+                b = filters.displayOrders.find(tgdo => tgdo.TaskId == b.Id);
+
+                if (a && b) {
+                    return compareDisplayOrder(a, b);
+                }
+
+                return 0;
+            });
+    }
+
+    return tasks.sort((a, b) => {
+        return compareDisplayOrder(a, b);
+    });
 }
 
 function getCurrentTaskGroupFilterName(taskGroups, taskGroupId) {
@@ -119,25 +142,30 @@ function mapDispatchToProps(dispatch) {
         },
 
         handleNewTask: function(task) {
-            dispatch(taskActions.createTask(task));
+            dispatch(taskActions.createTask(task)).then(() => {
+                dispatch(taskActions.fetchTasks());
+            });
         },
 
-        handleCompletionToggle: function(task) {
-            dispatch(taskActions.toggleComplete(task.Id));
+        handleCompletionToggle: function(taskId, event) {
+            dispatch(taskActions.toggleComplete(taskId));
         },
 
-        handleTaskNameEdit: function(newName, task) {
-            task.Name = newName;
-            dispatch(taskActions.updateTask(task));
+        handleTaskSave: function(taskId, task) {
+            dispatch(taskActions.updateTask(taskId, task));
         },
 
-        handleTaskNotesEdit: function(newNotes, task) {
-            task.Notes = newNotes;
-            dispatch(taskActions.updateTask(task));
+        handleTaskDelete: function(event) {
+            dispatch(taskActions.deleteTask(event.target.value));
         },
 
-        handleTaskDelete: function(taskId) {
-            dispatch(taskActions.deleteTask(taskId));
+        updateDisplayOrder: function(firstTask, secondTask) {
+            console.log('updating display order');
+            console.log(firstTask);
+            console.log(secondTask);
+            dispatch(taskActions.swapDisplayOrder(firstTask.Id, secondTask.Id)).then(() => {
+                dispatch(taskActions.fetchTasks());
+            });
         }
     };
 }

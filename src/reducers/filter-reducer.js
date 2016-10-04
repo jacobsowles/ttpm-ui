@@ -1,6 +1,7 @@
 const initialState = {
     taskGroupId: 0,
-    showCompleted: false
+    showCompleted: false,
+    displayOrders: []
 };
 
 export default function reducer(state = initialState, action) {
@@ -17,6 +18,14 @@ export default function reducer(state = initialState, action) {
             state = {
                 ...state,
                 showCompleted: action.payload
+            };
+            break;
+        }
+
+        case 'FETCH_TASK_GROUP_DISPLAY_ORDER_FULFILLED': {
+            state = {
+                ...state,
+                displayOrders: action.payload || []
             };
             break;
         }
