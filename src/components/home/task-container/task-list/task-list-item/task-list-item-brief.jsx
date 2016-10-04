@@ -1,7 +1,6 @@
 // npm modules
 import React, { Component, PropTypes } from 'react';
 import Flexbox from 'flexbox-react';
-import moment from 'moment';
 
 // components
 import DateBox from '~/fields/date-box';
@@ -55,14 +54,12 @@ class TaskListItemBrief extends Component {
                     <Flexbox>
                         <DateBox
                             label="planned for"
-                            value={moment()}
                         />
                     </Flexbox>
 
                     <Flexbox>
                         <DateBox
                             label="due on"
-                            value={moment()}
                         />
                     </Flexbox>
 

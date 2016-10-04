@@ -32,7 +32,13 @@ class DateBox extends Component {
                 <DatePicker
                     id={this.id}
                     dateFormat="MM/DD"
+                    placeholderText={this.props.placeholder}
                     selected={this.state.value}
+                    todayButton="Today"
+                    disabled={this.props.isDisabled}
+                    popoverAttachment="top right"
+                    popoverTargetAttachment="bottom right"
+                    popoverTargetOffset="10px 0px"
                     onChange={this.handleChange}
                 />
             </div>
@@ -43,6 +49,7 @@ class DateBox extends Component {
 DateBox.propTypes = {
     value: PropTypes.object,
     label: PropTypes.string,
+    placeholder: PropTypes.string,
     isDisabled: PropTypes.bool,
     handleBlur: PropTypes.func,
     handleChange: PropTypes.func,
@@ -55,6 +62,7 @@ DateBox.propTypes = {
 
 DateBox.defaultProps = {
     label: '',
+    placeholder: 'set date',
     isDisabled: false,
     handleChange: (event) => {}
 };
