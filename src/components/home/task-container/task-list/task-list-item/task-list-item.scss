@@ -10,13 +10,9 @@
         margin: 0 0 0 15px;
         
         input {
-            width: calc(100% - 30px);
-            margin-right: 10px;
-            padding: 5px 10px;
             display: inline-block;
             background: none;
-            border: none;
-            border-left: 1px solid #ffffff;
+            border: 1px solid #ffffff;
             font-size: 1.1em;
             
             &:hover {
@@ -26,10 +22,29 @@
 
         i {
             width: 20px;
+            padding: 10px 0;
             text-align: center;
 
             &:hover {
                 cursor: pointer;
+            }
+        }
+
+        // children of flexbox row
+        div > div {
+            margin-left: 10px;
+        }
+
+        .task-name {
+            margin-left: 0;
+            font-size: 1.3em;
+            font-family: 'Roboto';
+            font-weight: 300;
+        }
+
+        .date-box {
+            input {
+                padding: 2px;
             }
         }
     }

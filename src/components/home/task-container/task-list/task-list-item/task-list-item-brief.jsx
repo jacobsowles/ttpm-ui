@@ -1,7 +1,10 @@
 // npm modules
 import React, { Component, PropTypes } from 'react';
+import Flexbox from 'flexbox-react';
+import moment from 'moment';
 
 // components
+import DateBox from '~/fields/date-box';
 import DownAngleIcon from '~/icons/down-angle-icon';
 import RightAngleIcon from '~/icons/right-angle-icon';
 import TextBox from '~/fields/text-box';
@@ -36,18 +39,41 @@ class TaskListItemBrief extends Component {
                 ${this.props.isOpen ? 'edit-mode' : ''}
                 ${this.props.taskComplete ? 'task-complete' : ''}
             `}>
-                <TextBox
-                    isDisabled={this.props.taskComplete}
-                    value={this.props.taskName}
-                    handleClick={this.handleNameClick}
-                    handleBlur={this.handleNameSave}
-                />
+                <Flexbox flexDirection="row">
+                    <Flexbox
+                        flexGrow={1}
+                        className="task-name"
+                    >
+                        <TextBox
+                            isDisabled={this.props.taskComplete}
+                            value={this.props.taskName}
+                            handleClick={this.handleNameClick}
+                            handleBlur={this.handleNameSave}
+                        />
+                    </Flexbox>
 
-                {
-                    this.props.isOpen
-                        ? <DownAngleIcon handleClick={(event) => this.props.hideDetails(this.props.taskId, event)} />
-                        : <RightAngleIcon handleClick={(event) => this.props.showDetails(this.props.taskId, event)} />
-                }
+                    <Flexbox>
+                        <DateBox
+                            label="planned for"
+                            value={moment()}
+                        />
+                    </Flexbox>
+
+                    <Flexbox>
+                        <DateBox
+                            label="due on"
+                            value={moment()}
+                        />
+                    </Flexbox>
+
+                    <Flexbox>
+                        {
+                            this.props.isOpen
+                                ? <DownAngleIcon handleClick={(event) => this.props.hideDetails(this.props.taskId, event)} />
+                                : <RightAngleIcon handleClick={(event) => this.props.showDetails(this.props.taskId, event)} />
+                        }
+                    </Flexbox>
+                </Flexbox>
             </div>
         );
     }

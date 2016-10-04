@@ -40,6 +40,10 @@ input:focus {
     outline: none;
 }
 
+input[type=text] {
+    padding: 5px 10px;
+}
+
 .btn {
     border-radius: 0;
 }
@@ -78,6 +82,7 @@ input:focus {
     border-radius: 0;
     -moz-border-radius: 0;
     -webkit-border-radius: 0;
+    height: auto;
 }
 
 .data-visualization canvas {
