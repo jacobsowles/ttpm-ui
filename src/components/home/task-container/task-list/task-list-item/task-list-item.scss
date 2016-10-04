@@ -49,7 +49,7 @@
         }
     }
 
-    .task-brief.task-complete {
+    .task-brief.task-complete .task-name {
         input {
             text-decoration: line-through;
             color: #cccccc;
