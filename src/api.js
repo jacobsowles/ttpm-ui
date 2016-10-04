@@ -1,9 +1,7 @@
-// npm modules
 import superagent from 'superagent';
-require('superagent-auth-bearer')(superagent);
-
-// utils
 import auth from './auth';
+
+require('superagent-auth-bearer')(superagent);
 
 module.exports = {
     get(route, query) {
