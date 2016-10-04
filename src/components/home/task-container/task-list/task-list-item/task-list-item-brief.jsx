@@ -99,7 +99,7 @@ class TaskListItemBrief extends Component {
                                     </Flexbox>
                                 </Flexbox>
                             )
-                    }                    
+                    }
 
                     <Flexbox>
                         {

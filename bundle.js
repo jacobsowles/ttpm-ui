@@ -77981,7 +77981,7 @@
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'div',
-	                { className: 'date-box' },
+	                { className: 'date-box ' + ((0, _moment2.default)(this.props.value).date() <= (0, _moment2.default)().date() ? 'due' : '') },
 	                _react2.default.createElement(
 	                    'label',
 	                    { htmlFor: this.id },
@@ -78208,7 +78208,7 @@
 	exports.i(__webpack_require__(710), "");
 
 	// module
-	exports.push([module.id, ".date-box {\n  width: 66px;\n  margin-left: 0 !important; }\n  .date-box div {\n    margin-left: 0 !important; }\n  .date-box label {\n    display: block;\n    text-align: center;\n    margin: 0; }\n  .date-box input {\n    width: 100%;\n    text-align: center; }\n    .date-box input::-moz-placeholder {\n      font-style: normal;\n      font-size: .9em; }\n    .date-box input:-moz-placeholder {\n      font-style: normal;\n      font-size: .9em; }\n    .date-box input::-webkit-input-placeholder {\n      font-style: normal;\n      font-size: .9em; }\n    .date-box input:-ms-input-placeholder {\n      font-style: normal;\n      font-size: .9em; }\n", ""]);
+	exports.push([module.id, ".date-box {\n  width: 66px;\n  margin-left: 0 !important; }\n  .date-box div {\n    margin-left: 0 !important; }\n  .date-box label {\n    display: block;\n    text-align: center;\n    margin: 0; }\n  .date-box input {\n    width: 100%;\n    text-align: center; }\n    .date-box input::-moz-placeholder {\n      font-style: normal;\n      font-size: .9em; }\n    .date-box input:-moz-placeholder {\n      font-style: normal;\n      font-size: .9em; }\n    .date-box input::-webkit-input-placeholder {\n      font-style: normal;\n      font-size: .9em; }\n    .date-box input:-ms-input-placeholder {\n      font-style: normal;\n      font-size: .9em; }\n\n.date-box.due {\n  color: red; }\n", ""]);
 
 	// exports
 

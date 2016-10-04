@@ -28,7 +28,7 @@ class DateBox extends Component {
 
     render() {
         return (
-            <div className="date-box">
+            <div className={`date-box ${moment(this.props.value).date() <= moment().date() ? 'due' : ''}`}>
                 <label htmlFor={this.id}>{this.props.label}</label>
                 <DatePicker
                     id={this.id}
