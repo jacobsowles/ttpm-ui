@@ -13,6 +13,11 @@ class TaskListCompletionFilter extends Component {
             <div className="task-list-completion-filter">
                 <NavPillGroup>
                     <NavPill
+                        text="all"
+                        isActive={this.props.activeFilter == completion.ALL}
+                        handleClick={() => this.props.handleFilterChange(completion.ALL)}
+                    />
+                    <NavPill
                         text="complete"
                         isActive={this.props.activeFilter == completion.COMPLETE}
                         handleClick={() => this.props.handleFilterChange(completion.COMPLETE)}
@@ -21,11 +26,6 @@ class TaskListCompletionFilter extends Component {
                         text="incomplete"
                         isActive={this.props.activeFilter == completion.INCOMPLETE}
                         handleClick={() => this.props.handleFilterChange(completion.INCOMPLETE)}
-                    />
-                    <NavPill
-                        text="all"
-                        isActive={this.props.activeFilter == completion.ALL}
-                        handleClick={() => this.props.handleFilterChange(completion.ALL)}
                     />
                 </NavPillGroup>
             </div>

@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import TextBox from '~/fields/text-box';
 
 require('./task-list-new-item.scss');
 
-class TaskListNewItem extends React.Component {
+class TaskListNewItem extends Component {
 
     constructor(props) {
         super(props);
@@ -20,7 +20,7 @@ class TaskListNewItem extends React.Component {
 
     render() {
         return (
-            <div className="task-list-new-item">
+            <div className={`task-list-new-item ${this.props.className}`}>
                 <TextBox
                     placeholder="Add a new task"
                     clearOnBlur={true}
@@ -32,6 +32,7 @@ class TaskListNewItem extends React.Component {
 }
 
 TaskListNewItem.propTypes = {
+    className: PropTypes.string,
     handleNewTask: React.PropTypes.func.isRequired
 };
 

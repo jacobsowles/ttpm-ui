@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 // components
 import Analytics from './analytics/analytics';
 import LoadingGraphic from '~/loading-graphic';
-import TaskList from './task-list/task-list';
+import TaskListView from './task-list-view/task-list-view';
 
 // actions
 import taskActions from '@/actions/task-actions';
@@ -41,14 +41,14 @@ class TaskContainer extends Component {
                     ? <LoadingGraphic />
                     : (
                         <div>
-                            <TaskList
+                            <TaskListView
                                 tasks={this.props.filteredTasks}
                                 taskGroupName={this.props.taskGroupName}
                                 isShowingOnlyCompleteTasks={this.props.filters.completion == completion.COMPLETE}
-                                handleNewTask={(task) => this.props.handleNewTask(task, this.props.filters.taskGroupId)}
                                 handleCompletionToggle={this.props.handleCompletionToggle}
-                                handleTaskSave={this.props.handleTaskSave}
+                                handleNewTask={(task) => this.props.handleNewTask(task, this.props.filters.taskGroupId)}
                                 handleTaskDelete={this.props.handleTaskDelete}
+                                handleTaskSave={this.props.handleTaskSave}
                                 updateDisplayOrder={this.props.updateDisplayOrder}
                             />
 

@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import { findDOMNode } from 'react-dom';
 import { DragSource, DropTarget } from 'react-dnd';
 import { DraggableItemType } from '../draggable-item-type';
-import TaskListItem from '~/home/task-container/task-list/task-list-item/task-list-item';
 
 require('./draggable-list-item.scss');
 

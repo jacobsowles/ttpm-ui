@@ -3,6 +3,7 @@ import React, { Component, PropTypes } from 'react';
 
 // components
 import DraggableList from '~/draggable/draggable-list/draggable-list';
+import EmptyTaskListNewItem from './task-list-new-item/empty-task-list-new-item';
 import TaskListFilterContainer from './task-list-filter-container/task-list-filter-container';
 import TaskListItem from './task-list-item/task-list-item';
 import TaskListNewItem from './task-list-new-item/task-list-new-item';
@@ -12,9 +13,9 @@ import TaskListPlaceholder from './task-list-placeholder';
 import filterActions from '@/actions/filter-actions.js';
 
 // styles
-require('./task-list.scss');
+require('./task-list-wrapper.scss');
 
-class TaskList extends Component {
+class TaskListWrapper extends Component {
 
     constructor(props) {
         super(props);
@@ -79,12 +80,13 @@ class TaskList extends Component {
         return (
             <div className="row">
                 <div className="col-xs-12">
-                    <div className="task-list">
-                        <TaskListFilterContainer taskGroupName={this.props.taskGroupName} />
+                    <div className="task-list-wrapper">
+                        
 
                         {
                             this.props.tasks.length == 0
-                                ? (
+                            ? (
+                                <div>
                                     <TaskListPlaceholder
                                         headline={this.props.isShowingOnlyCompleteTasks ? 'You\'ve got work to do.' : 'Hello?'}
                                         body={
@@ -93,23 +95,32 @@ class TaskList extends Component {
                                                 : 'It\'s looking a little barren in here. Use the link below to add tasks.'
                                         }
                                     />
-                                )
-                                : this.state.openTaskIds.length == 0
-                                    ? (
-                                        <DraggableList
-                                            items={this.props.tasks}
-                                            updateDisplayOrder={this.props.updateDisplayOrder}
-                                        >
+                                    <EmptyTaskListNewItem handleNewTask={this.props.handleNewTask} />
+                                </div>
+                            )
+                            : (
+                                <div>
+                                    {
+                                        this.state.openTaskIds.length == 0
+                                        ? (
+                                            <DraggableList
+                                                items={this.props.tasks}
+                                                updateDisplayOrder={this.props.updateDisplayOrder}
+                                            >
+                                                {listItems}
+                                            </DraggableList>
+                                        )
+                                        : (
                                             {listItems}
-                                        </DraggableList>
-                                    )
-                                    : (
-                                        <div>
-                                            {listItems}
-                                        </div>
-                                    )
+                                            
+                                        )
+                                        
+                                    }
+                                </div>
+                                
+                            )
+                            
                         }
-
                         <TaskListNewItem handleNewTask={this.props.handleNewTask} />
                     </div>
                 </div>
@@ -118,7 +129,7 @@ class TaskList extends Component {
     }
 }
 
-TaskList.propTypes = {
+TaskListWrapper.propTypes = {
     tasks: PropTypes.arrayOf(PropTypes.object).isRequired,
     taskGroupName: PropTypes.string,
     isShowingOnlyCompleteTasks: PropTypes.bool.isRequired,
@@ -129,4 +140,4 @@ TaskList.propTypes = {
     updateDisplayOrder: PropTypes.func.isRequired
 };
 
-export default TaskList;
+export default TaskListWrapper;

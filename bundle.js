@@ -45155,9 +45155,9 @@
 
 	var _loadingGraphic2 = _interopRequireDefault(_loadingGraphic);
 
-	var _taskList = __webpack_require__(666);
+	var _taskListView = __webpack_require__(799);
 
-	var _taskList2 = _interopRequireDefault(_taskList);
+	var _taskListView2 = _interopRequireDefault(_taskListView);
 
 	var _taskActions = __webpack_require__(488);
 
@@ -45220,16 +45220,16 @@
 	                this.state.isLoading ? _react2.default.createElement(_loadingGraphic2.default, null) : _react2.default.createElement(
 	                    'div',
 	                    null,
-	                    _react2.default.createElement(_taskList2.default, {
+	                    _react2.default.createElement(_taskListView2.default, {
 	                        tasks: this.props.filteredTasks,
 	                        taskGroupName: this.props.taskGroupName,
 	                        isShowingOnlyCompleteTasks: this.props.filters.completion == _filterValues.completion.COMPLETE,
+	                        handleCompletionToggle: this.props.handleCompletionToggle,
 	                        handleNewTask: function handleNewTask(task) {
 	                            return _this2.props.handleNewTask(task, _this2.props.filters.taskGroupId);
 	                        },
-	                        handleCompletionToggle: this.props.handleCompletionToggle,
-	                        handleTaskSave: this.props.handleTaskSave,
 	                        handleTaskDelete: this.props.handleTaskDelete,
+	                        handleTaskSave: this.props.handleTaskSave,
 	                        updateDisplayOrder: this.props.updateDisplayOrder
 	                    }),
 	                    _react2.default.createElement(_analytics2.default, {
@@ -71091,183 +71091,7 @@
 
 
 /***/ },
-/* 666 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _draggableList = __webpack_require__(667);
-
-	var _draggableList2 = _interopRequireDefault(_draggableList);
-
-	var _taskListFilterContainer = __webpack_require__(735);
-
-	var _taskListFilterContainer2 = _interopRequireDefault(_taskListFilterContainer);
-
-	var _taskListItem = __webpack_require__(671);
-
-	var _taskListItem2 = _interopRequireDefault(_taskListItem);
-
-	var _taskListNewItem = __webpack_require__(744);
-
-	var _taskListNewItem2 = _interopRequireDefault(_taskListNewItem);
-
-	var _taskListPlaceholder = __webpack_require__(747);
-
-	var _taskListPlaceholder2 = _interopRequireDefault(_taskListPlaceholder);
-
-	var _filterActions = __webpack_require__(480);
-
-	var _filterActions2 = _interopRequireDefault(_filterActions);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
-
-
-	// components
-
-
-	// actions
-
-
-	// styles
-	__webpack_require__(750);
-
-	var TaskList = function (_Component) {
-	    _inherits(TaskList, _Component);
-
-	    function TaskList(props) {
-	        _classCallCheck(this, TaskList);
-
-	        var _this = _possibleConstructorReturn(this, (TaskList.__proto__ || Object.getPrototypeOf(TaskList)).call(this, props));
-
-	        _this.state = {
-	            openTaskIds: []
-	        };
-
-	        _this.openTask = _this.openTask.bind(_this);
-	        _this.closeTask = _this.closeTask.bind(_this);
-	        _this.handleTaskNameClick = _this.handleTaskNameClick.bind(_this);
-	        _this.handleTaskDelete = _this.handleTaskDelete.bind(_this);
-	        return _this;
-	    }
-
-	    _createClass(TaskList, [{
-	        key: 'openTask',
-	        value: function openTask(taskId, event) {
-	            if (!this.state.openTaskIds.includes(taskId)) {
-	                this.setState({
-	                    openTaskIds: this.state.openTaskIds.concat(taskId)
-	                });
-	            }
-	        }
-	    }, {
-	        key: 'closeTask',
-	        value: function closeTask(taskId, event) {
-	            var newList = Object.assign([], this.state.openTaskIds);
-	            newList.splice(this.state.openTaskIds.indexOf(taskId), 1);
-
-	            this.setState({
-	                openTaskIds: newList
-	            });
-	        }
-	    }, {
-	        key: 'handleTaskNameClick',
-	        value: function handleTaskNameClick(taskId, event) {
-	            this.openTask(taskId);
-	        }
-	    }, {
-	        key: 'handleTaskDelete',
-	        value: function handleTaskDelete(event) {
-	            this.closeTask(event.target.value);
-	            this.props.handleTaskDelete(event);
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            var _this2 = this;
-
-	            var listItems = this.props.tasks.map(function (task, key) {
-	                var isOpen = _this2.state.openTaskIds.includes(task.Id);
-
-	                return _react2.default.createElement(_taskListItem2.default, {
-	                    key: key,
-	                    task: task,
-	                    isOpen: isOpen,
-	                    isDimmed: !isOpen && _this2.state.openTaskIds.length != 0,
-	                    openTask: _this2.openTask,
-	                    closeTask: _this2.closeTask,
-	                    handleNameClick: _this2.handleTaskNameClick,
-	                    handleCompletionToggle: _this2.props.handleCompletionToggle,
-	                    handleSave: _this2.props.handleTaskSave,
-	                    handleDelete: _this2.handleTaskDelete
-	                });
-	            });
-
-	            return _react2.default.createElement(
-	                'div',
-	                { className: 'row' },
-	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'col-xs-12' },
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'task-list' },
-	                        _react2.default.createElement(_taskListFilterContainer2.default, { taskGroupName: this.props.taskGroupName }),
-	                        this.props.tasks.length == 0 ? _react2.default.createElement(_taskListPlaceholder2.default, {
-	                            headline: this.props.isShowingOnlyCompleteTasks ? 'You\'ve got work to do.' : 'Hello?',
-	                            body: this.props.isShowingOnlyCompleteTasks ? 'You haven\'t completed any tasks with these criteria. You\'re better than that.' : 'It\'s looking a little barren in here. Use the link below to add tasks.'
-	                        }) : this.state.openTaskIds.length == 0 ? _react2.default.createElement(
-	                            _draggableList2.default,
-	                            {
-	                                items: this.props.tasks,
-	                                updateDisplayOrder: this.props.updateDisplayOrder
-	                            },
-	                            listItems
-	                        ) : _react2.default.createElement(
-	                            'div',
-	                            null,
-	                            listItems
-	                        ),
-	                        _react2.default.createElement(_taskListNewItem2.default, { handleNewTask: this.props.handleNewTask })
-	                    )
-	                )
-	            );
-	        }
-	    }]);
-
-	    return TaskList;
-	}(_react.Component);
-
-	TaskList.propTypes = {
-	    tasks: _react.PropTypes.arrayOf(_react.PropTypes.object).isRequired,
-	    taskGroupName: _react.PropTypes.string,
-	    isShowingOnlyCompleteTasks: _react.PropTypes.bool.isRequired,
-
-	    handleNewTask: _react.PropTypes.func.isRequired,
-	    handleCompletionToggle: _react.PropTypes.func.isRequired,
-	    handleTaskSave: _react.PropTypes.func.isRequired,
-	    updateDisplayOrder: _react.PropTypes.func.isRequired
-	};
-
-	exports.default = TaskList;
-
-/***/ },
+/* 666 */,
 /* 667 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -71502,10 +71326,6 @@
 
 	var _draggableItemType = __webpack_require__(670);
 
-	var _taskListItem = __webpack_require__(671);
-
-	var _taskListItem2 = _interopRequireDefault(_taskListItem);
-
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -71637,137 +71457,7 @@
 	};
 
 /***/ },
-/* 671 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _checkbox = __webpack_require__(672);
-
-	var _checkbox2 = _interopRequireDefault(_checkbox);
-
-	var _taskListItemBrief = __webpack_require__(676);
-
-	var _taskListItemBrief2 = _interopRequireDefault(_taskListItemBrief);
-
-	var _taskListItemDetails = __webpack_require__(719);
-
-	var _taskListItemDetails2 = _interopRequireDefault(_taskListItemDetails);
-
-	var _toggler = __webpack_require__(726);
-
-	var _toggler2 = _interopRequireDefault(_toggler);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
-
-
-	// components
-
-
-	// styles
-	__webpack_require__(729);
-
-	var TaskListItem = function (_Component) {
-	    _inherits(TaskListItem, _Component);
-
-	    function TaskListItem() {
-	        _classCallCheck(this, TaskListItem);
-
-	        return _possibleConstructorReturn(this, (TaskListItem.__proto__ || Object.getPrototypeOf(TaskListItem)).apply(this, arguments));
-	    }
-
-	    _createClass(TaskListItem, [{
-	        key: 'render',
-	        value: function render() {
-	            var _this2 = this;
-
-	            var _props = this.props;
-	            var text = _props.text;
-	            var isDragging = _props.isDragging;
-	            var connectDragSource = _props.connectDragSource;
-	            var connectDropTarget = _props.connectDropTarget;
-
-	            var opacity = isDragging ? 0 : 1;
-
-	            return _react2.default.createElement(
-	                'div',
-	                { className: 'task-list-item ' + (this.props.isDimmed ? 'dimmed' : '') },
-	                _react2.default.createElement(_checkbox2.default, {
-	                    checked: this.props.task.Complete,
-	                    handleChange: function handleChange(event) {
-	                        return _this2.props.handleCompletionToggle(_this2.props.task.Id, event);
-	                    }
-	                }),
-	                _react2.default.createElement(_taskListItemBrief2.default, {
-	                    id: this.props.task.Id,
-	                    name: this.props.task.Name,
-	                    complete: this.props.task.Complete,
-	                    lastDateCompleted: this.props.task.LastDateCompleted,
-	                    plannedDate: this.props.task.PlannedDate,
-	                    dueDate: this.props.task.DueDate,
-	                    isOpen: this.props.isOpen,
-	                    handleNameClick: this.props.handleNameClick,
-	                    handleSave: this.props.handleSave,
-	                    hideDetails: this.props.closeTask,
-	                    showDetails: this.props.openTask
-	                }),
-	                _react2.default.createElement(
-	                    _toggler2.default,
-	                    { isVisible: this.props.isOpen },
-	                    _react2.default.createElement(_taskListItemDetails2.default, {
-	                        taskId: this.props.task.Id,
-	                        taskNotes: this.props.task.Notes,
-	                        handleDelete: this.props.handleDelete,
-	                        handleNotesSave: this.props.handleSave
-	                    })
-	                )
-	            );
-	        }
-	    }]);
-
-	    return TaskListItem;
-	}(_react.Component);
-
-	TaskListItem.propTypes = {
-	    task: _react.PropTypes.shape({
-	        Id: _react.PropTypes.number.isRequired,
-	        Name: _react.PropTypes.string.isRequired,
-	        Notes: _react.PropTypes.string,
-	        Complete: _react.PropTypes.bool.isRequired,
-	        LastDateCompleted: _react.PropTypes.string,
-	        PlannedDate: _react.PropTypes.string,
-	        DueDate: _react.PropTypes.string
-	    }).isRequired,
-	    isOpen: _react.PropTypes.bool.isRequired,
-	    isDimmed: _react.PropTypes.bool.isRequired,
-
-	    openTask: _react.PropTypes.func.isRequired,
-	    closeTask: _react.PropTypes.func.isRequired,
-	    handleNameClick: _react.PropTypes.func.isRequired,
-	    handleCompletionToggle: _react.PropTypes.func.isRequired,
-	    handleDelete: _react.PropTypes.func.isRequired,
-	    handleSave: _react.PropTypes.func.isRequired
-	};
-
-	exports.default = TaskListItem;
-
-/***/ },
+/* 671 */,
 /* 672 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -73467,192 +73157,7 @@
 
 
 /***/ },
-/* 676 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _flexboxReact = __webpack_require__(677);
-
-	var _flexboxReact2 = _interopRequireDefault(_flexboxReact);
-
-	var _dateBox = __webpack_require__(713);
-
-	var _dateBox2 = _interopRequireDefault(_dateBox);
-
-	var _downAngleIcon = __webpack_require__(456);
-
-	var _downAngleIcon2 = _interopRequireDefault(_downAngleIcon);
-
-	var _rightAngleIcon = __webpack_require__(458);
-
-	var _rightAngleIcon2 = _interopRequireDefault(_rightAngleIcon);
-
-	var _textBox = __webpack_require__(465);
-
-	var _textBox2 = _interopRequireDefault(_textBox);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
-
-
-	// components
-
-
-	var TaskListItemBrief = function (_Component) {
-	    _inherits(TaskListItemBrief, _Component);
-
-	    function TaskListItemBrief(props) {
-	        _classCallCheck(this, TaskListItemBrief);
-
-	        var _this = _possibleConstructorReturn(this, (TaskListItemBrief.__proto__ || Object.getPrototypeOf(TaskListItemBrief)).call(this, props));
-
-	        _this.handleDueDateSave = _this.handleDueDateSave.bind(_this);
-	        _this.handleNameClick = _this.handleNameClick.bind(_this);
-	        _this.handleNameSave = _this.handleNameSave.bind(_this);
-	        _this.handlePlannedDateSave = _this.handlePlannedDateSave.bind(_this);
-	        return _this;
-	    }
-
-	    _createClass(TaskListItemBrief, [{
-	        key: 'handleNameClick',
-	        value: function handleNameClick(event) {
-	            if (!this.props.isOpen) {
-	                this.props.handleNameClick(this.props.id, event);
-	            }
-	        }
-	    }, {
-	        key: 'handleNameSave',
-	        value: function handleNameSave(event) {
-	            if (event.target.value != this.props.name) {
-	                this.props.handleSave(this.props.id, {
-	                    Name: event.target.value
-	                });
-	            }
-	        }
-	    }, {
-	        key: 'handlePlannedDateSave',
-	        value: function handlePlannedDateSave(date) {
-	            if (date != this.props.plannedDate) {
-	                this.props.handleSave(this.props.id, {
-	                    PlannedDate: date || ''
-	                });
-	            }
-	        }
-	    }, {
-	        key: 'handleDueDateSave',
-	        value: function handleDueDateSave(date) {
-	            if (date != this.props.dueDate) {
-	                this.props.handleSave(this.props.id, {
-	                    DueDate: date || ''
-	                });
-	            }
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            var _this2 = this;
-
-	            return _react2.default.createElement(
-	                'div',
-	                { className: '\n                task-brief\n                ' + (this.props.isOpen ? 'edit-mode' : '') + '\n                ' + (this.props.complete ? 'task-complete' : '') + '\n            ' },
-	                _react2.default.createElement(
-	                    _flexboxReact2.default,
-	                    { flexDirection: 'row' },
-	                    _react2.default.createElement(
-	                        _flexboxReact2.default,
-	                        {
-	                            flexGrow: 1,
-	                            className: 'task-name'
-	                        },
-	                        _react2.default.createElement(_textBox2.default, {
-	                            isDisabled: this.props.complete,
-	                            value: this.props.name,
-	                            handleClick: this.handleNameClick,
-	                            handleBlur: this.handleNameSave
-	                        })
-	                    ),
-	                    this.props.complete ? _react2.default.createElement(
-	                        _flexboxReact2.default,
-	                        null,
-	                        _react2.default.createElement(_dateBox2.default, {
-	                            label: 'completed',
-	                            value: this.props.lastDateCompleted,
-	                            contextColorsEnabled: false,
-	                            isDisabled: true
-	                        })
-	                    ) : _react2.default.createElement(
-	                        _flexboxReact2.default,
-	                        null,
-	                        _react2.default.createElement(
-	                            _flexboxReact2.default,
-	                            null,
-	                            _react2.default.createElement(_dateBox2.default, {
-	                                label: 'planned for',
-	                                value: this.props.plannedDate,
-	                                handleChange: this.handlePlannedDateSave
-	                            })
-	                        ),
-	                        _react2.default.createElement(
-	                            _flexboxReact2.default,
-	                            null,
-	                            _react2.default.createElement(_dateBox2.default, {
-	                                label: 'due',
-	                                value: this.props.dueDate,
-	                                handleChange: this.handleDueDateSave
-	                            })
-	                        )
-	                    ),
-	                    _react2.default.createElement(
-	                        _flexboxReact2.default,
-	                        null,
-	                        this.props.isOpen ? _react2.default.createElement(_downAngleIcon2.default, { handleClick: function handleClick(event) {
-	                                return _this2.props.hideDetails(_this2.props.id, event);
-	                            } }) : _react2.default.createElement(_rightAngleIcon2.default, { handleClick: function handleClick(event) {
-	                                return _this2.props.showDetails(_this2.props.id, event);
-	                            } })
-	                    )
-	                )
-	            );
-	        }
-	    }]);
-
-	    return TaskListItemBrief;
-	}(_react.Component);
-
-	TaskListItemBrief.propTypes = {
-	    id: _react.PropTypes.number.isRequired,
-	    name: _react.PropTypes.string.isRequired,
-	    complete: _react.PropTypes.bool.isRequired,
-	    lastDateCompleted: _react.PropTypes.string,
-	    plannedDate: _react.PropTypes.string,
-	    dueDate: _react.PropTypes.string,
-	    isOpen: _react.PropTypes.bool.isRequired,
-
-	    handleNameClick: _react.PropTypes.func.isRequired,
-	    handleSave: _react.PropTypes.func.isRequired,
-	    hideDetails: _react.PropTypes.func.isRequired,
-	    showDetails: _react.PropTypes.func.isRequired
-	};
-
-	exports.default = TaskListItemBrief;
-
-/***/ },
+/* 676 */,
 /* 677 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -78529,124 +78034,7 @@
 
 
 /***/ },
-/* 719 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _deleteButton = __webpack_require__(720);
-
-	var _deleteButton2 = _interopRequireDefault(_deleteButton);
-
-	var _formGroup = __webpack_require__(722);
-
-	var _formGroup2 = _interopRequireDefault(_formGroup);
-
-	var _textArea = __webpack_require__(723);
-
-	var _textArea2 = _interopRequireDefault(_textArea);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
-
-
-	// components
-
-
-	var TaskListItemDetails = function (_Component) {
-	    _inherits(TaskListItemDetails, _Component);
-
-	    function TaskListItemDetails(props) {
-	        _classCallCheck(this, TaskListItemDetails);
-
-	        var _this = _possibleConstructorReturn(this, (TaskListItemDetails.__proto__ || Object.getPrototypeOf(TaskListItemDetails)).call(this, props));
-
-	        _this.handleNotesSave = _this.handleNotesSave.bind(_this);
-	        return _this;
-	    }
-
-	    _createClass(TaskListItemDetails, [{
-	        key: 'handleNotesSave',
-	        value: function handleNotesSave(event) {
-	            var _this2 = this;
-
-	            if (event.target.value != this.props.taskNotes) {
-	                (function () {
-	                    var message = document.getElementById('task-details-message-' + _this2.props.taskId);
-
-	                    _this2.props.handleNotesSave(_this2.props.taskId, {
-	                        Notes: event.target.value
-	                    });
-
-	                    message.textContent = 'Task notes updated.';
-	                    message.className = 'task-details-message animated fadeIn';
-
-	                    setTimeout(function () {
-	                        message.className = 'task-details-message animated fadeOut';
-	                    }, 3000);
-	                })();
-	            }
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'div',
-	                { className: 'task-details' },
-	                _react2.default.createElement(
-	                    _formGroup2.default,
-	                    null,
-	                    _react2.default.createElement(
-	                        'label',
-	                        null,
-	                        'Notes'
-	                    ),
-	                    _react2.default.createElement(_textArea2.default, {
-	                        value: this.props.taskNotes,
-	                        handleBlur: this.handleNotesSave
-	                    })
-	                ),
-	                _react2.default.createElement(_deleteButton2.default, {
-	                    value: this.props.taskId,
-	                    handleClick: this.props.handleDelete
-	                }),
-	                _react2.default.createElement('span', { className: 'task-details-message hidden', id: 'task-details-message-' + this.props.taskId })
-	            );
-	        }
-	    }]);
-
-	    return TaskListItemDetails;
-	}(_react.Component);
-
-	TaskListItemDetails.propTypes = {
-	    taskId: _react.PropTypes.number.isRequired,
-	    taskNotes: _react.PropTypes.string,
-	    handleDelete: _react.PropTypes.func.isRequired,
-	    handleNotesSave: _react.PropTypes.func.isRequired
-	};
-
-	TaskListItemDetails.defaultProps = {
-	    taskNotes: ''
-	};
-
-	exports.default = TaskListItemDetails;
-
-/***/ },
+/* 719 */,
 /* 720 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -79061,46 +78449,8 @@
 
 
 /***/ },
-/* 729 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(730);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(450)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../../../../node_modules/css-loader/index.js!./../../../../../../node_modules/sass-loader/index.js!./task-list-item.scss", function() {
-				var newContent = require("!!./../../../../../../node_modules/css-loader/index.js!./../../../../../../node_modules/sass-loader/index.js!./task-list-item.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 730 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(449)();
-	// imports
-
-
-	// module
-	exports.push([module.id, ".task-list-item {\n  width: 100%;\n  padding: 15px;\n  background: #ffffff;\n  margin-bottom: 5px; }\n  .task-list-item .task-brief {\n    display: inline-block;\n    width: calc(100% - 30px);\n    margin: 0 0 0 15px; }\n    .task-list-item .task-brief input {\n      display: inline-block;\n      background: none;\n      border: 1px solid #ffffff;\n      font-size: 1.1em; }\n      .task-list-item .task-brief input:hover {\n        cursor: pointer; }\n    .task-list-item .task-brief i {\n      width: 20px;\n      padding: 15px 0 5px 0;\n      text-align: center; }\n      .task-list-item .task-brief i:hover {\n        cursor: pointer; }\n    .task-list-item .task-brief div > div {\n      margin-left: 10px; }\n    .task-list-item .task-brief .task-name {\n      margin-left: 0;\n      font-size: 1.3em;\n      font-family: 'Roboto';\n      font-weight: 300; }\n    .task-list-item .task-brief .date-box input {\n      padding: 2px; }\n  .task-list-item .task-brief.task-complete .task-name input {\n    text-decoration: line-through;\n    color: #cccccc; }\n  .task-list-item .task-brief.edit-mode input {\n    border: 1px solid #e6e6e8; }\n    .task-list-item .task-brief.edit-mode input:hover {\n      cursor: inherit; }\n  .task-list-item .task-details {\n    margin: 15px 30px 0 30px; }\n    .task-list-item .task-details textarea.form-control {\n      height: 100px; }\n    .task-list-item .task-details .task-details-message {\n      font-size: .8em;\n      color: #888888;\n      margin-left: 10px;\n      display: inline-block;\n      /*&:after {\n                overflow: hidden;\n                display: inline-block;\n                vertical-align: bottom;\n                -webkit-animation: ellipsis steps(4,end) 900ms infinite;      \n                animation: ellipsis steps(4,end) 900ms infinite;\n                content: \"\\2026\";\n                width: 0px;\n            }\n\n            @keyframes ellipsis {\n                to {\n                    width: 1.25em;    \n                }\n            }\n\n            @-webkit-keyframes ellipsis {\n                to {\n                    width: 1.25em;    \n                }\n            }*/ }\n    .task-list-item .task-details .hidden {\n      opacity: 0; }\n\n.task-list-item.dimmed {\n  opacity: .5; }\n", ""]);
-
-	// exports
-
-
-/***/ },
+/* 729 */,
+/* 730 */,
 /* 731 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -79181,110 +78531,7 @@
 
 
 /***/ },
-/* 735 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRedux = __webpack_require__(172);
-
-	var _filterIndicator = __webpack_require__(736);
-
-	var _filterIndicator2 = _interopRequireDefault(_filterIndicator);
-
-	var _taskListCompletionFilter = __webpack_require__(739);
-
-	var _taskListCompletionFilter2 = _interopRequireDefault(_taskListCompletionFilter);
-
-	var _taskListFilterWrapper = __webpack_require__(788);
-
-	var _taskListFilterWrapper2 = _interopRequireDefault(_taskListFilterWrapper);
-
-	var _filterActions = __webpack_require__(480);
-
-	var _filterActions2 = _interopRequireDefault(_filterActions);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
-
-
-	// components
-
-
-	// actions
-
-
-	var TaskListFilterContainer = function (_Component) {
-	    _inherits(TaskListFilterContainer, _Component);
-
-	    function TaskListFilterContainer() {
-	        _classCallCheck(this, TaskListFilterContainer);
-
-	        return _possibleConstructorReturn(this, (TaskListFilterContainer.__proto__ || Object.getPrototypeOf(TaskListFilterContainer)).apply(this, arguments));
-	    }
-
-	    _createClass(TaskListFilterContainer, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                _taskListFilterWrapper2.default,
-	                null,
-	                _react2.default.createElement(_taskListCompletionFilter2.default, {
-	                    activeFilter: this.props.filters.completion,
-	                    handleFilterChange: this.props.setCompletionFilter
-	                }),
-	                _react2.default.createElement(_filterIndicator2.default, {
-	                    taskGroupName: this.props.taskGroupName,
-	                    handleFilterClear: this.props.clearTaskGroupFilter
-	                })
-	            );
-	        }
-	    }]);
-
-	    return TaskListFilterContainer;
-	}(_react.Component);
-
-	TaskListFilterContainer.propTypes = {
-	    taskGroupName: _react.PropTypes.string,
-	    filters: _react.PropTypes.object
-	};
-
-	function mapStateToProps(state) {
-	    return {
-	        filters: state.filters
-	    };
-	}
-
-	function mapDispatchToProps(dispatch) {
-	    return {
-	        setCompletionFilter: function setCompletionFilter(filter) {
-	            dispatch(_filterActions2.default.setCompletionFilter(filter));
-	        },
-
-	        clearTaskGroupFilter: function clearTaskGroupFilter() {
-	            dispatch(_filterActions2.default.setTaskGroupFilter(0));
-	        }
-	    };
-	}
-
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(TaskListFilterContainer);
-
-/***/ },
+/* 735 */,
 /* 736 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -79400,98 +78647,7 @@
 
 
 /***/ },
-/* 739 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _navPill = __webpack_require__(740);
-
-	var _navPill2 = _interopRequireDefault(_navPill);
-
-	var _navPillGroup = __webpack_require__(741);
-
-	var _navPillGroup2 = _interopRequireDefault(_navPillGroup);
-
-	var _filterValues = __webpack_require__(786);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	__webpack_require__(742);
-
-	var TaskListCompletionFilter = function (_Component) {
-	    _inherits(TaskListCompletionFilter, _Component);
-
-	    function TaskListCompletionFilter() {
-	        _classCallCheck(this, TaskListCompletionFilter);
-
-	        return _possibleConstructorReturn(this, (TaskListCompletionFilter.__proto__ || Object.getPrototypeOf(TaskListCompletionFilter)).apply(this, arguments));
-	    }
-
-	    _createClass(TaskListCompletionFilter, [{
-	        key: 'render',
-	        value: function render() {
-	            var _this2 = this;
-
-	            return _react2.default.createElement(
-	                'div',
-	                { className: 'task-list-completion-filter' },
-	                _react2.default.createElement(
-	                    _navPillGroup2.default,
-	                    null,
-	                    _react2.default.createElement(_navPill2.default, {
-	                        text: 'complete',
-	                        isActive: this.props.activeFilter == _filterValues.completion.COMPLETE,
-	                        handleClick: function handleClick() {
-	                            return _this2.props.handleFilterChange(_filterValues.completion.COMPLETE);
-	                        }
-	                    }),
-	                    _react2.default.createElement(_navPill2.default, {
-	                        text: 'incomplete',
-	                        isActive: this.props.activeFilter == _filterValues.completion.INCOMPLETE,
-	                        handleClick: function handleClick() {
-	                            return _this2.props.handleFilterChange(_filterValues.completion.INCOMPLETE);
-	                        }
-	                    }),
-	                    _react2.default.createElement(_navPill2.default, {
-	                        text: 'all',
-	                        isActive: this.props.activeFilter == _filterValues.completion.ALL,
-	                        handleClick: function handleClick() {
-	                            return _this2.props.handleFilterChange(_filterValues.completion.ALL);
-	                        }
-	                    })
-	                )
-	            );
-	        }
-	    }]);
-
-	    return TaskListCompletionFilter;
-	}(_react.Component);
-
-	TaskListCompletionFilter.propTypes = {
-	    activeFilter: _react.PropTypes.string.isRequired,
-	    handleFilterChange: _react.PropTypes.func.isRequired
-	};
-
-	exports.default = TaskListCompletionFilter;
-
-/***/ },
+/* 739 */,
 /* 740 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -79603,302 +78759,16 @@
 	exports.default = NavPillGroup;
 
 /***/ },
-/* 742 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(743);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(450)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../../../../node_modules/css-loader/index.js!./../../../../../../node_modules/sass-loader/index.js!./task-list-completion-filter.scss", function() {
-				var newContent = require("!!./../../../../../../node_modules/css-loader/index.js!./../../../../../../node_modules/sass-loader/index.js!./task-list-completion-filter.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 743 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(449)();
-	// imports
-
-
-	// module
-	exports.push([module.id, ".task-list-completion-filter {\n  display: inline-block; }\n", ""]);
-
-	// exports
-
-
-/***/ },
-/* 744 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _textBox = __webpack_require__(465);
-
-	var _textBox2 = _interopRequireDefault(_textBox);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	__webpack_require__(745);
-
-	var TaskListNewItem = function (_React$Component) {
-	    _inherits(TaskListNewItem, _React$Component);
-
-	    function TaskListNewItem(props) {
-	        _classCallCheck(this, TaskListNewItem);
-
-	        var _this = _possibleConstructorReturn(this, (TaskListNewItem.__proto__ || Object.getPrototypeOf(TaskListNewItem)).call(this, props));
-
-	        _this.handleBlur = _this.handleBlur.bind(_this);
-	        return _this;
-	    }
-
-	    _createClass(TaskListNewItem, [{
-	        key: 'handleBlur',
-	        value: function handleBlur(event) {
-	            if (event.target.value != '') {
-	                this.props.handleNewTask({
-	                    Name: event.target.value
-	                });
-	            }
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'div',
-	                { className: 'task-list-new-item' },
-	                _react2.default.createElement(_textBox2.default, {
-	                    placeholder: 'Add a new task',
-	                    clearOnBlur: true,
-	                    handleBlur: this.handleBlur
-	                })
-	            );
-	        }
-	    }]);
-
-	    return TaskListNewItem;
-	}(_react2.default.Component);
-
-	TaskListNewItem.propTypes = {
-	    handleNewTask: _react2.default.PropTypes.func.isRequired
-	};
-
-	exports.default = TaskListNewItem;
-
-/***/ },
-/* 745 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(746);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(450)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../../../../node_modules/css-loader/index.js!./../../../../../../node_modules/sass-loader/index.js!./task-list-new-item.scss", function() {
-				var newContent = require("!!./../../../../../../node_modules/css-loader/index.js!./../../../../../../node_modules/sass-loader/index.js!./task-list-new-item.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 746 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(449)();
-	// imports
-
-
-	// module
-	exports.push([module.id, ".task-list-new-item {\n  background: #F5F3F2;\n  margin-top: 10px;\n  padding: 0px 15px 0px 45px; }\n  .task-list-new-item input {\n    padding: 10px;\n    border: none !important;\n    background: none; }\n    .task-list-new-item input:hover {\n      cursor: pointer; }\n    .task-list-new-item input:focus {\n      cursor: text; }\n    .task-list-new-item input::-moz-placeholder {\n      font-style: normal;\n      color: #888888; }\n    .task-list-new-item input:-moz-placeholder {\n      font-style: normal;\n      color: #888888; }\n    .task-list-new-item input::-webkit-input-placeholder {\n      font-style: normal;\n      color: #888888; }\n    .task-list-new-item input:-ms-input-placeholder {\n      font-style: normal;\n      color: #888888; }\n", ""]);
-
-	// exports
-
-
-/***/ },
-/* 747 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	__webpack_require__(748);
-
-	var TaskListPlaceholder = function (_Component) {
-	    _inherits(TaskListPlaceholder, _Component);
-
-	    function TaskListPlaceholder() {
-	        _classCallCheck(this, TaskListPlaceholder);
-
-	        return _possibleConstructorReturn(this, (TaskListPlaceholder.__proto__ || Object.getPrototypeOf(TaskListPlaceholder)).apply(this, arguments));
-	    }
-
-	    _createClass(TaskListPlaceholder, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'p',
-	                { className: 'task-list-placeholder' },
-	                _react2.default.createElement(
-	                    'span',
-	                    { className: 'large' },
-	                    this.props.headline
-	                ),
-	                this.props.body
-	            );
-	        }
-	    }]);
-
-	    return TaskListPlaceholder;
-	}(_react.Component);
-
-	TaskListPlaceholder.propTypes = {
-	    headline: _react.PropTypes.string.isRequired,
-	    body: _react.PropTypes.string.isRequired
-	};
-
-	exports.default = TaskListPlaceholder;
-
-/***/ },
-/* 748 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(749);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(450)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./task-list-placeholder.scss", function() {
-				var newContent = require("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./task-list-placeholder.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 749 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(449)();
-	// imports
-
-
-	// module
-	exports.push([module.id, ".task-list-placeholder {\n  margin: 20px 0 0 0;\n  font-size: 1.3em;\n  color: #888888;\n  text-align: center; }\n  .task-list-placeholder .large {\n    font-size: 3em;\n    font-weight: 100;\n    font-family: 'Roboto';\n    display: block; }\n", ""]);
-
-	// exports
-
-
-/***/ },
-/* 750 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(751);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(450)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./task-list.scss", function() {
-				var newContent = require("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./task-list.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 751 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(449)();
-	// imports
-
-
-	// module
-	exports.push([module.id, ".task-list {\n  font-size: .9em; }\n  .task-list label,\n  .task-list input,\n  .task-list textarea,\n  .task-list button {\n    font-size: .9em; }\n", ""]);
-
-	// exports
-
-
-/***/ },
+/* 742 */,
+/* 743 */,
+/* 744 */,
+/* 745 */,
+/* 746 */,
+/* 747 */,
+/* 748 */,
+/* 749 */,
+/* 750 */,
+/* 751 */,
 /* 752 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -80925,7 +79795,563 @@
 	};
 
 /***/ },
-/* 788 */
+/* 788 */,
+/* 789 */,
+/* 790 */,
+/* 791 */,
+/* 792 */,
+/* 793 */,
+/* 794 */,
+/* 795 */,
+/* 796 */,
+/* 797 */,
+/* 798 */,
+/* 799 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _emptyTaskList = __webpack_require__(824);
+
+	var _emptyTaskList2 = _interopRequireDefault(_emptyTaskList);
+
+	var _taskListFilterContainer = __webpack_require__(806);
+
+	var _taskListFilterContainer2 = _interopRequireDefault(_taskListFilterContainer);
+
+	var _taskList = __webpack_require__(823);
+
+	var _taskList2 = _interopRequireDefault(_taskList);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	__webpack_require__(821);
+
+	var TaskListView = function (_Component) {
+	    _inherits(TaskListView, _Component);
+
+	    function TaskListView() {
+	        _classCallCheck(this, TaskListView);
+
+	        return _possibleConstructorReturn(this, (TaskListView.__proto__ || Object.getPrototypeOf(TaskListView)).apply(this, arguments));
+	    }
+
+	    _createClass(TaskListView, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'row' },
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'col-xs-12' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'task-list-view' },
+	                        _react2.default.createElement(_taskListFilterContainer2.default, { taskGroupName: this.props.taskGroupName }),
+	                        this.props.tasks.length == 0 ? _react2.default.createElement(_emptyTaskList2.default, {
+	                            isShowingOnlyCompleteTasks: this.props.isShowingOnlyCompleteTasks,
+	                            handleNewTask: this.props.handleNewTask
+	                        }) : _react2.default.createElement(_taskList2.default, {
+	                            tasks: this.props.tasks,
+	                            handleCompletionToggle: this.props.handleCompletionToggle,
+	                            handleNewTask: this.props.handleNewTask,
+	                            handleTaskDelete: this.props.handleTaskDelete,
+	                            handleTaskSave: this.props.handleTaskSave,
+	                            updateDisplayOrder: this.props.updateDisplayOrder
+	                        })
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return TaskListView;
+	}(_react.Component);
+
+	TaskListView.propTypes = {
+	    tasks: _react.PropTypes.arrayOf(_react.PropTypes.object).isRequired,
+	    taskGroupName: _react.PropTypes.string,
+	    isShowingOnlyCompleteTasks: _react.PropTypes.bool.isRequired,
+
+	    handleNewTask: _react.PropTypes.func.isRequired,
+	    handleCompletionToggle: _react.PropTypes.func.isRequired,
+	    handleTaskDelete: _react.PropTypes.func.isRequired,
+	    handleTaskSave: _react.PropTypes.func.isRequired,
+	    updateDisplayOrder: _react.PropTypes.func.isRequired
+	};
+
+	exports.default = TaskListView;
+
+/***/ },
+/* 800 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _taskListNewItem = __webpack_require__(801);
+
+	var _taskListNewItem2 = _interopRequireDefault(_taskListNewItem);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	__webpack_require__(804);
+
+	var EmptyTaskListNewItem = function (_React$Component) {
+	    _inherits(EmptyTaskListNewItem, _React$Component);
+
+	    function EmptyTaskListNewItem() {
+	        _classCallCheck(this, EmptyTaskListNewItem);
+
+	        return _possibleConstructorReturn(this, (EmptyTaskListNewItem.__proto__ || Object.getPrototypeOf(EmptyTaskListNewItem)).apply(this, arguments));
+	    }
+
+	    _createClass(EmptyTaskListNewItem, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(_taskListNewItem2.default, _extends({}, this.props, {
+	                className: 'empty-task-list-new-item'
+	            }));
+	        }
+	    }]);
+
+	    return EmptyTaskListNewItem;
+	}(_react2.default.Component);
+
+	EmptyTaskListNewItem.propTypes = {
+	    handleNewTask: _react2.default.PropTypes.func.isRequired
+	};
+
+	exports.default = EmptyTaskListNewItem;
+
+/***/ },
+/* 801 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _textBox = __webpack_require__(465);
+
+	var _textBox2 = _interopRequireDefault(_textBox);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	__webpack_require__(802);
+
+	var TaskListNewItem = function (_Component) {
+	    _inherits(TaskListNewItem, _Component);
+
+	    function TaskListNewItem(props) {
+	        _classCallCheck(this, TaskListNewItem);
+
+	        var _this = _possibleConstructorReturn(this, (TaskListNewItem.__proto__ || Object.getPrototypeOf(TaskListNewItem)).call(this, props));
+
+	        _this.handleBlur = _this.handleBlur.bind(_this);
+	        return _this;
+	    }
+
+	    _createClass(TaskListNewItem, [{
+	        key: 'handleBlur',
+	        value: function handleBlur(event) {
+	            if (event.target.value != '') {
+	                this.props.handleNewTask({
+	                    Name: event.target.value
+	                });
+	            }
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'task-list-new-item ' + this.props.className },
+	                _react2.default.createElement(_textBox2.default, {
+	                    placeholder: 'Add a new task',
+	                    clearOnBlur: true,
+	                    handleBlur: this.handleBlur
+	                })
+	            );
+	        }
+	    }]);
+
+	    return TaskListNewItem;
+	}(_react.Component);
+
+	TaskListNewItem.propTypes = {
+	    className: _react.PropTypes.string,
+	    handleNewTask: _react2.default.PropTypes.func.isRequired
+	};
+
+	exports.default = TaskListNewItem;
+
+/***/ },
+/* 802 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(803);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(450)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../../../node_modules/css-loader/index.js!./../../../../../../node_modules/sass-loader/index.js!./task-list-new-item.scss", function() {
+				var newContent = require("!!./../../../../../../node_modules/css-loader/index.js!./../../../../../../node_modules/sass-loader/index.js!./task-list-new-item.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 803 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(449)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".task-list-new-item {\n  background: #F5F3F2;\n  margin-top: 10px;\n  padding: 0px 15px 0px 45px; }\n  .task-list-new-item input {\n    padding: 10px;\n    border: none !important;\n    background: none; }\n    .task-list-new-item input:hover {\n      cursor: pointer; }\n    .task-list-new-item input:focus {\n      cursor: text; }\n    .task-list-new-item input::-moz-placeholder {\n      font-style: normal;\n      color: #888888; }\n    .task-list-new-item input:-moz-placeholder {\n      font-style: normal;\n      color: #888888; }\n    .task-list-new-item input::-webkit-input-placeholder {\n      font-style: normal;\n      color: #888888; }\n    .task-list-new-item input:-ms-input-placeholder {\n      font-style: normal;\n      color: #888888; }\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 804 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(805);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(450)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../../../node_modules/css-loader/index.js!./../../../../../../node_modules/sass-loader/index.js!./empty-task-list-new-item.scss", function() {
+				var newContent = require("!!./../../../../../../node_modules/css-loader/index.js!./../../../../../../node_modules/sass-loader/index.js!./empty-task-list-new-item.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 805 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(449)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".empty-task-list-new-item {\n  margin: 40px 0 0 0;\n  padding: 0; }\n  .empty-task-list-new-item input {\n    text-align: center; }\n    .empty-task-list-new-item input:hover {\n      cursor: pointer; }\n    .empty-task-list-new-item input:focus {\n      cursor: text; }\n    .empty-task-list-new-item input::-moz-placeholder {\n      font-style: normal;\n      color: #888888; }\n    .empty-task-list-new-item input:-moz-placeholder {\n      font-style: normal;\n      color: #888888; }\n    .empty-task-list-new-item input::-webkit-input-placeholder {\n      font-style: normal;\n      color: #888888; }\n    .empty-task-list-new-item input:-ms-input-placeholder {\n      font-style: normal;\n      color: #888888; }\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 806 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRedux = __webpack_require__(172);
+
+	var _filterIndicator = __webpack_require__(736);
+
+	var _filterIndicator2 = _interopRequireDefault(_filterIndicator);
+
+	var _taskListCompletionFilter = __webpack_require__(807);
+
+	var _taskListCompletionFilter2 = _interopRequireDefault(_taskListCompletionFilter);
+
+	var _taskListFilterWrapper = __webpack_require__(810);
+
+	var _taskListFilterWrapper2 = _interopRequireDefault(_taskListFilterWrapper);
+
+	var _filterActions = __webpack_require__(480);
+
+	var _filterActions2 = _interopRequireDefault(_filterActions);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
+
+
+	// components
+
+
+	// actions
+
+
+	var TaskListFilterContainer = function (_Component) {
+	    _inherits(TaskListFilterContainer, _Component);
+
+	    function TaskListFilterContainer() {
+	        _classCallCheck(this, TaskListFilterContainer);
+
+	        return _possibleConstructorReturn(this, (TaskListFilterContainer.__proto__ || Object.getPrototypeOf(TaskListFilterContainer)).apply(this, arguments));
+	    }
+
+	    _createClass(TaskListFilterContainer, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                _taskListFilterWrapper2.default,
+	                null,
+	                _react2.default.createElement(_taskListCompletionFilter2.default, {
+	                    activeFilter: this.props.filters.completion,
+	                    handleFilterChange: this.props.setCompletionFilter
+	                }),
+	                _react2.default.createElement(_filterIndicator2.default, {
+	                    taskGroupName: this.props.taskGroupName,
+	                    handleFilterClear: this.props.clearTaskGroupFilter
+	                })
+	            );
+	        }
+	    }]);
+
+	    return TaskListFilterContainer;
+	}(_react.Component);
+
+	TaskListFilterContainer.propTypes = {
+	    taskGroupName: _react.PropTypes.string,
+	    filters: _react.PropTypes.object
+	};
+
+	function mapStateToProps(state) {
+	    return {
+	        filters: state.filters
+	    };
+	}
+
+	function mapDispatchToProps(dispatch) {
+	    return {
+	        setCompletionFilter: function setCompletionFilter(filter) {
+	            dispatch(_filterActions2.default.setCompletionFilter(filter));
+	        },
+
+	        clearTaskGroupFilter: function clearTaskGroupFilter() {
+	            dispatch(_filterActions2.default.setTaskGroupFilter(0));
+	        }
+	    };
+	}
+
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(TaskListFilterContainer);
+
+/***/ },
+/* 807 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _navPill = __webpack_require__(740);
+
+	var _navPill2 = _interopRequireDefault(_navPill);
+
+	var _navPillGroup = __webpack_require__(741);
+
+	var _navPillGroup2 = _interopRequireDefault(_navPillGroup);
+
+	var _filterValues = __webpack_require__(786);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	__webpack_require__(808);
+
+	var TaskListCompletionFilter = function (_Component) {
+	    _inherits(TaskListCompletionFilter, _Component);
+
+	    function TaskListCompletionFilter() {
+	        _classCallCheck(this, TaskListCompletionFilter);
+
+	        return _possibleConstructorReturn(this, (TaskListCompletionFilter.__proto__ || Object.getPrototypeOf(TaskListCompletionFilter)).apply(this, arguments));
+	    }
+
+	    _createClass(TaskListCompletionFilter, [{
+	        key: 'render',
+	        value: function render() {
+	            var _this2 = this;
+
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'task-list-completion-filter' },
+	                _react2.default.createElement(
+	                    _navPillGroup2.default,
+	                    null,
+	                    _react2.default.createElement(_navPill2.default, {
+	                        text: 'all',
+	                        isActive: this.props.activeFilter == _filterValues.completion.ALL,
+	                        handleClick: function handleClick() {
+	                            return _this2.props.handleFilterChange(_filterValues.completion.ALL);
+	                        }
+	                    }),
+	                    _react2.default.createElement(_navPill2.default, {
+	                        text: 'complete',
+	                        isActive: this.props.activeFilter == _filterValues.completion.COMPLETE,
+	                        handleClick: function handleClick() {
+	                            return _this2.props.handleFilterChange(_filterValues.completion.COMPLETE);
+	                        }
+	                    }),
+	                    _react2.default.createElement(_navPill2.default, {
+	                        text: 'incomplete',
+	                        isActive: this.props.activeFilter == _filterValues.completion.INCOMPLETE,
+	                        handleClick: function handleClick() {
+	                            return _this2.props.handleFilterChange(_filterValues.completion.INCOMPLETE);
+	                        }
+	                    })
+	                )
+	            );
+	        }
+	    }]);
+
+	    return TaskListCompletionFilter;
+	}(_react.Component);
+
+	TaskListCompletionFilter.propTypes = {
+	    activeFilter: _react.PropTypes.string.isRequired,
+	    handleFilterChange: _react.PropTypes.func.isRequired
+	};
+
+	exports.default = TaskListCompletionFilter;
+
+/***/ },
+/* 808 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(809);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(450)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../../../node_modules/css-loader/index.js!./../../../../../../node_modules/sass-loader/index.js!./task-list-completion-filter.scss", function() {
+				var newContent = require("!!./../../../../../../node_modules/css-loader/index.js!./../../../../../../node_modules/sass-loader/index.js!./task-list-completion-filter.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 809 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(449)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".task-list-completion-filter {\n  display: inline-block; }\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 810 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -80948,7 +80374,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	__webpack_require__(789);
+	__webpack_require__(811);
 
 	var TaskListFilterWrapper = function (_React$Component) {
 	    _inherits(TaskListFilterWrapper, _React$Component);
@@ -80976,13 +80402,13 @@
 	exports.default = TaskListFilterWrapper;
 
 /***/ },
-/* 789 */
+/* 811 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(790);
+	var content = __webpack_require__(812);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(450)(content, {});
@@ -81002,7 +80428,7 @@
 	}
 
 /***/ },
-/* 790 */
+/* 812 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(449)();
@@ -81014,6 +80440,843 @@
 
 	// exports
 
+
+/***/ },
+/* 813 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _checkbox = __webpack_require__(672);
+
+	var _checkbox2 = _interopRequireDefault(_checkbox);
+
+	var _taskListItemBrief = __webpack_require__(814);
+
+	var _taskListItemBrief2 = _interopRequireDefault(_taskListItemBrief);
+
+	var _taskListItemDetails = __webpack_require__(815);
+
+	var _taskListItemDetails2 = _interopRequireDefault(_taskListItemDetails);
+
+	var _toggler = __webpack_require__(726);
+
+	var _toggler2 = _interopRequireDefault(_toggler);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
+
+
+	// components
+
+
+	// styles
+	__webpack_require__(816);
+
+	var TaskListItem = function (_Component) {
+	    _inherits(TaskListItem, _Component);
+
+	    function TaskListItem() {
+	        _classCallCheck(this, TaskListItem);
+
+	        return _possibleConstructorReturn(this, (TaskListItem.__proto__ || Object.getPrototypeOf(TaskListItem)).apply(this, arguments));
+	    }
+
+	    _createClass(TaskListItem, [{
+	        key: 'render',
+	        value: function render() {
+	            var _this2 = this;
+
+	            var _props = this.props;
+	            var text = _props.text;
+	            var isDragging = _props.isDragging;
+	            var connectDragSource = _props.connectDragSource;
+	            var connectDropTarget = _props.connectDropTarget;
+
+	            var opacity = isDragging ? 0 : 1;
+
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'task-list-item ' + (this.props.isDimmed ? 'dimmed' : '') },
+	                _react2.default.createElement(_checkbox2.default, {
+	                    checked: this.props.task.Complete,
+	                    handleChange: function handleChange(event) {
+	                        return _this2.props.handleCompletionToggle(_this2.props.task.Id, event);
+	                    }
+	                }),
+	                _react2.default.createElement(_taskListItemBrief2.default, {
+	                    id: this.props.task.Id,
+	                    name: this.props.task.Name,
+	                    complete: this.props.task.Complete,
+	                    lastDateCompleted: this.props.task.LastDateCompleted,
+	                    plannedDate: this.props.task.PlannedDate,
+	                    dueDate: this.props.task.DueDate,
+	                    isOpen: this.props.isOpen,
+	                    handleNameClick: this.props.handleNameClick,
+	                    handleSave: this.props.handleSave,
+	                    hideDetails: this.props.closeTask,
+	                    showDetails: this.props.openTask
+	                }),
+	                _react2.default.createElement(
+	                    _toggler2.default,
+	                    { isVisible: this.props.isOpen },
+	                    _react2.default.createElement(_taskListItemDetails2.default, {
+	                        taskId: this.props.task.Id,
+	                        taskNotes: this.props.task.Notes,
+	                        handleDelete: this.props.handleDelete,
+	                        handleNotesSave: this.props.handleSave
+	                    })
+	                )
+	            );
+	        }
+	    }]);
+
+	    return TaskListItem;
+	}(_react.Component);
+
+	TaskListItem.propTypes = {
+	    task: _react.PropTypes.shape({
+	        Id: _react.PropTypes.number.isRequired,
+	        Name: _react.PropTypes.string.isRequired,
+	        Notes: _react.PropTypes.string,
+	        Complete: _react.PropTypes.bool.isRequired,
+	        LastDateCompleted: _react.PropTypes.string,
+	        PlannedDate: _react.PropTypes.string,
+	        DueDate: _react.PropTypes.string
+	    }).isRequired,
+	    isOpen: _react.PropTypes.bool.isRequired,
+	    isDimmed: _react.PropTypes.bool.isRequired,
+
+	    openTask: _react.PropTypes.func.isRequired,
+	    closeTask: _react.PropTypes.func.isRequired,
+	    handleNameClick: _react.PropTypes.func.isRequired,
+	    handleCompletionToggle: _react.PropTypes.func.isRequired,
+	    handleDelete: _react.PropTypes.func.isRequired,
+	    handleSave: _react.PropTypes.func.isRequired
+	};
+
+	exports.default = TaskListItem;
+
+/***/ },
+/* 814 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _flexboxReact = __webpack_require__(677);
+
+	var _flexboxReact2 = _interopRequireDefault(_flexboxReact);
+
+	var _dateBox = __webpack_require__(713);
+
+	var _dateBox2 = _interopRequireDefault(_dateBox);
+
+	var _downAngleIcon = __webpack_require__(456);
+
+	var _downAngleIcon2 = _interopRequireDefault(_downAngleIcon);
+
+	var _rightAngleIcon = __webpack_require__(458);
+
+	var _rightAngleIcon2 = _interopRequireDefault(_rightAngleIcon);
+
+	var _textBox = __webpack_require__(465);
+
+	var _textBox2 = _interopRequireDefault(_textBox);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
+
+
+	// components
+
+
+	var TaskListItemBrief = function (_Component) {
+	    _inherits(TaskListItemBrief, _Component);
+
+	    function TaskListItemBrief(props) {
+	        _classCallCheck(this, TaskListItemBrief);
+
+	        var _this = _possibleConstructorReturn(this, (TaskListItemBrief.__proto__ || Object.getPrototypeOf(TaskListItemBrief)).call(this, props));
+
+	        _this.handleDueDateSave = _this.handleDueDateSave.bind(_this);
+	        _this.handleNameClick = _this.handleNameClick.bind(_this);
+	        _this.handleNameSave = _this.handleNameSave.bind(_this);
+	        _this.handlePlannedDateSave = _this.handlePlannedDateSave.bind(_this);
+	        return _this;
+	    }
+
+	    _createClass(TaskListItemBrief, [{
+	        key: 'handleNameClick',
+	        value: function handleNameClick(event) {
+	            if (!this.props.isOpen) {
+	                this.props.handleNameClick(this.props.id, event);
+	            }
+	        }
+	    }, {
+	        key: 'handleNameSave',
+	        value: function handleNameSave(event) {
+	            if (event.target.value != this.props.name) {
+	                this.props.handleSave(this.props.id, {
+	                    Name: event.target.value
+	                });
+	            }
+	        }
+	    }, {
+	        key: 'handlePlannedDateSave',
+	        value: function handlePlannedDateSave(date) {
+	            if (date != this.props.plannedDate) {
+	                this.props.handleSave(this.props.id, {
+	                    PlannedDate: date || ''
+	                });
+	            }
+	        }
+	    }, {
+	        key: 'handleDueDateSave',
+	        value: function handleDueDateSave(date) {
+	            if (date != this.props.dueDate) {
+	                this.props.handleSave(this.props.id, {
+	                    DueDate: date || ''
+	                });
+	            }
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var _this2 = this;
+
+	            return _react2.default.createElement(
+	                'div',
+	                { className: '\n                task-brief\n                ' + (this.props.isOpen ? 'edit-mode' : '') + '\n                ' + (this.props.complete ? 'task-complete' : '') + '\n            ' },
+	                _react2.default.createElement(
+	                    _flexboxReact2.default,
+	                    { flexDirection: 'row' },
+	                    _react2.default.createElement(
+	                        _flexboxReact2.default,
+	                        {
+	                            flexGrow: 1,
+	                            className: 'task-name'
+	                        },
+	                        _react2.default.createElement(_textBox2.default, {
+	                            isDisabled: this.props.complete,
+	                            value: this.props.name,
+	                            handleClick: this.handleNameClick,
+	                            handleBlur: this.handleNameSave
+	                        })
+	                    ),
+	                    this.props.complete ? _react2.default.createElement(
+	                        _flexboxReact2.default,
+	                        null,
+	                        _react2.default.createElement(_dateBox2.default, {
+	                            label: 'completed',
+	                            value: this.props.lastDateCompleted,
+	                            contextColorsEnabled: false,
+	                            isDisabled: true
+	                        })
+	                    ) : _react2.default.createElement(
+	                        _flexboxReact2.default,
+	                        null,
+	                        _react2.default.createElement(
+	                            _flexboxReact2.default,
+	                            null,
+	                            _react2.default.createElement(_dateBox2.default, {
+	                                label: 'planned for',
+	                                value: this.props.plannedDate,
+	                                handleChange: this.handlePlannedDateSave
+	                            })
+	                        ),
+	                        _react2.default.createElement(
+	                            _flexboxReact2.default,
+	                            null,
+	                            _react2.default.createElement(_dateBox2.default, {
+	                                label: 'due',
+	                                value: this.props.dueDate,
+	                                handleChange: this.handleDueDateSave
+	                            })
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        _flexboxReact2.default,
+	                        null,
+	                        this.props.isOpen ? _react2.default.createElement(_downAngleIcon2.default, { handleClick: function handleClick(event) {
+	                                return _this2.props.hideDetails(_this2.props.id, event);
+	                            } }) : _react2.default.createElement(_rightAngleIcon2.default, { handleClick: function handleClick(event) {
+	                                return _this2.props.showDetails(_this2.props.id, event);
+	                            } })
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return TaskListItemBrief;
+	}(_react.Component);
+
+	TaskListItemBrief.propTypes = {
+	    id: _react.PropTypes.number.isRequired,
+	    name: _react.PropTypes.string.isRequired,
+	    complete: _react.PropTypes.bool.isRequired,
+	    lastDateCompleted: _react.PropTypes.string,
+	    plannedDate: _react.PropTypes.string,
+	    dueDate: _react.PropTypes.string,
+	    isOpen: _react.PropTypes.bool.isRequired,
+
+	    handleNameClick: _react.PropTypes.func.isRequired,
+	    handleSave: _react.PropTypes.func.isRequired,
+	    hideDetails: _react.PropTypes.func.isRequired,
+	    showDetails: _react.PropTypes.func.isRequired
+	};
+
+	exports.default = TaskListItemBrief;
+
+/***/ },
+/* 815 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _deleteButton = __webpack_require__(720);
+
+	var _deleteButton2 = _interopRequireDefault(_deleteButton);
+
+	var _formGroup = __webpack_require__(722);
+
+	var _formGroup2 = _interopRequireDefault(_formGroup);
+
+	var _textArea = __webpack_require__(723);
+
+	var _textArea2 = _interopRequireDefault(_textArea);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
+
+
+	// components
+
+
+	var TaskListItemDetails = function (_Component) {
+	    _inherits(TaskListItemDetails, _Component);
+
+	    function TaskListItemDetails(props) {
+	        _classCallCheck(this, TaskListItemDetails);
+
+	        var _this = _possibleConstructorReturn(this, (TaskListItemDetails.__proto__ || Object.getPrototypeOf(TaskListItemDetails)).call(this, props));
+
+	        _this.handleNotesSave = _this.handleNotesSave.bind(_this);
+	        return _this;
+	    }
+
+	    _createClass(TaskListItemDetails, [{
+	        key: 'handleNotesSave',
+	        value: function handleNotesSave(event) {
+	            var _this2 = this;
+
+	            if (event.target.value != this.props.taskNotes) {
+	                (function () {
+	                    var message = document.getElementById('task-details-message-' + _this2.props.taskId);
+
+	                    _this2.props.handleNotesSave(_this2.props.taskId, {
+	                        Notes: event.target.value
+	                    });
+
+	                    message.textContent = 'Task notes updated.';
+	                    message.className = 'task-details-message animated fadeIn';
+
+	                    setTimeout(function () {
+	                        message.className = 'task-details-message animated fadeOut';
+	                    }, 3000);
+	                })();
+	            }
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'task-details' },
+	                _react2.default.createElement(
+	                    _formGroup2.default,
+	                    null,
+	                    _react2.default.createElement(
+	                        'label',
+	                        null,
+	                        'Notes'
+	                    ),
+	                    _react2.default.createElement(_textArea2.default, {
+	                        value: this.props.taskNotes,
+	                        handleBlur: this.handleNotesSave
+	                    })
+	                ),
+	                _react2.default.createElement(_deleteButton2.default, {
+	                    value: this.props.taskId,
+	                    handleClick: this.props.handleDelete
+	                }),
+	                _react2.default.createElement('span', { className: 'task-details-message hidden', id: 'task-details-message-' + this.props.taskId })
+	            );
+	        }
+	    }]);
+
+	    return TaskListItemDetails;
+	}(_react.Component);
+
+	TaskListItemDetails.propTypes = {
+	    taskId: _react.PropTypes.number.isRequired,
+	    taskNotes: _react.PropTypes.string,
+	    handleDelete: _react.PropTypes.func.isRequired,
+	    handleNotesSave: _react.PropTypes.func.isRequired
+	};
+
+	TaskListItemDetails.defaultProps = {
+	    taskNotes: ''
+	};
+
+	exports.default = TaskListItemDetails;
+
+/***/ },
+/* 816 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(817);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(450)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../../../node_modules/css-loader/index.js!./../../../../../../node_modules/sass-loader/index.js!./task-list-item.scss", function() {
+				var newContent = require("!!./../../../../../../node_modules/css-loader/index.js!./../../../../../../node_modules/sass-loader/index.js!./task-list-item.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 817 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(449)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".task-list-item {\n  width: 100%;\n  padding: 15px;\n  background: #ffffff;\n  margin-bottom: 5px; }\n  .task-list-item .task-brief {\n    display: inline-block;\n    width: calc(100% - 30px);\n    margin: 0 0 0 15px; }\n    .task-list-item .task-brief input {\n      display: inline-block;\n      background: none;\n      border: 1px solid #ffffff;\n      font-size: 1.1em; }\n      .task-list-item .task-brief input:hover {\n        cursor: pointer; }\n    .task-list-item .task-brief i {\n      width: 20px;\n      padding: 15px 0 5px 0;\n      text-align: center; }\n      .task-list-item .task-brief i:hover {\n        cursor: pointer; }\n    .task-list-item .task-brief div > div {\n      margin-left: 10px; }\n    .task-list-item .task-brief .task-name {\n      margin-left: 0;\n      font-size: 1.3em;\n      font-family: 'Roboto';\n      font-weight: 300; }\n    .task-list-item .task-brief .date-box input {\n      padding: 2px; }\n  .task-list-item .task-brief.task-complete .task-name input {\n    text-decoration: line-through;\n    color: #cccccc; }\n  .task-list-item .task-brief.edit-mode input {\n    border: 1px solid #e6e6e8; }\n    .task-list-item .task-brief.edit-mode input:hover {\n      cursor: inherit; }\n  .task-list-item .task-details {\n    margin: 15px 30px 0 30px; }\n    .task-list-item .task-details textarea.form-control {\n      height: 100px; }\n    .task-list-item .task-details .task-details-message {\n      font-size: .8em;\n      color: #888888;\n      margin-left: 10px;\n      display: inline-block;\n      /*&:after {\n                overflow: hidden;\n                display: inline-block;\n                vertical-align: bottom;\n                -webkit-animation: ellipsis steps(4,end) 900ms infinite;      \n                animation: ellipsis steps(4,end) 900ms infinite;\n                content: \"\\2026\";\n                width: 0px;\n            }\n\n            @keyframes ellipsis {\n                to {\n                    width: 1.25em;    \n                }\n            }\n\n            @-webkit-keyframes ellipsis {\n                to {\n                    width: 1.25em;    \n                }\n            }*/ }\n    .task-list-item .task-details .hidden {\n      opacity: 0; }\n\n.task-list-item.dimmed {\n  opacity: .5; }\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 818 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	__webpack_require__(819);
+
+	var TaskListPlaceholder = function (_Component) {
+	    _inherits(TaskListPlaceholder, _Component);
+
+	    function TaskListPlaceholder() {
+	        _classCallCheck(this, TaskListPlaceholder);
+
+	        return _possibleConstructorReturn(this, (TaskListPlaceholder.__proto__ || Object.getPrototypeOf(TaskListPlaceholder)).apply(this, arguments));
+	    }
+
+	    _createClass(TaskListPlaceholder, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'p',
+	                { className: 'task-list-placeholder' },
+	                _react2.default.createElement(
+	                    'span',
+	                    { className: 'large' },
+	                    this.props.headline
+	                ),
+	                this.props.body
+	            );
+	        }
+	    }]);
+
+	    return TaskListPlaceholder;
+	}(_react.Component);
+
+	TaskListPlaceholder.propTypes = {
+	    headline: _react.PropTypes.string.isRequired,
+	    body: _react.PropTypes.string.isRequired
+	};
+
+	exports.default = TaskListPlaceholder;
+
+/***/ },
+/* 819 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(820);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(450)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./task-list-placeholder.scss", function() {
+				var newContent = require("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./task-list-placeholder.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 820 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(449)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".task-list-placeholder {\n  margin: 20px 0 0 0;\n  font-size: 1.3em;\n  color: #888888;\n  text-align: center; }\n  .task-list-placeholder .large {\n    font-size: 3em;\n    font-weight: 100;\n    font-family: 'Roboto';\n    display: block; }\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 821 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(822);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(450)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./task-list-view.scss", function() {
+				var newContent = require("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./task-list-view.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 822 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(449)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".task-list-view {\n  font-size: .9em; }\n  .task-list-view label,\n  .task-list-view input,\n  .task-list-view textarea,\n  .task-list-view button {\n    font-size: .9em; }\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 823 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _draggableList = __webpack_require__(667);
+
+	var _draggableList2 = _interopRequireDefault(_draggableList);
+
+	var _taskListItem = __webpack_require__(813);
+
+	var _taskListItem2 = _interopRequireDefault(_taskListItem);
+
+	var _taskListNewItem = __webpack_require__(801);
+
+	var _taskListNewItem2 = _interopRequireDefault(_taskListNewItem);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var TaskList = function (_Component) {
+	    _inherits(TaskList, _Component);
+
+	    function TaskList(props) {
+	        _classCallCheck(this, TaskList);
+
+	        var _this = _possibleConstructorReturn(this, (TaskList.__proto__ || Object.getPrototypeOf(TaskList)).call(this, props));
+
+	        _this.state = {
+	            openTaskIds: []
+	        };
+
+	        _this.openTask = _this.openTask.bind(_this);
+	        _this.closeTask = _this.closeTask.bind(_this);
+	        _this.getTaskListItems = _this.getTaskListItems.bind(_this);
+	        _this.handleTaskNameClick = _this.handleTaskNameClick.bind(_this);
+	        _this.handleTaskDelete = _this.handleTaskDelete.bind(_this);
+	        return _this;
+	    }
+
+	    _createClass(TaskList, [{
+	        key: 'openTask',
+	        value: function openTask(taskId, event) {
+	            if (!this.state.openTaskIds.includes(taskId)) {
+	                this.setState({
+	                    openTaskIds: this.state.openTaskIds.concat(taskId)
+	                });
+	            }
+	        }
+	    }, {
+	        key: 'closeTask',
+	        value: function closeTask(taskId, event) {
+	            var newList = Object.assign([], this.state.openTaskIds);
+	            newList.splice(this.state.openTaskIds.indexOf(taskId), 1);
+
+	            this.setState({
+	                openTaskIds: newList
+	            });
+	        }
+	    }, {
+	        key: 'getTaskListItems',
+	        value: function getTaskListItems() {
+	            var _this2 = this;
+
+	            return this.props.tasks.map(function (task, key) {
+	                var isOpen = _this2.state.openTaskIds.includes(task.Id);
+
+	                return _react2.default.createElement(_taskListItem2.default, {
+	                    key: key,
+	                    task: task,
+	                    isOpen: isOpen,
+	                    isDimmed: !isOpen && _this2.state.openTaskIds.length != 0,
+	                    openTask: _this2.openTask,
+	                    closeTask: _this2.closeTask,
+	                    handleNameClick: _this2.handleTaskNameClick,
+	                    handleCompletionToggle: _this2.props.handleCompletionToggle,
+	                    handleSave: _this2.props.handleTaskSave,
+	                    handleDelete: _this2.handleTaskDelete
+	                });
+	            });
+	        }
+	    }, {
+	        key: 'handleTaskNameClick',
+	        value: function handleTaskNameClick(taskId, event) {
+	            this.openTask(taskId);
+	        }
+	    }, {
+	        key: 'handleTaskDelete',
+	        value: function handleTaskDelete(event) {
+	            this.closeTask(event.target.value);
+	            this.props.handleTaskDelete(event);
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var listItems = this.getTaskListItems();
+
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'task-list' },
+	                this.state.openTaskIds.length == 0 ? _react2.default.createElement(
+	                    _draggableList2.default,
+	                    {
+	                        items: this.props.tasks,
+	                        updateDisplayOrder: this.props.updateDisplayOrder
+	                    },
+	                    listItems
+	                ) : _react2.default.createElement(
+	                    'div',
+	                    null,
+	                    listItems
+	                ),
+	                _react2.default.createElement(_taskListNewItem2.default, { handleNewTask: this.props.handleNewTask })
+	            );
+	        }
+	    }]);
+
+	    return TaskList;
+	}(_react.Component);
+
+	TaskList.propTypes = {
+	    tasks: _react.PropTypes.arrayOf(_react.PropTypes.object).isRequired,
+
+	    handleCompletionToggle: _react.PropTypes.func.isRequired,
+	    handleNewTask: _react.PropTypes.func.isRequired,
+	    handleTaskDelete: _react.PropTypes.func.isRequired,
+	    handleTaskSave: _react.PropTypes.func.isRequired,
+	    updateDisplayOrder: _react.PropTypes.func.isRequired
+	};
+
+	exports.default = TaskList;
+
+/***/ },
+/* 824 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _emptyTaskListNewItem = __webpack_require__(800);
+
+	var _emptyTaskListNewItem2 = _interopRequireDefault(_emptyTaskListNewItem);
+
+	var _taskListPlaceholder = __webpack_require__(818);
+
+	var _taskListPlaceholder2 = _interopRequireDefault(_taskListPlaceholder);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var EmptyTaskList = function (_Component) {
+	    _inherits(EmptyTaskList, _Component);
+
+	    function EmptyTaskList() {
+	        _classCallCheck(this, EmptyTaskList);
+
+	        return _possibleConstructorReturn(this, (EmptyTaskList.__proto__ || Object.getPrototypeOf(EmptyTaskList)).apply(this, arguments));
+	    }
+
+	    _createClass(EmptyTaskList, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'empty-task-list' },
+	                this.props.isShowingOnlyCompleteTasks ? _react2.default.createElement(_taskListPlaceholder2.default, {
+	                    headline: 'You\'ve got work to do.',
+	                    body: 'You haven\'t completed any tasks with these criteria. You\'re better than that.'
+	                }) : _react2.default.createElement(
+	                    'div',
+	                    null,
+	                    _react2.default.createElement(_taskListPlaceholder2.default, {
+	                        headline: 'Hello?',
+	                        body: 'It\'s looking a little barren in here. Use the link below to add tasks.'
+	                    }),
+	                    _react2.default.createElement(_emptyTaskListNewItem2.default, { handleNewTask: this.props.handleNewTask })
+	                )
+	            );
+	        }
+	    }]);
+
+	    return EmptyTaskList;
+	}(_react.Component);
+
+	EmptyTaskList.propTypes = {
+	    isShowingOnlyCompleteTasks: _react.PropTypes.bool.isRequired,
+	    handleNewTask: _react.PropTypes.func.isRequired
+	};
+
+	exports.default = EmptyTaskList;
 
 /***/ }
 /******/ ]);
