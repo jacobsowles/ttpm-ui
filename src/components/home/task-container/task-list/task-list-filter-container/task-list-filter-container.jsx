@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 // components
 import FilterIndicator from '~/home/filter-indicator/filter-indicator';
 import TaskListCompletionFilter from './task-list-completion-filter';
+import TaskListFilterWrapper from './task-list-filter-wrapper';
 
 // actions
 import filterActions from '@/actions/filter-actions';
@@ -13,7 +14,7 @@ class TaskListFilterContainer extends Component {
 
     render() {
         return (
-            <div>
+            <TaskListFilterWrapper>
                 <TaskListCompletionFilter
                     activeFilter={this.props.filters.completion}
                     handleFilterChange={this.props.setCompletionFilter}
@@ -23,7 +24,7 @@ class TaskListFilterContainer extends Component {
                     taskGroupName={this.props.taskGroupName}
                     handleFilterClear={this.props.clearTaskGroupFilter}
                 />
-            </div>
+            </TaskListFilterWrapper>
         );
     }
 }
