@@ -79843,7 +79843,7 @@
 
 
 	// module
-	exports.push([module.id, ".task-list-placeholder {\n  margin-left: 55px;\n  border-left: 5px solid #e5e3e3;\n  padding: 5px 0 15px 20px;\n  font-size: 1.3em;\n  color: #888888; }\n  .task-list-placeholder .large {\n    font-size: 3em;\n    font-weight: 100;\n    font-family: 'Roboto';\n    margin-left: -4px;\n    display: block; }\n", ""]);
+	exports.push([module.id, ".task-list-placeholder {\n  margin: 20px 0 0 55px;\n  border-left: 5px solid #e5e3e3;\n  padding: 5px 0 15px 20px;\n  font-size: 1.3em;\n  color: #888888; }\n  .task-list-placeholder .large {\n    font-size: 3em;\n    font-weight: 100;\n    font-family: 'Roboto';\n    margin-left: -4px;\n    display: block; }\n", ""]);
 
 	// exports
 
