@@ -80,7 +80,7 @@ class TaskList extends Component {
             <div className="row">
                 <div className="col-xs-12">
                     <div className="task-list">
-                        <TaskListFilterContainer />
+                        <TaskListFilterContainer taskGroupName={this.props.taskGroupName} />
 
                         {
                             this.props.tasks.length == 0

@@ -71381,7 +71381,7 @@
 	                    _react2.default.createElement(
 	                        'div',
 	                        { className: 'task-list' },
-	                        _react2.default.createElement(_taskListFilterContainer2.default, null),
+	                        _react2.default.createElement(_taskListFilterContainer2.default, { taskGroupName: this.props.taskGroupName }),
 	                        this.props.tasks.length == 0 ? _react2.default.createElement(_taskListPlaceholder2.default, null) : this.state.openTaskIds.length == 0 ? _react2.default.createElement(
 	                            _draggableList2.default,
 	                            {
