@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import NavPill from '~/navigation/nav-pills/nav-pill';
 import NavPillGroup from '~/navigation/nav-pills/nav-pill-group';
 
-import { completion } from '@/filter-values';
+import { completion } from '@/utils/filter-values';
 
 require('./task-list-completion-filter.scss');
 

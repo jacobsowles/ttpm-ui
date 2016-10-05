@@ -1,15 +1,11 @@
-// npm modules
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 
-// actions
-import registrationFormActions from './registration-form-actions.js';
+import registrationFormActions from '@/actions/registration-form-actions';
 
-// styles
 require('./registration-form.scss');
 
-class RegistrationForm extends React.Component {
+class RegistrationForm extends Component {
 
     constructor() {
         super();
@@ -49,8 +45,8 @@ class RegistrationForm extends React.Component {
 }
 
 RegistrationForm.propTypes = {
-    isLoading: React.PropTypes.bool.isRequired,
-    error: React.PropTypes.string.isRequired
+    isLoading: PropTypes.bool.isRequired,
+    error: PropTypes.string.isRequired
 };
 
 function mapStateToProps(state) {
@@ -61,9 +57,11 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({
-        registerUser: registrationFormActions.registerUser
-    }, dispatch);
+    return {
+        registerUser: function(email, password, confirmPassword) {
+            dispatch(registrationFormActions.registerUser(email, password, confirmPassword));
+        }
+    };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(RegistrationForm);

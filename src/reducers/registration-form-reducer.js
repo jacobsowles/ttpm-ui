@@ -1,6 +1,3 @@
-// utils
-import { saveAuthentication } from '../../../auth';
-
 const initialState = {
     isLoading: false,
     error: ''
@@ -8,10 +5,7 @@ const initialState = {
 
 export default function reducer(state = initialState, action) {
     switch (action.type) {
-        // PENDING
-
-        case 'LOGIN_PENDING':
-         {
+        case 'REGISTER_USER_PENDING': {
             state = {
                 ...state,
                 isLoading: true,
@@ -20,11 +14,7 @@ export default function reducer(state = initialState, action) {
             break;
         }
 
-        // FULFILLED
-
-        case 'LOGIN_FULFILLED': {
-            saveAuthentication(action.payload['userName'], action.payload['access_token']);
-
+        case 'REGISTER_USER_FULFILLED': {
             state = {
                 ...state,
                 isLoading: false,
@@ -33,13 +23,11 @@ export default function reducer(state = initialState, action) {
             break;
         }
 
-        // REJECTED
-
-        case 'LOGIN_REJECTED': {
+        case 'REGISTER_USER_REJECTED': {
             state = {
                 ...state,
                 isLoading: false,
-                error: 'Failed to log in.'
+                error: 'Failed to register user.'
             };
             break;
         }

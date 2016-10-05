@@ -1,4 +1,4 @@
-import { get, post, del } from '../../../api.js';
+import { post } from '@/api.js';
 
 module.exports = {
     registerUser(options) {

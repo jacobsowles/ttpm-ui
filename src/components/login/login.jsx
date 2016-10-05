@@ -1,16 +1,11 @@
-// npm modules
 import React from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 
-// components
-import LoginForm from './login-form/login-form.jsx';
-import RegistrationForm from './registration-form/registration-form.jsx';
+import LoginForm from './login-form';
+import RegistrationForm from './registration-form';
 
-// utils
-import { isLoggedIn } from '../../auth';
+import { isLoggedIn } from '@/utils/auth';
 
-// styles
 require('./login.scss');
 
 class Login extends React.Component {
@@ -57,8 +52,8 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({
-    }, dispatch);
+    return {
+    };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

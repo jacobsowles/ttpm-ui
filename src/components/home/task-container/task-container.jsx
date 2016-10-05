@@ -11,7 +11,7 @@ import TaskList from './task-list/task-list';
 import taskActions from '@/actions/task-actions';
 
 // util
-import { completion } from '@/filter-values';
+import { completion } from '@/utils/filter-values';
 
 class TaskContainer extends React.Component {
 

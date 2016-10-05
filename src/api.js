@@ -1,5 +1,5 @@
 import superagent from 'superagent';
-import auth from './auth';
+import auth from './utils/auth';
 
 require('superagent-auth-bearer')(superagent);
 
