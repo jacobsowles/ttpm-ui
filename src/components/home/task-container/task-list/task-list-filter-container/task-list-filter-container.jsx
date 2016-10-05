@@ -18,7 +18,11 @@ class TaskListFilterContainer extends Component {
                     activeFilter={this.props.filters.completion}
                     handleFilterChange={this.props.setCompletionFilter}
                 />
-                <FilterIndicator taskGroupName={this.props.taskGroupName} />
+
+                <FilterIndicator
+                    taskGroupName={this.props.taskGroupName}
+                    handleFilterClear={this.props.clearTaskGroupFilter}
+                />
             </div>
         );
     }
@@ -39,6 +43,10 @@ function mapDispatchToProps(dispatch) {
     return {
         setCompletionFilter: function(filter) {
             dispatch(filterActions.setCompletionFilter(filter));
+        },
+
+        clearTaskGroupFilter: function() {
+            dispatch(filterActions.setTaskGroupFilter(0));
         }
     };
 }

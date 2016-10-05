@@ -79350,8 +79350,8 @@
 
 	__webpack_require__(737);
 
-	var FilterIndicator = function (_React$Component) {
-	    _inherits(FilterIndicator, _React$Component);
+	var FilterIndicator = function (_Component) {
+	    _inherits(FilterIndicator, _Component);
 
 	    function FilterIndicator() {
 	        _classCallCheck(this, FilterIndicator);
@@ -79377,7 +79377,7 @@
 	                    ' group | ',
 	                    _react2.default.createElement(
 	                        'a',
-	                        { href: '/' },
+	                        { onClick: this.props.handleFilterClear },
 	                        'show all tasks'
 	                    )
 	                ) : _react2.default.createElement(
@@ -79390,10 +79390,11 @@
 	    }]);
 
 	    return FilterIndicator;
-	}(_react2.default.Component);
+	}(_react.Component);
 
 	FilterIndicator.propTypes = {
-	    taskGroupName: _react2.default.PropTypes.string
+	    taskGroupName: _react.PropTypes.string,
+	    handleFilterClear: _react.PropTypes.func.isRequired
 	};
 
 	exports.default = FilterIndicator;
@@ -80648,7 +80649,10 @@
 	                    activeFilter: this.props.filters.completion,
 	                    handleFilterChange: this.props.setCompletionFilter
 	                }),
-	                _react2.default.createElement(_filterIndicator2.default, { taskGroupName: this.props.taskGroupName })
+	                _react2.default.createElement(_filterIndicator2.default, {
+	                    taskGroupName: this.props.taskGroupName,
+	                    handleFilterClear: this.props.clearTaskGroupFilter
+	                })
 	            );
 	        }
 	    }]);
@@ -80671,6 +80675,10 @@
 	    return {
 	        setCompletionFilter: function setCompletionFilter(filter) {
 	            dispatch(_filterActions2.default.setCompletionFilter(filter));
+	        },
+
+	        clearTaskGroupFilter: function clearTaskGroupFilter() {
+	            dispatch(_filterActions2.default.setTaskGroupFilter(0));
 	        }
 	    };
 	}
