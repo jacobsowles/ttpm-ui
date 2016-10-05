@@ -45223,6 +45223,7 @@
 	                    _react2.default.createElement(_taskList2.default, {
 	                        tasks: this.props.filteredTasks,
 	                        taskGroupName: this.props.taskGroupName,
+	                        isShowingOnlyCompleteTasks: this.props.filters.completion == _filterValues.completion.COMPLETE,
 	                        handleNewTask: function handleNewTask(task) {
 	                            return _this2.props.handleNewTask(task, _this2.props.filters.taskGroupId);
 	                        },
@@ -71228,7 +71229,10 @@
 	                        'div',
 	                        { className: 'task-list' },
 	                        _react2.default.createElement(_taskListFilterContainer2.default, { taskGroupName: this.props.taskGroupName }),
-	                        this.props.tasks.length == 0 ? _react2.default.createElement(_taskListPlaceholder2.default, null) : this.state.openTaskIds.length == 0 ? _react2.default.createElement(
+	                        this.props.tasks.length == 0 ? _react2.default.createElement(_taskListPlaceholder2.default, {
+	                            headline: this.props.isShowingOnlyCompleteTasks ? 'You\'ve got work to do.' : 'Hello?',
+	                            body: this.props.isShowingOnlyCompleteTasks ? 'You haven\'t completed any tasks with these criteria. You\'re better than that.' : 'It\'s looking a little barren in here. Use the link below to add tasks.'
+	                        }) : this.state.openTaskIds.length == 0 ? _react2.default.createElement(
 	                            _draggableList2.default,
 	                            {
 	                                items: this.props.tasks,
@@ -71253,6 +71257,7 @@
 	TaskList.propTypes = {
 	    tasks: _react.PropTypes.arrayOf(_react.PropTypes.object).isRequired,
 	    taskGroupName: _react.PropTypes.string,
+	    isShowingOnlyCompleteTasks: _react.PropTypes.bool.isRequired,
 
 	    handleNewTask: _react.PropTypes.func.isRequired,
 	    handleCompletionToggle: _react.PropTypes.func.isRequired,
@@ -79778,8 +79783,8 @@
 
 	__webpack_require__(748);
 
-	var TaskListPlaceholder = function (_React$Component) {
-	    _inherits(TaskListPlaceholder, _React$Component);
+	var TaskListPlaceholder = function (_Component) {
+	    _inherits(TaskListPlaceholder, _Component);
 
 	    function TaskListPlaceholder() {
 	        _classCallCheck(this, TaskListPlaceholder);
@@ -79796,15 +79801,20 @@
 	                _react2.default.createElement(
 	                    'span',
 	                    { className: 'large' },
-	                    'Hello?'
+	                    this.props.headline
 	                ),
-	                'It\'s looking a little barren in here. Use the link below to add tasks.'
+	                this.props.body
 	            );
 	        }
 	    }]);
 
 	    return TaskListPlaceholder;
-	}(_react2.default.Component);
+	}(_react.Component);
+
+	TaskListPlaceholder.propTypes = {
+	    headline: _react.PropTypes.string.isRequired,
+	    body: _react.PropTypes.string.isRequired
+	};
 
 	exports.default = TaskListPlaceholder;
 
@@ -79843,7 +79853,7 @@
 
 
 	// module
-	exports.push([module.id, ".task-list-placeholder {\n  margin: 20px 0 0 55px;\n  border-left: 5px solid #e5e3e3;\n  padding: 5px 0 15px 20px;\n  font-size: 1.3em;\n  color: #888888; }\n  .task-list-placeholder .large {\n    font-size: 3em;\n    font-weight: 100;\n    font-family: 'Roboto';\n    margin-left: -4px;\n    display: block; }\n", ""]);
+	exports.push([module.id, ".task-list-placeholder {\n  margin: 20px 0 0 0;\n  font-size: 1.3em;\n  color: #888888;\n  text-align: center; }\n  .task-list-placeholder .large {\n    font-size: 3em;\n    font-weight: 100;\n    font-family: 'Roboto';\n    display: block; }\n", ""]);
 
 	// exports
 

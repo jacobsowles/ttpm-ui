@@ -44,6 +44,7 @@ class TaskContainer extends Component {
                             <TaskList
                                 tasks={this.props.filteredTasks}
                                 taskGroupName={this.props.taskGroupName}
+                                isShowingOnlyCompleteTasks={this.props.filters.completion == completion.COMPLETE}
                                 handleNewTask={(task) => this.props.handleNewTask(task, this.props.filters.taskGroupId)}
                                 handleCompletionToggle={this.props.handleCompletionToggle}
                                 handleTaskSave={this.props.handleTaskSave}

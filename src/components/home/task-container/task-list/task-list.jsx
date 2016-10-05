@@ -84,7 +84,16 @@ class TaskList extends Component {
 
                         {
                             this.props.tasks.length == 0
-                                ? <TaskListPlaceholder />
+                                ? (
+                                    <TaskListPlaceholder
+                                        headline={this.props.isShowingOnlyCompleteTasks ? 'You\'ve got work to do.' : 'Hello?'}
+                                        body={
+                                            this.props.isShowingOnlyCompleteTasks
+                                                ? 'You haven\'t completed any tasks with these criteria. You\'re better than that.'
+                                                : 'It\'s looking a little barren in here. Use the link below to add tasks.'
+                                        }
+                                    />
+                                )
                                 : this.state.openTaskIds.length == 0
                                     ? (
                                         <DraggableList
@@ -112,6 +121,7 @@ class TaskList extends Component {
 TaskList.propTypes = {
     tasks: PropTypes.arrayOf(PropTypes.object).isRequired,
     taskGroupName: PropTypes.string,
+    isShowingOnlyCompleteTasks: PropTypes.bool.isRequired,
 
     handleNewTask: PropTypes.func.isRequired,
     handleCompletionToggle: PropTypes.func.isRequired,
