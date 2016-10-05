@@ -1,7 +1,5 @@
-// npm modules
 import React from 'react';
 
-// styles
 const styles = {
     loadingGraphic: {
         background: 'url("/assets/images/spinner.gif")',
@@ -9,28 +7,23 @@ const styles = {
         backgroundSize: '20px',
         backgroundRepeat: 'no-repeat',
         margin: '10px 0',
-        height: '20px'
+        height: '20px',
+        width: '100%',
+        float: 'left'
     }
 };
 
 class LoadingGraphic extends React.Component {
 
     render() {
+        console.log('showing loading graphic...');
         return (
             <div
                 className="loading-graphic"
-                style={{
-                    ...styles.loadingGraphic,
-                    display: this.props.showLoadingGraphic ? 'inherit' : 'none'
-                }}
-            >
-            </div>
+                style={styles.loadingGraphic}
+            />
         );
     }
 }
-
-LoadingGraphic.propTypes = {
-    showLoadingGraphic: React.PropTypes.bool.isRequired
-};
 
 export default LoadingGraphic;

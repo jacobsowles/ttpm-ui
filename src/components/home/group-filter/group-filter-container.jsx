@@ -18,7 +18,7 @@ class GroupFilterContainer extends Component {
         super(props);
 
         this.state = {
-            showLoadingGraphic: true
+            isLoading: true
         };
     }
 
@@ -28,22 +28,26 @@ class GroupFilterContainer extends Component {
 
     componentDidMount() {
         this.state = {
-            showLoadingGraphic: false
+            isLoading: false
         };
     }
 
     render() {
         return (
             <div>
-                <LoadingGraphic showLoadingGraphic={this.state.showLoadingGraphic} />
-
-                <GroupFilterList
-                    taskGroups={this.props.taskGroups}
-                    handleTaskGroupClick={this.props.handleTaskGroupClick}
-                    handleAddTaskGroupClick={this.props.handleAddTaskGroupClick}
-                    handleDeleteTaskGroupClick={this.props.handleDeleteTaskGroupClick}
-                    handleTaskGroupSave={this.props.handleTaskGroupSave}
-                />
+            {
+                this.state.isLoading
+                    ? <LoadingGraphic />
+                    : (
+                        <GroupFilterList
+                            taskGroups={this.props.taskGroups}
+                            handleTaskGroupClick={this.props.handleTaskGroupClick}
+                            handleAddTaskGroupClick={this.props.handleAddTaskGroupClick}
+                            handleDeleteTaskGroupClick={this.props.handleDeleteTaskGroupClick}
+                            handleTaskGroupSave={this.props.handleTaskGroupSave}
+                        />
+                    )
+            }
             </div>
         );
     }

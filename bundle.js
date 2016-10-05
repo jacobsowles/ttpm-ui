@@ -41096,7 +41096,7 @@
 	        var _this = _possibleConstructorReturn(this, (GroupFilterContainer.__proto__ || Object.getPrototypeOf(GroupFilterContainer)).call(this, props));
 
 	        _this.state = {
-	            showLoadingGraphic: true
+	            isLoading: true
 	        };
 	        return _this;
 	    }
@@ -41110,7 +41110,7 @@
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
 	            this.state = {
-	                showLoadingGraphic: false
+	                isLoading: false
 	            };
 	        }
 	    }, {
@@ -41119,8 +41119,7 @@
 	            return _react2.default.createElement(
 	                'div',
 	                null,
-	                _react2.default.createElement(_loadingGraphic2.default, { showLoadingGraphic: this.state.showLoadingGraphic }),
-	                _react2.default.createElement(_groupFilterList2.default, {
+	                this.state.isLoading ? _react2.default.createElement(_loadingGraphic2.default, null) : _react2.default.createElement(_groupFilterList2.default, {
 	                    taskGroups: this.props.taskGroups,
 	                    handleTaskGroupClick: this.props.handleTaskGroupClick,
 	                    handleAddTaskGroupClick: this.props.handleAddTaskGroupClick,
@@ -42723,8 +42722,6 @@
 	    value: true
 	});
 
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
@@ -42737,10 +42734,8 @@
 
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-
-	// styles
 	var styles = {
 	    loadingGraphic: {
 	        background: 'url("/assets/images/spinner.gif")',
@@ -42748,7 +42743,9 @@
 	        backgroundSize: '20px',
 	        backgroundRepeat: 'no-repeat',
 	        margin: '10px 0',
-	        height: '20px'
+	        height: '20px',
+	        width: '100%',
+	        float: 'left'
 	    }
 	};
 
@@ -42764,21 +42761,16 @@
 	    _createClass(LoadingGraphic, [{
 	        key: 'render',
 	        value: function render() {
+	            console.log('showing loading graphic...');
 	            return _react2.default.createElement('div', {
 	                className: 'loading-graphic',
-	                style: _extends({}, styles.loadingGraphic, {
-	                    display: this.props.showLoadingGraphic ? 'inherit' : 'none'
-	                })
+	                style: styles.loadingGraphic
 	            });
 	        }
 	    }]);
 
 	    return LoadingGraphic;
 	}(_react2.default.Component);
-
-	LoadingGraphic.propTypes = {
-	    showLoadingGraphic: _react2.default.PropTypes.bool.isRequired
-	};
 
 	exports.default = LoadingGraphic;
 
@@ -45191,8 +45183,8 @@
 	// util
 
 
-	var TaskContainer = function (_React$Component) {
-	    _inherits(TaskContainer, _React$Component);
+	var TaskContainer = function (_Component) {
+	    _inherits(TaskContainer, _Component);
 
 	    function TaskContainer(props) {
 	        _classCallCheck(this, TaskContainer);
@@ -45200,10 +45192,8 @@
 	        var _this = _possibleConstructorReturn(this, (TaskContainer.__proto__ || Object.getPrototypeOf(TaskContainer)).call(this, props));
 
 	        _this.state = {
-	            showLoadingGraphic: true
+	            isLoading: true
 	        };
-
-	        _this.handleNewTask = _this.handleNewTask.bind(_this);
 	        return _this;
 	    }
 
@@ -45216,52 +45206,53 @@
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
 	            this.state = {
-	                showLoadingGraphic: false
+	                isLoading: false
 	            };
-	        }
-	    }, {
-	        key: 'handleNewTask',
-	        value: function handleNewTask(task) {
-	            task.TaskGroupId = this.props.filters.taskGroupId > 0 ? this.props.filters.taskGroupId : undefined;
-	            this.props.handleNewTask(task);
 	        }
 	    }, {
 	        key: 'render',
 	        value: function render() {
+	            var _this2 = this;
+
 	            return _react2.default.createElement(
 	                'div',
 	                null,
-	                _react2.default.createElement(_loadingGraphic2.default, { showLoadingGraphic: this.state.showLoadingGraphic }),
-	                _react2.default.createElement(_taskList2.default, {
-	                    tasks: this.props.filteredTasks,
-	                    taskGroupName: this.props.taskGroupName,
-	                    handleNewTask: this.handleNewTask,
-	                    handleCompletionToggle: this.props.handleCompletionToggle,
-	                    handleTaskSave: this.props.handleTaskSave,
-	                    handleTaskDelete: this.props.handleTaskDelete,
-	                    updateDisplayOrder: this.props.updateDisplayOrder
-	                }),
-	                _react2.default.createElement(_analytics2.default, {
-	                    tasks: this.props.filteredTasks,
-	                    defaultActive: false
-	                })
+	                this.state.isLoading ? _react2.default.createElement(_loadingGraphic2.default, null) : _react2.default.createElement(
+	                    'div',
+	                    null,
+	                    _react2.default.createElement(_taskList2.default, {
+	                        tasks: this.props.filteredTasks,
+	                        taskGroupName: this.props.taskGroupName,
+	                        handleNewTask: function handleNewTask(task) {
+	                            return _this2.props.handleNewTask(task, _this2.props.filters.taskGroupId);
+	                        },
+	                        handleCompletionToggle: this.props.handleCompletionToggle,
+	                        handleTaskSave: this.props.handleTaskSave,
+	                        handleTaskDelete: this.props.handleTaskDelete,
+	                        updateDisplayOrder: this.props.updateDisplayOrder
+	                    }),
+	                    _react2.default.createElement(_analytics2.default, {
+	                        tasks: this.props.filteredTasks,
+	                        defaultActive: false
+	                    })
+	                )
 	            );
 	        }
 	    }]);
 
 	    return TaskContainer;
-	}(_react2.default.Component);
+	}(_react.Component);
 
 	TaskContainer.propTypes = {
-	    tasks: _react2.default.PropTypes.arrayOf(_react2.default.PropTypes.object).isRequired,
-	    filteredTasks: _react2.default.PropTypes.arrayOf(_react2.default.PropTypes.object).isRequired,
-	    defaultShowAnalytics: _react2.default.PropTypes.bool.isRequired,
+	    tasks: _react.PropTypes.arrayOf(_react.PropTypes.object).isRequired,
+	    filteredTasks: _react.PropTypes.arrayOf(_react.PropTypes.object).isRequired,
+	    defaultShowAnalytics: _react.PropTypes.bool.isRequired,
 
-	    fetchTasks: _react2.default.PropTypes.func.isRequired,
-	    handleNewTask: _react2.default.PropTypes.func.isRequired,
-	    handleCompletionToggle: _react2.default.PropTypes.func.isRequired,
-	    handleTaskSave: _react2.default.PropTypes.func.isRequired,
-	    handleTaskDelete: _react2.default.PropTypes.func.isRequired
+	    fetchTasks: _react.PropTypes.func.isRequired,
+	    handleNewTask: _react.PropTypes.func.isRequired,
+	    handleCompletionToggle: _react.PropTypes.func.isRequired,
+	    handleTaskSave: _react.PropTypes.func.isRequired,
+	    handleTaskDelete: _react.PropTypes.func.isRequired
 	};
 
 	function allDescendents(taskGroups, taskGroupId) {
@@ -45358,7 +45349,8 @@
 	            dispatch(_taskActions2.default.fetchTasks());
 	        },
 
-	        handleNewTask: function handleNewTask(task) {
+	        handleNewTask: function handleNewTask(task, taskGroupFilter) {
+	            task.TaskGroupId = taskGroupFilter > 0 ? taskGroupFilter : undefined;
 	            dispatch(_taskActions2.default.createTask(task)).then(function () {
 	                dispatch(_taskActions2.default.fetchTasks());
 	            });

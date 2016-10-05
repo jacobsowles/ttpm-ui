@@ -1,5 +1,5 @@
 // npm modules
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
 // components
@@ -13,16 +13,14 @@ import taskActions from '@/actions/task-actions';
 // util
 import { completion } from '@/utils/filter-values';
 
-class TaskContainer extends React.Component {
+class TaskContainer extends Component {
 
     constructor(props) {
         super(props);
 
         this.state = {
-            showLoadingGraphic: true
+            isLoading: true
         };
-
-        this.handleNewTask = this.handleNewTask.bind(this);
     }
 
     componentWillMount() {
@@ -31,49 +29,50 @@ class TaskContainer extends React.Component {
 
     componentDidMount() {
         this.state = {
-            showLoadingGraphic: false
+            isLoading: false
         };
-    }
-
-    handleNewTask(task) {
-        task.TaskGroupId = this.props.filters.taskGroupId > 0 ? this.props.filters.taskGroupId : undefined;
-        this.props.handleNewTask(task);
     }
 
     render() {
         return (
             <div>
-                <LoadingGraphic showLoadingGraphic={this.state.showLoadingGraphic} />
+            {
+                this.state.isLoading
+                    ? <LoadingGraphic />
+                    : (
+                        <div>
+                            <TaskList
+                                tasks={this.props.filteredTasks}
+                                taskGroupName={this.props.taskGroupName}
+                                handleNewTask={(task) => this.props.handleNewTask(task, this.props.filters.taskGroupId)}
+                                handleCompletionToggle={this.props.handleCompletionToggle}
+                                handleTaskSave={this.props.handleTaskSave}
+                                handleTaskDelete={this.props.handleTaskDelete}
+                                updateDisplayOrder={this.props.updateDisplayOrder}
+                            />
 
-                <TaskList
-                    tasks={this.props.filteredTasks}
-                    taskGroupName={this.props.taskGroupName}
-                    handleNewTask={this.handleNewTask}
-                    handleCompletionToggle={this.props.handleCompletionToggle}
-                    handleTaskSave={this.props.handleTaskSave}
-                    handleTaskDelete={this.props.handleTaskDelete}
-                    updateDisplayOrder={this.props.updateDisplayOrder}
-                />
-
-                <Analytics
-                    tasks={this.props.filteredTasks}
-                    defaultActive={false}
-                />
+                            <Analytics
+                                tasks={this.props.filteredTasks}
+                                defaultActive={false}
+                            />
+                        </div>
+                    )
+            }
             </div>
         );
     }
 }
 
 TaskContainer.propTypes = {
-    tasks: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
-    filteredTasks: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
-    defaultShowAnalytics: React.PropTypes.bool.isRequired,
+    tasks: PropTypes.arrayOf(PropTypes.object).isRequired,
+    filteredTasks: PropTypes.arrayOf(PropTypes.object).isRequired,
+    defaultShowAnalytics: PropTypes.bool.isRequired,
 
-    fetchTasks: React.PropTypes.func.isRequired,
-    handleNewTask: React.PropTypes.func.isRequired,
-    handleCompletionToggle: React.PropTypes.func.isRequired,
-    handleTaskSave: React.PropTypes.func.isRequired,
-    handleTaskDelete: React.PropTypes.func.isRequired
+    fetchTasks: PropTypes.func.isRequired,
+    handleNewTask: PropTypes.func.isRequired,
+    handleCompletionToggle: PropTypes.func.isRequired,
+    handleTaskSave: PropTypes.func.isRequired,
+    handleTaskDelete: PropTypes.func.isRequired
 };
 
 function allDescendents(taskGroups, taskGroupId) {
@@ -160,7 +159,8 @@ function mapDispatchToProps(dispatch) {
             dispatch(taskActions.fetchTasks());
         },
 
-        handleNewTask: function(task) {
+        handleNewTask: function(task, taskGroupFilter) {
+            task.TaskGroupId = taskGroupFilter > 0 ? taskGroupFilter : undefined;
             dispatch(taskActions.createTask(task)).then(() => {
                 dispatch(taskActions.fetchTasks());
             });
