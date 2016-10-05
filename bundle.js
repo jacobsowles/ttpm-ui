@@ -73596,6 +73596,7 @@
 	                        _react2.default.createElement(_dateBox2.default, {
 	                            label: 'completed',
 	                            value: this.props.lastDateCompleted,
+	                            contextColorsEnabled: false,
 	                            isDisabled: true
 	                        })
 	                    ) : _react2.default.createElement(
@@ -78258,6 +78259,8 @@
 	        var _this = _possibleConstructorReturn(this, (DateBox.__proto__ || Object.getPrototypeOf(DateBox)).call(this, props));
 
 	        _this.id = 'datebox-' + _underscore2.default.uniqueId();
+	        _this.isDue = (0, _moment2.default)(props.value).date() <= (0, _moment2.default)().date();
+
 	        _this.state = {
 	            value: props.value
 	        };
@@ -78280,7 +78283,7 @@
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'div',
-	                { className: 'date-box ' + ((0, _moment2.default)(this.props.value).date() <= (0, _moment2.default)().date() ? 'due' : '') },
+	                { className: 'date-box ' + (this.props.contextColorsEnabled && this.isDue ? 'due' : '') },
 	                _react2.default.createElement(
 	                    'label',
 	                    { htmlFor: this.id },
@@ -78310,6 +78313,7 @@
 	    label: _react.PropTypes.string,
 	    placeholder: _react.PropTypes.string,
 	    isDisabled: _react.PropTypes.bool,
+	    contextColorsEnabled: _react.PropTypes.bool,
 	    handleChange: _react.PropTypes.func
 	};
 
@@ -78317,6 +78321,7 @@
 	    label: '',
 	    placeholder: 'set date',
 	    isDisabled: false,
+	    contextColorsEnabled: true,
 	    handleChange: function handleChange() {}
 	};
 

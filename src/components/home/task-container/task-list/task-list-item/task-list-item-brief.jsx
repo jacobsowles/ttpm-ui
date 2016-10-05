@@ -76,6 +76,7 @@ class TaskListItemBrief extends Component {
                                     <DateBox
                                         label="completed"
                                         value={this.props.lastDateCompleted}
+                                        contextColorsEnabled={false}
                                         isDisabled={true}
                                     />
                                 </Flexbox>
