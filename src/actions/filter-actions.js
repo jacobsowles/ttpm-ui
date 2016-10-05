@@ -8,10 +8,10 @@ module.exports = {
         };
     },
 
-    setShowCompletedFilter(showCompleted) {
+    setCompletionFilter(filter) {
         return {
-            type: 'SET_SHOW_COMPLETED_FILTER',
-            payload: showCompleted
+            type: 'SET_COMPLETION_FILTER',
+            payload: filter
         };
     },
 

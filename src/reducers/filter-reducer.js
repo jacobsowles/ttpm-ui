@@ -1,6 +1,8 @@
+import { completion } from '@/filter-values';
+
 const initialState = {
     taskGroupId: 0,
-    showCompleted: false,
+    completion: completion.ALL,
     displayOrders: []
 };
 
@@ -14,10 +16,10 @@ export default function reducer(state = initialState, action) {
             break;
         }
 
-        case 'SET_SHOW_COMPLETED_FILTER': {
+        case 'SET_COMPLETION_FILTER': {
             state = {
                 ...state,
-                showCompleted: action.payload
+                completion: action.payload
             };
             break;
         }

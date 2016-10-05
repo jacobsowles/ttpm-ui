@@ -3,7 +3,7 @@ import React, { Component, PropTypes } from 'react';
 
 // components
 import DraggableList from '~/draggable/draggable-list/draggable-list';
-import FilterIndicator from '~/home/filter-indicator/filter-indicator';
+import TaskListFilterContainer from './task-list-filter-container/task-list-filter-container';
 import TaskListItem from './task-list-item/task-list-item';
 import TaskListNewItem from './task-list-new-item/task-list-new-item';
 import TaskListPlaceholder from './task-list-placeholder';
@@ -80,7 +80,7 @@ class TaskList extends Component {
             <div className="row">
                 <div className="col-xs-12">
                     <div className="task-list">
-                        <FilterIndicator taskGroupName={this.props.taskGroupName} />
+                        <TaskListFilterContainer />
 
                         {
                             this.props.tasks.length == 0

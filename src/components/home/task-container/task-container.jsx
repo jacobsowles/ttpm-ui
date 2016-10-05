@@ -10,6 +10,9 @@ import TaskList from './task-list/task-list';
 // actions
 import taskActions from '@/actions/task-actions';
 
+// util
+import { completion } from '@/filter-values';
+
 class TaskContainer extends React.Component {
 
     constructor(props) {
@@ -99,7 +102,7 @@ function compareDisplayOrder(a, b) {
 
 function filterTasks(tasks, taskGroups, filters) {
     if (filters.taskGroupId) {
-        return tasks
+        tasks = tasks
             .filter(t => allDescendents(taskGroups, filters.taskGroupId).includes(t.TaskGroupId))
             .sort((a, b) => {
                 a = filters.displayOrders.find(tgdo => tgdo.TaskId == a.Id);
@@ -113,9 +116,25 @@ function filterTasks(tasks, taskGroups, filters) {
             });
     }
 
-    return tasks.sort((a, b) => {
-        return compareDisplayOrder(a, b);
-    });
+    else {
+        tasks = tasks.sort((a, b) => {
+            return compareDisplayOrder(a, b);
+        });
+    }
+
+    switch (filters.completion) {
+        case completion.COMPLETE: {
+            tasks = tasks.filter(t => t.Complete);
+            break;
+        }
+
+        case completion.INCOMPLETE: {
+            tasks = tasks.filter(t => !t.Complete);
+            break;
+        }
+    }
+
+    return tasks;
 }
 
 function getCurrentTaskGroupFilterName(taskGroups, taskGroupId) {
