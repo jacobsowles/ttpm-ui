@@ -21,7 +21,7 @@ class TaskListItemBrief extends Component {
 
     handleNameClick(event) {
         if (!this.props.isOpen) {
-            this.props.handleNameClick(this.props.taskId, event);
+            this.props.handleNameClick(this.props.id, event);
         }
     }
 
