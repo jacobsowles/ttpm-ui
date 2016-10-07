@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 // components
 import GroupFilterList from './group-filter-list';
-import LoadingGraphic from '~/loading-graphic';
+import LoadingWrapper from '~/loading-wrapper';
 import NewTaskGroupLink from './new-task-group-link';
 
 // actions
@@ -34,21 +34,15 @@ class GroupFilterContainer extends Component {
 
     render() {
         return (
-            <div>
-            {
-                this.state.isLoading
-                    ? <LoadingGraphic />
-                    : (
-                        <GroupFilterList
-                            taskGroups={this.props.taskGroups}
-                            handleTaskGroupClick={this.props.handleTaskGroupClick}
-                            handleAddTaskGroupClick={this.props.handleAddTaskGroupClick}
-                            handleDeleteTaskGroupClick={this.props.handleDeleteTaskGroupClick}
-                            handleTaskGroupSave={this.props.handleTaskGroupSave}
-                        />
-                    )
-            }
-            </div>
+            <LoadingWrapper showLoadingGraphic={this.state.isLoading}>
+                <GroupFilterList
+                    taskGroups={this.props.taskGroups}
+                    handleTaskGroupClick={this.props.handleTaskGroupClick}
+                    handleAddTaskGroupClick={this.props.handleAddTaskGroupClick}
+                    handleDeleteTaskGroupClick={this.props.handleDeleteTaskGroupClick}
+                    handleTaskGroupSave={this.props.handleTaskGroupSave}
+                />
+            </LoadingWrapper>
         );
     }
 }

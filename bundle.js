@@ -41122,9 +41122,9 @@
 
 	var _groupFilterList2 = _interopRequireDefault(_groupFilterList);
 
-	var _loadingGraphic = __webpack_require__(481);
+	var _loadingWrapper = __webpack_require__(834);
 
-	var _loadingGraphic2 = _interopRequireDefault(_loadingGraphic);
+	var _loadingWrapper2 = _interopRequireDefault(_loadingWrapper);
 
 	var _newTaskGroupLink = __webpack_require__(475);
 
@@ -41187,9 +41187,9 @@
 	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
-	                'div',
-	                null,
-	                this.state.isLoading ? _react2.default.createElement(_loadingGraphic2.default, null) : _react2.default.createElement(_groupFilterList2.default, {
+	                _loadingWrapper2.default,
+	                { showLoadingGraphic: this.state.isLoading },
+	                _react2.default.createElement(_groupFilterList2.default, {
 	                    taskGroups: this.props.taskGroups,
 	                    handleTaskGroupClick: this.props.handleTaskGroupClick,
 	                    handleAddTaskGroupClick: this.props.handleAddTaskGroupClick,
@@ -81034,9 +81034,9 @@
 
 	var _analytics2 = _interopRequireDefault(_analytics);
 
-	var _loadingGraphic = __webpack_require__(481);
+	var _loadingWrapper = __webpack_require__(834);
 
-	var _loadingGraphic2 = _interopRequireDefault(_loadingGraphic);
+	var _loadingWrapper2 = _interopRequireDefault(_loadingWrapper);
 
 	var _taskListView = __webpack_require__(802);
 
@@ -81098,28 +81098,24 @@
 	            var _this2 = this;
 
 	            return _react2.default.createElement(
-	                'div',
-	                null,
-	                this.state.isLoading ? _react2.default.createElement(_loadingGraphic2.default, null) : _react2.default.createElement(
-	                    'div',
-	                    null,
-	                    _react2.default.createElement(_taskListView2.default, {
-	                        tasks: this.props.filteredTasks,
-	                        taskGroupName: this.props.taskGroupName,
-	                        isShowingOnlyCompleteTasks: this.props.filters.completion == _filterValues.completion.COMPLETE,
-	                        handleCompletionToggle: this.props.handleCompletionToggle,
-	                        handleNewTask: function handleNewTask(task) {
-	                            return _this2.props.handleNewTask(task, _this2.props.filters.taskGroupId);
-	                        },
-	                        handleTaskDelete: this.props.handleTaskDelete,
-	                        handleTaskSave: this.props.handleTaskSave,
-	                        updateDisplayOrder: this.props.updateDisplayOrder
-	                    }),
-	                    _react2.default.createElement(_analytics2.default, {
-	                        tasks: this.props.filteredTasks,
-	                        defaultActive: false
-	                    })
-	                )
+	                _loadingWrapper2.default,
+	                { showLoadingGraphic: this.state.isLoading },
+	                _react2.default.createElement(_taskListView2.default, {
+	                    tasks: this.props.filteredTasks,
+	                    taskGroupName: this.props.taskGroupName,
+	                    isShowingOnlyCompleteTasks: this.props.filters.completion == _filterValues.completion.COMPLETE,
+	                    handleCompletionToggle: this.props.handleCompletionToggle,
+	                    handleNewTask: function handleNewTask(task) {
+	                        return _this2.props.handleNewTask(task, _this2.props.filters.taskGroupId);
+	                    },
+	                    handleTaskDelete: this.props.handleTaskDelete,
+	                    handleTaskSave: this.props.handleTaskSave,
+	                    updateDisplayOrder: this.props.updateDisplayOrder
+	                }),
+	                _react2.default.createElement(_analytics2.default, {
+	                    tasks: this.props.filteredTasks,
+	                    defaultActive: false
+	                })
 	            );
 	        }
 	    }]);
@@ -81518,6 +81514,63 @@
 
 	// exports
 
+
+/***/ },
+/* 834 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _loadingGraphic = __webpack_require__(481);
+
+	var _loadingGraphic2 = _interopRequireDefault(_loadingGraphic);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var LoadingWrapper = function (_Component) {
+	    _inherits(LoadingWrapper, _Component);
+
+	    function LoadingWrapper() {
+	        _classCallCheck(this, LoadingWrapper);
+
+	        return _possibleConstructorReturn(this, (LoadingWrapper.__proto__ || Object.getPrototypeOf(LoadingWrapper)).apply(this, arguments));
+	    }
+
+	    _createClass(LoadingWrapper, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'loading-wrapper' },
+	                this.props.showLoadingGraphic ? _react2.default.createElement(_loadingGraphic2.default, null) : this.props.children
+	            );
+	        }
+	    }]);
+
+	    return LoadingWrapper;
+	}(_react.Component);
+
+	LoadingWrapper.propTypes = {
+	    showLoadingGraphic: _react.PropTypes.bool.isRequired
+	};
+
+	exports.default = LoadingWrapper;
 
 /***/ }
 /******/ ]);

@@ -5,7 +5,7 @@ import moment from 'moment';
 
 // components
 import Analytics from './analytics/analytics';
-import LoadingGraphic from '~/loading-graphic';
+import LoadingWrapper from '~/loading-wrapper';
 import TaskListView from './views/task-list-view/task-list-view';
 
 // actions
@@ -36,31 +36,23 @@ class ViewContainer extends Component {
 
     render() {
         return (
-            <div>
-            {
-                this.state.isLoading
-                    ? <LoadingGraphic />
-                    : (
-                        <div>
-                            <TaskListView
-                                tasks={this.props.filteredTasks}
-                                taskGroupName={this.props.taskGroupName}
-                                isShowingOnlyCompleteTasks={this.props.filters.completion == completion.COMPLETE}
-                                handleCompletionToggle={this.props.handleCompletionToggle}
-                                handleNewTask={(task) => this.props.handleNewTask(task, this.props.filters.taskGroupId)}
-                                handleTaskDelete={this.props.handleTaskDelete}
-                                handleTaskSave={this.props.handleTaskSave}
-                                updateDisplayOrder={this.props.updateDisplayOrder}
-                            />
+            <LoadingWrapper showLoadingGraphic={this.state.isLoading}>
+                <TaskListView
+                    tasks={this.props.filteredTasks}
+                    taskGroupName={this.props.taskGroupName}
+                    isShowingOnlyCompleteTasks={this.props.filters.completion == completion.COMPLETE}
+                    handleCompletionToggle={this.props.handleCompletionToggle}
+                    handleNewTask={(task) => this.props.handleNewTask(task, this.props.filters.taskGroupId)}
+                    handleTaskDelete={this.props.handleTaskDelete}
+                    handleTaskSave={this.props.handleTaskSave}
+                    updateDisplayOrder={this.props.updateDisplayOrder}
+                />
 
-                            <Analytics
-                                tasks={this.props.filteredTasks}
-                                defaultActive={false}
-                            />
-                        </div>
-                    )
-            }
-            </div>
+                <Analytics
+                    tasks={this.props.filteredTasks}
+                    defaultActive={false}
+                />
+            </LoadingWrapper>
         );
     }
 }
