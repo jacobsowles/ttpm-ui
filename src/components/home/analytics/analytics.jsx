@@ -2,7 +2,7 @@
 import React from 'react';
 
 // components
-import Module from '../../../module/module.jsx';
+import Module from '~/module/module.jsx';
 import TaskAge from './task-age/task-age.jsx';
 import TaskCompletion from './task-completion/task-completion.jsx';
 

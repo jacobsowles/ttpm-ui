@@ -29580,7 +29580,7 @@
 
 	var _reactDndHtml5Backend2 = _interopRequireDefault(_reactDndHtml5Backend);
 
-	var _content = __webpack_require__(423);
+	var _content = __webpack_require__(785);
 
 	var _content2 = _interopRequireDefault(_content);
 
@@ -29588,7 +29588,7 @@
 
 	var _groupFilterContainer2 = _interopRequireDefault(_groupFilterContainer);
 
-	var _header = __webpack_require__(492);
+	var _header = __webpack_require__(788);
 
 	var _header2 = _interopRequireDefault(_header);
 
@@ -29600,13 +29600,13 @@
 
 	var _module2 = _interopRequireDefault(_module);
 
-	var _sidebar = __webpack_require__(505);
+	var _sidebar = __webpack_require__(789);
 
 	var _sidebar2 = _interopRequireDefault(_sidebar);
 
-	var _taskContainer = __webpack_require__(508);
+	var _viewContainer = __webpack_require__(827);
 
-	var _taskContainer2 = _interopRequireDefault(_taskContainer);
+	var _viewContainer2 = _interopRequireDefault(_viewContainer);
 
 	var _taskSearch = __webpack_require__(761);
 
@@ -29687,7 +29687,7 @@
 	                        _react2.default.createElement(_taskSearch2.default, null),
 	                        _react2.default.createElement(_userControls2.default, null)
 	                    ),
-	                    _react2.default.createElement(_taskContainer2.default, { defaultShowAnalytics: this.props.defaultShowAnalytics })
+	                    _react2.default.createElement(_viewContainer2.default, { defaultShowAnalytics: this.props.defaultShowAnalytics })
 	                )
 	            );
 	        }
@@ -37176,59 +37176,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 423 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _React = __webpack_require__(424);
-
-	var _React2 = _interopRequireDefault(_React);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
-
-
-	// styles
-	__webpack_require__(449);
-
-	var Content = function (_React$Component) {
-	    _inherits(Content, _React$Component);
-
-	    function Content() {
-	        _classCallCheck(this, Content);
-
-	        return _possibleConstructorReturn(this, (Content.__proto__ || Object.getPrototypeOf(Content)).apply(this, arguments));
-	    }
-
-	    _createClass(Content, [{
-	        key: 'render',
-	        value: function render() {
-	            return _React2.default.createElement(
-	                'div',
-	                { id: 'content' },
-	                this.props.children
-	            );
-	        }
-	    }]);
-
-	    return Content;
-	}(_React2.default.Component);
-
-	exports.default = Content;
-
-/***/ },
+/* 423 */,
 /* 424 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -40843,46 +40791,8 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 449 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(450);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(452)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./content.scss", function() {
-				var newContent = require("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./content.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 450 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(451)();
-	// imports
-
-
-	// module
-	exports.push([module.id, "#content {\n  width: calc(100% - 275px);\n  float: left;\n  height: 100vh; }\n  #content:after {\n    display: block;\n    content: \"\"; }\n", ""]);
-
-	// exports
-
-
-/***/ },
+/* 449 */,
+/* 450 */,
 /* 451 */
 /***/ function(module, exports) {
 
@@ -44712,70 +44622,7 @@
 	};
 
 /***/ },
-/* 492 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _React = __webpack_require__(424);
-
-	var _React2 = _interopRequireDefault(_React);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
-
-
-	// styles
-	var styles = {
-	    header: {
-	        background: '#ffffff',
-	        borderBottom: '1px solid #e0e0e0',
-	        padding: '10px 15px',
-	        marginBottom: '15px',
-	        borderRadius: '0',
-	        float: 'left',
-	        width: '100%',
-	        fontSize: '.9em'
-	    }
-	};
-
-	var Header = function (_React$Component) {
-	    _inherits(Header, _React$Component);
-
-	    function Header() {
-	        _classCallCheck(this, Header);
-
-	        return _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).apply(this, arguments));
-	    }
-
-	    _createClass(Header, [{
-	        key: 'render',
-	        value: function render() {
-	            return _React2.default.createElement(
-	                'div',
-	                { className: 'header', style: styles.header },
-	                this.props.children
-	            );
-	        }
-	    }]);
-
-	    return Header;
-	}(_React2.default.Component);
-
-	exports.default = Header;
-
-/***/ },
+/* 492 */,
 /* 493 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -45205,804 +45052,15 @@
 
 
 /***/ },
-/* 505 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _React = __webpack_require__(424);
-
-	var _React2 = _interopRequireDefault(_React);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	__webpack_require__(506);
-
-	var Sidebar = function (_React$Component) {
-	    _inherits(Sidebar, _React$Component);
-
-	    function Sidebar() {
-	        _classCallCheck(this, Sidebar);
-
-	        return _possibleConstructorReturn(this, (Sidebar.__proto__ || Object.getPrototypeOf(Sidebar)).apply(this, arguments));
-	    }
-
-	    _createClass(Sidebar, [{
-	        key: 'render',
-	        value: function render() {
-	            return _React2.default.createElement(
-	                'div',
-	                { className: 'sidebar' },
-	                this.props.children
-	            );
-	        }
-	    }]);
-
-	    return Sidebar;
-	}(_React2.default.Component);
-
-	exports.default = Sidebar;
-
-/***/ },
-/* 506 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(507);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(452)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./sidebar.scss", function() {
-				var newContent = require("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./sidebar.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 507 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(451)();
-	// imports
-
-
-	// module
-	exports.push([module.id, ".sidebar {\n  height: 100vh;\n  background: #3C393F;\n  color: #dbdbdb;\n  float: left;\n  overflow-y: auto;\n  width: 275px;\n  font-size: .9em; }\n  .sidebar .accordion-item .accordion-header {\n    padding-left: 10px; }\n  .sidebar .accordion-item .accordion-header-content {\n    padding: 10px; }\n  .sidebar .task-group-view-edit-toggle-field {\n    padding: 10px 10px 10px 13px;\n    color: #888888; }\n    .sidebar .task-group-view-edit-toggle-field:hover {\n      color: inherit; }\n", ""]);
-
-	// exports
-
-
-/***/ },
-/* 508 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRedux = __webpack_require__(172);
-
-	var _moment = __webpack_require__(544);
-
-	var _moment2 = _interopRequireDefault(_moment);
-
-	var _analytics = __webpack_require__(509);
-
-	var _analytics2 = _interopRequireDefault(_analytics);
-
-	var _loadingGraphic = __webpack_require__(481);
-
-	var _loadingGraphic2 = _interopRequireDefault(_loadingGraphic);
-
-	var _taskListView = __webpack_require__(668);
-
-	var _taskListView2 = _interopRequireDefault(_taskListView);
-
-	var _taskActions = __webpack_require__(490);
-
-	var _taskActions2 = _interopRequireDefault(_taskActions);
-
-	var _filterValues = __webpack_require__(264);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
-
-
-	// components
-
-
-	// actions
-
-
-	// util
-
-
-	var TaskContainer = function (_Component) {
-	    _inherits(TaskContainer, _Component);
-
-	    function TaskContainer(props) {
-	        _classCallCheck(this, TaskContainer);
-
-	        var _this = _possibleConstructorReturn(this, (TaskContainer.__proto__ || Object.getPrototypeOf(TaskContainer)).call(this, props));
-
-	        _this.state = {
-	            isLoading: true
-	        };
-	        return _this;
-	    }
-
-	    _createClass(TaskContainer, [{
-	        key: 'componentWillMount',
-	        value: function componentWillMount() {
-	            this.props.fetchTasks();
-	        }
-	    }, {
-	        key: 'componentDidMount',
-	        value: function componentDidMount() {
-	            this.state = {
-	                isLoading: false
-	            };
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            var _this2 = this;
-
-	            return _react2.default.createElement(
-	                'div',
-	                null,
-	                this.state.isLoading ? _react2.default.createElement(_loadingGraphic2.default, null) : _react2.default.createElement(
-	                    'div',
-	                    null,
-	                    _react2.default.createElement(_taskListView2.default, {
-	                        tasks: this.props.filteredTasks,
-	                        taskGroupName: this.props.taskGroupName,
-	                        isShowingOnlyCompleteTasks: this.props.filters.completion == _filterValues.completion.COMPLETE,
-	                        handleCompletionToggle: this.props.handleCompletionToggle,
-	                        handleNewTask: function handleNewTask(task) {
-	                            return _this2.props.handleNewTask(task, _this2.props.filters.taskGroupId);
-	                        },
-	                        handleTaskDelete: this.props.handleTaskDelete,
-	                        handleTaskSave: this.props.handleTaskSave,
-	                        updateDisplayOrder: this.props.updateDisplayOrder
-	                    }),
-	                    _react2.default.createElement(_analytics2.default, {
-	                        tasks: this.props.filteredTasks,
-	                        defaultActive: false
-	                    })
-	                )
-	            );
-	        }
-	    }]);
-
-	    return TaskContainer;
-	}(_react.Component);
-
-	TaskContainer.propTypes = {
-	    tasks: _react.PropTypes.arrayOf(_react.PropTypes.object).isRequired,
-	    filteredTasks: _react.PropTypes.arrayOf(_react.PropTypes.object).isRequired,
-	    defaultShowAnalytics: _react.PropTypes.bool.isRequired,
-
-	    fetchTasks: _react.PropTypes.func.isRequired,
-	    handleNewTask: _react.PropTypes.func.isRequired,
-	    handleCompletionToggle: _react.PropTypes.func.isRequired,
-	    handleTaskSave: _react.PropTypes.func.isRequired,
-	    handleTaskDelete: _react.PropTypes.func.isRequired
-	};
-
-	function allDescendents(taskGroups, taskGroupId) {
-	    var ids = [taskGroupId];
-
-	    taskGroups.filter(function (tg) {
-	        return tg.ParentTaskGroupId == taskGroupId;
-	    }).forEach(function (taskGroup) {
-	        ids = ids.concat(allDescendents(taskGroups, taskGroup.Id));
-	    });
-
-	    return ids;
-	}
-
-	function compareDisplayOrder(a, b) {
-	    if (a.DisplayOrder > b.DisplayOrder) {
-	        return 1;
-	    }
-
-	    if (a.DisplayOrder < b.DisplayOrder) {
-	        return -1;
-	    }
-
-	    return 0;
-	}
-
-	function filterTasks(tasks, taskGroups, filters) {
-	    // filter by task group
-	    if (filters.taskGroupId) {
-	        tasks = tasks.filter(function (t) {
-	            return allDescendents(taskGroups, filters.taskGroupId).includes(t.TaskGroupId);
-	        }).sort(function (a, b) {
-	            a = filters.displayOrders.find(function (tgdo) {
-	                return tgdo.TaskId == a.Id;
-	            });
-	            b = filters.displayOrders.find(function (tgdo) {
-	                return tgdo.TaskId == b.Id;
-	            });
-
-	            if (a && b) {
-	                return compareDisplayOrder(a, b);
-	            }
-
-	            return 0;
-	        });
-	    } else {
-	        tasks = tasks.sort(function (a, b) {
-	            return compareDisplayOrder(a, b);
-	        });
-	    }
-
-	    // filter by completion
-	    switch (filters.completion) {
-	        case _filterValues.completion.COMPLETE:
-	            {
-	                tasks = tasks.filter(function (t) {
-	                    return t.Complete;
-	                });
-	                break;
-	            }
-
-	        case _filterValues.completion.INCOMPLETE:
-	            {
-	                tasks = tasks.filter(function (t) {
-	                    return !t.Complete;
-	                });
-	                break;
-	            }
-	    }
-
-	    // filter by date
-	    switch (filters.date) {
-	        case _filterValues.date.TODAY:
-	            {
-	                tasks = tasks.filter(function (t) {
-	                    return (0, _moment2.default)(t.PlannedDate).date() == (0, _moment2.default)().date() || (0, _moment2.default)(t.DueDate).date() == (0, _moment2.default)().date();
-	                });
-	                break;
-	            }
-
-	        case _filterValues.date.TOMORROW:
-	            {
-	                tasks = tasks.filter(function (t) {
-	                    return (0, _moment2.default)(t.PlannedDate).date() == (0, _moment2.default)().add('days', 1).date() || (0, _moment2.default)(t.DueDate).date() == (0, _moment2.default)().add('days', 1).date();
-	                });
-	                break;
-	            }
-
-	        case _filterValues.date.DUE:
-	            {
-	                tasks = tasks.filter(function (t) {
-	                    return (0, _moment2.default)(t.DueDate).date() <= (0, _moment2.default)().date();
-	                });
-	                break;
-	            }
-	    }
-
-	    return tasks;
-	}
-
-	function getCurrentTaskGroupFilterName(taskGroups, taskGroupId) {
-	    if (!taskGroupId) {
-	        return;
-	    }
-
-	    return taskGroups.find(function (tg) {
-	        return tg.Id == taskGroupId;
-	    }).Name;
-	}
-
-	function mapStateToProps(state) {
-	    return {
-	        tasks: state.tasks,
-	        filteredTasks: filterTasks(state.tasks, state.taskGroups, state.filters),
-	        taskGroupName: getCurrentTaskGroupFilterName(state.taskGroups, state.filters.taskGroupId),
-	        filters: state.filters
-	    };
-	}
-
-	function mapDispatchToProps(dispatch) {
-	    return {
-	        fetchTasks: function fetchTasks() {
-	            dispatch(_taskActions2.default.fetchTasks());
-	        },
-
-	        handleNewTask: function handleNewTask(task, taskGroupFilter) {
-	            task.TaskGroupId = taskGroupFilter > 0 ? taskGroupFilter : undefined;
-	            dispatch(_taskActions2.default.createTask(task)).then(function () {
-	                dispatch(_taskActions2.default.fetchTasks());
-	            });
-	        },
-
-	        handleCompletionToggle: function handleCompletionToggle(taskId, event) {
-	            dispatch(_taskActions2.default.toggleComplete(taskId));
-	        },
-
-	        handleTaskSave: function handleTaskSave(taskId, task) {
-	            dispatch(_taskActions2.default.updateTask(taskId, task));
-	        },
-
-	        handleTaskDelete: function handleTaskDelete(event) {
-	            dispatch(_taskActions2.default.deleteTask(event.target.value));
-	        },
-
-	        updateDisplayOrder: function updateDisplayOrder(firstTask, secondTask) {
-	            console.log('updating display order');
-	            console.log(firstTask);
-	            console.log(secondTask);
-	            dispatch(_taskActions2.default.swapDisplayOrder(firstTask.Id, secondTask.Id)).then(function () {
-	                dispatch(_taskActions2.default.fetchTasks());
-	            });
-	        }
-	    };
-	}
-
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(TaskContainer);
-
-/***/ },
-/* 509 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _module = __webpack_require__(496);
-
-	var _module2 = _interopRequireDefault(_module);
-
-	var _taskAge = __webpack_require__(510);
-
-	var _taskAge2 = _interopRequireDefault(_taskAge);
-
-	var _taskCompletion = __webpack_require__(513);
-
-	var _taskCompletion2 = _interopRequireDefault(_taskCompletion);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
-
-
-	// components
-
-
-	// styles
-	__webpack_require__(666);
-
-	var styles = {
-	    active: {
-	        display: 'inherit'
-	    },
-	    inactive: {
-	        display: 'none'
-	    }
-	};
-
-	var Analytics = function (_React$Component) {
-	    _inherits(Analytics, _React$Component);
-
-	    function Analytics(props) {
-	        _classCallCheck(this, Analytics);
-
-	        var _this = _possibleConstructorReturn(this, (Analytics.__proto__ || Object.getPrototypeOf(Analytics)).call(this, props));
-
-	        _this.state = {
-	            active: props.defaultActive
-	        };
-
-	        _this.handleClick = _this.handleClick.bind(_this);
-	        return _this;
-	    }
-
-	    _createClass(Analytics, [{
-	        key: 'handleClick',
-	        value: function handleClick() {
-	            this.setState({
-	                active: !this.state.active
-	            });
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'div',
-	                { id: 'analytics' },
-	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'drawer', style: this.state.active ? styles.active : styles.inactive },
-	                    this.props.tasks.length == 0 ? _react2.default.createElement(
-	                        'div',
-	                        null,
-	                        _react2.default.createElement(
-	                            'p',
-	                            { id: 'no-analytics-available' },
-	                            'Let\'s be real: you haven\'t done anything yet. Add some tasks and we\'ll get you some neat data.'
-	                        )
-	                    ) : _react2.default.createElement(
-	                        'div',
-	                        { className: 'row' },
-	                        _react2.default.createElement(
-	                            'div',
-	                            { className: 'col-xs-3 no-horizontal-padding' },
-	                            _react2.default.createElement(
-	                                _module2.default,
-	                                {
-	                                    id: 'completion-module',
-	                                    type: 'analytics',
-	                                    title: 'Progress',
-	                                    iconClass: 'fa fa-check'
-	                                },
-	                                _react2.default.createElement(_taskCompletion2.default, {
-	                                    completedTaskCount: this.props.tasks.filter(function (t) {
-	                                        return t.Complete;
-	                                    }).length,
-	                                    totalTaskCount: this.props.tasks.length,
-	                                    isVisible: this.state.active
-	                                })
-	                            )
-	                        )
-	                    )
-	                ),
-	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'toggle-bar' },
-	                    _react2.default.createElement(
-	                        'a',
-	                        { className: 'toggle', onClick: this.handleClick },
-	                        _react2.default.createElement(
-	                            'span',
-	                            { className: 'toggle-button' },
-	                            '\u2630'
-	                        ),
-	                        'Analytics'
-	                    )
-	                )
-	            );
-	        }
-	    }]);
-
-	    return Analytics;
-	}(_react2.default.Component);
-
-	Analytics.propTypes = {
-	    tasks: _react2.default.PropTypes.arrayOf(_react2.default.PropTypes.object).isRequired,
-	    defaultActive: _react2.default.PropTypes.bool
-	};
-
-	Analytics.getDefaultProps = {
-	    defaultActive: true
-	};
-
-	exports.default = Analytics;
-
-/***/ },
-/* 510 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _React = __webpack_require__(424);
-
-	var _React2 = _interopRequireDefault(_React);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
-
-
-	// styles
-	__webpack_require__(511);
-
-	var TaskAge = function (_React$Component) {
-	    _inherits(TaskAge, _React$Component);
-
-	    function TaskAge() {
-	        _classCallCheck(this, TaskAge);
-
-	        return _possibleConstructorReturn(this, (TaskAge.__proto__ || Object.getPrototypeOf(TaskAge)).apply(this, arguments));
-	    }
-
-	    _createClass(TaskAge, [{
-	        key: 'shouldComponentUpdate',
-	        value: function shouldComponentUpdate(nextProps, nextState) {
-	            return nextProps.isVisible;
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            return _React2.default.createElement(
-	                'div',
-	                { id: 'task-age' },
-	                _React2.default.createElement(
-	                    'table',
-	                    { className: 'table table-striped' },
-	                    _React2.default.createElement(
-	                        'tbody',
-	                        null,
-	                        _React2.default.createElement(
-	                            'tr',
-	                            null,
-	                            _React2.default.createElement(
-	                                'td',
-	                                null,
-	                                'Some elder task'
-	                            ),
-	                            _React2.default.createElement(
-	                                'td',
-	                                { style: { textAlign: 'right', color: '#cc2320' } },
-	                                '2w 4d'
-	                            )
-	                        ),
-	                        _React2.default.createElement(
-	                            'tr',
-	                            null,
-	                            _React2.default.createElement(
-	                                'td',
-	                                null,
-	                                'Some aging task'
-	                            ),
-	                            _React2.default.createElement(
-	                                'td',
-	                                { style: { textAlign: 'right', color: '#d8854e' } },
-	                                '1w 2d'
-	                            )
-	                        ),
-	                        _React2.default.createElement(
-	                            'tr',
-	                            null,
-	                            _React2.default.createElement(
-	                                'td',
-	                                null,
-	                                'Some fledgling task'
-	                            ),
-	                            _React2.default.createElement(
-	                                'td',
-	                                { style: { textAlign: 'right' } },
-	                                '3d 4h'
-	                            )
-	                        )
-	                    )
-	                )
-	            );
-	        }
-	    }]);
-
-	    return TaskAge;
-	}(_React2.default.Component);
-
-	TaskAge.propTypes = {
-	    isVisible: _React2.default.PropTypes.bool.isRequired
-	};
-
-	exports.default = TaskAge;
-
-/***/ },
-/* 511 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(512);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(452)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../../../../node_modules/css-loader/index.js!./../../../../../../node_modules/sass-loader/index.js!./task-age.scss", function() {
-				var newContent = require("!!./../../../../../../node_modules/css-loader/index.js!./../../../../../../node_modules/sass-loader/index.js!./task-age.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 512 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(451)();
-	// imports
-
-
-	// module
-	exports.push([module.id, "#task-age-module .module-body {\n  padding: 0; }\n", ""]);
-
-	// exports
-
-
-/***/ },
-/* 513 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _React = __webpack_require__(424);
-
-	var _React2 = _interopRequireDefault(_React);
-
-	var _chart = __webpack_require__(514);
-
-	var _chart2 = _interopRequireDefault(_chart);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
-
-
-	// styles
-	__webpack_require__(664);
-
-	var TaskCompletion = function (_React$Component) {
-	    _inherits(TaskCompletion, _React$Component);
-
-	    function TaskCompletion(props) {
-	        _classCallCheck(this, TaskCompletion);
-
-	        var _this = _possibleConstructorReturn(this, (TaskCompletion.__proto__ || Object.getPrototypeOf(TaskCompletion)).call(this, props));
-
-	        _this.state = {
-	            completionPercentage: Math.round(props.completedTaskCount / props.totalTaskCount * 100)
-	        };
-	        return _this;
-	    }
-
-	    _createClass(TaskCompletion, [{
-	        key: 'shouldComponentUpdate',
-	        value: function shouldComponentUpdate(nextProps, nextState) {
-	            return nextProps.isVisible && (this.props.completedTaskCount != nextProps.completedTaskCount || this.props.totalTaskCount != nextProps.totalTaskCount);
-	        }
-	    }, {
-	        key: 'componentWillUpdate',
-	        value: function componentWillUpdate(nextProps, nextState) {
-	            this.state.completionPercentage = nextProps.totalTaskCount > 0 ? Math.round(nextProps.completedTaskCount / nextProps.totalTaskCount * 100) : 0;
-	        }
-	    }, {
-	        key: 'componentDidMount',
-	        value: function componentDidMount() {
-	            this.generateVisualization();
-	        }
-	    }, {
-	        key: 'componentDidUpdate',
-	        value: function componentDidUpdate(prevProps, prevState) {
-	            this.generateVisualization();
-	        }
-	    }, {
-	        key: 'generateVisualization',
-	        value: function generateVisualization() {
-	            _chart2.default.defaults.global.legend.display = false;
-
-	            var ctx = document.getElementById('task-completion-canvas');
-	            var myChart = new _chart2.default(ctx, {
-	                type: 'doughnut',
-	                data: {
-	                    labels: ['Tasks Completed', 'Tasks Remaining'],
-	                    datasets: [{
-	                        data: [this.props.completedTaskCount, this.props.totalTaskCount - this.props.completedTaskCount],
-	                        backgroundColor: ['#5e804d']
-	                    }]
-	                },
-	                options: {
-	                    cutoutPercentage: 75
-	                }
-	            });
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            return _React2.default.createElement(
-	                'div',
-	                { id: 'task-completion' },
-	                _React2.default.createElement('canvas', { id: 'task-completion-canvas' }),
-	                _React2.default.createElement(
-	                    'p',
-	                    null,
-	                    this.props.completedTaskCount,
-	                    ' / ',
-	                    this.props.totalTaskCount
-	                ),
-	                _React2.default.createElement(
-	                    'p',
-	                    { style: { float: 'right' } },
-	                    this.state.completionPercentage,
-	                    '%'
-	                )
-	            );
-	        }
-	    }]);
-
-	    return TaskCompletion;
-	}(_React2.default.Component);
-
-	TaskCompletion.propTypes = {
-	    completedTaskCount: _React2.default.PropTypes.number.isRequired,
-	    totalTaskCount: _React2.default.PropTypes.number.isRequired,
-	    isVisible: _React2.default.PropTypes.bool.isRequired
-	};
-
-	exports.default = TaskCompletion;
-
-/***/ },
+/* 505 */,
+/* 506 */,
+/* 507 */,
+/* 508 */,
+/* 509 */,
+/* 510 */,
+/* 511 */,
+/* 512 */,
+/* 513 */,
 /* 514 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -71210,890 +70268,26 @@
 
 
 /***/ },
-/* 664 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(665);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(452)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../../../../node_modules/css-loader/index.js!./../../../../../../node_modules/sass-loader/index.js!./task-completion.scss", function() {
-				var newContent = require("!!./../../../../../../node_modules/css-loader/index.js!./../../../../../../node_modules/sass-loader/index.js!./task-completion.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 665 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(451)();
-	// imports
-
-
-	// module
-	exports.push([module.id, "#task-completion p {\n  display: inline; }\n", ""]);
-
-	// exports
-
-
-/***/ },
-/* 666 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(667);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(452)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./analytics.scss", function() {
-				var newContent = require("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./analytics.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 667 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(451)();
-	// imports
-
-
-	// module
-	exports.push([module.id, "#analytics {\n  background: #d3d2d1;\n  border-top: 1px solid #c4c4c4;\n  position: absolute;\n  left: 275px;\n  bottom: 0;\n  width: calc(100% - 275px);\n  font-size: .9em; }\n  #analytics .toggle-bar {\n    padding: 10px 15px; }\n    #analytics .toggle-bar .toggle {\n      text-transform: uppercase;\n      color: #373737;\n      letter-spacing: 1px; }\n      #analytics .toggle-bar .toggle .toggle-button {\n        font-size: 1.2em;\n        margin-right: 10px; }\n      #analytics .toggle-bar .toggle:hover {\n        cursor: pointer;\n        text-decoration: none; }\n  #analytics .drawer {\n    padding: 15px 15px 0 15px; }\n  #analytics #no-analytics-available {\n    margin: 40px 0 20px 0;\n    text-align: center;\n    color: #888888; }\n", ""]);
-
-	// exports
-
-
-/***/ },
-/* 668 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _emptyTaskList = __webpack_require__(669);
-
-	var _emptyTaskList2 = _interopRequireDefault(_emptyTaskList);
-
-	var _taskListFilterContainer = __webpack_require__(679);
-
-	var _taskListFilterContainer2 = _interopRequireDefault(_taskListFilterContainer);
-
-	var _taskList = __webpack_require__(690);
-
-	var _taskList2 = _interopRequireDefault(_taskList);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	__webpack_require__(759);
-
-	var TaskListView = function (_Component) {
-	    _inherits(TaskListView, _Component);
-
-	    function TaskListView() {
-	        _classCallCheck(this, TaskListView);
-
-	        return _possibleConstructorReturn(this, (TaskListView.__proto__ || Object.getPrototypeOf(TaskListView)).apply(this, arguments));
-	    }
-
-	    _createClass(TaskListView, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'div',
-	                { className: 'row' },
-	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'col-xs-12' },
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'task-list-view' },
-	                        _react2.default.createElement(_taskListFilterContainer2.default, { taskGroupName: this.props.taskGroupName }),
-	                        this.props.tasks.length == 0 ? _react2.default.createElement(_emptyTaskList2.default, {
-	                            isShowingOnlyCompleteTasks: this.props.isShowingOnlyCompleteTasks,
-	                            handleNewTask: this.props.handleNewTask
-	                        }) : _react2.default.createElement(_taskList2.default, {
-	                            tasks: this.props.tasks,
-	                            handleCompletionToggle: this.props.handleCompletionToggle,
-	                            handleNewTask: this.props.handleNewTask,
-	                            handleTaskDelete: this.props.handleTaskDelete,
-	                            handleTaskSave: this.props.handleTaskSave,
-	                            updateDisplayOrder: this.props.updateDisplayOrder
-	                        })
-	                    )
-	                )
-	            );
-	        }
-	    }]);
-
-	    return TaskListView;
-	}(_react.Component);
-
-	TaskListView.propTypes = {
-	    tasks: _react.PropTypes.arrayOf(_react.PropTypes.object).isRequired,
-	    taskGroupName: _react.PropTypes.string,
-	    isShowingOnlyCompleteTasks: _react.PropTypes.bool.isRequired,
-
-	    handleNewTask: _react.PropTypes.func.isRequired,
-	    handleCompletionToggle: _react.PropTypes.func.isRequired,
-	    handleTaskDelete: _react.PropTypes.func.isRequired,
-	    handleTaskSave: _react.PropTypes.func.isRequired,
-	    updateDisplayOrder: _react.PropTypes.func.isRequired
-	};
-
-	exports.default = TaskListView;
-
-/***/ },
-/* 669 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _emptyTaskListNewItem = __webpack_require__(670);
-
-	var _emptyTaskListNewItem2 = _interopRequireDefault(_emptyTaskListNewItem);
-
-	var _taskListPlaceholder = __webpack_require__(676);
-
-	var _taskListPlaceholder2 = _interopRequireDefault(_taskListPlaceholder);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var EmptyTaskList = function (_Component) {
-	    _inherits(EmptyTaskList, _Component);
-
-	    function EmptyTaskList() {
-	        _classCallCheck(this, EmptyTaskList);
-
-	        return _possibleConstructorReturn(this, (EmptyTaskList.__proto__ || Object.getPrototypeOf(EmptyTaskList)).apply(this, arguments));
-	    }
-
-	    _createClass(EmptyTaskList, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'div',
-	                { className: 'empty-task-list' },
-	                this.props.isShowingOnlyCompleteTasks ? _react2.default.createElement(_taskListPlaceholder2.default, {
-	                    headline: 'You\'ve got work to do.',
-	                    body: 'You haven\'t completed any tasks with these criteria. You\'re better than that.'
-	                }) : _react2.default.createElement(
-	                    'div',
-	                    null,
-	                    _react2.default.createElement(_taskListPlaceholder2.default, {
-	                        headline: 'Hello?',
-	                        body: 'It\'s looking a little barren in here. Use the link below to add tasks.'
-	                    }),
-	                    _react2.default.createElement(_emptyTaskListNewItem2.default, { handleNewTask: this.props.handleNewTask })
-	                )
-	            );
-	        }
-	    }]);
-
-	    return EmptyTaskList;
-	}(_react.Component);
-
-	EmptyTaskList.propTypes = {
-	    isShowingOnlyCompleteTasks: _react.PropTypes.bool.isRequired,
-	    handleNewTask: _react.PropTypes.func.isRequired
-	};
-
-	exports.default = EmptyTaskList;
-
-/***/ },
-/* 670 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _taskListNewItem = __webpack_require__(671);
-
-	var _taskListNewItem2 = _interopRequireDefault(_taskListNewItem);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	__webpack_require__(674);
-
-	var EmptyTaskListNewItem = function (_React$Component) {
-	    _inherits(EmptyTaskListNewItem, _React$Component);
-
-	    function EmptyTaskListNewItem() {
-	        _classCallCheck(this, EmptyTaskListNewItem);
-
-	        return _possibleConstructorReturn(this, (EmptyTaskListNewItem.__proto__ || Object.getPrototypeOf(EmptyTaskListNewItem)).apply(this, arguments));
-	    }
-
-	    _createClass(EmptyTaskListNewItem, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(_taskListNewItem2.default, _extends({}, this.props, {
-	                className: 'empty-task-list-new-item'
-	            }));
-	        }
-	    }]);
-
-	    return EmptyTaskListNewItem;
-	}(_react2.default.Component);
-
-	EmptyTaskListNewItem.propTypes = {
-	    handleNewTask: _react2.default.PropTypes.func.isRequired
-	};
-
-	exports.default = EmptyTaskListNewItem;
-
-/***/ },
-/* 671 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _textBox = __webpack_require__(467);
-
-	var _textBox2 = _interopRequireDefault(_textBox);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	__webpack_require__(672);
-
-	var TaskListNewItem = function (_Component) {
-	    _inherits(TaskListNewItem, _Component);
-
-	    function TaskListNewItem(props) {
-	        _classCallCheck(this, TaskListNewItem);
-
-	        var _this = _possibleConstructorReturn(this, (TaskListNewItem.__proto__ || Object.getPrototypeOf(TaskListNewItem)).call(this, props));
-
-	        _this.handleBlur = _this.handleBlur.bind(_this);
-	        return _this;
-	    }
-
-	    _createClass(TaskListNewItem, [{
-	        key: 'handleBlur',
-	        value: function handleBlur(event) {
-	            if (event.target.value != '') {
-	                this.props.handleNewTask({
-	                    Name: event.target.value
-	                });
-	            }
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'div',
-	                { className: 'task-list-new-item ' + this.props.className },
-	                _react2.default.createElement(_textBox2.default, {
-	                    placeholder: 'Add a new task',
-	                    clearOnBlur: true,
-	                    handleBlur: this.handleBlur
-	                })
-	            );
-	        }
-	    }]);
-
-	    return TaskListNewItem;
-	}(_react.Component);
-
-	TaskListNewItem.propTypes = {
-	    className: _react.PropTypes.string,
-	    handleNewTask: _react2.default.PropTypes.func.isRequired
-	};
-
-	exports.default = TaskListNewItem;
-
-/***/ },
-/* 672 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(673);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(452)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../../../../node_modules/css-loader/index.js!./../../../../../../node_modules/sass-loader/index.js!./task-list-new-item.scss", function() {
-				var newContent = require("!!./../../../../../../node_modules/css-loader/index.js!./../../../../../../node_modules/sass-loader/index.js!./task-list-new-item.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 673 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(451)();
-	// imports
-
-
-	// module
-	exports.push([module.id, ".task-list-new-item {\n  background: #F5F3F2;\n  margin-top: 10px;\n  padding: 0px 15px 0px 45px; }\n  .task-list-new-item input {\n    padding: 10px;\n    border: none !important;\n    background: none; }\n    .task-list-new-item input:hover {\n      cursor: pointer; }\n    .task-list-new-item input:focus {\n      cursor: text; }\n    .task-list-new-item input::-moz-placeholder {\n      font-style: normal;\n      color: #888888; }\n    .task-list-new-item input:-moz-placeholder {\n      font-style: normal;\n      color: #888888; }\n    .task-list-new-item input::-webkit-input-placeholder {\n      font-style: normal;\n      color: #888888; }\n    .task-list-new-item input:-ms-input-placeholder {\n      font-style: normal;\n      color: #888888; }\n", ""]);
-
-	// exports
-
-
-/***/ },
-/* 674 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(675);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(452)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../../../../node_modules/css-loader/index.js!./../../../../../../node_modules/sass-loader/index.js!./empty-task-list-new-item.scss", function() {
-				var newContent = require("!!./../../../../../../node_modules/css-loader/index.js!./../../../../../../node_modules/sass-loader/index.js!./empty-task-list-new-item.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 675 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(451)();
-	// imports
-
-
-	// module
-	exports.push([module.id, ".empty-task-list-new-item {\n  margin: 40px 0 0 0;\n  padding: 0; }\n  .empty-task-list-new-item input {\n    text-align: center; }\n    .empty-task-list-new-item input:hover {\n      cursor: pointer; }\n    .empty-task-list-new-item input:focus {\n      cursor: text; }\n    .empty-task-list-new-item input::-moz-placeholder {\n      font-style: normal;\n      color: #888888; }\n    .empty-task-list-new-item input:-moz-placeholder {\n      font-style: normal;\n      color: #888888; }\n    .empty-task-list-new-item input::-webkit-input-placeholder {\n      font-style: normal;\n      color: #888888; }\n    .empty-task-list-new-item input:-ms-input-placeholder {\n      font-style: normal;\n      color: #888888; }\n", ""]);
-
-	// exports
-
-
-/***/ },
-/* 676 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	__webpack_require__(677);
-
-	var TaskListPlaceholder = function (_Component) {
-	    _inherits(TaskListPlaceholder, _Component);
-
-	    function TaskListPlaceholder() {
-	        _classCallCheck(this, TaskListPlaceholder);
-
-	        return _possibleConstructorReturn(this, (TaskListPlaceholder.__proto__ || Object.getPrototypeOf(TaskListPlaceholder)).apply(this, arguments));
-	    }
-
-	    _createClass(TaskListPlaceholder, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'p',
-	                { className: 'task-list-placeholder' },
-	                _react2.default.createElement(
-	                    'span',
-	                    { className: 'large' },
-	                    this.props.headline
-	                ),
-	                this.props.body
-	            );
-	        }
-	    }]);
-
-	    return TaskListPlaceholder;
-	}(_react.Component);
-
-	TaskListPlaceholder.propTypes = {
-	    headline: _react.PropTypes.string.isRequired,
-	    body: _react.PropTypes.string.isRequired
-	};
-
-	exports.default = TaskListPlaceholder;
-
-/***/ },
-/* 677 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(678);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(452)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./task-list-placeholder.scss", function() {
-				var newContent = require("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./task-list-placeholder.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 678 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(451)();
-	// imports
-
-
-	// module
-	exports.push([module.id, ".task-list-placeholder {\n  margin: 20px 0 0 0;\n  font-size: 1.3em;\n  color: #888888;\n  text-align: center; }\n  .task-list-placeholder .large {\n    font-size: 3em;\n    font-weight: 100;\n    font-family: 'Roboto';\n    display: block; }\n", ""]);
-
-	// exports
-
-
-/***/ },
-/* 679 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRedux = __webpack_require__(172);
-
-	var _filterIndicator = __webpack_require__(680);
-
-	var _filterIndicator2 = _interopRequireDefault(_filterIndicator);
-
-	var _taskListCompletionFilter = __webpack_require__(683);
-
-	var _taskListCompletionFilter2 = _interopRequireDefault(_taskListCompletionFilter);
-
-	var _taskListDateFilter = __webpack_require__(686);
-
-	var _taskListDateFilter2 = _interopRequireDefault(_taskListDateFilter);
-
-	var _taskListFilterWrapper = __webpack_require__(687);
-
-	var _taskListFilterWrapper2 = _interopRequireDefault(_taskListFilterWrapper);
-
-	var _filterActions = __webpack_require__(482);
-
-	var _filterActions2 = _interopRequireDefault(_filterActions);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
-
-
-	// components
-
-
-	// actions
-
-
-	var TaskListFilterContainer = function (_Component) {
-	    _inherits(TaskListFilterContainer, _Component);
-
-	    function TaskListFilterContainer() {
-	        _classCallCheck(this, TaskListFilterContainer);
-
-	        return _possibleConstructorReturn(this, (TaskListFilterContainer.__proto__ || Object.getPrototypeOf(TaskListFilterContainer)).apply(this, arguments));
-	    }
-
-	    _createClass(TaskListFilterContainer, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                _taskListFilterWrapper2.default,
-	                null,
-	                _react2.default.createElement(_taskListCompletionFilter2.default, {
-	                    activeFilter: this.props.filters.completion,
-	                    handleFilterChange: this.props.setCompletionFilter
-	                }),
-	                _react2.default.createElement(_taskListDateFilter2.default, {
-	                    activeFilter: this.props.filters.date,
-	                    handleFilterChange: this.props.setDateFilter
-	                }),
-	                _react2.default.createElement(_filterIndicator2.default, {
-	                    taskGroupName: this.props.taskGroupName,
-	                    handleFilterClear: this.props.clearTaskGroupFilter
-	                })
-	            );
-	        }
-	    }]);
-
-	    return TaskListFilterContainer;
-	}(_react.Component);
-
-	TaskListFilterContainer.propTypes = {
-	    taskGroupName: _react.PropTypes.string,
-	    filters: _react.PropTypes.object
-	};
-
-	function mapStateToProps(state) {
-	    return {
-	        filters: state.filters
-	    };
-	}
-
-	function mapDispatchToProps(dispatch) {
-	    return {
-	        setCompletionFilter: function setCompletionFilter(filter) {
-	            dispatch(_filterActions2.default.setCompletionFilter(filter));
-	        },
-
-	        setDateFilter: function setDateFilter(filter) {
-	            dispatch(_filterActions2.default.setDateFilter(filter));
-	        },
-
-	        clearTaskGroupFilter: function clearTaskGroupFilter() {
-	            dispatch(_filterActions2.default.setTaskGroupFilter(0));
-	        }
-	    };
-	}
-
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(TaskListFilterContainer);
-
-/***/ },
-/* 680 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	__webpack_require__(681);
-
-	var FilterIndicator = function (_Component) {
-	    _inherits(FilterIndicator, _Component);
-
-	    function FilterIndicator() {
-	        _classCallCheck(this, FilterIndicator);
-
-	        return _possibleConstructorReturn(this, (FilterIndicator.__proto__ || Object.getPrototypeOf(FilterIndicator)).apply(this, arguments));
-	    }
-
-	    _createClass(FilterIndicator, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'div',
-	                { className: 'filter-indicator' },
-	                this.props.taskGroupName ? _react2.default.createElement(
-	                    'span',
-	                    null,
-	                    'showing tasks in the ',
-	                    _react2.default.createElement(
-	                        'strong',
-	                        null,
-	                        this.props.taskGroupName
-	                    ),
-	                    ' group | ',
-	                    _react2.default.createElement(
-	                        'a',
-	                        { onClick: this.props.handleFilterClear },
-	                        'show all tasks'
-	                    )
-	                ) : _react2.default.createElement(
-	                    'span',
-	                    null,
-	                    'showing all tasks'
-	                )
-	            );
-	        }
-	    }]);
-
-	    return FilterIndicator;
-	}(_react.Component);
-
-	FilterIndicator.propTypes = {
-	    taskGroupName: _react.PropTypes.string,
-	    handleFilterClear: _react.PropTypes.func.isRequired
-	};
-
-	exports.default = FilterIndicator;
-
-/***/ },
-/* 681 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(682);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(452)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./filter-indicator.scss", function() {
-				var newContent = require("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./filter-indicator.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 682 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(451)();
-	// imports
-
-
-	// module
-	exports.push([module.id, ".filter-indicator {\n  float: right;\n  padding: 0 0 10px 0;\n  font-size: .9em;\n  text-align: right;\n  color: #888888; }\n", ""]);
-
-	// exports
-
-
-/***/ },
-/* 683 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _navPill = __webpack_require__(684);
-
-	var _navPill2 = _interopRequireDefault(_navPill);
-
-	var _navPillGroup = __webpack_require__(685);
-
-	var _navPillGroup2 = _interopRequireDefault(_navPillGroup);
-
-	var _filterValues = __webpack_require__(264);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var TaskListCompletionFilter = function (_Component) {
-	    _inherits(TaskListCompletionFilter, _Component);
-
-	    function TaskListCompletionFilter() {
-	        _classCallCheck(this, TaskListCompletionFilter);
-
-	        return _possibleConstructorReturn(this, (TaskListCompletionFilter.__proto__ || Object.getPrototypeOf(TaskListCompletionFilter)).apply(this, arguments));
-	    }
-
-	    _createClass(TaskListCompletionFilter, [{
-	        key: 'render',
-	        value: function render() {
-	            var _this2 = this;
-
-	            return _react2.default.createElement(
-	                'div',
-	                { className: 'task-list-completion-filter' },
-	                _react2.default.createElement(
-	                    _navPillGroup2.default,
-	                    null,
-	                    _react2.default.createElement(_navPill2.default, {
-	                        text: 'all',
-	                        isActive: this.props.activeFilter == _filterValues.completion.ALL,
-	                        handleClick: function handleClick() {
-	                            return _this2.props.handleFilterChange(_filterValues.completion.ALL);
-	                        }
-	                    }),
-	                    _react2.default.createElement(_navPill2.default, {
-	                        text: 'complete',
-	                        isActive: this.props.activeFilter == _filterValues.completion.COMPLETE,
-	                        handleClick: function handleClick() {
-	                            return _this2.props.handleFilterChange(_filterValues.completion.COMPLETE);
-	                        }
-	                    }),
-	                    _react2.default.createElement(_navPill2.default, {
-	                        text: 'incomplete',
-	                        isActive: this.props.activeFilter == _filterValues.completion.INCOMPLETE,
-	                        handleClick: function handleClick() {
-	                            return _this2.props.handleFilterChange(_filterValues.completion.INCOMPLETE);
-	                        }
-	                    })
-	                )
-	            );
-	        }
-	    }]);
-
-	    return TaskListCompletionFilter;
-	}(_react.Component);
-
-	TaskListCompletionFilter.propTypes = {
-	    activeFilter: _react.PropTypes.string.isRequired,
-	    handleFilterChange: _react.PropTypes.func.isRequired
-	};
-
-	exports.default = TaskListCompletionFilter;
-
-/***/ },
+/* 664 */,
+/* 665 */,
+/* 666 */,
+/* 667 */,
+/* 668 */,
+/* 669 */,
+/* 670 */,
+/* 671 */,
+/* 672 */,
+/* 673 */,
+/* 674 */,
+/* 675 */,
+/* 676 */,
+/* 677 */,
+/* 678 */,
+/* 679 */,
+/* 680 */,
+/* 681 */,
+/* 682 */,
+/* 683 */,
 /* 684 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -72205,342 +70399,11 @@
 	exports.default = NavPillGroup;
 
 /***/ },
-/* 686 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _navPill = __webpack_require__(684);
-
-	var _navPill2 = _interopRequireDefault(_navPill);
-
-	var _navPillGroup = __webpack_require__(685);
-
-	var _navPillGroup2 = _interopRequireDefault(_navPillGroup);
-
-	var _filterValues = __webpack_require__(264);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var TaskListDateFilter = function (_Component) {
-	    _inherits(TaskListDateFilter, _Component);
-
-	    function TaskListDateFilter() {
-	        _classCallCheck(this, TaskListDateFilter);
-
-	        return _possibleConstructorReturn(this, (TaskListDateFilter.__proto__ || Object.getPrototypeOf(TaskListDateFilter)).apply(this, arguments));
-	    }
-
-	    _createClass(TaskListDateFilter, [{
-	        key: 'render',
-	        value: function render() {
-	            var _this2 = this;
-
-	            return _react2.default.createElement(
-	                'div',
-	                { className: 'task-list-date-filter' },
-	                _react2.default.createElement(
-	                    _navPillGroup2.default,
-	                    null,
-	                    _react2.default.createElement(_navPill2.default, {
-	                        text: 'all',
-	                        isActive: this.props.activeFilter == _filterValues.date.ALL,
-	                        handleClick: function handleClick() {
-	                            return _this2.props.handleFilterChange(_filterValues.date.ALL);
-	                        }
-	                    }),
-	                    _react2.default.createElement(_navPill2.default, {
-	                        text: 'today',
-	                        isActive: this.props.activeFilter == _filterValues.date.TODAY,
-	                        handleClick: function handleClick() {
-	                            return _this2.props.handleFilterChange(_filterValues.date.TODAY);
-	                        }
-	                    }),
-	                    _react2.default.createElement(_navPill2.default, {
-	                        text: 'tomorrow',
-	                        isActive: this.props.activeFilter == _filterValues.date.TOMORROW,
-	                        handleClick: function handleClick() {
-	                            return _this2.props.handleFilterChange(_filterValues.date.TOMORROW);
-	                        }
-	                    }),
-	                    _react2.default.createElement(_navPill2.default, {
-	                        text: 'due',
-	                        isActive: this.props.activeFilter == _filterValues.date.DUE,
-	                        handleClick: function handleClick() {
-	                            return _this2.props.handleFilterChange(_filterValues.date.DUE);
-	                        }
-	                    })
-	                )
-	            );
-	        }
-	    }]);
-
-	    return TaskListDateFilter;
-	}(_react.Component);
-
-	TaskListDateFilter.propTypes = {
-	    activeFilter: _react.PropTypes.string.isRequired,
-	    handleFilterChange: _react.PropTypes.func.isRequired
-	};
-
-	exports.default = TaskListDateFilter;
-
-/***/ },
-/* 687 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	__webpack_require__(688);
-
-	var TaskListFilterWrapper = function (_React$Component) {
-	    _inherits(TaskListFilterWrapper, _React$Component);
-
-	    function TaskListFilterWrapper() {
-	        _classCallCheck(this, TaskListFilterWrapper);
-
-	        return _possibleConstructorReturn(this, (TaskListFilterWrapper.__proto__ || Object.getPrototypeOf(TaskListFilterWrapper)).apply(this, arguments));
-	    }
-
-	    _createClass(TaskListFilterWrapper, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'div',
-	                { className: 'task-list-filter-wrapper' },
-	                this.props.children
-	            );
-	        }
-	    }]);
-
-	    return TaskListFilterWrapper;
-	}(_react2.default.Component);
-
-	exports.default = TaskListFilterWrapper;
-
-/***/ },
-/* 688 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(689);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(452)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../../../../node_modules/css-loader/index.js!./../../../../../../node_modules/sass-loader/index.js!./task-list-filter-wrapper.scss", function() {
-				var newContent = require("!!./../../../../../../node_modules/css-loader/index.js!./../../../../../../node_modules/sass-loader/index.js!./task-list-filter-wrapper.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 689 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(451)();
-	// imports
-
-
-	// module
-	exports.push([module.id, ".task-list-filter-wrapper {\n  margin-bottom: 4px; }\n  .task-list-filter-wrapper .task-list-completion-filter,\n  .task-list-filter-wrapper .task-list-date-filter {\n    display: inline-block; }\n  .task-list-filter-wrapper .task-list-date-filter {\n    margin-left: 60px; }\n", ""]);
-
-	// exports
-
-
-/***/ },
-/* 690 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _draggableList = __webpack_require__(691);
-
-	var _draggableList2 = _interopRequireDefault(_draggableList);
-
-	var _taskListItem = __webpack_require__(699);
-
-	var _taskListItem2 = _interopRequireDefault(_taskListItem);
-
-	var _taskListNewItem = __webpack_require__(671);
-
-	var _taskListNewItem2 = _interopRequireDefault(_taskListNewItem);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var TaskList = function (_Component) {
-	    _inherits(TaskList, _Component);
-
-	    function TaskList(props) {
-	        _classCallCheck(this, TaskList);
-
-	        var _this = _possibleConstructorReturn(this, (TaskList.__proto__ || Object.getPrototypeOf(TaskList)).call(this, props));
-
-	        _this.state = {
-	            openTaskIds: []
-	        };
-
-	        _this.openTask = _this.openTask.bind(_this);
-	        _this.closeTask = _this.closeTask.bind(_this);
-	        _this.getTaskListItems = _this.getTaskListItems.bind(_this);
-	        _this.handleTaskNameClick = _this.handleTaskNameClick.bind(_this);
-	        _this.handleTaskDelete = _this.handleTaskDelete.bind(_this);
-	        return _this;
-	    }
-
-	    _createClass(TaskList, [{
-	        key: 'openTask',
-	        value: function openTask(taskId, event) {
-	            if (!this.state.openTaskIds.includes(taskId)) {
-	                this.setState({
-	                    openTaskIds: this.state.openTaskIds.concat(taskId)
-	                });
-	            }
-	        }
-	    }, {
-	        key: 'closeTask',
-	        value: function closeTask(taskId, event) {
-	            var newList = Object.assign([], this.state.openTaskIds);
-	            newList.splice(this.state.openTaskIds.indexOf(taskId), 1);
-
-	            this.setState({
-	                openTaskIds: newList
-	            });
-	        }
-	    }, {
-	        key: 'getTaskListItems',
-	        value: function getTaskListItems() {
-	            var _this2 = this;
-
-	            return this.props.tasks.map(function (task, key) {
-	                var isOpen = _this2.state.openTaskIds.includes(task.Id);
-
-	                return _react2.default.createElement(_taskListItem2.default, {
-	                    key: key,
-	                    task: task,
-	                    isOpen: isOpen,
-	                    isDimmed: !isOpen && _this2.state.openTaskIds.length != 0,
-	                    openTask: _this2.openTask,
-	                    closeTask: _this2.closeTask,
-	                    handleNameClick: _this2.handleTaskNameClick,
-	                    handleCompletionToggle: _this2.props.handleCompletionToggle,
-	                    handleSave: _this2.props.handleTaskSave,
-	                    handleDelete: _this2.handleTaskDelete
-	                });
-	            });
-	        }
-	    }, {
-	        key: 'handleTaskNameClick',
-	        value: function handleTaskNameClick(taskId, event) {
-	            this.openTask(taskId);
-	        }
-	    }, {
-	        key: 'handleTaskDelete',
-	        value: function handleTaskDelete(event) {
-	            this.closeTask(event.target.value);
-	            this.props.handleTaskDelete(event);
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            var listItems = this.getTaskListItems();
-
-	            return _react2.default.createElement(
-	                'div',
-	                { className: 'task-list' },
-	                this.state.openTaskIds.length == 0 ? _react2.default.createElement(
-	                    _draggableList2.default,
-	                    {
-	                        items: this.props.tasks,
-	                        updateDisplayOrder: this.props.updateDisplayOrder
-	                    },
-	                    listItems
-	                ) : _react2.default.createElement(
-	                    'div',
-	                    null,
-	                    listItems
-	                ),
-	                _react2.default.createElement(_taskListNewItem2.default, { handleNewTask: this.props.handleNewTask })
-	            );
-	        }
-	    }]);
-
-	    return TaskList;
-	}(_react.Component);
-
-	TaskList.propTypes = {
-	    tasks: _react.PropTypes.arrayOf(_react.PropTypes.object).isRequired,
-
-	    handleCompletionToggle: _react.PropTypes.func.isRequired,
-	    handleNewTask: _react.PropTypes.func.isRequired,
-	    handleTaskDelete: _react.PropTypes.func.isRequired,
-	    handleTaskSave: _react.PropTypes.func.isRequired,
-	    updateDisplayOrder: _react.PropTypes.func.isRequired
-	};
-
-	exports.default = TaskList;
-
-/***/ },
+/* 686 */,
+/* 687 */,
+/* 688 */,
+/* 689 */,
+/* 690 */,
 /* 691 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -72986,137 +70849,7 @@
 
 
 /***/ },
-/* 699 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _checkbox = __webpack_require__(700);
-
-	var _checkbox2 = _interopRequireDefault(_checkbox);
-
-	var _taskListItemBrief = __webpack_require__(704);
-
-	var _taskListItemBrief2 = _interopRequireDefault(_taskListItemBrief);
-
-	var _taskListItemDetails = __webpack_require__(747);
-
-	var _taskListItemDetails2 = _interopRequireDefault(_taskListItemDetails);
-
-	var _toggler = __webpack_require__(754);
-
-	var _toggler2 = _interopRequireDefault(_toggler);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
-
-
-	// components
-
-
-	// styles
-	__webpack_require__(757);
-
-	var TaskListItem = function (_Component) {
-	    _inherits(TaskListItem, _Component);
-
-	    function TaskListItem() {
-	        _classCallCheck(this, TaskListItem);
-
-	        return _possibleConstructorReturn(this, (TaskListItem.__proto__ || Object.getPrototypeOf(TaskListItem)).apply(this, arguments));
-	    }
-
-	    _createClass(TaskListItem, [{
-	        key: 'render',
-	        value: function render() {
-	            var _this2 = this;
-
-	            var _props = this.props;
-	            var text = _props.text;
-	            var isDragging = _props.isDragging;
-	            var connectDragSource = _props.connectDragSource;
-	            var connectDropTarget = _props.connectDropTarget;
-
-	            var opacity = isDragging ? 0 : 1;
-
-	            return _react2.default.createElement(
-	                'div',
-	                { className: 'task-list-item ' + (this.props.isDimmed ? 'dimmed' : '') },
-	                _react2.default.createElement(_checkbox2.default, {
-	                    checked: this.props.task.Complete,
-	                    handleChange: function handleChange(event) {
-	                        return _this2.props.handleCompletionToggle(_this2.props.task.Id, event);
-	                    }
-	                }),
-	                _react2.default.createElement(_taskListItemBrief2.default, {
-	                    id: this.props.task.Id,
-	                    name: this.props.task.Name,
-	                    complete: this.props.task.Complete,
-	                    lastDateCompleted: this.props.task.LastDateCompleted,
-	                    plannedDate: this.props.task.PlannedDate,
-	                    dueDate: this.props.task.DueDate,
-	                    isOpen: this.props.isOpen,
-	                    handleNameClick: this.props.handleNameClick,
-	                    handleSave: this.props.handleSave,
-	                    hideDetails: this.props.closeTask,
-	                    showDetails: this.props.openTask
-	                }),
-	                _react2.default.createElement(
-	                    _toggler2.default,
-	                    { isVisible: this.props.isOpen },
-	                    _react2.default.createElement(_taskListItemDetails2.default, {
-	                        taskId: this.props.task.Id,
-	                        taskNotes: this.props.task.Notes,
-	                        handleDelete: this.props.handleDelete,
-	                        handleNotesSave: this.props.handleSave
-	                    })
-	                )
-	            );
-	        }
-	    }]);
-
-	    return TaskListItem;
-	}(_react.Component);
-
-	TaskListItem.propTypes = {
-	    task: _react.PropTypes.shape({
-	        Id: _react.PropTypes.number.isRequired,
-	        Name: _react.PropTypes.string.isRequired,
-	        Notes: _react.PropTypes.string,
-	        Complete: _react.PropTypes.bool.isRequired,
-	        LastDateCompleted: _react.PropTypes.string,
-	        PlannedDate: _react.PropTypes.string,
-	        DueDate: _react.PropTypes.string
-	    }).isRequired,
-	    isOpen: _react.PropTypes.bool.isRequired,
-	    isDimmed: _react.PropTypes.bool.isRequired,
-
-	    openTask: _react.PropTypes.func.isRequired,
-	    closeTask: _react.PropTypes.func.isRequired,
-	    handleNameClick: _react.PropTypes.func.isRequired,
-	    handleCompletionToggle: _react.PropTypes.func.isRequired,
-	    handleDelete: _react.PropTypes.func.isRequired,
-	    handleSave: _react.PropTypes.func.isRequired
-	};
-
-	exports.default = TaskListItem;
-
-/***/ },
+/* 699 */,
 /* 700 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -74816,192 +72549,7 @@
 
 
 /***/ },
-/* 704 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _flexboxReact = __webpack_require__(705);
-
-	var _flexboxReact2 = _interopRequireDefault(_flexboxReact);
-
-	var _dateBox = __webpack_require__(741);
-
-	var _dateBox2 = _interopRequireDefault(_dateBox);
-
-	var _downAngleIcon = __webpack_require__(458);
-
-	var _downAngleIcon2 = _interopRequireDefault(_downAngleIcon);
-
-	var _rightAngleIcon = __webpack_require__(460);
-
-	var _rightAngleIcon2 = _interopRequireDefault(_rightAngleIcon);
-
-	var _textBox = __webpack_require__(467);
-
-	var _textBox2 = _interopRequireDefault(_textBox);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
-
-
-	// components
-
-
-	var TaskListItemBrief = function (_Component) {
-	    _inherits(TaskListItemBrief, _Component);
-
-	    function TaskListItemBrief(props) {
-	        _classCallCheck(this, TaskListItemBrief);
-
-	        var _this = _possibleConstructorReturn(this, (TaskListItemBrief.__proto__ || Object.getPrototypeOf(TaskListItemBrief)).call(this, props));
-
-	        _this.handleDueDateSave = _this.handleDueDateSave.bind(_this);
-	        _this.handleNameClick = _this.handleNameClick.bind(_this);
-	        _this.handleNameSave = _this.handleNameSave.bind(_this);
-	        _this.handlePlannedDateSave = _this.handlePlannedDateSave.bind(_this);
-	        return _this;
-	    }
-
-	    _createClass(TaskListItemBrief, [{
-	        key: 'handleNameClick',
-	        value: function handleNameClick(event) {
-	            if (!this.props.isOpen) {
-	                this.props.handleNameClick(this.props.id, event);
-	            }
-	        }
-	    }, {
-	        key: 'handleNameSave',
-	        value: function handleNameSave(event) {
-	            if (event.target.value != this.props.name) {
-	                this.props.handleSave(this.props.id, {
-	                    Name: event.target.value
-	                });
-	            }
-	        }
-	    }, {
-	        key: 'handlePlannedDateSave',
-	        value: function handlePlannedDateSave(date) {
-	            if (date != this.props.plannedDate) {
-	                this.props.handleSave(this.props.id, {
-	                    PlannedDate: date || ''
-	                });
-	            }
-	        }
-	    }, {
-	        key: 'handleDueDateSave',
-	        value: function handleDueDateSave(date) {
-	            if (date != this.props.dueDate) {
-	                this.props.handleSave(this.props.id, {
-	                    DueDate: date || ''
-	                });
-	            }
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            var _this2 = this;
-
-	            return _react2.default.createElement(
-	                'div',
-	                { className: '\n                task-brief\n                ' + (this.props.isOpen ? 'edit-mode' : '') + '\n                ' + (this.props.complete ? 'task-complete' : '') + '\n            ' },
-	                _react2.default.createElement(
-	                    _flexboxReact2.default,
-	                    { flexDirection: 'row' },
-	                    _react2.default.createElement(
-	                        _flexboxReact2.default,
-	                        {
-	                            flexGrow: 1,
-	                            className: 'task-name'
-	                        },
-	                        _react2.default.createElement(_textBox2.default, {
-	                            isDisabled: this.props.complete,
-	                            value: this.props.name,
-	                            handleClick: this.handleNameClick,
-	                            handleBlur: this.handleNameSave
-	                        })
-	                    ),
-	                    this.props.complete ? _react2.default.createElement(
-	                        _flexboxReact2.default,
-	                        null,
-	                        _react2.default.createElement(_dateBox2.default, {
-	                            label: 'completed',
-	                            value: this.props.lastDateCompleted,
-	                            contextColorsEnabled: false,
-	                            isDisabled: true
-	                        })
-	                    ) : _react2.default.createElement(
-	                        _flexboxReact2.default,
-	                        null,
-	                        _react2.default.createElement(
-	                            _flexboxReact2.default,
-	                            null,
-	                            _react2.default.createElement(_dateBox2.default, {
-	                                label: 'planned for',
-	                                value: this.props.plannedDate,
-	                                handleChange: this.handlePlannedDateSave
-	                            })
-	                        ),
-	                        _react2.default.createElement(
-	                            _flexboxReact2.default,
-	                            null,
-	                            _react2.default.createElement(_dateBox2.default, {
-	                                label: 'due',
-	                                value: this.props.dueDate,
-	                                handleChange: this.handleDueDateSave
-	                            })
-	                        )
-	                    ),
-	                    _react2.default.createElement(
-	                        _flexboxReact2.default,
-	                        null,
-	                        this.props.isOpen ? _react2.default.createElement(_downAngleIcon2.default, { handleClick: function handleClick(event) {
-	                                return _this2.props.hideDetails(_this2.props.id, event);
-	                            } }) : _react2.default.createElement(_rightAngleIcon2.default, { handleClick: function handleClick(event) {
-	                                return _this2.props.showDetails(_this2.props.id, event);
-	                            } })
-	                    )
-	                )
-	            );
-	        }
-	    }]);
-
-	    return TaskListItemBrief;
-	}(_react.Component);
-
-	TaskListItemBrief.propTypes = {
-	    id: _react.PropTypes.number.isRequired,
-	    name: _react.PropTypes.string.isRequired,
-	    complete: _react.PropTypes.bool.isRequired,
-	    lastDateCompleted: _react.PropTypes.string,
-	    plannedDate: _react.PropTypes.string,
-	    dueDate: _react.PropTypes.string,
-	    isOpen: _react.PropTypes.bool.isRequired,
-
-	    handleNameClick: _react.PropTypes.func.isRequired,
-	    handleSave: _react.PropTypes.func.isRequired,
-	    hideDetails: _react.PropTypes.func.isRequired,
-	    showDetails: _react.PropTypes.func.isRequired
-	};
-
-	exports.default = TaskListItemBrief;
-
-/***/ },
+/* 704 */,
 /* 705 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -79878,124 +77426,7 @@
 
 
 /***/ },
-/* 747 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _deleteButton = __webpack_require__(748);
-
-	var _deleteButton2 = _interopRequireDefault(_deleteButton);
-
-	var _formGroup = __webpack_require__(750);
-
-	var _formGroup2 = _interopRequireDefault(_formGroup);
-
-	var _textArea = __webpack_require__(751);
-
-	var _textArea2 = _interopRequireDefault(_textArea);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
-
-
-	// components
-
-
-	var TaskListItemDetails = function (_Component) {
-	    _inherits(TaskListItemDetails, _Component);
-
-	    function TaskListItemDetails(props) {
-	        _classCallCheck(this, TaskListItemDetails);
-
-	        var _this = _possibleConstructorReturn(this, (TaskListItemDetails.__proto__ || Object.getPrototypeOf(TaskListItemDetails)).call(this, props));
-
-	        _this.handleNotesSave = _this.handleNotesSave.bind(_this);
-	        return _this;
-	    }
-
-	    _createClass(TaskListItemDetails, [{
-	        key: 'handleNotesSave',
-	        value: function handleNotesSave(event) {
-	            var _this2 = this;
-
-	            if (event.target.value != this.props.taskNotes) {
-	                (function () {
-	                    var message = document.getElementById('task-details-message-' + _this2.props.taskId);
-
-	                    _this2.props.handleNotesSave(_this2.props.taskId, {
-	                        Notes: event.target.value
-	                    });
-
-	                    message.textContent = 'Task notes updated.';
-	                    message.className = 'task-details-message animated fadeIn';
-
-	                    setTimeout(function () {
-	                        message.className = 'task-details-message animated fadeOut';
-	                    }, 3000);
-	                })();
-	            }
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'div',
-	                { className: 'task-details' },
-	                _react2.default.createElement(
-	                    _formGroup2.default,
-	                    null,
-	                    _react2.default.createElement(
-	                        'label',
-	                        null,
-	                        'Notes'
-	                    ),
-	                    _react2.default.createElement(_textArea2.default, {
-	                        value: this.props.taskNotes,
-	                        handleBlur: this.handleNotesSave
-	                    })
-	                ),
-	                _react2.default.createElement(_deleteButton2.default, {
-	                    value: this.props.taskId,
-	                    handleClick: this.props.handleDelete
-	                }),
-	                _react2.default.createElement('span', { className: 'task-details-message hidden', id: 'task-details-message-' + this.props.taskId })
-	            );
-	        }
-	    }]);
-
-	    return TaskListItemDetails;
-	}(_react.Component);
-
-	TaskListItemDetails.propTypes = {
-	    taskId: _react.PropTypes.number.isRequired,
-	    taskNotes: _react.PropTypes.string,
-	    handleDelete: _react.PropTypes.func.isRequired,
-	    handleNotesSave: _react.PropTypes.func.isRequired
-	};
-
-	TaskListItemDetails.defaultProps = {
-	    taskNotes: ''
-	};
-
-	exports.default = TaskListItemDetails;
-
-/***/ },
+/* 747 */,
 /* 748 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -80410,86 +77841,10 @@
 
 
 /***/ },
-/* 757 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(758);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(452)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../../../../node_modules/css-loader/index.js!./../../../../../../node_modules/sass-loader/index.js!./task-list-item.scss", function() {
-				var newContent = require("!!./../../../../../../node_modules/css-loader/index.js!./../../../../../../node_modules/sass-loader/index.js!./task-list-item.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 758 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(451)();
-	// imports
-
-
-	// module
-	exports.push([module.id, ".task-list-item {\n  width: 100%;\n  padding: 15px;\n  background: #ffffff;\n  margin-bottom: 5px; }\n  .task-list-item .task-brief {\n    display: inline-block;\n    width: calc(100% - 30px);\n    margin: 0 0 0 15px; }\n    .task-list-item .task-brief input {\n      display: inline-block;\n      background: none;\n      border: 1px solid #ffffff;\n      font-size: 1.1em; }\n      .task-list-item .task-brief input:hover {\n        cursor: pointer; }\n    .task-list-item .task-brief i {\n      width: 20px;\n      padding: 15px 0 5px 0;\n      text-align: center; }\n      .task-list-item .task-brief i:hover {\n        cursor: pointer; }\n    .task-list-item .task-brief div > div {\n      margin-left: 10px; }\n    .task-list-item .task-brief .task-name {\n      margin-left: 0;\n      font-size: 1.3em;\n      font-family: 'Roboto';\n      font-weight: 300; }\n    .task-list-item .task-brief .date-box input {\n      padding: 2px; }\n  .task-list-item .task-brief.task-complete .task-name input {\n    text-decoration: line-through;\n    color: #cccccc; }\n  .task-list-item .task-brief.edit-mode input {\n    border: 1px solid #e6e6e8; }\n    .task-list-item .task-brief.edit-mode input:hover {\n      cursor: inherit; }\n  .task-list-item .task-details {\n    margin: 15px 30px 0 30px; }\n    .task-list-item .task-details textarea.form-control {\n      height: 100px; }\n    .task-list-item .task-details .task-details-message {\n      font-size: .8em;\n      color: #888888;\n      margin-left: 10px;\n      display: inline-block;\n      /*&:after {\n                overflow: hidden;\n                display: inline-block;\n                vertical-align: bottom;\n                -webkit-animation: ellipsis steps(4,end) 900ms infinite;      \n                animation: ellipsis steps(4,end) 900ms infinite;\n                content: \"\\2026\";\n                width: 0px;\n            }\n\n            @keyframes ellipsis {\n                to {\n                    width: 1.25em;    \n                }\n            }\n\n            @-webkit-keyframes ellipsis {\n                to {\n                    width: 1.25em;    \n                }\n            }*/ }\n    .task-list-item .task-details .hidden {\n      opacity: 0; }\n\n.task-list-item.dimmed {\n  opacity: .5; }\n", ""]);
-
-	// exports
-
-
-/***/ },
-/* 759 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(760);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(452)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./task-list-view.scss", function() {
-				var newContent = require("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./task-list-view.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 760 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(451)();
-	// imports
-
-
-	// module
-	exports.push([module.id, ".task-list-view {\n  font-size: .9em; }\n  .task-list-view label,\n  .task-list-view input,\n  .task-list-view textarea,\n  .task-list-view button {\n    font-size: .9em; }\n", ""]);
-
-	// exports
-
-
-/***/ },
+/* 757 */,
+/* 758 */,
+/* 759 */,
+/* 760 */,
 /* 761 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -81357,6 +78712,2697 @@
 
 	// module
 	exports.push([module.id, "@charset \"UTF-8\";\n\n/*!\n * animate.css -http://daneden.me/animate\n * Version - 3.5.1\n * Licensed under the MIT license - http://opensource.org/licenses/MIT\n *\n * Copyright (c) 2016 Daniel Eden\n */\n\n.animated {\n  -webkit-animation-duration: 1s;\n  animation-duration: 1s;\n  -webkit-animation-fill-mode: both;\n  animation-fill-mode: both;\n}\n\n.animated.infinite {\n  -webkit-animation-iteration-count: infinite;\n  animation-iteration-count: infinite;\n}\n\n.animated.hinge {\n  -webkit-animation-duration: 2s;\n  animation-duration: 2s;\n}\n\n.animated.flipOutX,\n.animated.flipOutY,\n.animated.bounceIn,\n.animated.bounceOut {\n  -webkit-animation-duration: .75s;\n  animation-duration: .75s;\n}\n\n@-webkit-keyframes bounce {\n  from, 20%, 53%, 80%, to {\n    -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);\n    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);\n    -webkit-transform: translate3d(0,0,0);\n    transform: translate3d(0,0,0);\n  }\n\n  40%, 43% {\n    -webkit-animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);\n    animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);\n    -webkit-transform: translate3d(0, -30px, 0);\n    transform: translate3d(0, -30px, 0);\n  }\n\n  70% {\n    -webkit-animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);\n    animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);\n    -webkit-transform: translate3d(0, -15px, 0);\n    transform: translate3d(0, -15px, 0);\n  }\n\n  90% {\n    -webkit-transform: translate3d(0,-4px,0);\n    transform: translate3d(0,-4px,0);\n  }\n}\n\n@keyframes bounce {\n  from, 20%, 53%, 80%, to {\n    -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);\n    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);\n    -webkit-transform: translate3d(0,0,0);\n    transform: translate3d(0,0,0);\n  }\n\n  40%, 43% {\n    -webkit-animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);\n    animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);\n    -webkit-transform: translate3d(0, -30px, 0);\n    transform: translate3d(0, -30px, 0);\n  }\n\n  70% {\n    -webkit-animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);\n    animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);\n    -webkit-transform: translate3d(0, -15px, 0);\n    transform: translate3d(0, -15px, 0);\n  }\n\n  90% {\n    -webkit-transform: translate3d(0,-4px,0);\n    transform: translate3d(0,-4px,0);\n  }\n}\n\n.bounce {\n  -webkit-animation-name: bounce;\n  animation-name: bounce;\n  -webkit-transform-origin: center bottom;\n  transform-origin: center bottom;\n}\n\n@-webkit-keyframes flash {\n  from, 50%, to {\n    opacity: 1;\n  }\n\n  25%, 75% {\n    opacity: 0;\n  }\n}\n\n@keyframes flash {\n  from, 50%, to {\n    opacity: 1;\n  }\n\n  25%, 75% {\n    opacity: 0;\n  }\n}\n\n.flash {\n  -webkit-animation-name: flash;\n  animation-name: flash;\n}\n\n/* originally authored by Nick Pettit - https://github.com/nickpettit/glide */\n\n@-webkit-keyframes pulse {\n  from {\n    -webkit-transform: scale3d(1, 1, 1);\n    transform: scale3d(1, 1, 1);\n  }\n\n  50% {\n    -webkit-transform: scale3d(1.05, 1.05, 1.05);\n    transform: scale3d(1.05, 1.05, 1.05);\n  }\n\n  to {\n    -webkit-transform: scale3d(1, 1, 1);\n    transform: scale3d(1, 1, 1);\n  }\n}\n\n@keyframes pulse {\n  from {\n    -webkit-transform: scale3d(1, 1, 1);\n    transform: scale3d(1, 1, 1);\n  }\n\n  50% {\n    -webkit-transform: scale3d(1.05, 1.05, 1.05);\n    transform: scale3d(1.05, 1.05, 1.05);\n  }\n\n  to {\n    -webkit-transform: scale3d(1, 1, 1);\n    transform: scale3d(1, 1, 1);\n  }\n}\n\n.pulse {\n  -webkit-animation-name: pulse;\n  animation-name: pulse;\n}\n\n@-webkit-keyframes rubberBand {\n  from {\n    -webkit-transform: scale3d(1, 1, 1);\n    transform: scale3d(1, 1, 1);\n  }\n\n  30% {\n    -webkit-transform: scale3d(1.25, 0.75, 1);\n    transform: scale3d(1.25, 0.75, 1);\n  }\n\n  40% {\n    -webkit-transform: scale3d(0.75, 1.25, 1);\n    transform: scale3d(0.75, 1.25, 1);\n  }\n\n  50% {\n    -webkit-transform: scale3d(1.15, 0.85, 1);\n    transform: scale3d(1.15, 0.85, 1);\n  }\n\n  65% {\n    -webkit-transform: scale3d(.95, 1.05, 1);\n    transform: scale3d(.95, 1.05, 1);\n  }\n\n  75% {\n    -webkit-transform: scale3d(1.05, .95, 1);\n    transform: scale3d(1.05, .95, 1);\n  }\n\n  to {\n    -webkit-transform: scale3d(1, 1, 1);\n    transform: scale3d(1, 1, 1);\n  }\n}\n\n@keyframes rubberBand {\n  from {\n    -webkit-transform: scale3d(1, 1, 1);\n    transform: scale3d(1, 1, 1);\n  }\n\n  30% {\n    -webkit-transform: scale3d(1.25, 0.75, 1);\n    transform: scale3d(1.25, 0.75, 1);\n  }\n\n  40% {\n    -webkit-transform: scale3d(0.75, 1.25, 1);\n    transform: scale3d(0.75, 1.25, 1);\n  }\n\n  50% {\n    -webkit-transform: scale3d(1.15, 0.85, 1);\n    transform: scale3d(1.15, 0.85, 1);\n  }\n\n  65% {\n    -webkit-transform: scale3d(.95, 1.05, 1);\n    transform: scale3d(.95, 1.05, 1);\n  }\n\n  75% {\n    -webkit-transform: scale3d(1.05, .95, 1);\n    transform: scale3d(1.05, .95, 1);\n  }\n\n  to {\n    -webkit-transform: scale3d(1, 1, 1);\n    transform: scale3d(1, 1, 1);\n  }\n}\n\n.rubberBand {\n  -webkit-animation-name: rubberBand;\n  animation-name: rubberBand;\n}\n\n@-webkit-keyframes shake {\n  from, to {\n    -webkit-transform: translate3d(0, 0, 0);\n    transform: translate3d(0, 0, 0);\n  }\n\n  10%, 30%, 50%, 70%, 90% {\n    -webkit-transform: translate3d(-10px, 0, 0);\n    transform: translate3d(-10px, 0, 0);\n  }\n\n  20%, 40%, 60%, 80% {\n    -webkit-transform: translate3d(10px, 0, 0);\n    transform: translate3d(10px, 0, 0);\n  }\n}\n\n@keyframes shake {\n  from, to {\n    -webkit-transform: translate3d(0, 0, 0);\n    transform: translate3d(0, 0, 0);\n  }\n\n  10%, 30%, 50%, 70%, 90% {\n    -webkit-transform: translate3d(-10px, 0, 0);\n    transform: translate3d(-10px, 0, 0);\n  }\n\n  20%, 40%, 60%, 80% {\n    -webkit-transform: translate3d(10px, 0, 0);\n    transform: translate3d(10px, 0, 0);\n  }\n}\n\n.shake {\n  -webkit-animation-name: shake;\n  animation-name: shake;\n}\n\n@-webkit-keyframes headShake {\n  0% {\n    -webkit-transform: translateX(0);\n    transform: translateX(0);\n  }\n\n  6.5% {\n    -webkit-transform: translateX(-6px) rotateY(-9deg);\n    transform: translateX(-6px) rotateY(-9deg);\n  }\n\n  18.5% {\n    -webkit-transform: translateX(5px) rotateY(7deg);\n    transform: translateX(5px) rotateY(7deg);\n  }\n\n  31.5% {\n    -webkit-transform: translateX(-3px) rotateY(-5deg);\n    transform: translateX(-3px) rotateY(-5deg);\n  }\n\n  43.5% {\n    -webkit-transform: translateX(2px) rotateY(3deg);\n    transform: translateX(2px) rotateY(3deg);\n  }\n\n  50% {\n    -webkit-transform: translateX(0);\n    transform: translateX(0);\n  }\n}\n\n@keyframes headShake {\n  0% {\n    -webkit-transform: translateX(0);\n    transform: translateX(0);\n  }\n\n  6.5% {\n    -webkit-transform: translateX(-6px) rotateY(-9deg);\n    transform: translateX(-6px) rotateY(-9deg);\n  }\n\n  18.5% {\n    -webkit-transform: translateX(5px) rotateY(7deg);\n    transform: translateX(5px) rotateY(7deg);\n  }\n\n  31.5% {\n    -webkit-transform: translateX(-3px) rotateY(-5deg);\n    transform: translateX(-3px) rotateY(-5deg);\n  }\n\n  43.5% {\n    -webkit-transform: translateX(2px) rotateY(3deg);\n    transform: translateX(2px) rotateY(3deg);\n  }\n\n  50% {\n    -webkit-transform: translateX(0);\n    transform: translateX(0);\n  }\n}\n\n.headShake {\n  -webkit-animation-timing-function: ease-in-out;\n  animation-timing-function: ease-in-out;\n  -webkit-animation-name: headShake;\n  animation-name: headShake;\n}\n\n@-webkit-keyframes swing {\n  20% {\n    -webkit-transform: rotate3d(0, 0, 1, 15deg);\n    transform: rotate3d(0, 0, 1, 15deg);\n  }\n\n  40% {\n    -webkit-transform: rotate3d(0, 0, 1, -10deg);\n    transform: rotate3d(0, 0, 1, -10deg);\n  }\n\n  60% {\n    -webkit-transform: rotate3d(0, 0, 1, 5deg);\n    transform: rotate3d(0, 0, 1, 5deg);\n  }\n\n  80% {\n    -webkit-transform: rotate3d(0, 0, 1, -5deg);\n    transform: rotate3d(0, 0, 1, -5deg);\n  }\n\n  to {\n    -webkit-transform: rotate3d(0, 0, 1, 0deg);\n    transform: rotate3d(0, 0, 1, 0deg);\n  }\n}\n\n@keyframes swing {\n  20% {\n    -webkit-transform: rotate3d(0, 0, 1, 15deg);\n    transform: rotate3d(0, 0, 1, 15deg);\n  }\n\n  40% {\n    -webkit-transform: rotate3d(0, 0, 1, -10deg);\n    transform: rotate3d(0, 0, 1, -10deg);\n  }\n\n  60% {\n    -webkit-transform: rotate3d(0, 0, 1, 5deg);\n    transform: rotate3d(0, 0, 1, 5deg);\n  }\n\n  80% {\n    -webkit-transform: rotate3d(0, 0, 1, -5deg);\n    transform: rotate3d(0, 0, 1, -5deg);\n  }\n\n  to {\n    -webkit-transform: rotate3d(0, 0, 1, 0deg);\n    transform: rotate3d(0, 0, 1, 0deg);\n  }\n}\n\n.swing {\n  -webkit-transform-origin: top center;\n  transform-origin: top center;\n  -webkit-animation-name: swing;\n  animation-name: swing;\n}\n\n@-webkit-keyframes tada {\n  from {\n    -webkit-transform: scale3d(1, 1, 1);\n    transform: scale3d(1, 1, 1);\n  }\n\n  10%, 20% {\n    -webkit-transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);\n    transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);\n  }\n\n  30%, 50%, 70%, 90% {\n    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);\n    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);\n  }\n\n  40%, 60%, 80% {\n    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);\n    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);\n  }\n\n  to {\n    -webkit-transform: scale3d(1, 1, 1);\n    transform: scale3d(1, 1, 1);\n  }\n}\n\n@keyframes tada {\n  from {\n    -webkit-transform: scale3d(1, 1, 1);\n    transform: scale3d(1, 1, 1);\n  }\n\n  10%, 20% {\n    -webkit-transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);\n    transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);\n  }\n\n  30%, 50%, 70%, 90% {\n    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);\n    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);\n  }\n\n  40%, 60%, 80% {\n    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);\n    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);\n  }\n\n  to {\n    -webkit-transform: scale3d(1, 1, 1);\n    transform: scale3d(1, 1, 1);\n  }\n}\n\n.tada {\n  -webkit-animation-name: tada;\n  animation-name: tada;\n}\n\n/* originally authored by Nick Pettit - https://github.com/nickpettit/glide */\n\n@-webkit-keyframes wobble {\n  from {\n    -webkit-transform: none;\n    transform: none;\n  }\n\n  15% {\n    -webkit-transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -5deg);\n    transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -5deg);\n  }\n\n  30% {\n    -webkit-transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 3deg);\n    transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 3deg);\n  }\n\n  45% {\n    -webkit-transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -3deg);\n    transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -3deg);\n  }\n\n  60% {\n    -webkit-transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 2deg);\n    transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 2deg);\n  }\n\n  75% {\n    -webkit-transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -1deg);\n    transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -1deg);\n  }\n\n  to {\n    -webkit-transform: none;\n    transform: none;\n  }\n}\n\n@keyframes wobble {\n  from {\n    -webkit-transform: none;\n    transform: none;\n  }\n\n  15% {\n    -webkit-transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -5deg);\n    transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -5deg);\n  }\n\n  30% {\n    -webkit-transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 3deg);\n    transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 3deg);\n  }\n\n  45% {\n    -webkit-transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -3deg);\n    transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -3deg);\n  }\n\n  60% {\n    -webkit-transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 2deg);\n    transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 2deg);\n  }\n\n  75% {\n    -webkit-transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -1deg);\n    transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -1deg);\n  }\n\n  to {\n    -webkit-transform: none;\n    transform: none;\n  }\n}\n\n.wobble {\n  -webkit-animation-name: wobble;\n  animation-name: wobble;\n}\n\n@-webkit-keyframes jello {\n  from, 11.1%, to {\n    -webkit-transform: none;\n    transform: none;\n  }\n\n  22.2% {\n    -webkit-transform: skewX(-12.5deg) skewY(-12.5deg);\n    transform: skewX(-12.5deg) skewY(-12.5deg);\n  }\n\n  33.3% {\n    -webkit-transform: skewX(6.25deg) skewY(6.25deg);\n    transform: skewX(6.25deg) skewY(6.25deg);\n  }\n\n  44.4% {\n    -webkit-transform: skewX(-3.125deg) skewY(-3.125deg);\n    transform: skewX(-3.125deg) skewY(-3.125deg);\n  }\n\n  55.5% {\n    -webkit-transform: skewX(1.5625deg) skewY(1.5625deg);\n    transform: skewX(1.5625deg) skewY(1.5625deg);\n  }\n\n  66.6% {\n    -webkit-transform: skewX(-0.78125deg) skewY(-0.78125deg);\n    transform: skewX(-0.78125deg) skewY(-0.78125deg);\n  }\n\n  77.7% {\n    -webkit-transform: skewX(0.390625deg) skewY(0.390625deg);\n    transform: skewX(0.390625deg) skewY(0.390625deg);\n  }\n\n  88.8% {\n    -webkit-transform: skewX(-0.1953125deg) skewY(-0.1953125deg);\n    transform: skewX(-0.1953125deg) skewY(-0.1953125deg);\n  }\n}\n\n@keyframes jello {\n  from, 11.1%, to {\n    -webkit-transform: none;\n    transform: none;\n  }\n\n  22.2% {\n    -webkit-transform: skewX(-12.5deg) skewY(-12.5deg);\n    transform: skewX(-12.5deg) skewY(-12.5deg);\n  }\n\n  33.3% {\n    -webkit-transform: skewX(6.25deg) skewY(6.25deg);\n    transform: skewX(6.25deg) skewY(6.25deg);\n  }\n\n  44.4% {\n    -webkit-transform: skewX(-3.125deg) skewY(-3.125deg);\n    transform: skewX(-3.125deg) skewY(-3.125deg);\n  }\n\n  55.5% {\n    -webkit-transform: skewX(1.5625deg) skewY(1.5625deg);\n    transform: skewX(1.5625deg) skewY(1.5625deg);\n  }\n\n  66.6% {\n    -webkit-transform: skewX(-0.78125deg) skewY(-0.78125deg);\n    transform: skewX(-0.78125deg) skewY(-0.78125deg);\n  }\n\n  77.7% {\n    -webkit-transform: skewX(0.390625deg) skewY(0.390625deg);\n    transform: skewX(0.390625deg) skewY(0.390625deg);\n  }\n\n  88.8% {\n    -webkit-transform: skewX(-0.1953125deg) skewY(-0.1953125deg);\n    transform: skewX(-0.1953125deg) skewY(-0.1953125deg);\n  }\n}\n\n.jello {\n  -webkit-animation-name: jello;\n  animation-name: jello;\n  -webkit-transform-origin: center;\n  transform-origin: center;\n}\n\n@-webkit-keyframes bounceIn {\n  from, 20%, 40%, 60%, 80%, to {\n    -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);\n    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);\n  }\n\n  0% {\n    opacity: 0;\n    -webkit-transform: scale3d(.3, .3, .3);\n    transform: scale3d(.3, .3, .3);\n  }\n\n  20% {\n    -webkit-transform: scale3d(1.1, 1.1, 1.1);\n    transform: scale3d(1.1, 1.1, 1.1);\n  }\n\n  40% {\n    -webkit-transform: scale3d(.9, .9, .9);\n    transform: scale3d(.9, .9, .9);\n  }\n\n  60% {\n    opacity: 1;\n    -webkit-transform: scale3d(1.03, 1.03, 1.03);\n    transform: scale3d(1.03, 1.03, 1.03);\n  }\n\n  80% {\n    -webkit-transform: scale3d(.97, .97, .97);\n    transform: scale3d(.97, .97, .97);\n  }\n\n  to {\n    opacity: 1;\n    -webkit-transform: scale3d(1, 1, 1);\n    transform: scale3d(1, 1, 1);\n  }\n}\n\n@keyframes bounceIn {\n  from, 20%, 40%, 60%, 80%, to {\n    -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);\n    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);\n  }\n\n  0% {\n    opacity: 0;\n    -webkit-transform: scale3d(.3, .3, .3);\n    transform: scale3d(.3, .3, .3);\n  }\n\n  20% {\n    -webkit-transform: scale3d(1.1, 1.1, 1.1);\n    transform: scale3d(1.1, 1.1, 1.1);\n  }\n\n  40% {\n    -webkit-transform: scale3d(.9, .9, .9);\n    transform: scale3d(.9, .9, .9);\n  }\n\n  60% {\n    opacity: 1;\n    -webkit-transform: scale3d(1.03, 1.03, 1.03);\n    transform: scale3d(1.03, 1.03, 1.03);\n  }\n\n  80% {\n    -webkit-transform: scale3d(.97, .97, .97);\n    transform: scale3d(.97, .97, .97);\n  }\n\n  to {\n    opacity: 1;\n    -webkit-transform: scale3d(1, 1, 1);\n    transform: scale3d(1, 1, 1);\n  }\n}\n\n.bounceIn {\n  -webkit-animation-name: bounceIn;\n  animation-name: bounceIn;\n}\n\n@-webkit-keyframes bounceInDown {\n  from, 60%, 75%, 90%, to {\n    -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);\n    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);\n  }\n\n  0% {\n    opacity: 0;\n    -webkit-transform: translate3d(0, -3000px, 0);\n    transform: translate3d(0, -3000px, 0);\n  }\n\n  60% {\n    opacity: 1;\n    -webkit-transform: translate3d(0, 25px, 0);\n    transform: translate3d(0, 25px, 0);\n  }\n\n  75% {\n    -webkit-transform: translate3d(0, -10px, 0);\n    transform: translate3d(0, -10px, 0);\n  }\n\n  90% {\n    -webkit-transform: translate3d(0, 5px, 0);\n    transform: translate3d(0, 5px, 0);\n  }\n\n  to {\n    -webkit-transform: none;\n    transform: none;\n  }\n}\n\n@keyframes bounceInDown {\n  from, 60%, 75%, 90%, to {\n    -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);\n    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);\n  }\n\n  0% {\n    opacity: 0;\n    -webkit-transform: translate3d(0, -3000px, 0);\n    transform: translate3d(0, -3000px, 0);\n  }\n\n  60% {\n    opacity: 1;\n    -webkit-transform: translate3d(0, 25px, 0);\n    transform: translate3d(0, 25px, 0);\n  }\n\n  75% {\n    -webkit-transform: translate3d(0, -10px, 0);\n    transform: translate3d(0, -10px, 0);\n  }\n\n  90% {\n    -webkit-transform: translate3d(0, 5px, 0);\n    transform: translate3d(0, 5px, 0);\n  }\n\n  to {\n    -webkit-transform: none;\n    transform: none;\n  }\n}\n\n.bounceInDown {\n  -webkit-animation-name: bounceInDown;\n  animation-name: bounceInDown;\n}\n\n@-webkit-keyframes bounceInLeft {\n  from, 60%, 75%, 90%, to {\n    -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);\n    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);\n  }\n\n  0% {\n    opacity: 0;\n    -webkit-transform: translate3d(-3000px, 0, 0);\n    transform: translate3d(-3000px, 0, 0);\n  }\n\n  60% {\n    opacity: 1;\n    -webkit-transform: translate3d(25px, 0, 0);\n    transform: translate3d(25px, 0, 0);\n  }\n\n  75% {\n    -webkit-transform: translate3d(-10px, 0, 0);\n    transform: translate3d(-10px, 0, 0);\n  }\n\n  90% {\n    -webkit-transform: translate3d(5px, 0, 0);\n    transform: translate3d(5px, 0, 0);\n  }\n\n  to {\n    -webkit-transform: none;\n    transform: none;\n  }\n}\n\n@keyframes bounceInLeft {\n  from, 60%, 75%, 90%, to {\n    -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);\n    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);\n  }\n\n  0% {\n    opacity: 0;\n    -webkit-transform: translate3d(-3000px, 0, 0);\n    transform: translate3d(-3000px, 0, 0);\n  }\n\n  60% {\n    opacity: 1;\n    -webkit-transform: translate3d(25px, 0, 0);\n    transform: translate3d(25px, 0, 0);\n  }\n\n  75% {\n    -webkit-transform: translate3d(-10px, 0, 0);\n    transform: translate3d(-10px, 0, 0);\n  }\n\n  90% {\n    -webkit-transform: translate3d(5px, 0, 0);\n    transform: translate3d(5px, 0, 0);\n  }\n\n  to {\n    -webkit-transform: none;\n    transform: none;\n  }\n}\n\n.bounceInLeft {\n  -webkit-animation-name: bounceInLeft;\n  animation-name: bounceInLeft;\n}\n\n@-webkit-keyframes bounceInRight {\n  from, 60%, 75%, 90%, to {\n    -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);\n    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);\n  }\n\n  from {\n    opacity: 0;\n    -webkit-transform: translate3d(3000px, 0, 0);\n    transform: translate3d(3000px, 0, 0);\n  }\n\n  60% {\n    opacity: 1;\n    -webkit-transform: translate3d(-25px, 0, 0);\n    transform: translate3d(-25px, 0, 0);\n  }\n\n  75% {\n    -webkit-transform: translate3d(10px, 0, 0);\n    transform: translate3d(10px, 0, 0);\n  }\n\n  90% {\n    -webkit-transform: translate3d(-5px, 0, 0);\n    transform: translate3d(-5px, 0, 0);\n  }\n\n  to {\n    -webkit-transform: none;\n    transform: none;\n  }\n}\n\n@keyframes bounceInRight {\n  from, 60%, 75%, 90%, to {\n    -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);\n    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);\n  }\n\n  from {\n    opacity: 0;\n    -webkit-transform: translate3d(3000px, 0, 0);\n    transform: translate3d(3000px, 0, 0);\n  }\n\n  60% {\n    opacity: 1;\n    -webkit-transform: translate3d(-25px, 0, 0);\n    transform: translate3d(-25px, 0, 0);\n  }\n\n  75% {\n    -webkit-transform: translate3d(10px, 0, 0);\n    transform: translate3d(10px, 0, 0);\n  }\n\n  90% {\n    -webkit-transform: translate3d(-5px, 0, 0);\n    transform: translate3d(-5px, 0, 0);\n  }\n\n  to {\n    -webkit-transform: none;\n    transform: none;\n  }\n}\n\n.bounceInRight {\n  -webkit-animation-name: bounceInRight;\n  animation-name: bounceInRight;\n}\n\n@-webkit-keyframes bounceInUp {\n  from, 60%, 75%, 90%, to {\n    -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);\n    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);\n  }\n\n  from {\n    opacity: 0;\n    -webkit-transform: translate3d(0, 3000px, 0);\n    transform: translate3d(0, 3000px, 0);\n  }\n\n  60% {\n    opacity: 1;\n    -webkit-transform: translate3d(0, -20px, 0);\n    transform: translate3d(0, -20px, 0);\n  }\n\n  75% {\n    -webkit-transform: translate3d(0, 10px, 0);\n    transform: translate3d(0, 10px, 0);\n  }\n\n  90% {\n    -webkit-transform: translate3d(0, -5px, 0);\n    transform: translate3d(0, -5px, 0);\n  }\n\n  to {\n    -webkit-transform: translate3d(0, 0, 0);\n    transform: translate3d(0, 0, 0);\n  }\n}\n\n@keyframes bounceInUp {\n  from, 60%, 75%, 90%, to {\n    -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);\n    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);\n  }\n\n  from {\n    opacity: 0;\n    -webkit-transform: translate3d(0, 3000px, 0);\n    transform: translate3d(0, 3000px, 0);\n  }\n\n  60% {\n    opacity: 1;\n    -webkit-transform: translate3d(0, -20px, 0);\n    transform: translate3d(0, -20px, 0);\n  }\n\n  75% {\n    -webkit-transform: translate3d(0, 10px, 0);\n    transform: translate3d(0, 10px, 0);\n  }\n\n  90% {\n    -webkit-transform: translate3d(0, -5px, 0);\n    transform: translate3d(0, -5px, 0);\n  }\n\n  to {\n    -webkit-transform: translate3d(0, 0, 0);\n    transform: translate3d(0, 0, 0);\n  }\n}\n\n.bounceInUp {\n  -webkit-animation-name: bounceInUp;\n  animation-name: bounceInUp;\n}\n\n@-webkit-keyframes bounceOut {\n  20% {\n    -webkit-transform: scale3d(.9, .9, .9);\n    transform: scale3d(.9, .9, .9);\n  }\n\n  50%, 55% {\n    opacity: 1;\n    -webkit-transform: scale3d(1.1, 1.1, 1.1);\n    transform: scale3d(1.1, 1.1, 1.1);\n  }\n\n  to {\n    opacity: 0;\n    -webkit-transform: scale3d(.3, .3, .3);\n    transform: scale3d(.3, .3, .3);\n  }\n}\n\n@keyframes bounceOut {\n  20% {\n    -webkit-transform: scale3d(.9, .9, .9);\n    transform: scale3d(.9, .9, .9);\n  }\n\n  50%, 55% {\n    opacity: 1;\n    -webkit-transform: scale3d(1.1, 1.1, 1.1);\n    transform: scale3d(1.1, 1.1, 1.1);\n  }\n\n  to {\n    opacity: 0;\n    -webkit-transform: scale3d(.3, .3, .3);\n    transform: scale3d(.3, .3, .3);\n  }\n}\n\n.bounceOut {\n  -webkit-animation-name: bounceOut;\n  animation-name: bounceOut;\n}\n\n@-webkit-keyframes bounceOutDown {\n  20% {\n    -webkit-transform: translate3d(0, 10px, 0);\n    transform: translate3d(0, 10px, 0);\n  }\n\n  40%, 45% {\n    opacity: 1;\n    -webkit-transform: translate3d(0, -20px, 0);\n    transform: translate3d(0, -20px, 0);\n  }\n\n  to {\n    opacity: 0;\n    -webkit-transform: translate3d(0, 2000px, 0);\n    transform: translate3d(0, 2000px, 0);\n  }\n}\n\n@keyframes bounceOutDown {\n  20% {\n    -webkit-transform: translate3d(0, 10px, 0);\n    transform: translate3d(0, 10px, 0);\n  }\n\n  40%, 45% {\n    opacity: 1;\n    -webkit-transform: translate3d(0, -20px, 0);\n    transform: translate3d(0, -20px, 0);\n  }\n\n  to {\n    opacity: 0;\n    -webkit-transform: translate3d(0, 2000px, 0);\n    transform: translate3d(0, 2000px, 0);\n  }\n}\n\n.bounceOutDown {\n  -webkit-animation-name: bounceOutDown;\n  animation-name: bounceOutDown;\n}\n\n@-webkit-keyframes bounceOutLeft {\n  20% {\n    opacity: 1;\n    -webkit-transform: translate3d(20px, 0, 0);\n    transform: translate3d(20px, 0, 0);\n  }\n\n  to {\n    opacity: 0;\n    -webkit-transform: translate3d(-2000px, 0, 0);\n    transform: translate3d(-2000px, 0, 0);\n  }\n}\n\n@keyframes bounceOutLeft {\n  20% {\n    opacity: 1;\n    -webkit-transform: translate3d(20px, 0, 0);\n    transform: translate3d(20px, 0, 0);\n  }\n\n  to {\n    opacity: 0;\n    -webkit-transform: translate3d(-2000px, 0, 0);\n    transform: translate3d(-2000px, 0, 0);\n  }\n}\n\n.bounceOutLeft {\n  -webkit-animation-name: bounceOutLeft;\n  animation-name: bounceOutLeft;\n}\n\n@-webkit-keyframes bounceOutRight {\n  20% {\n    opacity: 1;\n    -webkit-transform: translate3d(-20px, 0, 0);\n    transform: translate3d(-20px, 0, 0);\n  }\n\n  to {\n    opacity: 0;\n    -webkit-transform: translate3d(2000px, 0, 0);\n    transform: translate3d(2000px, 0, 0);\n  }\n}\n\n@keyframes bounceOutRight {\n  20% {\n    opacity: 1;\n    -webkit-transform: translate3d(-20px, 0, 0);\n    transform: translate3d(-20px, 0, 0);\n  }\n\n  to {\n    opacity: 0;\n    -webkit-transform: translate3d(2000px, 0, 0);\n    transform: translate3d(2000px, 0, 0);\n  }\n}\n\n.bounceOutRight {\n  -webkit-animation-name: bounceOutRight;\n  animation-name: bounceOutRight;\n}\n\n@-webkit-keyframes bounceOutUp {\n  20% {\n    -webkit-transform: translate3d(0, -10px, 0);\n    transform: translate3d(0, -10px, 0);\n  }\n\n  40%, 45% {\n    opacity: 1;\n    -webkit-transform: translate3d(0, 20px, 0);\n    transform: translate3d(0, 20px, 0);\n  }\n\n  to {\n    opacity: 0;\n    -webkit-transform: translate3d(0, -2000px, 0);\n    transform: translate3d(0, -2000px, 0);\n  }\n}\n\n@keyframes bounceOutUp {\n  20% {\n    -webkit-transform: translate3d(0, -10px, 0);\n    transform: translate3d(0, -10px, 0);\n  }\n\n  40%, 45% {\n    opacity: 1;\n    -webkit-transform: translate3d(0, 20px, 0);\n    transform: translate3d(0, 20px, 0);\n  }\n\n  to {\n    opacity: 0;\n    -webkit-transform: translate3d(0, -2000px, 0);\n    transform: translate3d(0, -2000px, 0);\n  }\n}\n\n.bounceOutUp {\n  -webkit-animation-name: bounceOutUp;\n  animation-name: bounceOutUp;\n}\n\n@-webkit-keyframes fadeIn {\n  from {\n    opacity: 0;\n  }\n\n  to {\n    opacity: 1;\n  }\n}\n\n@keyframes fadeIn {\n  from {\n    opacity: 0;\n  }\n\n  to {\n    opacity: 1;\n  }\n}\n\n.fadeIn {\n  -webkit-animation-name: fadeIn;\n  animation-name: fadeIn;\n}\n\n@-webkit-keyframes fadeInDown {\n  from {\n    opacity: 0;\n    -webkit-transform: translate3d(0, -100%, 0);\n    transform: translate3d(0, -100%, 0);\n  }\n\n  to {\n    opacity: 1;\n    -webkit-transform: none;\n    transform: none;\n  }\n}\n\n@keyframes fadeInDown {\n  from {\n    opacity: 0;\n    -webkit-transform: translate3d(0, -100%, 0);\n    transform: translate3d(0, -100%, 0);\n  }\n\n  to {\n    opacity: 1;\n    -webkit-transform: none;\n    transform: none;\n  }\n}\n\n.fadeInDown {\n  -webkit-animation-name: fadeInDown;\n  animation-name: fadeInDown;\n}\n\n@-webkit-keyframes fadeInDownBig {\n  from {\n    opacity: 0;\n    -webkit-transform: translate3d(0, -2000px, 0);\n    transform: translate3d(0, -2000px, 0);\n  }\n\n  to {\n    opacity: 1;\n    -webkit-transform: none;\n    transform: none;\n  }\n}\n\n@keyframes fadeInDownBig {\n  from {\n    opacity: 0;\n    -webkit-transform: translate3d(0, -2000px, 0);\n    transform: translate3d(0, -2000px, 0);\n  }\n\n  to {\n    opacity: 1;\n    -webkit-transform: none;\n    transform: none;\n  }\n}\n\n.fadeInDownBig {\n  -webkit-animation-name: fadeInDownBig;\n  animation-name: fadeInDownBig;\n}\n\n@-webkit-keyframes fadeInLeft {\n  from {\n    opacity: 0;\n    -webkit-transform: translate3d(-100%, 0, 0);\n    transform: translate3d(-100%, 0, 0);\n  }\n\n  to {\n    opacity: 1;\n    -webkit-transform: none;\n    transform: none;\n  }\n}\n\n@keyframes fadeInLeft {\n  from {\n    opacity: 0;\n    -webkit-transform: translate3d(-100%, 0, 0);\n    transform: translate3d(-100%, 0, 0);\n  }\n\n  to {\n    opacity: 1;\n    -webkit-transform: none;\n    transform: none;\n  }\n}\n\n.fadeInLeft {\n  -webkit-animation-name: fadeInLeft;\n  animation-name: fadeInLeft;\n}\n\n@-webkit-keyframes fadeInLeftBig {\n  from {\n    opacity: 0;\n    -webkit-transform: translate3d(-2000px, 0, 0);\n    transform: translate3d(-2000px, 0, 0);\n  }\n\n  to {\n    opacity: 1;\n    -webkit-transform: none;\n    transform: none;\n  }\n}\n\n@keyframes fadeInLeftBig {\n  from {\n    opacity: 0;\n    -webkit-transform: translate3d(-2000px, 0, 0);\n    transform: translate3d(-2000px, 0, 0);\n  }\n\n  to {\n    opacity: 1;\n    -webkit-transform: none;\n    transform: none;\n  }\n}\n\n.fadeInLeftBig {\n  -webkit-animation-name: fadeInLeftBig;\n  animation-name: fadeInLeftBig;\n}\n\n@-webkit-keyframes fadeInRight {\n  from {\n    opacity: 0;\n    -webkit-transform: translate3d(100%, 0, 0);\n    transform: translate3d(100%, 0, 0);\n  }\n\n  to {\n    opacity: 1;\n    -webkit-transform: none;\n    transform: none;\n  }\n}\n\n@keyframes fadeInRight {\n  from {\n    opacity: 0;\n    -webkit-transform: translate3d(100%, 0, 0);\n    transform: translate3d(100%, 0, 0);\n  }\n\n  to {\n    opacity: 1;\n    -webkit-transform: none;\n    transform: none;\n  }\n}\n\n.fadeInRight {\n  -webkit-animation-name: fadeInRight;\n  animation-name: fadeInRight;\n}\n\n@-webkit-keyframes fadeInRightBig {\n  from {\n    opacity: 0;\n    -webkit-transform: translate3d(2000px, 0, 0);\n    transform: translate3d(2000px, 0, 0);\n  }\n\n  to {\n    opacity: 1;\n    -webkit-transform: none;\n    transform: none;\n  }\n}\n\n@keyframes fadeInRightBig {\n  from {\n    opacity: 0;\n    -webkit-transform: translate3d(2000px, 0, 0);\n    transform: translate3d(2000px, 0, 0);\n  }\n\n  to {\n    opacity: 1;\n    -webkit-transform: none;\n    transform: none;\n  }\n}\n\n.fadeInRightBig {\n  -webkit-animation-name: fadeInRightBig;\n  animation-name: fadeInRightBig;\n}\n\n@-webkit-keyframes fadeInUp {\n  from {\n    opacity: 0;\n    -webkit-transform: translate3d(0, 100%, 0);\n    transform: translate3d(0, 100%, 0);\n  }\n\n  to {\n    opacity: 1;\n    -webkit-transform: none;\n    transform: none;\n  }\n}\n\n@keyframes fadeInUp {\n  from {\n    opacity: 0;\n    -webkit-transform: translate3d(0, 100%, 0);\n    transform: translate3d(0, 100%, 0);\n  }\n\n  to {\n    opacity: 1;\n    -webkit-transform: none;\n    transform: none;\n  }\n}\n\n.fadeInUp {\n  -webkit-animation-name: fadeInUp;\n  animation-name: fadeInUp;\n}\n\n@-webkit-keyframes fadeInUpBig {\n  from {\n    opacity: 0;\n    -webkit-transform: translate3d(0, 2000px, 0);\n    transform: translate3d(0, 2000px, 0);\n  }\n\n  to {\n    opacity: 1;\n    -webkit-transform: none;\n    transform: none;\n  }\n}\n\n@keyframes fadeInUpBig {\n  from {\n    opacity: 0;\n    -webkit-transform: translate3d(0, 2000px, 0);\n    transform: translate3d(0, 2000px, 0);\n  }\n\n  to {\n    opacity: 1;\n    -webkit-transform: none;\n    transform: none;\n  }\n}\n\n.fadeInUpBig {\n  -webkit-animation-name: fadeInUpBig;\n  animation-name: fadeInUpBig;\n}\n\n@-webkit-keyframes fadeOut {\n  from {\n    opacity: 1;\n  }\n\n  to {\n    opacity: 0;\n  }\n}\n\n@keyframes fadeOut {\n  from {\n    opacity: 1;\n  }\n\n  to {\n    opacity: 0;\n  }\n}\n\n.fadeOut {\n  -webkit-animation-name: fadeOut;\n  animation-name: fadeOut;\n}\n\n@-webkit-keyframes fadeOutDown {\n  from {\n    opacity: 1;\n  }\n\n  to {\n    opacity: 0;\n    -webkit-transform: translate3d(0, 100%, 0);\n    transform: translate3d(0, 100%, 0);\n  }\n}\n\n@keyframes fadeOutDown {\n  from {\n    opacity: 1;\n  }\n\n  to {\n    opacity: 0;\n    -webkit-transform: translate3d(0, 100%, 0);\n    transform: translate3d(0, 100%, 0);\n  }\n}\n\n.fadeOutDown {\n  -webkit-animation-name: fadeOutDown;\n  animation-name: fadeOutDown;\n}\n\n@-webkit-keyframes fadeOutDownBig {\n  from {\n    opacity: 1;\n  }\n\n  to {\n    opacity: 0;\n    -webkit-transform: translate3d(0, 2000px, 0);\n    transform: translate3d(0, 2000px, 0);\n  }\n}\n\n@keyframes fadeOutDownBig {\n  from {\n    opacity: 1;\n  }\n\n  to {\n    opacity: 0;\n    -webkit-transform: translate3d(0, 2000px, 0);\n    transform: translate3d(0, 2000px, 0);\n  }\n}\n\n.fadeOutDownBig {\n  -webkit-animation-name: fadeOutDownBig;\n  animation-name: fadeOutDownBig;\n}\n\n@-webkit-keyframes fadeOutLeft {\n  from {\n    opacity: 1;\n  }\n\n  to {\n    opacity: 0;\n    -webkit-transform: translate3d(-100%, 0, 0);\n    transform: translate3d(-100%, 0, 0);\n  }\n}\n\n@keyframes fadeOutLeft {\n  from {\n    opacity: 1;\n  }\n\n  to {\n    opacity: 0;\n    -webkit-transform: translate3d(-100%, 0, 0);\n    transform: translate3d(-100%, 0, 0);\n  }\n}\n\n.fadeOutLeft {\n  -webkit-animation-name: fadeOutLeft;\n  animation-name: fadeOutLeft;\n}\n\n@-webkit-keyframes fadeOutLeftBig {\n  from {\n    opacity: 1;\n  }\n\n  to {\n    opacity: 0;\n    -webkit-transform: translate3d(-2000px, 0, 0);\n    transform: translate3d(-2000px, 0, 0);\n  }\n}\n\n@keyframes fadeOutLeftBig {\n  from {\n    opacity: 1;\n  }\n\n  to {\n    opacity: 0;\n    -webkit-transform: translate3d(-2000px, 0, 0);\n    transform: translate3d(-2000px, 0, 0);\n  }\n}\n\n.fadeOutLeftBig {\n  -webkit-animation-name: fadeOutLeftBig;\n  animation-name: fadeOutLeftBig;\n}\n\n@-webkit-keyframes fadeOutRight {\n  from {\n    opacity: 1;\n  }\n\n  to {\n    opacity: 0;\n    -webkit-transform: translate3d(100%, 0, 0);\n    transform: translate3d(100%, 0, 0);\n  }\n}\n\n@keyframes fadeOutRight {\n  from {\n    opacity: 1;\n  }\n\n  to {\n    opacity: 0;\n    -webkit-transform: translate3d(100%, 0, 0);\n    transform: translate3d(100%, 0, 0);\n  }\n}\n\n.fadeOutRight {\n  -webkit-animation-name: fadeOutRight;\n  animation-name: fadeOutRight;\n}\n\n@-webkit-keyframes fadeOutRightBig {\n  from {\n    opacity: 1;\n  }\n\n  to {\n    opacity: 0;\n    -webkit-transform: translate3d(2000px, 0, 0);\n    transform: translate3d(2000px, 0, 0);\n  }\n}\n\n@keyframes fadeOutRightBig {\n  from {\n    opacity: 1;\n  }\n\n  to {\n    opacity: 0;\n    -webkit-transform: translate3d(2000px, 0, 0);\n    transform: translate3d(2000px, 0, 0);\n  }\n}\n\n.fadeOutRightBig {\n  -webkit-animation-name: fadeOutRightBig;\n  animation-name: fadeOutRightBig;\n}\n\n@-webkit-keyframes fadeOutUp {\n  from {\n    opacity: 1;\n  }\n\n  to {\n    opacity: 0;\n    -webkit-transform: translate3d(0, -100%, 0);\n    transform: translate3d(0, -100%, 0);\n  }\n}\n\n@keyframes fadeOutUp {\n  from {\n    opacity: 1;\n  }\n\n  to {\n    opacity: 0;\n    -webkit-transform: translate3d(0, -100%, 0);\n    transform: translate3d(0, -100%, 0);\n  }\n}\n\n.fadeOutUp {\n  -webkit-animation-name: fadeOutUp;\n  animation-name: fadeOutUp;\n}\n\n@-webkit-keyframes fadeOutUpBig {\n  from {\n    opacity: 1;\n  }\n\n  to {\n    opacity: 0;\n    -webkit-transform: translate3d(0, -2000px, 0);\n    transform: translate3d(0, -2000px, 0);\n  }\n}\n\n@keyframes fadeOutUpBig {\n  from {\n    opacity: 1;\n  }\n\n  to {\n    opacity: 0;\n    -webkit-transform: translate3d(0, -2000px, 0);\n    transform: translate3d(0, -2000px, 0);\n  }\n}\n\n.fadeOutUpBig {\n  -webkit-animation-name: fadeOutUpBig;\n  animation-name: fadeOutUpBig;\n}\n\n@-webkit-keyframes flip {\n  from {\n    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -360deg);\n    transform: perspective(400px) rotate3d(0, 1, 0, -360deg);\n    -webkit-animation-timing-function: ease-out;\n    animation-timing-function: ease-out;\n  }\n\n  40% {\n    -webkit-transform: perspective(400px) translate3d(0, 0, 150px) rotate3d(0, 1, 0, -190deg);\n    transform: perspective(400px) translate3d(0, 0, 150px) rotate3d(0, 1, 0, -190deg);\n    -webkit-animation-timing-function: ease-out;\n    animation-timing-function: ease-out;\n  }\n\n  50% {\n    -webkit-transform: perspective(400px) translate3d(0, 0, 150px) rotate3d(0, 1, 0, -170deg);\n    transform: perspective(400px) translate3d(0, 0, 150px) rotate3d(0, 1, 0, -170deg);\n    -webkit-animation-timing-function: ease-in;\n    animation-timing-function: ease-in;\n  }\n\n  80% {\n    -webkit-transform: perspective(400px) scale3d(.95, .95, .95);\n    transform: perspective(400px) scale3d(.95, .95, .95);\n    -webkit-animation-timing-function: ease-in;\n    animation-timing-function: ease-in;\n  }\n\n  to {\n    -webkit-transform: perspective(400px);\n    transform: perspective(400px);\n    -webkit-animation-timing-function: ease-in;\n    animation-timing-function: ease-in;\n  }\n}\n\n@keyframes flip {\n  from {\n    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -360deg);\n    transform: perspective(400px) rotate3d(0, 1, 0, -360deg);\n    -webkit-animation-timing-function: ease-out;\n    animation-timing-function: ease-out;\n  }\n\n  40% {\n    -webkit-transform: perspective(400px) translate3d(0, 0, 150px) rotate3d(0, 1, 0, -190deg);\n    transform: perspective(400px) translate3d(0, 0, 150px) rotate3d(0, 1, 0, -190deg);\n    -webkit-animation-timing-function: ease-out;\n    animation-timing-function: ease-out;\n  }\n\n  50% {\n    -webkit-transform: perspective(400px) translate3d(0, 0, 150px) rotate3d(0, 1, 0, -170deg);\n    transform: perspective(400px) translate3d(0, 0, 150px) rotate3d(0, 1, 0, -170deg);\n    -webkit-animation-timing-function: ease-in;\n    animation-timing-function: ease-in;\n  }\n\n  80% {\n    -webkit-transform: perspective(400px) scale3d(.95, .95, .95);\n    transform: perspective(400px) scale3d(.95, .95, .95);\n    -webkit-animation-timing-function: ease-in;\n    animation-timing-function: ease-in;\n  }\n\n  to {\n    -webkit-transform: perspective(400px);\n    transform: perspective(400px);\n    -webkit-animation-timing-function: ease-in;\n    animation-timing-function: ease-in;\n  }\n}\n\n.animated.flip {\n  -webkit-backface-visibility: visible;\n  backface-visibility: visible;\n  -webkit-animation-name: flip;\n  animation-name: flip;\n}\n\n@-webkit-keyframes flipInX {\n  from {\n    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);\n    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);\n    -webkit-animation-timing-function: ease-in;\n    animation-timing-function: ease-in;\n    opacity: 0;\n  }\n\n  40% {\n    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);\n    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);\n    -webkit-animation-timing-function: ease-in;\n    animation-timing-function: ease-in;\n  }\n\n  60% {\n    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 10deg);\n    transform: perspective(400px) rotate3d(1, 0, 0, 10deg);\n    opacity: 1;\n  }\n\n  80% {\n    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -5deg);\n    transform: perspective(400px) rotate3d(1, 0, 0, -5deg);\n  }\n\n  to {\n    -webkit-transform: perspective(400px);\n    transform: perspective(400px);\n  }\n}\n\n@keyframes flipInX {\n  from {\n    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);\n    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);\n    -webkit-animation-timing-function: ease-in;\n    animation-timing-function: ease-in;\n    opacity: 0;\n  }\n\n  40% {\n    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);\n    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);\n    -webkit-animation-timing-function: ease-in;\n    animation-timing-function: ease-in;\n  }\n\n  60% {\n    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 10deg);\n    transform: perspective(400px) rotate3d(1, 0, 0, 10deg);\n    opacity: 1;\n  }\n\n  80% {\n    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -5deg);\n    transform: perspective(400px) rotate3d(1, 0, 0, -5deg);\n  }\n\n  to {\n    -webkit-transform: perspective(400px);\n    transform: perspective(400px);\n  }\n}\n\n.flipInX {\n  -webkit-backface-visibility: visible !important;\n  backface-visibility: visible !important;\n  -webkit-animation-name: flipInX;\n  animation-name: flipInX;\n}\n\n@-webkit-keyframes flipInY {\n  from {\n    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 90deg);\n    transform: perspective(400px) rotate3d(0, 1, 0, 90deg);\n    -webkit-animation-timing-function: ease-in;\n    animation-timing-function: ease-in;\n    opacity: 0;\n  }\n\n  40% {\n    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -20deg);\n    transform: perspective(400px) rotate3d(0, 1, 0, -20deg);\n    -webkit-animation-timing-function: ease-in;\n    animation-timing-function: ease-in;\n  }\n\n  60% {\n    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 10deg);\n    transform: perspective(400px) rotate3d(0, 1, 0, 10deg);\n    opacity: 1;\n  }\n\n  80% {\n    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -5deg);\n    transform: perspective(400px) rotate3d(0, 1, 0, -5deg);\n  }\n\n  to {\n    -webkit-transform: perspective(400px);\n    transform: perspective(400px);\n  }\n}\n\n@keyframes flipInY {\n  from {\n    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 90deg);\n    transform: perspective(400px) rotate3d(0, 1, 0, 90deg);\n    -webkit-animation-timing-function: ease-in;\n    animation-timing-function: ease-in;\n    opacity: 0;\n  }\n\n  40% {\n    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -20deg);\n    transform: perspective(400px) rotate3d(0, 1, 0, -20deg);\n    -webkit-animation-timing-function: ease-in;\n    animation-timing-function: ease-in;\n  }\n\n  60% {\n    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 10deg);\n    transform: perspective(400px) rotate3d(0, 1, 0, 10deg);\n    opacity: 1;\n  }\n\n  80% {\n    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -5deg);\n    transform: perspective(400px) rotate3d(0, 1, 0, -5deg);\n  }\n\n  to {\n    -webkit-transform: perspective(400px);\n    transform: perspective(400px);\n  }\n}\n\n.flipInY {\n  -webkit-backface-visibility: visible !important;\n  backface-visibility: visible !important;\n  -webkit-animation-name: flipInY;\n  animation-name: flipInY;\n}\n\n@-webkit-keyframes flipOutX {\n  from {\n    -webkit-transform: perspective(400px);\n    transform: perspective(400px);\n  }\n\n  30% {\n    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);\n    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);\n    opacity: 1;\n  }\n\n  to {\n    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);\n    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);\n    opacity: 0;\n  }\n}\n\n@keyframes flipOutX {\n  from {\n    -webkit-transform: perspective(400px);\n    transform: perspective(400px);\n  }\n\n  30% {\n    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);\n    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);\n    opacity: 1;\n  }\n\n  to {\n    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);\n    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);\n    opacity: 0;\n  }\n}\n\n.flipOutX {\n  -webkit-animation-name: flipOutX;\n  animation-name: flipOutX;\n  -webkit-backface-visibility: visible !important;\n  backface-visibility: visible !important;\n}\n\n@-webkit-keyframes flipOutY {\n  from {\n    -webkit-transform: perspective(400px);\n    transform: perspective(400px);\n  }\n\n  30% {\n    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -15deg);\n    transform: perspective(400px) rotate3d(0, 1, 0, -15deg);\n    opacity: 1;\n  }\n\n  to {\n    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 90deg);\n    transform: perspective(400px) rotate3d(0, 1, 0, 90deg);\n    opacity: 0;\n  }\n}\n\n@keyframes flipOutY {\n  from {\n    -webkit-transform: perspective(400px);\n    transform: perspective(400px);\n  }\n\n  30% {\n    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -15deg);\n    transform: perspective(400px) rotate3d(0, 1, 0, -15deg);\n    opacity: 1;\n  }\n\n  to {\n    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 90deg);\n    transform: perspective(400px) rotate3d(0, 1, 0, 90deg);\n    opacity: 0;\n  }\n}\n\n.flipOutY {\n  -webkit-backface-visibility: visible !important;\n  backface-visibility: visible !important;\n  -webkit-animation-name: flipOutY;\n  animation-name: flipOutY;\n}\n\n@-webkit-keyframes lightSpeedIn {\n  from {\n    -webkit-transform: translate3d(100%, 0, 0) skewX(-30deg);\n    transform: translate3d(100%, 0, 0) skewX(-30deg);\n    opacity: 0;\n  }\n\n  60% {\n    -webkit-transform: skewX(20deg);\n    transform: skewX(20deg);\n    opacity: 1;\n  }\n\n  80% {\n    -webkit-transform: skewX(-5deg);\n    transform: skewX(-5deg);\n    opacity: 1;\n  }\n\n  to {\n    -webkit-transform: none;\n    transform: none;\n    opacity: 1;\n  }\n}\n\n@keyframes lightSpeedIn {\n  from {\n    -webkit-transform: translate3d(100%, 0, 0) skewX(-30deg);\n    transform: translate3d(100%, 0, 0) skewX(-30deg);\n    opacity: 0;\n  }\n\n  60% {\n    -webkit-transform: skewX(20deg);\n    transform: skewX(20deg);\n    opacity: 1;\n  }\n\n  80% {\n    -webkit-transform: skewX(-5deg);\n    transform: skewX(-5deg);\n    opacity: 1;\n  }\n\n  to {\n    -webkit-transform: none;\n    transform: none;\n    opacity: 1;\n  }\n}\n\n.lightSpeedIn {\n  -webkit-animation-name: lightSpeedIn;\n  animation-name: lightSpeedIn;\n  -webkit-animation-timing-function: ease-out;\n  animation-timing-function: ease-out;\n}\n\n@-webkit-keyframes lightSpeedOut {\n  from {\n    opacity: 1;\n  }\n\n  to {\n    -webkit-transform: translate3d(100%, 0, 0) skewX(30deg);\n    transform: translate3d(100%, 0, 0) skewX(30deg);\n    opacity: 0;\n  }\n}\n\n@keyframes lightSpeedOut {\n  from {\n    opacity: 1;\n  }\n\n  to {\n    -webkit-transform: translate3d(100%, 0, 0) skewX(30deg);\n    transform: translate3d(100%, 0, 0) skewX(30deg);\n    opacity: 0;\n  }\n}\n\n.lightSpeedOut {\n  -webkit-animation-name: lightSpeedOut;\n  animation-name: lightSpeedOut;\n  -webkit-animation-timing-function: ease-in;\n  animation-timing-function: ease-in;\n}\n\n@-webkit-keyframes rotateIn {\n  from {\n    -webkit-transform-origin: center;\n    transform-origin: center;\n    -webkit-transform: rotate3d(0, 0, 1, -200deg);\n    transform: rotate3d(0, 0, 1, -200deg);\n    opacity: 0;\n  }\n\n  to {\n    -webkit-transform-origin: center;\n    transform-origin: center;\n    -webkit-transform: none;\n    transform: none;\n    opacity: 1;\n  }\n}\n\n@keyframes rotateIn {\n  from {\n    -webkit-transform-origin: center;\n    transform-origin: center;\n    -webkit-transform: rotate3d(0, 0, 1, -200deg);\n    transform: rotate3d(0, 0, 1, -200deg);\n    opacity: 0;\n  }\n\n  to {\n    -webkit-transform-origin: center;\n    transform-origin: center;\n    -webkit-transform: none;\n    transform: none;\n    opacity: 1;\n  }\n}\n\n.rotateIn {\n  -webkit-animation-name: rotateIn;\n  animation-name: rotateIn;\n}\n\n@-webkit-keyframes rotateInDownLeft {\n  from {\n    -webkit-transform-origin: left bottom;\n    transform-origin: left bottom;\n    -webkit-transform: rotate3d(0, 0, 1, -45deg);\n    transform: rotate3d(0, 0, 1, -45deg);\n    opacity: 0;\n  }\n\n  to {\n    -webkit-transform-origin: left bottom;\n    transform-origin: left bottom;\n    -webkit-transform: none;\n    transform: none;\n    opacity: 1;\n  }\n}\n\n@keyframes rotateInDownLeft {\n  from {\n    -webkit-transform-origin: left bottom;\n    transform-origin: left bottom;\n    -webkit-transform: rotate3d(0, 0, 1, -45deg);\n    transform: rotate3d(0, 0, 1, -45deg);\n    opacity: 0;\n  }\n\n  to {\n    -webkit-transform-origin: left bottom;\n    transform-origin: left bottom;\n    -webkit-transform: none;\n    transform: none;\n    opacity: 1;\n  }\n}\n\n.rotateInDownLeft {\n  -webkit-animation-name: rotateInDownLeft;\n  animation-name: rotateInDownLeft;\n}\n\n@-webkit-keyframes rotateInDownRight {\n  from {\n    -webkit-transform-origin: right bottom;\n    transform-origin: right bottom;\n    -webkit-transform: rotate3d(0, 0, 1, 45deg);\n    transform: rotate3d(0, 0, 1, 45deg);\n    opacity: 0;\n  }\n\n  to {\n    -webkit-transform-origin: right bottom;\n    transform-origin: right bottom;\n    -webkit-transform: none;\n    transform: none;\n    opacity: 1;\n  }\n}\n\n@keyframes rotateInDownRight {\n  from {\n    -webkit-transform-origin: right bottom;\n    transform-origin: right bottom;\n    -webkit-transform: rotate3d(0, 0, 1, 45deg);\n    transform: rotate3d(0, 0, 1, 45deg);\n    opacity: 0;\n  }\n\n  to {\n    -webkit-transform-origin: right bottom;\n    transform-origin: right bottom;\n    -webkit-transform: none;\n    transform: none;\n    opacity: 1;\n  }\n}\n\n.rotateInDownRight {\n  -webkit-animation-name: rotateInDownRight;\n  animation-name: rotateInDownRight;\n}\n\n@-webkit-keyframes rotateInUpLeft {\n  from {\n    -webkit-transform-origin: left bottom;\n    transform-origin: left bottom;\n    -webkit-transform: rotate3d(0, 0, 1, 45deg);\n    transform: rotate3d(0, 0, 1, 45deg);\n    opacity: 0;\n  }\n\n  to {\n    -webkit-transform-origin: left bottom;\n    transform-origin: left bottom;\n    -webkit-transform: none;\n    transform: none;\n    opacity: 1;\n  }\n}\n\n@keyframes rotateInUpLeft {\n  from {\n    -webkit-transform-origin: left bottom;\n    transform-origin: left bottom;\n    -webkit-transform: rotate3d(0, 0, 1, 45deg);\n    transform: rotate3d(0, 0, 1, 45deg);\n    opacity: 0;\n  }\n\n  to {\n    -webkit-transform-origin: left bottom;\n    transform-origin: left bottom;\n    -webkit-transform: none;\n    transform: none;\n    opacity: 1;\n  }\n}\n\n.rotateInUpLeft {\n  -webkit-animation-name: rotateInUpLeft;\n  animation-name: rotateInUpLeft;\n}\n\n@-webkit-keyframes rotateInUpRight {\n  from {\n    -webkit-transform-origin: right bottom;\n    transform-origin: right bottom;\n    -webkit-transform: rotate3d(0, 0, 1, -90deg);\n    transform: rotate3d(0, 0, 1, -90deg);\n    opacity: 0;\n  }\n\n  to {\n    -webkit-transform-origin: right bottom;\n    transform-origin: right bottom;\n    -webkit-transform: none;\n    transform: none;\n    opacity: 1;\n  }\n}\n\n@keyframes rotateInUpRight {\n  from {\n    -webkit-transform-origin: right bottom;\n    transform-origin: right bottom;\n    -webkit-transform: rotate3d(0, 0, 1, -90deg);\n    transform: rotate3d(0, 0, 1, -90deg);\n    opacity: 0;\n  }\n\n  to {\n    -webkit-transform-origin: right bottom;\n    transform-origin: right bottom;\n    -webkit-transform: none;\n    transform: none;\n    opacity: 1;\n  }\n}\n\n.rotateInUpRight {\n  -webkit-animation-name: rotateInUpRight;\n  animation-name: rotateInUpRight;\n}\n\n@-webkit-keyframes rotateOut {\n  from {\n    -webkit-transform-origin: center;\n    transform-origin: center;\n    opacity: 1;\n  }\n\n  to {\n    -webkit-transform-origin: center;\n    transform-origin: center;\n    -webkit-transform: rotate3d(0, 0, 1, 200deg);\n    transform: rotate3d(0, 0, 1, 200deg);\n    opacity: 0;\n  }\n}\n\n@keyframes rotateOut {\n  from {\n    -webkit-transform-origin: center;\n    transform-origin: center;\n    opacity: 1;\n  }\n\n  to {\n    -webkit-transform-origin: center;\n    transform-origin: center;\n    -webkit-transform: rotate3d(0, 0, 1, 200deg);\n    transform: rotate3d(0, 0, 1, 200deg);\n    opacity: 0;\n  }\n}\n\n.rotateOut {\n  -webkit-animation-name: rotateOut;\n  animation-name: rotateOut;\n}\n\n@-webkit-keyframes rotateOutDownLeft {\n  from {\n    -webkit-transform-origin: left bottom;\n    transform-origin: left bottom;\n    opacity: 1;\n  }\n\n  to {\n    -webkit-transform-origin: left bottom;\n    transform-origin: left bottom;\n    -webkit-transform: rotate3d(0, 0, 1, 45deg);\n    transform: rotate3d(0, 0, 1, 45deg);\n    opacity: 0;\n  }\n}\n\n@keyframes rotateOutDownLeft {\n  from {\n    -webkit-transform-origin: left bottom;\n    transform-origin: left bottom;\n    opacity: 1;\n  }\n\n  to {\n    -webkit-transform-origin: left bottom;\n    transform-origin: left bottom;\n    -webkit-transform: rotate3d(0, 0, 1, 45deg);\n    transform: rotate3d(0, 0, 1, 45deg);\n    opacity: 0;\n  }\n}\n\n.rotateOutDownLeft {\n  -webkit-animation-name: rotateOutDownLeft;\n  animation-name: rotateOutDownLeft;\n}\n\n@-webkit-keyframes rotateOutDownRight {\n  from {\n    -webkit-transform-origin: right bottom;\n    transform-origin: right bottom;\n    opacity: 1;\n  }\n\n  to {\n    -webkit-transform-origin: right bottom;\n    transform-origin: right bottom;\n    -webkit-transform: rotate3d(0, 0, 1, -45deg);\n    transform: rotate3d(0, 0, 1, -45deg);\n    opacity: 0;\n  }\n}\n\n@keyframes rotateOutDownRight {\n  from {\n    -webkit-transform-origin: right bottom;\n    transform-origin: right bottom;\n    opacity: 1;\n  }\n\n  to {\n    -webkit-transform-origin: right bottom;\n    transform-origin: right bottom;\n    -webkit-transform: rotate3d(0, 0, 1, -45deg);\n    transform: rotate3d(0, 0, 1, -45deg);\n    opacity: 0;\n  }\n}\n\n.rotateOutDownRight {\n  -webkit-animation-name: rotateOutDownRight;\n  animation-name: rotateOutDownRight;\n}\n\n@-webkit-keyframes rotateOutUpLeft {\n  from {\n    -webkit-transform-origin: left bottom;\n    transform-origin: left bottom;\n    opacity: 1;\n  }\n\n  to {\n    -webkit-transform-origin: left bottom;\n    transform-origin: left bottom;\n    -webkit-transform: rotate3d(0, 0, 1, -45deg);\n    transform: rotate3d(0, 0, 1, -45deg);\n    opacity: 0;\n  }\n}\n\n@keyframes rotateOutUpLeft {\n  from {\n    -webkit-transform-origin: left bottom;\n    transform-origin: left bottom;\n    opacity: 1;\n  }\n\n  to {\n    -webkit-transform-origin: left bottom;\n    transform-origin: left bottom;\n    -webkit-transform: rotate3d(0, 0, 1, -45deg);\n    transform: rotate3d(0, 0, 1, -45deg);\n    opacity: 0;\n  }\n}\n\n.rotateOutUpLeft {\n  -webkit-animation-name: rotateOutUpLeft;\n  animation-name: rotateOutUpLeft;\n}\n\n@-webkit-keyframes rotateOutUpRight {\n  from {\n    -webkit-transform-origin: right bottom;\n    transform-origin: right bottom;\n    opacity: 1;\n  }\n\n  to {\n    -webkit-transform-origin: right bottom;\n    transform-origin: right bottom;\n    -webkit-transform: rotate3d(0, 0, 1, 90deg);\n    transform: rotate3d(0, 0, 1, 90deg);\n    opacity: 0;\n  }\n}\n\n@keyframes rotateOutUpRight {\n  from {\n    -webkit-transform-origin: right bottom;\n    transform-origin: right bottom;\n    opacity: 1;\n  }\n\n  to {\n    -webkit-transform-origin: right bottom;\n    transform-origin: right bottom;\n    -webkit-transform: rotate3d(0, 0, 1, 90deg);\n    transform: rotate3d(0, 0, 1, 90deg);\n    opacity: 0;\n  }\n}\n\n.rotateOutUpRight {\n  -webkit-animation-name: rotateOutUpRight;\n  animation-name: rotateOutUpRight;\n}\n\n@-webkit-keyframes hinge {\n  0% {\n    -webkit-transform-origin: top left;\n    transform-origin: top left;\n    -webkit-animation-timing-function: ease-in-out;\n    animation-timing-function: ease-in-out;\n  }\n\n  20%, 60% {\n    -webkit-transform: rotate3d(0, 0, 1, 80deg);\n    transform: rotate3d(0, 0, 1, 80deg);\n    -webkit-transform-origin: top left;\n    transform-origin: top left;\n    -webkit-animation-timing-function: ease-in-out;\n    animation-timing-function: ease-in-out;\n  }\n\n  40%, 80% {\n    -webkit-transform: rotate3d(0, 0, 1, 60deg);\n    transform: rotate3d(0, 0, 1, 60deg);\n    -webkit-transform-origin: top left;\n    transform-origin: top left;\n    -webkit-animation-timing-function: ease-in-out;\n    animation-timing-function: ease-in-out;\n    opacity: 1;\n  }\n\n  to {\n    -webkit-transform: translate3d(0, 700px, 0);\n    transform: translate3d(0, 700px, 0);\n    opacity: 0;\n  }\n}\n\n@keyframes hinge {\n  0% {\n    -webkit-transform-origin: top left;\n    transform-origin: top left;\n    -webkit-animation-timing-function: ease-in-out;\n    animation-timing-function: ease-in-out;\n  }\n\n  20%, 60% {\n    -webkit-transform: rotate3d(0, 0, 1, 80deg);\n    transform: rotate3d(0, 0, 1, 80deg);\n    -webkit-transform-origin: top left;\n    transform-origin: top left;\n    -webkit-animation-timing-function: ease-in-out;\n    animation-timing-function: ease-in-out;\n  }\n\n  40%, 80% {\n    -webkit-transform: rotate3d(0, 0, 1, 60deg);\n    transform: rotate3d(0, 0, 1, 60deg);\n    -webkit-transform-origin: top left;\n    transform-origin: top left;\n    -webkit-animation-timing-function: ease-in-out;\n    animation-timing-function: ease-in-out;\n    opacity: 1;\n  }\n\n  to {\n    -webkit-transform: translate3d(0, 700px, 0);\n    transform: translate3d(0, 700px, 0);\n    opacity: 0;\n  }\n}\n\n.hinge {\n  -webkit-animation-name: hinge;\n  animation-name: hinge;\n}\n\n/* originally authored by Nick Pettit - https://github.com/nickpettit/glide */\n\n@-webkit-keyframes rollIn {\n  from {\n    opacity: 0;\n    -webkit-transform: translate3d(-100%, 0, 0) rotate3d(0, 0, 1, -120deg);\n    transform: translate3d(-100%, 0, 0) rotate3d(0, 0, 1, -120deg);\n  }\n\n  to {\n    opacity: 1;\n    -webkit-transform: none;\n    transform: none;\n  }\n}\n\n@keyframes rollIn {\n  from {\n    opacity: 0;\n    -webkit-transform: translate3d(-100%, 0, 0) rotate3d(0, 0, 1, -120deg);\n    transform: translate3d(-100%, 0, 0) rotate3d(0, 0, 1, -120deg);\n  }\n\n  to {\n    opacity: 1;\n    -webkit-transform: none;\n    transform: none;\n  }\n}\n\n.rollIn {\n  -webkit-animation-name: rollIn;\n  animation-name: rollIn;\n}\n\n/* originally authored by Nick Pettit - https://github.com/nickpettit/glide */\n\n@-webkit-keyframes rollOut {\n  from {\n    opacity: 1;\n  }\n\n  to {\n    opacity: 0;\n    -webkit-transform: translate3d(100%, 0, 0) rotate3d(0, 0, 1, 120deg);\n    transform: translate3d(100%, 0, 0) rotate3d(0, 0, 1, 120deg);\n  }\n}\n\n@keyframes rollOut {\n  from {\n    opacity: 1;\n  }\n\n  to {\n    opacity: 0;\n    -webkit-transform: translate3d(100%, 0, 0) rotate3d(0, 0, 1, 120deg);\n    transform: translate3d(100%, 0, 0) rotate3d(0, 0, 1, 120deg);\n  }\n}\n\n.rollOut {\n  -webkit-animation-name: rollOut;\n  animation-name: rollOut;\n}\n\n@-webkit-keyframes zoomIn {\n  from {\n    opacity: 0;\n    -webkit-transform: scale3d(.3, .3, .3);\n    transform: scale3d(.3, .3, .3);\n  }\n\n  50% {\n    opacity: 1;\n  }\n}\n\n@keyframes zoomIn {\n  from {\n    opacity: 0;\n    -webkit-transform: scale3d(.3, .3, .3);\n    transform: scale3d(.3, .3, .3);\n  }\n\n  50% {\n    opacity: 1;\n  }\n}\n\n.zoomIn {\n  -webkit-animation-name: zoomIn;\n  animation-name: zoomIn;\n}\n\n@-webkit-keyframes zoomInDown {\n  from {\n    opacity: 0;\n    -webkit-transform: scale3d(.1, .1, .1) translate3d(0, -1000px, 0);\n    transform: scale3d(.1, .1, .1) translate3d(0, -1000px, 0);\n    -webkit-animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);\n    animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);\n  }\n\n  60% {\n    opacity: 1;\n    -webkit-transform: scale3d(.475, .475, .475) translate3d(0, 60px, 0);\n    transform: scale3d(.475, .475, .475) translate3d(0, 60px, 0);\n    -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);\n    animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);\n  }\n}\n\n@keyframes zoomInDown {\n  from {\n    opacity: 0;\n    -webkit-transform: scale3d(.1, .1, .1) translate3d(0, -1000px, 0);\n    transform: scale3d(.1, .1, .1) translate3d(0, -1000px, 0);\n    -webkit-animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);\n    animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);\n  }\n\n  60% {\n    opacity: 1;\n    -webkit-transform: scale3d(.475, .475, .475) translate3d(0, 60px, 0);\n    transform: scale3d(.475, .475, .475) translate3d(0, 60px, 0);\n    -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);\n    animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);\n  }\n}\n\n.zoomInDown {\n  -webkit-animation-name: zoomInDown;\n  animation-name: zoomInDown;\n}\n\n@-webkit-keyframes zoomInLeft {\n  from {\n    opacity: 0;\n    -webkit-transform: scale3d(.1, .1, .1) translate3d(-1000px, 0, 0);\n    transform: scale3d(.1, .1, .1) translate3d(-1000px, 0, 0);\n    -webkit-animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);\n    animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);\n  }\n\n  60% {\n    opacity: 1;\n    -webkit-transform: scale3d(.475, .475, .475) translate3d(10px, 0, 0);\n    transform: scale3d(.475, .475, .475) translate3d(10px, 0, 0);\n    -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);\n    animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);\n  }\n}\n\n@keyframes zoomInLeft {\n  from {\n    opacity: 0;\n    -webkit-transform: scale3d(.1, .1, .1) translate3d(-1000px, 0, 0);\n    transform: scale3d(.1, .1, .1) translate3d(-1000px, 0, 0);\n    -webkit-animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);\n    animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);\n  }\n\n  60% {\n    opacity: 1;\n    -webkit-transform: scale3d(.475, .475, .475) translate3d(10px, 0, 0);\n    transform: scale3d(.475, .475, .475) translate3d(10px, 0, 0);\n    -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);\n    animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);\n  }\n}\n\n.zoomInLeft {\n  -webkit-animation-name: zoomInLeft;\n  animation-name: zoomInLeft;\n}\n\n@-webkit-keyframes zoomInRight {\n  from {\n    opacity: 0;\n    -webkit-transform: scale3d(.1, .1, .1) translate3d(1000px, 0, 0);\n    transform: scale3d(.1, .1, .1) translate3d(1000px, 0, 0);\n    -webkit-animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);\n    animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);\n  }\n\n  60% {\n    opacity: 1;\n    -webkit-transform: scale3d(.475, .475, .475) translate3d(-10px, 0, 0);\n    transform: scale3d(.475, .475, .475) translate3d(-10px, 0, 0);\n    -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);\n    animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);\n  }\n}\n\n@keyframes zoomInRight {\n  from {\n    opacity: 0;\n    -webkit-transform: scale3d(.1, .1, .1) translate3d(1000px, 0, 0);\n    transform: scale3d(.1, .1, .1) translate3d(1000px, 0, 0);\n    -webkit-animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);\n    animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);\n  }\n\n  60% {\n    opacity: 1;\n    -webkit-transform: scale3d(.475, .475, .475) translate3d(-10px, 0, 0);\n    transform: scale3d(.475, .475, .475) translate3d(-10px, 0, 0);\n    -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);\n    animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);\n  }\n}\n\n.zoomInRight {\n  -webkit-animation-name: zoomInRight;\n  animation-name: zoomInRight;\n}\n\n@-webkit-keyframes zoomInUp {\n  from {\n    opacity: 0;\n    -webkit-transform: scale3d(.1, .1, .1) translate3d(0, 1000px, 0);\n    transform: scale3d(.1, .1, .1) translate3d(0, 1000px, 0);\n    -webkit-animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);\n    animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);\n  }\n\n  60% {\n    opacity: 1;\n    -webkit-transform: scale3d(.475, .475, .475) translate3d(0, -60px, 0);\n    transform: scale3d(.475, .475, .475) translate3d(0, -60px, 0);\n    -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);\n    animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);\n  }\n}\n\n@keyframes zoomInUp {\n  from {\n    opacity: 0;\n    -webkit-transform: scale3d(.1, .1, .1) translate3d(0, 1000px, 0);\n    transform: scale3d(.1, .1, .1) translate3d(0, 1000px, 0);\n    -webkit-animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);\n    animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);\n  }\n\n  60% {\n    opacity: 1;\n    -webkit-transform: scale3d(.475, .475, .475) translate3d(0, -60px, 0);\n    transform: scale3d(.475, .475, .475) translate3d(0, -60px, 0);\n    -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);\n    animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);\n  }\n}\n\n.zoomInUp {\n  -webkit-animation-name: zoomInUp;\n  animation-name: zoomInUp;\n}\n\n@-webkit-keyframes zoomOut {\n  from {\n    opacity: 1;\n  }\n\n  50% {\n    opacity: 0;\n    -webkit-transform: scale3d(.3, .3, .3);\n    transform: scale3d(.3, .3, .3);\n  }\n\n  to {\n    opacity: 0;\n  }\n}\n\n@keyframes zoomOut {\n  from {\n    opacity: 1;\n  }\n\n  50% {\n    opacity: 0;\n    -webkit-transform: scale3d(.3, .3, .3);\n    transform: scale3d(.3, .3, .3);\n  }\n\n  to {\n    opacity: 0;\n  }\n}\n\n.zoomOut {\n  -webkit-animation-name: zoomOut;\n  animation-name: zoomOut;\n}\n\n@-webkit-keyframes zoomOutDown {\n  40% {\n    opacity: 1;\n    -webkit-transform: scale3d(.475, .475, .475) translate3d(0, -60px, 0);\n    transform: scale3d(.475, .475, .475) translate3d(0, -60px, 0);\n    -webkit-animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);\n    animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);\n  }\n\n  to {\n    opacity: 0;\n    -webkit-transform: scale3d(.1, .1, .1) translate3d(0, 2000px, 0);\n    transform: scale3d(.1, .1, .1) translate3d(0, 2000px, 0);\n    -webkit-transform-origin: center bottom;\n    transform-origin: center bottom;\n    -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);\n    animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);\n  }\n}\n\n@keyframes zoomOutDown {\n  40% {\n    opacity: 1;\n    -webkit-transform: scale3d(.475, .475, .475) translate3d(0, -60px, 0);\n    transform: scale3d(.475, .475, .475) translate3d(0, -60px, 0);\n    -webkit-animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);\n    animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);\n  }\n\n  to {\n    opacity: 0;\n    -webkit-transform: scale3d(.1, .1, .1) translate3d(0, 2000px, 0);\n    transform: scale3d(.1, .1, .1) translate3d(0, 2000px, 0);\n    -webkit-transform-origin: center bottom;\n    transform-origin: center bottom;\n    -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);\n    animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);\n  }\n}\n\n.zoomOutDown {\n  -webkit-animation-name: zoomOutDown;\n  animation-name: zoomOutDown;\n}\n\n@-webkit-keyframes zoomOutLeft {\n  40% {\n    opacity: 1;\n    -webkit-transform: scale3d(.475, .475, .475) translate3d(42px, 0, 0);\n    transform: scale3d(.475, .475, .475) translate3d(42px, 0, 0);\n  }\n\n  to {\n    opacity: 0;\n    -webkit-transform: scale(.1) translate3d(-2000px, 0, 0);\n    transform: scale(.1) translate3d(-2000px, 0, 0);\n    -webkit-transform-origin: left center;\n    transform-origin: left center;\n  }\n}\n\n@keyframes zoomOutLeft {\n  40% {\n    opacity: 1;\n    -webkit-transform: scale3d(.475, .475, .475) translate3d(42px, 0, 0);\n    transform: scale3d(.475, .475, .475) translate3d(42px, 0, 0);\n  }\n\n  to {\n    opacity: 0;\n    -webkit-transform: scale(.1) translate3d(-2000px, 0, 0);\n    transform: scale(.1) translate3d(-2000px, 0, 0);\n    -webkit-transform-origin: left center;\n    transform-origin: left center;\n  }\n}\n\n.zoomOutLeft {\n  -webkit-animation-name: zoomOutLeft;\n  animation-name: zoomOutLeft;\n}\n\n@-webkit-keyframes zoomOutRight {\n  40% {\n    opacity: 1;\n    -webkit-transform: scale3d(.475, .475, .475) translate3d(-42px, 0, 0);\n    transform: scale3d(.475, .475, .475) translate3d(-42px, 0, 0);\n  }\n\n  to {\n    opacity: 0;\n    -webkit-transform: scale(.1) translate3d(2000px, 0, 0);\n    transform: scale(.1) translate3d(2000px, 0, 0);\n    -webkit-transform-origin: right center;\n    transform-origin: right center;\n  }\n}\n\n@keyframes zoomOutRight {\n  40% {\n    opacity: 1;\n    -webkit-transform: scale3d(.475, .475, .475) translate3d(-42px, 0, 0);\n    transform: scale3d(.475, .475, .475) translate3d(-42px, 0, 0);\n  }\n\n  to {\n    opacity: 0;\n    -webkit-transform: scale(.1) translate3d(2000px, 0, 0);\n    transform: scale(.1) translate3d(2000px, 0, 0);\n    -webkit-transform-origin: right center;\n    transform-origin: right center;\n  }\n}\n\n.zoomOutRight {\n  -webkit-animation-name: zoomOutRight;\n  animation-name: zoomOutRight;\n}\n\n@-webkit-keyframes zoomOutUp {\n  40% {\n    opacity: 1;\n    -webkit-transform: scale3d(.475, .475, .475) translate3d(0, 60px, 0);\n    transform: scale3d(.475, .475, .475) translate3d(0, 60px, 0);\n    -webkit-animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);\n    animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);\n  }\n\n  to {\n    opacity: 0;\n    -webkit-transform: scale3d(.1, .1, .1) translate3d(0, -2000px, 0);\n    transform: scale3d(.1, .1, .1) translate3d(0, -2000px, 0);\n    -webkit-transform-origin: center bottom;\n    transform-origin: center bottom;\n    -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);\n    animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);\n  }\n}\n\n@keyframes zoomOutUp {\n  40% {\n    opacity: 1;\n    -webkit-transform: scale3d(.475, .475, .475) translate3d(0, 60px, 0);\n    transform: scale3d(.475, .475, .475) translate3d(0, 60px, 0);\n    -webkit-animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);\n    animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);\n  }\n\n  to {\n    opacity: 0;\n    -webkit-transform: scale3d(.1, .1, .1) translate3d(0, -2000px, 0);\n    transform: scale3d(.1, .1, .1) translate3d(0, -2000px, 0);\n    -webkit-transform-origin: center bottom;\n    transform-origin: center bottom;\n    -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);\n    animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);\n  }\n}\n\n.zoomOutUp {\n  -webkit-animation-name: zoomOutUp;\n  animation-name: zoomOutUp;\n}\n\n@-webkit-keyframes slideInDown {\n  from {\n    -webkit-transform: translate3d(0, -100%, 0);\n    transform: translate3d(0, -100%, 0);\n    visibility: visible;\n  }\n\n  to {\n    -webkit-transform: translate3d(0, 0, 0);\n    transform: translate3d(0, 0, 0);\n  }\n}\n\n@keyframes slideInDown {\n  from {\n    -webkit-transform: translate3d(0, -100%, 0);\n    transform: translate3d(0, -100%, 0);\n    visibility: visible;\n  }\n\n  to {\n    -webkit-transform: translate3d(0, 0, 0);\n    transform: translate3d(0, 0, 0);\n  }\n}\n\n.slideInDown {\n  -webkit-animation-name: slideInDown;\n  animation-name: slideInDown;\n}\n\n@-webkit-keyframes slideInLeft {\n  from {\n    -webkit-transform: translate3d(-100%, 0, 0);\n    transform: translate3d(-100%, 0, 0);\n    visibility: visible;\n  }\n\n  to {\n    -webkit-transform: translate3d(0, 0, 0);\n    transform: translate3d(0, 0, 0);\n  }\n}\n\n@keyframes slideInLeft {\n  from {\n    -webkit-transform: translate3d(-100%, 0, 0);\n    transform: translate3d(-100%, 0, 0);\n    visibility: visible;\n  }\n\n  to {\n    -webkit-transform: translate3d(0, 0, 0);\n    transform: translate3d(0, 0, 0);\n  }\n}\n\n.slideInLeft {\n  -webkit-animation-name: slideInLeft;\n  animation-name: slideInLeft;\n}\n\n@-webkit-keyframes slideInRight {\n  from {\n    -webkit-transform: translate3d(100%, 0, 0);\n    transform: translate3d(100%, 0, 0);\n    visibility: visible;\n  }\n\n  to {\n    -webkit-transform: translate3d(0, 0, 0);\n    transform: translate3d(0, 0, 0);\n  }\n}\n\n@keyframes slideInRight {\n  from {\n    -webkit-transform: translate3d(100%, 0, 0);\n    transform: translate3d(100%, 0, 0);\n    visibility: visible;\n  }\n\n  to {\n    -webkit-transform: translate3d(0, 0, 0);\n    transform: translate3d(0, 0, 0);\n  }\n}\n\n.slideInRight {\n  -webkit-animation-name: slideInRight;\n  animation-name: slideInRight;\n}\n\n@-webkit-keyframes slideInUp {\n  from {\n    -webkit-transform: translate3d(0, 100%, 0);\n    transform: translate3d(0, 100%, 0);\n    visibility: visible;\n  }\n\n  to {\n    -webkit-transform: translate3d(0, 0, 0);\n    transform: translate3d(0, 0, 0);\n  }\n}\n\n@keyframes slideInUp {\n  from {\n    -webkit-transform: translate3d(0, 100%, 0);\n    transform: translate3d(0, 100%, 0);\n    visibility: visible;\n  }\n\n  to {\n    -webkit-transform: translate3d(0, 0, 0);\n    transform: translate3d(0, 0, 0);\n  }\n}\n\n.slideInUp {\n  -webkit-animation-name: slideInUp;\n  animation-name: slideInUp;\n}\n\n@-webkit-keyframes slideOutDown {\n  from {\n    -webkit-transform: translate3d(0, 0, 0);\n    transform: translate3d(0, 0, 0);\n  }\n\n  to {\n    visibility: hidden;\n    -webkit-transform: translate3d(0, 100%, 0);\n    transform: translate3d(0, 100%, 0);\n  }\n}\n\n@keyframes slideOutDown {\n  from {\n    -webkit-transform: translate3d(0, 0, 0);\n    transform: translate3d(0, 0, 0);\n  }\n\n  to {\n    visibility: hidden;\n    -webkit-transform: translate3d(0, 100%, 0);\n    transform: translate3d(0, 100%, 0);\n  }\n}\n\n.slideOutDown {\n  -webkit-animation-name: slideOutDown;\n  animation-name: slideOutDown;\n}\n\n@-webkit-keyframes slideOutLeft {\n  from {\n    -webkit-transform: translate3d(0, 0, 0);\n    transform: translate3d(0, 0, 0);\n  }\n\n  to {\n    visibility: hidden;\n    -webkit-transform: translate3d(-100%, 0, 0);\n    transform: translate3d(-100%, 0, 0);\n  }\n}\n\n@keyframes slideOutLeft {\n  from {\n    -webkit-transform: translate3d(0, 0, 0);\n    transform: translate3d(0, 0, 0);\n  }\n\n  to {\n    visibility: hidden;\n    -webkit-transform: translate3d(-100%, 0, 0);\n    transform: translate3d(-100%, 0, 0);\n  }\n}\n\n.slideOutLeft {\n  -webkit-animation-name: slideOutLeft;\n  animation-name: slideOutLeft;\n}\n\n@-webkit-keyframes slideOutRight {\n  from {\n    -webkit-transform: translate3d(0, 0, 0);\n    transform: translate3d(0, 0, 0);\n  }\n\n  to {\n    visibility: hidden;\n    -webkit-transform: translate3d(100%, 0, 0);\n    transform: translate3d(100%, 0, 0);\n  }\n}\n\n@keyframes slideOutRight {\n  from {\n    -webkit-transform: translate3d(0, 0, 0);\n    transform: translate3d(0, 0, 0);\n  }\n\n  to {\n    visibility: hidden;\n    -webkit-transform: translate3d(100%, 0, 0);\n    transform: translate3d(100%, 0, 0);\n  }\n}\n\n.slideOutRight {\n  -webkit-animation-name: slideOutRight;\n  animation-name: slideOutRight;\n}\n\n@-webkit-keyframes slideOutUp {\n  from {\n    -webkit-transform: translate3d(0, 0, 0);\n    transform: translate3d(0, 0, 0);\n  }\n\n  to {\n    visibility: hidden;\n    -webkit-transform: translate3d(0, -100%, 0);\n    transform: translate3d(0, -100%, 0);\n  }\n}\n\n@keyframes slideOutUp {\n  from {\n    -webkit-transform: translate3d(0, 0, 0);\n    transform: translate3d(0, 0, 0);\n  }\n\n  to {\n    visibility: hidden;\n    -webkit-transform: translate3d(0, -100%, 0);\n    transform: translate3d(0, -100%, 0);\n  }\n}\n\n.slideOutUp {\n  -webkit-animation-name: slideOutUp;\n  animation-name: slideOutUp;\n}\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 785 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _React = __webpack_require__(424);
+
+	var _React2 = _interopRequireDefault(_React);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
+
+
+	// styles
+	__webpack_require__(786);
+
+	var Content = function (_React$Component) {
+	    _inherits(Content, _React$Component);
+
+	    function Content() {
+	        _classCallCheck(this, Content);
+
+	        return _possibleConstructorReturn(this, (Content.__proto__ || Object.getPrototypeOf(Content)).apply(this, arguments));
+	    }
+
+	    _createClass(Content, [{
+	        key: 'render',
+	        value: function render() {
+	            return _React2.default.createElement(
+	                'div',
+	                { id: 'content' },
+	                this.props.children
+	            );
+	        }
+	    }]);
+
+	    return Content;
+	}(_React2.default.Component);
+
+	exports.default = Content;
+
+/***/ },
+/* 786 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(787);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(452)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./content.scss", function() {
+				var newContent = require("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./content.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 787 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(451)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "#content {\n  width: calc(100% - 275px);\n  float: left;\n  height: 100vh; }\n  #content:after {\n    display: block;\n    content: \"\"; }\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 788 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _React = __webpack_require__(424);
+
+	var _React2 = _interopRequireDefault(_React);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
+
+
+	// styles
+	var styles = {
+	    header: {
+	        background: '#ffffff',
+	        borderBottom: '1px solid #e0e0e0',
+	        padding: '10px 15px',
+	        marginBottom: '15px',
+	        borderRadius: '0',
+	        float: 'left',
+	        width: '100%',
+	        fontSize: '.9em'
+	    }
+	};
+
+	var Header = function (_React$Component) {
+	    _inherits(Header, _React$Component);
+
+	    function Header() {
+	        _classCallCheck(this, Header);
+
+	        return _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).apply(this, arguments));
+	    }
+
+	    _createClass(Header, [{
+	        key: 'render',
+	        value: function render() {
+	            return _React2.default.createElement(
+	                'div',
+	                { className: 'header', style: styles.header },
+	                this.props.children
+	            );
+	        }
+	    }]);
+
+	    return Header;
+	}(_React2.default.Component);
+
+	exports.default = Header;
+
+/***/ },
+/* 789 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _React = __webpack_require__(424);
+
+	var _React2 = _interopRequireDefault(_React);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	__webpack_require__(790);
+
+	var Sidebar = function (_React$Component) {
+	    _inherits(Sidebar, _React$Component);
+
+	    function Sidebar() {
+	        _classCallCheck(this, Sidebar);
+
+	        return _possibleConstructorReturn(this, (Sidebar.__proto__ || Object.getPrototypeOf(Sidebar)).apply(this, arguments));
+	    }
+
+	    _createClass(Sidebar, [{
+	        key: 'render',
+	        value: function render() {
+	            return _React2.default.createElement(
+	                'div',
+	                { className: 'sidebar' },
+	                this.props.children
+	            );
+	        }
+	    }]);
+
+	    return Sidebar;
+	}(_React2.default.Component);
+
+	exports.default = Sidebar;
+
+/***/ },
+/* 790 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(791);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(452)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./sidebar.scss", function() {
+				var newContent = require("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./sidebar.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 791 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(451)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".sidebar {\n  height: 100vh;\n  background: #3C393F;\n  color: #dbdbdb;\n  float: left;\n  overflow-y: auto;\n  width: 275px;\n  font-size: .9em; }\n  .sidebar .accordion-item .accordion-header {\n    padding-left: 10px; }\n  .sidebar .accordion-item .accordion-header-content {\n    padding: 10px; }\n  .sidebar .task-group-view-edit-toggle-field {\n    padding: 10px 10px 10px 13px;\n    color: #888888; }\n    .sidebar .task-group-view-edit-toggle-field:hover {\n      color: inherit; }\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 792 */,
+/* 793 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _module = __webpack_require__(496);
+
+	var _module2 = _interopRequireDefault(_module);
+
+	var _taskAge = __webpack_require__(794);
+
+	var _taskAge2 = _interopRequireDefault(_taskAge);
+
+	var _taskCompletion = __webpack_require__(797);
+
+	var _taskCompletion2 = _interopRequireDefault(_taskCompletion);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
+
+
+	// components
+
+
+	// styles
+	__webpack_require__(800);
+
+	var styles = {
+	    active: {
+	        display: 'inherit'
+	    },
+	    inactive: {
+	        display: 'none'
+	    }
+	};
+
+	var Analytics = function (_React$Component) {
+	    _inherits(Analytics, _React$Component);
+
+	    function Analytics(props) {
+	        _classCallCheck(this, Analytics);
+
+	        var _this = _possibleConstructorReturn(this, (Analytics.__proto__ || Object.getPrototypeOf(Analytics)).call(this, props));
+
+	        _this.state = {
+	            active: props.defaultActive
+	        };
+
+	        _this.handleClick = _this.handleClick.bind(_this);
+	        return _this;
+	    }
+
+	    _createClass(Analytics, [{
+	        key: 'handleClick',
+	        value: function handleClick() {
+	            this.setState({
+	                active: !this.state.active
+	            });
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { id: 'analytics' },
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'drawer', style: this.state.active ? styles.active : styles.inactive },
+	                    this.props.tasks.length == 0 ? _react2.default.createElement(
+	                        'div',
+	                        null,
+	                        _react2.default.createElement(
+	                            'p',
+	                            { id: 'no-analytics-available' },
+	                            'Let\'s be real: you haven\'t done anything yet. Add some tasks and we\'ll get you some neat data.'
+	                        )
+	                    ) : _react2.default.createElement(
+	                        'div',
+	                        { className: 'row' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'col-xs-3 no-horizontal-padding' },
+	                            _react2.default.createElement(
+	                                _module2.default,
+	                                {
+	                                    id: 'completion-module',
+	                                    type: 'analytics',
+	                                    title: 'Progress',
+	                                    iconClass: 'fa fa-check'
+	                                },
+	                                _react2.default.createElement(_taskCompletion2.default, {
+	                                    completedTaskCount: this.props.tasks.filter(function (t) {
+	                                        return t.Complete;
+	                                    }).length,
+	                                    totalTaskCount: this.props.tasks.length,
+	                                    isVisible: this.state.active
+	                                })
+	                            )
+	                        )
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'toggle-bar' },
+	                    _react2.default.createElement(
+	                        'a',
+	                        { className: 'toggle', onClick: this.handleClick },
+	                        _react2.default.createElement(
+	                            'span',
+	                            { className: 'toggle-button' },
+	                            '\u2630'
+	                        ),
+	                        'Analytics'
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return Analytics;
+	}(_react2.default.Component);
+
+	Analytics.propTypes = {
+	    tasks: _react2.default.PropTypes.arrayOf(_react2.default.PropTypes.object).isRequired,
+	    defaultActive: _react2.default.PropTypes.bool
+	};
+
+	Analytics.getDefaultProps = {
+	    defaultActive: true
+	};
+
+	exports.default = Analytics;
+
+/***/ },
+/* 794 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _React = __webpack_require__(424);
+
+	var _React2 = _interopRequireDefault(_React);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
+
+
+	// styles
+	__webpack_require__(795);
+
+	var TaskAge = function (_React$Component) {
+	    _inherits(TaskAge, _React$Component);
+
+	    function TaskAge() {
+	        _classCallCheck(this, TaskAge);
+
+	        return _possibleConstructorReturn(this, (TaskAge.__proto__ || Object.getPrototypeOf(TaskAge)).apply(this, arguments));
+	    }
+
+	    _createClass(TaskAge, [{
+	        key: 'shouldComponentUpdate',
+	        value: function shouldComponentUpdate(nextProps, nextState) {
+	            return nextProps.isVisible;
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _React2.default.createElement(
+	                'div',
+	                { id: 'task-age' },
+	                _React2.default.createElement(
+	                    'table',
+	                    { className: 'table table-striped' },
+	                    _React2.default.createElement(
+	                        'tbody',
+	                        null,
+	                        _React2.default.createElement(
+	                            'tr',
+	                            null,
+	                            _React2.default.createElement(
+	                                'td',
+	                                null,
+	                                'Some elder task'
+	                            ),
+	                            _React2.default.createElement(
+	                                'td',
+	                                { style: { textAlign: 'right', color: '#cc2320' } },
+	                                '2w 4d'
+	                            )
+	                        ),
+	                        _React2.default.createElement(
+	                            'tr',
+	                            null,
+	                            _React2.default.createElement(
+	                                'td',
+	                                null,
+	                                'Some aging task'
+	                            ),
+	                            _React2.default.createElement(
+	                                'td',
+	                                { style: { textAlign: 'right', color: '#d8854e' } },
+	                                '1w 2d'
+	                            )
+	                        ),
+	                        _React2.default.createElement(
+	                            'tr',
+	                            null,
+	                            _React2.default.createElement(
+	                                'td',
+	                                null,
+	                                'Some fledgling task'
+	                            ),
+	                            _React2.default.createElement(
+	                                'td',
+	                                { style: { textAlign: 'right' } },
+	                                '3d 4h'
+	                            )
+	                        )
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return TaskAge;
+	}(_React2.default.Component);
+
+	TaskAge.propTypes = {
+	    isVisible: _React2.default.PropTypes.bool.isRequired
+	};
+
+	exports.default = TaskAge;
+
+/***/ },
+/* 795 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(796);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(452)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./task-age.scss", function() {
+				var newContent = require("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./task-age.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 796 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(451)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "#task-age-module .module-body {\n  padding: 0; }\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 797 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _React = __webpack_require__(424);
+
+	var _React2 = _interopRequireDefault(_React);
+
+	var _chart = __webpack_require__(514);
+
+	var _chart2 = _interopRequireDefault(_chart);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
+
+
+	// styles
+	__webpack_require__(798);
+
+	var TaskCompletion = function (_React$Component) {
+	    _inherits(TaskCompletion, _React$Component);
+
+	    function TaskCompletion(props) {
+	        _classCallCheck(this, TaskCompletion);
+
+	        var _this = _possibleConstructorReturn(this, (TaskCompletion.__proto__ || Object.getPrototypeOf(TaskCompletion)).call(this, props));
+
+	        _this.state = {
+	            completionPercentage: Math.round(props.completedTaskCount / props.totalTaskCount * 100)
+	        };
+	        return _this;
+	    }
+
+	    _createClass(TaskCompletion, [{
+	        key: 'shouldComponentUpdate',
+	        value: function shouldComponentUpdate(nextProps, nextState) {
+	            return nextProps.isVisible && (this.props.completedTaskCount != nextProps.completedTaskCount || this.props.totalTaskCount != nextProps.totalTaskCount);
+	        }
+	    }, {
+	        key: 'componentWillUpdate',
+	        value: function componentWillUpdate(nextProps, nextState) {
+	            this.state.completionPercentage = nextProps.totalTaskCount > 0 ? Math.round(nextProps.completedTaskCount / nextProps.totalTaskCount * 100) : 0;
+	        }
+	    }, {
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            this.generateVisualization();
+	        }
+	    }, {
+	        key: 'componentDidUpdate',
+	        value: function componentDidUpdate(prevProps, prevState) {
+	            this.generateVisualization();
+	        }
+	    }, {
+	        key: 'generateVisualization',
+	        value: function generateVisualization() {
+	            _chart2.default.defaults.global.legend.display = false;
+
+	            var ctx = document.getElementById('task-completion-canvas');
+	            var myChart = new _chart2.default(ctx, {
+	                type: 'doughnut',
+	                data: {
+	                    labels: ['Tasks Completed', 'Tasks Remaining'],
+	                    datasets: [{
+	                        data: [this.props.completedTaskCount, this.props.totalTaskCount - this.props.completedTaskCount],
+	                        backgroundColor: ['#5e804d']
+	                    }]
+	                },
+	                options: {
+	                    cutoutPercentage: 75
+	                }
+	            });
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _React2.default.createElement(
+	                'div',
+	                { id: 'task-completion' },
+	                _React2.default.createElement('canvas', { id: 'task-completion-canvas' }),
+	                _React2.default.createElement(
+	                    'p',
+	                    null,
+	                    this.props.completedTaskCount,
+	                    ' / ',
+	                    this.props.totalTaskCount
+	                ),
+	                _React2.default.createElement(
+	                    'p',
+	                    { style: { float: 'right' } },
+	                    this.state.completionPercentage,
+	                    '%'
+	                )
+	            );
+	        }
+	    }]);
+
+	    return TaskCompletion;
+	}(_React2.default.Component);
+
+	TaskCompletion.propTypes = {
+	    completedTaskCount: _React2.default.PropTypes.number.isRequired,
+	    totalTaskCount: _React2.default.PropTypes.number.isRequired,
+	    isVisible: _React2.default.PropTypes.bool.isRequired
+	};
+
+	exports.default = TaskCompletion;
+
+/***/ },
+/* 798 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(799);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(452)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./task-completion.scss", function() {
+				var newContent = require("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./task-completion.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 799 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(451)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "#task-completion p {\n  display: inline; }\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 800 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(801);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(452)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./analytics.scss", function() {
+				var newContent = require("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./analytics.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 801 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(451)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "#analytics {\n  background: #d3d2d1;\n  border-top: 1px solid #c4c4c4;\n  position: absolute;\n  left: 275px;\n  bottom: 0;\n  width: calc(100% - 275px);\n  font-size: .9em; }\n  #analytics .toggle-bar {\n    padding: 10px 15px; }\n    #analytics .toggle-bar .toggle {\n      text-transform: uppercase;\n      color: #373737;\n      letter-spacing: 1px; }\n      #analytics .toggle-bar .toggle .toggle-button {\n        font-size: 1.2em;\n        margin-right: 10px; }\n      #analytics .toggle-bar .toggle:hover {\n        cursor: pointer;\n        text-decoration: none; }\n  #analytics .drawer {\n    padding: 15px 15px 0 15px; }\n  #analytics #no-analytics-available {\n    margin: 40px 0 20px 0;\n    text-align: center;\n    color: #888888; }\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 802 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _emptyTaskList = __webpack_require__(803);
+
+	var _emptyTaskList2 = _interopRequireDefault(_emptyTaskList);
+
+	var _taskListFilterContainer = __webpack_require__(813);
+
+	var _taskListFilterContainer2 = _interopRequireDefault(_taskListFilterContainer);
+
+	var _taskList = __webpack_require__(819);
+
+	var _taskList2 = _interopRequireDefault(_taskList);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	__webpack_require__(825);
+
+	var TaskListView = function (_Component) {
+	    _inherits(TaskListView, _Component);
+
+	    function TaskListView() {
+	        _classCallCheck(this, TaskListView);
+
+	        return _possibleConstructorReturn(this, (TaskListView.__proto__ || Object.getPrototypeOf(TaskListView)).apply(this, arguments));
+	    }
+
+	    _createClass(TaskListView, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'row' },
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'col-xs-12' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'task-list-view' },
+	                        _react2.default.createElement(_taskListFilterContainer2.default, { taskGroupName: this.props.taskGroupName }),
+	                        this.props.tasks.length == 0 ? _react2.default.createElement(_emptyTaskList2.default, {
+	                            isShowingOnlyCompleteTasks: this.props.isShowingOnlyCompleteTasks,
+	                            handleNewTask: this.props.handleNewTask
+	                        }) : _react2.default.createElement(_taskList2.default, {
+	                            tasks: this.props.tasks,
+	                            handleCompletionToggle: this.props.handleCompletionToggle,
+	                            handleNewTask: this.props.handleNewTask,
+	                            handleTaskDelete: this.props.handleTaskDelete,
+	                            handleTaskSave: this.props.handleTaskSave,
+	                            updateDisplayOrder: this.props.updateDisplayOrder
+	                        })
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return TaskListView;
+	}(_react.Component);
+
+	TaskListView.propTypes = {
+	    tasks: _react.PropTypes.arrayOf(_react.PropTypes.object).isRequired,
+	    taskGroupName: _react.PropTypes.string,
+	    isShowingOnlyCompleteTasks: _react.PropTypes.bool.isRequired,
+
+	    handleNewTask: _react.PropTypes.func.isRequired,
+	    handleCompletionToggle: _react.PropTypes.func.isRequired,
+	    handleTaskDelete: _react.PropTypes.func.isRequired,
+	    handleTaskSave: _react.PropTypes.func.isRequired,
+	    updateDisplayOrder: _react.PropTypes.func.isRequired
+	};
+
+	exports.default = TaskListView;
+
+/***/ },
+/* 803 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _emptyTaskListNewItem = __webpack_require__(804);
+
+	var _emptyTaskListNewItem2 = _interopRequireDefault(_emptyTaskListNewItem);
+
+	var _taskListPlaceholder = __webpack_require__(810);
+
+	var _taskListPlaceholder2 = _interopRequireDefault(_taskListPlaceholder);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var EmptyTaskList = function (_Component) {
+	    _inherits(EmptyTaskList, _Component);
+
+	    function EmptyTaskList() {
+	        _classCallCheck(this, EmptyTaskList);
+
+	        return _possibleConstructorReturn(this, (EmptyTaskList.__proto__ || Object.getPrototypeOf(EmptyTaskList)).apply(this, arguments));
+	    }
+
+	    _createClass(EmptyTaskList, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'empty-task-list' },
+	                this.props.isShowingOnlyCompleteTasks ? _react2.default.createElement(_taskListPlaceholder2.default, {
+	                    headline: 'You\'ve got work to do.',
+	                    body: 'You haven\'t completed any tasks with these criteria. You\'re better than that.'
+	                }) : _react2.default.createElement(
+	                    'div',
+	                    null,
+	                    _react2.default.createElement(_taskListPlaceholder2.default, {
+	                        headline: 'Hello?',
+	                        body: 'It\'s looking a little barren in here. Use the link below to add tasks.'
+	                    }),
+	                    _react2.default.createElement(_emptyTaskListNewItem2.default, { handleNewTask: this.props.handleNewTask })
+	                )
+	            );
+	        }
+	    }]);
+
+	    return EmptyTaskList;
+	}(_react.Component);
+
+	EmptyTaskList.propTypes = {
+	    isShowingOnlyCompleteTasks: _react.PropTypes.bool.isRequired,
+	    handleNewTask: _react.PropTypes.func.isRequired
+	};
+
+	exports.default = EmptyTaskList;
+
+/***/ },
+/* 804 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _taskListNewItem = __webpack_require__(805);
+
+	var _taskListNewItem2 = _interopRequireDefault(_taskListNewItem);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	__webpack_require__(808);
+
+	var EmptyTaskListNewItem = function (_React$Component) {
+	    _inherits(EmptyTaskListNewItem, _React$Component);
+
+	    function EmptyTaskListNewItem() {
+	        _classCallCheck(this, EmptyTaskListNewItem);
+
+	        return _possibleConstructorReturn(this, (EmptyTaskListNewItem.__proto__ || Object.getPrototypeOf(EmptyTaskListNewItem)).apply(this, arguments));
+	    }
+
+	    _createClass(EmptyTaskListNewItem, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(_taskListNewItem2.default, _extends({}, this.props, {
+	                className: 'empty-task-list-new-item'
+	            }));
+	        }
+	    }]);
+
+	    return EmptyTaskListNewItem;
+	}(_react2.default.Component);
+
+	EmptyTaskListNewItem.propTypes = {
+	    handleNewTask: _react2.default.PropTypes.func.isRequired
+	};
+
+	exports.default = EmptyTaskListNewItem;
+
+/***/ },
+/* 805 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _textBox = __webpack_require__(467);
+
+	var _textBox2 = _interopRequireDefault(_textBox);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	__webpack_require__(806);
+
+	var TaskListNewItem = function (_Component) {
+	    _inherits(TaskListNewItem, _Component);
+
+	    function TaskListNewItem(props) {
+	        _classCallCheck(this, TaskListNewItem);
+
+	        var _this = _possibleConstructorReturn(this, (TaskListNewItem.__proto__ || Object.getPrototypeOf(TaskListNewItem)).call(this, props));
+
+	        _this.handleBlur = _this.handleBlur.bind(_this);
+	        return _this;
+	    }
+
+	    _createClass(TaskListNewItem, [{
+	        key: 'handleBlur',
+	        value: function handleBlur(event) {
+	            if (event.target.value != '') {
+	                this.props.handleNewTask({
+	                    Name: event.target.value
+	                });
+	            }
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'task-list-new-item ' + this.props.className },
+	                _react2.default.createElement(_textBox2.default, {
+	                    placeholder: 'Add a new task',
+	                    clearOnBlur: true,
+	                    handleBlur: this.handleBlur
+	                })
+	            );
+	        }
+	    }]);
+
+	    return TaskListNewItem;
+	}(_react.Component);
+
+	TaskListNewItem.propTypes = {
+	    className: _react.PropTypes.string,
+	    handleNewTask: _react2.default.PropTypes.func.isRequired
+	};
+
+	exports.default = TaskListNewItem;
+
+/***/ },
+/* 806 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(807);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(452)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../../../node_modules/css-loader/index.js!./../../../../../../node_modules/sass-loader/index.js!./task-list-new-item.scss", function() {
+				var newContent = require("!!./../../../../../../node_modules/css-loader/index.js!./../../../../../../node_modules/sass-loader/index.js!./task-list-new-item.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 807 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(451)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".task-list-new-item {\n  background: #F5F3F2;\n  margin-top: 10px;\n  padding: 0px 15px 0px 45px; }\n  .task-list-new-item input {\n    padding: 10px;\n    border: none !important;\n    background: none; }\n    .task-list-new-item input:hover {\n      cursor: pointer; }\n    .task-list-new-item input:focus {\n      cursor: text; }\n    .task-list-new-item input::-moz-placeholder {\n      font-style: normal;\n      color: #888888; }\n    .task-list-new-item input:-moz-placeholder {\n      font-style: normal;\n      color: #888888; }\n    .task-list-new-item input::-webkit-input-placeholder {\n      font-style: normal;\n      color: #888888; }\n    .task-list-new-item input:-ms-input-placeholder {\n      font-style: normal;\n      color: #888888; }\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 808 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(809);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(452)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../../../node_modules/css-loader/index.js!./../../../../../../node_modules/sass-loader/index.js!./empty-task-list-new-item.scss", function() {
+				var newContent = require("!!./../../../../../../node_modules/css-loader/index.js!./../../../../../../node_modules/sass-loader/index.js!./empty-task-list-new-item.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 809 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(451)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".empty-task-list-new-item {\n  margin: 40px 0 0 0;\n  padding: 0; }\n  .empty-task-list-new-item input {\n    text-align: center; }\n    .empty-task-list-new-item input:hover {\n      cursor: pointer; }\n    .empty-task-list-new-item input:focus {\n      cursor: text; }\n    .empty-task-list-new-item input::-moz-placeholder {\n      font-style: normal;\n      color: #888888; }\n    .empty-task-list-new-item input:-moz-placeholder {\n      font-style: normal;\n      color: #888888; }\n    .empty-task-list-new-item input::-webkit-input-placeholder {\n      font-style: normal;\n      color: #888888; }\n    .empty-task-list-new-item input:-ms-input-placeholder {\n      font-style: normal;\n      color: #888888; }\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 810 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	__webpack_require__(811);
+
+	var TaskListPlaceholder = function (_Component) {
+	    _inherits(TaskListPlaceholder, _Component);
+
+	    function TaskListPlaceholder() {
+	        _classCallCheck(this, TaskListPlaceholder);
+
+	        return _possibleConstructorReturn(this, (TaskListPlaceholder.__proto__ || Object.getPrototypeOf(TaskListPlaceholder)).apply(this, arguments));
+	    }
+
+	    _createClass(TaskListPlaceholder, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'p',
+	                { className: 'task-list-placeholder' },
+	                _react2.default.createElement(
+	                    'span',
+	                    { className: 'large' },
+	                    this.props.headline
+	                ),
+	                this.props.body
+	            );
+	        }
+	    }]);
+
+	    return TaskListPlaceholder;
+	}(_react.Component);
+
+	TaskListPlaceholder.propTypes = {
+	    headline: _react.PropTypes.string.isRequired,
+	    body: _react.PropTypes.string.isRequired
+	};
+
+	exports.default = TaskListPlaceholder;
+
+/***/ },
+/* 811 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(812);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(452)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./task-list-placeholder.scss", function() {
+				var newContent = require("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./task-list-placeholder.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 812 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(451)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".task-list-placeholder {\n  margin: 20px 0 0 0;\n  font-size: 1.3em;\n  color: #888888;\n  text-align: center; }\n  .task-list-placeholder .large {\n    font-size: 3em;\n    font-weight: 100;\n    font-family: 'Roboto';\n    display: block; }\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 813 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRedux = __webpack_require__(172);
+
+	var _taskListGroupFilterIndicator = __webpack_require__(828);
+
+	var _taskListGroupFilterIndicator2 = _interopRequireDefault(_taskListGroupFilterIndicator);
+
+	var _taskListCompletionFilter = __webpack_require__(814);
+
+	var _taskListCompletionFilter2 = _interopRequireDefault(_taskListCompletionFilter);
+
+	var _taskListDateFilter = __webpack_require__(815);
+
+	var _taskListDateFilter2 = _interopRequireDefault(_taskListDateFilter);
+
+	var _taskListFilterWrapper = __webpack_require__(816);
+
+	var _taskListFilterWrapper2 = _interopRequireDefault(_taskListFilterWrapper);
+
+	var _filterActions = __webpack_require__(482);
+
+	var _filterActions2 = _interopRequireDefault(_filterActions);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
+
+
+	// components
+
+
+	// actions
+
+
+	var TaskListFilterContainer = function (_Component) {
+	    _inherits(TaskListFilterContainer, _Component);
+
+	    function TaskListFilterContainer() {
+	        _classCallCheck(this, TaskListFilterContainer);
+
+	        return _possibleConstructorReturn(this, (TaskListFilterContainer.__proto__ || Object.getPrototypeOf(TaskListFilterContainer)).apply(this, arguments));
+	    }
+
+	    _createClass(TaskListFilterContainer, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                _taskListFilterWrapper2.default,
+	                null,
+	                _react2.default.createElement(_taskListCompletionFilter2.default, {
+	                    activeFilter: this.props.filters.completion,
+	                    handleFilterChange: this.props.setCompletionFilter
+	                }),
+	                _react2.default.createElement(_taskListDateFilter2.default, {
+	                    activeFilter: this.props.filters.date,
+	                    handleFilterChange: this.props.setDateFilter
+	                }),
+	                _react2.default.createElement(_taskListGroupFilterIndicator2.default, {
+	                    taskGroupName: this.props.taskGroupName,
+	                    handleFilterClear: this.props.clearTaskGroupFilter
+	                })
+	            );
+	        }
+	    }]);
+
+	    return TaskListFilterContainer;
+	}(_react.Component);
+
+	TaskListFilterContainer.propTypes = {
+	    taskGroupName: _react.PropTypes.string,
+	    filters: _react.PropTypes.object
+	};
+
+	function mapStateToProps(state) {
+	    return {
+	        filters: state.filters
+	    };
+	}
+
+	function mapDispatchToProps(dispatch) {
+	    return {
+	        setCompletionFilter: function setCompletionFilter(filter) {
+	            dispatch(_filterActions2.default.setCompletionFilter(filter));
+	        },
+
+	        setDateFilter: function setDateFilter(filter) {
+	            dispatch(_filterActions2.default.setDateFilter(filter));
+	        },
+
+	        clearTaskGroupFilter: function clearTaskGroupFilter() {
+	            dispatch(_filterActions2.default.setTaskGroupFilter(0));
+	        }
+	    };
+	}
+
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(TaskListFilterContainer);
+
+/***/ },
+/* 814 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _navPill = __webpack_require__(684);
+
+	var _navPill2 = _interopRequireDefault(_navPill);
+
+	var _navPillGroup = __webpack_require__(685);
+
+	var _navPillGroup2 = _interopRequireDefault(_navPillGroup);
+
+	var _filterValues = __webpack_require__(264);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var TaskListCompletionFilter = function (_Component) {
+	    _inherits(TaskListCompletionFilter, _Component);
+
+	    function TaskListCompletionFilter() {
+	        _classCallCheck(this, TaskListCompletionFilter);
+
+	        return _possibleConstructorReturn(this, (TaskListCompletionFilter.__proto__ || Object.getPrototypeOf(TaskListCompletionFilter)).apply(this, arguments));
+	    }
+
+	    _createClass(TaskListCompletionFilter, [{
+	        key: 'render',
+	        value: function render() {
+	            var _this2 = this;
+
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'task-list-completion-filter' },
+	                _react2.default.createElement(
+	                    _navPillGroup2.default,
+	                    null,
+	                    _react2.default.createElement(_navPill2.default, {
+	                        text: 'all',
+	                        isActive: this.props.activeFilter == _filterValues.completion.ALL,
+	                        handleClick: function handleClick() {
+	                            return _this2.props.handleFilterChange(_filterValues.completion.ALL);
+	                        }
+	                    }),
+	                    _react2.default.createElement(_navPill2.default, {
+	                        text: 'complete',
+	                        isActive: this.props.activeFilter == _filterValues.completion.COMPLETE,
+	                        handleClick: function handleClick() {
+	                            return _this2.props.handleFilterChange(_filterValues.completion.COMPLETE);
+	                        }
+	                    }),
+	                    _react2.default.createElement(_navPill2.default, {
+	                        text: 'incomplete',
+	                        isActive: this.props.activeFilter == _filterValues.completion.INCOMPLETE,
+	                        handleClick: function handleClick() {
+	                            return _this2.props.handleFilterChange(_filterValues.completion.INCOMPLETE);
+	                        }
+	                    })
+	                )
+	            );
+	        }
+	    }]);
+
+	    return TaskListCompletionFilter;
+	}(_react.Component);
+
+	TaskListCompletionFilter.propTypes = {
+	    activeFilter: _react.PropTypes.string.isRequired,
+	    handleFilterChange: _react.PropTypes.func.isRequired
+	};
+
+	exports.default = TaskListCompletionFilter;
+
+/***/ },
+/* 815 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _navPill = __webpack_require__(684);
+
+	var _navPill2 = _interopRequireDefault(_navPill);
+
+	var _navPillGroup = __webpack_require__(685);
+
+	var _navPillGroup2 = _interopRequireDefault(_navPillGroup);
+
+	var _filterValues = __webpack_require__(264);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var TaskListDateFilter = function (_Component) {
+	    _inherits(TaskListDateFilter, _Component);
+
+	    function TaskListDateFilter() {
+	        _classCallCheck(this, TaskListDateFilter);
+
+	        return _possibleConstructorReturn(this, (TaskListDateFilter.__proto__ || Object.getPrototypeOf(TaskListDateFilter)).apply(this, arguments));
+	    }
+
+	    _createClass(TaskListDateFilter, [{
+	        key: 'render',
+	        value: function render() {
+	            var _this2 = this;
+
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'task-list-date-filter' },
+	                _react2.default.createElement(
+	                    _navPillGroup2.default,
+	                    null,
+	                    _react2.default.createElement(_navPill2.default, {
+	                        text: 'all',
+	                        isActive: this.props.activeFilter == _filterValues.date.ALL,
+	                        handleClick: function handleClick() {
+	                            return _this2.props.handleFilterChange(_filterValues.date.ALL);
+	                        }
+	                    }),
+	                    _react2.default.createElement(_navPill2.default, {
+	                        text: 'today',
+	                        isActive: this.props.activeFilter == _filterValues.date.TODAY,
+	                        handleClick: function handleClick() {
+	                            return _this2.props.handleFilterChange(_filterValues.date.TODAY);
+	                        }
+	                    }),
+	                    _react2.default.createElement(_navPill2.default, {
+	                        text: 'tomorrow',
+	                        isActive: this.props.activeFilter == _filterValues.date.TOMORROW,
+	                        handleClick: function handleClick() {
+	                            return _this2.props.handleFilterChange(_filterValues.date.TOMORROW);
+	                        }
+	                    }),
+	                    _react2.default.createElement(_navPill2.default, {
+	                        text: 'due',
+	                        isActive: this.props.activeFilter == _filterValues.date.DUE,
+	                        handleClick: function handleClick() {
+	                            return _this2.props.handleFilterChange(_filterValues.date.DUE);
+	                        }
+	                    })
+	                )
+	            );
+	        }
+	    }]);
+
+	    return TaskListDateFilter;
+	}(_react.Component);
+
+	TaskListDateFilter.propTypes = {
+	    activeFilter: _react.PropTypes.string.isRequired,
+	    handleFilterChange: _react.PropTypes.func.isRequired
+	};
+
+	exports.default = TaskListDateFilter;
+
+/***/ },
+/* 816 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	__webpack_require__(817);
+
+	var TaskListFilterWrapper = function (_React$Component) {
+	    _inherits(TaskListFilterWrapper, _React$Component);
+
+	    function TaskListFilterWrapper() {
+	        _classCallCheck(this, TaskListFilterWrapper);
+
+	        return _possibleConstructorReturn(this, (TaskListFilterWrapper.__proto__ || Object.getPrototypeOf(TaskListFilterWrapper)).apply(this, arguments));
+	    }
+
+	    _createClass(TaskListFilterWrapper, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'task-list-filter-wrapper' },
+	                this.props.children
+	            );
+	        }
+	    }]);
+
+	    return TaskListFilterWrapper;
+	}(_react2.default.Component);
+
+	exports.default = TaskListFilterWrapper;
+
+/***/ },
+/* 817 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(818);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(452)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../../../node_modules/css-loader/index.js!./../../../../../../node_modules/sass-loader/index.js!./task-list-filter-wrapper.scss", function() {
+				var newContent = require("!!./../../../../../../node_modules/css-loader/index.js!./../../../../../../node_modules/sass-loader/index.js!./task-list-filter-wrapper.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 818 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(451)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".task-list-filter-wrapper {\n  margin-bottom: 4px; }\n  .task-list-filter-wrapper .task-list-completion-filter,\n  .task-list-filter-wrapper .task-list-date-filter {\n    display: inline-block; }\n  .task-list-filter-wrapper .task-list-date-filter {\n    margin-left: 60px; }\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 819 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _draggableList = __webpack_require__(691);
+
+	var _draggableList2 = _interopRequireDefault(_draggableList);
+
+	var _taskListItem = __webpack_require__(820);
+
+	var _taskListItem2 = _interopRequireDefault(_taskListItem);
+
+	var _taskListNewItem = __webpack_require__(805);
+
+	var _taskListNewItem2 = _interopRequireDefault(_taskListNewItem);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var TaskList = function (_Component) {
+	    _inherits(TaskList, _Component);
+
+	    function TaskList(props) {
+	        _classCallCheck(this, TaskList);
+
+	        var _this = _possibleConstructorReturn(this, (TaskList.__proto__ || Object.getPrototypeOf(TaskList)).call(this, props));
+
+	        _this.state = {
+	            openTaskIds: []
+	        };
+
+	        _this.openTask = _this.openTask.bind(_this);
+	        _this.closeTask = _this.closeTask.bind(_this);
+	        _this.getTaskListItems = _this.getTaskListItems.bind(_this);
+	        _this.handleTaskNameClick = _this.handleTaskNameClick.bind(_this);
+	        _this.handleTaskDelete = _this.handleTaskDelete.bind(_this);
+	        return _this;
+	    }
+
+	    _createClass(TaskList, [{
+	        key: 'openTask',
+	        value: function openTask(taskId, event) {
+	            if (!this.state.openTaskIds.includes(taskId)) {
+	                this.setState({
+	                    openTaskIds: this.state.openTaskIds.concat(taskId)
+	                });
+	            }
+	        }
+	    }, {
+	        key: 'closeTask',
+	        value: function closeTask(taskId, event) {
+	            var newList = Object.assign([], this.state.openTaskIds);
+	            newList.splice(this.state.openTaskIds.indexOf(taskId), 1);
+
+	            this.setState({
+	                openTaskIds: newList
+	            });
+	        }
+	    }, {
+	        key: 'getTaskListItems',
+	        value: function getTaskListItems() {
+	            var _this2 = this;
+
+	            return this.props.tasks.map(function (task, key) {
+	                var isOpen = _this2.state.openTaskIds.includes(task.Id);
+
+	                return _react2.default.createElement(_taskListItem2.default, {
+	                    key: key,
+	                    task: task,
+	                    isOpen: isOpen,
+	                    isDimmed: !isOpen && _this2.state.openTaskIds.length != 0,
+	                    openTask: _this2.openTask,
+	                    closeTask: _this2.closeTask,
+	                    handleNameClick: _this2.handleTaskNameClick,
+	                    handleCompletionToggle: _this2.props.handleCompletionToggle,
+	                    handleSave: _this2.props.handleTaskSave,
+	                    handleDelete: _this2.handleTaskDelete
+	                });
+	            });
+	        }
+	    }, {
+	        key: 'handleTaskNameClick',
+	        value: function handleTaskNameClick(taskId, event) {
+	            this.openTask(taskId);
+	        }
+	    }, {
+	        key: 'handleTaskDelete',
+	        value: function handleTaskDelete(event) {
+	            this.closeTask(event.target.value);
+	            this.props.handleTaskDelete(event);
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var listItems = this.getTaskListItems();
+
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'task-list' },
+	                this.state.openTaskIds.length == 0 ? _react2.default.createElement(
+	                    _draggableList2.default,
+	                    {
+	                        items: this.props.tasks,
+	                        updateDisplayOrder: this.props.updateDisplayOrder
+	                    },
+	                    listItems
+	                ) : _react2.default.createElement(
+	                    'div',
+	                    null,
+	                    listItems
+	                ),
+	                _react2.default.createElement(_taskListNewItem2.default, { handleNewTask: this.props.handleNewTask })
+	            );
+	        }
+	    }]);
+
+	    return TaskList;
+	}(_react.Component);
+
+	TaskList.propTypes = {
+	    tasks: _react.PropTypes.arrayOf(_react.PropTypes.object).isRequired,
+
+	    handleCompletionToggle: _react.PropTypes.func.isRequired,
+	    handleNewTask: _react.PropTypes.func.isRequired,
+	    handleTaskDelete: _react.PropTypes.func.isRequired,
+	    handleTaskSave: _react.PropTypes.func.isRequired,
+	    updateDisplayOrder: _react.PropTypes.func.isRequired
+	};
+
+	exports.default = TaskList;
+
+/***/ },
+/* 820 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _checkbox = __webpack_require__(700);
+
+	var _checkbox2 = _interopRequireDefault(_checkbox);
+
+	var _taskListItemBrief = __webpack_require__(821);
+
+	var _taskListItemBrief2 = _interopRequireDefault(_taskListItemBrief);
+
+	var _taskListItemDetails = __webpack_require__(822);
+
+	var _taskListItemDetails2 = _interopRequireDefault(_taskListItemDetails);
+
+	var _toggler = __webpack_require__(754);
+
+	var _toggler2 = _interopRequireDefault(_toggler);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
+
+
+	// components
+
+
+	// styles
+	__webpack_require__(823);
+
+	var TaskListItem = function (_Component) {
+	    _inherits(TaskListItem, _Component);
+
+	    function TaskListItem() {
+	        _classCallCheck(this, TaskListItem);
+
+	        return _possibleConstructorReturn(this, (TaskListItem.__proto__ || Object.getPrototypeOf(TaskListItem)).apply(this, arguments));
+	    }
+
+	    _createClass(TaskListItem, [{
+	        key: 'render',
+	        value: function render() {
+	            var _this2 = this;
+
+	            var _props = this.props;
+	            var text = _props.text;
+	            var isDragging = _props.isDragging;
+	            var connectDragSource = _props.connectDragSource;
+	            var connectDropTarget = _props.connectDropTarget;
+
+	            var opacity = isDragging ? 0 : 1;
+
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'task-list-item ' + (this.props.isDimmed ? 'dimmed' : '') },
+	                _react2.default.createElement(_checkbox2.default, {
+	                    checked: this.props.task.Complete,
+	                    handleChange: function handleChange(event) {
+	                        return _this2.props.handleCompletionToggle(_this2.props.task.Id, event);
+	                    }
+	                }),
+	                _react2.default.createElement(_taskListItemBrief2.default, {
+	                    id: this.props.task.Id,
+	                    name: this.props.task.Name,
+	                    complete: this.props.task.Complete,
+	                    lastDateCompleted: this.props.task.LastDateCompleted,
+	                    plannedDate: this.props.task.PlannedDate,
+	                    dueDate: this.props.task.DueDate,
+	                    isOpen: this.props.isOpen,
+	                    handleNameClick: this.props.handleNameClick,
+	                    handleSave: this.props.handleSave,
+	                    hideDetails: this.props.closeTask,
+	                    showDetails: this.props.openTask
+	                }),
+	                _react2.default.createElement(
+	                    _toggler2.default,
+	                    { isVisible: this.props.isOpen },
+	                    _react2.default.createElement(_taskListItemDetails2.default, {
+	                        taskId: this.props.task.Id,
+	                        taskNotes: this.props.task.Notes,
+	                        handleDelete: this.props.handleDelete,
+	                        handleNotesSave: this.props.handleSave
+	                    })
+	                )
+	            );
+	        }
+	    }]);
+
+	    return TaskListItem;
+	}(_react.Component);
+
+	TaskListItem.propTypes = {
+	    task: _react.PropTypes.shape({
+	        Id: _react.PropTypes.number.isRequired,
+	        Name: _react.PropTypes.string.isRequired,
+	        Notes: _react.PropTypes.string,
+	        Complete: _react.PropTypes.bool.isRequired,
+	        LastDateCompleted: _react.PropTypes.string,
+	        PlannedDate: _react.PropTypes.string,
+	        DueDate: _react.PropTypes.string
+	    }).isRequired,
+	    isOpen: _react.PropTypes.bool.isRequired,
+	    isDimmed: _react.PropTypes.bool.isRequired,
+
+	    openTask: _react.PropTypes.func.isRequired,
+	    closeTask: _react.PropTypes.func.isRequired,
+	    handleNameClick: _react.PropTypes.func.isRequired,
+	    handleCompletionToggle: _react.PropTypes.func.isRequired,
+	    handleDelete: _react.PropTypes.func.isRequired,
+	    handleSave: _react.PropTypes.func.isRequired
+	};
+
+	exports.default = TaskListItem;
+
+/***/ },
+/* 821 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _flexboxReact = __webpack_require__(705);
+
+	var _flexboxReact2 = _interopRequireDefault(_flexboxReact);
+
+	var _dateBox = __webpack_require__(741);
+
+	var _dateBox2 = _interopRequireDefault(_dateBox);
+
+	var _downAngleIcon = __webpack_require__(458);
+
+	var _downAngleIcon2 = _interopRequireDefault(_downAngleIcon);
+
+	var _rightAngleIcon = __webpack_require__(460);
+
+	var _rightAngleIcon2 = _interopRequireDefault(_rightAngleIcon);
+
+	var _textBox = __webpack_require__(467);
+
+	var _textBox2 = _interopRequireDefault(_textBox);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
+
+
+	// components
+
+
+	var TaskListItemBrief = function (_Component) {
+	    _inherits(TaskListItemBrief, _Component);
+
+	    function TaskListItemBrief(props) {
+	        _classCallCheck(this, TaskListItemBrief);
+
+	        var _this = _possibleConstructorReturn(this, (TaskListItemBrief.__proto__ || Object.getPrototypeOf(TaskListItemBrief)).call(this, props));
+
+	        _this.handleDueDateSave = _this.handleDueDateSave.bind(_this);
+	        _this.handleNameClick = _this.handleNameClick.bind(_this);
+	        _this.handleNameSave = _this.handleNameSave.bind(_this);
+	        _this.handlePlannedDateSave = _this.handlePlannedDateSave.bind(_this);
+	        return _this;
+	    }
+
+	    _createClass(TaskListItemBrief, [{
+	        key: 'handleNameClick',
+	        value: function handleNameClick(event) {
+	            if (!this.props.isOpen) {
+	                this.props.handleNameClick(this.props.id, event);
+	            }
+	        }
+	    }, {
+	        key: 'handleNameSave',
+	        value: function handleNameSave(event) {
+	            if (event.target.value != this.props.name) {
+	                this.props.handleSave(this.props.id, {
+	                    Name: event.target.value
+	                });
+	            }
+	        }
+	    }, {
+	        key: 'handlePlannedDateSave',
+	        value: function handlePlannedDateSave(date) {
+	            if (date != this.props.plannedDate) {
+	                this.props.handleSave(this.props.id, {
+	                    PlannedDate: date || ''
+	                });
+	            }
+	        }
+	    }, {
+	        key: 'handleDueDateSave',
+	        value: function handleDueDateSave(date) {
+	            if (date != this.props.dueDate) {
+	                this.props.handleSave(this.props.id, {
+	                    DueDate: date || ''
+	                });
+	            }
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var _this2 = this;
+
+	            return _react2.default.createElement(
+	                'div',
+	                { className: '\n                task-brief\n                ' + (this.props.isOpen ? 'edit-mode' : '') + '\n                ' + (this.props.complete ? 'task-complete' : '') + '\n            ' },
+	                _react2.default.createElement(
+	                    _flexboxReact2.default,
+	                    { flexDirection: 'row' },
+	                    _react2.default.createElement(
+	                        _flexboxReact2.default,
+	                        {
+	                            flexGrow: 1,
+	                            className: 'task-name'
+	                        },
+	                        _react2.default.createElement(_textBox2.default, {
+	                            isDisabled: this.props.complete,
+	                            value: this.props.name,
+	                            handleClick: this.handleNameClick,
+	                            handleBlur: this.handleNameSave
+	                        })
+	                    ),
+	                    this.props.complete ? _react2.default.createElement(
+	                        _flexboxReact2.default,
+	                        null,
+	                        _react2.default.createElement(_dateBox2.default, {
+	                            label: 'completed',
+	                            value: this.props.lastDateCompleted,
+	                            contextColorsEnabled: false,
+	                            isDisabled: true
+	                        })
+	                    ) : _react2.default.createElement(
+	                        _flexboxReact2.default,
+	                        null,
+	                        _react2.default.createElement(
+	                            _flexboxReact2.default,
+	                            null,
+	                            _react2.default.createElement(_dateBox2.default, {
+	                                label: 'planned for',
+	                                value: this.props.plannedDate,
+	                                handleChange: this.handlePlannedDateSave
+	                            })
+	                        ),
+	                        _react2.default.createElement(
+	                            _flexboxReact2.default,
+	                            null,
+	                            _react2.default.createElement(_dateBox2.default, {
+	                                label: 'due',
+	                                value: this.props.dueDate,
+	                                handleChange: this.handleDueDateSave
+	                            })
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        _flexboxReact2.default,
+	                        null,
+	                        this.props.isOpen ? _react2.default.createElement(_downAngleIcon2.default, { handleClick: function handleClick(event) {
+	                                return _this2.props.hideDetails(_this2.props.id, event);
+	                            } }) : _react2.default.createElement(_rightAngleIcon2.default, { handleClick: function handleClick(event) {
+	                                return _this2.props.showDetails(_this2.props.id, event);
+	                            } })
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return TaskListItemBrief;
+	}(_react.Component);
+
+	TaskListItemBrief.propTypes = {
+	    id: _react.PropTypes.number.isRequired,
+	    name: _react.PropTypes.string.isRequired,
+	    complete: _react.PropTypes.bool.isRequired,
+	    lastDateCompleted: _react.PropTypes.string,
+	    plannedDate: _react.PropTypes.string,
+	    dueDate: _react.PropTypes.string,
+	    isOpen: _react.PropTypes.bool.isRequired,
+
+	    handleNameClick: _react.PropTypes.func.isRequired,
+	    handleSave: _react.PropTypes.func.isRequired,
+	    hideDetails: _react.PropTypes.func.isRequired,
+	    showDetails: _react.PropTypes.func.isRequired
+	};
+
+	exports.default = TaskListItemBrief;
+
+/***/ },
+/* 822 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _deleteButton = __webpack_require__(748);
+
+	var _deleteButton2 = _interopRequireDefault(_deleteButton);
+
+	var _formGroup = __webpack_require__(750);
+
+	var _formGroup2 = _interopRequireDefault(_formGroup);
+
+	var _textArea = __webpack_require__(751);
+
+	var _textArea2 = _interopRequireDefault(_textArea);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
+
+
+	// components
+
+
+	var TaskListItemDetails = function (_Component) {
+	    _inherits(TaskListItemDetails, _Component);
+
+	    function TaskListItemDetails(props) {
+	        _classCallCheck(this, TaskListItemDetails);
+
+	        var _this = _possibleConstructorReturn(this, (TaskListItemDetails.__proto__ || Object.getPrototypeOf(TaskListItemDetails)).call(this, props));
+
+	        _this.handleNotesSave = _this.handleNotesSave.bind(_this);
+	        return _this;
+	    }
+
+	    _createClass(TaskListItemDetails, [{
+	        key: 'handleNotesSave',
+	        value: function handleNotesSave(event) {
+	            var _this2 = this;
+
+	            if (event.target.value != this.props.taskNotes) {
+	                (function () {
+	                    var message = document.getElementById('task-details-message-' + _this2.props.taskId);
+
+	                    _this2.props.handleNotesSave(_this2.props.taskId, {
+	                        Notes: event.target.value
+	                    });
+
+	                    message.textContent = 'Task notes updated.';
+	                    message.className = 'task-details-message animated fadeIn';
+
+	                    setTimeout(function () {
+	                        message.className = 'task-details-message animated fadeOut';
+	                    }, 3000);
+	                })();
+	            }
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'task-details' },
+	                _react2.default.createElement(
+	                    _formGroup2.default,
+	                    null,
+	                    _react2.default.createElement(
+	                        'label',
+	                        null,
+	                        'Notes'
+	                    ),
+	                    _react2.default.createElement(_textArea2.default, {
+	                        value: this.props.taskNotes,
+	                        handleBlur: this.handleNotesSave
+	                    })
+	                ),
+	                _react2.default.createElement(_deleteButton2.default, {
+	                    value: this.props.taskId,
+	                    handleClick: this.props.handleDelete
+	                }),
+	                _react2.default.createElement('span', { className: 'task-details-message hidden', id: 'task-details-message-' + this.props.taskId })
+	            );
+	        }
+	    }]);
+
+	    return TaskListItemDetails;
+	}(_react.Component);
+
+	TaskListItemDetails.propTypes = {
+	    taskId: _react.PropTypes.number.isRequired,
+	    taskNotes: _react.PropTypes.string,
+	    handleDelete: _react.PropTypes.func.isRequired,
+	    handleNotesSave: _react.PropTypes.func.isRequired
+	};
+
+	TaskListItemDetails.defaultProps = {
+	    taskNotes: ''
+	};
+
+	exports.default = TaskListItemDetails;
+
+/***/ },
+/* 823 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(824);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(452)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../../../node_modules/css-loader/index.js!./../../../../../../node_modules/sass-loader/index.js!./task-list-item.scss", function() {
+				var newContent = require("!!./../../../../../../node_modules/css-loader/index.js!./../../../../../../node_modules/sass-loader/index.js!./task-list-item.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 824 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(451)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".task-list-item {\n  width: 100%;\n  padding: 15px;\n  background: #ffffff;\n  margin-bottom: 5px; }\n  .task-list-item .task-brief {\n    display: inline-block;\n    width: calc(100% - 30px);\n    margin: 0 0 0 15px; }\n    .task-list-item .task-brief input {\n      display: inline-block;\n      background: none;\n      border: 1px solid #ffffff;\n      font-size: 1.1em; }\n      .task-list-item .task-brief input:hover {\n        cursor: pointer; }\n    .task-list-item .task-brief i {\n      width: 20px;\n      padding: 15px 0 5px 0;\n      text-align: center; }\n      .task-list-item .task-brief i:hover {\n        cursor: pointer; }\n    .task-list-item .task-brief div > div {\n      margin-left: 10px; }\n    .task-list-item .task-brief .task-name {\n      margin-left: 0;\n      font-size: 1.3em;\n      font-family: 'Roboto';\n      font-weight: 300; }\n    .task-list-item .task-brief .date-box input {\n      padding: 2px; }\n  .task-list-item .task-brief.task-complete .task-name input {\n    text-decoration: line-through;\n    color: #cccccc; }\n  .task-list-item .task-brief.edit-mode input {\n    border: 1px solid #e6e6e8; }\n    .task-list-item .task-brief.edit-mode input:hover {\n      cursor: inherit; }\n  .task-list-item .task-details {\n    margin: 15px 30px 0 30px; }\n    .task-list-item .task-details textarea.form-control {\n      height: 100px; }\n    .task-list-item .task-details .task-details-message {\n      font-size: .8em;\n      color: #888888;\n      margin-left: 10px;\n      display: inline-block;\n      /*&:after {\n                overflow: hidden;\n                display: inline-block;\n                vertical-align: bottom;\n                -webkit-animation: ellipsis steps(4,end) 900ms infinite;      \n                animation: ellipsis steps(4,end) 900ms infinite;\n                content: \"\\2026\";\n                width: 0px;\n            }\n\n            @keyframes ellipsis {\n                to {\n                    width: 1.25em;    \n                }\n            }\n\n            @-webkit-keyframes ellipsis {\n                to {\n                    width: 1.25em;    \n                }\n            }*/ }\n    .task-list-item .task-details .hidden {\n      opacity: 0; }\n\n.task-list-item.dimmed {\n  opacity: .5; }\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 825 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(826);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(452)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./task-list-view.scss", function() {
+				var newContent = require("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./task-list-view.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 826 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(451)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".task-list-view {\n  font-size: .9em; }\n  .task-list-view label,\n  .task-list-view input,\n  .task-list-view textarea,\n  .task-list-view button {\n    font-size: .9em; }\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 827 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRedux = __webpack_require__(172);
+
+	var _moment = __webpack_require__(544);
+
+	var _moment2 = _interopRequireDefault(_moment);
+
+	var _analytics = __webpack_require__(793);
+
+	var _analytics2 = _interopRequireDefault(_analytics);
+
+	var _loadingGraphic = __webpack_require__(481);
+
+	var _loadingGraphic2 = _interopRequireDefault(_loadingGraphic);
+
+	var _taskListView = __webpack_require__(802);
+
+	var _taskListView2 = _interopRequireDefault(_taskListView);
+
+	var _taskActions = __webpack_require__(490);
+
+	var _taskActions2 = _interopRequireDefault(_taskActions);
+
+	var _filterValues = __webpack_require__(264);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // npm modules
+
+
+	// components
+
+
+	// actions
+
+
+	// util
+
+
+	var ViewContainer = function (_Component) {
+	    _inherits(ViewContainer, _Component);
+
+	    function ViewContainer(props) {
+	        _classCallCheck(this, ViewContainer);
+
+	        var _this = _possibleConstructorReturn(this, (ViewContainer.__proto__ || Object.getPrototypeOf(ViewContainer)).call(this, props));
+
+	        _this.state = {
+	            isLoading: true
+	        };
+	        return _this;
+	    }
+
+	    _createClass(ViewContainer, [{
+	        key: 'componentWillMount',
+	        value: function componentWillMount() {
+	            this.props.fetchTasks();
+	        }
+	    }, {
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            this.state = {
+	                isLoading: false
+	            };
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var _this2 = this;
+
+	            return _react2.default.createElement(
+	                'div',
+	                null,
+	                this.state.isLoading ? _react2.default.createElement(_loadingGraphic2.default, null) : _react2.default.createElement(
+	                    'div',
+	                    null,
+	                    _react2.default.createElement(_taskListView2.default, {
+	                        tasks: this.props.filteredTasks,
+	                        taskGroupName: this.props.taskGroupName,
+	                        isShowingOnlyCompleteTasks: this.props.filters.completion == _filterValues.completion.COMPLETE,
+	                        handleCompletionToggle: this.props.handleCompletionToggle,
+	                        handleNewTask: function handleNewTask(task) {
+	                            return _this2.props.handleNewTask(task, _this2.props.filters.taskGroupId);
+	                        },
+	                        handleTaskDelete: this.props.handleTaskDelete,
+	                        handleTaskSave: this.props.handleTaskSave,
+	                        updateDisplayOrder: this.props.updateDisplayOrder
+	                    }),
+	                    _react2.default.createElement(_analytics2.default, {
+	                        tasks: this.props.filteredTasks,
+	                        defaultActive: false
+	                    })
+	                )
+	            );
+	        }
+	    }]);
+
+	    return ViewContainer;
+	}(_react.Component);
+
+	ViewContainer.propTypes = {
+	    tasks: _react.PropTypes.arrayOf(_react.PropTypes.object).isRequired,
+	    filteredTasks: _react.PropTypes.arrayOf(_react.PropTypes.object).isRequired,
+	    defaultShowAnalytics: _react.PropTypes.bool.isRequired,
+
+	    fetchTasks: _react.PropTypes.func.isRequired,
+	    handleNewTask: _react.PropTypes.func.isRequired,
+	    handleCompletionToggle: _react.PropTypes.func.isRequired,
+	    handleTaskSave: _react.PropTypes.func.isRequired,
+	    handleTaskDelete: _react.PropTypes.func.isRequired
+	};
+
+	function allDescendents(taskGroups, taskGroupId) {
+	    var ids = [taskGroupId];
+
+	    taskGroups.filter(function (tg) {
+	        return tg.ParentTaskGroupId == taskGroupId;
+	    }).forEach(function (taskGroup) {
+	        ids = ids.concat(allDescendents(taskGroups, taskGroup.Id));
+	    });
+
+	    return ids;
+	}
+
+	function compareDisplayOrder(a, b) {
+	    if (a.DisplayOrder > b.DisplayOrder) {
+	        return 1;
+	    }
+
+	    if (a.DisplayOrder < b.DisplayOrder) {
+	        return -1;
+	    }
+
+	    return 0;
+	}
+
+	function filterTasks(tasks, taskGroups, filters) {
+	    // filter by task group
+	    if (filters.taskGroupId) {
+	        tasks = tasks.filter(function (t) {
+	            return allDescendents(taskGroups, filters.taskGroupId).includes(t.TaskGroupId);
+	        }).sort(function (a, b) {
+	            a = filters.displayOrders.find(function (tgdo) {
+	                return tgdo.TaskId == a.Id;
+	            });
+	            b = filters.displayOrders.find(function (tgdo) {
+	                return tgdo.TaskId == b.Id;
+	            });
+
+	            if (a && b) {
+	                return compareDisplayOrder(a, b);
+	            }
+
+	            return 0;
+	        });
+	    } else {
+	        tasks = tasks.sort(function (a, b) {
+	            return compareDisplayOrder(a, b);
+	        });
+	    }
+
+	    // filter by completion
+	    switch (filters.completion) {
+	        case _filterValues.completion.COMPLETE:
+	            {
+	                tasks = tasks.filter(function (t) {
+	                    return t.Complete;
+	                });
+	                break;
+	            }
+
+	        case _filterValues.completion.INCOMPLETE:
+	            {
+	                tasks = tasks.filter(function (t) {
+	                    return !t.Complete;
+	                });
+	                break;
+	            }
+	    }
+
+	    // filter by date
+	    switch (filters.date) {
+	        case _filterValues.date.TODAY:
+	            {
+	                tasks = tasks.filter(function (t) {
+	                    return (0, _moment2.default)(t.PlannedDate).date() == (0, _moment2.default)().date() || (0, _moment2.default)(t.DueDate).date() == (0, _moment2.default)().date();
+	                });
+	                break;
+	            }
+
+	        case _filterValues.date.TOMORROW:
+	            {
+	                tasks = tasks.filter(function (t) {
+	                    return (0, _moment2.default)(t.PlannedDate).date() == (0, _moment2.default)().add('days', 1).date() || (0, _moment2.default)(t.DueDate).date() == (0, _moment2.default)().add('days', 1).date();
+	                });
+	                break;
+	            }
+
+	        case _filterValues.date.DUE:
+	            {
+	                tasks = tasks.filter(function (t) {
+	                    return (0, _moment2.default)(t.DueDate).date() <= (0, _moment2.default)().date();
+	                });
+	                break;
+	            }
+	    }
+
+	    return tasks;
+	}
+
+	function getCurrentTaskGroupFilterName(taskGroups, taskGroupId) {
+	    if (!taskGroupId) {
+	        return;
+	    }
+
+	    return taskGroups.find(function (tg) {
+	        return tg.Id == taskGroupId;
+	    }).Name;
+	}
+
+	function mapStateToProps(state) {
+	    return {
+	        tasks: state.tasks,
+	        filteredTasks: filterTasks(state.tasks, state.taskGroups, state.filters),
+	        taskGroupName: getCurrentTaskGroupFilterName(state.taskGroups, state.filters.taskGroupId),
+	        filters: state.filters
+	    };
+	}
+
+	function mapDispatchToProps(dispatch) {
+	    return {
+	        fetchTasks: function fetchTasks() {
+	            dispatch(_taskActions2.default.fetchTasks());
+	        },
+
+	        handleNewTask: function handleNewTask(task, taskGroupFilter) {
+	            task.TaskGroupId = taskGroupFilter > 0 ? taskGroupFilter : undefined;
+	            dispatch(_taskActions2.default.createTask(task)).then(function () {
+	                dispatch(_taskActions2.default.fetchTasks());
+	            });
+	        },
+
+	        handleCompletionToggle: function handleCompletionToggle(taskId, event) {
+	            dispatch(_taskActions2.default.toggleComplete(taskId));
+	        },
+
+	        handleTaskSave: function handleTaskSave(taskId, task) {
+	            dispatch(_taskActions2.default.updateTask(taskId, task));
+	        },
+
+	        handleTaskDelete: function handleTaskDelete(event) {
+	            dispatch(_taskActions2.default.deleteTask(event.target.value));
+	        },
+
+	        updateDisplayOrder: function updateDisplayOrder(firstTask, secondTask) {
+	            console.log('updating display order');
+	            console.log(firstTask);
+	            console.log(secondTask);
+	            dispatch(_taskActions2.default.swapDisplayOrder(firstTask.Id, secondTask.Id)).then(function () {
+	                dispatch(_taskActions2.default.fetchTasks());
+	            });
+	        }
+	    };
+	}
+
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(ViewContainer);
+
+/***/ },
+/* 828 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	__webpack_require__(829);
+
+	var TaskListGroupFilterIndicator = function (_Component) {
+	    _inherits(TaskListGroupFilterIndicator, _Component);
+
+	    function TaskListGroupFilterIndicator() {
+	        _classCallCheck(this, TaskListGroupFilterIndicator);
+
+	        return _possibleConstructorReturn(this, (TaskListGroupFilterIndicator.__proto__ || Object.getPrototypeOf(TaskListGroupFilterIndicator)).apply(this, arguments));
+	    }
+
+	    _createClass(TaskListGroupFilterIndicator, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'task-list-group-filter-indicator' },
+	                this.props.taskGroupName ? _react2.default.createElement(
+	                    'span',
+	                    null,
+	                    'showing tasks in the ',
+	                    _react2.default.createElement(
+	                        'strong',
+	                        null,
+	                        this.props.taskGroupName
+	                    ),
+	                    ' group | ',
+	                    _react2.default.createElement(
+	                        'a',
+	                        { onClick: this.props.handleFilterClear },
+	                        'show all tasks'
+	                    )
+	                ) : _react2.default.createElement(
+	                    'span',
+	                    null,
+	                    'showing all tasks'
+	                )
+	            );
+	        }
+	    }]);
+
+	    return TaskListGroupFilterIndicator;
+	}(_react.Component);
+
+	TaskListGroupFilterIndicator.propTypes = {
+	    taskGroupName: _react.PropTypes.string,
+	    handleFilterClear: _react.PropTypes.func.isRequired
+	};
+
+	exports.default = TaskListGroupFilterIndicator;
+
+/***/ },
+/* 829 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(830);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(452)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../../../node_modules/css-loader/index.js!./../../../../../../node_modules/sass-loader/index.js!./task-list-group-filter-indicator.scss", function() {
+				var newContent = require("!!./../../../../../../node_modules/css-loader/index.js!./../../../../../../node_modules/sass-loader/index.js!./task-list-group-filter-indicator.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 830 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(451)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".task-list-group-filter-indicator {\n  float: right;\n  padding: 0 0 10px 0;\n  font-size: .9em;\n  text-align: right;\n  color: #888888; }\n", ""]);
 
 	// exports
 

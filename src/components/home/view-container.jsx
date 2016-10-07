@@ -6,7 +6,7 @@ import moment from 'moment';
 // components
 import Analytics from './analytics/analytics';
 import LoadingGraphic from '~/loading-graphic';
-import TaskListView from './task-list-view/task-list-view';
+import TaskListView from './views/task-list-view/task-list-view';
 
 // actions
 import taskActions from '@/actions/task-actions';
@@ -14,7 +14,7 @@ import taskActions from '@/actions/task-actions';
 // util
 import { completion, date } from '@/utils/filter-values';
 
-class TaskContainer extends Component {
+class ViewContainer extends Component {
 
     constructor(props) {
         super(props);
@@ -65,7 +65,7 @@ class TaskContainer extends Component {
     }
 }
 
-TaskContainer.propTypes = {
+ViewContainer.propTypes = {
     tasks: PropTypes.arrayOf(PropTypes.object).isRequired,
     filteredTasks: PropTypes.arrayOf(PropTypes.object).isRequired,
     defaultShowAnalytics: PropTypes.bool.isRequired,
@@ -217,4 +217,4 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TaskContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(ViewContainer);

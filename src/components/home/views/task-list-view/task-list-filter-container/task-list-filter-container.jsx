@@ -3,7 +3,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
 // components
-import FilterIndicator from '~/home/filter-indicator/filter-indicator';
+import FilterIndicator from './task-list-group-filter-indicator';
 import TaskListCompletionFilter from './task-list-completion-filter';
 import TaskListDateFilter from './task-list-date-filter';
 import TaskListFilterWrapper from './task-list-filter-wrapper';

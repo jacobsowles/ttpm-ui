@@ -1,11 +1,11 @@
 import React, { Component, PropTypes } from 'react';
-require('./filter-indicator.scss');
+require('./task-list-group-filter-indicator.scss');
 
-class FilterIndicator extends Component {
+class TaskListGroupFilterIndicator extends Component {
 
     render() {
         return (
-            <div className="filter-indicator">
+            <div className="task-list-group-filter-indicator">
                 {
                     this.props.taskGroupName
                         ? <span>showing tasks in the <strong>{this.props.taskGroupName}</strong> group | <a onClick={this.props.handleFilterClear}>show all tasks</a></span>
@@ -16,9 +16,9 @@ class FilterIndicator extends Component {
     }
 }
 
-FilterIndicator.propTypes = {
+TaskListGroupFilterIndicator.propTypes = {
     taskGroupName: PropTypes.string,
     handleFilterClear: PropTypes.func.isRequired
 };
 
-export default FilterIndicator;
+export default TaskListGroupFilterIndicator;
