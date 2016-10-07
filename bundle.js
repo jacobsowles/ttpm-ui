@@ -77153,8 +77153,6 @@
 	        var _this = _possibleConstructorReturn(this, (DateBox.__proto__ || Object.getPrototypeOf(DateBox)).call(this, props));
 
 	        _this.id = 'datebox-' + _underscore2.default.uniqueId();
-	        _this.isDue = (0, _moment2.default)(props.value).date() <= (0, _moment2.default)().date();
-
 	        _this.state = {
 	            value: props.value
 	        };
@@ -77177,7 +77175,7 @@
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'div',
-	                { className: 'date-box ' + (this.props.contextColorsEnabled && this.isDue ? 'due' : '') },
+	                { className: 'date-box ' + this.props.className },
 	                _react2.default.createElement(
 	                    'label',
 	                    { htmlFor: this.id },
@@ -77207,7 +77205,7 @@
 	    label: _react.PropTypes.string,
 	    placeholder: _react.PropTypes.string,
 	    isDisabled: _react.PropTypes.bool,
-	    contextColorsEnabled: _react.PropTypes.bool,
+	    className: _react.PropTypes.string,
 	    handleChange: _react.PropTypes.func
 	};
 
@@ -77215,7 +77213,7 @@
 	    label: '',
 	    placeholder: 'set date',
 	    isDisabled: false,
-	    contextColorsEnabled: true,
+	    className: '',
 	    handleChange: function handleChange() {}
 	};
 
@@ -77406,7 +77404,7 @@
 	exports.i(__webpack_require__(746), "");
 
 	// module
-	exports.push([module.id, ".date-box {\n  width: 66px;\n  margin-left: 0 !important; }\n  .date-box div {\n    margin-left: 0 !important; }\n  .date-box label {\n    display: block;\n    text-align: center;\n    margin: 0; }\n  .date-box input {\n    width: 100%;\n    text-align: center; }\n    .date-box input::-moz-placeholder {\n      font-style: normal;\n      font-size: .9em; }\n    .date-box input:-moz-placeholder {\n      font-style: normal;\n      font-size: .9em; }\n    .date-box input::-webkit-input-placeholder {\n      font-style: normal;\n      font-size: .9em; }\n    .date-box input:-ms-input-placeholder {\n      font-style: normal;\n      font-size: .9em; }\n\n.date-box.due {\n  color: red; }\n", ""]);
+	exports.push([module.id, ".date-box {\n  width: 66px;\n  margin-left: 0 !important; }\n  .date-box div {\n    margin-left: 0 !important; }\n  .date-box label {\n    display: block;\n    text-align: center;\n    margin: 0; }\n  .date-box input {\n    width: 100%;\n    text-align: center; }\n    .date-box input::-moz-placeholder {\n      font-style: normal;\n      font-size: .9em; }\n    .date-box input:-moz-placeholder {\n      font-style: normal;\n      font-size: .9em; }\n    .date-box input::-webkit-input-placeholder {\n      font-style: normal;\n      font-size: .9em; }\n    .date-box input:-ms-input-placeholder {\n      font-style: normal;\n      font-size: .9em; }\n", ""]);
 
 	// exports
 
@@ -80646,6 +80644,10 @@
 
 	var _dateBox2 = _interopRequireDefault(_dateBox);
 
+	var _dueDateBox = __webpack_require__(831);
+
+	var _dueDateBox2 = _interopRequireDefault(_dueDateBox);
+
 	var _downAngleIcon = __webpack_require__(458);
 
 	var _downAngleIcon2 = _interopRequireDefault(_downAngleIcon);
@@ -80767,7 +80769,7 @@
 	                        _react2.default.createElement(
 	                            _flexboxReact2.default,
 	                            null,
-	                            _react2.default.createElement(_dateBox2.default, {
+	                            _react2.default.createElement(_dueDateBox2.default, {
 	                                label: 'due',
 	                                value: this.props.dueDate,
 	                                handleChange: this.handleDueDateSave
@@ -81403,6 +81405,116 @@
 
 	// module
 	exports.push([module.id, ".task-list-group-filter-indicator {\n  float: right;\n  padding: 0 0 10px 0;\n  font-size: .9em;\n  text-align: right;\n  color: #888888; }\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 831 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _dateBox = __webpack_require__(741);
+
+	var _dateBox2 = _interopRequireDefault(_dateBox);
+
+	var _moment = __webpack_require__(544);
+
+	var _moment2 = _interopRequireDefault(_moment);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	__webpack_require__(832);
+
+	var DueDateBox = function (_Component) {
+	    _inherits(DueDateBox, _Component);
+
+	    function DueDateBox(props) {
+	        _classCallCheck(this, DueDateBox);
+
+	        var _this = _possibleConstructorReturn(this, (DueDateBox.__proto__ || Object.getPrototypeOf(DueDateBox)).call(this, props));
+
+	        _this.isDue = (0, _moment2.default)(props.value).date() <= (0, _moment2.default)().date();
+	        return _this;
+	    }
+
+	    _createClass(DueDateBox, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(_dateBox2.default, _extends({
+	                className: this.isDue ? 'due' : ''
+	            }, this.props));
+	        }
+	    }]);
+
+	    return DueDateBox;
+	}(_react.Component);
+
+	DueDateBox.propTypes = {
+	    value: _react.PropTypes.string,
+	    label: _react.PropTypes.string,
+	    placeholder: _react.PropTypes.string,
+	    isDisabled: _react.PropTypes.bool,
+	    handleChange: _react.PropTypes.func
+	};
+
+	exports.default = DueDateBox;
+
+/***/ },
+/* 832 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(833);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(452)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./due-date-box.scss", function() {
+				var newContent = require("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./due-date-box.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 833 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(451)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".date-box.due {\n  color: red; }\n", ""]);
 
 	// exports
 

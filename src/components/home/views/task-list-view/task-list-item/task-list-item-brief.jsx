@@ -4,6 +4,7 @@ import Flexbox from 'flexbox-react';
 
 // components
 import DateBox from '~/fields/date-box';
+import DueDateBox from '../due-date-box';
 import DownAngleIcon from '~/icons/down-angle-icon';
 import RightAngleIcon from '~/icons/right-angle-icon';
 import TextBox from '~/fields/text-box';
@@ -92,7 +93,7 @@ class TaskListItemBrief extends Component {
                                     </Flexbox>
 
                                     <Flexbox>
-                                        <DateBox
+                                        <DueDateBox
                                             label="due"
                                             value={this.props.dueDate}
                                             handleChange={this.handleDueDateSave}

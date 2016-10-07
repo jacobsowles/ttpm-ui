@@ -11,8 +11,6 @@ class DateBox extends Component {
         super(props);
 
         this.id = `datebox-${_.uniqueId()}`;
-        this.isDue = moment(props.value).date() <= moment().date();
-
         this.state = {
             value: props.value
         };
@@ -30,7 +28,7 @@ class DateBox extends Component {
 
     render() {
         return (
-            <div className={`date-box ${this.props.contextColorsEnabled && this.isDue ? 'due' : ''}`}>
+            <div className={`date-box ${this.props.className}`}>
                 <label htmlFor={this.id}>{this.props.label}</label>
                 <DatePicker
                     id={this.id}
@@ -54,7 +52,7 @@ DateBox.propTypes = {
     label: PropTypes.string,
     placeholder: PropTypes.string,
     isDisabled: PropTypes.bool,
-    contextColorsEnabled: PropTypes.bool,
+    className: PropTypes.string,
     handleChange: PropTypes.func
 };
 
@@ -62,7 +60,7 @@ DateBox.defaultProps = {
     label: '',
     placeholder: 'set date',
     isDisabled: false,
-    contextColorsEnabled: true,
+    className: '',
     handleChange: () => {}
 };
 
