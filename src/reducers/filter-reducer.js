@@ -1,8 +1,9 @@
-import { completion } from '@/utils/filter-values';
+import { completion, date } from '@/utils/filter-values';
 
 const initialState = {
     taskGroupId: 0,
     completion: completion.ALL,
+    date: date.ALL,
     displayOrders: []
 };
 
@@ -20,6 +21,14 @@ export default function reducer(state = initialState, action) {
             state = {
                 ...state,
                 completion: action.payload
+            };
+            break;
+        }
+
+        case 'SET_DATE_FILTER': {
+            state = {
+                ...state,
+                date: action.payload
             };
             break;
         }

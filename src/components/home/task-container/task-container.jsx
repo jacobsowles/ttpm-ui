@@ -1,6 +1,7 @@
 // npm modules
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
+import moment from 'moment';
 
 // components
 import Analytics from './analytics/analytics';
@@ -11,7 +12,7 @@ import TaskListView from './task-list-view/task-list-view';
 import taskActions from '@/actions/task-actions';
 
 // util
-import { completion } from '@/utils/filter-values';
+import { completion, date } from '@/utils/filter-values';
 
 class TaskContainer extends Component {
 
@@ -101,6 +102,7 @@ function compareDisplayOrder(a, b) {
 }
 
 function filterTasks(tasks, taskGroups, filters) {
+    // filter by task group
     if (filters.taskGroupId) {
         tasks = tasks
             .filter(t => allDescendents(taskGroups, filters.taskGroupId).includes(t.TaskGroupId))
@@ -122,6 +124,7 @@ function filterTasks(tasks, taskGroups, filters) {
         });
     }
 
+    // filter by completion
     switch (filters.completion) {
         case completion.COMPLETE: {
             tasks = tasks.filter(t => t.Complete);
@@ -130,6 +133,30 @@ function filterTasks(tasks, taskGroups, filters) {
 
         case completion.INCOMPLETE: {
             tasks = tasks.filter(t => !t.Complete);
+            break;
+        }
+    }
+
+    // filter by date
+    switch (filters.date) {
+        case date.TODAY: {
+            tasks = tasks.filter(t =>
+                moment(t.PlannedDate).date() == moment().date() ||
+                moment(t.DueDate).date() == moment().date()
+            );
+            break;
+        }
+
+        case date.TOMORROW: {
+            tasks = tasks.filter(t =>
+                moment(t.PlannedDate).date() == moment().add('days', 1).date() ||
+                moment(t.DueDate).date() == moment().add('days', 1).date()
+            );
+            break;
+        }
+
+        case date.DUE: {
+            tasks = tasks.filter(t => moment(t.DueDate).date() <= moment().date());
             break;
         }
     }

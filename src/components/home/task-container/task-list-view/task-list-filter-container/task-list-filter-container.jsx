@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 // components
 import FilterIndicator from '~/home/filter-indicator/filter-indicator';
 import TaskListCompletionFilter from './task-list-completion-filter';
+import TaskListDateFilter from './task-list-date-filter';
 import TaskListFilterWrapper from './task-list-filter-wrapper';
 
 // actions
@@ -18,6 +19,11 @@ class TaskListFilterContainer extends Component {
                 <TaskListCompletionFilter
                     activeFilter={this.props.filters.completion}
                     handleFilterChange={this.props.setCompletionFilter}
+                />
+
+                <TaskListDateFilter
+                    activeFilter={this.props.filters.date}
+                    handleFilterChange={this.props.setDateFilter}
                 />
 
                 <FilterIndicator
@@ -44,6 +50,10 @@ function mapDispatchToProps(dispatch) {
     return {
         setCompletionFilter: function(filter) {
             dispatch(filterActions.setCompletionFilter(filter));
+        },
+
+        setDateFilter: function(filter) {
+            dispatch(filterActions.setDateFilter(filter));
         },
 
         clearTaskGroupFilter: function() {

@@ -15,6 +15,13 @@ module.exports = {
         };
     },
 
+    setDateFilter(filter) {
+        return {
+            type: 'SET_DATE_FILTER',
+            payload: filter
+        };
+    },
+
     fetchTaskGroupDisplayOrder(taskGroupId) {
         return {
             type: 'FETCH_TASK_GROUP_DISPLAY_ORDER',

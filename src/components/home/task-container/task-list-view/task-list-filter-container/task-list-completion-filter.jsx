@@ -4,8 +4,6 @@ import NavPillGroup from '~/navigation/nav-pills/nav-pill-group';
 
 import { completion } from '@/utils/filter-values';
 
-require('./task-list-completion-filter.scss');
-
 class TaskListCompletionFilter extends Component {
 
     render() {
