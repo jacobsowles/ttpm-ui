@@ -4,7 +4,6 @@ require('./button.scss');
 class Button extends Component {
 
     render() {
-        console.log('is disabled: ', this.props.isDisabled);
         return (
             <button
                 className={`btn ${this.props.className ? this.props.className : 'btn-primary'}`}
