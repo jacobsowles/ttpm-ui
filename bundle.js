@@ -81573,7 +81573,7 @@
 
 
 	// module
-	exports.push([module.id, "#authentication-page {\n  margin-top: 40px; }\n  #authentication-page .logo {\n    margin-left: 5px; }\n  #authentication-page #authentication-wrapper {\n    background: #ffffff;\n    margin-top: 5px;\n    padding: 40px;\n    border-radius: 5px;\n    -moz-border-radius: 5px;\n    -webkit-border-radius: 5px; }\n    #authentication-page #authentication-wrapper h2 {\n      margin-top: 0; }\n", ""]);
+	exports.push([module.id, "#authentication-page {\n  margin-top: 40px; }\n  #authentication-page .logo {\n    margin-left: 5px; }\n  #authentication-page #authentication-wrapper {\n    background: #ffffff;\n    margin-top: 5px;\n    padding: 40px;\n    border-radius: 5px;\n    -moz-border-radius: 5px;\n    -webkit-border-radius: 5px; }\n    #authentication-page #authentication-wrapper h2 {\n      margin-top: 0;\n      font-family: 'Roboto';\n      font-weight: 300; }\n", ""]);
 
 	// exports
 
