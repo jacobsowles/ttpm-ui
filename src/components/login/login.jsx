@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import WarningAlert from '~/alerts/warning-alert';
 import DarkLogo from '~/logo/dark-logo';
 import LoginForm from './login-form';
 import RegistrationForm from './registration-form';
@@ -25,15 +26,26 @@ class Login extends React.Component {
                 <div className="col-xs-2" />
 
                 <div className="col-xs-8">
-                    <DarkLogo />
-
-                    <div className="row" id="authentication-wrapper">
-                        <div className="col-xs-6 no-horizontal-padding">
-                            <LoginForm />
+                    <div className="row">
+                        <div className="col-xs-12">
+                            <WarningAlert
+                                label="The princess is in another castle."
+                                text="The Tiny Two Productivity Manager is currently invite only. Registration has been disabled until a widespread release is made available."
+                            />
                         </div>
 
-                        <div className="col-xs-6 no-horizontal-padding">
-                            <RegistrationForm />
+                        <div className="col-xs-12">
+                            <DarkLogo />
+
+                            <div className="row" id="authentication-wrapper">
+                                <div className="col-xs-6 no-horizontal-padding">
+                                    <LoginForm />
+                                </div>
+
+                                <div className="col-xs-6 no-horizontal-padding">
+                                    <RegistrationForm />
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
