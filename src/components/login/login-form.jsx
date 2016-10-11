@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import Button from '~/buttons/button';
+
 import loginFormActions from '@/actions/login-form-actions';
 import { isLoggedIn } from '@/utils/auth';
 
@@ -40,11 +42,7 @@ class LoginForm extends React.Component {
                     <input type="password" className="form-control" ref="loginPassword" placeholder="Password" />
                 </div>
 
-                <div className="checkbox">
-                    <label><input type="checkbox" /> Remember me</label>
-                </div>
-
-                <button className="btn btn-primary" onClick={this.handleSubmit}>Get to work</button>
+                <Button text="Get to work" handleClick={this.handleSubmit} />
             </div>
         );
     }

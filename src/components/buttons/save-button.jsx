@@ -13,11 +13,6 @@ class SaveButton extends React.Component {
     }
 }
 
-SaveButton.PropTypes = {
-    text: React.PropTypes.string,
-    handleClick: React.PropTypes.func.isRequired
-};
-
 SaveButton.defaultProps = {
     text: 'Save'
 };

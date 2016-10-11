@@ -56,10 +56,6 @@ input[type=text] {
     font-size: .9em;
 }
 
-.btn {
-    border-radius: 0;
-}
-
 .no-horizontal-padding {
     padding-right: 0;
     padding-left: 0;
@@ -77,17 +73,6 @@ input[type=text] {
 
 .table {
     margin-bottom: 0;
-}
-
-.btn-primary {
-    background: #7da468;
-    margin-right: 10px;
-    border-color: #476039;
-}
-
-.btn-primary:hover {
-    background: #476039;
-    border-color: #476039;
 }
 
 .form-control {

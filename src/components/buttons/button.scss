@@ -1,0 +1,18 @@
+#root {
+    .btn {
+        border-radius: 2px;
+        -moz-border-radius: 2px;
+        -webkit-border-radius: 2px;
+        font-size: 12px;
+    }
+
+    .btn-primary {
+        background-color: #7da468;
+        border: none;
+
+        &:focus,
+        &:hover {
+            background-color: #476039;
+        }
+    }
+}

@@ -13,11 +13,6 @@ class DeleteButton extends React.Component {
     }
 }
 
-DeleteButton.PropTypes = {
-    text: React.PropTypes.string,
-    handleClick: React.PropTypes.func.isRequired
-};
-
 DeleteButton.defaultProps = {
     text: 'Delete'
 };
