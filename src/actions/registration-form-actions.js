@@ -1,10 +1,10 @@
 import { post } from '@/api.js';
 
 module.exports = {
-    registerUser(options) {
+    registerUser(body) {
         return {
             type: 'REGISTER_USER',
-            payload: post('/account/register', options)
+            payload: post('/account/register', body)
         };
     }
 };

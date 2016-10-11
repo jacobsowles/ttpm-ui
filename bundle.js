@@ -43066,7 +43066,7 @@
 	            });
 	        });
 	    },
-	    post: function post(route, body, query) {
+	    post: function post(route, body, query, contentType) {
 	        var token = _auth2.default.getToken();
 
 	        if (token) {
@@ -43074,7 +43074,7 @@
 	        }
 
 	        return new Promise(function (resolve, reject) {
-	            _superagent2.default.post(_auth2.default.getApiUrl() + route).query('' + (query || '') + (token || '')).send(body).end(function (error, response) {
+	            _superagent2.default.post(_auth2.default.getApiUrl() + route).query('' + (query || '') + (token || '')).type(contentType || 'application/json').send(body).end(function (error, response) {
 	                error ? reject(error) : resolve(response.body);
 	            });
 	        });
@@ -81595,29 +81595,19 @@
 
 	'use strict';
 
-	var _superagent = __webpack_require__(485);
-
-	var _superagent2 = _interopRequireDefault(_superagent);
-
-	var _auth = __webpack_require__(266);
-
-	var _auth2 = _interopRequireDefault(_auth);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	var _api = __webpack_require__(484);
 
 	module.exports = {
 	    login: function login(email, password) {
+	        var body = {
+	            userName: email,
+	            password: password,
+	            'grant_type': 'password'
+	        };
+
 	        return {
 	            type: 'LOGIN',
-	            payload: new Promise(function (resolve, reject) {
-	                _superagent2.default.post(_auth2.default.getApiUrl() + '/Token').type('application/x-www-form-urlencoded').send({
-	                    userName: email,
-	                    password: password,
-	                    'grant_type': 'password'
-	                }).end(function (error, response) {
-	                    error ? reject(error) : resolve(response.body);
-	                });
-	            })
+	            payload: (0, _api.post)('/Token', body, null, 'application/x-www-form-urlencoded')
 	        };
 	    }
 	};
@@ -81922,10 +81912,10 @@
 	var _api = __webpack_require__(484);
 
 	module.exports = {
-	    registerUser: function registerUser(options) {
+	    registerUser: function registerUser(body) {
 	        return {
 	            type: 'REGISTER_USER',
-	            payload: (0, _api.post)('/account/register', options)
+	            payload: (0, _api.post)('/account/register', body)
 	        };
 	    }
 	};

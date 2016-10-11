@@ -27,7 +27,7 @@ module.exports = {
         });
     },
 
-    post(route, body, query) {
+    post(route, body, query, contentType) {
         let token = auth.getToken();
 
         if (token) {
@@ -38,6 +38,7 @@ module.exports = {
             superagent
                 .post(auth.getApiUrl() + route)
                 .query(`${query || ''}${token || ''}`)
+                .type(contentType || 'application/json')
                 .send(body)
                 .end((error, response) => {
                     error ? reject(error) : resolve(response.body);

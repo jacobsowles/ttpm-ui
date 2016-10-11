@@ -1,23 +1,16 @@
-import superagent from 'superagent';
-import auth from '../utils/auth';
+import { post } from '../api';
 
 module.exports = {
     login(email, password) {
+        const body = {
+            userName: email,
+            password: password,
+            'grant_type': 'password'
+        };
+
         return {
             type: 'LOGIN',
-            payload: new Promise((resolve, reject) => {
-                superagent
-                    .post(auth.getApiUrl() + '/Token')
-                    .type('application/x-www-form-urlencoded')
-                    .send({
-                        userName: email,
-                        password: password,
-                        'grant_type': 'password'
-                    })
-                    .end((error, response) => {
-                        error ? reject(error) : resolve(response.body);
-                    });
-            })
+            payload: post('/Token', body, null, 'application/x-www-form-urlencoded')
         };
     }
 };
