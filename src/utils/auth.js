@@ -10,5 +10,11 @@ module.exports = {
 
     getToken() {
         return localStorage['token'];
+    },
+
+    getApiUrl() {
+        return window.location.href.toLowerCase().includes('localhost')
+            ? 'http://api.ttpm.com'
+            : 'http://pm-api.thetinytwo.com';
     }
 };

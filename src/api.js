@@ -3,17 +3,11 @@ import auth from './utils/auth';
 
 require('superagent-auth-bearer')(superagent);
 
-function getApiUrl() {
-    return window.location.href.toLowerCase().includes('localhost')
-        ? 'http://api.ttpm.com'
-        : 'http://pm-api.thetinytwo.com';
-}
-
 module.exports = {
     get(route, query) {
         return new Promise((resolve, reject) => {
             superagent
-                .get(getApiUrl() + route)
+                .get(auth.getApiUrl() + route)
                 .query(`${query || ''}&access_token=${auth.getToken()}`)
                 .end((error, response) => {
                     error ? reject(error) : resolve(response.body);
@@ -24,7 +18,7 @@ module.exports = {
     put(route, body, query) {
         return new Promise((resolve, reject) => {
             superagent
-                .put(getApiUrl() + route)
+                .put(auth.getApiUrl() + route)
                 .query(`${query || ''}&access_token=${auth.getToken()}`)
                 .send(body)
                 .end((error, response) => {
@@ -42,7 +36,7 @@ module.exports = {
 
         return new Promise((resolve, reject) => {
             superagent
-                .post(getApiUrl() + route)
+                .post(auth.getApiUrl() + route)
                 .query(`${query || ''}${token || ''}`)
                 .send(body)
                 .end((error, response) => {
@@ -54,7 +48,7 @@ module.exports = {
     del(route) {
         return new Promise((resolve, reject) => {
             superagent
-                .del(getApiUrl() + route)
+                .del(auth.getApiUrl() + route)
                 .authBearer(auth.getToken())
                 .end((error, response) => {
                     error ? reject(error) : resolve(response.body);
