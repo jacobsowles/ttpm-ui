@@ -29704,7 +29704,7 @@
 	        return Boolean(userSettings.defaultShowAnalytics.Value);
 	    }
 
-	    return Boolean(settings.defaultShowAnalytics.DefaultValue);
+	    return false; //Boolean(settings.defaultShowAnalytics.DefaultValue);
 	}
 
 	function mapStateToProps(state) {
@@ -80265,7 +80265,6 @@
 	        value: function render() {
 	            var _this2 = this;
 
-	            console.log('is disabled: ', this.props.isDisabled);
 	            return _react2.default.createElement(
 	                'button',
 	                {

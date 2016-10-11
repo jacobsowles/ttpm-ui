@@ -60,7 +60,7 @@ function getAnalyticsDefault(userSettings, settings) {
         return Boolean(userSettings.defaultShowAnalytics.Value);
     }
 
-    return Boolean(settings.defaultShowAnalytics.DefaultValue);
+    return false; //Boolean(settings.defaultShowAnalytics.DefaultValue);
 }
 
 function mapStateToProps(state) {
