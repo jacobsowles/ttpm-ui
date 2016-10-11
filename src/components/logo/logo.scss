@@ -1,19 +1,10 @@
-#logo {
-    background: #1a1a1a;
-    padding: 10px;
+.logo {
+    display: inline-block;
+    font-size: .9em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 
-    a {
-        color: #DBDBDB;
-        display: inline;
-
-        &:hover {
-            text-decoration: none;
-        }
-    }
-
-    #logo-text {
-        padding: 10px 0 8px 10px;
-        font-size: .9em;
-        letter-spacing: 1px;
+    &:hover {
+        text-decoration: none;
     }
 }

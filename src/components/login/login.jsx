@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import DarkLogo from '~/logo/dark-logo';
 import LoginForm from './login-form';
 import RegistrationForm from './registration-form';
 
@@ -20,14 +21,11 @@ class Login extends React.Component {
 
     render() {
         return (
-            <div className="row">
+            <div id="authentication-page" className="row">
                 <div className="col-xs-2" />
 
                 <div className="col-xs-8">
-                    <div className="row" id="branding">
-                        <img src="/assets/images/tt-logo.png" alt="Logo" height="50" />
-                        <span id="logo-text">PROJECT MANAGER</span>
-                    </div>
+                    <DarkLogo />
 
                     <div className="row" id="authentication-wrapper">
                         <div className="col-xs-6 no-horizontal-padding">

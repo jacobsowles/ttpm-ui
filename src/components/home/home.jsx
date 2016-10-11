@@ -8,7 +8,7 @@ import HTML5Backend from 'react-dnd-html5-backend';
 import Content from './layout/content/content';
 import GroupFilterContainer from './group-filter/group-filter-container';
 import Header from './layout/header/header';
-import Logo from '~/logo/logo';
+import LightLogo from '~/logo/light-logo';
 import Module from '~/module/module';
 import Sidebar from './layout/sidebar/sidebar';
 import ViewContainer from './view-container';
@@ -31,7 +31,7 @@ class Home extends React.Component {
             <div className="row">
                 <Sidebar>
                     <Module type="sidebar">
-                        <Logo />
+                        <LightLogo />
                     </Module>
 
                     <Module

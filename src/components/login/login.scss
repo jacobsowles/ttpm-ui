@@ -1,25 +1,20 @@
-#branding {
-    margin: 100px 0 10px 10px;
+#authentication-page {
+    margin-top: 40px;
 
-    img {
-        float: left;
+    .logo {
+        margin-left: 5px;
     }
 
-    #logo-text {
-        color: #7da468;
-        margin: 16px 0 0 10px;
-        float: left;
-    }
-}
+    #authentication-wrapper {
+        background: #ffffff;
+        margin-top: 5px;
+        padding: 40px;
+        border-radius: 5px;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
 
-#authentication-wrapper {
-    background: #ffffff;
-    padding: 40px;
-    border-radius: 5px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-
-    h2 {
-        margin-top: 0;
+        h2 {
+            margin-top: 0;
+        }
     }
 }

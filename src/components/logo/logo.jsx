@@ -1,20 +1,26 @@
-// npm modules
-import React from 'React';
-
-// styles
+import React, { Component, PropTypes } from 'React';
 require('./logo.scss');
 
-class Logo extends React.Component {
+class Logo extends Component {
     render() {
         return (
-            <div id="logo">
-                <a href="/" title="Home">
-                    <img src="/assets/images/tt-logo.png" alt="Logo" height="35" />
-                    <span id="logo-text">PROJECT MANAGER</span>
-                </a>
-            </div>
+            <a
+                href="/"
+                title="Home"
+                className={`logo ${this.props.className}`}
+            >
+                Productivity Manager
+            </a>
         );
     }
 }
+
+Logo.propTypes = {
+    className: PropTypes.string
+};
+
+Logo.defaultProps = {
+    className: 'light'
+};
 
 export default Logo;
