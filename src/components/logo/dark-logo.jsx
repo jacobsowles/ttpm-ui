@@ -6,7 +6,10 @@ require('./dark-logo.scss');
 class DarkLogo extends React.Component {
     render() {
         return (
-            <Logo className="dark" />
+            <Logo
+                className="dark"
+                {...this.props}
+            />
         );
     }
 }

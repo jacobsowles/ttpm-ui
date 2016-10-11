@@ -6,7 +6,10 @@ require('./light-logo.scss');
 class Light extends React.Component {
     render() {
         return (
-            <Logo className="light" />
+            <Logo
+                className="light"
+                {...this.props}
+            />
         );
     }
 }
