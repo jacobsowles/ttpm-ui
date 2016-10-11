@@ -23,34 +23,32 @@ class Login extends React.Component {
     render() {
         return (
             <div id="authentication-page" className="row">
-                <div className="col-xs-2" />
+                <div className="col-xs-4" />
 
-                <div className="col-xs-8">
+                <div className="col-xs-4">
                     <div className="row">
-                        <div className="col-xs-12">
+                        <div className="col-xs-12 no-horizontal-padding">
                             <WarningAlert
                                 label="The princess is in another castle."
                                 text="The Tiny Two Productivity Manager is currently invite only. Registration has been disabled until a widespread release is made available."
                             />
                         </div>
+                    </div>
 
-                        <div className="col-xs-12">
+                    <div className="row">
+                        <div className="col-xs-12 no-horizontal-padding">
                             <DarkLogo />
+                        </div>
+                    </div>
 
-                            <div className="row" id="authentication-wrapper">
-                                <div className="col-xs-6 no-horizontal-padding">
-                                    <LoginForm />
-                                </div>
-
-                                <div className="col-xs-6 no-horizontal-padding">
-                                    <RegistrationForm />
-                                </div>
-                            </div>
+                    <div className="row" id="authentication-wrapper">
+                        <div className="col-xs-12 no-horizontal-padding">
+                            <LoginForm />
                         </div>
                     </div>
                 </div>
 
-                <div className="col-xs-2" />
+                <div className="col-xs-4" />
             </div>
         );
     }
