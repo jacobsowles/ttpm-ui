@@ -40874,7 +40874,7 @@
 
 
 	// module
-	exports.push([module.id, "#content {\n  width: calc(100% - 275px);\n  float: left;\n  height: 100vh; }\n  #content:after {\n    display: block;\n    content: \"\"; }\n", ""]);
+	exports.push([module.id, "#content {\n  width: calc(100% - 275px);\n  float: left;\n  height: 100vh; }\n  #content:after {\n    display: block;\n    content: \"\"; }\n  #content .loading-graphic {\n    float: left;\n    margin-top: 0; }\n", ""]);
 
 	// exports
 
@@ -82475,7 +82475,7 @@
 
 
 	// module
-	exports.push([module.id, ".loading-graphic {\n  background: url(\"/assets/images/spinner.gif\");\n  background-position: center;\n  background-size: 20px;\n  background-repeat: no-repeat;\n  height: 20px;\n  width: 100%;\n  margin-top: 10px; }\n  .loading-graphic.inline {\n    display: inline-block;\n    width: 20px;\n    vertical-align: middle;\n    margin-top: 0; }\n", ""]);
+	exports.push([module.id, ".loading-graphic {\n  background: url(\"/assets/images/spinner.gif\");\n  background-position: center;\n  background-size: 20px;\n  background-repeat: no-repeat;\n  height: 20px;\n  width: 100%;\n  margin-top: 15px; }\n  .loading-graphic.inline {\n    display: inline-block;\n    width: 20px;\n    vertical-align: middle;\n    margin-top: 0; }\n", ""]);
 
 	// exports
 
