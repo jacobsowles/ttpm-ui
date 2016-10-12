@@ -1,4 +1,4 @@
-import { post } from '@/api.js';
+import { post } from '@/api';
 
 module.exports = {
     registerUser(body) {

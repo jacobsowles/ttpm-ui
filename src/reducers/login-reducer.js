@@ -1,7 +1,6 @@
 import { saveAuthentication } from '@/utils/auth';
 
 const initialState = {
-    isLoading: false,
     error: ''
 };
 
@@ -10,7 +9,6 @@ export default function reducer(state = initialState, action) {
         case 'LOGIN_PENDING': {
             state = {
                 ...state,
-                isLoading: true,
                 error: ''
             };
             break;
@@ -21,7 +19,6 @@ export default function reducer(state = initialState, action) {
 
             state = {
                 ...state,
-                isLoading: false,
                 error: ''
             };
             break;
@@ -30,8 +27,7 @@ export default function reducer(state = initialState, action) {
         case 'LOGIN_REJECTED': {
             state = {
                 ...state,
-                isLoading: false,
-                error: 'Failed to log in.'
+                error: 'Login failed.'
             };
             break;
         }

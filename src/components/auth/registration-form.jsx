@@ -1,12 +1,8 @@
 import React, { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';
 
 import Button from '~/buttons/button';
 import CheckmarkIcon from '~/icons/checkmark-icon';
 import TimesIcon from '~/icons/times-icon';
-
-import loginFormActions from '@/actions/login-form-actions';
-import registrationFormActions from '@/actions/registration-form-actions';
 
 require('./registration-form.scss');
 
@@ -48,7 +44,7 @@ class RegistrationForm extends Component {
 
     handleSubmit() {
         if (this.allFieldsValid) {
-            this.props.registerUser({
+            this.props.handleRegistration({
                 Email: this.refs.email.value,
                 Password: this.refs.password.value,
                 ConfirmPassword: this.refs.passwordConfirm.value
@@ -194,25 +190,8 @@ class RegistrationForm extends Component {
 }
 
 RegistrationForm.propTypes = {
-    isLoading: PropTypes.bool.isRequired,
-    error: PropTypes.string.isRequired
+    error: PropTypes.string.isRequired,
+    handleRegistration: PropTypes.func.isRequired
 };
 
-function mapStateToProps(state) {
-    return {
-        isLoading: state.registrationForm.isLoading,
-        error: state.registrationForm.error
-    };
-}
-
-function mapDispatchToProps(dispatch) {
-    return {
-        registerUser: function(user) {
-            dispatch(registrationFormActions.registerUser(user)).then(() => {
-                dispatch(loginFormActions.login(user.Email, user.Password));
-            });
-        }
-    };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(RegistrationForm);
+export default RegistrationForm;

@@ -1,14 +1,10 @@
-import React from 'react';
-import { connect } from 'react-redux';
-
+import React, { Component, PropTypes } from 'react';
 import Button from '~/buttons/button';
-
-import loginFormActions from '@/actions/login-form-actions';
-import { isLoggedIn } from '@/utils/auth';
+import ErrorMessage from '~/alerts/error-message';
 
 require('./login-form.scss');
 
-class LoginForm extends React.Component {
+class LoginForm extends Component {
 
     constructor(props) {
         super(props);
@@ -16,17 +12,10 @@ class LoginForm extends React.Component {
     }
 
     handleSubmit() {
-        // TODO: Validate form
-        this.props.login(
+        this.props.handleLogin(
             this.refs.loginEmail.value,
             this.refs.loginPassword.value
         );
-    }
-
-    componentWillUpdate(nextProps, nextState) {
-        if (isLoggedIn()) {
-            window.location = '/';
-        }
     }
 
     render() {
@@ -43,24 +32,15 @@ class LoginForm extends React.Component {
                 </div>
 
                 <Button text="Get to work" handleClick={this.handleSubmit} />
+                <ErrorMessage text={this.props.error} />
             </div>
         );
     }
 }
 
-function mapStateToProps(state) {
-    return {
-        isLoading: state.loginForm.isLoading,
-        error: state.loginForm.error
-    };
-}
+LoginForm.propTypes = {
+    error: PropTypes.string.isRequired,
+    handleLogin: PropTypes.func.isRequired
+};
 
-function mapDispatchToProps(dispatch) {
-    return {
-        login: function(email, password) {
-            dispatch(loginFormActions.login(email, password));
-        }
-    };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);
+export default LoginForm;
