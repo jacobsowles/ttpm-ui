@@ -29264,15 +29264,13 @@
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 	exports.default = reducer;
 
 	var _auth = __webpack_require__(266);
 
 	var initialState = {
-	    error: ''
+	    error: '',
+	    isLoading: false
 	};
 
 	function reducer() {
@@ -29282,9 +29280,10 @@
 	    switch (action.type) {
 	        case 'LOGIN_PENDING':
 	            {
-	                state = _extends({}, state, {
-	                    error: ''
-	                });
+	                state = {
+	                    error: '',
+	                    isLoading: true
+	                };
 	                break;
 	            }
 
@@ -29292,17 +29291,19 @@
 	            {
 	                (0, _auth.saveAuthentication)(action.payload['userName'], action.payload['access_token']);
 
-	                state = _extends({}, state, {
-	                    error: ''
-	                });
+	                state = {
+	                    error: '',
+	                    isLoading: false
+	                };
 	                break;
 	            }
 
 	        case 'LOGIN_REJECTED':
 	            {
-	                state = _extends({}, state, {
-	                    error: 'Login failed.'
-	                });
+	                state = {
+	                    error: 'Login failed.',
+	                    isLoading: false
+	                };
 	                break;
 	            }
 	    }
@@ -29341,13 +29342,10 @@
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 	exports.default = reducer;
 	var initialState = {
-	    isLoading: false,
-	    error: ''
+	    error: '',
+	    isLoading: false
 	};
 
 	function reducer() {
@@ -29357,28 +29355,28 @@
 	    switch (action.type) {
 	        case 'REGISTER_USER_PENDING':
 	            {
-	                state = _extends({}, state, {
-	                    isLoading: true,
-	                    error: ''
-	                });
+	                state = {
+	                    error: '',
+	                    isLoading: true
+	                };
 	                break;
 	            }
 
 	        case 'REGISTER_USER_FULFILLED':
 	            {
-	                state = _extends({}, state, {
-	                    isLoading: false,
-	                    error: ''
-	                });
+	                state = {
+	                    error: '',
+	                    isLoading: false
+	                };
 	                break;
 	            }
 
 	        case 'REGISTER_USER_REJECTED':
 	            {
-	                state = _extends({}, state, {
-	                    isLoading: false,
-	                    error: 'Failed to register user.'
-	                });
+	                state = {
+	                    error: 'Failed to register user.',
+	                    isLoading: false
+	                };
 	                break;
 	            }
 	    }
@@ -41211,7 +41209,7 @@
 
 	var _groupFilterList2 = _interopRequireDefault(_groupFilterList);
 
-	var _loadingWrapper = __webpack_require__(481);
+	var _loadingWrapper = __webpack_require__(811);
 
 	var _loadingWrapper2 = _interopRequireDefault(_loadingWrapper);
 
@@ -42876,125 +42874,8 @@
 
 
 /***/ },
-/* 481 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _loadingGraphic = __webpack_require__(482);
-
-	var _loadingGraphic2 = _interopRequireDefault(_loadingGraphic);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var LoadingWrapper = function (_Component) {
-	    _inherits(LoadingWrapper, _Component);
-
-	    function LoadingWrapper() {
-	        _classCallCheck(this, LoadingWrapper);
-
-	        return _possibleConstructorReturn(this, (LoadingWrapper.__proto__ || Object.getPrototypeOf(LoadingWrapper)).apply(this, arguments));
-	    }
-
-	    _createClass(LoadingWrapper, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'div',
-	                { className: 'loading-wrapper' },
-	                this.props.showLoadingGraphic ? _react2.default.createElement(_loadingGraphic2.default, null) : this.props.children
-	            );
-	        }
-	    }]);
-
-	    return LoadingWrapper;
-	}(_react.Component);
-
-	LoadingWrapper.propTypes = {
-	    showLoadingGraphic: _react.PropTypes.bool.isRequired
-	};
-
-	exports.default = LoadingWrapper;
-
-/***/ },
-/* 482 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var styles = {
-	    loadingGraphic: {
-	        background: 'url("/assets/images/spinner.gif")',
-	        backgroundPosition: 'center',
-	        backgroundSize: '20px',
-	        backgroundRepeat: 'no-repeat',
-	        margin: '10px 0',
-	        height: '20px',
-	        width: '100%',
-	        float: 'left'
-	    }
-	};
-
-	var LoadingGraphic = function (_React$Component) {
-	    _inherits(LoadingGraphic, _React$Component);
-
-	    function LoadingGraphic() {
-	        _classCallCheck(this, LoadingGraphic);
-
-	        return _possibleConstructorReturn(this, (LoadingGraphic.__proto__ || Object.getPrototypeOf(LoadingGraphic)).apply(this, arguments));
-	    }
-
-	    _createClass(LoadingGraphic, [{
-	        key: 'render',
-	        value: function render() {
-	            console.log('showing loading graphic...');
-	            return _react2.default.createElement('div', {
-	                className: 'loading-graphic',
-	                style: styles.loadingGraphic
-	            });
-	        }
-	    }]);
-
-	    return LoadingGraphic;
-	}(_react2.default.Component);
-
-	exports.default = LoadingGraphic;
-
-/***/ },
+/* 481 */,
+/* 482 */,
 /* 483 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -45477,7 +45358,7 @@
 
 	var _analytics2 = _interopRequireDefault(_analytics);
 
-	var _loadingWrapper = __webpack_require__(481);
+	var _loadingWrapper = __webpack_require__(811);
 
 	var _loadingWrapper2 = _interopRequireDefault(_loadingWrapper);
 
@@ -81144,7 +81025,10 @@
 
 	AuthContainer.propTypes = {
 	    loginError: _react.PropTypes.string.isRequired,
+	    loginIsLoading: _react.PropTypes.bool.isRequired,
 	    registrationError: _react.PropTypes.string.isRequired,
+	    registrationIsLoading: _react.PropTypes.bool.isRequired,
+
 	    handleLogin: _react.PropTypes.func.isRequired,
 	    handleRegistration: _react.PropTypes.func.isRequired
 	};
@@ -81152,7 +81036,9 @@
 	function mapStateToProps(state) {
 	    return {
 	        loginError: state.login.error,
-	        registrationError: state.registration.error
+	        loginIsLoading: state.login.isLoading,
+	        registrationError: state.registration.error,
+	        registrationIsLoading: state.registration.isLoading
 	    };
 	}
 
@@ -81255,6 +81141,7 @@
 	                        { id: 'form-wrapper', className: 'col-xs-12 no-horizontal-padding' },
 	                        _react2.default.createElement(_loginForm2.default, {
 	                            error: this.props.loginError,
+	                            isLoading: this.props.loginIsLoading,
 	                            handleLogin: this.props.handleLogin
 	                        })
 	                    )
@@ -81269,7 +81156,10 @@
 
 	AuthWrapper.propTypes = {
 	    loginError: _react.PropTypes.string.isRequired,
+	    loginIsLoading: _react.PropTypes.bool.isRequired,
 	    registrationError: _react.PropTypes.string.isRequired,
+	    registrationIsLoading: _react.PropTypes.bool.isRequired,
+
 	    handleLogin: _react.PropTypes.func.isRequired,
 	    handleRegistration: _react.PropTypes.func.isRequired
 	};
@@ -81395,6 +81285,10 @@
 
 	var _errorMessage2 = _interopRequireDefault(_errorMessage);
 
+	var _inlineLoadingWrapper = __webpack_require__(810);
+
+	var _inlineLoadingWrapper2 = _interopRequireDefault(_inlineLoadingWrapper);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -81444,7 +81338,11 @@
 	                    _react2.default.createElement('input', { type: 'password', className: 'form-control', ref: 'loginPassword', placeholder: 'Password' })
 	                ),
 	                _react2.default.createElement(_button2.default, { text: 'Get to work', handleClick: this.handleSubmit }),
-	                _react2.default.createElement(_errorMessage2.default, { text: this.props.error })
+	                _react2.default.createElement(
+	                    _inlineLoadingWrapper2.default,
+	                    { showLoadingGraphic: this.props.isLoading },
+	                    _react2.default.createElement(_errorMessage2.default, { text: this.props.error })
+	                )
 	            );
 	        }
 	    }]);
@@ -81454,6 +81352,7 @@
 
 	LoginForm.propTypes = {
 	    error: _react.PropTypes.string.isRequired,
+	    isLoading: _react.PropTypes.bool.isRequired,
 	    handleLogin: _react.PropTypes.func.isRequired
 	};
 
@@ -81522,6 +81421,14 @@
 	var _checkmarkIcon = __webpack_require__(465);
 
 	var _checkmarkIcon2 = _interopRequireDefault(_checkmarkIcon);
+
+	var _errorMessage = __webpack_require__(804);
+
+	var _errorMessage2 = _interopRequireDefault(_errorMessage);
+
+	var _inlineLoadingWrapper = __webpack_require__(810);
+
+	var _inlineLoadingWrapper2 = _interopRequireDefault(_inlineLoadingWrapper);
 
 	var _timesIcon = __webpack_require__(468);
 
@@ -81708,7 +81615,12 @@
 	                    text: 'Join the fray',
 	                    isDisabled: !this.allFieldsValid(),
 	                    handleClick: this.handleSubmit
-	                })
+	                }),
+	                _react2.default.createElement(
+	                    _inlineLoadingWrapper2.default,
+	                    { showLoadingGraphic: this.props.isLoading },
+	                    _react2.default.createElement(_errorMessage2.default, { text: this.props.error })
+	                )
 	            );
 	        }
 	    }]);
@@ -82350,6 +82262,220 @@
 
 	// module
 	exports.push([module.id, ".error-message {\n  color: #b94a48; }\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 810 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _loadingWrapper = __webpack_require__(811);
+
+	var _loadingWrapper2 = _interopRequireDefault(_loadingWrapper);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var InlineLoadingWrapper = function (_React$Component) {
+	    _inherits(InlineLoadingWrapper, _React$Component);
+
+	    function InlineLoadingWrapper() {
+	        _classCallCheck(this, InlineLoadingWrapper);
+
+	        return _possibleConstructorReturn(this, (InlineLoadingWrapper.__proto__ || Object.getPrototypeOf(InlineLoadingWrapper)).apply(this, arguments));
+	    }
+
+	    _createClass(InlineLoadingWrapper, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                _loadingWrapper2.default,
+	                _extends({}, this.props, {
+	                    isInline: true
+	                }),
+	                this.props.children
+	            );
+	        }
+	    }]);
+
+	    return InlineLoadingWrapper;
+	}(_react2.default.Component);
+
+	exports.default = InlineLoadingWrapper;
+
+/***/ },
+/* 811 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _loadingGraphic = __webpack_require__(812);
+
+	var _loadingGraphic2 = _interopRequireDefault(_loadingGraphic);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var LoadingWrapper = function (_Component) {
+	    _inherits(LoadingWrapper, _Component);
+
+	    function LoadingWrapper() {
+	        _classCallCheck(this, LoadingWrapper);
+
+	        return _possibleConstructorReturn(this, (LoadingWrapper.__proto__ || Object.getPrototypeOf(LoadingWrapper)).apply(this, arguments));
+	    }
+
+	    _createClass(LoadingWrapper, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'span',
+	                { className: 'loading-wrapper' },
+	                this.props.showLoadingGraphic ? _react2.default.createElement(_loadingGraphic2.default, { className: this.props.isInline ? 'inline' : '' }) : this.props.children
+	            );
+	        }
+	    }]);
+
+	    return LoadingWrapper;
+	}(_react.Component);
+
+	LoadingWrapper.propTypes = {
+	    isInline: _react.PropTypes.bool,
+	    showLoadingGraphic: _react.PropTypes.bool.isRequired
+	};
+
+	LoadingWrapper.defaultProps = {
+	    isInline: false
+	};
+
+	exports.default = LoadingWrapper;
+
+/***/ },
+/* 812 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	__webpack_require__(813);
+
+	var LoadingGraphic = function (_Component) {
+	    _inherits(LoadingGraphic, _Component);
+
+	    function LoadingGraphic() {
+	        _classCallCheck(this, LoadingGraphic);
+
+	        return _possibleConstructorReturn(this, (LoadingGraphic.__proto__ || Object.getPrototypeOf(LoadingGraphic)).apply(this, arguments));
+	    }
+
+	    _createClass(LoadingGraphic, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement('div', { className: 'loading-graphic ' + this.props.className });
+	        }
+	    }]);
+
+	    return LoadingGraphic;
+	}(_react.Component);
+
+	LoadingGraphic.propTypes = {
+	    className: _react.PropTypes.string
+	};
+
+	LoadingGraphic.defaultProps = {
+	    className: ''
+	};
+
+	exports.default = LoadingGraphic;
+
+/***/ },
+/* 813 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(814);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(452)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/sass-loader/index.js!./loading-graphic.scss", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/sass-loader/index.js!./loading-graphic.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 814 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(451)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".loading-graphic {\n  background: url(\"/assets/images/spinner.gif\");\n  background-position: center;\n  background-size: 20px;\n  background-repeat: no-repeat;\n  height: 20px;\n  width: 100%;\n  margin-top: 10px; }\n  .loading-graphic.inline {\n    display: inline-block;\n    width: 20px;\n    vertical-align: middle;\n    margin-top: 0; }\n", ""]);
 
 	// exports
 

@@ -29,6 +29,7 @@ class AuthWrapper extends Component {
                     <div id="form-wrapper" className="col-xs-12 no-horizontal-padding">
                         <LoginForm
                             error={this.props.loginError}
+                            isLoading={this.props.loginIsLoading}
                             handleLogin={this.props.handleLogin}
                         />
                     </div>
@@ -42,7 +43,10 @@ class AuthWrapper extends Component {
 
 AuthWrapper.propTypes = {
     loginError: PropTypes.string.isRequired,
+    loginIsLoading: PropTypes.bool.isRequired,
     registrationError: PropTypes.string.isRequired,
+    registrationIsLoading: PropTypes.bool.isRequired,
+
     handleLogin: PropTypes.func.isRequired,
     handleRegistration: PropTypes.func.isRequired
 };

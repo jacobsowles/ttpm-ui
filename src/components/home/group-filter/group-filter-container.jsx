@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 // components
 import GroupFilterList from './group-filter-list';
-import LoadingWrapper from '~/loading-wrapper';
+import LoadingWrapper from '~/loading/loading-wrapper';
 import NewTaskGroupLink from './new-task-group-link';
 
 // actions

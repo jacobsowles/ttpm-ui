@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react';
+
 import Button from '~/buttons/button';
 import ErrorMessage from '~/messages/error-message';
+import InlineLoadingWrapper from '~/loading/inline-loading-wrapper';
 
 require('./login-form.scss');
 
@@ -32,7 +34,10 @@ class LoginForm extends Component {
                 </div>
 
                 <Button text="Get to work" handleClick={this.handleSubmit} />
-                <ErrorMessage text={this.props.error} />
+
+                <InlineLoadingWrapper showLoadingGraphic={this.props.isLoading}>
+                    <ErrorMessage text={this.props.error} />
+                </InlineLoadingWrapper>
             </div>
         );
     }
@@ -40,6 +45,7 @@ class LoginForm extends Component {
 
 LoginForm.propTypes = {
     error: PropTypes.string.isRequired,
+    isLoading: PropTypes.bool.isRequired,
     handleLogin: PropTypes.func.isRequired
 };
 

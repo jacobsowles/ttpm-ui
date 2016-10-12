@@ -2,6 +2,8 @@ import React, { Component, PropTypes } from 'react';
 
 import Button from '~/buttons/button';
 import CheckmarkIcon from '~/icons/checkmark-icon';
+import ErrorMessage from '~/messages/error-message';
+import InlineLoadingWrapper from '~/loading/inline-loading-wrapper';
 import TimesIcon from '~/icons/times-icon';
 
 require('./registration-form.scss');
@@ -184,6 +186,10 @@ class RegistrationForm extends Component {
                     isDisabled={!this.allFieldsValid()}
                     handleClick={this.handleSubmit}
                 />
+
+                <InlineLoadingWrapper showLoadingGraphic={this.props.isLoading}>
+                    <ErrorMessage text={this.props.error} />
+                </InlineLoadingWrapper>
             </div>
         );
     }

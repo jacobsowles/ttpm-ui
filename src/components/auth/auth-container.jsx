@@ -31,7 +31,10 @@ class AuthContainer extends Component {
 
 AuthContainer.propTypes = {
     loginError: PropTypes.string.isRequired,
+    loginIsLoading: PropTypes.bool.isRequired,
     registrationError: PropTypes.string.isRequired,
+    registrationIsLoading: PropTypes.bool.isRequired,
+
     handleLogin: PropTypes.func.isRequired,
     handleRegistration: PropTypes.func.isRequired
 };
@@ -39,7 +42,9 @@ AuthContainer.propTypes = {
 function mapStateToProps(state) {
     return {
         loginError: state.login.error,
-        registrationError: state.registration.error
+        loginIsLoading: state.login.isLoading,
+        registrationError: state.registration.error,
+        registrationIsLoading: state.registration.isLoading
     };
 }
 

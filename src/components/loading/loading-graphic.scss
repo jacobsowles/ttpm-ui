@@ -1,0 +1,16 @@
+.loading-graphic {
+    background: url('/assets/images/spinner.gif');
+    background-position: center;
+    background-size: 20px;
+    background-repeat: no-repeat;
+    height: 20px;
+    width: 100%;
+    margin-top: 10px;
+
+    &.inline {
+        display: inline-block;
+        width: 20px;
+        vertical-align: middle;
+        margin-top: 0;
+    }
+}

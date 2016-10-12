@@ -5,7 +5,7 @@ import moment from 'moment';
 
 // components
 import Analytics from './analytics/analytics';
-import LoadingWrapper from '~/loading-wrapper';
+import LoadingWrapper from '~/loading/loading-wrapper';
 import TaskListView from './views/task-list-view/task-list-view';
 
 // actions

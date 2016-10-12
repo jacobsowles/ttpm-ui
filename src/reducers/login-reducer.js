@@ -1,15 +1,16 @@
 import { saveAuthentication } from '@/utils/auth';
 
 const initialState = {
-    error: ''
+    error: '',
+    isLoading: false
 };
 
 export default function reducer(state = initialState, action) {
     switch (action.type) {
         case 'LOGIN_PENDING': {
             state = {
-                ...state,
-                error: ''
+                error: '',
+                isLoading: true
             };
             break;
         }
@@ -18,16 +19,16 @@ export default function reducer(state = initialState, action) {
             saveAuthentication(action.payload['userName'], action.payload['access_token']);
 
             state = {
-                ...state,
-                error: ''
+                error: '',
+                isLoading: false
             };
             break;
         }
 
         case 'LOGIN_REJECTED': {
             state = {
-                ...state,
-                error: 'Login failed.'
+                error: 'Login failed.',
+                isLoading: false
             };
             break;
         }
