@@ -5,14 +5,22 @@ class Alert extends Component {
 
     render() {
         return (
-            <div className={`alert ${this.props.className}`}>
-                <strong>{this.props.label}</strong> {this.props.text}
+            <div>
+            {
+                this.props.label == '' && this.props.text == ''
+                    ? null
+                    : (
+                        <div className={`alert ${this.props.className}`}>
+                            <strong>{this.props.label}</strong> {this.props.text}
+                        </div>
+                    )
+            }
             </div>
         );
     }
 }
 
-Alert.PropTypes = {
+Alert.propTypes = {
     label: PropTypes.string,
     text: PropTypes.string.isRequired,
     className: PropTypes.string
