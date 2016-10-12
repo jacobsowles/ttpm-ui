@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import Button from '~/buttons/button';
-import ErrorMessage from '~/alerts/error-message';
+import ErrorMessage from '~/messages/error-message';
 
 require('./login-form.scss');
 

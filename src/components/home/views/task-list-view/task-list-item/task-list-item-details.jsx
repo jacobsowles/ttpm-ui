@@ -1,9 +1,8 @@
-// npm modules
 import React, { Component, PropTypes } from 'react';
 
-// components
 import DeleteButton from '~/buttons/delete-button';
 import FormGroup from '~/forms/form-group';
+import Message from '~/messages/message';
 import TextArea from '~/fields/text-area';
 
 class TaskListItemDetails extends Component {
@@ -47,8 +46,11 @@ class TaskListItemDetails extends Component {
                     handleClick={this.props.handleDelete}
                 />
 
-                <span className="task-details-message hidden" id={`task-details-message-${this.props.taskId}`}>
-                </span>
+                <Message
+                    id={`task-details-message-${this.props.taskId}`}
+                    className="task-details-message hidden"
+                    text="Task notes updated."
+                />
             </div>
         );
     }
