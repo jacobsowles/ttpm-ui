@@ -13,8 +13,11 @@ module.exports = {
     },
 
     getApiUrl() {
-        return window.location.href.toLowerCase().includes('localhost')
-            ? 'http://api.ttpm.com'
-            : 'http://pm-api.thetinytwo.com';
+        return (
+            window.location.href.toLowerCase().includes('localhost') &&
+            !window.location.href.includes(':8008')
+                ? 'http://api.ttpm.com'
+                : 'http://pm-api.thetinytwo.com'
+        );
     }
 };
