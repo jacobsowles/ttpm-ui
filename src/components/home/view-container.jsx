@@ -133,8 +133,8 @@ function filterTasks(tasks, taskGroups, filters) {
     switch (filters.date) {
         case date.TODAY: {
             tasks = tasks.filter(t =>
-                moment(t.PlannedDate).date() == moment().date() ||
-                moment(t.DueDate).date() == moment().date()
+                moment(t.PlannedDate).date() <= moment().date() ||
+                moment(t.DueDate).date() <= moment().date()
             );
             break;
         }
