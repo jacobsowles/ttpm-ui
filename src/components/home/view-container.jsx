@@ -42,7 +42,7 @@ class ViewContainer extends Component {
                     taskGroupName={this.props.taskGroupName}
                     isShowingOnlyCompleteTasks={this.props.filters.completion == completion.COMPLETE}
                     handleCompletionToggle={this.props.handleCompletionToggle}
-                    handleNewTask={(task) => this.props.handleNewTask(task, this.props.filters.taskGroupId)}
+                    handleNewTask={(task, newTaskInputField) => this.props.handleNewTask(task, this.props.filters.taskGroupId, newTaskInputField)}
                     handleTaskDelete={this.props.handleTaskDelete}
                     handleTaskSave={this.props.handleTaskSave}
                     updateDisplayOrder={this.props.updateDisplayOrder}
@@ -184,10 +184,12 @@ function mapDispatchToProps(dispatch) {
             dispatch(taskActions.fetchTasks());
         },
 
-        handleNewTask: function(task, taskGroupFilter) {
+        handleNewTask: function(task, taskGroupFilter, newTaskInputField) {
             task.TaskGroupId = taskGroupFilter > 0 ? taskGroupFilter : undefined;
             dispatch(taskActions.createTask(task)).then(() => {
-                dispatch(taskActions.fetchTasks());
+                dispatch(taskActions.fetchTasks()).then(() => {
+                    newTaskInputField.focus();
+                });
             });
         },
 
