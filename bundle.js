@@ -29251,7 +29251,8 @@
 	        ALL: 'ALL',
 	        TODAY: 'TODAY',
 	        TOMORROW: 'TOMORROW',
-	        DUE: 'DUE'
+	        DUE: 'DUE',
+	        UNPLANNED: 'UNPLANNED'
 	    }
 	};
 
@@ -45704,6 +45705,14 @@
 	            {
 	                tasks = tasks.filter(function (t) {
 	                    return (0, _moment2.default)(t.DueDate).date() <= (0, _moment2.default)().date();
+	                });
+	                break;
+	            }
+
+	        case _filterValues.date.UNPLANNED:
+	            {
+	                tasks = tasks.filter(function (t) {
+	                    return !t.PlannedDate;
 	                });
 	                break;
 	            }
@@ -72472,6 +72481,13 @@
 	                        isActive: this.props.activeFilter == _filterValues.date.DUE,
 	                        handleClick: function handleClick() {
 	                            return _this2.props.handleFilterChange(_filterValues.date.DUE);
+	                        }
+	                    }),
+	                    _react2.default.createElement(_navPill2.default, {
+	                        text: 'unplanned',
+	                        isActive: this.props.activeFilter == _filterValues.date.UNPLANNED,
+	                        handleClick: function handleClick() {
+	                            return _this2.props.handleFilterChange(_filterValues.date.UNPLANNED);
 	                        }
 	                    })
 	                )

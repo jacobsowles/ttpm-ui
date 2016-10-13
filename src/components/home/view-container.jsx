@@ -151,6 +151,11 @@ function filterTasks(tasks, taskGroups, filters) {
             tasks = tasks.filter(t => moment(t.DueDate).date() <= moment().date());
             break;
         }
+
+        case date.UNPLANNED: {
+            tasks = tasks.filter(t => !t.PlannedDate);
+            break;
+        }
     }
 
     return tasks;

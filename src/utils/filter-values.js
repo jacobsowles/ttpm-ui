@@ -9,6 +9,7 @@ module.exports = {
         ALL: 'ALL',
         TODAY: 'TODAY',
         TOMORROW: 'TOMORROW',
-        DUE: 'DUE'
+        DUE: 'DUE',
+        UNPLANNED: 'UNPLANNED'
     }
 };
