@@ -9,7 +9,7 @@
     "bundle-dev": "webpack --progress",
     "bundle-prod": "webpack --progress -p",
     "server": "python -m SimpleHTTPServer 8008",
-    "test": "jest",
+    "test": "jest || true",
     "watch": "webpack --progress --watch"
   },
   "repository": "https://github.com/jrsowles/tt-productivity-manager-ui",
