@@ -1,5 +1,5 @@
 test('groups data into an array of objects with date key and array of object values', () => {
-    const linq = require('@/utils/linq');
+    const groupBy = require('@/utils/linq').groupBy;
 
     const data = [
         {date: '1/1/2016', value: 1},
@@ -27,5 +27,5 @@ test('groups data into an array of objects with date key and array of object val
         }
     ];
 
-    expect(linq.groupBy(data, 'date')).toEqual(expectedResult);
+    expect(groupBy(data, 'date')).toEqual(expectedResult);
 });
