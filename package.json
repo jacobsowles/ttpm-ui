@@ -4,7 +4,7 @@
   "description": "The official productivity manager of the Tiny Two.",
   "main": "bundle.js",
   "scripts": {
-    "build-dev": "npm run bundle-dev",
+    "build-dev": "npm run test && npm run bundle-dev",
     "build-prod": "npm run test && npm run bundle-prod",
     "bundle-dev": "webpack --progress",
     "bundle-prod": "webpack --progress -p",
