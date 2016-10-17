@@ -6,8 +6,8 @@
   "scripts": {
     "build-dev": "npm run test && npm run bundle-dev",
     "build-prod": "npm run test && npm run bundle-prod",
-    "bundle-dev": "webpack --progress",
-    "bundle-prod": "webpack --progress -p",
+    "bundle-dev": "webpack --define process.env.NODE_ENV='\"development\"' --progress",
+    "bundle-prod": "webpack -p --define process.env.NODE_ENV='\"production\"' --progress",
     "server": "python -m SimpleHTTPServer 8008",
     "test": "BABEL_JEST_STAGE=0 jest || true",
     "watch": "webpack --progress --watch"
