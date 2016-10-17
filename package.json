@@ -9,7 +9,7 @@
     "bundle-dev": "webpack --progress",
     "bundle-prod": "webpack --progress -p",
     "server": "python -m SimpleHTTPServer 8008",
-    "test": "jest || true",
+    "test": "BABEL_JEST_STAGE=0 jest || true",
     "watch": "webpack --progress --watch"
   },
   "repository": "https://github.com/jrsowles/tt-productivity-manager-ui",
@@ -40,6 +40,7 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "html-webpack-plugin": "^2.22.0",
     "jest": "^16.0.1",
+    "jest-cli": "^16.0.1",
     "jsx-loader": "^0.13.2",
     "node-sass": "^3.8.0",
     "react-test-renderer": "^15.3.2",
@@ -75,7 +76,25 @@
     "superagent-auth-bearer": "0.0.1",
     "underscore": "^1.8.3"
   },
+  "babel": {
+    "plugins": [
+      ["babel-root-import", [{
+        "rootPathPrefix": "~",
+        "rootPathSuffix": "src/components"
+      }, {
+        "rootPathPrefix": "@",
+        "rootPathSuffix": "src"
+      }]]
+    ],
+    "presets": [
+		  "react",
+		  "es2015",
+      "stage-0"
+  	]
+  },
   "jest": {
-    "testRegex": "(/tests/.*|\\.tests)\\.(js|jsx)$"
+    "testRegex": "(/tests/.*|\\.tests)\\.(js|jsx)$",
+    "scriptPreprocessor": "./node_modules/babel-jest",
+    "moduleFileExtensions": ["js", "json", "es6"]
   }
 }
