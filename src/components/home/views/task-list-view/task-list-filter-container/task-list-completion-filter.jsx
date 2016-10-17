@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import NavPill from '~/navigation/nav-pills/nav-pill';
 import NavPillGroup from '~/navigation/nav-pills/nav-pill-group';
 
-import { completion } from '@/utils/filter-values';
+import { completion, date } from '@/utils/filter-values';
 
 class TaskListCompletionFilter extends Component {
 
@@ -12,17 +12,19 @@ class TaskListCompletionFilter extends Component {
                 <NavPillGroup>
                     <NavPill
                         text="all"
-                        isActive={this.props.activeFilter == completion.ALL}
+                        isActive={this.props.completionFilter == completion.ALL}
+                        isEnabled={this.props.dateFilter != date.TOMORROW}
                         handleClick={() => this.props.handleFilterChange(completion.ALL)}
                     />
                     <NavPill
                         text="complete"
-                        isActive={this.props.activeFilter == completion.COMPLETE}
+                        isActive={this.props.completionFilter == completion.COMPLETE}
+                        isEnabled={this.props.dateFilter != date.TOMORROW}
                         handleClick={() => this.props.handleFilterChange(completion.COMPLETE)}
                     />
                     <NavPill
                         text="incomplete"
-                        isActive={this.props.activeFilter == completion.INCOMPLETE}
+                        isActive={this.props.completionFilter == completion.INCOMPLETE}
                         handleClick={() => this.props.handleFilterChange(completion.INCOMPLETE)}
                     />
                 </NavPillGroup>
@@ -32,7 +34,8 @@ class TaskListCompletionFilter extends Component {
 }
 
 TaskListCompletionFilter.propTypes = {
-    activeFilter: PropTypes.string.isRequired,
+    completionFilter: PropTypes.string.isRequired,
+    dateFilter: PropTypes.string.isRequired,
     handleFilterChange: PropTypes.func.isRequired
 };
 

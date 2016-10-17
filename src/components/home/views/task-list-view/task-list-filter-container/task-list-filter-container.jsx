@@ -17,7 +17,8 @@ class TaskListFilterContainer extends Component {
         return (
             <TaskListFilterWrapper>
                 <TaskListCompletionFilter
-                    activeFilter={this.props.filters.completion}
+                    completionFilter={this.props.filters.completion}
+                    dateFilter={this.props.filters.date}
                     handleFilterChange={this.props.setCompletionFilter}
                 />
 

@@ -28,7 +28,8 @@ export default function reducer(state = initialState, action) {
         case 'SET_DATE_FILTER': {
             state = {
                 ...state,
-                date: action.payload
+                date: action.payload,
+                completion: action.payload == date.TOMORROW ? completion.INCOMPLETE : state.completion
             };
             break;
         }
