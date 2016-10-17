@@ -1,8 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import DateBox from '~/fields/date-box';
-import moment from 'moment';
-
-import { isBeforeOrSame } from '@/utils/datetime';
+import DateTime from '@/utils/datetime';
 
 require('./due-date-box.scss');
 
@@ -10,7 +8,7 @@ class DueDateBox extends Component {
 
     constructor(props) {
         super(props);
-        this.isDue = isBeforeOrSame(moment(props.value), moment());
+        this.isDue = DateTime.isBeforeOrSame(props.value, DateTime.today());
     }
 
     render() {

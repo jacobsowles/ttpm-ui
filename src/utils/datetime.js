@@ -1,27 +1,33 @@
 import moment from 'moment';
 
-module.exports = {
-    getMoment(date1) {
-        return moment.isMoment(date1) ? date1 : moment(date1, 'MM/DD/YYYY');
-    },
+const DateTime = class DateTime {};
 
-    isBefore(date1, date2) {
-        return this.getMoment(date1).isBefore(this.getMoment(date2), 'day');
-    },
-
-    isSame(date1, date2) {
-        return this.getMoment(date1).isSame(this.getMoment(date2), 'day');
-    },
-
-    isAfter(date1, date2) {
-        return this.getMoment(date1).isAfter(this.getMoment(date2), 'day');
-    },
-
-    isBeforeOrSame(date1, date2) {
-        return this.isBefore(date1, date2) || this.isSame(date1, date2);
-    },
-
-    isAfterOrSame(date1, date2) {
-        return this.isAfter(date1, date2) || this.isSame(date1, date2);
-    }
+DateTime.today = () => {
+    return moment();
 };
+
+DateTime.getMoment = (date1) => {
+    return moment.isMoment(date1) ? date1 : moment(date1);
+};
+
+DateTime.isBefore = (date1, date2) => {
+    return DateTime.getMoment(date1).isBefore(DateTime.getMoment(date2), 'day');
+};
+
+DateTime.isSame = (date1, date2) => {
+    return DateTime.getMoment(date1).isSame(DateTime.getMoment(date2), 'day');
+};
+
+DateTime.isAfter = (date1, date2) => {
+    return DateTime.getMoment(date1).isAfter(DateTime.getMoment(date2), 'day');
+};
+
+DateTime.isBeforeOrSame = (date1, date2) => {
+    return DateTime.isBefore(date1, date2) || DateTime.isSame(date1, date2);
+};
+
+DateTime.isAfterOrSame = (date1, date2) => {
+    return DateTime.isAfter(date1, date2) || DateTime.isSame(date1, date2);
+};
+
+export default DateTime;
