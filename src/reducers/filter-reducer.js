@@ -1,9 +1,10 @@
-import { completion, date } from '@/utils/filter-values';
+import { completion, date, status } from '@/utils/filter-values';
 
 const initialState = {
     taskGroupId: 0,
     completion: completion.ALL,
     date: date.ALL,
+    status: status.ALL,
     displayOrders: []
 };
 
@@ -30,6 +31,15 @@ export default function reducer(state = initialState, action) {
                 ...state,
                 date: action.payload,
                 completion: action.payload == date.TOMORROW ? completion.INCOMPLETE : state.completion
+            };
+            break;
+        }
+
+        case 'SET_STATUS_FILTER': {
+            state = {
+                ...state,
+                status: action.payload,
+                completion: action.payload == status.BLOCKED ? completion.INCOMPLETE : state.completion
             };
             break;
         }

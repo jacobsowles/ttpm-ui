@@ -22,6 +22,13 @@ module.exports = {
         };
     },
 
+    setStatusFilter(filter) {
+        return {
+            type: 'SET_STATUS_FILTER',
+            payload: filter
+        };
+    },
+
     fetchTaskGroupDisplayOrder(taskGroupId) {
         return {
             type: 'FETCH_TASK_GROUP_DISPLAY_ORDER',

@@ -12,7 +12,7 @@ import TaskListView from './views/task-list-view/task-list-view';
 import taskActions from '@/actions/task-actions';
 
 // util
-import { completion, date } from '@/utils/filter-values';
+import { completion, date, status } from '@/utils/filter-values';
 
 class ViewContainer extends Component {
 
@@ -154,6 +154,19 @@ function filterTasks(tasks, taskGroups, filters) {
 
         case date.UNPLANNED: {
             tasks = tasks.filter(t => !t.PlannedDate);
+            break;
+        }
+    }
+
+    // filter by status
+    switch (filters.status) {
+        case (status.BLOCKED): {
+            tasks = tasks.filter(t => t.Name.toLowerCase().includes('blocked'));
+            break;
+        }
+
+        case (status.DELEGATED): {
+            tasks = tasks.filter(t => t.Name.toLowerCase().includes('delegated'));
             break;
         }
     }

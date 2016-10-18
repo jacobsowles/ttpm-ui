@@ -7,6 +7,7 @@ import FilterIndicator from './task-list-group-filter-indicator';
 import TaskListCompletionFilter from './task-list-completion-filter';
 import TaskListDateFilter from './task-list-date-filter';
 import TaskListFilterWrapper from './task-list-filter-wrapper';
+import TaskListStatusFilter from './task-list-status-filter';
 
 // actions
 import filterActions from '@/actions/filter-actions';
@@ -19,12 +20,19 @@ class TaskListFilterContainer extends Component {
                 <TaskListCompletionFilter
                     completionFilter={this.props.filters.completion}
                     dateFilter={this.props.filters.date}
+                    statusFilter={this.props.filters.status}
                     handleFilterChange={this.props.setCompletionFilter}
                 />
 
                 <TaskListDateFilter
                     activeFilter={this.props.filters.date}
                     handleFilterChange={this.props.setDateFilter}
+                />
+
+                <TaskListStatusFilter
+                    completionFilter={this.props.filters.completion}
+                    statusFilter={this.props.filters.status}
+                    handleFilterChange={this.props.setStatusFilter}
                 />
 
                 <FilterIndicator
@@ -55,6 +63,10 @@ function mapDispatchToProps(dispatch) {
 
         setDateFilter: function(filter) {
             dispatch(filterActions.setDateFilter(filter));
+        },
+
+        setStatusFilter: function(filter) {
+            dispatch(filterActions.setStatusFilter(filter));
         },
 
         clearTaskGroupFilter: function() {

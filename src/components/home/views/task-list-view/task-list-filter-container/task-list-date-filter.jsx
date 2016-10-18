@@ -8,7 +8,7 @@ class TaskListDateFilter extends Component {
 
     render() {
         return (
-            <div className="task-list-date-filter">
+            <div className="filter task-list-date-filter">
                 <NavPillGroup>
                     <NavPill
                         text="all"
