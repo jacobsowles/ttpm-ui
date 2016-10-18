@@ -48,6 +48,10 @@ module.exports = {
                 test: /\.scss$/,
                 loaders: ['style', 'css', 'sass'],
                 include: path.join(__dirname, 'src')
+            },
+            {
+                test: /.(jpe?g|gif|png)$/,
+                loader: 'file-loader?emitFile=false&name=[path][name].[ext]'
             }
         ]
     }

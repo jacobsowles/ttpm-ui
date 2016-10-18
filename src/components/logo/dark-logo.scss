@@ -1,0 +1,21 @@
+.logo.dark {
+    a {
+        color: #242424;
+        margin-left: 35px;
+    }
+
+    a:hover {
+        color: #000000;
+        text-decoration: none;
+    }
+
+    #logo {
+        background-image: url("../../../assets/images/tt-dark.png");
+        background-size: cover;
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        top: 6px;
+        left: 10px;
+    }
+}

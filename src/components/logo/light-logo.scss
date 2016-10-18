@@ -1,7 +1,21 @@
 .logo.light {
-    color: #dbdbdb;
+    a {
+        color: #dbdbdb;
+        margin-left: 35px;
+    }
 
-    &:hover {
+    #logo {
+        background-image: url("../../../assets/images/tt-light.png");
+        background-size: cover;
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        top: 6px;
+        left: 10px;
+    }
+
+    a:hover {
         color: #ffffff;
+        text-decoration: none;
     }
 }
