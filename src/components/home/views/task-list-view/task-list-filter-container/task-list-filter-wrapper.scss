@@ -1,12 +1,12 @@
 .task-list-filter-wrapper {
     margin-bottom: 4px;
 
-    .task-list-completion-filter,
-    .task-list-date-filter {
+    .filter {
         display: inline-block;
-    }
-
-    .task-list-date-filter {
         margin-left: 60px;
+
+        &:first-child {
+            margin-left: 0;
+        }
     }
 }

@@ -12,7 +12,7 @@ import TaskListView from './views/task-list-view/task-list-view';
 import taskActions from '@/actions/task-actions';
 
 // util
-import { completion, date } from '@/utils/filter-values';
+import { completion, date, status } from '@/utils/filter-values';
 
 class ViewContainer extends Component {
 
@@ -42,7 +42,7 @@ class ViewContainer extends Component {
                     taskGroupName={this.props.taskGroupName}
                     isShowingOnlyCompleteTasks={this.props.filters.completion == completion.COMPLETE}
                     handleCompletionToggle={this.props.handleCompletionToggle}
-                    handleNewTask={(task) => this.props.handleNewTask(task, this.props.filters.taskGroupId)}
+                    handleNewTask={(task, newTaskInputField) => this.props.handleNewTask(task, this.props.filters.taskGroupId, newTaskInputField)}
                     handleTaskDelete={this.props.handleTaskDelete}
                     handleTaskSave={this.props.handleTaskSave}
                     updateDisplayOrder={this.props.updateDisplayOrder}
@@ -158,6 +158,19 @@ function filterTasks(tasks, taskGroups, filters) {
         }
     }
 
+    // filter by status
+    switch (filters.status) {
+        case (status.BLOCKED): {
+            tasks = tasks.filter(t => t.Name.toLowerCase().includes('blocked'));
+            break;
+        }
+
+        case (status.DELEGATED): {
+            tasks = tasks.filter(t => t.Name.toLowerCase().includes('delegated'));
+            break;
+        }
+    }
+
     return tasks;
 }
 
@@ -184,10 +197,12 @@ function mapDispatchToProps(dispatch) {
             dispatch(taskActions.fetchTasks());
         },
 
-        handleNewTask: function(task, taskGroupFilter) {
+        handleNewTask: function(task, taskGroupFilter, newTaskInputField) {
             task.TaskGroupId = taskGroupFilter > 0 ? taskGroupFilter : undefined;
             dispatch(taskActions.createTask(task)).then(() => {
-                dispatch(taskActions.fetchTasks());
+                dispatch(taskActions.fetchTasks()).then(() => {
+                    newTaskInputField.focus();
+                });
             });
         },
 

@@ -8,7 +8,11 @@ class NavPill extends Component {
                 role="presentation"
                 className={this.props.isActive ? 'active' : ''}
             >
-                <a onClick={this.props.handleClick}>{this.props.text}</a>
+                {
+                    this.props.isEnabled
+                        ? <a onClick={this.props.handleClick}>{this.props.text}</a>
+                        : <p>{this.props.text}</p>
+                }
             </li>
         );
     }
@@ -17,7 +21,12 @@ class NavPill extends Component {
 NavPill.propTypes = {
     text: PropTypes.string.isRequired,
     isActive: PropTypes.bool.isRequired,
+    isEnabled: PropTypes.bool,
     handleClick: PropTypes.func.isRequired
+};
+
+NavPill.defaultProps = {
+    isEnabled: true
 };
 
 export default NavPill;

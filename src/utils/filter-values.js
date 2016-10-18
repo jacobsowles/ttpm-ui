@@ -11,5 +11,11 @@ module.exports = {
         TOMORROW: 'TOMORROW',
         DUE: 'DUE',
         UNPLANNED: 'UNPLANNED'
+    },
+
+    status: {
+        ALL: 'ALL',
+        BLOCKED: 'BLOCKED',
+        DELEGATED: 'DELEGATED'
     }
 };

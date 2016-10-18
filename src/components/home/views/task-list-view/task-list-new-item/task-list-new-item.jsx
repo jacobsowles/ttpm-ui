@@ -14,7 +14,7 @@ class TaskListNewItem extends Component {
         if (event.target.value != '') {
             this.props.handleNewTask({
                 Name: event.target.value
-            });
+            }, event.target);
         }
     }
 
