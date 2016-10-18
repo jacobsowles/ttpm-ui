@@ -2,23 +2,12 @@
 import React from 'React';
 
 // styles
-const styles = {
-    header: {
-        background: '#ffffff',
-        borderBottom: '1px solid #e0e0e0',
-        padding: '10px 15px',
-        marginBottom: '15px',
-        borderRadius: '0',
-        float: 'left',
-        width: '100%',
-        fontSize: '.9em'
-    }
-};
+require('./header.scss');
 
 class Header extends React.Component {
     render() {
         return (
-            <div className="header" style={styles.header}>
+            <div className="header">
                 {this.props.children}
             </div>
         );
