@@ -1,8 +1,10 @@
 .accordion-item {
     .toggle {
-        padding: 6px 0;
+        // padding: 6px 0;
         width: 13px;
         text-align: center;
+        position: relative;
+        top: -4px;
 
         &:hover {
             cursor: pointer;
@@ -12,5 +14,6 @@
     .accordion-header-content {
         display: inline-block;
         width: calc(100% - 13px);
+
     }
 }

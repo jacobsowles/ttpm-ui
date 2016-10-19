@@ -9,6 +9,7 @@ import TaskCompletion from './task-completion/task-completion.jsx';
 // styles
 require('./analytics.scss');
 
+// styles - controlled by state, to be refactored into className +/-
 const styles = {
     active: {
         display: 'inherit'
