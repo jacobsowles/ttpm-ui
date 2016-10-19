@@ -11,6 +11,12 @@
     }
 
     .group-filter-name {
+        display: inline-block;
+        width: calc(100% - 55px);
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+
         &:hover {
             cursor: pointer;
         }

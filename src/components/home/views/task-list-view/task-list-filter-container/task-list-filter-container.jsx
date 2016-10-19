@@ -17,16 +17,16 @@ class TaskListFilterContainer extends Component {
     render() {
         return (
             <TaskListFilterWrapper>
+                <TaskListDateFilter
+                    activeFilter={this.props.filters.date}
+                    handleFilterChange={this.props.setDateFilter}
+                    />
+
                 <TaskListCompletionFilter
                     completionFilter={this.props.filters.completion}
                     dateFilter={this.props.filters.date}
                     statusFilter={this.props.filters.status}
                     handleFilterChange={this.props.setCompletionFilter}
-                />
-
-                <TaskListDateFilter
-                    activeFilter={this.props.filters.date}
-                    handleFilterChange={this.props.setDateFilter}
                 />
 
                 <TaskListStatusFilter

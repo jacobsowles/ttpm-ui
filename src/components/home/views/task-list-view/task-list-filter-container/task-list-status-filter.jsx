@@ -9,25 +9,61 @@ class TaskListStatusFilter extends Component {
     render() {
         return (
             <div className="filter task-list-status-filter">
-                <NavPillGroup>
-                    <NavPill
-                        text="all"
-                        isActive={this.props.statusFilter == status.ALL}
-                        handleClick={() => this.props.handleFilterChange(status.ALL)}
-                    />
-                    <NavPill
-                        text="blocked"
-                        isActive={this.props.statusFilter == status.BLOCKED}
-                        isEnabled={this.props.completionFilter != completion.COMPLETE}
-                        handleClick={() => this.props.handleFilterChange(status.BLOCKED)}
-                    />
-                    <NavPill
-                        text="delegated"
-                        isActive={this.props.statusFilter == status.DELEGATED}
-                        handleClick={() => this.props.handleFilterChange(status.DELEGATED)}
-                    />
-                </NavPillGroup>
+                <div className="btn-group btn-group-justified" role="group">
+                    <div className="btn-group" role="group">
+                        <button
+                            type="button"
+                            className="btn btn-default"
+                            isActive={this.props.statusFilter == status.ALL}
+                            handleClick={() => this.props.handleFilterChange(status.ALL)}
+                            >
+                            all
+                        </button>
+                    </div>
+
+                    <div className="btn-group" role="group">
+                        <button
+                            type="button"
+                            className="btn btn-default"
+                            isActive={this.props.statusFilter == status.BLOCKED}
+                            isEnabled={this.props.completionFilter != completion.COMPLETE}
+                            handleClick={() => this.props.handleFilterChange(status.BLOCKED)}
+                            >
+                            blocked
+                        </button>
+                    </div>
+
+                    <div className="btn-group" role="group">
+                        <button
+                            type="button"
+                            className="btn btn-default"
+                            isActive={this.props.statusFilter == status.DELEGATED}
+                            handleClick={() => this.props.handleFilterChange(status.DELEGATED)}
+                            >
+                            delegated
+                        </button>
+                    </div>
+                </div>
             </div>
+
+            //     <NavPillGroup>
+            //         <NavPill
+            //             text="all"
+            //             isActive={this.props.statusFilter == status.ALL}
+            //             handleClick={() => this.props.handleFilterChange(status.ALL)}
+            //         />
+            //         <NavPill
+            //             text="blocked"
+            //             isActive={this.props.statusFilter == status.BLOCKED}
+            //             isEnabled={this.props.completionFilter != completion.COMPLETE}
+            //             handleClick={() => this.props.handleFilterChange(status.BLOCKED)}
+            //         />
+            //         <NavPill
+            //             text="delegated"
+            //             isActive={this.props.statusFilter == status.DELEGATED}
+            //             handleClick={() => this.props.handleFilterChange(status.DELEGATED)}
+            //         />
+            //     </NavPillGroup>
         );
     }
 }

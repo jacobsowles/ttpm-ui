@@ -49,7 +49,7 @@ class Analytics extends React.Component {
                     )
                     : (
                         <div className="row">
-                            <div className="col-xs-3 no-horizontal-padding">
+                            <div className="col-xs-12 no-horizontal-padding">
                                 <Module
                                     id="completion-module"
                                     type="analytics"

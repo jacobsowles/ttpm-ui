@@ -11,31 +11,29 @@ class TaskListView extends Component {
     render() {
         return (
             <div className="row">
-                <div className="col-xs-12">
-                    <div className="task-list-view">
-                        <TaskListFilterContainer taskGroupName={this.props.taskGroupName} />
+                <div className="col-xs-12 task-list-view">
+                    <TaskListFilterContainer taskGroupName={this.props.taskGroupName} />
 
-                        {
-                            this.props.tasks.length == 0
-                                ? (
-                                    <EmptyTaskList
-                                        isShowingOnlyCompleteTasks={this.props.isShowingOnlyCompleteTasks}
-                                        handleNewTask={this.props.handleNewTask}
-                                    />
-                                )
-                                : (
+                    {
+                        this.props.tasks.length == 0
+                            ? (
+                                <EmptyTaskList
+                                    isShowingOnlyCompleteTasks={this.props.isShowingOnlyCompleteTasks}
+                                    handleNewTask={this.props.handleNewTask}
+                                />
+                            )
+                            : (
 
-                                    <TaskList
-                                        tasks={this.props.tasks}
-                                        handleCompletionToggle={this.props.handleCompletionToggle}
-                                        handleNewTask={this.props.handleNewTask}
-                                        handleTaskDelete={this.props.handleTaskDelete}
-                                        handleTaskSave={this.props.handleTaskSave}
-                                        updateDisplayOrder={this.props.updateDisplayOrder}
-                                    />
-                                )
-                        }
-                    </div>
+                                <TaskList
+                                    tasks={this.props.tasks}
+                                    handleCompletionToggle={this.props.handleCompletionToggle}
+                                    handleNewTask={this.props.handleNewTask}
+                                    handleTaskDelete={this.props.handleTaskDelete}
+                                    handleTaskSave={this.props.handleTaskSave}
+                                    updateDisplayOrder={this.props.updateDisplayOrder}
+                                />
+                            )
+                    }
                 </div>
             </div>
         );

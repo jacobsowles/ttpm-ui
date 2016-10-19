@@ -10,6 +10,8 @@ body {
     color: #373737;
     font-family: 'Open Sans', Arial, sans-serif;
     background: #F5F3F2;
+    width: 100%;
+    min-width: 250px;
 }
 
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */

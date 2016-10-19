@@ -9,26 +9,63 @@ class TaskListCompletionFilter extends Component {
     render() {
         return (
             <div className="filter task-list-completion-filter">
-                <NavPillGroup>
-                    <NavPill
-                        text="all"
-                        isActive={this.props.completionFilter == completion.ALL}
-                        isEnabled={this.props.dateFilter != date.TOMORROW && this.props.statusFilter != status.BLOCKED}
-                        handleClick={() => this.props.handleFilterChange(completion.ALL)}
-                    />
-                    <NavPill
-                        text="complete"
-                        isActive={this.props.completionFilter == completion.COMPLETE}
-                        isEnabled={this.props.dateFilter != date.TOMORROW && this.props.statusFilter != status.BLOCKED}
-                        handleClick={() => this.props.handleFilterChange(completion.COMPLETE)}
-                    />
-                    <NavPill
-                        text="incomplete"
-                        isActive={this.props.completionFilter == completion.INCOMPLETE}
-                        handleClick={() => this.props.handleFilterChange(completion.INCOMPLETE)}
-                    />
-                </NavPillGroup>
+                <div className="btn-group btn-group-justified" role="group">
+                    <div className="btn-group" role="group">
+                        <button
+                            type="button"
+                            className="btn btn-default"
+                            isActive={this.props.completionFilter == completion.ALL}
+                            isEnabled={this.props.dateFilter != date.TOMORROW && this.props.statusFilter != status.BLOCKED}
+                            handleClick={() => this.props.handleFilterChange(completion.ALL)}
+                        >
+                        all
+                        </button>
+                    </div>
+
+                    <div className="btn-group" role="group">
+                        <button
+                            type="button"
+                            className="btn btn-default"
+                            isActive={this.props.completionFilter == completion.COMPLETE}
+                            isEnabled={this.props.dateFilter != date.TOMORROW && this.props.statusFilter != status.BLOCKED}
+                            handleClick={() => this.props.handleFilterChange(completion.COMPLETE)}
+                        >
+                        complete
+                        </button>
+                    </div>
+
+                    <div className="btn-group" role="group">
+                        <button
+                            type="button"
+                            className="btn btn-default"
+                            isActive={this.props.completionFilter == completion.INCOMPLETE}
+                            handleClick={() => this.props.handleFilterChange(completion.INCOMPLETE)}
+                        >
+                        incomplete
+                        </button>
+                    </div>
+                </div>
             </div>
+
+            //     <NavPillGroup>
+            //         <NavPill
+            //             text="all"
+            //             isActive={this.props.completionFilter == completion.ALL}
+            //             isEnabled={this.props.dateFilter != date.TOMORROW && this.props.statusFilter != status.BLOCKED}
+            //             handleClick={() => this.props.handleFilterChange(completion.ALL)}
+            //         />
+            //         <NavPill
+            //             text="complete"
+            //             isActive={this.props.completionFilter == completion.COMPLETE}
+            //             isEnabled={this.props.dateFilter != date.TOMORROW && this.props.statusFilter != status.BLOCKED}
+            //             handleClick={() => this.props.handleFilterChange(completion.COMPLETE)}
+            //         />
+            //         <NavPill
+            //             text="incomplete"
+            //             isActive={this.props.completionFilter == completion.INCOMPLETE}
+            //             handleClick={() => this.props.handleFilterChange(completion.INCOMPLETE)}
+            //         />
+            //     </NavPillGroup>
         );
     }
 }
