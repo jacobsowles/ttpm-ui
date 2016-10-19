@@ -15,7 +15,7 @@ class Logo extends Component {
                     href="/"
                     title="Home"
                 >
-                Productivity Manager
+                &ensp;Productivity Manager
                 </a>
             </div>
         );

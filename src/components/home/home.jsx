@@ -29,25 +29,16 @@ class Home extends React.Component {
     render() {
         return (
             <div className="row">
-                <Sidebar>
-                    <Module type="sidebar">
-                        <LightLogo />
-                    </Module>
+                <Header>
+                    <LightLogo />
+                    <UserControls />
+                </Header>
 
-                    <Module
-                        type="sidebar"
-                        title="Groups"
-                        iconClass="fa fa-folder-open-o"
-                    >
-                        <GroupFilterContainer />
-                    </Module>
+                <Sidebar>
+                    <GroupFilterContainer />
                 </Sidebar>
 
                 <Content>
-                    <Header>
-                        <TaskSearch />
-                        <UserControls />
-                    </Header>
                     <ViewContainer defaultShowAnalytics={this.props.defaultShowAnalytics} />
                 </Content>
             </div>

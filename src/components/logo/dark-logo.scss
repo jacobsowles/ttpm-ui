@@ -1,7 +1,10 @@
 .logo.dark {
+    text-align: center;
+    line-height: 4em;
+    vertical-align: middle;
+
     a {
         color: #242424;
-        margin-left: 35px;
     }
 
     a:hover {
@@ -12,10 +15,10 @@
     #logo {
         background-image: url("../../../assets/images/tt-dark.png");
         background-size: cover;
-        position: absolute;
+        position: relative;
         width: 25px;
         height: 25px;
-        top: 6px;
-        left: 10px;
+        top: 8px;
+        display: inline-block;
     }
 }

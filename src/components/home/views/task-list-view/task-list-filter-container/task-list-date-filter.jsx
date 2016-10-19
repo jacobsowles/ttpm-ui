@@ -26,11 +26,6 @@ class TaskListDateFilter extends Component {
                         handleClick={() => this.props.handleFilterChange(date.TOMORROW)}
                     />
                     <NavPill
-                        text="due"
-                        isActive={this.props.activeFilter == date.DUE}
-                        handleClick={() => this.props.handleFilterChange(date.DUE)}
-                    />
-                    <NavPill
                         text="unplanned"
                         isActive={this.props.activeFilter == date.UNPLANNED}
                         handleClick={() => this.props.handleFilterChange(date.UNPLANNED)}

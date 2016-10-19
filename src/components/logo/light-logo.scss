@@ -1,21 +1,26 @@
 .logo.light {
+    text-align: center;
+    line-height: 4em;
+    vertical-align: middle;
+
     a {
         color: #dbdbdb;
-        margin-left: 35px;
-    }
-
-    #logo {
-        background-image: url("../../../assets/images/tt-light.png");
-        background-size: cover;
-        position: absolute;
-        width: 25px;
-        height: 25px;
-        top: 6px;
-        left: 10px;
     }
 
     a:hover {
         color: #ffffff;
         text-decoration: none;
     }
+
+    #logo {
+        background-image: url("../../../assets/images/tt-light.png");
+        background-size: cover;
+        position: relative;
+        width: 25px;
+        height: 25px;
+        top: 8px;
+        display: inline-block;
+    }
+
+
 }
