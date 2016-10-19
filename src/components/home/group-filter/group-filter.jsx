@@ -32,10 +32,11 @@ class GroupFilter extends Component {
                             taskGroupName={this.props.taskGroupName}
                             taskGroups={this.props.taskGroups}
                             handleAddTaskGroupClick={this.props.handleAddTaskGroupClick}
-                            handleTaskGroupClick={this.props.handleTaskGroupClick}
                             handleDeleteTaskGroupClick={this.props.handleDeleteTaskGroupClick}
-                            handleTaskGroupSave={this.props.handleTaskGroupSave}
                             handleSubmit={this.props.handleAddTaskGroupClick}
+                            handleTaskGroupClick={this.props.handleTaskGroupClick}
+                            handleTaskGroupOrderChange={this.props.handleTaskGroupOrderChange}
+                            handleTaskGroupSave={this.props.handleTaskGroupSave}
                         />
                     )}
                 />
@@ -49,9 +50,10 @@ GroupFilter.propTypes = {
     taskGroupName: PropTypes.string.isRequired,
     taskGroups: PropTypes.arrayOf(React.PropTypes.object).isRequired,
 
-    handleTaskGroupClick: PropTypes.func.isRequired,
     handleAddTaskGroupClick: PropTypes.func.isRequired,
     handleDeleteTaskGroupClick: PropTypes.func.isRequired,
+    handleTaskGroupClick: PropTypes.func.isRequired,
+    handleTaskGroupOrderChange: PropTypes.func.isRequired,
     handleTaskGroupSave: PropTypes.func.isRequired
 };
 

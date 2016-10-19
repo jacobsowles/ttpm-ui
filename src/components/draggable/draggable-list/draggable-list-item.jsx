@@ -91,7 +91,6 @@ class DraggableListItem extends Component {
 }
 
 DraggableListItem.propTypes = {
-    children: PropTypes.object.isRequired,
     connectDragSource: PropTypes.func.isRequired,
     connectDropTarget: PropTypes.func.isRequired,
     index: PropTypes.number.isRequired,

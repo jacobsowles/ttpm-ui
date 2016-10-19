@@ -37,9 +37,10 @@ class GroupFilterContainer extends Component {
             <LoadingWrapper showLoadingGraphic={this.state.isLoading}>
                 <GroupFilterList
                     taskGroups={this.props.taskGroups}
-                    handleTaskGroupClick={this.props.handleTaskGroupClick}
                     handleAddTaskGroupClick={this.props.handleAddTaskGroupClick}
                     handleDeleteTaskGroupClick={this.props.handleDeleteTaskGroupClick}
+                    handleTaskGroupClick={this.props.handleTaskGroupClick}
+                    handleTaskGroupOrderChange={this.props.handleTaskGroupOrderChange}
                     handleTaskGroupSave={this.props.handleTaskGroupSave}
                 />
             </LoadingWrapper>
@@ -51,9 +52,10 @@ GroupFilterContainer.propTypes = {
     taskGroups: PropTypes.arrayOf(React.PropTypes.object).isRequired,
 
     fetchTaskGroups: PropTypes.func.isRequired,
-    handleTaskGroupClick: PropTypes.func.isRequired,
     handleAddTaskGroupClick: PropTypes.func.isRequired,
     handleDeleteTaskGroupClick: PropTypes.func.isRequired,
+    handleTaskGroupClick: PropTypes.func.isRequired,
+    handleTaskGroupOrderChange: PropTypes.func.isRequired,
     handleTaskGroupSave: PropTypes.func.isRequired
 };
 
@@ -67,11 +69,6 @@ function mapDispatchToProps(dispatch) {
     return {
         fetchTaskGroups: function() {
             dispatch(taskGroupActions.fetchTaskGroups());
-        },
-
-        handleTaskGroupClick: function(taskGroupId) {
-            dispatch(filterActions.setTaskGroupFilter(taskGroupId));
-            dispatch(filterActions.fetchTaskGroupDisplayOrder(taskGroupId));
         },
 
         handleAddTaskGroupClick: function(taskGroupId, event) {
@@ -89,6 +86,16 @@ function mapDispatchToProps(dispatch) {
                     dispatch(taskActions.fetchTasks());
                 });
             });
+        },
+
+        handleTaskGroupClick: function(taskGroupId) {
+            dispatch(filterActions.setTaskGroupFilter(taskGroupId));
+            dispatch(filterActions.fetchTaskGroupDisplayOrder(taskGroupId));
+        },
+
+        handleTaskGroupOrderChange: function(dragIndex, dropIndex) {
+            console.log('dragIndex: ', dragIndex);
+            console.log('dropIndex: ', dropIndex);
         },
 
         handleTaskGroupSave: function(taskGroupId, taskGroup) {
