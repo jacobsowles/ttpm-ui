@@ -1,15 +1,17 @@
+@import '../../../../variables';
+
 .sidebar {
     // position: fixed;
     // top: 0;
     // left: 0;
     // height: 100vh;
-    background: #3C393F;
-    color: #dbdbdb;
+    background: $tt-greydk;
+    color: $tt-white;
     // float: left;
     // overflow-y: auto;
     // width: 275px;
     font-size: .9em;
-    border-top: 5px solid #5E804D;
+    border-top: 5px solid $tt-green;
 
     .logo {
         padding: 11px 10px;
@@ -27,7 +29,7 @@
 
     .task-group-view-edit-toggle-field {
         padding: 10px 10px 10px 13px;
-        color: #888888;
+        color: $tt-greymd;
 
         &:hover {
             color: inherit;

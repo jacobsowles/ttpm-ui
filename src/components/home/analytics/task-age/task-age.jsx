@@ -2,6 +2,7 @@
 import React from 'React';
 
 // styles
+require('../../../../variables.scss');
 require('./task-age.scss');
 
 class TaskAge extends React.Component {
@@ -17,11 +18,11 @@ class TaskAge extends React.Component {
                     <tbody>
                         <tr>
                             <td>Some elder task</td>
-                            <td style={{textAlign: 'right', color: '#cc2320'}}>2w 4d</td>
+                            <td style={{textAlign: 'right', color: '$err-text'}}>2w 4d</td>
                         </tr>
                         <tr>
                             <td>Some aging task</td>
-                            <td style={{textAlign: 'right', color: '#d8854e'}}>1w 2d</td>
+                            <td style={{textAlign: 'right', color: '$warn-text'}}>1w 2d</td>
                         </tr>
                         <tr>
                             <td>Some fledgling task</td>

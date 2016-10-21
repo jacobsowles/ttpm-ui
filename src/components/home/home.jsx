@@ -8,12 +8,10 @@ import HTML5Backend from 'react-dnd-html5-backend';
 import Content from './layout/content/content';
 import GroupFilterContainer from './group-filter/group-filter-container';
 import Header from './layout/header/header';
-import LightLogo from '~/logo/light-logo';
 import Module from '~/module/module';
 import Sidebar from './layout/sidebar/sidebar';
 import ViewContainer from './view-container';
 import TaskSearch from './task-search/task-search';
-import UserControls from './user-controls/user-controls';
 
 // actions
 import settingActions from '@/actions/setting-actions';
@@ -29,10 +27,7 @@ class Home extends React.Component {
     render() {
         return (
             <div className="row">
-                <Header>
-                    <LightLogo />
-                    <UserControls />
-                </Header>
+                <Header />
 
                 <Sidebar>
                     <GroupFilterContainer />

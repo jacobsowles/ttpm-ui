@@ -1,3 +1,5 @@
+@import '../../../variables';
+
 .module-header {
     i {
         margin-right: 10px;
@@ -17,24 +19,24 @@
 }
 
 .sidebar-module-header {
-    background: #5e804d;
+    background: $tt-green;
     padding: 10px;
-    color: #ffffff;
+    color: $tt-white;
 
     a {
-        color: #ffffff;
+        color: $tt-white;
         text-decoration: none;
         padding: 2px 6px;
 
         :hover {
-            background-color: #476039;
+            background-color: $tt-greendk;
             text-decoration: none;
         }
-    }    
+    }
 }
 
 .analytics-module-header {
     padding: 10px 15px;
-    background: #636066;
-    color: #dbdbdb;
+    background: $tt-greymd;
+    color: $tt-white;
 }

@@ -1,17 +1,46 @@
 @import "../assets/stylesheets/bootstrap-sass/assets/stylesheets/_bootstrap-compass.scss";
 @import "../assets/stylesheets/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 @import "../assets/stylesheets/animate.css";
+@import './variables';
 
 * {
     box-sizing: border-box;
 }
 
 body {
-    color: #373737;
+    color: $tt-greydk;
     font-family: 'Open Sans', Arial, sans-serif;
-    background: #F5F3F2;
+    background: $tt-white;
     width: 100%;
     min-width: 250px;
+}
+
+h1 {
+
+}
+
+h2 {
+
+}
+
+h3 {
+
+}
+
+h4 {
+
+}
+
+h5 {
+
+}
+
+h6 {
+
+}
+
+p {
+    font-weight: 300;
 }
 
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
@@ -31,10 +60,10 @@ body {
 }
 
 a {
-    color: #7da468;
+    color: $tt-green;
 
     &:hover {
-        color: #7da468;
+        color: $tt-greenlt;
         cursor: pointer !important;
     }
 }
@@ -54,7 +83,7 @@ input[type=text] {
 .nav-pills > li.active > a,
 .nav-pills > li.active > a:hover,
 .nav-pills > li.active > a:focus {
-    background-color: #5e804d;
+    background-color: $tt-greenlt;
 }
 
 .nav {
@@ -66,7 +95,7 @@ input[type=text] {
         }
 
         p {
-            color: #b5b5b5;
+            color: $tt-greylt;
         }
     }
 }

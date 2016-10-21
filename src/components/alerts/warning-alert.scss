@@ -1,7 +1,9 @@
+@import '../../variables';
+
 #root {
     .warning-alert {
-        color: #c09853;
-        background-color: #fcf8e3;
-        border: 1px solid #fbeed5;
+        color: $warn-text;
+        background-color: $warn-bground;
+        border: 1px solid $warn-border;
     }
 }

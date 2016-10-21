@@ -1,3 +1,5 @@
+@import '../../../../../variables';
+
 .empty-task-list-new-item {
     margin: 40px 0 0 0;
     padding: 0;
@@ -15,22 +17,22 @@
 
         &::-moz-placeholder {
             font-style: normal;
-            color: #888888;
+            color: $tt-greymd;
         }
 
         &:-moz-placeholder {
             font-style: normal;
-            color: #888888;
+            color: $tt-greymd;
         }
 
         &::-webkit-input-placeholder {
             font-style: normal;
-            color: #888888;
+            color: $tt-greymd;
         }
-            
+
         &:-ms-input-placeholder {
             font-style: normal;
-            color: #888888;
+            color: $tt-greymd;
         }
     }
 }

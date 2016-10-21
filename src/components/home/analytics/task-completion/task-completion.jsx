@@ -4,6 +4,7 @@ import Chart from 'chart.js';
 
 // styles
 require('./task-completion.scss');
+require('../../../../variables.scss');
 
 class TaskCompletion extends React.Component {
 
@@ -52,7 +53,7 @@ class TaskCompletion extends React.Component {
                 datasets: [{
                     data: [this.props.completedTaskCount, this.props.totalTaskCount - this.props.completedTaskCount],
                     backgroundColor: [
-                        '#5e804d'
+                        '$tt-green'
                     ]
                 }]
             },

@@ -1,7 +1,8 @@
+@import '../../../variables';
+
 #analytics {
-    background: #d3d2d1;
-    // border-top: 1px solid #c4c4c4;
-    border-top: 5px solid #5E804D;
+    background: $tt-white;
+    border-top: 5px solid $tt-green;
     // position: fixed;
     // left: 275px;
     // bottom: 0;
@@ -13,7 +14,7 @@
 
         .toggle {
             text-transform: uppercase;
-            color: #373737;
+            color: $tt-greydk;
             letter-spacing: 1px;
 
             .toggle-button {
@@ -35,6 +36,6 @@
     #no-analytics-available {
         margin: 40px 0 20px 0;
         text-align: center;
-        color: #888888;
+        color: $tt-greymd;
     }
 }

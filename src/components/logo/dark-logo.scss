@@ -1,14 +1,16 @@
+@import '../../variables';
+
 .logo.dark {
     text-align: center;
     line-height: 4em;
     vertical-align: middle;
 
     a {
-        color: #242424;
+        color: $tt-black;
     }
 
     a:hover {
-        color: #000000;
+        color: $tt-greydk;
         text-decoration: none;
     }
 

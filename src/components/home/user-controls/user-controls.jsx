@@ -13,8 +13,10 @@ class UserControls extends React.Component {
     render() {
         return (
             <div id="user-controls">
-                {localStorage.getItem('username')} |&nbsp;
-                <a onClick={() => this.props.handleLogout()}>log out</a>
+                <p>
+                    {localStorage.getItem('username')} &emsp; | &emsp;
+                    <a onClick={() => this.props.handleLogout()}>log out</a>
+                </p>
             </div>
         );
     }

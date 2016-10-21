@@ -1,7 +1,9 @@
+@import '../../variables';
+
 #root {
     .error-alert {
-        color: #b94a48;
-        background-color: #f2dede;
-        border: 1px solid #eed3d7;
+        color: $err-text;
+        background-color: $err-bground;
+        border: 1px solid $err-border;
     }
 }

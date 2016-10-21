@@ -1,14 +1,16 @@
+@import '../../variables';
+
 .logo.light {
     text-align: center;
     line-height: 4em;
     vertical-align: middle;
 
     a {
-        color: #dbdbdb;
+        color: $tt-white;
     }
 
     a:hover {
-        color: #ffffff;
+        color: $tt-white;
         text-decoration: none;
     }
 

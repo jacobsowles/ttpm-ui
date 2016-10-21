@@ -1,9 +1,11 @@
+@import '../../../variables';
+
 .swapout-input-field {
     font-size: .9em;
 
     span {
         width: 100%;
-        
+
         &:hover {
             text-decoration: none;
             cursor: pointer;
@@ -19,25 +21,25 @@
 .task-list-swapout-input-field
  {
     span {
-        color: #888888;
+        color: $tt-greymd;
         display: block;
         padding: 10px 0 10px 15px;
 
         &:hover {
-            background: #312F33;
-            color: #DBDBDB;
+            background: $tt-black;
+            color: $tt-white;
         }
 
         .active {
-            background: #312F33;
+            background: $tt-greydk;
         }
     }
 
     input {
-        background: #636066;
+        background: $tt-greymd;
         padding: 10px 15px;
         border: none;
-        color: #DBDBDB;
+        color: $tt-white;
         width: calc(100% - 30px);
         margin-left: 15px;
     }
@@ -47,7 +49,7 @@
     span {
         font-weight: bold;
         padding-left: 10px;
-    }   
+    }
 }
 
 .task-list-swapout-input-field {
@@ -55,10 +57,10 @@
         padding-left: 30px;
 
         &:hover {
-            background: #636066;
+            background: $tt-greymd;
         }
     }
-    
+
     input {
         width: calc(100% - 45px);
         margin-left: 30px;

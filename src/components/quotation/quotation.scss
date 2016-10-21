@@ -1,3 +1,5 @@
+@import '../../variables';
+
 .quotation {
     img {
         vertical-align: top;
@@ -8,7 +10,7 @@
             transform: scale(-1, -1);
         }
     }
-    
+
     span {
         margin: 0 30px;
         display: inline-block;
@@ -16,7 +18,7 @@
     }
 
     p {
-        color: #888888;
+        color: $tt-greymd;
     }
 
     .attribution {
