@@ -57,7 +57,7 @@ class TaskListItemBrief extends Component {
                 ${this.props.isOpen ? 'edit-mode' : ''}
                 ${this.props.complete ? 'task-complete' : ''}
             `}>
-                <Flexbox flexDirection="row">
+                <Flexbox flexDirection="row" flexWrap="wrap">
                     <Flexbox
                         flexGrow={1}
                         className="task-name"

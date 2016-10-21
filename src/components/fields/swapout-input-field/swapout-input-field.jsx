@@ -5,6 +5,7 @@ import _ from 'lodash';
 // styles
 require('./swapout-input-field.scss');
 
+// styles - controlled by state, to be refactored into className +/-
 const styles = {
     show: {
         display: 'inherit'

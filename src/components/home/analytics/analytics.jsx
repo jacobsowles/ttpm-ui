@@ -65,7 +65,7 @@ class Analytics extends React.Component {
                                 </Module>
                             </div>
 
-                            {/*<div className="col-xs-3">
+                            {/*<div className="col-xs-12">
                                 <Module
                                     id="task-age-module"
                                     type="analytics"

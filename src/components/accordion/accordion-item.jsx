@@ -4,6 +4,7 @@ import RightAngleIcon from '~/icons/right-angle-icon';
 
 require('./accordion-item.scss');
 
+// styles - controlled by state, to be refactored into className +/-
 const styles = {
     active: {
         display: 'inherit'

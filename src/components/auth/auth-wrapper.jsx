@@ -12,9 +12,7 @@ class AuthWrapper extends Component {
     render() {
         return (
             <div id="auth-wrapper" className="row">
-                <div className="col-xs-4" />
-
-                <div className="col-xs-4">
+                <div className="col-xs-12">
                     <div className="col-xs-12 no-horizontal-padding">
                         <WarningAlert
                             label="The princess is in another castle."
@@ -34,8 +32,6 @@ class AuthWrapper extends Component {
                         />
                     </div>
                 </div>
-
-                <div className="col-xs-4" />
             </div>
         );
     }
