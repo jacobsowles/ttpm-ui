@@ -11,27 +11,19 @@ class AuthWrapper extends Component {
 
     render() {
         return (
-            <div id="auth-wrapper" className="row">
-                <div className="col-xs-12">
-                    <div className="col-xs-12 no-horizontal-padding">
-                        <WarningAlert
-                            label="The princess is in another castle."
-                            text="The Tiny Two Productivity Manager is currently invite only. Registration has been disabled until a widespread release is made available."
-                        />
-                    </div>
+            <div id="auth-wrapper" className="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
+                <WarningAlert
+                    label="The princess is in another castle."
+                    text="The Tiny Two Productivity Manager is currently invite only. Registration has been disabled until a widespread release is made available."
+                />
 
-                    <div className="col-xs-12 no-horizontal-padding">
-                        <DarkLogo />
-                    </div>
+                <DarkLogo />
 
-                    <div id="form-wrapper" className="col-xs-12 no-horizontal-padding">
-                        <LoginForm
-                            error={this.props.loginError}
-                            isLoading={this.props.loginIsLoading}
-                            handleLogin={this.props.handleLogin}
-                        />
-                    </div>
-                </div>
+                <LoginForm
+                    error={this.props.loginError}
+                    isLoading={this.props.loginIsLoading}
+                    handleLogin={this.props.handleLogin}
+                />
             </div>
         );
     }

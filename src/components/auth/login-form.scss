@@ -1,4 +1,20 @@
 #login {
     //padding-right: 40px;
     //border-right: 1px solid #e0e0e0;
+    background: #ffffff;
+    margin-top: 5px;
+    padding: 40px;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+
+    h2 {
+        margin-top: 0;
+        margin-bottom: 20px;
+        font-weight: 300;
+    }
+
+    button {
+        margin-right: 10px;
+    }
 }

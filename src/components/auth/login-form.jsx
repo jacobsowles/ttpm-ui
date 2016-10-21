@@ -22,15 +22,17 @@ class LoginForm extends Component {
 
     render() {
         return (
-            <div id="login">
+            <div id="login" class="row">
                 <h2>Login</h2>
 
                 <div className="form-group">
-                    <input type="email" className="form-control" ref="loginEmail" placeholder="Email" />
+                    <label for="email">Email</label>
+                    <input id="email" type="email" className="form-control" ref="loginEmail" placeholder="jpicard@ussenterprise.com" />
                 </div>
 
                 <div className="form-group">
-                    <input type="password" className="form-control" ref="loginPassword" placeholder="Password" />
+                    <label for="password">Password</label>
+                    <input id="password" type="password" className="form-control" ref="loginPassword" placeholder="••••••••••••" />
                 </div>
 
                 <Button text="Get to work" handleClick={this.handleSubmit} />
