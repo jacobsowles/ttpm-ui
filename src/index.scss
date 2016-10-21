@@ -32,11 +32,11 @@ body {
 
 a {
     color: #7da468;
-}
 
-a:hover {
-    color: #7da468;
-    cursor: pointer !important;
+    &:hover {
+        color: #7da468;
+        cursor: pointer !important;
+    }
 }
 
 label {
@@ -57,23 +57,21 @@ input[type=text] {
     background-color: #5e804d;
 }
 
-.nav > li > a,
-.nav > li > p {
-    padding: 4px 6px;
-    font-size: .9em;
-    margin: 0;
+.nav {
+    li {
+        a, p {
+            padding: 4px 6px;
+            font-size: .9em;
+            margin: 0;
+        }
+
+        p {
+            color: #b5b5b5;
+        }
+    }
 }
 
-.nav > li > p {
-    color: #b5b5b5;
-}
-
-.no-horizontal-padding {
-    padding-right: 0;
-    padding-left: 0;
-}
-
-.container-fluid {
+.no-horizontal-padding, .container-fluid {
     padding-right: 0;
     padding-left: 0;
 }
