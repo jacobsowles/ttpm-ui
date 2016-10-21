@@ -12,12 +12,14 @@ class Header extends React.Component {
     render() {
         return (
             <header className="row">
-                <div className="col-xs-12 col-sm-6">
-                    <LightLogo />
-                </div>
+                <div className="limit-full-width">
+                    <div className="col-xs-12 col-sm-6">
+                        <LightLogo />
+                    </div>
 
-                <div className="col-xs-12 col-sm-6">
-                    <UserControls />
+                    <div className="col-xs-12 col-sm-6">
+                        <UserControls />
+                    </div>
                 </div>
             </header>
         );

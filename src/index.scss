@@ -125,3 +125,12 @@ input[type=text] {
     margin: 0 auto;
     display: block;
 }
+
+// will limit width and center these elements
+@media (min-width: $break-lg) {
+    .limit-full-width {
+        max-width: 1400px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

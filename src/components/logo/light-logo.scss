@@ -23,6 +23,10 @@
         top: 8px;
         display: inline-block;
     }
+}
 
-
+@media (min-width: $break-sm) {
+    .logo.light {
+        text-align: left;
+    }
 }
