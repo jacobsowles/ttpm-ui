@@ -94,6 +94,7 @@
   },
   "jest": {
     "testRegex": "(/tests/.*|\\.tests)\\.(js|jsx)$",
+    "modulePathIgnorePatterns": ["/tests/utils/"],
     "scriptPreprocessor": "./node_modules/babel-jest",
     "moduleFileExtensions": ["js", "json", "es6"]
   }
