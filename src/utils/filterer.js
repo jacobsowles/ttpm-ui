@@ -1,3 +1,4 @@
+import DateTime from '@/utils/datetime';
 import { completion, date, status } from '@/utils/filter-values';
 
 const Filterer = class Filterer {
@@ -10,6 +11,7 @@ const Filterer = class Filterer {
         return this.tasks.filter((task) => {
             return (
                 this.filterByCompletion(task) &&
+                this.filterByDate(task) &&
                 this.filterByStatus(task) &&
                 this.filterByTaskGroup(task)
             );
@@ -30,12 +32,35 @@ const Filterer = class Filterer {
         return result;
     }
 
+    filterByDate(task) {
+        let result = null;
+        this.filters.date = this.filters.date || [];
+
+        if (this.filters.date.includes(date.TODAY)) {
+            result = result ||
+                DateTime.isBeforeOrSame(task.PlannedDate, DateTime.today()) ||
+                DateTime.isBeforeOrSame(task.DueDate, DateTime.today());
+        }
+
+        if (this.filters.date.includes(date.TOMORROW)) {
+            result = result ||
+                DateTime.isSame(task.PlannedDate, DateTime.tomorrow()) ||
+                DateTime.isSame(task.DueDate, DateTime.tomorrow());
+        }
+
+        if (this.filters.date.includes(date.UNPLANNED)) {
+            result = result || !task.PlannedDate;
+        }
+
+        return result == null ? true : result;
+    }
+
     filterByStatus(task) {
         let result = null;
         this.filters.status = this.filters.status || [];
 
         if (this.filters.status.includes(status.BLOCKED)) {
-            result = task.Name.toLowerCase().includes('blocked');
+            result = result || task.Name.toLowerCase().includes('blocked');
         }
 
         if (this.filters.status.includes(status.DELEGATED)) {
