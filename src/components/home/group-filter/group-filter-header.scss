@@ -3,13 +3,18 @@
 .group-filter-header {
     input[type=text] {
         display: inline-block;
-        width: calc(100% - 55px);
+        width: calc(100% - 75px);
         padding: 0;
+        margin: 5px 0;
         height: auto;
         font-size: 1em;
         border: none;
         color: $tt-white;
         background: none;
+    }
+
+    input.form-control {
+        width: calc(100% - 73px);
     }
 
     .group-filter-name {
