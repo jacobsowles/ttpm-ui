@@ -10,7 +10,7 @@ require('./sidebar.scss');
 class Sidebar extends React.Component {
     render() {
         return (
-            <div className="sidebar col-md-3">
+            <div className="sidebar col-md-2">
                 <GroupFilterContainer />
             </div>
         );

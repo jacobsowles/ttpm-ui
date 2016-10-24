@@ -1,11 +1,9 @@
 @import '../../../../../variables';
 
 .task-list-item {
-    // width: 100%;
-
     padding: 15px;
-    background: #eeeeee;
-    margin-bottom: 10px;
+    background: #ffffff;
+    margin-bottom: 5px;
 
     .task-brief {
         display: inline-block;
@@ -19,7 +17,7 @@
             display: inline-block;
             background: none;
             border: 0;
-            border-bottom: 1px solid #eeeeee;
+            border-bottom: 1px solid #ffffff;
             font-size: 1.1em;
 
             &:hover {
@@ -47,13 +45,7 @@
             text-align: right;
         }
 
-        // children of flexbox row
-        div > div {
-            // margin-left: 20px;
-        }
-
         .task-name {
-            // margin-left: 0;
             font-size: 1.3em;
             font-weight: 300;
         }
@@ -65,7 +57,6 @@
                 }
 
                 input {
-                    // padding: 2px;
                     margin: 0;
                     padding: 0;
                     width: 100%;
