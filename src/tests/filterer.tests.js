@@ -231,11 +231,15 @@ import TestHelpers from '@/tests/utils/test-helpers';
     let _filteredTasks = [];
     let _filterer;
     let _tasks;
+    let _taskGroups = [
+        { Id: 1 },
+        { Id: 2 }
+    ];
 
     //// GIVEN ////
 
     function givenFilters(filters) {
-        _filterer = new Filterer(_tasks, filters);
+        _filterer = new Filterer(_tasks, _taskGroups, filters);
     }
 
     function givenTasks(tasks) {
