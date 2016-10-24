@@ -228,13 +228,14 @@ import TestHelpers from '@/tests/utils/test-helpers';
     //// PRIVATE MEMBERS ////
 
     const _dateFormat = 'YYYY-MM-DD';
-    let _filteredTasks = [];
-    let _filterer;
-    let _tasks;
-    let _taskGroups = [
+    const _taskGroups = [
         { Id: 1 },
         { Id: 2 }
     ];
+
+    let _filteredTasks = [];
+    let _filterer;
+    let _tasks;
 
     //// GIVEN ////
 
