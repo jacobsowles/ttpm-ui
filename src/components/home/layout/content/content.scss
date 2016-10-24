@@ -1,6 +1,7 @@
+@import '../../../../variables';
+
 #content {
     margin-top: 15px;
-    padding-top: 50px;
 
     &:after {
         display: block;
@@ -10,5 +11,11 @@
     .loading-graphic {
         float: left;
         margin-top: 0;
+    }
+}
+
+@media (min-width: $break-md) {
+    #content {
+        padding-top: 50px;
     }
 }

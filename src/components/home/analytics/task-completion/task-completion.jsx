@@ -65,7 +65,7 @@ class TaskCompletion extends React.Component {
 
     render() {
         return (
-            <div id="task-completion">
+            <div id="task-completion" className="col-xs-12 col-sm-6 col-md-4 col-lg-3">
                 <canvas id="task-completion-canvas" />
                 <p>{this.props.completedTaskCount} / {this.props.totalTaskCount}</p>
                 <p style={{float: 'right'}}>{this.state.completionPercentage}%</p>

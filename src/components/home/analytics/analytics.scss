@@ -1,7 +1,11 @@
 @import '../../../variables';
 
 #analytics {
-    background: $tt-white;
+    background: #eeeeee;
+    position: absolute;
+    bottom: 0;
+    width: calc(100% - 30px);
+
     // border-top: 5px solid $tt-green;
     // position: fixed;
     // left: 275px;
@@ -31,6 +35,7 @@
 
     .drawer {
         padding: 15px 15px 0 15px;
+        max-height: 300px;
     }
 
     #no-analytics-available {
