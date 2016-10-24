@@ -133,23 +133,23 @@ input[type=text], input[type=email], input[type=password] {
 }
 
 // TODO Remove these upon completion of responsive layout, just makes it easier to see breakpoint transitions.
-@media (min-width: $break-sm) {
-    body {
-        background-color: #fee;
-    }
-}
-
-@media (min-width: $break-md) {
-    body {
-        background-color: #efe;
-    }
-}
-
-@media (min-width: $break-lg) {
-    body {
-        background-color: #eef;
-    }
-}
+// @media (min-width: $break-sm) {
+//     body {
+//         background-color: #fee;
+//     }
+// }
+//
+// @media (min-width: $break-md) {
+//     body {
+//         background-color: #efe;
+//     }
+// }
+//
+// @media (min-width: $break-lg) {
+//     body {
+//         background-color: #eef;
+//     }
+// }
 
 // will limit width and center these elements
 @media (min-width: $break-lg) {
