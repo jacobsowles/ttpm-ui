@@ -1,29 +1,13 @@
 @import '../../../../variables';
 
 .sidebar {
-    // position: fixed;
-    // top: 0;
-    // left: 0;
-    // height: 100vh;
     background: $tt-greydk;
     color: $tt-white;
-    // float: left;
-    // overflow-y: auto;
-    // width: 275px;
     font-size: .9em;
-    border-top: 5px solid $tt-green;
-
-    .logo {
-        padding: 11px 10px;
-    }
 
     .accordion-item {
-        .accordion-header {
-            padding-left: 10px;
-        }
-
         .accordion-header-content {
-            padding: 10px;
+            padding: 10px 0 10px 10px;
         }
     }
 
@@ -32,7 +16,17 @@
         color: $tt-greymd;
 
         &:hover {
-            color: inherit;
+            color: $tt-greylt;
         }
+    }
+}
+
+@media (min-width: $break-md) {
+    .sidebar {
+        position: fixed !important;
+        top: 45px !important;
+        left: 0 !important;
+        height: 100vh;
+        overflow-y: auto;
     }
 }

@@ -12,7 +12,7 @@ body {
     font-family: 'Open Sans', Arial, sans-serif;
     background: $tt-white;
     width: 100%;
-    min-width: 250px;
+    min-width: 350px;
 }
 
 h1 {
@@ -76,8 +76,10 @@ input:focus {
     outline: none;
 }
 
-input[type=text] {
-    padding: 5px 10px;
+input[type=text], input[type=email], input[type=password] {
+    width: calc(100% - 10px);
+    padding: 0;
+    margin: 0 10px 15px 10px;
 }
 
 .nav-pills > li.active > a,
@@ -105,6 +107,10 @@ input[type=text] {
     padding-left: 0;
 }
 
+.no-right-padding {
+    padding-right: 0;
+}
+
 .row {
     margin-right: 0;
     margin-left: 0;
@@ -124,6 +130,25 @@ input[type=text] {
 .data-visualization canvas {
     margin: 0 auto;
     display: block;
+}
+
+// TODO Remove these upon completion of responsive layout, just makes it easier to see breakpoint transitions.
+@media (min-width: $break-sm) {
+    body {
+        background-color: #fee;
+    }
+}
+
+@media (min-width: $break-md) {
+    body {
+        background-color: #efe;
+    }
+}
+
+@media (min-width: $break-lg) {
+    body {
+        background-color: #eef;
+    }
 }
 
 // will limit width and center these elements

@@ -30,18 +30,20 @@ class DateBox extends Component {
         return (
             <div className={`date-box ${this.props.className}`}>
                 <label htmlFor={this.id}>{this.props.label}</label>
-                <DatePicker
-                    id={this.id}
-                    dateFormat="MM/DD"
-                    placeholderText={this.props.placeholder}
-                    selected={this.state.value ? moment(this.state.value) : null}
-                    todayButton="Today"
-                    disabled={this.props.isDisabled}
-                    popoverAttachment="top right"
-                    popoverTargetAttachment="bottom right"
-                    popoverTargetOffset="10px 0px"
-                    onChange={this.handleChange}
-                />
+                <div className="date-picker">
+                    <DatePicker
+                        id={this.id}
+                        dateFormat="MM/DD"
+                        placeholderText={this.props.placeholder}
+                        selected={this.state.value ? moment(this.state.value) : null}
+                        todayButton="Today"
+                        disabled={this.props.isDisabled}
+                        popoverAttachment="top right"
+                        popoverTargetAttachment="bottom right"
+                        popoverTargetOffset="10px 0px"
+                        onChange={this.handleChange}
+                        />
+                </div>
             </div>
         );
     }

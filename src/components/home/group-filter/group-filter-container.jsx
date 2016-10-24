@@ -34,7 +34,10 @@ class GroupFilterContainer extends Component {
 
     render() {
         return (
-            <LoadingWrapper showLoadingGraphic={this.state.isLoading}>
+            <LoadingWrapper
+                className="no-horizontal-padding"
+                showLoadingGraphic={this.state.isLoading}
+            >
                 <GroupFilterList
                     taskGroups={this.props.taskGroups}
                     handleTaskGroupClick={this.props.handleTaskGroupClick}

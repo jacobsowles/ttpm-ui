@@ -3,14 +3,12 @@
 input[type=text],
 textarea,
 textarea.form-control {
-    border: 1px solid $tt-greylt;
     -webkit-box-shadow: none;
     box-shadow: none;
     transition: none;
 
     &:focus {
         outline: none;
-        border-color: $tt-white;
         box-shadow: none;
         -webkit-box-shadow: none;
     }

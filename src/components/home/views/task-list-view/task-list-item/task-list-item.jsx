@@ -17,7 +17,7 @@ class TaskListItem extends Component {
         const opacity = isDragging ? 0 : 1;
 
         return (
-            <div className={`task-list-item ${this.props.isDimmed ? 'dimmed' : ''}`}>
+            <div className={`task-list-item row ${this.props.isDimmed ? 'dimmed' : ''}`}>
                 <Checkbox
                     checked={this.props.task.Complete}
                     handleChange={(event) => this.props.handleCompletionToggle(this.props.task.Id, event)}

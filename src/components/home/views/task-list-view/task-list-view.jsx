@@ -11,7 +11,7 @@ class TaskListView extends Component {
     render() {
         return (
             <div className="row">
-                <div className="col-xs-12 task-list-view">
+                <div className="col-xs-12 task-list-view no-horizontal-padding">
                     <TaskListFilterContainer taskGroupName={this.props.taskGroupName} />
 
                     {

@@ -36,7 +36,7 @@ class Checkbox extends Component {
 
     render() {
         return (
-            <span>
+            <div className="col-xs-1 no-horizontal-padding">
                 <input
                     type="checkbox"
                     id={`checkbox-${this.uniqueId}`}
@@ -47,7 +47,7 @@ class Checkbox extends Component {
                     htmlFor={`checkbox-${this.uniqueId}`}
                     id={`label-${this.uniqueId}`}
                 />
-            </span>
+            </div>
         );
     }
 }

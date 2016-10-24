@@ -83,9 +83,7 @@ class TaskList extends Component {
                             </DraggableList>
                         )
                         : (
-                            <div>
-                                {listItems}
-                            </div>
+                            {listItems}
                         )
                 }
 

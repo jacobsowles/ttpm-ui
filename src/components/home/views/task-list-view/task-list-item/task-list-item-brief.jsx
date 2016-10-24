@@ -1,8 +1,8 @@
 // npm modules
 import React, { Component, PropTypes } from 'react';
-import Flexbox from 'flexbox-react';
 
 // components
+// import Checkbox from '~/fields/checkbox/checkbox';
 import DateBox from '~/fields/date-box';
 import DueDateBox from '../due-date-box';
 import DownAngleIcon from '~/icons/down-angle-icon';
@@ -53,64 +53,59 @@ class TaskListItemBrief extends Component {
     render() {
         return (
             <div className={`
-                task-brief
+                task-brief col-xs-11 no-horizontal-padding
                 ${this.props.isOpen ? 'edit-mode' : ''}
                 ${this.props.complete ? 'task-complete' : ''}
             `}>
-                <Flexbox flexDirection="row" flexWrap="wrap">
-                    <Flexbox
-                        flexGrow={1}
-                        className="task-name"
-                    >
-                        <TextBox
-                            isDisabled={this.props.complete}
-                            value={this.props.name}
-                            handleClick={this.handleNameClick}
-                            handleBlur={this.handleNameSave}
-                        />
-                    </Flexbox>
+                <div className="col-xs-11 col-sm-7 col-sm-8 no-horizontal-padding">
+                    <TextBox
+                        isDisabled={this.props.complete}
+                        value={this.props.name}
+                        handleClick={this.handleNameClick}
+                        handleBlur={this.handleNameSave}
+                    />
+                </div>
 
+                <div className="col-xs-1 col-sm-push-4 col-md-push-3 no-right-padding">
+                    {
+                        this.props.isOpen
+                        ? <DownAngleIcon className="angle-icon" handleClick={(event) => this.props.hideDetails(this.props.id, event)} />
+                        : <RightAngleIcon className="angle-icon" handleClick={(event) => this.props.showDetails(this.props.id, event)} />
+                    }
+                </div>
+
+                <div className="col-xs-12 col-sm-4 col-sm-pull-1 col-md-3 no-horizontal-padding">
                     {
                         this.props.complete
-                            ? (
-                                <Flexbox>
-                                    <DateBox
-                                        label="completed"
-                                        value={this.props.lastDateCompleted}
-                                        contextColorsEnabled={false}
-                                        isDisabled={true}
+                        ? (
+                            <div className="col-xs-5 col-sm-6">
+                                <DateBox
+                                    label="completed"
+                                    value={this.props.lastDateCompleted}
+                                    contextColorsEnabled={false}
+                                    isDisabled={true}
                                     />
-                                </Flexbox>
-                            )
-                            : (
-                                <Flexbox>
-                                    <Flexbox>
-                                        <DateBox
-                                            label="planned for"
-                                            value={this.props.plannedDate}
-                                            handleChange={this.handlePlannedDateSave}
-                                        />
-                                    </Flexbox>
+                            </div>
+                        )
+                        : (
+                            <div>
+                                <DateBox
+                                    className="planned col-xs-5 col-sm-6"
+                                    label="planned for"
+                                    value={this.props.plannedDate}
+                                    handleChange={this.handlePlannedDateSave}
+                                />
 
-                                    <Flexbox>
-                                        <DueDateBox
-                                            label="due"
-                                            value={this.props.dueDate}
-                                            handleChange={this.handleDueDateSave}
-                                        />
-                                    </Flexbox>
-                                </Flexbox>
-                            )
+                                <DueDateBox
+                                    className="due col-xs-5 col-xs-offset-1 col-sm-6"
+                                    label="due"
+                                    value={this.props.dueDate}
+                                    handleChange={this.handleDueDateSave}
+                                />
+                            </div>
+                        )
                     }
-
-                    <Flexbox>
-                        {
-                            this.props.isOpen
-                                ? <DownAngleIcon handleClick={(event) => this.props.hideDetails(this.props.id, event)} />
-                                : <RightAngleIcon handleClick={(event) => this.props.showDetails(this.props.id, event)} />
-                        }
-                    </Flexbox>
-                </Flexbox>
+                </div>
             </div>
         );
     }
