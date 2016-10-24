@@ -11,20 +11,18 @@ class TaskListCompletionFilter extends Component {
             <div className="filter task-list-completion-filter">
                 <NavPillGroup>
                     <NavPill
-                        text="all"
-                        isActive={this.props.completionFilter == completion.ALL}
-                        isEnabled={this.props.dateFilter != date.TOMORROW && this.props.statusFilter != status.BLOCKED}
-                        handleClick={() => this.props.handleFilterChange(completion.ALL)}
-                    />
-                    <NavPill
                         text="complete"
                         isActive={this.props.completionFilter == completion.COMPLETE}
-                        isEnabled={this.props.dateFilter != date.TOMORROW && this.props.statusFilter != status.BLOCKED}
+                        isEnabled={
+                            this.props.completionFilter != completion.INCOMPLETE &&
+                            !this.props.dateFilters.includes(date.TOMORROW)
+                        }
                         handleClick={() => this.props.handleFilterChange(completion.COMPLETE)}
                     />
                     <NavPill
                         text="incomplete"
                         isActive={this.props.completionFilter == completion.INCOMPLETE}
+                        isEnabled={this.props.completionFilter != completion.COMPLETE}
                         handleClick={() => this.props.handleFilterChange(completion.INCOMPLETE)}
                     />
                 </NavPillGroup>
@@ -35,8 +33,8 @@ class TaskListCompletionFilter extends Component {
 
 TaskListCompletionFilter.propTypes = {
     completionFilter: PropTypes.string.isRequired,
-    dateFilter: PropTypes.string.isRequired,
-    statusFilter: PropTypes.string.isRequired,
+    dateFilters: PropTypes.arrayOf(PropTypes.string).isRequired,
+    statusFilters: PropTypes.arrayOf(PropTypes.string).isRequired,
     handleFilterChange: PropTypes.func.isRequired
 };
 

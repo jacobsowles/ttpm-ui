@@ -13,6 +13,8 @@ import taskActions from '@/actions/task-actions';
 
 // util
 import { completion, date, status } from '@/utils/filter-values';
+import Filterer from '@/utils/filterer';
+import TaskGroupHelper from '@/utils/task-groups';
 
 class ViewContainer extends Component {
 
@@ -69,18 +71,6 @@ ViewContainer.propTypes = {
     handleTaskDelete: PropTypes.func.isRequired
 };
 
-function allDescendents(taskGroups, taskGroupId) {
-    let ids = [taskGroupId];
-
-    taskGroups
-        .filter(tg => tg.ParentTaskGroupId == taskGroupId)
-        .forEach((taskGroup) => {
-            ids = ids.concat(allDescendents(taskGroups, taskGroup.Id));
-        });
-
-    return ids;
-}
-
 function compareDisplayOrder(a, b) {
     if (a.DisplayOrder > b.DisplayOrder) {
         return 1;
@@ -94,84 +84,23 @@ function compareDisplayOrder(a, b) {
 }
 
 function filterTasks(tasks, taskGroups, filters) {
-    // filter by task group
-    if (filters.taskGroupId) {
-        tasks = tasks
-            .filter(t => allDescendents(taskGroups, filters.taskGroupId).includes(t.TaskGroupId))
-            .sort((a, b) => {
-                a = filters.displayOrders.find(tgdo => tgdo.TaskId == a.Id);
-                b = filters.displayOrders.find(tgdo => tgdo.TaskId == b.Id);
+    const filterer = new Filterer(tasks, taskGroups, filters);
+    tasks = filterer.filter();
 
-                if (a && b) {
-                    return compareDisplayOrder(a, b);
-                }
+    return filters.taskGroupId
+        ? tasks.sort((a, b) => {
+            a = filters.displayOrders.find(tgdo => tgdo.TaskId == a.Id);
+            b = filters.displayOrders.find(tgdo => tgdo.TaskId == b.Id);
 
-                return 0;
-            });
-    }
+            if (a && b) {
+                return compareDisplayOrder(a, b);
+            }
 
-    else {
-        tasks = tasks.sort((a, b) => {
+            return 0;
+        })
+        : tasks.sort((a, b) => {
             return compareDisplayOrder(a, b);
         });
-    }
-
-    // filter by completion
-    switch (filters.completion) {
-        case completion.COMPLETE: {
-            tasks = tasks.filter(t => t.Complete);
-            break;
-        }
-
-        case completion.INCOMPLETE: {
-            tasks = tasks.filter(t => !t.Complete);
-            break;
-        }
-    }
-
-    // filter by date
-    switch (filters.date) {
-        case date.TODAY: {
-            tasks = tasks.filter(t =>
-                moment(t.PlannedDate).date() <= moment().date() ||
-                moment(t.DueDate).date() <= moment().date()
-            );
-            break;
-        }
-
-        case date.TOMORROW: {
-            tasks = tasks.filter(t =>
-                moment(t.PlannedDate).date() == moment().add('days', 1).date() ||
-                moment(t.DueDate).date() == moment().add('days', 1).date()
-            );
-            break;
-        }
-
-        case date.DUE: {
-            tasks = tasks.filter(t => moment(t.DueDate).date() <= moment().date());
-            break;
-        }
-
-        case date.UNPLANNED: {
-            tasks = tasks.filter(t => !t.PlannedDate);
-            break;
-        }
-    }
-
-    // filter by status
-    switch (filters.status) {
-        case (status.BLOCKED): {
-            tasks = tasks.filter(t => t.Name.toLowerCase().includes('blocked'));
-            break;
-        }
-
-        case (status.DELEGATED): {
-            tasks = tasks.filter(t => t.Name.toLowerCase().includes('delegated'));
-            break;
-        }
-    }
-
-    return tasks;
 }
 
 function getCurrentTaskGroupFilterName(taskGroups, taskGroupId) {

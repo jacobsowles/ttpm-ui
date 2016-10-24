@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import NavPill from '~/navigation/nav-pills/nav-pill';
 import NavPillGroup from '~/navigation/nav-pills/nav-pill-group';
 
-import { date } from '@/utils/filter-values';
+import { completion, date } from '@/utils/filter-values';
 
 class TaskListDateFilter extends Component {
 
@@ -11,28 +11,19 @@ class TaskListDateFilter extends Component {
             <div className="filter task-list-date-filter">
                 <NavPillGroup>
                     <NavPill
-                        text="all"
-                        isActive={this.props.activeFilter == date.ALL}
-                        handleClick={() => this.props.handleFilterChange(date.ALL)}
-                    />
-                    <NavPill
                         text="today"
-                        isActive={this.props.activeFilter == date.TODAY}
+                        isActive={this.props.dateFilters.includes(date.TODAY)}
                         handleClick={() => this.props.handleFilterChange(date.TODAY)}
                     />
                     <NavPill
                         text="tomorrow"
-                        isActive={this.props.activeFilter == date.TOMORROW}
+                        isActive={this.props.dateFilters.includes(date.TOMORROW)}
+                        isEnabled={this.props.completionFilter != completion.COMPLETE}
                         handleClick={() => this.props.handleFilterChange(date.TOMORROW)}
                     />
                     <NavPill
-                        text="due"
-                        isActive={this.props.activeFilter == date.DUE}
-                        handleClick={() => this.props.handleFilterChange(date.DUE)}
-                    />
-                    <NavPill
                         text="unplanned"
-                        isActive={this.props.activeFilter == date.UNPLANNED}
+                        isActive={this.props.dateFilters.includes(date.UNPLANNED)}
                         handleClick={() => this.props.handleFilterChange(date.UNPLANNED)}
                     />
                 </NavPillGroup>
@@ -42,7 +33,8 @@ class TaskListDateFilter extends Component {
 }
 
 TaskListDateFilter.propTypes = {
-    activeFilter: PropTypes.string.isRequired,
+    completionFilter: PropTypes.string.isRequired,
+    dateFilters: PropTypes.arrayOf(PropTypes.string).isRequired,
     handleFilterChange: PropTypes.func.isRequired
 };
 

@@ -11,19 +11,13 @@ class TaskListStatusFilter extends Component {
             <div className="filter task-list-status-filter">
                 <NavPillGroup>
                     <NavPill
-                        text="all"
-                        isActive={this.props.statusFilter == status.ALL}
-                        handleClick={() => this.props.handleFilterChange(status.ALL)}
-                    />
-                    <NavPill
                         text="blocked"
-                        isActive={this.props.statusFilter == status.BLOCKED}
-                        isEnabled={this.props.completionFilter != completion.COMPLETE}
+                        isActive={this.props.statusFilters.includes(status.BLOCKED)}
                         handleClick={() => this.props.handleFilterChange(status.BLOCKED)}
                     />
                     <NavPill
                         text="delegated"
-                        isActive={this.props.statusFilter == status.DELEGATED}
+                        isActive={this.props.statusFilters.includes(status.DELEGATED)}
                         handleClick={() => this.props.handleFilterChange(status.DELEGATED)}
                     />
                 </NavPillGroup>
@@ -34,7 +28,7 @@ class TaskListStatusFilter extends Component {
 
 TaskListStatusFilter.propTypes = {
     completionFilter: PropTypes.string.isRequired,
-    statusFilter: PropTypes.string.isRequired,
+    statusFilters: PropTypes.arrayOf(PropTypes.string).isRequired,
     handleFilterChange: PropTypes.func.isRequired
 };
 

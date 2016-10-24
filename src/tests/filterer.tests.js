@@ -1,6 +1,7 @@
 import Filterer from '@/utils/filterer';
-import { completion, date, status } from '@/utils/filter-values';
 import DateTime from '@/utils/datetime';
+import { completion, date, status } from '@/utils/filter-values';
+import TestHelpers from '@/tests/utils/test-helpers';
 
 (function() {
     describe('filterByCompletion', () => {
@@ -270,6 +271,6 @@ import DateTime from '@/utils/datetime';
     }
 
     function thenResultIdsShouldBe(ids) {
-        ids.forEach(id => expect(_filteredTasks.filter(task => task.Id == id).length).toBe(1));
+        TestHelpers.thenResultIdsShouldBe(ids, _filteredTasks);
     }
 })();

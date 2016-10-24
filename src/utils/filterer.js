@@ -1,10 +1,12 @@
 import DateTime from '@/utils/datetime';
+import TaskGroupHelper from '@/utils/task-groups';
 import { completion, date, status } from '@/utils/filter-values';
 
 const Filterer = class Filterer {
-    constructor(tasks, filters) {
+    constructor(tasks, taskGroups, filters) {
         this.tasks = tasks;
         this.filters = filters;
+        this.taskGroupHelper = new TaskGroupHelper(taskGroups);
     }
 
     filter() {
@@ -71,11 +73,15 @@ const Filterer = class Filterer {
     }
 
     filterByTaskGroup(task) {
-        return (
-            this.filters.taskGroupId
-                ? task.TaskGroupId == this.filters.taskGroupId
-                : true
-        );
+        if (!this.filters.taskGroupId) {
+            return true;
+        }
+
+        const taskGroupIds =
+            this.taskGroupHelper.allDescendents(this.filters.taskGroupId)
+            .map(tg => tg.Id);
+
+        return taskGroupIds.includes(task.TaskGroupId);
     }
 };
 

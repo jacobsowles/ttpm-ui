@@ -19,20 +19,21 @@ class TaskListFilterContainer extends Component {
             <TaskListFilterWrapper>
                 <TaskListCompletionFilter
                     completionFilter={this.props.filters.completion}
-                    dateFilter={this.props.filters.date}
-                    statusFilter={this.props.filters.status}
-                    handleFilterChange={this.props.setCompletionFilter}
+                    dateFilters={this.props.filters.date}
+                    statusFilters={this.props.filters.status}
+                    handleFilterChange={this.props.toggleCompletionFilter}
                 />
 
                 <TaskListDateFilter
-                    activeFilter={this.props.filters.date}
-                    handleFilterChange={this.props.setDateFilter}
+                    completionFilter={this.props.filters.completion}
+                    dateFilters={this.props.filters.date}
+                    handleFilterChange={this.props.toggleDateFilter}
                 />
 
                 <TaskListStatusFilter
                     completionFilter={this.props.filters.completion}
-                    statusFilter={this.props.filters.status}
-                    handleFilterChange={this.props.setStatusFilter}
+                    statusFilters={this.props.filters.status}
+                    handleFilterChange={this.props.toggleStatusFilter}
                 />
 
                 <FilterIndicator
@@ -57,16 +58,16 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        setCompletionFilter: function(filter) {
-            dispatch(filterActions.setCompletionFilter(filter));
+        toggleCompletionFilter: function(filter) {
+            dispatch(filterActions.toggleCompletionFilter(filter));
         },
 
-        setDateFilter: function(filter) {
-            dispatch(filterActions.setDateFilter(filter));
+        toggleDateFilter: function(filter) {
+            dispatch(filterActions.toggleDateFilter(filter));
         },
 
-        setStatusFilter: function(filter) {
-            dispatch(filterActions.setStatusFilter(filter));
+        toggleStatusFilter: function(filter) {
+            dispatch(filterActions.toggleStatusFilter(filter));
         },
 
         clearTaskGroupFilter: function() {
