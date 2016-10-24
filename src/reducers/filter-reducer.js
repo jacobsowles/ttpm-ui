@@ -1,11 +1,12 @@
 import { completion, date, status } from '@/utils/filter-values';
+import Array from '@/utils/array';
 
 const initialState = {
-    taskGroupId: 0,
-    completion: completion.ALL,
-    date: date.ALL,
-    status: status.ALL,
-    displayOrders: []
+    completion: '',
+    date: [],
+    displayOrders: [],
+    status: [],
+    taskGroupId: 0
 };
 
 export default function reducer(state = initialState, action) {
@@ -18,28 +19,26 @@ export default function reducer(state = initialState, action) {
             break;
         }
 
-        case 'SET_COMPLETION_FILTER': {
+        case 'TOGGLE_COMPLETION_FILTER': {
             state = {
                 ...state,
-                completion: action.payload
+                completion: !state.completion ? action.payload : ''
             };
             break;
         }
 
-        case 'SET_DATE_FILTER': {
+        case 'TOGGLE_DATE_FILTER': {
             state = {
                 ...state,
-                date: action.payload,
-                completion: action.payload == date.TOMORROW ? completion.INCOMPLETE : state.completion
+                date: Array.addOrRemove(state.date, action.payload)
             };
             break;
         }
 
-        case 'SET_STATUS_FILTER': {
+        case 'TOGGLE_STATUS_FILTER': {
             state = {
                 ...state,
-                status: action.payload,
-                completion: action.payload == status.BLOCKED ? completion.INCOMPLETE : state.completion
+                status: Array.addOrRemove(state.status, action.payload)
             };
             break;
         }

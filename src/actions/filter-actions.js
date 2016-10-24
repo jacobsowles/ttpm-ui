@@ -8,23 +8,23 @@ module.exports = {
         };
     },
 
-    setCompletionFilter(filter) {
+    toggleCompletionFilter(filter) {
         return {
-            type: 'SET_COMPLETION_FILTER',
+            type: 'TOGGLE_COMPLETION_FILTER',
             payload: filter
         };
     },
 
-    setDateFilter(filter) {
+    toggleDateFilter(filter) {
         return {
-            type: 'SET_DATE_FILTER',
+            type: 'TOGGLE_DATE_FILTER',
             payload: filter
         };
     },
 
-    setStatusFilter(filter) {
+    toggleStatusFilter(filter) {
         return {
-            type: 'SET_STATUS_FILTER',
+            type: 'TOGGLE_STATUS_FILTER',
             payload: filter
         };
     },

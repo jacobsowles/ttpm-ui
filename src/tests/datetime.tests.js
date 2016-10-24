@@ -12,6 +12,11 @@ import datetime from '@/utils/datetime';
             givenFirstMoment('1/1/2016');
             expect(moment.isMoment(datetime.getMoment(_date1))).toBe(true);
         });
+
+        it('should return null if argument is not valid date string', () => {
+            givenFirstDateString(null);
+            expect(datetime.getMoment(_date1)).toBeNull();
+        });
     });
 
     describe('isBefore', () => {
