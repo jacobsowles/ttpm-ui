@@ -26,7 +26,7 @@
 
             &:focus {
                 border: 0;
-                border-bottom: 1px solid $tt-greylt;
+                border-bottom: 1px solid #dbdbdb;
             }
         }
 
@@ -74,7 +74,7 @@
 
     .task-brief.edit-mode {
         input {
-            border-bottom: 1px solid $tt-greylt;
+            border-bottom: 1px solid #dbdbdb;
 
             &:hover {
                 cursor: inherit;
