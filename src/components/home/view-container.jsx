@@ -4,14 +4,13 @@ import { connect } from 'react-redux';
 import moment from 'moment';
 
 // components
-import Analytics from './analytics/analytics';
 import LoadingWrapper from '~/loading/loading-wrapper';
 import TaskListView from './views/task-list-view/task-list-view';
 
 // actions
 import taskActions from '@/actions/task-actions';
 
-// util
+// utils
 import { completion, date, status } from '@/utils/filter-values';
 import Filterer from '@/utils/filterer';
 import TaskGroupHelper from '@/utils/task-groups';
@@ -49,11 +48,6 @@ class ViewContainer extends Component {
                     handleTaskSave={this.props.handleTaskSave}
                     updateDisplayOrder={this.props.updateDisplayOrder}
                 />
-
-                <Analytics
-                    tasks={this.props.filteredTasks}
-                    defaultActive={false}
-                />
             </LoadingWrapper>
         );
     }
@@ -62,7 +56,6 @@ class ViewContainer extends Component {
 ViewContainer.propTypes = {
     tasks: PropTypes.arrayOf(PropTypes.object).isRequired,
     filteredTasks: PropTypes.arrayOf(PropTypes.object).isRequired,
-    defaultShowAnalytics: PropTypes.bool.isRequired,
 
     fetchTasks: PropTypes.func.isRequired,
     handleNewTask: PropTypes.func.isRequired,
