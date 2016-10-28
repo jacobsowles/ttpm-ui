@@ -28,4 +28,14 @@
             cursor: pointer;
         }
     }
+
+    .group-filter-actions {
+        display: none;
+    }
+
+    &:hover {
+        .group-filter-actions {
+            display: inherit;
+        }
+    }
 }
