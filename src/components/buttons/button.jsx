@@ -6,6 +6,7 @@ class Button extends Component {
     render() {
         return (
             <button
+                id={this.props.id}
                 className={`btn ${this.props.className ? this.props.className : 'btn-primary'}`}
                 value={this.props.value}
                 disabled={this.props.isDisabled}
@@ -18,6 +19,7 @@ class Button extends Component {
 }
 
 Button.PropTypes = {
+    id: PropTypes.string,
     text: PropTypes.string.isRequired,
     className: PropTypes.string,
     value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
@@ -26,6 +28,7 @@ Button.PropTypes = {
 };
 
 Button.defaultProps = {
+    id: '',
     value: '',
     isDisabled: false
 };

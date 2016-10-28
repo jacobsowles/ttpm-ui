@@ -10,7 +10,18 @@ class LoginForm extends Component {
 
     constructor(props) {
         super(props);
+
+        this.handleKeyDown = this.handleKeyDown.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleKeyDown(e) {
+        switch (e.key) {
+            case 'Enter': {
+                document.getElementById('login-button').click();
+                break;
+            }
+        }
     }
 
     handleSubmit() {
@@ -27,15 +38,19 @@ class LoginForm extends Component {
 
                 <div className="form-group">
                     <label htmlFor="email">Email</label>
-                    <input id="email" type="email" className="form-control" ref="loginEmail" placeholder="jpicard@ussenterprise.com" />
+                    <input id="email" type="email" className="form-control" ref="loginEmail" placeholder="jpicard@ussenterprise.com" onKeyDown={(e) => this.handleKeyDown(e)} />
                 </div>
 
                 <div className="form-group">
                     <label htmlFor="password">Password</label>
-                    <input id="password" type="password" className="form-control" ref="loginPassword" placeholder="••••••••••••" />
+                    <input id="password" type="password" className="form-control" ref="loginPassword" placeholder="••••••••••••" onKeyDown={(e) => this.handleKeyDown(e)} />
                 </div>
 
-                <Button text="Get to work" handleClick={this.handleSubmit} />
+                <Button
+                    id="login-button"
+                    text="Get to work"
+                    handleClick={this.handleSubmit}
+                />
 
                 <InlineLoadingWrapper showLoadingGraphic={this.props.isLoading}>
                     <ErrorMessage text={this.props.error} />
