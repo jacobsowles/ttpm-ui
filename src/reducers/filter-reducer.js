@@ -2,7 +2,7 @@ import { completion, date, status } from '@/utils/filter-values';
 import Array from '@/utils/array';
 
 const initialState = {
-    completion: '',
+    completion: completion.INCOMPLETE,
     date: [],
     displayOrders: [],
     status: [],
