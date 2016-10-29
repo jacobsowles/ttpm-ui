@@ -1,12 +1,9 @@
-// npm modules
 import React, { Component, PropTypes } from 'react';
 
-// components
-// import Checkbox from '~/fields/checkbox/checkbox';
 import DateBox from '~/fields/date-box';
-import DueDateBox from '../due-date-box';
 import DownAngleIcon from '~/icons/down-angle-icon';
 import RightAngleIcon from '~/icons/right-angle-icon';
+import TasklistItemDates from './task-list-item-dates';
 import TextBox from '~/fields/text-box';
 
 class TaskListItemBrief extends Component {
@@ -74,38 +71,12 @@ class TaskListItemBrief extends Component {
                     }
                 </div>
 
-                <div className="col-xs-12 col-sm-4 col-sm-pull-1 col-md-3 no-horizontal-padding">
-                    {
-                        this.props.complete
-                        ? (
-                            <div className="col-xs-5 col-sm-6">
-                                <DateBox
-                                    label="completed"
-                                    value={this.props.lastDateCompleted}
-                                    contextColorsEnabled={false}
-                                    isDisabled={true}
-                                    />
-                            </div>
-                        )
-                        : (
-                            <div>
-                                <DateBox
-                                    className="planned col-xs-5 col-sm-6"
-                                    label="planned for"
-                                    value={this.props.plannedDate}
-                                    handleChange={this.handlePlannedDateSave}
-                                />
-
-                                <DueDateBox
-                                    className="due col-xs-5 col-xs-offset-1 col-sm-6"
-                                    label="due"
-                                    value={this.props.dueDate}
-                                    handleChange={this.handleDueDateSave}
-                                />
-                            </div>
-                        )
-                    }
-                </div>
+                <TasklistItemDates
+                    dueDate={this.props.dueDate}
+                    lastDateCompleted={this.props.lastDateCompleted}
+                    plannedDate={this.props.plannedDate}
+                    handleSave={this.props.handleSave}
+                />
             </div>
         );
     }

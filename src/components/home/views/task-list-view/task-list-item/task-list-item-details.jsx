@@ -16,7 +16,7 @@ class TaskListItemDetails extends Component {
         if (event.target.value != this.props.taskNotes) {
             const message = document.getElementById(`task-details-message-${this.props.taskId}`);
 
-            this.props.handleNotesSave(this.props.taskId, {
+            this.props.handleNotesSave({
                 Notes: event.target.value
             });
 

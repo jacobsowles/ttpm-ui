@@ -1,16 +1,22 @@
-// npm modules
 import React, { Component, PropTypes } from 'react';
 
-// components
 import Checkbox from '~/fields/checkbox/checkbox';
 import TaskListItemBrief from './task-list-item-brief';
 import TaskListItemDetails from './task-list-item-details';
 import Toggler from '~/toggler/toggler';
 
-// styles
 require('./task-list-item.scss');
 
 class TaskListItem extends Component {
+
+    constructor(props) {
+        super(props);
+        this.handleSave = this.handleSave.bind(this);
+    }
+
+    handleSave(data) {
+        this.props.handleSave(this.props.task.Id, data);
+    }
 
     render() {
         const { text, isDragging, connectDragSource, connectDropTarget } = this.props;
@@ -32,7 +38,7 @@ class TaskListItem extends Component {
                     dueDate={this.props.task.DueDate}
                     isOpen={this.props.isOpen}
                     handleNameClick={this.props.handleNameClick}
-                    handleSave={this.props.handleSave}
+                    handleSave={this.handleSave}
                     hideDetails={this.props.closeTask}
                     showDetails={this.props.openTask}
                 />
@@ -42,7 +48,7 @@ class TaskListItem extends Component {
                         taskId={this.props.task.Id}
                         taskNotes={this.props.task.Notes}
                         handleDelete={this.props.handleDelete}
-                        handleNotesSave={this.props.handleSave}
+                        handleNotesSave={this.handleSave}
                     />
                 </Toggler>
             </div>
