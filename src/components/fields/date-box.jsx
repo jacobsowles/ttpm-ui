@@ -29,40 +29,44 @@ class DateBox extends Component {
     render() {
         return (
             <div className={`date-box ${this.props.className}`}>
-                <label htmlFor={this.id}>{this.props.label}</label>
-                <div className="date-picker">
-                    <DatePicker
-                        id={this.id}
-                        dateFormat="MM/DD"
-                        placeholderText={this.props.placeholder}
-                        selected={this.state.value ? moment(this.state.value) : null}
-                        todayButton="Today"
-                        disabled={this.props.isDisabled}
-                        popoverAttachment="top right"
-                        popoverTargetAttachment="bottom right"
-                        popoverTargetOffset="10px 0px"
-                        onChange={this.handleChange}
-                        />
-                </div>
+                <label htmlFor={this.id} title={this.props.tooltip}>
+                    {this.props.label}
+                </label>
+                <DatePicker
+                    id={this.id}
+                    dateFormat="MM/DD"
+                    placeholderText={this.props.placeholder}
+                    selected={this.state.value ? moment(this.state.value) : null}
+                    todayButton="Today"
+                    disabled={this.props.isDisabled}
+                    popoverAttachment="top right"
+                    popoverTargetAttachment="bottom right"
+                    popoverTargetOffset="10px 0px"
+                    onChange={this.handleChange}
+                />
             </div>
         );
     }
 }
 
 DateBox.propTypes = {
-    value: PropTypes.string,
+    className: PropTypes.string,
+    isDisabled: PropTypes.bool,
     label: PropTypes.string,
     placeholder: PropTypes.string,
-    isDisabled: PropTypes.bool,
-    className: PropTypes.string,
+    tooltip: PropTypes.string,
+    value: PropTypes.string,
+
     handleChange: PropTypes.func
 };
 
 DateBox.defaultProps = {
-    label: '',
-    placeholder: 'set date',
-    isDisabled: false,
     className: '',
+    isDisabled: false,
+    label: '',
+    placeholder: 'set',
+    tooltip: '',
+
     handleChange: () => {}
 };
 

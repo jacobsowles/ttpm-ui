@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
-require('./icon.scss');
+require('./action-icon.scss');
 
-class Icon extends Component {
+class ActionIcon extends Component {
     render() {
         return (
             <i
@@ -9,24 +9,30 @@ class Icon extends Component {
                     tt-icon
                     tt-action-icon
                     fa fa-${this.props.glyph}
+                    ${this.props.isInactive ? 'inactive' : ''}
                     ${this.props.className}
                 `}
                 data-toggle="tooltip"
                 title={this.props.tooltip}
+                onClick={this.props.handleClick}
             />
         );
     }
 }
 
-Icon.propTypes = {
+ActionIcon.propTypes = {
     className: PropTypes.string,
     glyph: PropTypes.string.isRequired,
-    tooltip: PropTypes.string
+    tooltip: PropTypes.string,
+
+    handleClick: PropTypes.func
 };
 
-Icon.defaultProps = {
+ActionIcon.defaultProps = {
     className: '',
-    tooltip: ''
+    tooltip: '',
+
+    handleClick: (event) => {}
 };
 
-export default Icon;
+export default ActionIcon;

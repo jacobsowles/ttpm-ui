@@ -1,0 +1,12 @@
+.tt-action-icon {
+    opacity: .5;
+
+    &.active,
+    &:hover {
+        opacity: 1 !important;
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+}

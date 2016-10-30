@@ -1,0 +1,53 @@
+@import '../../../../../variables';
+
+.task-brief {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    input {
+        background: none;
+        border: 0;
+        border-bottom: 1px solid #ffffff;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &:focus {
+            border: 0;
+            border-bottom: 1px solid #dbdbdb;
+        }
+    }
+
+    input.form-control {
+        text-overflow: ellipsis;
+    }
+
+    .tt-checkbox {
+        width: 30px;
+    }
+
+    .task-name {
+        margin-right: 15px;
+        width: calc(100% - 30px - 10px - 62px - 60px);  // 100% - checkbox - margin - actions - dates
+        font-size: 1.3em;
+        font-weight: 300;
+    }
+
+    &.task-complete .task-name {
+        text-decoration: line-through;
+        color: $tt-greylt;
+    }
+
+    &.edit-mode {
+        input {
+            border-bottom: 1px solid #dbdbdb;
+
+            &:hover {
+                cursor: inherit;
+            }
+        }
+    }
+}

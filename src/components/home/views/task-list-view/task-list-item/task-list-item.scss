@@ -1,129 +1,21 @@
-@import '../../../../../variables';
-
 .task-list-item {
     padding: 15px;
     background: #ffffff;
     margin-bottom: 5px;
+    min-height: 68px;
 
-    .task-brief {
-        display: inline-block;
-
-        .angle-icon {
-            width: 100%;
-            text-align: right;
-        }
-
-        input {
-            display: inline-block;
-            background: none;
-            border: 0;
-            border-bottom: 1px solid #ffffff;
-            font-size: 1.1em;
-
-            &:hover {
-                cursor: pointer;
-            }
-
-            &:focus {
-                border: 0;
-                border-bottom: 1px solid #dbdbdb;
-            }
-        }
-
-        input.form-control {
-            text-overflow: ellipsis;
-        }
-
-        i {
-            &:hover {
-                cursor: pointer;
-            }
-        }
-
-        .right-angle, .down-angle {
-            width: 100%;
-            text-align: right;
-        }
-
-        .task-name {
-            font-size: 1.3em;
-            font-weight: 300;
-        }
-
-        .date-box {
-            .date-picker {
-                div {
-                    width: 100%;
-                }
-
-                input {
-                    margin: 0;
-                    padding: 0;
-                    width: 100%;
-                }
-            }
+    &:hover {
+        .tt-action-icon {
+            opacity: .5;
         }
     }
 
-    .task-brief.task-complete .task-name {
-        input {
-            text-decoration: line-through;
-            color: $tt-greylt;
-        }
+    .tt-action-icon {
+        opacity: 0;
+        margin-right: 5px;
     }
 
-    .task-brief.edit-mode {
-        input {
-            border-bottom: 1px solid #dbdbdb;
-
-            &:hover {
-                cursor: inherit;
-            }
-        }
+    &.dimmed {
+        opacity: .5;
     }
-
-    .task-details {
-        // margin: 15px 30px 0 30px;
-
-        textarea.form-control {
-            height: 100px;
-        }
-
-        .task-details-message {
-            font-size: .8em;
-            color: $tt-greymd;
-            // margin-left: 10px;
-            display: inline-block;
-
-            /*&:after {
-                overflow: hidden;
-                display: inline-block;
-                vertical-align: bottom;
-                -webkit-animation: ellipsis steps(4,end) 900ms infinite;
-                animation: ellipsis steps(4,end) 900ms infinite;
-                content: "\2026";
-                width: 0px;
-            }
-
-            @keyframes ellipsis {
-                to {
-                    width: 1.25em;
-                }
-            }
-
-            @-webkit-keyframes ellipsis {
-                to {
-                    width: 1.25em;
-                }
-            }*/
-        }
-
-        .hidden {
-            opacity: 0;
-        }
-    }
-}
-
-.task-list-item.dimmed {
-    opacity: .5;
 }

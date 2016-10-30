@@ -1,17 +1,10 @@
 @import '../../../node_modules/react-datepicker/dist/react-datepicker.css';
 
 .date-box {
-    // width: 66px;
-    margin-left: 0 !important;
-
-    div {
-        margin-left: 0 !important;
-    }
-
     label {
-        display: block;
-        text-align: center;
-        margin: 0;
+        display: inline-block;
+        font-weight: bold;
+        margin: 0 10px 0 0;
     }
 
     .date-box .react-datepicker__input-container input {
@@ -19,13 +12,9 @@
         padding-right: 0;
     }
 
-    .date-picker div input {
-        padding-left: 0;
-    }
-
     input {
-        width: 100%;
-        text-align: center;
+        width: 32px;
+        font-size: 10px;
 
         &::-moz-placeholder {
             font-style: normal;

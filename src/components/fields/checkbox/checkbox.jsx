@@ -36,7 +36,7 @@ class Checkbox extends Component {
 
     render() {
         return (
-            <div className="col-xs-1 no-horizontal-padding">
+            <div className="tt-checkbox">
                 <input
                     type="checkbox"
                     id={`checkbox-${this.uniqueId}`}

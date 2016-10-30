@@ -2,6 +2,8 @@ import React, { Component, PropTypes } from 'react';
 import DateBox from '~/fields/date-box';
 import DueDateBox from '../due-date-box';
 
+require('./task-list-item-dates.scss');
+
 class TaskListItemDates extends Component {
 
     constructor(props) {
@@ -29,31 +31,31 @@ class TaskListItemDates extends Component {
 
     render() {
         return (
-            <div className="col-xs-12 col-sm-4 col-sm-pull-1 col-md-3 no-horizontal-padding">
+            <div className="task-list-item-dates">
                 {
-                    this.props.lastDateCompleted
+                    this.props.complete
                     ? (
-                        <div className="col-xs-5 col-sm-6">
-                            <DateBox
-                                label="completed"
-                                value={this.props.lastDateCompleted}
-                                contextColorsEnabled={false}
-                                isDisabled={true}
-                            />
-                        </div>
+                        <DateBox
+                            isDisabled={true}
+                            label="c"
+                            tooltip="completed date"
+                            value={this.props.lastDateCompleted}
+                        />
                     )
                     : (
                         <div>
                             <DateBox
-                                className="planned col-xs-5 col-sm-6"
-                                label="planned for"
+                                className="planned"
+                                label="p"
+                                tooltip="planned date"
                                 value={this.props.plannedDate}
                                 handleChange={this.handlePlannedDateSave}
                             />
 
                             <DueDateBox
-                                className="due col-xs-5 col-xs-offset-1 col-sm-6"
-                                label="due"
+                                className="due"
+                                label="d"
+                                tooltip="due date"
                                 value={this.props.dueDate}
                                 handleChange={this.handleDueDateSave}
                             />
@@ -66,9 +68,11 @@ class TaskListItemDates extends Component {
 }
 
 TaskListItemDates.propTypes = {
+    complete: PropTypes.bool.isRequired,
     dueDate: PropTypes.string,
     lastDateCompleted: PropTypes.string,
     plannedDate: PropTypes.string,
+
     handleSave: PropTypes.func.isRequired
 };
 

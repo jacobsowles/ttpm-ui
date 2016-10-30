@@ -5,6 +5,8 @@ import FormGroup from '~/forms/form-group';
 import Message from '~/messages/message';
 import TextArea from '~/fields/text-area';
 
+require('./task-list-item-details.scss');
+
 class TaskListItemDetails extends Component {
 
     constructor(props) {

@@ -16,7 +16,6 @@ class TaskList extends Component {
         this.openTask = this.openTask.bind(this);
         this.closeTask = this.closeTask.bind(this);
         this.getTaskListItems = this.getTaskListItems.bind(this);
-        this.handleTaskNameClick = this.handleTaskNameClick.bind(this);
         this.handleTaskDelete = this.handleTaskDelete.bind(this);
     }
 
@@ -56,10 +55,6 @@ class TaskList extends Component {
                 />
             );
         });
-    }
-
-    handleTaskNameClick(taskId, event) {
-        this.openTask(taskId);
     }
 
     handleTaskDelete(event) {

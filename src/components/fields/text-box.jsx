@@ -65,7 +65,7 @@ class TextBox extends Component {
         return (
             <input
                 type="text"
-                className="form-control"
+                className={`tt-text-box ${this.props.className}`}
                 id={this.props.id}
                 style={this.props.style}
                 placeholder={this.props.placeholder}
@@ -83,6 +83,7 @@ class TextBox extends Component {
 TextBox.propTypes = {
     value: PropTypes.string,
     id: PropTypes.string,
+    className: PropTypes.string,
     style: PropTypes.object,
     placeholder: PropTypes.string,
     clearOnBlur: PropTypes.bool,
@@ -99,6 +100,7 @@ TextBox.propTypes = {
 TextBox.defaultProps = {
     value: '',
     id: '',
+    className: '',
     style: {},
     placeholder: '',
     clearOnBlur: false,
