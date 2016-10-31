@@ -21,16 +21,13 @@
         }
     }
 
-    input.form-control {
-        text-overflow: ellipsis;
-    }
-
     .tt-checkbox {
         width: 30px;
     }
 
     .task-name {
         margin-right: 15px;
+        padding: 3px 0;
         width: calc(100% - 30px - 10px - 62px - 60px);  // 100% - checkbox - margin - actions - dates
         font-size: 14px;
         font-weight: 300;
