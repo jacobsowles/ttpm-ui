@@ -8,58 +8,21 @@ class TaskList extends Component {
 
     constructor(props) {
         super(props);
-
-        this.state = {
-            openTaskIds: []
-        };
-
-        this.openTask = this.openTask.bind(this);
-        this.closeTask = this.closeTask.bind(this);
         this.getTaskListItems = this.getTaskListItems.bind(this);
-        this.handleTaskDelete = this.handleTaskDelete.bind(this);
-    }
-
-    openTask(taskId, event) {
-        if (!this.state.openTaskIds.includes(taskId)) {
-            this.setState({
-                openTaskIds: this.state.openTaskIds.concat(taskId)
-            });
-        }
-    }
-
-    closeTask(taskId, event) {
-        const newList = Object.assign([], this.state.openTaskIds);
-        newList.splice(this.state.openTaskIds.indexOf(taskId), 1);
-
-        this.setState({
-            openTaskIds: newList
-        });
     }
 
     getTaskListItems() {
         return this.props.tasks.map((task, key) => {
-            const isOpen = this.state.openTaskIds.includes(task.Id);
-
             return (
                 <TaskListItem
                     key={key}
                     task={task}
-                    isOpen={isOpen}
-                    isDimmed={!isOpen && this.state.openTaskIds.length != 0}
-                    openTask={this.openTask}
-                    closeTask={this.closeTask}
-                    handleNameClick={this.handleTaskNameClick}
                     handleCompletionToggle={this.props.handleCompletionToggle}
                     handleSave={this.props.handleTaskSave}
-                    handleDelete={this.handleTaskDelete}
+                    handleDelete={this.props.handleTaskDelete}
                 />
             );
         });
-    }
-
-    handleTaskDelete(taskId) {
-        this.closeTask(taskId);
-        this.props.handleTaskDelete(taskId);
     }
 
     render() {
@@ -67,22 +30,12 @@ class TaskList extends Component {
 
         return (
             <div className="task-list">
-                {
-                    this.state.openTaskIds.length == 0
-                        ? (
-                            <DraggableList
-                                items={this.props.tasks}
-                                updateDisplayOrder={this.props.updateDisplayOrder}
-                            >
-                                {listItems}
-                            </DraggableList>
-                        )
-                        : (
-                            <div>
-                                {listItems}
-                            </div>
-                        )
-                }
+                <DraggableList
+                    items={this.props.tasks}
+                    updateDisplayOrder={this.props.updateDisplayOrder}
+                >
+                    {listItems}
+                </DraggableList>
 
                 <TaskListNewItem handleNewTask={this.props.handleNewTask} />
             </div>

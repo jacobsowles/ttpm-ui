@@ -81,7 +81,6 @@ class DropdownMenu extends Component {
     }
 
     render() {
-        console.log('focus: ', document.querySelector(':focus'));
         return (
             <div
                 className="tt-dropdown-menu"

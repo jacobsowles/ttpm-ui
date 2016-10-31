@@ -17,6 +17,7 @@ class TaskListItem extends Component {
         super(props);
 
         this.state = {
+            isOpen: false,
             openContentType: ''
         };
 
@@ -62,13 +63,17 @@ class TaskListItem extends Component {
 
     toggleTaskContent(contentType) {
         if (this.state.openContentType == contentType) {
-            this.state.openContentType = '';
-            this.props.closeTask(this.props.task.Id);
+            this.setState({
+                isOpen: false,
+                openContentType: ''
+            });
         }
 
         else {
-            this.state.openContentType = contentType;
-            this.props.openTask(this.props.task.Id);
+            this.setState({
+                isOpen: true,
+                openContentType: contentType
+            });
         }
     }
 
@@ -77,15 +82,16 @@ class TaskListItem extends Component {
         const opacity = isDragging ? 0 : 1;
 
         return (
-            <div className={`task-list-item ${this.props.isDimmed ? 'dimmed' : ''}`}>
+            <div className="task-list-item">
                 <TaskListItemBrief
                     complete={this.props.task.Complete}
-                    isOpen={this.props.isOpen}
+                    isOpen={this.state.isOpen}
                 >
                     <Checkbox
                         checked={this.props.task.Complete}
                         handleChange={(event) => this.props.handleCompletionToggle(this.props.task.Id, event)}
                     />
+
                     <TextBox
                         className="task-name"
                         isDisabled={this.props.task.Complete}
@@ -108,7 +114,7 @@ class TaskListItem extends Component {
                     />
                 </TaskListItemBrief>
 
-                <Toggler isVisible={this.props.isOpen}>
+                <Toggler isVisible={this.state.isOpen}>
                     <TaskListItemExpanded>
                         <TaskListItemDetails
                             taskId={this.props.task.Id}
@@ -132,11 +138,7 @@ TaskListItem.propTypes = {
         PlannedDate: PropTypes.string,
         DueDate: PropTypes.string
     }).isRequired,
-    isOpen: PropTypes.bool.isRequired,
-    isDimmed: PropTypes.bool.isRequired,
 
-    openTask: PropTypes.func.isRequired,
-    closeTask: PropTypes.func.isRequired,
     handleCompletionToggle: PropTypes.func.isRequired,
     handleDelete: PropTypes.func.isRequired,
     handleSave: PropTypes.func.isRequired
