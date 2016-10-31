@@ -21,12 +21,21 @@ class TaskListItem extends Component {
             openContentType: ''
         };
 
+        this.closeTask = this.closeTask.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
         this.handleDueDateSave = this.handleDueDateSave.bind(this);
         this.handleNameSave = this.handleNameSave.bind(this);
         this.handlePlannedDateSave = this.handlePlannedDateSave.bind(this);
         this.handleSave = this.handleSave.bind(this);
+        this.openTask = this.openTask.bind(this);
         this.toggleTaskContent = this.toggleTaskContent.bind(this);
+    }
+
+    closeTask() {
+        this.setState({
+            isOpen: false,
+            openContentType: ''
+        });
     }
 
     handleDelete() {
@@ -61,19 +70,18 @@ class TaskListItem extends Component {
         this.props.handleSave(this.props.task.Id, data);
     }
 
+    openTask(contentType) {
+        this.setState({
+            isOpen: true,
+            openContentType: contentType
+        });
+    }
+
     toggleTaskContent(contentType) {
         if (this.state.openContentType == contentType) {
-            this.setState({
-                isOpen: false,
-                openContentType: ''
-            });
-        }
-
-        else {
-            this.setState({
-                isOpen: true,
-                openContentType: contentType
-            });
+            this.closeTask();
+        } else {
+            this.openTask(contentType);
         }
     }
 
