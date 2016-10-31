@@ -31,7 +31,7 @@ class TaskListItemDetails extends Component {
     render() {
         return (
             <div className="task-details">
-                <label>Notes</label>
+                <label>Task Details</label>
 
                 <TextArea
                     value={this.props.taskNotes}
