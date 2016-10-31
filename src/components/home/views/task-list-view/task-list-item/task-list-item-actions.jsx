@@ -1,5 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import ActionIcon from '~/icons/action-icon';
+import MoreDropdownMenu from '~/dropdown-menu/more-dropdown-menu';
+import DropdownMenuItem from '~/dropdown-menu/dropdown-menu-item';
 
 import contentTypes from '@/utils/task-list-item-content-types';
 
@@ -17,10 +19,9 @@ class TaskListItemActions extends Component {
                     handleClick={() => this.props.handleClick(contentTypes.DETAILS)}
                 />
 
-                <ActionIcon
-                    glyph="ellipsis-h"
-                    tooltip="more"
-                />
+                <MoreDropdownMenu>
+                    <DropdownMenuItem handleClick={this.props.handleDelete}>Delete</DropdownMenuItem>
+                </MoreDropdownMenu>
             </div>
         );
     }
@@ -28,7 +29,8 @@ class TaskListItemActions extends Component {
 
 TaskListItemActions.propTypes = {
     openContentType: PropTypes.string,
-    handleClick: PropTypes.func.isRequired
+    handleClick: PropTypes.func.isRequired,
+    handleDelete: PropTypes.func.isRequired
 };
 
 export default TaskListItemActions;

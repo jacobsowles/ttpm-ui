@@ -20,11 +20,16 @@ class TaskListItem extends Component {
             openContentType: ''
         };
 
+        this.handleDelete = this.handleDelete.bind(this);
         this.handleDueDateSave = this.handleDueDateSave.bind(this);
         this.handleNameSave = this.handleNameSave.bind(this);
         this.handlePlannedDateSave = this.handlePlannedDateSave.bind(this);
         this.handleSave = this.handleSave.bind(this);
         this.toggleTaskContent = this.toggleTaskContent.bind(this);
+    }
+
+    handleDelete() {
+        this.props.handleDelete(this.props.task.Id);
     }
 
     handleDueDateSave(date) {
@@ -91,6 +96,7 @@ class TaskListItem extends Component {
                     <TaskListItemActions
                         openContentType={this.state.openContentType}
                         handleClick={this.toggleTaskContent}
+                        handleDelete={this.handleDelete}
                     />
 
                     <TasklistItemDates
@@ -107,7 +113,6 @@ class TaskListItem extends Component {
                         <TaskListItemDetails
                             taskId={this.props.task.Id}
                             taskNotes={this.props.task.Notes}
-                            handleDelete={this.props.handleDelete}
                             handleNotesSave={this.handleSave}
                         />
                     </TaskListItemExpanded>

@@ -1,8 +1,8 @@
 @import '../../variables';
 
-.tt-text-box input[type=text],
-textarea,
-textarea.form-control {
+.tt-text-box,
+.tt-text-area {
+    border: 1px solid $tt-greyltr;
     -webkit-box-shadow: none;
     box-shadow: none;
     transition: none;

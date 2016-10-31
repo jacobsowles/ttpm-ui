@@ -57,9 +57,9 @@ class TaskList extends Component {
         });
     }
 
-    handleTaskDelete(event) {
-        this.closeTask(event.target.value);
-        this.props.handleTaskDelete(event);
+    handleTaskDelete(taskId) {
+        this.closeTask(taskId);
+        this.props.handleTaskDelete(taskId);
     }
 
     render() {

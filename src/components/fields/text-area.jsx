@@ -24,7 +24,7 @@ class TextArea extends React.Component {
     render() {
         return (
             <textarea
-                className="form-control"
+                className="tt-text-area"
                 value={this.state.value || ''}
                 onBlur={(event) => this.props.handleBlur(event)}
                 onChange={(event) => this.handleChange(event)}

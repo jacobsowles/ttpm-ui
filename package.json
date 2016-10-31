@@ -77,25 +77,33 @@
     "underscore": "^1.8.3"
   },
   "babel": {
-    "plugins": [
-      ["babel-root-import", [{
-        "rootPathPrefix": "~",
-        "rootPathSuffix": "src/components"
-      }, {
-        "rootPathPrefix": "@",
-        "rootPathSuffix": "src"
-      }]]
+    "plugins": [[
+        "babel-root-import", [{
+            "rootPathPrefix": "~",
+            "rootPathSuffix": "src/components"
+          }, {
+            "rootPathPrefix": "@",
+            "rootPathSuffix": "src"
+          }
+        ]
+      ]
     ],
     "presets": [
-		  "react",
-		  "es2015",
+      "react",
+      "es2015",
       "stage-0"
-  	]
+    ]
   },
   "jest": {
     "testRegex": "(/tests/.*|\\.tests)\\.(js|jsx)$",
-    "modulePathIgnorePatterns": ["/tests/utils/"],
+    "modulePathIgnorePatterns": [
+      "/tests/utils/"
+    ],
     "scriptPreprocessor": "./node_modules/babel-jest",
-    "moduleFileExtensions": ["js", "json", "es6"]
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "es6"
+    ]
   }
 }

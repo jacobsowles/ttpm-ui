@@ -1,0 +1,11 @@
+@import '../../variables';
+
+.tt-dropdown-menu-item {
+    width: 100%;
+    padding: 5px 10px;
+    
+    &:hover {
+        background: #f3f3f3;
+        cursor: pointer;
+    }
+}

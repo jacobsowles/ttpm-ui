@@ -1,7 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-
-import DeleteButton from '~/buttons/delete-button';
-import FormGroup from '~/forms/form-group';
 import Message from '~/messages/message';
 import TextArea from '~/fields/text-area';
 
@@ -34,18 +31,11 @@ class TaskListItemDetails extends Component {
     render() {
         return (
             <div className="task-details">
-                <FormGroup>
-                    <label>Notes</label>
+                <label>Notes</label>
 
-                    <TextArea
-                        value={this.props.taskNotes}
-                        handleBlur={this.handleNotesSave}
-                    />
-                </FormGroup>
-
-                <DeleteButton
-                    value={this.props.taskId}
-                    handleClick={this.props.handleDelete}
+                <TextArea
+                    value={this.props.taskNotes}
+                    handleBlur={this.handleNotesSave}
                 />
 
                 <Message
@@ -61,7 +51,6 @@ class TaskListItemDetails extends Component {
 TaskListItemDetails.propTypes = {
     taskId: PropTypes.number.isRequired,
     taskNotes: PropTypes.string,
-    handleDelete: PropTypes.func.isRequired,
     handleNotesSave: PropTypes.func.isRequired
 };
 
