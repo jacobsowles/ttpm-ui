@@ -68,6 +68,7 @@ class TaskListItem extends Component {
 
     handleSave(data) {
         this.props.handleSave(this.props.task.Id, data);
+        this.closeTask();
     }
 
     openTask(contentType) {
