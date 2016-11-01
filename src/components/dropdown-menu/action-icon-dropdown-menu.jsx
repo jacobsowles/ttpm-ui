@@ -7,7 +7,7 @@ class ActionIconDropdownMenu extends Component {
 
     render() {
         return (
-            <DropdownMenu>
+            <DropdownMenu pixelsFromRightEdge={this.props.pixelsFromRightEdge}>
                 <DropdownMenuTrigger>
                     <ActionIcon
                         glyph={this.props.glyph}
@@ -23,6 +23,7 @@ class ActionIconDropdownMenu extends Component {
 
 ActionIconDropdownMenu.propTypes = {
     glyph: PropTypes.string.isRequired,
+    pixelsFromRightEdge: PropTypes.number,
     tooltip: PropTypes.string.isRequired
 };
 

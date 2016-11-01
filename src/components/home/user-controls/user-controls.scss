@@ -1,8 +1,10 @@
 @import '../../../variables';
 
-#user-controls {
-    display: inline-block;
-    width: 100%;
+.user-controls {
+    float: right;
+    display: flex;
+    align-items: center;
+    height: 45px;
 
     p {
         text-align: center;
@@ -14,10 +16,14 @@
     a:hover {
         cursor: pointer;
     }
+
+    .tt-action-icon {
+        color: #ffffff;
+    }
 }
 
 @media (min-width: $break-sm) {
-    #user-controls {
+    .user-controls {
         p {
             text-align: right;
         }

@@ -1,22 +1,26 @@
-// npm modules
 import React from 'react';
 import { connect } from 'react-redux';
+import DropdownMenuItem from '~/dropdown-menu/dropdown-menu-item';
+import HamburgerDropdownMenu from '~/dropdown-menu/hamburger-dropdown-menu';
 
-// actions
-import userActions from '../../../actions/user-actions.js';
+import userActions from '@/actions/user-actions.js';
 
-// styles
 require('./user-controls.scss');
 
 class UserControls extends React.Component {
 
     render() {
         return (
-            <div id="user-controls">
-                <p>
-                    {localStorage.getItem('username')} &emsp; | &emsp;
-                    <a onClick={() => this.props.handleLogout()}>log out</a>
-                </p>
+            <div className="user-controls">
+                <HamburgerDropdownMenu pixelsFromRightEdge={4}>
+                    <DropdownMenuItem>
+                        <strong>{localStorage.getItem('username')}</strong>
+                    </DropdownMenuItem>
+
+                    <DropdownMenuItem handleClick={this.props.handleLogout}>
+                        Log out
+                    </DropdownMenuItem>
+                </HamburgerDropdownMenu>
             </div>
         );
     }

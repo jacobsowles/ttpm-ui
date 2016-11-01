@@ -15,7 +15,7 @@ class DropdownMenuItem extends Component {
     render() {
         return (
             <div
-                className="tt-dropdown-menu-item"
+                className={`tt-dropdown-menu-item ${this.props.handleClick ? 'clickable' : ''}`}
                 onClick={this.handleClick}
             >
                 {this.props.children}

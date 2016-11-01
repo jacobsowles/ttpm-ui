@@ -5,7 +5,10 @@ class DropdownMenuItems extends Component {
     render() {
         if (this.props.isVisible) {
             return (
-                <div className="tt-dropdown-menu-items">
+                <div
+                    className="tt-dropdown-menu-items"
+                    style={{'right': this.props.pixelsFromRightEdge}}
+                >
                     {this.props.children}
                 </div>
             );
@@ -15,8 +18,9 @@ class DropdownMenuItems extends Component {
     }
 }
 
-DropdownMenuItems.PropTypes = {
-    isVisible: PropTypes.bool.isRequired
+DropdownMenuItems.propTypes = {
+    isVisible: PropTypes.bool.isRequired,
+    pixelsFromRightEdge: PropTypes.number.isRequired
 };
 
 export default DropdownMenuItems;

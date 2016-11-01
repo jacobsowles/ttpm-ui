@@ -1,11 +1,11 @@
 import React, { Component, PropTypes } from 'react';
 import ActionIconDropdownMenu from './action-icon-dropdown-menu';
 
-class MoreDropdownMenu extends Component {
+class HamburgerDropdownMenu extends Component {
     render() {
         return (
             <ActionIconDropdownMenu
-                glyph="ellipsis-h"
+                glyph="bars"
                 {...this.props}
             >
                 {this.props.children}
@@ -14,8 +14,8 @@ class MoreDropdownMenu extends Component {
     }
 }
 
-MoreDropdownMenu.defaultProps = {
-    tooltip: 'more'
+HamburgerDropdownMenu.defaultProps = {
+    tooltip: ''
 };
 
-export default MoreDropdownMenu;
+export default HamburgerDropdownMenu;

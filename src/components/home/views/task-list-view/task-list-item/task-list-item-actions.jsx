@@ -19,7 +19,7 @@ class TaskListItemActions extends Component {
                     handleClick={() => this.props.handleClick(contentTypes.DETAILS)}
                 />
 
-                <MoreDropdownMenu>
+                <MoreDropdownMenu pixelsFromRightEdge={75}>
                     <DropdownMenuItem handleClick={this.props.handleDelete}>Delete</DropdownMenuItem>
                 </MoreDropdownMenu>
             </div>

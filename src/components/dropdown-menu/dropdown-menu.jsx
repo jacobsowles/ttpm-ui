@@ -90,8 +90,9 @@ class DropdownMenu extends Component {
                 {this.renderTrigger()}
 
                 <DropdownMenuItems
-                    ref="options"
                     isVisible={this.state.active}
+                    pixelsFromRightEdge={this.props.pixelsFromRightEdge}
+                    ref="options"
                 >
                     {this.renderMenuItems()}
                 </DropdownMenuItems>
@@ -99,5 +100,13 @@ class DropdownMenu extends Component {
         );
     }
 }
+
+DropdownMenu.propTypes = {
+    pixelsFromRightEdge: PropTypes.number
+};
+
+DropdownMenu.defaultProps = {
+    pixelsFromRightEdge: 0
+};
 
 export default DropdownMenu;
