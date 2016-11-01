@@ -23,9 +23,7 @@ class TaskListItem extends Component {
 
         this.closeTask = this.closeTask.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
-        this.handleDueDateSave = this.handleDueDateSave.bind(this);
         this.handleNameSave = this.handleNameSave.bind(this);
-        this.handlePlannedDateSave = this.handlePlannedDateSave.bind(this);
         this.handleSave = this.handleSave.bind(this);
         this.openTask = this.openTask.bind(this);
         this.toggleTaskContent = this.toggleTaskContent.bind(this);
@@ -42,26 +40,10 @@ class TaskListItem extends Component {
         this.props.handleDelete(this.props.task.Id);
     }
 
-    handleDueDateSave(date) {
-        if (date != this.props.dueDate) {
-            this.handleSave({
-                DueDate: date || ''
-            });
-        }
-    }
-
     handleNameSave(event) {
         if (event.target.value != this.props.task.Name) {
             this.handleSave({
                 Name: event.target.value
-            });
-        }
-    }
-
-    handlePlannedDateSave(date) {
-        if (date != this.props.task.PlannedDate) {
-            this.handleSave({
-                PlannedDate: date || ''
             });
         }
     }
@@ -119,7 +101,7 @@ class TaskListItem extends Component {
                         dueDate={this.props.task.DueDate}
                         lastDateCompleted={this.props.task.LastDateCompleted}
                         plannedDate={this.props.task.PlannedDate}
-                        handleSave={this.props.handleSave}
+                        handleSave={this.handleSave}
                     />
                 </TaskListItemBrief>
 
