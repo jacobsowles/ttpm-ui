@@ -5,6 +5,7 @@ import moment from 'moment';
 
 // components
 import LoadingWrapper from '~/loading/loading-wrapper';
+import Notification from '~/notification/notification';
 import TaskListView from './views/task-list-view/task-list-view';
 
 // actions
@@ -21,7 +22,9 @@ class ViewContainer extends Component {
         super(props);
 
         this.state = {
-            isLoading: true
+            isLoading: true,
+            notificationText: '',
+            notificationType: ''
         };
     }
 
@@ -47,6 +50,11 @@ class ViewContainer extends Component {
                     handleTaskDelete={this.props.handleTaskDelete}
                     handleTaskSave={this.props.handleTaskSave}
                     updateDisplayOrder={this.props.updateDisplayOrder}
+                />
+
+                <Notification
+                    text={this.state.notificationText}
+                    type={this.state.notificationType}
                 />
             </LoadingWrapper>
         );
