@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import DateBox from '~/fields/date-box';
-import DueDateBox from '../due-date-box';
+import DueDateBox from '~/fields/due-date-box';
 
 require('./task-list-item-dates.scss');
 
