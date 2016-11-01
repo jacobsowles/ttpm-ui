@@ -5,11 +5,10 @@ import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 
 // components
-import Header from './layout/header/header';
 import Content from './layout/content/content';
+import Header from './layout/header/header';
 import Sidebar from './layout/sidebar/sidebar';
 import ViewContainer from './view-container';
-// import TaskSearch from './task-search/task-search';
 
 // actions
 import settingActions from '@/actions/setting-actions';
@@ -26,9 +25,7 @@ class Home extends React.Component {
         return (
             <div className="row">
                 <Header />
-
                 <Sidebar />
-
                 <Content />
             </div>
         );
