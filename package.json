@@ -65,6 +65,7 @@
     "react-dnd-html5-backend": "^2.1.2",
     "react-dom": "^15.3.1",
     "react-grid-layout": "^0.13.5",
+    "react-modal": "^1.5.2",
     "react-redux": "^4.4.5",
     "react-router": "^2.7.0",
     "react-select": "^1.0.0-beta14",
@@ -77,11 +78,15 @@
     "underscore": "^1.8.3"
   },
   "babel": {
-    "plugins": [[
-        "babel-root-import", [{
+    "plugins": [
+      [
+        "babel-root-import",
+        [
+          {
             "rootPathPrefix": "~",
             "rootPathSuffix": "src/components"
-          }, {
+          },
+          {
             "rootPathPrefix": "@",
             "rootPathSuffix": "src"
           }

@@ -20,6 +20,13 @@
     .tt-action-icon {
         color: #ffffff;
     }
+
+    .tt-dropdown-menu-items {
+        .tt-icon {
+            width: 25px;
+            margin-right: 2px;
+        }
+    }
 }
 
 @media (min-width: $break-sm) {

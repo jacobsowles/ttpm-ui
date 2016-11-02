@@ -7,7 +7,6 @@ class Icon extends Component {
             <i
                 className={`
                     tt-icon
-                    tt-action-icon
                     fa fa-${this.props.glyph}
                     ${this.props.className}
                 `}
