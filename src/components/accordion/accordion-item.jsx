@@ -43,8 +43,8 @@ class AccordionItem extends Component {
                             ? null
                             : (
                                 this.state.active
-                                    ? <DownAngleIcon className="toggle" handleClick={handleClick} />
-                                    : <RightAngleIcon className="toggle" handleClick={handleClick} />
+                                    ? <DownAngleIcon className="toggle" handleClick={this.handleClick} />
+                                    : <RightAngleIcon className="toggle" handleClick={this.handleClick} />
                             )
                     }
 

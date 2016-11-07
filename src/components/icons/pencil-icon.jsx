@@ -1,11 +1,11 @@
 import React from 'react';
-import Icon from './icon';
+import ActionIcon from './action-icon';
 
 class PencilIcon extends React.Component {
 
     render() {
         return (
-            <Icon
+            <ActionIcon
                 glyph="pencil"
                 {...this.props}
             />

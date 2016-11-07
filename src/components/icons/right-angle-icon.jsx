@@ -1,11 +1,11 @@
 import React from 'react';
-import Icon from './icon';
+import ActionIcon from './action-icon';
 
 class RightAngleIcon extends React.Component {
 
     render() {
         return (
-            <Icon
+            <ActionIcon
                 glyph="angle-right"
                 {...this.props}
             />
