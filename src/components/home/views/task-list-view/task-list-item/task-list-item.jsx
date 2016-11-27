@@ -77,6 +77,8 @@ class TaskListItem extends Component {
                 <TaskListItemBrief
                     complete={this.props.task.Complete}
                     isOpen={this.state.isOpen}
+                    openTask={this.openTask}
+                    closeTask={this.closeTask}
                 >
                     <Checkbox
                         checked={this.props.task.Complete}
