@@ -1,61 +1,49 @@
 // npm modules
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { DragDropContext } from 'react-dnd';
-import HTML5Backend from 'react-dnd-html5-backend';
 
 // components
-import Content from './layout/content/content';
-import Header from './layout/header/header';
-import Sidebar from './layout/sidebar/sidebar';
-import ViewContainer from './view-container';
+import DateFilterCollection from './sidebar/date-filter-collection';
+import GroupFilterContainer from './sidebar/group-filter/group-filter-container';
+import Sidebar from './sidebar/sidebar';
+import SidebarModule from './sidebar/sidebar-module';
+import StatusFilterCollection from './sidebar/status-filter-collection';
+import ViewContainer from './workspace/view-container';
+import Workspace from './workspace/workspace';
 
-// actions
-import settingActions from '@/actions/setting-actions';
-import userSettingActions from '@/actions/user-setting-actions';
-
-class Home extends React.Component {
-
-    componentWillMount() {
-        this.props.fetchUserSettings();
-        this.props.fetchSettings();
-    }
-
+class Home extends Component {
     render() {
         return (
-            <div className="row">
-                <Header />
-                <Sidebar />
-                <Content />
+            <div>
+                <Sidebar>
+                    <SidebarModule title="date">
+                        <DateFilterCollection />
+                    </SidebarModule>
+
+                    <SidebarModule title="group">
+                        <GroupFilterContainer />
+                    </SidebarModule>
+
+                    <SidebarModule title="status">
+                        <StatusFilterCollection />
+                    </SidebarModule>
+                </Sidebar>
+
+                <Workspace />
             </div>
         );
     }
 }
 
-function getAnalyticsDefault(userSettings, settings) {
-    if (userSettings.defaultShowAnalytics) {
-        return Boolean(userSettings.defaultShowAnalytics.Value);
-    }
-
-    return false; //Boolean(settings.defaultShowAnalytics.DefaultValue);
-}
-
 function mapStateToProps(state) {
     return {
-        defaultShowAnalytics: getAnalyticsDefault(state.userSettings, state.settings)
+        filters: state.filters
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        fetchSettings: function() {
-            dispatch(settingActions.fetchSettings());
-        },
-
-        fetchUserSettings: function() {
-            dispatch(userSettingActions.fetchUserSettings());
-        }
     };
 }
 
-export default DragDropContext(HTML5Backend)(connect(mapStateToProps, mapDispatchToProps)(Home));
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

@@ -1,0 +1,19 @@
+body {
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 13px;
+    //color: #5b5b5b;
+    color: #939393;
+}
+
+a {
+    color: #5b5b5b;
+    text-decoration: none;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+a.light {
+    color: #fff;
+}

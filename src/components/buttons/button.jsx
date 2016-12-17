@@ -12,15 +12,14 @@ class Button extends Component {
                 disabled={this.props.isDisabled}
                 onClick={(event) => this.props.handleClick(event)}
             >
-                {this.props.text}
+                {this.props.children}
             </button>
         );
     }
 }
 
-Button.PropTypes = {
+Button.propTypes = {
     id: PropTypes.string,
-    text: PropTypes.string.isRequired,
     className: PropTypes.string,
     value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     isDisabled: PropTypes.bool,

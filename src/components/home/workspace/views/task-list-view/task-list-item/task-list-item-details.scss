@@ -1,0 +1,18 @@
+@import '../../../../../../../assets/stylesheets/_variables';
+
+.task-details {
+    .tt-text-area {
+        margin-bottom: 5px;
+    }
+
+    .task-details-message {
+        font-size: .8em;
+        color: $tt-greymd;
+        margin-left: 10px;
+        display: inline-block;
+    }
+
+    .hidden {
+        opacity: 0;
+    }
+}

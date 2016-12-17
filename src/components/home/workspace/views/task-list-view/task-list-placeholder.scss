@@ -1,0 +1,15 @@
+@import '../../../../../../assets/stylesheets/_variables';
+
+.task-list-placeholder {
+    margin: 20px 0 0 0;
+    font-size: 1.3em;
+    color: $tt-greymd;
+    text-align: center;
+
+    .large {
+        font-size: 3em;
+        font-weight: 100;
+        // font-family: 'Roboto';
+        display: block;
+    }
+}

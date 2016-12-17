@@ -4,8 +4,6 @@ import DropdownMenuTrigger from './dropdown-menu-trigger';
 import DropdownMenuItems from './dropdown-menu-items';
 import DropdownMenuItem from './dropdown-menu-item';
 
-require('./dropdown-menu.scss');
-
 class DropdownMenu extends Component {
     constructor(props) {
         super(props);

@@ -1,0 +1,18 @@
+@import '../../../../../assets/stylesheets/_variables';
+
+.group-filter {
+    margin-bottom: 15px;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+
+    .group-filter-actions {
+        display: none;
+    }
+
+    &:hover {
+        .group-filter-actions {
+            display: inherit;
+        }
+    }
+}

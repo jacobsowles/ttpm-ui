@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-require('./dropdown-menu-trigger.scss');
 
 class DropdownMenuTrigger extends Component {
     render() {

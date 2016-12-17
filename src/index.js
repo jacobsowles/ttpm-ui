@@ -11,7 +11,6 @@ import { isLoggedIn } from './utils/auth';
 // components
 import Home from '~/home/home';
 import AuthContainer from '~/auth/auth-container';
-import Sandbox from '~/sandbox/sandbox';
 
 // styles
 require('./index.scss');
@@ -21,7 +20,6 @@ render(
         <Router history={hashHistory}>
             <Route path="/" component={Home} onEnter={requireAuth} />
             <Route path="/login" component={AuthContainer} />
-            <Route path="/sandbox" component={Sandbox} />
         </Router>
     </Provider>, document.getElementById('root')
 );

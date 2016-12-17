@@ -1,0 +1,40 @@
+@import '../../../../../../../assets/stylesheets/_variables';
+
+.task-list-new-item {
+    margin-top: 10px;
+    padding: 0px 15px 0px 35px;
+
+    input {
+        padding: 10px;
+        border: none !important;
+        background: none;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &:focus {
+            cursor: text;
+        }
+
+        &::-moz-placeholder {
+            font-style: normal;
+            color: $tt-greymd;
+        }
+
+        &:-moz-placeholder {
+            font-style: normal;
+            color: $tt-greymd;
+        }
+
+        &::-webkit-input-placeholder {
+            font-style: normal;
+            color: $tt-greymd;
+        }
+
+        &:-ms-input-placeholder {
+            font-style: normal;
+            color: $tt-greymd;
+        }
+    }
+}

@@ -1,0 +1,17 @@
+@import '../../../../../assets/stylesheets/_variables';
+
+.group-filter-actions {
+    float: right;
+    color: $tt-greymd;
+    margin-left: 10px;
+
+    span,
+    i {
+        padding: 2px 5px;
+
+        &:hover {
+            color: $tt-white;
+            cursor: pointer;
+        }
+    }
+}

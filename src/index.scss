@@ -1,155 +1,135 @@
-@import "../assets/stylesheets/bootstrap-sass/assets/stylesheets/_bootstrap-compass.scss";
-@import "../assets/stylesheets/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
-@import "../assets/stylesheets/animate.css";
-@import './variables';
+@import '../assets/stylesheets/third-party/reset.css';
+@import '../assets/stylesheets/third-party/animate.css';
+
+@import '../assets/stylesheets/_variables.scss';
+@import '../assets/stylesheets/_mixins.scss';
+@import '../assets/stylesheets/_state.scss';
+@import '../assets/stylesheets/_typography.scss';
+
+// Global =====================================================================
 
 * {
     box-sizing: border-box;
 }
 
 body {
-    color: $tt-greydk;
-    font-family: 'Open Sans', Arial, sans-serif;
-    background: $tt-white;
-    width: 100%;
-    min-width: 350px;
+    background: white;
 }
 
-h1 {
+header {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    padding: 0 15px 0 15px;
+    background: $tt-greenlt;
+    border-bottom: 1px solid #607c4e;
+    color: white;
 
-}
-
-h2 {
-
-}
-
-h3 {
-
-}
-
-h4 {
-
-}
-
-h5 {
-
-}
-
-h6 {
-
-}
-
-p {
-    font-weight: 300;
-}
-
-::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-    font-style: italic;
-}
-
-:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-    font-style: italic;
-}
-
-::-moz-placeholder { /* Mozilla Firefox 19+ */
-    font-style: italic;
-}
-
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
-    font-style: italic;
-}
-
-a {
-    color: $tt-green;
-
-    &:hover {
-        color: $tt-greenlt;
-        cursor: pointer !important;
+    i {
+        font-size: 20px !important;
     }
 }
 
-label {
-    font-weight: 300;
-}
+.logo {
+    display: flex;
+    align-items: center;
 
-input:focus {
-    outline: none;
-}
+    a {
+        text-transform: uppercase;
+        letter-spacing: 1px;
 
-.nav-pills > li.active > a,
-.nav-pills > li.active > a:hover,
-.nav-pills > li.active > a:focus {
-    background-color: $tt-greenlt;
-}
-
-.nav {
-    li {
-        a, p {
-            padding: 4px 6px;
-            font-size: .9em;
-            margin: 0;
+        &:hover {
+            text-decoration: none;
         }
+    }
 
-        p {
-            color: $tt-greylt;
+    figure {
+        width: 25px;
+        height: 25px;
+        background-size: cover;
+        display: inline-block;
+    }
+}
+
+.logo--dark {
+    a {
+        color: $tt-green;
+    }
+
+    figure {
+        background-image: url('../assets/images/tt-dark.png');
+    }
+}
+
+.logo--light {
+    a {
+        color: white;
+    }
+
+    figure {
+        background-image: url('../assets/images/tt-white.png');
+    }
+}
+
+// Sidebar ====================================================================
+
+aside {
+    width: 250px;
+    display: inline-block;
+
+    header {
+        box-shadow: 1px 0 0 0 $tt-greenlt;
+    }
+
+    & > div {
+        height: calc(100vh - 40px);
+        padding: 30px 15px 0 15px;
+        background: #F7F7F7;
+        border-right: 1px solid #E3E3E3;
+    }
+
+    .status-filter-collection {
+        .toggle-switch {
+            margin-top: 5px;
         }
     }
 }
 
-.no-horizontal-padding, .container-fluid {
-    padding-right: 0;
-    padding-left: 0;
+// Workspace ==================================================================
+
+main {
+    width: calc(100% - 250px);
+    float: right;
+
+    header {
+        display: flex;
+        justify-content: space-between;
+
+        #sidebar-trigger {
+            display: none;
+        }
+    }
+
+    & > div {
+        height: calc(100vh - 40px);
+        padding: 30px;
+    }
 }
 
-.no-right-padding {
-    padding-right: 0;
-}
+// States =====================================================================
 
-.row {
-    margin-right: 0;
-    margin-left: 0;
-}
+@media (max-width: 500px) {
+    aside {
+        display: none;
+    }
 
-.table {
-    margin-bottom: 0;
-}
+    main {
+        width: 100%;
 
-.form-control {
-    border-radius: 0;
-    -moz-border-radius: 0;
-    -webkit-border-radius: 0;
-    height: auto;
-}
-
-.data-visualization canvas {
-    margin: 0 auto;
-    display: block;
-}
-
-// TODO Remove these upon completion of responsive layout, just makes it easier to see breakpoint transitions.
-// @media (min-width: $break-sm) {
-//     body {
-//         background-color: #fee;
-//     }
-// }
-//
-// @media (min-width: $break-md) {
-//     body {
-//         background-color: #efe;
-//     }
-// }
-//
-// @media (min-width: $break-lg) {
-//     body {
-//         background-color: #eef;
-//     }
-// }
-
-// will limit width and center these elements
-@media (min-width: $break-lg) {
-    .limit-full-width {
-        max-width: 1400px;
-        margin-left: auto;
-        margin-right: auto;
+        header {
+            #sidebar-trigger {
+                display: inline;
+            }
+        }
     }
 }

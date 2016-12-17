@@ -12,6 +12,7 @@ class ActionIcon extends Component {
                     ${this.props.isInactive ? 'inactive' : ''}
                     ${this.props.className}
                 `}
+                id={this.props.id}
                 data-toggle="tooltip"
                 title={this.props.tooltip}
                 onClick={this.props.handleClick}
@@ -23,6 +24,7 @@ class ActionIcon extends Component {
 ActionIcon.propTypes = {
     className: PropTypes.string,
     glyph: PropTypes.string.isRequired,
+    id: PropTypes.string,
     tooltip: PropTypes.string,
 
     handleClick: PropTypes.func
