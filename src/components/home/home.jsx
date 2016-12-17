@@ -16,16 +16,8 @@ class Home extends Component {
         return (
             <div>
                 <Sidebar>
-                    <SidebarModule title="date">
-                        <DateFilterCollection />
-                    </SidebarModule>
-
                     <SidebarModule title="group">
                         <GroupFilterContainer />
-                    </SidebarModule>
-
-                    <SidebarModule title="status">
-                        <StatusFilterCollection />
                     </SidebarModule>
                 </Sidebar>
 

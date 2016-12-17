@@ -2,15 +2,16 @@
 
 .group-filter-actions {
     float: right;
-    color: $tt-greymd;
+    color: white;
     margin-left: 10px;
 
     span,
     i {
         padding: 2px 5px;
+        font-size: 12px;
 
         &:hover {
-            color: $tt-white;
+            color: white;
             cursor: pointer;
         }
     }

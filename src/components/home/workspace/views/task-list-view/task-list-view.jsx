@@ -11,8 +11,6 @@ class TaskListView extends Component {
     render() {
         return (
             <div className="task-list-view">
-                <TaskListFilterContainer taskGroupName={this.props.taskGroupName} />
-
                 {
                     this.props.tasks.length == 0
                         ? (

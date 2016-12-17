@@ -39,45 +39,12 @@ class GroupFilter extends Component {
     render() {
         return (
             <div className="group-filter">
-                <div style={{
-                    display: 'flex',
-                    alignItems: 'center'
-                }}>
-                    {/*<div style={{
-                        width: '12px',
-                        height: '12px',
-                        background: '#FF6900',
-                        marginRight: '10px',
-                        borderRadius: '1px',
-                        display: 'inline-block'
-                    }}></div>*/}
-
-                    {
-                        this.state.isEditMode
-                        ? (
-                            <TextBox
-                                id={`group-filter-${this.props.taskGroupId}`}
-                                value={this.props.taskGroupName}
-                                handleBlur={(event) => this.handleNameSave(event)}
-                            />
-                        )
-                        : (
-                            <a
+                   <a
                                 className="group-filter-name"
                                 onClick={() => this.props.handleTaskGroupClick(this.props.taskGroupId)}
                             >
                                 {this.props.taskGroupName}
                             </a>
-                        )
-                    }
-                </div>
-
-                <GroupFilterActions
-                    isEditMode={this.state.isEditMode}
-                    taskGroupId={this.props.taskGroupId}
-                    setEditMode={this.setEditMode}
-                    handleDelete={this.props.handleDeleteTaskGroupClick}
-                />
             </div>
         );
     }

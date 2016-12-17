@@ -21,9 +21,6 @@ header {
     display: flex;
     align-items: center;
     padding: 0 15px 0 15px;
-    background: $tt-greenlt;
-    border-bottom: 1px solid #607c4e;
-    color: white;
 
     i {
         font-size: 20px !important;
@@ -78,14 +75,17 @@ aside {
     display: inline-block;
 
     header {
-        box-shadow: 1px 0 0 0 $tt-greenlt;
+        background: #73956F;
+        //box-shadow: -2px 0 2px 2px #888888;
+        position: relative;
+        z-index: 2;
     }
 
     & > div {
         height: calc(100vh - 40px);
         padding: 30px 15px 0 15px;
-        background: #F7F7F7;
-        border-right: 1px solid #E3E3E3;
+        background: #454851;
+        border-right: 1px solid #2e3035;
     }
 
     .status-filter-collection {
@@ -104,15 +104,21 @@ main {
     header {
         display: flex;
         justify-content: space-between;
+        border-bottom: 1px solid #E3E3E3;
+        box-shadow: 0 0 5px #ccc;
+        color: #939393;
 
         #sidebar-trigger {
             display: none;
+        }
+
+        i {
+            font-size: 15px !important;
         }
     }
 
     & > div {
         height: calc(100vh - 40px);
-        padding: 30px;
     }
 }
 

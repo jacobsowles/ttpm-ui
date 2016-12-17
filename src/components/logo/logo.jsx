@@ -5,7 +5,7 @@ class Logo extends Component {
         return (
             <div className={`logo logo--${this.props.theme}`}>
                 <figure />
-                <a href="/" title="Home">&ensp;Productivity Manager</a>
+                <a href="/" title="Home">&ensp;ttpm</a>
             </div>
         );
     }
