@@ -1,6 +1,7 @@
 import React from 'React';
 import ActionIcon from '~/icons/action-icon';
 import Icon from '~/icons/icon';
+import { PageSubtitle, PageTitle } from 'react-building-blocks';
 import UserControls from './user-controls';
 import ViewContainer from './view-container';
 
@@ -36,20 +37,8 @@ class Workspace extends React.Component {
                         borderBottom: '1px solid #E3E3E3',
                         padding: '30px 30px 0 30px'
                     }}>
-                        <h2 style={{
-                            fontSize: '18px',
-                            marginBottom: '10px',
-                            color: '#1a1a1a'
-                        }}>
-                            Group Name
-                        </h2>
-
-                        <p style={{
-                            fontSize: '11px',
-                            marginLeft: '1px'
-                        }}>
-                            Group description or something goes here
-                        </p>
+                        <PageTitle>Group Name</PageTitle>
+                        <PageSubtitle>Group description or something goes here</PageSubtitle>
 
                         <div style={{
                             marginTop: '30px'

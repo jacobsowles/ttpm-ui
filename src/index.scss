@@ -76,13 +76,6 @@ header {
     background: #454851;
     border-right: 1px solid #2e3035;
 
-    header {
-        background: #555a66;
-        box-shadow: -6px 0 8px #2e3035;
-        position: relative;
-        z-index: 2;
-    }
-
     .status-filter-collection {
         .toggle-switch {
             margin-top: 5px;
@@ -90,18 +83,15 @@ header {
     }
 }
 
+.sidebar-header {
+    background: #555a66;
+    box-shadow: -6px 0 8px #2e3035;
+    position: relative;
+    z-index: 2;
+}
+
 .sidebar-module {
     padding: 30px 15px 0 15px;
-
-    h6 {
-        font-family: 'Roboto';
-        font-size: 10px;
-        font-weight: 500;
-        margin-bottom: 15px;
-        padding-bottom: 4px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
 
     a {
         color: #b2b2b2;
@@ -116,6 +106,16 @@ header {
             color: white;
         }
     }
+}
+
+.sidebar-module-header {
+    font-family: 'Roboto';
+    font-size: 10px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    padding-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 // Workspace ==================================================================
@@ -142,6 +142,17 @@ main {
     & > div {
         height: calc(100vh - 40px);
     }
+}
+
+.page-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #1a1a1a;
+}
+
+.page-subtitle {
+    font-size: 11px;
+    margin-left: 1px;
 }
 
 // States =====================================================================
