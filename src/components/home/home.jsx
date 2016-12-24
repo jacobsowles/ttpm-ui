@@ -5,8 +5,8 @@ import { connect } from 'react-redux';
 // components
 import DateFilterCollection from './sidebar/date-filter-collection';
 import GroupFilterContainer from './sidebar/group-filter/group-filter-container';
-import Sidebar from './sidebar/sidebar';
-import SidebarModule from './sidebar/sidebar-module';
+import LightLogo from '~/logo/light-logo';
+import { Sidebar, SidebarModule } from 'react-building-blocks';
 import StatusFilterCollection from './sidebar/status-filter-collection';
 import ViewContainer from './workspace/view-container';
 import Workspace from './workspace/workspace';
@@ -15,8 +15,8 @@ class Home extends Component {
     render() {
         return (
             <div>
-                <Sidebar>
-                    <SidebarModule title="group">
+                <Sidebar header={<LightLogo />}>
+                    <SidebarModule header="group">
                         <GroupFilterContainer />
                     </SidebarModule>
                 </Sidebar>

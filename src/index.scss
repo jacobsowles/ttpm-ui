@@ -70,27 +70,50 @@ header {
 
 // Sidebar ====================================================================
 
-aside {
+.sidebar {
     width: 250px;
-    display: inline-block;
+    height: 100vh;
+    background: #454851;
+    border-right: 1px solid #2e3035;
 
     header {
-        background: #73956F;
-        //box-shadow: -2px 0 2px 2px #888888;
+        background: #555a66;
+        box-shadow: -6px 0 8px #2e3035;
         position: relative;
         z-index: 2;
-    }
-
-    & > div {
-        height: calc(100vh - 40px);
-        padding: 30px 15px 0 15px;
-        background: #454851;
-        border-right: 1px solid #2e3035;
     }
 
     .status-filter-collection {
         .toggle-switch {
             margin-top: 5px;
+        }
+    }
+}
+
+.sidebar-module {
+    padding: 30px 15px 0 15px;
+
+    h6 {
+        font-family: 'Roboto';
+        font-size: 10px;
+        font-weight: 500;
+        margin-bottom: 15px;
+        padding-bottom: 4px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    a {
+        color: #b2b2b2;
+        font-size: 12px;
+        border-left: 3px solid #2e3035;
+        padding: 1px 0 0px 10px;
+        margin-left: 10px;
+        width: 100%;
+
+        &:hover {
+            border-left: 3px solid #73956F;
+            color: white;
         }
     }
 }
@@ -104,8 +127,7 @@ main {
     header {
         display: flex;
         justify-content: space-between;
-        border-bottom: 1px solid #E3E3E3;
-        box-shadow: 0 0 5px #ccc;
+        box-shadow: 0 0 8px #aaa;
         color: #939393;
 
         #sidebar-trigger {
