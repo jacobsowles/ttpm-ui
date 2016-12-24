@@ -1,0 +1,47 @@
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background: #454851;
+    border-right: 1px solid #2e3035;
+
+    .status-filter-collection {
+        .toggle-switch {
+            margin-top: 5px;
+        }
+    }
+}
+
+.sidebar-header {
+    background: #555a66;
+    box-shadow: -6px 0 8px #2e3035;
+    position: relative;
+    z-index: 2;
+}
+
+.sidebar-module {
+    padding: 30px 15px 0 15px;
+
+    a {
+        color: #b2b2b2;
+        font-size: 12px;
+        border-left: 3px solid #2e3035;
+        padding: 1px 0 0px 10px;
+        margin-left: 10px;
+        width: 100%;
+
+        &:hover {
+            border-left: 3px solid #73956F;
+            color: white;
+        }
+    }
+}
+
+.sidebar-module-header {
+    font-family: 'Roboto';
+    font-size: 10px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    padding-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
