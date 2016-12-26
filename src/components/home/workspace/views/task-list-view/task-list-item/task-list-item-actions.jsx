@@ -1,22 +1,21 @@
 import React, { Component, PropTypes } from 'react';
-import ActionIcon from '~/icons/action-icon';
-import MoreDropdownMenu from '~/dropdown-menu/more-dropdown-menu';
 import DropdownMenuItem from '~/dropdown-menu/dropdown-menu-item';
+import { Icon } from 'react-building-blocks';
+import MoreDropdownMenu from '~/dropdown-menu/more-dropdown-menu';
 
 import contentTypes from '@/utils/task-list-item-content-types';
 
 require('./task-list-item-actions.scss');
 
 class TaskListItemActions extends Component {
-
     render() {
         return (
             <div className="task-list-item-actions">
-                <ActionIcon
+                <Icon
                     className={this.props.openContentType == contentTypes.DETAILS ? 'active' : ''}
                     glyph="file-text-o"
-                    tooltip="details"
-                    handleClick={() => this.props.handleClick(contentTypes.DETAILS)}
+                    title="details"
+                    onClick={() => this.props.handleClick(contentTypes.DETAILS)}
                 />
 
                 <MoreDropdownMenu pixelsFromRightEdge={75}>

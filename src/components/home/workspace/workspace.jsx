@@ -1,7 +1,5 @@
 import React from 'React';
-import ActionIcon from '~/icons/action-icon';
-import Icon from '~/icons/icon';
-import { PageSubtitle, PageTitle } from 'react-building-blocks';
+import { Icon, PageSubtitle, PageTitle } from 'react-building-blocks';
 import UserControls from './user-controls';
 import ViewContainer from './view-container';
 
@@ -11,10 +9,10 @@ class Workspace extends React.Component {
             <main>
                 <header>
                     <div>
-                        <ActionIcon
+                        <Icon
                             id="sidebar-trigger"
                             glyph="bars"
-                            handleClick={() => {}}
+                            onClick={() => {}}
                         />
                         <Icon glyph="search" />
                         <input

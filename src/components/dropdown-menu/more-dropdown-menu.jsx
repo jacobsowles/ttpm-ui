@@ -6,6 +6,7 @@ class MoreDropdownMenu extends Component {
         return (
             <ActionIconDropdownMenu
                 glyph="ellipsis-h"
+                title={this.props.title}
                 {...this.props}
             >
                 {this.props.children}
@@ -15,7 +16,7 @@ class MoreDropdownMenu extends Component {
 }
 
 MoreDropdownMenu.defaultProps = {
-    tooltip: 'more'
+    title: 'more'
 };
 
 export default MoreDropdownMenu;

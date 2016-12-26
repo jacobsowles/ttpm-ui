@@ -1,17 +1,16 @@
 import React, { Component, PropTypes } from 'react';
-import ActionIcon from '~/icons/action-icon';
+import { Icon } from 'react-building-blocks';
 import DropdownMenu from '~/dropdown-menu/dropdown-menu';
 import DropdownMenuTrigger from '~/dropdown-menu/dropdown-menu-trigger';
 
 class ActionIconDropdownMenu extends Component {
-
     render() {
         return (
             <DropdownMenu pixelsFromRightEdge={this.props.pixelsFromRightEdge}>
                 <DropdownMenuTrigger>
-                    <ActionIcon
+                    <Icon
                         glyph={this.props.glyph}
-                        tooltip={this.props.tooltip}
+                        title={this.props.title}
                     />
                 </DropdownMenuTrigger>
 
@@ -24,7 +23,7 @@ class ActionIconDropdownMenu extends Component {
 ActionIconDropdownMenu.propTypes = {
     glyph: PropTypes.string.isRequired,
     pixelsFromRightEdge: PropTypes.number,
-    tooltip: PropTypes.string.isRequired
+    title: PropTypes.string.isRequired
 };
 
 export default ActionIconDropdownMenu;

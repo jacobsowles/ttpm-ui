@@ -6,6 +6,7 @@ class SettingsDropdownMenu extends Component {
         return (
             <ActionIconDropdownMenu
                 glyph="gear"
+                title={this.props.title}
                 {...this.props}
             >
                 {this.props.children}
@@ -15,7 +16,7 @@ class SettingsDropdownMenu extends Component {
 }
 
 SettingsDropdownMenu.defaultProps = {
-    tooltip: 'settings'
+    title: 'settings'
 };
 
 export default SettingsDropdownMenu;

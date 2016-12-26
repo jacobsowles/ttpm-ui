@@ -1,22 +1,20 @@
-// npm modules
 import React, { Component, PropTypes } from 'react';
-
-// components
-import CheckmarkIcon from '~/icons/checkmark-icon';
-import PencilIcon from '~/icons/pencil-icon';
+import { Icon } from 'react-building-blocks';
 import TextBox from '~/fields/text-box';
-import TimesIcon from '~/icons/times-icon';
 
-// styles
 require('./group-filter-actions.scss');
 
 class GroupFilterActions extends Component {
-
     render() {
         return (
             <span className="group-filter-actions">
-                {this.props.isEditMode ? <CheckmarkIcon /> : <PencilIcon handleClick={() => this.props.setEditMode(true)} />}
-                <TimesIcon handleClick={(event) => this.props.handleDelete(this.props.taskGroupId, event)} />
+                {
+                    this.props.isEditMode
+                        ? <Icon glyph="check" />
+                        : <Icon glyph="pencil" onClick={() => this.props.setEditMode(true)} />
+                }
+
+                <Icon glyph="times" onClick={(event) => this.props.handleDelete(this.props.taskGroupId, event)} />
             </span>
         );
     }

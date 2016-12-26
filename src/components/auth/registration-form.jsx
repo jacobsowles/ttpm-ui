@@ -1,10 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 
 import Button from '~/buttons/button';
-import CheckmarkIcon from '~/icons/checkmark-icon';
 import ErrorMessage from '~/messages/error-message';
+import { Icon } from 'react-building-blocks';
 import InlineLoadingWrapper from '~/loading/inline-loading-wrapper';
-import TimesIcon from '~/icons/times-icon';
 
 require('./registration-form.scss');
 
@@ -127,9 +126,10 @@ class RegistrationForm extends Component {
                             : this.state.emailIsValid
                                 ? <CheckmarkIcon className="valid" />
                                 : (
-                                    <TimesIcon
+                                    <Icon
                                         className="invalid"
-                                        tooltip={this.state.emailValidationMessage}
+                                        glyph="times"
+                                        title={this.state.emailValidationMessage}
                                     />
                                 )
                     }

@@ -1,10 +1,8 @@
 import React, { Component, PropTypes } from 'react';
-import DownAngleIcon from '~/icons/down-angle-icon';
-import RightAngleIcon from '~/icons/right-angle-icon';
+import { Icon } from 'react-building-blocks';
 
 require('./accordion-item.scss');
 
-// styles - controlled by state, to be refactored into className +/-
 const styles = {
     active: {
         display: 'inherit'
@@ -43,8 +41,8 @@ class AccordionItem extends Component {
                             ? null
                             : (
                                 this.state.active
-                                    ? <DownAngleIcon className="toggle" handleClick={this.handleClick} />
-                                    : <RightAngleIcon className="toggle" handleClick={this.handleClick} />
+                                    ? <Icon glyph="chevron-down" className="toggle" handleClick={this.handleClick} />
+                                    : <Icon glyph="chevron-right" className="toggle" handleClick={this.handleClick} />
                             )
                     }
 
