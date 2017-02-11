@@ -6,19 +6,18 @@ import { Router, Route, hashHistory } from 'react-router';
 
 // app modules
 import store from './store';
-import { isLoggedIn } from './utils/auth';
+import { isLoggedIn } from 'utils/auth/auth';
 
 // components
-import Home from '~/home/home';
-import AuthContainer from '~/auth/auth-container';
+import AuthContainer from 'containers/auth-container';
 
 // styles
-require('./index.scss');
+import './index.scss';
 
 render(
     <Provider store={store}>
         <Router history={hashHistory}>
-            <Route path="/" component={Home} onEnter={requireAuth} />
+            {/*<Route path="/" component={Home} onEnter={requireAuth} />*/}
             <Route path="/login" component={AuthContainer} />
         </Router>
     </Provider>, document.getElementById('root')

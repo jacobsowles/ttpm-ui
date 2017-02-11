@@ -1,10 +1,10 @@
-@import '../assets/stylesheets/third-party/reset.css';
-@import '../assets/stylesheets/third-party/animate.css';
+@import 'assets/styles/third-party/reset.scss';
+@import 'assets/styles/third-party/animate.scss';
 
-@import '../assets/stylesheets/_variables.scss';
-@import '../assets/stylesheets/_mixins.scss';
-@import '../assets/stylesheets/_sidebar.scss';
-@import '../assets/stylesheets/_typography.scss';
+@import 'assets/styles/_variables.scss';
+@import 'assets/styles/_mixins.scss';
+@import 'assets/styles/_sidebar.scss';
+@import 'assets/styles/_typography.scss';
 
 // Global =====================================================================
 
@@ -13,7 +13,7 @@
 }
 
 body {
-    background: white;
+    background: $tt-white;
 }
 
 header {
@@ -27,45 +27,10 @@ header {
     }
 }
 
-.logo {
-    display: flex;
-    align-items: center;
+// Forms ======================================================================
 
-    a {
-        text-transform: uppercase;
-        letter-spacing: 1px;
-
-        &:hover {
-            text-decoration: none;
-        }
-    }
-
-    figure {
-        width: 25px;
-        height: 25px;
-        background-size: cover;
-        display: inline-block;
-    }
-}
-
-.logo--dark {
-    a {
-        color: $tt-green;
-    }
-
-    figure {
-        background-image: url('../assets/images/tt-dark.png');
-    }
-}
-
-.logo--light {
-    a {
-        color: white;
-    }
-
-    figure {
-        background-image: url('../assets/images/tt-white.png');
-    }
+.text-box {
+    
 }
 
 // Workspace ==================================================================

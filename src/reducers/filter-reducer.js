@@ -1,5 +1,5 @@
-import { completion, date, status } from '@/utils/filter-values';
-import Array from '@/utils/array';
+import { completion, date, status } from 'constants/filter-values';
+import Array from 'utils/array/array';
 
 const initialState = {
     completion: completion.INCOMPLETE,

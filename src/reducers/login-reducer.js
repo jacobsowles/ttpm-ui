@@ -1,4 +1,4 @@
-import { saveAuthentication } from '@/utils/auth';
+import { saveAuthentication } from 'utils/auth/auth';
 
 const initialState = {
     error: '',

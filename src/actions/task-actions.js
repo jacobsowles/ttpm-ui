@@ -1,4 +1,4 @@
-import { get, put, post, del } from '../api.js';
+import { get, put, post, del } from 'api';
 
 module.exports = {
     fetchTasks() {

@@ -1,0 +1,31 @@
+@import 'assets/styles/_variables';
+
+.login-form {
+    width: 100%;
+
+    button {
+        background: $tt-primary-md;
+        border: $tt-primary-border;
+        color: white;
+        display: block;
+        font-size: .9em;
+        margin-bottom: 10px;
+        padding: 15px 15px 15px 17px;
+        text-align: left;
+        text-transform: uppercase;
+        transition: background 0.5s ease;
+        width: 100%;
+
+        &:hover {
+            background: $tt-primary-dk;
+            cursor: pointer;
+        }
+    }
+
+    .text-box {
+        display: block;
+        font-size: 1.3em;
+        margin-bottom: 2px;
+        width: 100%;
+    }
+}

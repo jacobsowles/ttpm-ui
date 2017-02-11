@@ -1,4 +1,4 @@
-import { post } from '@/api';
+import { post } from 'api';
 
 module.exports = {
     login(email, password) {

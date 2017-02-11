@@ -1,0 +1,11 @@
+@import 'assets/styles/_variables';
+
+.light-logo {
+    a {
+        color: $text-lt;
+    }
+
+    figure {
+        background-image: url('../assets/images/tt-white.png');
+    }
+}

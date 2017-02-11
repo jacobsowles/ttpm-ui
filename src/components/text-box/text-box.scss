@@ -1,0 +1,35 @@
+@import 'assets/styles/_variables';
+
+.text-box {
+    border: 1px solid $tt-greyltr;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    transition: none;
+    padding: 10px 15px;
+
+    &:focus {
+        outline: none;
+        box-shadow: none;
+        -webkit-box-shadow: none;
+    }
+
+    &::-moz-placeholder {
+        font-style: normal;
+        font-size: .9em;
+    }
+
+    &:-moz-placeholder {
+        font-style: normal;
+        font-size: .9em;
+    }
+
+    &::-webkit-input-placeholder {
+        font-style: normal;
+        font-size: .9em;
+    }
+
+    &:-ms-input-placeholder {
+        font-style: normal;
+        font-size: .9em;
+    }
+}

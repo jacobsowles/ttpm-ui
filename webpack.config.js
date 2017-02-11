@@ -15,29 +15,24 @@ module.exports = {
         new LiveReloadPlugin()
     ],
     resolve: {
-        extensions: ['', '.js', '.jsx']
+        extensions: ['', '.js', '.jsx'],
+        alias: {
+            actions: path.join(__dirname, 'src/actions'),
+            assets: path.join(__dirname, 'assets'),
+            components: path.join(__dirname, 'src/components'),
+            constants: path.join(__dirname, 'src/constants'),
+            containers: path.join(__dirname, 'src/containers'),
+            reducers: path.join(__dirname, 'src/reducers'),
+            api: path.join(__dirname, 'src/api'),
+            utils: path.join(__dirname, 'src/utils')
+        }
     },
     module: {
         loaders: [
             {
                 test: /(\.js|\.jsx)$/,
                 loader: 'babel-loader',
-                exclude: /node_modules/,
-                query: {
-                    'plugins': [
-                        'transform-decorators-legacy',
-                        [
-                            'babel-root-import', [{
-                                'rootPathPrefix': '~',
-                                'rootPathSuffix': 'src/components'
-                            }, {
-                                'rootPathPrefix': '@',
-                                'rootPathSuffix': 'src'
-                            }]
-                        ]
-                    ],
-                    presets:[ 'es2015', 'stage-2', 'react' ]
-                }
+                exclude: /node_modules/
             },
             {
                 test: /(\.jsx|\.js)$/,
@@ -45,7 +40,7 @@ module.exports = {
                 exclude: /node_modules/
             },
             {
-                test: /\.scss$/,
+                test: /(\.scss|\.css)$/,
                 loaders: ['style', 'css', 'sass'],
                 include: path.join(__dirname, 'src')
             },
