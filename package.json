@@ -88,10 +88,7 @@
     ]
   },
   "jest": {
-    "testRegex": "(/test/.*|\\.test)\\.(js|jsx)$",
-    "modulePathIgnorePatterns": [
-      "/tests/utils/"
-    ],
+    "testRegex": ".*\/.+.tests.js",
     "scriptPreprocessor": "./node_modules/babel-jest",
     "moduleFileExtensions": [
       "js",
