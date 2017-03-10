@@ -1,7 +1,7 @@
-import TaskGroupHelper from '@/utils/task-group-helper/task-group-helper';
-import TestHelper from '@/utils/test-helper/test-helper';
+import TaskGroupHelper from './task-group-helper';
+import TestHelper from '../test-helper';
 
-(function() {
+describe('TaskGroupHelper', () => {
     describe('allDescendents', () => {
         beforeEach(() => {
             givenTaskGroups([
@@ -21,28 +21,28 @@ import TestHelper from '@/utils/test-helper/test-helper';
             thenResultIdsShouldBe([1,3]);
         });
     });
+});
 
-    //// PRIVATE MEMBERS ////
+//// PRIVATE MEMBERS ////
 
-    let _resultTaskGroups = [];
-    let _taskGroups = [];
+let _resultTaskGroups = [];
+let _taskGroups = [];
 
-    //// GIVEN ////
+//// GIVEN ////
 
-    function givenTaskGroups(taskGroups) {
-        _taskGroups = taskGroups;
-    }
+function givenTaskGroups(taskGroups) {
+    _taskGroups = taskGroups;
+}
 
-    //// WHEN ////
+//// WHEN ////
 
-    function whenDescendentTaskGroupsRetrieved(taskGroup) {
-        const taskGroupHelpers = new TaskGroupHelper(_taskGroups);
-        _resultTaskGroups = taskGroupHelpers.allDescendents(taskGroup);
-    }
+function whenDescendentTaskGroupsRetrieved(taskGroup) {
+    const taskGroupHelpers = new TaskGroupHelper(_taskGroups);
+    _resultTaskGroups = taskGroupHelpers.allDescendents(taskGroup);
+}
 
-    //// THEN ////
+//// THEN ////
 
-    function thenResultIdsShouldBe(ids) {
-        TestHelper.thenResultIdsShouldBe(ids, _resultTaskGroups);
-    }
-})();
+function thenResultIdsShouldBe(ids) {
+    TestHelper.thenResultIdsShouldBe(ids, _resultTaskGroups);
+}

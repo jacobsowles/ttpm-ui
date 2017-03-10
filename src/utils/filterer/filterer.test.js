@@ -1,9 +1,9 @@
-import Filterer from '@/utils/filterer/filterer';
-import DateTime from '@/utils/datetime/datetime';
-import { completion, date, status } from '@/constants/filter-values';
-import TestHelper from '@/utils/test-helper/test-helper';
+import Filterer from './filterer';
+import DateTime from '../datetime';
+import TestHelper from '../test-helper';
+import { completion, date, status } from '../../constants/filter-values';
 
-(function() {
+describe('Filterer', () => {
     describe('filterByCompletion', () => {
         beforeEach(() => {
             givenTasks([
@@ -224,58 +224,58 @@ import TestHelper from '@/utils/test-helper/test-helper';
             thenResultIdsShouldBe([1,2,3]);
         });
     });
+});
 
-    //// PRIVATE MEMBERS ////
+//// PRIVATE MEMBERS ////
 
-    const _dateFormat = 'YYYY-MM-DD';
-    const _taskGroups = [
-        { Id: 1 },
-        { Id: 2 }
-    ];
+const _dateFormat = 'YYYY-MM-DD';
+const _taskGroups = [
+    { Id: 1 },
+    { Id: 2 }
+];
 
-    let _filteredTasks = [];
-    let _filterer;
-    let _tasks;
+let _filteredTasks = [];
+let _filterer;
+let _tasks;
 
-    //// GIVEN ////
+//// GIVEN ////
 
-    function givenFilters(filters) {
-        _filterer = new Filterer(_tasks, _taskGroups, filters);
-    }
+function givenFilters(filters) {
+    _filterer = new Filterer(_tasks, _taskGroups, filters);
+}
 
-    function givenTasks(tasks) {
-        _tasks = tasks;
-    }
+function givenTasks(tasks) {
+    _tasks = tasks;
+}
 
-    //// WHEN ////
+//// WHEN ////
 
-    function whenAllFiltersApplied() {
-        _filteredTasks = _filterer.filter();
-    }
+function whenAllFiltersApplied() {
+    _filteredTasks = _filterer.filter();
+}
 
-    function whenCompletionFilterApplied() {
-        _filteredTasks = _tasks.filter(task => _filterer.filterByCompletion(task));
-    }
+function whenCompletionFilterApplied() {
+    _filteredTasks = _tasks.filter(task => _filterer.filterByCompletion(task));
+}
 
-    function whenDateFilterApplied() {
-        _filteredTasks = _tasks.filter(task => _filterer.filterByDate(task));
-    }
+function whenDateFilterApplied() {
+    _filteredTasks = _tasks.filter(task => _filterer.filterByDate(task));
+}
 
-    function whenStatusFilterApplied() {
-        _filteredTasks = _tasks.filter(task => _filterer.filterByStatus(task));
-    }
+function whenStatusFilterApplied() {
+    _filteredTasks = _tasks.filter(task => _filterer.filterByStatus(task));
+}
 
-    function whenTaskGroupFilterApplied() {
-        _filteredTasks = _tasks.filter(task => _filterer.filterByTaskGroup(task));
-    }
+function whenTaskGroupFilterApplied() {
+    _filteredTasks = _tasks.filter(task => _filterer.filterByTaskGroup(task));
+}
 
-    //// THEN ////
+//// THEN ////
 
-    function thenResultCountShouldBe(count) {
-        expect(_filteredTasks.length).toBe(count);
-    }
+function thenResultCountShouldBe(count) {
+    expect(_filteredTasks.length).toBe(count);
+}
 
-    function thenResultIdsShouldBe(ids) {
-        TestHelper.thenResultIdsShouldBe(ids, _filteredTasks);
-    }
-})();
+function thenResultIdsShouldBe(ids) {
+    TestHelper.thenResultIdsShouldBe(ids, _filteredTasks);
+}

@@ -1,7 +1,7 @@
 import moment from 'moment';
-import datetime from '@/utils/datetime/datetime';
+import datetime from './datetime';
 
-(function() {
+describe('DateTime Utils', () => {
     describe('getMoment', () => {
         it('should turn date string into moment object', () => {
             givenFirstDateString('1/1/2016');
@@ -136,27 +136,27 @@ import datetime from '@/utils/datetime/datetime';
             expect(datetime.isAfterOrSame(_date1, _date2)).toBe(false);
         });
     });
+});
 
-    //// Test Helpers ////
+//// Test Helpers ////
 
-    const _dateFormat = 'MM/DD/YYYY';
+const _dateFormat = 'MM/DD/YYYY';
 
-    let _date1;
-    let _date2;
+let _date1;
+let _date2;
 
-    function givenFirstDateString(dateString) {
-        _date1 = dateString;
-    }
+function givenFirstDateString(dateString) {
+    _date1 = dateString;
+}
 
-    function givenSecondDateString(dateString) {
-        _date2 = dateString;
-    }
+function givenSecondDateString(dateString) {
+    _date2 = dateString;
+}
 
-    function givenFirstMoment(date) {
-        _date1 = moment(date, _dateFormat);
-    }
+function givenFirstMoment(date) {
+    _date1 = moment(date, _dateFormat);
+}
 
-    function givenSecondMoment(date) {
-        _date2 = moment(date, _dateFormat);
-    }
-})();
+function givenSecondMoment(date) {
+    _date2 = moment(date, _dateFormat);
+}

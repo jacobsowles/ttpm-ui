@@ -1,6 +1,6 @@
-import DateTime from '@/utils/datetime/datetime';
-import TaskGroupHelper from '@/utils/task-group-helper/task-group-helper';
-import { completion, date, status } from '@/constants/filter-values';
+import DateTime from '../datetime';
+import TaskGroupHelper from '../task-group-helper';
+import { completion, date, status } from '../../constants/filter-values';
 
 export default class Filterer {
     constructor(tasks, taskGroups, filters) {
