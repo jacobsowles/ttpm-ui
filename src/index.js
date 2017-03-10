@@ -6,7 +6,7 @@ import { Router, Route, hashHistory } from 'react-router';
 
 // app modules
 import store from './store';
-import { isLoggedIn } from 'utils/auth/auth';
+import { isLoggedIn } from 'utils/auth';
 
 // components
 import AuthContainer from 'containers/auth-container';

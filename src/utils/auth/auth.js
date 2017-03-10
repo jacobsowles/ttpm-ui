@@ -1,6 +1,6 @@
 module.exports = {
     isLoggedIn() {
-        return localStorage.token != undefined;
+        return false; //localStorage.token != undefined;
     },
 
     saveAuthentication(username, token) {

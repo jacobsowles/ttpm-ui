@@ -1,2 +1,2 @@
-const array = require('./array');
-export default array;
+const auth = require('./auth');
+export default auth;
