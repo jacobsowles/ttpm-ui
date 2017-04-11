@@ -8,6 +8,8 @@ import Sidebar from 'components/sidebar';
 import SidebarModule from 'components/sidebar-module';
 import TaskGroupFilter from 'components/task-group-filter';
 import TaskGroupFilterList from 'components/task-group-filter-list';
+import Workspace from 'components/workspace';
+import WorkspaceHeader from 'components/workspace-header';
 
 // actions
 import authActions from 'actions/auth-actions';
@@ -33,6 +35,10 @@ class HomeContainer extends Component {
                         </TaskGroupFilterList>
                     </SidebarModule>
                 </Sidebar>
+
+                <Workspace>
+                    <WorkspaceHeader />
+                </Workspace>
             </div>
         );
     }

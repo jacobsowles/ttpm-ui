@@ -1,0 +1,23 @@
+.workspace-header {
+    width: calc(100% - 250px);
+    float: right;
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        box-shadow: 0 0 8px #aaa;
+        color: #939393;
+
+        #sidebar-trigger {
+            display: none;
+        }
+
+        i {
+            font-size: 15px !important;
+        }
+    }
+
+    & > div {
+        height: calc(100vh - 40px);
+    }
+}
