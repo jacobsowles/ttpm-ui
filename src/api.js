@@ -1,5 +1,5 @@
 import superagent from 'superagent';
-import auth from './utils/auth/auth';
+import auth from 'utils/auth';
 
 require('superagent-auth-bearer')(superagent);
 
@@ -7,8 +7,8 @@ module.exports = {
     get(route, query) {
         return new Promise((resolve, reject) => {
             superagent
-                .get(auth.getApiUrl() + route)
-                .query(`${query || ''}&access_token=${auth.getToken()}`)
+                .get(auth.buildRoute(route))
+                .query(query || '')
                 .end((error, response) => {
                     error ? reject(error) : resolve(response.body);
                 });
@@ -18,8 +18,8 @@ module.exports = {
     put(route, body, query) {
         return new Promise((resolve, reject) => {
             superagent
-                .put(auth.getApiUrl() + route)
-                .query(`${query || ''}&access_token=${auth.getToken()}`)
+                .put(auth.buildRoute(route))
+                .query(query || '')
                 .send(body)
                 .end((error, response) => {
                     error ? reject(error) : resolve(response.body);
@@ -28,16 +28,10 @@ module.exports = {
     },
 
     post(route, body, query, contentType) {
-        let token = auth.getToken();
-
-        if (token) {
-            token = `&access_token=${token}`;
-        }
-
         return new Promise((resolve, reject) => {
             superagent
-                .post(auth.getApiUrl() + route)
-                .query(`${query || ''}${token || ''}`)
+                .post(auth.buildRoute(route))
+                .query(query || '')
                 .type(contentType || 'application/json')
                 .send(body)
                 .end((error, response) => {
@@ -49,8 +43,17 @@ module.exports = {
     del(route) {
         return new Promise((resolve, reject) => {
             superagent
-                .del(auth.getApiUrl() + route)
-                .authBearer(auth.getToken())
+                .del(auth.buildRoute(route))
+                .end((error, response) => {
+                    error ? reject(error) : resolve(response.body);
+                });
+        });
+    },
+
+    isLoggedIn() {
+        return new Promise((resolve, reject) => {
+            superagent
+                .get(auth.buildRoute('isLoggedIn'))
                 .end((error, response) => {
                     error ? reject(error) : resolve(response.body);
                 });

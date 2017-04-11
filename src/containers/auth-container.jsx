@@ -5,17 +5,15 @@ import { connect } from 'react-redux';
 // app components
 import AuthWrapper from 'components/auth-wrapper';
 import LoginForm from 'components/login-form';
-import DarkLogo from 'components/logos/dark-logo';
+import Logo from 'components/logo';
 
 // actions
-import loginActions from 'actions/login-actions';
-import registrationActions from 'actions/registration-actions';
+import authActions from 'actions/auth-actions';
 
 // utils
-import { isLoggedIn } from 'utils/auth/auth';
+import { isLoggedIn } from '../api';
 
 class AuthContainer extends Component {
-
     constructor(props) {
         super(props);
 
@@ -24,21 +22,32 @@ class AuthContainer extends Component {
         }
     }
 
+    validateLogin(email, password) {
+        if (email && password) {
+            this.props.handleLogin(email, password);
+        }
+    }
+
+    validateRegistration(email, password) {
+        if (email && password) {
+            this.props.handleRegistration(email, password);
+        }
+    }
+
     render() {
         return (
             <AuthWrapper>
-                <DarkLogo />
-                <LoginForm />
+                <Logo theme="dark" />
+                <LoginForm submitForm={this.props.handleLogin} />
             </AuthWrapper>
         );
     }
 }
 
 AuthContainer.propTypes = {
-    loginError: PropTypes.string.isRequired,
-    loginIsLoading: PropTypes.bool.isRequired,
-    registrationError: PropTypes.string.isRequired,
-    registrationIsLoading: PropTypes.bool.isRequired,
+    error: PropTypes.string.isRequired,
+    isLoggingIn: PropTypes.bool.isRequired,
+    isRegistering: PropTypes.bool.isRequired,
 
     handleLogin: PropTypes.func.isRequired,
     handleRegistration: PropTypes.func.isRequired
@@ -46,26 +55,28 @@ AuthContainer.propTypes = {
 
 function mapStateToProps(state) {
     return {
-        loginError: state.login.error,
-        loginIsLoading: state.login.isLoading,
-        registrationError: state.registration.error,
-        registrationIsLoading: state.registration.isLoading
+        error: state.auth.error,
+        isLoggingIn: state.auth.isLoggingIn,
+        isLoggingOut: state.auth.isLoggingOut,
+        isRegistering: state.auth.isRegistering
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
         handleLogin: function(email, password) {
-            dispatch(loginActions.login(email, password)).then(() => {
-                if (isLoggedIn()) {
+            dispatch(authActions.login(email, password)).then((user) => {
+                if (user) {
                     window.location = '/';
                 }
             });
         },
 
-        handleRegistration: function(user) {
-            dispatch(registrationActions.registerUser(user)).then(() => {
-                dispatch(loginActions.login(user.Email, user.Password));
+        handleRegistration: function(email, password) {
+            dispatch(authActions.register(email, password)).then((user) => {
+                if (user) {
+                    window.location = '/';
+                }
             });
         }
     };

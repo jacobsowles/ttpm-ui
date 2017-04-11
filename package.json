@@ -12,7 +12,7 @@
     "test": "BABEL_JEST_STAGE=0 jest || true",
     "watch": "webpack --define process.env.NODE_ENV='\"development\"' --progress --watch"
   },
-  "repository": "https://github.com/jrsowles/tt-productivity-manager-ui",
+  "repository": "https://github.com/jrsowles/ttpm-ui",
   "author": "Jacob Sowles, Kate Sowles",
   "license": "ISC",
   "devDependencies": {

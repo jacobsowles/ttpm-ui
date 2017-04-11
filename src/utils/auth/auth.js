@@ -1,23 +1,13 @@
 module.exports = {
-    isLoggedIn() {
-        return false; //localStorage.token != undefined;
+    buildRoute(route) {
+        return this.getApiUrl() + this.cleanRoute(route);
     },
 
-    saveAuthentication(username, token) {
-        localStorage.setItem('username', username);
-        localStorage.setItem('token', token);
-    },
-
-    getToken() {
-        return localStorage['token'];
+    cleanRoute(route) {
+        return route[0] === '/' ? route.substring(1) : route;
     },
 
     getApiUrl() {
-        return (
-            window.location.href.toLowerCase().includes('localhost') &&
-            !window.location.href.includes(':8008')
-                ? 'http://api.ttpm.com'
-                : 'http://pm-api.thetinytwo.com'
-        );
+        return window.location.origin + ':3000/api/';
     }
 };

@@ -1,0 +1,14 @@
+@import '../../../assets/styles/_variables.scss';
+
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background: $tt-primary-dk;
+    border-right: 1px solid $tt-primary-border;
+
+    .status-filter-collection {
+        .toggle-switch {
+            margin-top: 5px;
+        }
+    }
+}

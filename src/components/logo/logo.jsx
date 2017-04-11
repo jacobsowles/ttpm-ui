@@ -7,7 +7,7 @@ const Logo = (props) => {
 
     return (
         <div
-            className={`logo ${theme}-logo`}
+            className={`logo logo--${theme}`}
             {..._props}
         >
             <figure />

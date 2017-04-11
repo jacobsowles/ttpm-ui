@@ -1,5 +1,7 @@
+// node modules
 import React, { Component, PropTypes } from 'react';
 
+// app components
 import Form from 'components/form';
 import SupplementalFormLinks from 'components/supplemental-form-links';
 import TextBox from 'components/text-box';
@@ -8,10 +10,13 @@ import TextBox from 'components/text-box';
 //import ErrorMessage from '~/messages/error-message';
 //import InlineLoadingWrapper from '~/loading/inline-loading-wrapper';
 
+// actions
+import authActions from 'actions/auth-actions';
+
+// styles
 import './login-form.scss';
 
 class LoginForm extends Component {
-
     constructor(props) {
         super(props);
 
@@ -38,7 +43,7 @@ class LoginForm extends Component {
                     handleChange={(value) => this.setState({ password: value })}
                 />
 
-                <button>Log in</button>
+                <button onClick={this.props.submitForm}>Log in</button>
 
                 <SupplementalFormLinks>
                     <a href="#" title="forgot username">Forgot your username?</a>
@@ -54,6 +59,7 @@ class LoginForm extends Component {
 }
 
 LoginForm.propTypes = {
+    submitForm: PropTypes.func.isRequired
 };
 
 export default LoginForm;

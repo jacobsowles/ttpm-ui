@@ -1,0 +1,39 @@
+@import '../../../assets/styles/_variables.scss';
+
+.logo {
+    display: flex;
+    align-items: center;
+
+    a {
+        font-size: .8em;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    figure {
+        width: 25px;
+        height: 25px;
+        background-size: cover;
+        display: inline-block;
+    }
+}
+
+.logo--light {
+    figure {
+        background-image: url('../../../assets/images/tt-light.png');
+    }
+
+    a {
+        color: $tt-white;
+    }
+}
+
+.logo--dark {
+    figure {
+        background-image: url('../../../assets/images/tt-dark.png');
+    }
+}

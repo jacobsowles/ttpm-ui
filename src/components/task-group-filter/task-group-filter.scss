@@ -1,0 +1,18 @@
+@import '../../../assets/styles/_variables.scss';
+
+.task-group-filter {
+    margin-bottom: 15px;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+
+    .task-group-filter-actions {
+        display: none;
+    }
+
+    &:hover {
+        .task-group-filter-actions {
+            display: inherit;
+        }
+    }
+}

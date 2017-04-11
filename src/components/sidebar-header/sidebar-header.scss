@@ -1,0 +1,8 @@
+@import '../../../assets/styles/_variables.scss';
+
+.sidebar-header {
+    background: $tt-primary-md;
+    box-shadow: -6px 0 8px $tt-primary-border;
+    position: relative;
+    z-index: 2;
+}
