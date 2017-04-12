@@ -1,9 +1,12 @@
 // node modules
 import React, { Component, PropTypes } from 'react';
+import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
 // app modules
 import Logo from 'components/logo';
+import PageInfo from 'components/page-info';
+import PageNavigation from 'components/page-navigation';
 import Sidebar from 'components/sidebar';
 import SidebarModule from 'components/sidebar-module';
 import TaskGroupFilter from 'components/task-group-filter';
@@ -38,6 +41,17 @@ class HomeContainer extends Component {
 
                 <Workspace>
                     <WorkspaceHeader />
+
+                    <PageInfo
+                        title="Taurus"
+                        subtitle="Team Taurus lives forever"
+                    />
+
+                    <PageNavigation>
+                        <Link to={`${this.props.location.pathname}?display=list`} activeClassName="active">List</Link>
+                        <Link to={`${this.props.location.pathname}?display=kanban`} activeClassName="active">Kanban</Link>
+                        <Link to={`${this.props.location.pathname}?display=feed`} activeClassName="active">Feed</Link>
+                    </PageNavigation>
                 </Workspace>
             </div>
         );

@@ -1,0 +1,31 @@
+@import '../../../assets/styles/_variables.scss';
+
+.page-navigation { 
+    background: white;
+    border-bottom: 1px solid #e3e3e3;
+    font-size: .5em;
+    letter-spacing: 1px;
+    list-style-type: none;
+    padding: 0 0 15px 30px;
+    text-transform: uppercase;
+
+    li {
+        display: inline-block;
+        margin-right: 30px;
+
+        a {
+            border-bottom: 3px solid white;
+            padding: 10px 0;
+            transition: border-color .3s ease;
+
+            &:hover {
+                border-color: $tt-primary-md;
+            }
+
+            &.active {
+                border-color: $tt-accent-red;
+                font-weight: bold;
+            }
+        }
+    }
+}
