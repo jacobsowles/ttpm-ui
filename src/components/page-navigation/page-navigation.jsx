@@ -8,7 +8,7 @@ class PageNavigation extends Component {
                 {
                     this.props.children.map((listItem, index) => {
                         return (
-                            <li>{listItem}</li>
+                            <li key={index}>{listItem}</li>
                         );
                     })
                 }
