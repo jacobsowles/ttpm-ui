@@ -63,6 +63,7 @@ class HomeContainer extends Component {
                                     <Task
                                         description={task.description}
                                         id={task.id}
+                                        isComplete={task.isComplete}
                                         key={index}
                                         name={task.name}
                                     />
@@ -96,10 +97,12 @@ HomeContainer.defaultProps = {
 
     tasks: [{
             id: 1,
+            isComplete: false,
             name: 'Change oil',
             description: 'Use 10W-30 high mileage'
         }, {
             id: 2,
+            isComplete: false,
             name: 'Inflate tires'
         }
     ]
