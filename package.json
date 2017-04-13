@@ -50,7 +50,7 @@
     "scss": "^0.2.4",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.2",
-    "webpack-dev-server": "^2.4.1",
+    "webpack-dev-server": "^2.4.2",
     "webpack-livereload-plugin": "^0.8.2"
   },
   "dependencies": {
@@ -87,7 +87,7 @@
     ]
   },
   "jest": {
-    "testRegex": ".*\/.+.tests.js",
+    "testRegex": ".*/.+.tests.js",
     "scriptPreprocessor": "./node_modules/babel-jest",
     "moduleFileExtensions": [
       "js",

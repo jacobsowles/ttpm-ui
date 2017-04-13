@@ -4,11 +4,14 @@ import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
 // app modules
+import DisplayWrapper from 'components/display-wrapper';
+import HomeWrapper from 'components/home-wrapper';
 import Logo from 'components/logo';
 import PageInfo from 'components/page-info';
 import PageNavigation from 'components/page-navigation';
 import Sidebar from 'components/sidebar';
 import SidebarModule from 'components/sidebar-module';
+import Task from 'components/task';
 import TaskGroupFilter from 'components/task-group-filter';
 import TaskGroupFilterList from 'components/task-group-filter-list';
 import Workspace from 'components/workspace';
@@ -20,7 +23,7 @@ import authActions from 'actions/auth-actions';
 class HomeContainer extends Component {
     render() {
         return (
-            <div>
+            <HomeWrapper>
                 <Sidebar header={<Logo theme="light" />}>
                     <SidebarModule header="group">
                         <TaskGroupFilterList>
@@ -52,8 +55,23 @@ class HomeContainer extends Component {
                         <Link to={`${this.props.location.pathname}?display=kanban`} activeClassName="active">Kanban</Link>
                         <Link to={`${this.props.location.pathname}?display=feed`} activeClassName="active">Feed</Link>
                     </PageNavigation>
+
+                    <DisplayWrapper>
+                        {
+                            this.props.tasks.map((task, index) => {
+                                return (
+                                    <Task
+                                        description={task.description}
+                                        id={task.id}
+                                        key={index}
+                                        name={task.name}
+                                    />
+                                );
+                            })
+                        }
+                    </DisplayWrapper>
                 </Workspace>
-            </div>
+            </HomeWrapper>
         );
     }
 }
@@ -73,6 +91,16 @@ HomeContainer.defaultProps = {
         }, {
             id: 2,
             name: 'Truck'
+        }
+    ],
+
+    tasks: [{
+            id: 1,
+            name: 'Change oil',
+            description: 'Use 10W-30 high mileage'
+        }, {
+            id: 2,
+            name: 'Inflate tires'
         }
     ]
 };

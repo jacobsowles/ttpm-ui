@@ -1,0 +1,10 @@
+.task {
+    padding: 10px 15px;
+    background: white;
+    margin-bottom: 5px;
+    border: 1px solid #eaeaea;
+
+    &.dimmed {
+        opacity: .5;
+    }
+}
