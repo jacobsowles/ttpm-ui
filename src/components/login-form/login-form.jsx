@@ -4,7 +4,7 @@ import React, { Component, PropTypes } from 'react';
 // app components
 import Form from 'components/form';
 import SupplementalFormLinks from 'components/supplemental-form-links';
-import TextBox from 'components/text-box';
+import Textbox from 'components/textbox';
 
 //import Button from '~/buttons/button';
 //import ErrorMessage from '~/messages/error-message';
@@ -29,14 +29,14 @@ class LoginForm extends Component {
     render() {
         return (
             <Form className="login-form">
-                <TextBox
+                <Textbox
                     placeholder="email"
                     type="email"
                     value={this.state.email}
                     handleChange={(value) => this.setState({ email: value })}
                 />
 
-                <TextBox
+                <Textbox
                     placeholder="password"
                     type="password"
                     value={this.state.password}

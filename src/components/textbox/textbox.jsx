@@ -1,8 +1,7 @@
 import React, { Component, PropTypes } from 'react';
-import './text-box.scss';
+import './textbox.scss';
 
-class TextBox extends Component {
-
+class Textbox extends Component {
     constructor(props) {
         super(props);
 
@@ -51,7 +50,7 @@ class TextBox extends Component {
     }
 }
 
-TextBox.propTypes = {
+Textbox.propTypes = {
     className: PropTypes.string,
     clearOnBlur: PropTypes.bool,
     id: PropTypes.string,
@@ -65,7 +64,7 @@ TextBox.propTypes = {
     handleClick: PropTypes.func
 };
 
-TextBox.defaultProps = {
+Textbox.defaultProps = {
     className: '',
     clearOnBlur: false,
     id: '',
@@ -78,4 +77,4 @@ TextBox.defaultProps = {
     handleClick: (event) => {}
 };
 
-export default TextBox;
+export default Textbox;
