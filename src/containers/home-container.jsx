@@ -3,7 +3,10 @@ import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
-// app modules
+// app containers
+import TaskListContainer from 'containers/task-list-container';
+
+// app components
 import DisplayWrapper from 'components/display-wrapper';
 import HomeWrapper from 'components/home-wrapper';
 import Logo from 'components/logo';
@@ -11,7 +14,6 @@ import PageInfo from 'components/page-info';
 import PageNavigation from 'components/page-navigation';
 import Sidebar from 'components/sidebar';
 import SidebarModule from 'components/sidebar-module';
-import Task from 'components/task';
 import TaskGroupFilter from 'components/task-group-filter';
 import TaskGroupFilterList from 'components/task-group-filter-list';
 import Workspace from 'components/workspace';
@@ -57,19 +59,7 @@ class HomeContainer extends Component {
                     </PageNavigation>
 
                     <DisplayWrapper>
-                        {
-                            this.props.tasks.map((task, index) => {
-                                return (
-                                    <Task
-                                        description={task.description}
-                                        id={task.id}
-                                        isComplete={task.isComplete}
-                                        key={index}
-                                        name={task.name}
-                                    />
-                                );
-                            })
-                        }
+                        <TaskListContainer tasks={this.props.tasks} />
                     </DisplayWrapper>
                 </Workspace>
             </HomeWrapper>
@@ -92,18 +82,6 @@ HomeContainer.defaultProps = {
         }, {
             id: 2,
             name: 'Truck'
-        }
-    ],
-
-    tasks: [{
-            id: 1,
-            isComplete: false,
-            name: 'Change oil',
-            description: 'Use 10W-30 high mileage'
-        }, {
-            id: 2,
-            isComplete: false,
-            name: 'Inflate tires'
         }
     ]
 };
