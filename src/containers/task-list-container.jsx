@@ -20,6 +20,7 @@ class TaskListContainer extends Component {
 }
 
 TaskListContainer.propTypes = {
+    tasks: PropTypes.arrayOf(PropTypes.object)
 };
 
 function mapStateToProps(state) {

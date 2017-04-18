@@ -7,9 +7,10 @@
     height: 100vh;
     width: 250px;
 
-    .status-filter-collection {
-        .toggle-switch {
-            margin-top: 5px;
-        }
+    .sidebar-header {
+        background: $tt-primary-md;
+        box-shadow: -6px 0 8px $tt-primary-border;
+        position: relative;
+        z-index: 2;
     }
 }

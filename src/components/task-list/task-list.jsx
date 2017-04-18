@@ -33,7 +33,7 @@ TaskList.propTypes = {
 
 const TaskListItem = props => {
     return (
-        <li>
+        <li className="task-list-item">
             <Checkbox checked={props.isComplete} />
             <Textbox
                 className="task-title"

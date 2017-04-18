@@ -1,25 +1,16 @@
 import React, { Component, PropTypes } from 'react';
-import SidebarHeader from '../sidebar-header';
 
+import Logo from 'components/logo';
 import './sidebar.scss';
 
-class Sidebar extends Component {
-    render() {
-        const {children, className, header, ...props} = this.props;
-
-        return (
-            <aside className={`sidebar ${className}`.trim()} {...props}>
-                {
-                    header
-                        ? <SidebarHeader>{header}</SidebarHeader>
-                        : null
-                }
-
-                {children}
-            </aside>
-        );
-    }
-}
+const Sidebar = props => {
+    return (
+        <aside className="sidebar">
+            <SidebarHeader />
+            {props.children}
+        </aside>
+    );
+};
 
 Sidebar.propTypes = {
     children: function(props, propName, componentName) {
@@ -41,6 +32,19 @@ Sidebar.propTypes = {
 
 Sidebar.defaultProps = {
     className: ''
+};
+
+// Private Components
+
+const SidebarHeader = props => {
+    return (
+        <header className="sidebar-header">
+            <Logo theme="light" />
+        </header>
+    );
+};
+
+SidebarHeader.propTypes = {
 };
 
 module.exports = Sidebar;

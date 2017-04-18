@@ -9,7 +9,6 @@ import TaskListContainer from 'containers/task-list-container';
 // app components
 import DisplayWrapper from 'components/display-wrapper';
 import HomeWrapper from 'components/home-wrapper';
-import Logo from 'components/logo';
 import PageInfo from 'components/page-info';
 import PageNavigation from 'components/page-navigation';
 import Sidebar from 'components/sidebar';
@@ -26,15 +25,15 @@ class HomeContainer extends Component {
     render() {
         return (
             <HomeWrapper>
-                <Sidebar header={<Logo theme="light" />}>
+                <Sidebar>
                     <SidebarModule header="group">
                         <TaskGroupFilterList>
                             {
-                                this.props.taskGroups.map((taskGroup, index) => {
+                                this.props.taskGroups.map(taskGroup => {
                                     return (
                                         <TaskGroupFilter
                                             id={taskGroup.id}
-                                            key={index}
+                                            key={taskGroup.id}
                                             name={taskGroup.name}
                                         />
                                     );
