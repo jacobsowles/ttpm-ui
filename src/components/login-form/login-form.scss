@@ -28,4 +28,18 @@
         margin-bottom: 2px;
         width: 100%;
     }
+
+    .login-form-links {
+        margin-top: 20px;
+            
+        a {
+            font-size: .8em;
+            display: block;
+            margin-bottom: 10px;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
 }

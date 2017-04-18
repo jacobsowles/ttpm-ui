@@ -3,7 +3,6 @@ import React, { Component, PropTypes } from 'react';
 
 // app components
 import Form from 'components/form';
-import SupplementalFormLinks from 'components/supplemental-form-links';
 import Textbox from 'components/textbox';
 
 //import Button from '~/buttons/button';
@@ -45,10 +44,7 @@ class LoginForm extends Component {
 
                 <button onClick={this.props.submitForm}>Log in</button>
 
-                <SupplementalFormLinks>
-                    <a href="#" title="forgot username">Forgot your username?</a>
-                    <a href="#" title="reset password">Need to reset your password?</a>
-                </SupplementalFormLinks>
+                <LoginFormLinks />
 
                 {/*<InlineLoadingWrapper showLoadingGraphic={this.props.isLoading}>
                     <ErrorMessage text={this.props.error} />
@@ -60,6 +56,17 @@ class LoginForm extends Component {
 
 LoginForm.propTypes = {
     submitForm: PropTypes.func.isRequired
+};
+
+// Private Components
+
+const LoginFormLinks = props => {
+    return (
+        <div className="login-form-links">
+            <a href="#" title="forgot username">Forgot your username?</a>
+            <a href="#" title="reset password">Need to reset your password?</a>
+        </div>
+    );
 };
 
 export default LoginForm;
