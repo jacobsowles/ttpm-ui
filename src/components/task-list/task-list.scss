@@ -12,5 +12,13 @@
         &.dimmed {
             opacity: .5;
         }
+
+        .task-title {
+            color: $text-dark;
+            font-family: "Roboto";
+            font-size: .9em;
+            font-weight: 300;
+            padding-top: 6px;
+        }
     }
 }
