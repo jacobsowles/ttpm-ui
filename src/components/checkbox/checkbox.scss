@@ -22,8 +22,15 @@
     }
 
     input[type=checkbox]:checked + label {
-        background: url('/assets/images/checkmark-green-3.png') no-repeat;
-        background-size: 100%;
+        animation-duration: .5s;
         border: 0;
+        -moz-animation-duration: .5s;
+        -webkit-animation-duration: .5s;
+
+        &:after {
+            content: "\f00c";
+            color: $tt-accent-red;
+            font-family: "FontAwesome";
+        }
     }
 }
