@@ -34,12 +34,12 @@ class Textbox extends Component {
     render() {
         return (
             <input
-                className={`text-box ${this.props.className}`.trim()}
+                className={`textbox ${this.props.className}`.trim()}
                 disabled={this.props.isDisabled ? 'disabled' : ''}
                 id={this.props.id}
                 placeholder={this.props.placeholder}
                 style={this.props.style}
-                type={this.props.type}
+                type="text"
                 value={this.props.value}
                 onBlur={(event) => this.handleBlur(event)}
                 onChange={(event) => this.props.handleChange(event.target.value)}
@@ -57,7 +57,6 @@ Textbox.propTypes = {
     isDisabled: PropTypes.bool,
     placeholder: PropTypes.string,
     style: PropTypes.object,
-    type: PropTypes.string,
     value: PropTypes.string,
     handleBlur: PropTypes.func,
     handleChange: PropTypes.func,

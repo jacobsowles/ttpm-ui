@@ -1,9 +1,13 @@
+@import 'assets/styles/_variables';
+
 .task-list {
     .task-list-item {
-        padding: 10px 15px;
+        align-items: center;
         background: white;
-        margin-bottom: 5px;
         border: 1px solid #eaeaea;
+        display: flex;
+        margin-bottom: 5px;
+        padding: 10px 15px;
 
         &.dimmed {
             opacity: .5;

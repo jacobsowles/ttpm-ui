@@ -36,7 +36,7 @@ const TaskListItem = props => {
         <li className="task-list-item">
             <Checkbox checked={props.isComplete} />
             <Textbox
-                className="task-title"
+                className="incognito task-title"
                 value={props.name}
             />
         </li>

@@ -1,11 +1,12 @@
 @import 'assets/styles/_variables';
 
 .textbox {
-    border: 1px solid $tt-greyltr;
-    -webkit-box-shadow: none;
+    border: 1px solid $tt-borderlt;
     box-shadow: none;
+    padding: 6px;
     transition: none;
-    padding: 10px 15px;
+    width: 100%;
+    -webkit-box-shadow: none;
 
     &:focus {
         outline: none;
@@ -31,5 +32,19 @@
     &:-ms-input-placeholder {
         font-style: normal;
         font-size: .9em;
+    }
+
+    &.incognito {
+        border: 0;
+        border-bottom: 1px solid transparent;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &:focus {
+            border-bottom: 1px solid $tt-borderlt;
+            cursor: text;
+        }
     }
 }
