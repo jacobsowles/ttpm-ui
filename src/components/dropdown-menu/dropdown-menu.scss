@@ -28,6 +28,13 @@
                     background: $tt-primary-md;
                     color: white;
                 }
+
+                &.danger {
+                    &:hover {
+                        background: $tt-accent-red;
+                        color: white;
+                    }
+                }
             }
 
             .icon {

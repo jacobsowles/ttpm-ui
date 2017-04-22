@@ -87,7 +87,7 @@ class TaskListItem extends Component {
                         </a>
                     </li>
                     <li>
-                        <a href="#" title="delete task">
+                        <a href="#" className="danger" title="delete task">
                             <Icon glyph="trash-o" isFixedWidth={true} />
                             Delete
                         </a>
