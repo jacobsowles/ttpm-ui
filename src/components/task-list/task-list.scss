@@ -9,13 +9,32 @@
         margin-bottom: 5px;
         padding: 10px 15px;
 
-        &.dimmed {
-            opacity: .5;
+        &:hover {
+            .icon {
+                opacity: 0.5;
+
+                &:hover {
+                    cursor: pointer;
+                    opacity: 1;
+                }
+            }
+        }
+
+        .icon {
+            opacity: 0;
+            padding: 5px;
+        }
+
+        .dd-menu-items {
+            .icon {
+                opacity: 1;
+                padding: 0;
+            }
         }
 
         .task-title {
             color: $text-dark;
-            font-family: "Roboto";
+            font-family: Roboto;
             font-size: .9em;
             font-weight: 300;
             padding-top: 6px;

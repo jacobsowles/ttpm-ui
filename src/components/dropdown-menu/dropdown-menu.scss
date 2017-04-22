@@ -1,0 +1,39 @@
+@import '../../../node_modules/react-dd-menu/src/scss/react-dd-menu';
+@import '../../../assets/styles/_variables';
+
+.dropdown-menu {
+    ul {
+        background: white;
+        box-shadow: 0 0 8px #aaa;
+
+        li {
+            display: flex;
+            font-family: Roboto;
+            font-size: .8em;
+            font-weight: 300;
+            min-width: 200px;
+
+            &.separator {
+                background: $tt-borderlt;
+                height: 1px;
+                margin: 0;
+                padding: 0;
+            }
+
+            a {
+                display: flex;
+                padding: 10px;
+                width: 100%;
+                
+                &:hover {
+                    background: $tt-primary-md;
+                    color: $tt-white;
+                }
+            }
+
+            .icon {
+                margin-right: 5px;
+            }
+        }
+    }
+}
