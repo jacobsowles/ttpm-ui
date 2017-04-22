@@ -59,7 +59,7 @@ class TaskListItem extends Component {
 
     render() {
         return (
-            <li className="task-list-item">
+            <li className={`task-list-item ${this.props.isComplete ? 'complete' : ''}`.trim()}>
                 <Checkbox checked={this.props.isComplete} />
 
                 <Textbox

@@ -20,6 +20,13 @@
             }
         }
 
+        &.complete {
+            .task-title {
+                opacity: 0.5;
+                text-decoration: line-through;
+            }
+        }
+
         .icon {
             opacity: 0;
             padding: 5px;
