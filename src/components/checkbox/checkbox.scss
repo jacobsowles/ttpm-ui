@@ -9,13 +9,13 @@
     }
 
     input[type=checkbox] + label {
-        width: 15px;
-        height: 15px;
-        display: inline-block;
         border: 1px solid $tt-borderlt;
+        display: inline-block;
+        height: 15px;
+        margin-bottom: 1px;
         padding: 0;
         vertical-align: middle;
-        margin-bottom: 1px;
+        width: 15px;
 
         &:hover {
             cursor: pointer;

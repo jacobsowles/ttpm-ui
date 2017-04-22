@@ -19,10 +19,8 @@ class Checkbox extends Component {
         const label = document.getElementById(`label-${this.uniqueId}`);
 
         if (!this.state.checked) {
-            label.classList.add('animated');
             label.classList.add('rotateIn');
         } else {
-            label.classList.remove('animated');
             label.classList.remove('rotateIn');
         }
 
@@ -43,6 +41,7 @@ class Checkbox extends Component {
                     onChange={(event) => this.handleChange(event)}
                 />
                 <label
+                    className="animated"
                     htmlFor={`checkbox-${this.uniqueId}`}
                     id={`label-${this.uniqueId}`}
                 />
