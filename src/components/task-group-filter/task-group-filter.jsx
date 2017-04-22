@@ -1,19 +1,17 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 
 import './task-group-filter.scss';
 
-class TaskGroupFilter extends Component {
-    render() {
-        return (
-            <div className="task-group-filter">
-                <Link to={`/groups/${this.props.id}`} className="task-group-filter-name">
-                    {this.props.name}
-                </Link>
-            </div>
-        );
-    }
-}
+const TaskGroupFilter = props => {
+    return (
+        <li>
+            <Link to={`/groups/${props.id}`} activeClassName="active">
+                {props.name}
+            </Link>
+        </li>
+    );
+};
 
 TaskGroupFilter.propTypes = {
     id: PropTypes.number.isRequired,

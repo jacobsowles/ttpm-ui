@@ -1,17 +1,31 @@
+@import 'assets/styles/_variables';
+
 .sidebar-module {
-    padding: 30px 15px 0 15px;
+    padding: 30px 0 30px 15px;
 
-    a {
-        color: #b2b2b2;
-        font-size: 12px;
-        border-left: 3px solid #2e3035;
-        padding: 1px 0 0px 10px;
-        margin-left: 10px;
-        width: 100%;
+    ul {
+        li {
+            display: flex;
+            list-style-type: none;
 
-        &:hover {
-            border-left: 3px solid #73956F;
-            color: white;
+            a {
+                color: #b2b2b2;
+                font-family: Roboto;
+                font-size: .7em;
+                font-weight: 300;
+                padding: 10px;
+                width: 100%;
+
+                &:hover {
+                    background: $tt-primary-md;
+                    color: white;
+                }
+
+                &.active {
+                    background: $tt-primary-border;
+                    color: white;
+                }
+            }
         }
     }
 }
