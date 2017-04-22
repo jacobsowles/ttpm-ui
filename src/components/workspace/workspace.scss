@@ -1,4 +1,12 @@
+@import 'assets/styles/_variables';
+
 .workspace {
     float: left;
     width: calc(100% - 250px);
+}
+
+@media (max-width: $break-xs) {
+    .workspace {
+        width: 100%;
+    }
 }

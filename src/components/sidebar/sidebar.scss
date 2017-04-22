@@ -1,4 +1,4 @@
-@import '../../../assets/styles/_variables.scss';
+@import 'assets/styles/_variables';
 
 .sidebar {
     background: $tt-primary-dk;
@@ -12,5 +12,11 @@
         box-shadow: -6px 0 8px $tt-primary-border;
         position: relative;
         z-index: 2;
+    }
+}
+
+@media (max-width: $break-xs) {
+    .sidebar {
+        display: none;
     }
 }
