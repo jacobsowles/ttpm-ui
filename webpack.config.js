@@ -3,19 +3,27 @@ const path = require('path');
 const LiveReloadPlugin = require('webpack-livereload-plugin');
 
 module.exports = {
-    eslint: {
-        configFile: '.eslintrc'
-    },
     entry: './src/index.js',
     output: {
         path: __dirname,
         filename: 'bundle.js'
     },
     plugins: [
-        new LiveReloadPlugin()
+        new LiveReloadPlugin(),
+        new webpack.LoaderOptionsPlugin({
+            options: {
+                eslint:
+                {
+                    failOnWarning: false,
+                    failOnError: false,
+                    fix: false,
+                    quiet: false
+                },
+            },
+        })
     ],
     resolve: {
-        extensions: ['', '.js', '.jsx'],
+        extensions: ['.js', '.jsx'],
         alias: {
             actions: path.join(__dirname, 'src/actions'),
             assets: path.join(__dirname, 'assets'),
@@ -28,7 +36,7 @@ module.exports = {
         }
     },
     module: {
-        loaders: [
+        rules: [
             {
                 test: /(\.js|\.jsx)$/,
                 loader: 'babel-loader',
@@ -41,7 +49,7 @@ module.exports = {
             },
             {
                 test: /(\.scss|\.css)$/,
-                loaders: ['style', 'css', 'sass'],
+                use: ['style-loader', 'css-loader', 'sass-loader'],
                 include: path.join(__dirname, 'src')
             },
             {
