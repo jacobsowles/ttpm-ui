@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import Tooltip from 'components/tooltip';
+
 import './icon.scss';
 
-const Icon = _props => {
-    const { className, glyph, isFixedWidth, ...props } = _props;
-
-    const classList = [
+const Icon = ({ className, glyph, isFixedWidth, tooltip, ...props }) => {
+    const classNames = [
         'icon',
         'fa',
         `fa-${glyph}`,
@@ -15,19 +15,28 @@ const Icon = _props => {
     ];
 
     return (
-        <i
-            className={classList.join(' ').trim()}
-            aria-hidden="true"
-            {...props}
-        >
-        </i>
+        <div>
+            <i
+                className={classNames.join(' ').trim()}
+                aria-hidden="true"
+                data-tip={tooltip}
+                {...props}
+            />
+
+            {
+                tooltip
+                    ? <Tooltip />
+                    : null
+            }
+        </div>
     );
 };
 
 Icon.propTypes = {
     className: PropTypes.string,
     glyph: PropTypes.string.isRequired,
-    isFixedWidth: PropTypes.bool
+    isFixedWidth: PropTypes.bool,
+    tooltip: PropTypes.string
 };
 
 Icon.defaultProps = {

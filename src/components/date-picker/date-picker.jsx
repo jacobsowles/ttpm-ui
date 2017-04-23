@@ -24,13 +24,17 @@ const DatePicker = ({ className, label, tooltip, ...props }) => {
                     : null
             }
 
+            {
+                tooltip
+                    ? <Tooltip />
+                    : null
+            }
+
             <SingleDatePicker
                 displayFormat={DateTime.getDateFormat(props.date)}
                 numberOfMonths={1}
                 {...props}
             />
-
-            <Tooltip />
         </div>
     );
 };

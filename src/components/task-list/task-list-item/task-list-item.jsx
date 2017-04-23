@@ -50,7 +50,7 @@ class TaskListItem extends Component {
                 <DropdownMenu
                     isOpen={this.state.isOpen}
                     close={this.close}
-                    toggle={<Icon glyph="ellipsis-h" onClick={this.toggle} />}
+                    toggle={<Icon glyph="ellipsis-h" tooltip="actions" onClick={this.toggle} />}
                     align="right"
                 >
                     <li>
