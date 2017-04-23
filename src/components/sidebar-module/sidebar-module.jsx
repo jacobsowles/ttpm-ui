@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import SidebarModuleHeader from '../sidebar-module-header';
+import SidebarModuleHeader from './sidebar-module-header';
 import './sidebar-module.scss';
 
 const SidebarModule = _props => {
