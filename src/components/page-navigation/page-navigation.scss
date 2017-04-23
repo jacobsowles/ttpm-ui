@@ -1,12 +1,10 @@
 @import '../../../assets/styles/_variables.scss';
 
-.page-navigation { 
-    background: white;
-    border-bottom: 1px solid #e3e3e3;
+.page-navigation {
     font-size: .5em;
     letter-spacing: 1px;
     list-style-type: none;
-    padding: 0 0 15px 30px;
+    padding-bottom: 15px;
     text-transform: uppercase;
 
     li {

@@ -10,6 +10,7 @@ import TaskListContainer from 'containers/task-list-container';
 // app components
 import DisplayWrapper from 'components/display-wrapper';
 import HomeWrapper from 'components/home-wrapper';
+import PageHeader from 'components/page-header';
 import PageInfo from 'components/page-info';
 import PageNavigation from 'components/page-navigation';
 import Sidebar from 'components/sidebar';
@@ -47,16 +48,18 @@ class HomeContainer extends Component {
                 <Workspace>
                     <WorkspaceHeader />
 
-                    <PageInfo
-                        title="Taurus"
-                        subtitle="Team Taurus lives forever"
-                    />
+                    <PageHeader>
+                        <PageInfo
+                            title="Taurus"
+                            subtitle="Team Taurus lives forever"
+                        />
 
-                    <PageNavigation>
-                        <Link to={`${this.props.location.pathname}?display=list`} activeClassName="active">List</Link>
-                        <Link to={`${this.props.location.pathname}?display=kanban`} activeClassName="active">Kanban</Link>
-                        <Link to={`${this.props.location.pathname}?display=feed`} activeClassName="active">Feed</Link>
-                    </PageNavigation>
+                        {/*<PageNavigation>
+                            <Link to={`${this.props.location.pathname}?display=list`} activeClassName="active">List</Link>
+                            <Link to={`${this.props.location.pathname}?display=kanban`} activeClassName="active">Kanban</Link>
+                            <Link to={`${this.props.location.pathname}?display=feed`} activeClassName="active">Feed</Link>
+                        </PageNavigation>*/}
+                    </PageHeader>
 
                     <DisplayWrapper>
                         <TaskListContainer tasks={this.props.tasks} />

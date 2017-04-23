@@ -10,11 +10,11 @@ import Textbox from 'components/textbox';
 
 import './task-list.scss';
 
-const TaskList = props => {
+const TaskList = ({tasks}) => {
     return (
         <ul className="task-list">
             {
-                props.tasks.map(task => {
+                tasks.map(task => {
                     return (
                         <TaskListItem
                             description={task.description}

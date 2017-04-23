@@ -11,9 +11,7 @@ class TaskListContainer extends Component {
 
     render() {
         return (
-            <TaskList
-                tasks={this.props.tasks}
-            />
+            <TaskList tasks={this.props.tasks} />
         );
     }
 }
