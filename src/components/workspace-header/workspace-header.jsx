@@ -1,16 +1,11 @@
-import React, { Component, PropTypes } from 'react';
+import React from 'react';
 import './workspace-header.scss';
 
-class WorkspaceHeader extends Component {
-    render() {
-        return (
-            <header className="workspace-header">
-            </header>
-        );
-    }
-}
-
-WorkspaceHeader.propTypes = {
+const WorkspaceHeader = props => {
+    return (
+        <header className="workspace-header">
+        </header>
+    );
 };
 
 export default WorkspaceHeader;

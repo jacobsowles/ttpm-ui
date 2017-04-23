@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React from 'react';
 import ReactDropdownMenu from 'react-dd-menu';
 
 import './dropdown-menu.scss';

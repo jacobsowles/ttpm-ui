@@ -1,17 +1,12 @@
-import React, { Component, PropTypes } from 'react';
+import React from 'react';
 import './page-subtitle.scss';
 
-class PageSubtitle extends Component {
-    render() {
-        return (
-            <p className="page-subtitle">
-                {this.props.children}
-            </p>
-        );
-    }
-}
-
-PageSubtitle.propTypes = {
+const PageSubtitle = props => {
+    return (
+        <p className="page-subtitle">
+            {props.children}
+        </p>
+    );
 };
 
 export default PageSubtitle;

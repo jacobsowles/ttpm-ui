@@ -1,5 +1,6 @@
 // node modules
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 // app components
 import Form from 'components/form';

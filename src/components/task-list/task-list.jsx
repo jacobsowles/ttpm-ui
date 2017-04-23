@@ -1,6 +1,8 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import Checkbox from 'components/checkbox';
+import DatePicker from 'components/date-picker';
 import DropdownMenu from 'components/dropdown-menu';
 import Icon from 'components/icon';
 import Textbox from 'components/textbox';
@@ -66,6 +68,8 @@ class TaskListItem extends Component {
                     className="incognito task-title"
                     value={this.props.name}
                 />
+
+                <DatePicker />
 
                 <DropdownMenu
                     isOpen={this.state.isOpen}

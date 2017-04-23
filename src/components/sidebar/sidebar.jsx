@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import Logo from 'components/logo';
 import './sidebar.scss';
@@ -42,9 +43,6 @@ const SidebarHeader = props => {
             <Logo theme="light" />
         </header>
     );
-};
-
-SidebarHeader.propTypes = {
 };
 
 module.exports = Sidebar;

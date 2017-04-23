@@ -1,8 +1,10 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
+
 import './icon.scss';
 
-const Icon = (props) => {
-    const { className, glyph, isFixedWidth, ..._props } = props;
+const Icon = _props => {
+    const { className, glyph, isFixedWidth, ...props } = _props;
 
     const classList = [
         'icon',
@@ -16,7 +18,7 @@ const Icon = (props) => {
         <i
             className={classList.join(' ').trim()}
             aria-hidden="true"
-            {..._props}
+            {...props}
         >
         </i>
     );

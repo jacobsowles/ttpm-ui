@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React from 'react';
 import './workspace.scss';
 
 const Workspace = props => {
@@ -7,9 +7,6 @@ const Workspace = props => {
             {props.children}
         </main>
     );
-};
-
-Workspace.propTypes = {
 };
 
 export default Workspace;
