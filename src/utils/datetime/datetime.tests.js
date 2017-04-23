@@ -2,6 +2,12 @@ import moment from 'moment';
 import datetime from './datetime';
 
 describe('DateTime Utils', () => {
+    describe('getDateFormat', () => {
+        it('should format as day name if within 7 days past today', () => {
+            expect(1).toBe(2); // TODO
+        });
+    });
+
     describe('getMoment', () => {
         it('should turn date string into moment object', () => {
             givenFirstDateString('1/1/2016');
@@ -16,6 +22,46 @@ describe('DateTime Utils', () => {
         it('should return null if argument is not valid date string', () => {
             givenFirstDateString(null);
             expect(datetime.getMoment(_date1)).toBeNull();
+        });
+    });
+
+    describe('isAfter', () => {
+        it('should return true if day of first date comes after day of second date', () => {
+            givenFirstMoment('1/3/2016');
+            givenSecondMoment('1/2/2016');
+            expect(datetime.isAfter(_date1, _date2)).toBe(true);
+        });
+
+        it('should return false if day of first date is same as day of second date', () => {
+            givenFirstMoment('1/1/2016');
+            givenSecondMoment('1/1/2016');
+            expect(datetime.isAfter(_date1, _date2)).toBe(false);
+        });
+
+        it('should return false if day of first date comes before day of second date', () => {
+            givenFirstMoment('1/1/2016');
+            givenSecondMoment('1/2/2016');
+            expect(datetime.isAfter(_date1, _date2)).toBe(false);
+        });
+    });
+
+    describe('isAfterOrSame', () => {
+        it('should return true if day of first date comes after day of second date', () => {
+            givenFirstMoment('1/3/2016');
+            givenSecondMoment('1/2/2016');
+            expect(datetime.isAfterOrSame(_date1, _date2)).toBe(true);
+        });
+
+        it('should return true if day of first date is same as day of second date', () => {
+            givenFirstMoment('1/1/2016');
+            givenSecondMoment('1/1/2016');
+            expect(datetime.isAfterOrSame(_date1, _date2)).toBe(true);
+        });
+
+        it('should return false if day of first date comes before day of second date', () => {
+            givenFirstMoment('1/1/2016');
+            givenSecondMoment('1/2/2016');
+            expect(datetime.isAfterOrSame(_date1, _date2)).toBe(false);
         });
     });
 
@@ -57,46 +103,6 @@ describe('DateTime Utils', () => {
         });
     });
 
-    describe('isSame', () => {
-        it('should return true if day of first date is same as day of second date', () => {
-            givenFirstMoment('1/1/2016');
-            givenSecondMoment('1/1/2016');
-            expect(datetime.isSame(_date1, _date2)).toBe(true);
-        });
-
-        it('should return false if day of first date comes before day of second date', () => {
-            givenFirstMoment('1/1/2016');
-            givenSecondMoment('1/2/2016');
-            expect(datetime.isSame(_date1, _date2)).toBe(false);
-        });
-
-        it('should return false if day of first date comes after day of second date', () => {
-            givenFirstMoment('1/3/2016');
-            givenSecondMoment('1/2/2016');
-            expect(datetime.isSame(_date1, _date2)).toBe(false);
-        });
-    });
-
-    describe('isAfter', () => {
-        it('should return true if day of first date comes after day of second date', () => {
-            givenFirstMoment('1/3/2016');
-            givenSecondMoment('1/2/2016');
-            expect(datetime.isAfter(_date1, _date2)).toBe(true);
-        });
-
-        it('should return false if day of first date is same as day of second date', () => {
-            givenFirstMoment('1/1/2016');
-            givenSecondMoment('1/1/2016');
-            expect(datetime.isAfter(_date1, _date2)).toBe(false);
-        });
-
-        it('should return false if day of first date comes before day of second date', () => {
-            givenFirstMoment('1/1/2016');
-            givenSecondMoment('1/2/2016');
-            expect(datetime.isAfter(_date1, _date2)).toBe(false);
-        });
-    });
-
     describe('isBeforeOrSame', () => {
         it('should return true if day of first date comes before day of second date', () => {
             givenFirstMoment('1/1/2016');
@@ -117,23 +123,23 @@ describe('DateTime Utils', () => {
         });
     });
 
-    describe('isAfterOrSame', () => {
-        it('should return true if day of first date comes after day of second date', () => {
-            givenFirstMoment('1/3/2016');
-            givenSecondMoment('1/2/2016');
-            expect(datetime.isAfterOrSame(_date1, _date2)).toBe(true);
-        });
-
+    describe('isSame', () => {
         it('should return true if day of first date is same as day of second date', () => {
             givenFirstMoment('1/1/2016');
             givenSecondMoment('1/1/2016');
-            expect(datetime.isAfterOrSame(_date1, _date2)).toBe(true);
+            expect(datetime.isSame(_date1, _date2)).toBe(true);
         });
 
         it('should return false if day of first date comes before day of second date', () => {
             givenFirstMoment('1/1/2016');
             givenSecondMoment('1/2/2016');
-            expect(datetime.isAfterOrSame(_date1, _date2)).toBe(false);
+            expect(datetime.isSame(_date1, _date2)).toBe(false);
+        });
+
+        it('should return false if day of first date comes after day of second date', () => {
+            givenFirstMoment('1/3/2016');
+            givenSecondMoment('1/2/2016');
+            expect(datetime.isSame(_date1, _date2)).toBe(false);
         });
     });
 });

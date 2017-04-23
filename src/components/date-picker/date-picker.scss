@@ -1,0 +1,13 @@
+@import '../../../node_modules/react-dates/css/styles';
+@import '../../../assets/styles/_variables';
+
+.date-picker {
+    label {
+        font-size: .7em;
+        margin-right: 10px;
+    }
+
+    .DateInput {
+        padding: 0;
+    }
+}
