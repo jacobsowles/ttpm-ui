@@ -2,7 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { SingleDatePicker } from 'react-dates';
 
+import Tooltip from 'components/tooltip';
+
 import DateTime from 'utils/datetime';
+
 import './date-picker.scss';
 
 const DatePicker = ({ className, label, tooltip, ...props }) => {
@@ -17,7 +20,7 @@ const DatePicker = ({ className, label, tooltip, ...props }) => {
         <div className={classNames.join(' ').trim()}>
             {
                 label
-                    ? <label title={tooltip}>{label}</label>
+                    ? <label data-tip={tooltip}>{label}</label>
                     : null
             }
 
@@ -26,6 +29,8 @@ const DatePicker = ({ className, label, tooltip, ...props }) => {
                 numberOfMonths={1}
                 {...props}
             />
+
+            <Tooltip />
         </div>
     );
 };

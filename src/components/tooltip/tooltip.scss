@@ -1,0 +1,14 @@
+@import '../../../assets/styles/_variables';
+
+.__react_component_tooltip {
+    font-size: 0.7em !important;
+    padding: 8px 10px 10px 10px !important;
+
+    &.type-dark {
+        background: $tt-primary-dk !important;
+
+        &.place-top:after {
+            border-top-color: $tt-primary-dk !important;
+        }
+    }
+}
