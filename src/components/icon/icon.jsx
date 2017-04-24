@@ -15,7 +15,7 @@ const Icon = ({ className, glyph, isFixedWidth, tooltip, ...props }) => {
     ];
 
     return (
-        <div>
+        <span>
             <i
                 className={classNames.join(' ').trim()}
                 aria-hidden="true"
@@ -23,12 +23,8 @@ const Icon = ({ className, glyph, isFixedWidth, tooltip, ...props }) => {
                 {...props}
             />
 
-            {
-                tooltip
-                    ? <Tooltip />
-                    : null
-            }
-        </div>
+            {tooltip && <Tooltip />}
+        </span>
     );
 };
 

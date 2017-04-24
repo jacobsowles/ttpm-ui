@@ -2,15 +2,15 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { browserHistory, Route, Router } from 'react-router';
+import { browserHistory, Redirect, Route, BrowserRouter as Router } from 'react-router-dom';
 
 // app modules
 import store from './store';
 import { isLoggedIn } from './api';
 
 // components
-import AuthContainer from 'containers/auth-container';
-import HomeContainer from 'containers/home-container';
+import AuthLayout from 'containers/auth-container';
+import HomeLayout from 'containers/home-container';
 
 // styles
 import './index.scss';
@@ -18,10 +18,10 @@ import './index.scss';
 render(
     <Provider store={store}>
         <Router history={browserHistory}>
-            <Route path="/" component={HomeContainer} onEnter={requireAuth}>
-                <Route path="groups/:taskGroupId" component={HomeContainer} onEnter={requireAuth} />
+            <Route path="/" component={HomeLayout}>
+                <Route path="/groups" component={HomeContainer} />
+                <Route path="/login" component={AuthLayout} />
             </Route>
-            <Route path="/login" component={AuthContainer} />
         </Router>
     </Provider>, document.getElementById('root')
 );
