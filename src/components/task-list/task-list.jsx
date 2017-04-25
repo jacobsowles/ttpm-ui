@@ -10,27 +10,25 @@ import Textbox from 'components/textbox';
 
 import './task-list.scss';
 
-const TaskList = ({tasks}) => {
-    return (
-        <ul className="task-list">
-            {
-                tasks.map(task => {
-                    return (
-                        <TaskListItem
-                            description={task.description}
-                            dueDate={task.dueDate}
-                            id={task.id}
-                            isComplete={task.isComplete}
-                            key={task.id}
-                            name={task.name}
-                            plannedDate={task.plannedDate}
-                        />
-                    );
-                })
-            }
-        </ul>
-    );
-};
+const TaskList = ({tasks}) => (
+    <ul className="task-list">
+        {
+            tasks.map(task => {
+                return (
+                    <TaskListItem
+                        description={task.description}
+                        dueDate={task.dueDate}
+                        id={task.id}
+                        isComplete={task.isComplete}
+                        key={task.id}
+                        name={task.name}
+                        plannedDate={task.plannedDate}
+                    />
+                );
+            })
+        }
+    </ul>
+);
 
 TaskList.propTypes = {
     tasks: PropTypes.arrayOf(PropTypes.shape({

@@ -1,12 +1,10 @@
 import React from 'react';
 import './workspace.scss';
 
-const Workspace = props => {
-    return (
-        <main className="workspace">
-            {props.children}
-        </main>
-    );
-};
+const Workspace = ({children}) => (
+    <main className="workspace">
+        {children}
+    </main>
+);
 
 export default Workspace;
