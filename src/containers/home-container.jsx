@@ -9,14 +9,14 @@ import TaskListContainer from 'containers/task-list-container';
 
 // app components
 import DisplayWrapper from 'components/display-wrapper';
+import Filter from 'components/filter';
+import FilterList from 'components/filter-list';
 import HomeWrapper from 'components/home-wrapper';
 import PageHeader from 'components/page-header';
 import PageInfo from 'components/page-info';
 import PageNavigation from 'components/page-navigation';
 import Sidebar from 'components/sidebar';
 import SidebarModule from 'components/sidebar-module';
-import TaskGroupFilter from 'components/task-group-filter';
-import TaskGroupFilterList from 'components/task-group-filter-list';
 import Workspace from 'components/workspace';
 import WorkspaceHeader from 'components/workspace-header';
 
@@ -29,19 +29,43 @@ class HomeContainer extends Component {
             <HomeWrapper>
                 <Sidebar>
                     <SidebarModule header="group">
-                        <TaskGroupFilterList>
+                        <FilterList>
+                            <Filter
+                                completion={this.props.location.query.completion}
+                                name="all"
+                            />
+
                             {
                                 this.props.taskGroups.map(taskGroup => {
                                     return (
-                                        <TaskGroupFilter
-                                            id={taskGroup.id}
+                                        <Filter
+                                            completion={this.props.location.query.completion}
                                             key={taskGroup.id}
                                             name={taskGroup.name}
+                                            taskGroupId={taskGroup.id}
                                         />
                                     );
                                 })
                             }
-                        </TaskGroupFilterList>
+                        </FilterList>
+                    </SidebarModule>
+
+                    <SidebarModule header="completion">
+                        <FilterList>
+                            {
+                                [['all', 'adjust'], ['incomplete', 'circle-o'], ['complete', 'circle']].map(pair => {
+                                    return (
+                                        <Filter
+                                            completion={pair[0]}
+                                            key={pair[0]}
+                                            iconGlyph={pair[1]}
+                                            name={pair[0]}
+                                            taskGroupId={this.props.params.taskGroupId}
+                                        />
+                                    );
+                                })
+                            }
+                        </FilterList>
                     </SidebarModule>
                 </Sidebar>
 
