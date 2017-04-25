@@ -19,7 +19,7 @@ render(
     <Provider store={store}>
         <Router history={browserHistory}>
             <Route path="/" component={HomeLayout}>
-                <Route path="/groups" component={HomeContainer} />
+                <Route path="/groups" component={HomeLayout} />
                 <Route path="/login" component={AuthLayout} />
             </Route>
         </Router>
