@@ -9,8 +9,9 @@ import store from './store';
 import { isLoggedIn } from './api';
 
 // components
+import App from 'components/app';
 import AuthLayout from 'containers/auth-container';
-import HomeLayout from 'containers/home-container';
+import MainLayout from 'components/main-layout';
 
 // styles
 import './index.scss';
@@ -18,10 +19,7 @@ import './index.scss';
 render(
     <Provider store={store}>
         <Router history={browserHistory}>
-            <Route path="/" component={HomeLayout}>
-                <Route path="/groups" component={HomeLayout} />
-                <Route path="/login" component={AuthLayout} />
-            </Route>
+            <App />
         </Router>
     </Provider>, document.getElementById('root')
 );
