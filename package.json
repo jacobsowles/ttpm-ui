@@ -38,6 +38,7 @@
     "eslint-plugin-import": "^1.13.0",
     "eslint-plugin-react": "^6.1.2",
     "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^2.0.0",
     "html-webpack-plugin": "^2.22.0",
     "jest": "^16.0.1",
     "jest-cli": "^16.0.1",
@@ -77,11 +78,15 @@
     "underscore": "^1.8.3"
   },
   "babel": {
-    "plugins": [[
-        "babel-root-import", [{
+    "plugins": [
+      [
+        "babel-root-import",
+        [
+          {
             "rootPathPrefix": "~",
             "rootPathSuffix": "src/components"
-          }, {
+          },
+          {
             "rootPathPrefix": "@",
             "rootPathSuffix": "src"
           }
