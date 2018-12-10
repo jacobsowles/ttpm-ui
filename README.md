@@ -1,4 +1,4 @@
-# Tiny Two Productivity Manager UI
+# Tiny Two Productivity Manager
 The front end of the Tiny Two Productivity Manager. See [https://github.com/jacobsowles/ttpm-server](https://github.com/jacobsowles/ttpm-server) for the back end.
 
 ![Group Tasks page screenshot](/screenshots/group-tasks.png?raw=true "Desktop")
